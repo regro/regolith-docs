@@ -1,0 +1,168 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Tools (regolith.tools) &mdash; regolith - research group content managment system</title>
+    
+    <link rel="stylesheet" href="../_static/blackcloud.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.1-dev',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../_static/jquery.cookie.js"></script>
+    <script type="text/javascript" src="../_static/cloud.js"></script>
+    <link rel="top" title="regolith - research group content managment system" href="../index.html" />
+    <link rel="up" title="Regolith API" href="index.html" />
+    <link rel="next" title="Run Control Validators (regolith.validators)" href="validators.html" />
+    <link rel="prev" title="Deployment Tools (regolith.deploy)" href="deploy.html" /> 
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+  <body>
+    <div class="relbar-top">
+        
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="validators.html" title="Run Control Validators (regolith.validators)"
+             accesskey="N">next</a></li>
+        <li class="right" >
+          <a href="deploy.html" title="Deployment Tools (regolith.deploy)"
+             accesskey="P">previous</a> &nbsp; &nbsp;</li>
+    <li><a href="../index.html">regolith</a> &raquo;</li>
+
+          <li><a href="index.html" accesskey="U">Regolith API</a> &raquo;</li> 
+      </ul>
+    </div>
+    </div>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="module-regolith.tools">
+<span id="tools-regolith-tools"></span><span id="regolith-tools"></span><h1>Tools (<tt class="docutils literal"><span class="pre">regolith.tools</span></tt>)<a class="headerlink" href="#module-regolith.tools" title="Permalink to this headline">¶</a></h1>
+<p>Misc. regolith tools.</p>
+<dl class="class">
+<dt id="regolith.tools.InsertOneProxy">
+<em class="property">class </em><tt class="descclassname">regolith.tools.</tt><tt class="descname">InsertOneProxy</tt><big>(</big><em>inserted_id</em>, <em>acknowledged</em><big>)</big><a class="reference internal" href="../_modules/regolith/tools.html#InsertOneProxy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.tools.InsertOneProxy" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="regolith.tools.all_docs_from_collection">
+<tt class="descclassname">regolith.tools.</tt><tt class="descname">all_docs_from_collection</tt><big>(</big><em>client</em>, <em>collname</em><big>)</big><a class="reference internal" href="../_modules/regolith/tools.html#all_docs_from_collection"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.tools.all_docs_from_collection" title="Permalink to this definition">¶</a></dt>
+<dd><p>Yield all entries in for all collections of a given name in a given database.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="regolith.tools.date_to_float">
+<tt class="descclassname">regolith.tools.</tt><tt class="descname">date_to_float</tt><big>(</big><em>y</em>, <em>m</em>, <em>d=0</em><big>)</big><a class="reference internal" href="../_modules/regolith/tools.html#date_to_float"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.tools.date_to_float" title="Permalink to this definition">¶</a></dt>
+<dd><p>Converts years / months / days to a float, eg 2015.0818 is August 18th 2015.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="regolith.tools.delete_one">
+<tt class="descclassname">regolith.tools.</tt><tt class="descname">delete_one</tt><big>(</big><em>coll</em>, <em>doc</em><big>)</big><a class="reference internal" href="../_modules/regolith/tools.html#delete_one"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.tools.delete_one" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="regolith.tools.fallback">
+<tt class="descclassname">regolith.tools.</tt><tt class="descname">fallback</tt><big>(</big><em>cond</em>, <em>backup</em><big>)</big><a class="reference internal" href="../_modules/regolith/tools.html#fallback"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.tools.fallback" title="Permalink to this definition">¶</a></dt>
+<dd><p>Decorator for returning the object if cond is true and a backup if cond is false.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="regolith.tools.find_one_and_update">
+<tt class="descclassname">regolith.tools.</tt><tt class="descname">find_one_and_update</tt><big>(</big><em>coll</em>, <em>filter</em>, <em>update</em>, <em>**kwargs</em><big>)</big><a class="reference internal" href="../_modules/regolith/tools.html#find_one_and_update"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.tools.find_one_and_update" title="Permalink to this definition">¶</a></dt>
+<dd><p>Implements find one and updated capabilities</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="regolith.tools.insert_many">
+<tt class="descclassname">regolith.tools.</tt><tt class="descname">insert_many</tt><big>(</big><em>coll</em>, <em>docs</em><big>)</big><a class="reference internal" href="../_modules/regolith/tools.html#insert_many"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.tools.insert_many" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="regolith.tools.insert_one">
+<tt class="descclassname">regolith.tools.</tt><tt class="descname">insert_one</tt><big>(</big><em>coll</em>, <em>doc</em><big>)</big><a class="reference internal" href="../_modules/regolith/tools.html#insert_one"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.tools.insert_one" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <div class="sphinxprev">
+    <h4>Previous page</h4>
+    <p class="topless"><a href="deploy.html"
+                          title="Previous page">&larr; Deployment Tools (<tt class="docutils literal"><span class="pre">regolith.deploy</span></tt>)</a></p>
+  </div>
+  <div class="sphinxnext">
+    <h4>Next page</h4>
+    <p class="topless"><a href="validators.html"
+                          title="Next page">&rarr; Run Control Validators (<tt class="docutils literal"><span class="pre">regolith.validators</span></tt>)</a></p>
+  </div>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="relbar-bottom">
+        
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="validators.html" title="Run Control Validators (regolith.validators)"
+             >next</a></li>
+        <li class="right" >
+          <a href="deploy.html" title="Deployment Tools (regolith.deploy)"
+             >previous</a> &nbsp; &nbsp;</li>
+    <li><a href="../index.html">regolith</a> &raquo;</li>
+
+          <li><a href="index.html" >Regolith API</a> &raquo;</li> 
+      </ul>
+    </div>
+    </div>
+
+    <div class="footer">
+        &copy; Copyright 2015, Anthony Scopatz.
+    </div>
+    <!-- cloud_sptheme 1.4 -->
+  </body>
+</html>

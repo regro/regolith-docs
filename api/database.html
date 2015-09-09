@@ -1,0 +1,160 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Database Interface Tools (regolith.database) &mdash; regolith - research group content managment system</title>
+    
+    <link rel="stylesheet" href="../_static/blackcloud.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.1-dev',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../_static/jquery.cookie.js"></script>
+    <script type="text/javascript" src="../_static/cloud.js"></script>
+    <link rel="top" title="regolith - research group content managment system" href="../index.html" />
+    <link rel="up" title="Regolith API" href="index.html" />
+    <link rel="next" title="Builders (regolith.builder)" href="builder.html" />
+    <link rel="prev" title="Run Controlers (regolith.runcontrol)" href="runcontrol.html" /> 
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+  <body>
+    <div class="relbar-top">
+        
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="builder.html" title="Builders (regolith.builder)"
+             accesskey="N">next</a></li>
+        <li class="right" >
+          <a href="runcontrol.html" title="Run Controlers (regolith.runcontrol)"
+             accesskey="P">previous</a> &nbsp; &nbsp;</li>
+    <li><a href="../index.html">regolith</a> &raquo;</li>
+
+          <li><a href="index.html" accesskey="U">Regolith API</a> &raquo;</li> 
+      </ul>
+    </div>
+    </div>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="module-regolith.database">
+<span id="database-interface-tools-regolith-database"></span><span id="regolith-database"></span><h1>Database Interface Tools (<tt class="docutils literal"><span class="pre">regolith.database</span></tt>)<a class="headerlink" href="#module-regolith.database" title="Permalink to this headline">¶</a></h1>
+<p>Helps manage mongodb setup and connections.</p>
+<dl class="function">
+<dt id="regolith.database.connect">
+<tt class="descclassname">regolith.database.</tt><tt class="descname">connect</tt><big>(</big><em>rc</em><big>)</big><a class="reference internal" href="../_modules/regolith/database.html#connect"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.database.connect" title="Permalink to this definition">¶</a></dt>
+<dd><p>Context manager for ensuring that database is properly setup and torn down</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="regolith.database.create_client">
+<tt class="descclassname">regolith.database.</tt><tt class="descname">create_client</tt><big>(</big><big>)</big><a class="reference internal" href="../_modules/regolith/database.html#create_client"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.database.create_client" title="Permalink to this definition">¶</a></dt>
+<dd><p>This creates ensures that a client is connected and alive.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="regolith.database.dump_database">
+<tt class="descclassname">regolith.database.</tt><tt class="descname">dump_database</tt><big>(</big><em>db</em>, <em>client</em>, <em>rc</em><big>)</big><a class="reference internal" href="../_modules/regolith/database.html#dump_database"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.database.dump_database" title="Permalink to this definition">¶</a></dt>
+<dd><p>Dumps a database</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="regolith.database.dump_git_database">
+<tt class="descclassname">regolith.database.</tt><tt class="descname">dump_git_database</tt><big>(</big><em>db</em>, <em>client</em>, <em>rc</em><big>)</big><a class="reference internal" href="../_modules/regolith/database.html#dump_git_database"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.database.dump_git_database" title="Permalink to this definition">¶</a></dt>
+<dd><p>Dumps a git database</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="regolith.database.load_database">
+<tt class="descclassname">regolith.database.</tt><tt class="descname">load_database</tt><big>(</big><em>db</em>, <em>rc</em><big>)</big><a class="reference internal" href="../_modules/regolith/database.html#load_database"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.database.load_database" title="Permalink to this definition">¶</a></dt>
+<dd><p>Loads a database</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="regolith.database.load_git_database">
+<tt class="descclassname">regolith.database.</tt><tt class="descname">load_git_database</tt><big>(</big><em>db</em>, <em>rc</em><big>)</big><a class="reference internal" href="../_modules/regolith/database.html#load_git_database"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.database.load_git_database" title="Permalink to this definition">¶</a></dt>
+<dd><p>Loads a git database</p>
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <div class="sphinxprev">
+    <h4>Previous page</h4>
+    <p class="topless"><a href="runcontrol.html"
+                          title="Previous page">&larr; Run Controlers (<tt class="docutils literal"><span class="pre">regolith.runcontrol</span></tt>)</a></p>
+  </div>
+  <div class="sphinxnext">
+    <h4>Next page</h4>
+    <p class="topless"><a href="builder.html"
+                          title="Next page">&rarr; Builders (<tt class="docutils literal"><span class="pre">regolith.builder</span></tt>)</a></p>
+  </div>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="relbar-bottom">
+        
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="builder.html" title="Builders (regolith.builder)"
+             >next</a></li>
+        <li class="right" >
+          <a href="runcontrol.html" title="Run Controlers (regolith.runcontrol)"
+             >previous</a> &nbsp; &nbsp;</li>
+    <li><a href="../index.html">regolith</a> &raquo;</li>
+
+          <li><a href="index.html" >Regolith API</a> &raquo;</li> 
+      </ul>
+    </div>
+    </div>
+
+    <div class="footer">
+        &copy; Copyright 2015, Anthony Scopatz.
+    </div>
+    <!-- cloud_sptheme 1.4 -->
+  </body>
+</html>

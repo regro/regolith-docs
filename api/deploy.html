@@ -1,0 +1,142 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Deployment Tools (regolith.deploy) &mdash; regolith - research group content managment system</title>
+    
+    <link rel="stylesheet" href="../_static/blackcloud.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.1-dev',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../_static/jquery.cookie.js"></script>
+    <script type="text/javascript" src="../_static/cloud.js"></script>
+    <link rel="top" title="regolith - research group content managment system" href="../index.html" />
+    <link rel="up" title="Regolith API" href="index.html" />
+    <link rel="next" title="Tools (regolith.tools)" href="tools.html" />
+    <link rel="prev" title="Website Builder (regolith.htmlbuilder)" href="htmlbuilder.html" /> 
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+  <body>
+    <div class="relbar-top">
+        
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="tools.html" title="Tools (regolith.tools)"
+             accesskey="N">next</a></li>
+        <li class="right" >
+          <a href="htmlbuilder.html" title="Website Builder (regolith.htmlbuilder)"
+             accesskey="P">previous</a> &nbsp; &nbsp;</li>
+    <li><a href="../index.html">regolith</a> &raquo;</li>
+
+          <li><a href="index.html" accesskey="U">Regolith API</a> &raquo;</li> 
+      </ul>
+    </div>
+    </div>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="module-regolith.deploy">
+<span id="deployment-tools-regolith-deploy"></span><span id="regolith-deploy"></span><h1>Deployment Tools (<tt class="docutils literal"><span class="pre">regolith.deploy</span></tt>)<a class="headerlink" href="#module-regolith.deploy" title="Permalink to this headline">¶</a></h1>
+<p>Helps deploy what we have built.</p>
+<dl class="function">
+<dt id="regolith.deploy.deploy">
+<tt class="descclassname">regolith.deploy.</tt><tt class="descname">deploy</tt><big>(</big><em>rc</em>, <em>name</em>, <em>url</em>, <em>src='html'</em>, <em>dst=None</em><big>)</big><a class="reference internal" href="../_modules/regolith/deploy.html#deploy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.deploy.deploy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deploys a target</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="regolith.deploy.deploy_git">
+<tt class="descclassname">regolith.deploy.</tt><tt class="descname">deploy_git</tt><big>(</big><em>rc</em>, <em>name</em>, <em>url</em>, <em>src='html'</em>, <em>dst=None</em><big>)</big><a class="reference internal" href="../_modules/regolith/deploy.html#deploy_git"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.deploy.deploy_git" title="Permalink to this definition">¶</a></dt>
+<dd><p>Loads a git database</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="regolith.deploy.ensure_deploy_dir">
+<tt class="descclassname">regolith.deploy.</tt><tt class="descname">ensure_deploy_dir</tt><big>(</big><em>rc</em><big>)</big><a class="reference internal" href="../_modules/regolith/deploy.html#ensure_deploy_dir"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.deploy.ensure_deploy_dir" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ensure deployment dir is on rc and physically exists.</p>
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <div class="sphinxprev">
+    <h4>Previous page</h4>
+    <p class="topless"><a href="htmlbuilder.html"
+                          title="Previous page">&larr; Website Builder (<tt class="docutils literal"><span class="pre">regolith.htmlbuilder</span></tt>)</a></p>
+  </div>
+  <div class="sphinxnext">
+    <h4>Next page</h4>
+    <p class="topless"><a href="tools.html"
+                          title="Next page">&rarr; Tools (<tt class="docutils literal"><span class="pre">regolith.tools</span></tt>)</a></p>
+  </div>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="relbar-bottom">
+        
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="tools.html" title="Tools (regolith.tools)"
+             >next</a></li>
+        <li class="right" >
+          <a href="htmlbuilder.html" title="Website Builder (regolith.htmlbuilder)"
+             >previous</a> &nbsp; &nbsp;</li>
+    <li><a href="../index.html">regolith</a> &raquo;</li>
+
+          <li><a href="index.html" >Regolith API</a> &raquo;</li> 
+      </ul>
+    </div>
+    </div>
+
+    <div class="footer">
+        &copy; Copyright 2015, Anthony Scopatz.
+    </div>
+    <!-- cloud_sptheme 1.4 -->
+  </body>
+</html>

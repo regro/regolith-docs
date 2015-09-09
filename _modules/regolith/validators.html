@@ -1,0 +1,182 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>regolith.validators &mdash; regolith - research group content managment system</title>
+    
+    <link rel="stylesheet" href="../../_static/blackcloud.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '0.1-dev',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../../_static/jquery.cookie.js"></script>
+    <script type="text/javascript" src="../../_static/cloud.js"></script>
+    <link rel="top" title="regolith - research group content managment system" href="../../index.html" />
+    <link rel="up" title="Module code" href="../index.html" /> 
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+  <body>
+    <div class="relbar-top">
+        
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+    <li><a href="../../index.html">regolith</a> &raquo;</li>
+
+          <li><a href="../index.html" accesskey="U">Module code</a> &raquo;</li> 
+      </ul>
+    </div>
+    </div>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <h1>Source code for regolith.validators</h1><div class="highlight"><pre>
+<span class="sd">&quot;&quot;&quot;Validators and convertors for regolith input.&quot;&quot;&quot;</span>
+<span class="kn">import</span> <span class="nn">re</span>
+
+<span class="kn">from</span> <span class="nn">regolith.tools</span> <span class="kn">import</span> <span class="n">string_types</span>
+
+<div class="viewcode-block" id="noop"><a class="viewcode-back" href="../../api/validators.html#regolith.validators.noop">[docs]</a><span class="k">def</span> <span class="nf">noop</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Does nothing, just returns the input.&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">x</span>
+
+</div>
+<div class="viewcode-block" id="is_int"><a class="viewcode-back" href="../../api/validators.html#regolith.validators.is_int">[docs]</a><span class="k">def</span> <span class="nf">is_int</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Tests if something is an integer&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span>
+
+</div>
+<div class="viewcode-block" id="always_true"><a class="viewcode-back" href="../../api/validators.html#regolith.validators.always_true">[docs]</a><span class="k">def</span> <span class="nf">always_true</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Returns True&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="bp">True</span>
+
+</div>
+<div class="viewcode-block" id="always_false"><a class="viewcode-back" href="../../api/validators.html#regolith.validators.always_false">[docs]</a><span class="k">def</span> <span class="nf">always_false</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Returns False&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="bp">False</span>
+
+</div>
+<div class="viewcode-block" id="is_bool"><a class="viewcode-back" href="../../api/validators.html#regolith.validators.is_bool">[docs]</a><span class="k">def</span> <span class="nf">is_bool</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Tests if something is a boolean&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="nb">bool</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="is_string"><a class="viewcode-back" href="../../api/validators.html#regolith.validators.is_string">[docs]</a><span class="k">def</span> <span class="nf">is_string</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Tests if something is a string&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">string_types</span><span class="p">)</span>
+
+</div>
+<span class="n">_FALSES</span> <span class="o">=</span> <span class="nb">frozenset</span><span class="p">([</span><span class="s">&#39;&#39;</span><span class="p">,</span> <span class="s">&#39;0&#39;</span><span class="p">,</span> <span class="s">&#39;n&#39;</span><span class="p">,</span> <span class="s">&#39;f&#39;</span><span class="p">,</span> <span class="s">&#39;no&#39;</span><span class="p">,</span> <span class="s">&#39;none&#39;</span><span class="p">,</span> <span class="s">&#39;false&#39;</span><span class="p">])</span>
+
+
+<div class="viewcode-block" id="to_bool"><a class="viewcode-back" href="../../api/validators.html#regolith.validators.to_bool">[docs]</a><span class="k">def</span> <span class="nf">to_bool</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;&quot;Converts to a boolean in a semantically meaningful way.&quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="nb">bool</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">x</span>
+    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">string_types</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">False</span> <span class="k">if</span> <span class="n">x</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="ow">in</span> <span class="n">_FALSES</span> <span class="k">else</span> <span class="bp">True</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="nb">bool</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+</div>
+<div class="viewcode-block" id="ensure_string"><a class="viewcode-back" href="../../api/validators.html#regolith.validators.ensure_string">[docs]</a><span class="k">def</span> <span class="nf">ensure_string</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Returns a string if x is not a string, and x if it already is.&quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">string_types</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">x</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="ensure_database"><a class="viewcode-back" href="../../api/validators.html#regolith.validators.ensure_database">[docs]</a><span class="k">def</span> <span class="nf">ensure_database</span><span class="p">(</span><span class="n">db</span><span class="p">):</span>
+    <span class="n">db</span><span class="p">[</span><span class="s">&#39;name&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ensure_string</span><span class="p">(</span><span class="n">db</span><span class="p">[</span><span class="s">&#39;name&#39;</span><span class="p">])</span>
+    <span class="n">db</span><span class="p">[</span><span class="s">&#39;url&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ensure_string</span><span class="p">(</span><span class="n">db</span><span class="p">[</span><span class="s">&#39;url&#39;</span><span class="p">])</span>
+    <span class="n">db</span><span class="p">[</span><span class="s">&#39;path&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ensure_string</span><span class="p">(</span><span class="n">db</span><span class="p">[</span><span class="s">&#39;path&#39;</span><span class="p">])</span>
+    <span class="n">db</span><span class="p">[</span><span class="s">&#39;public&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">to_bool</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&#39;public&#39;</span><span class="p">,</span> <span class="bp">True</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">db</span>
+    
+</div>
+<div class="viewcode-block" id="ensure_databases"><a class="viewcode-back" href="../../api/validators.html#regolith.validators.ensure_databases">[docs]</a><span class="k">def</span> <span class="nf">ensure_databases</span><span class="p">(</span><span class="n">dbs</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Ensures each dataset in a list of databases&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="n">ensure_database</span><span class="p">,</span> <span class="n">dbs</span><span class="p">))</span>
+
+</div>
+<div class="viewcode-block" id="ensure_store"><a class="viewcode-back" href="../../api/validators.html#regolith.validators.ensure_store">[docs]</a><span class="k">def</span> <span class="nf">ensure_store</span><span class="p">(</span><span class="n">store</span><span class="p">):</span>
+    <span class="n">store</span><span class="p">[</span><span class="s">&#39;name&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ensure_string</span><span class="p">(</span><span class="n">store</span><span class="p">[</span><span class="s">&#39;name&#39;</span><span class="p">])</span>
+    <span class="n">store</span><span class="p">[</span><span class="s">&#39;url&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ensure_string</span><span class="p">(</span><span class="n">store</span><span class="p">[</span><span class="s">&#39;url&#39;</span><span class="p">])</span>
+    <span class="n">store</span><span class="p">[</span><span class="s">&#39;path&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ensure_string</span><span class="p">(</span><span class="n">store</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&#39;path&#39;</span><span class="p">,</span> <span class="bp">None</span><span class="p">)</span> <span class="ow">or</span> <span class="s">&#39;&#39;</span><span class="p">)</span>
+    <span class="n">store</span><span class="p">[</span><span class="s">&#39;public&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">to_bool</span><span class="p">(</span><span class="n">store</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&#39;public&#39;</span><span class="p">,</span> <span class="bp">True</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">store</span>
+    
+</div>
+<div class="viewcode-block" id="ensure_stores"><a class="viewcode-back" href="../../api/validators.html#regolith.validators.ensure_stores">[docs]</a><span class="k">def</span> <span class="nf">ensure_stores</span><span class="p">(</span><span class="n">stores</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Ensures each store in a list of stores&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="n">ensure_store</span><span class="p">,</span> <span class="n">stores</span><span class="p">))</span>
+
+</div>
+<span class="n">DEFAULT_VALIDATORS</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s">&#39;builddir&#39;</span><span class="p">:</span> <span class="p">(</span><span class="n">is_string</span><span class="p">,</span> <span class="n">ensure_string</span><span class="p">),</span> 
+    <span class="s">&#39;databases&#39;</span><span class="p">:</span> <span class="p">(</span><span class="n">always_false</span><span class="p">,</span> <span class="n">ensure_databases</span><span class="p">),</span>
+    <span class="s">&#39;stores&#39;</span><span class="p">:</span> <span class="p">(</span><span class="n">always_false</span><span class="p">,</span> <span class="n">ensure_stores</span><span class="p">),</span>
+    <span class="p">}</span>
+</pre></div>
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="relbar-bottom">
+        
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+    <li><a href="../../index.html">regolith</a> &raquo;</li>
+
+          <li><a href="../index.html" >Module code</a> &raquo;</li> 
+      </ul>
+    </div>
+    </div>
+
+    <div class="footer">
+        &copy; Copyright 2015, Anthony Scopatz.
+    </div>
+    <!-- cloud_sptheme 1.4 -->
+  </body>
+</html>

@@ -1,0 +1,159 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>regolith.app &mdash; regolith - research group content managment system</title>
+    
+    <link rel="stylesheet" href="../../_static/blackcloud.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '0.1-dev',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../../_static/jquery.cookie.js"></script>
+    <script type="text/javascript" src="../../_static/cloud.js"></script>
+    <link rel="top" title="regolith - research group content managment system" href="../../index.html" />
+    <link rel="up" title="Module code" href="../index.html" /> 
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+  <body>
+    <div class="relbar-top">
+        
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+    <li><a href="../../index.html">regolith</a> &raquo;</li>
+
+          <li><a href="../index.html" accesskey="U">Module code</a> &raquo;</li> 
+      </ul>
+    </div>
+    </div>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <h1>Source code for regolith.app</h1><div class="highlight"><pre>
+<span class="sd">&quot;&quot;&quot;Flask app for looking at information in regolith.&quot;&quot;&quot;</span>
+<span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">Flask</span><span class="p">,</span> <span class="n">abort</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="n">render_template</span><span class="p">,</span> <span class="n">redirect</span><span class="p">,</span> <span class="n">url_for</span>
+<span class="kn">from</span> <span class="nn">bson</span> <span class="kn">import</span> <span class="n">json_util</span><span class="p">,</span> <span class="n">objectid</span>
+
+<span class="kn">from</span> <span class="nn">regolith.tools</span> <span class="kn">import</span> <span class="n">insert_one</span><span class="p">,</span> <span class="n">delete_one</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">Flask</span><span class="p">(</span><span class="s">&#39;regolith&#39;</span><span class="p">)</span>
+
+
+<span class="nd">@app.route</span><span class="p">(</span><span class="s">&#39;/&#39;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s">&#39;GET&#39;</span><span class="p">,</span> <span class="s">&#39;POST&#39;</span><span class="p">])</span>
+<div class="viewcode-block" id="root"><a class="viewcode-back" href="../../api/app.html#regolith.app.root">[docs]</a><span class="k">def</span> <span class="nf">root</span><span class="p">():</span>
+    <span class="n">rc</span> <span class="o">=</span> <span class="n">app</span><span class="o">.</span><span class="n">rc</span>
+    <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">method</span> <span class="o">==</span> <span class="s">&#39;POST&#39;</span><span class="p">:</span>
+        <span class="n">form</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">form</span>
+        <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="s">&#39;/db/{dbname}/coll/{collname}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="o">**</span><span class="n">form</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s">&#39;index.html&#39;</span><span class="p">,</span> <span class="n">rc</span><span class="o">=</span><span class="n">rc</span><span class="p">)</span>
+
+</div>
+<div class="viewcode-block" id="shutdown_server"><a class="viewcode-back" href="../../api/app.html#regolith.app.shutdown_server">[docs]</a><span class="k">def</span> <span class="nf">shutdown_server</span><span class="p">():</span>
+    <span class="n">func</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&#39;werkzeug.server.shutdown&#39;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">func</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s">&#39;Not running with the Werkzeug Server&#39;</span><span class="p">)</span>
+    <span class="n">func</span><span class="p">()</span>
+</div>
+<span class="nd">@app.route</span><span class="p">(</span><span class="s">&#39;/shutdown&#39;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s">&#39;GET&#39;</span><span class="p">,</span> <span class="s">&#39;POST&#39;</span><span class="p">])</span>
+<div class="viewcode-block" id="shutdown"><a class="viewcode-back" href="../../api/app.html#regolith.app.shutdown">[docs]</a><span class="k">def</span> <span class="nf">shutdown</span><span class="p">():</span>
+    <span class="n">shutdown_server</span><span class="p">()</span>
+    <span class="k">return</span> <span class="s">&#39;Regolith server shutting down...</span><span class="se">\n</span><span class="s">&#39;</span>
+
+</div>
+<span class="nd">@app.route</span><span class="p">(</span><span class="s">&#39;/db/&lt;dbname&gt;/coll/&lt;collname&gt;&#39;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s">&#39;GET&#39;</span><span class="p">,</span> <span class="s">&#39;POST&#39;</span><span class="p">])</span>
+<div class="viewcode-block" id="collection_page"><a class="viewcode-back" href="../../api/app.html#regolith.app.collection_page">[docs]</a><span class="k">def</span> <span class="nf">collection_page</span><span class="p">(</span><span class="n">dbname</span><span class="p">,</span> <span class="n">collname</span><span class="p">):</span>
+    <span class="n">rc</span> <span class="o">=</span> <span class="n">app</span><span class="o">.</span><span class="n">rc</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">coll</span> <span class="o">=</span> <span class="n">rc</span><span class="o">.</span><span class="n">client</span><span class="p">[</span><span class="n">dbname</span><span class="p">][</span><span class="n">collname</span><span class="p">]</span>
+    <span class="k">except</span> <span class="p">(</span><span class="ne">KeyError</span><span class="p">,</span> <span class="ne">AttributeError</span><span class="p">):</span>
+        <span class="n">abort</span><span class="p">(</span><span class="mi">404</span><span class="p">)</span>
+    <span class="n">status</span> <span class="o">=</span> <span class="n">status_id</span> <span class="o">=</span> <span class="bp">None</span>
+    <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">method</span> <span class="o">==</span> <span class="s">&#39;POST&#39;</span><span class="p">:</span>
+        <span class="n">form</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">form</span>
+        <span class="k">if</span> <span class="s">&#39;shutdown&#39;</span> <span class="ow">in</span> <span class="n">form</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">shutdown</span><span class="p">()</span>
+        <span class="k">elif</span> <span class="s">&#39;cancel&#39;</span> <span class="ow">in</span> <span class="n">form</span><span class="p">:</span>
+            <span class="n">body</span> <span class="o">=</span> <span class="n">json_util</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">form</span><span class="p">[</span><span class="s">&#39;body&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span>
+            <span class="n">status</span> <span class="o">=</span> <span class="s">&#39;canceled&#39;</span>
+            <span class="n">status_id</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">body</span><span class="p">[</span><span class="s">&#39;_id&#39;</span><span class="p">])</span>
+        <span class="k">elif</span> <span class="s">&#39;save&#39;</span> <span class="ow">in</span> <span class="n">form</span><span class="p">:</span>
+            <span class="n">body</span> <span class="o">=</span> <span class="n">json_util</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">form</span><span class="p">[</span><span class="s">&#39;body&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span>
+            <span class="n">coll</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">body</span><span class="p">)</span> 
+            <span class="n">status</span> <span class="o">=</span> <span class="s">&#39;saved ✓&#39;</span>
+            <span class="n">status_id</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">body</span><span class="p">[</span><span class="s">&#39;_id&#39;</span><span class="p">])</span>
+        <span class="k">elif</span> <span class="s">&#39;add&#39;</span> <span class="ow">in</span> <span class="n">form</span><span class="p">:</span>
+            <span class="n">body</span> <span class="o">=</span> <span class="n">json_util</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">form</span><span class="p">[</span><span class="s">&#39;body&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span>
+            <span class="n">added</span> <span class="o">=</span> <span class="n">insert_one</span><span class="p">(</span><span class="n">coll</span><span class="p">,</span> <span class="n">body</span><span class="p">)</span>
+            <span class="n">status</span> <span class="o">=</span> <span class="s">&#39;added ✓&#39;</span>
+            <span class="n">status_id</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">added</span><span class="o">.</span><span class="n">inserted_id</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="s">&#39;delete&#39;</span> <span class="ow">in</span> <span class="n">form</span><span class="p">:</span>
+            <span class="n">body</span> <span class="o">=</span> <span class="n">json_util</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">form</span><span class="p">[</span><span class="s">&#39;body&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span>
+            <span class="n">deled</span> <span class="o">=</span> <span class="n">delete_one</span><span class="p">(</span><span class="n">coll</span><span class="p">,</span> <span class="n">body</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s">&#39;collection.html&#39;</span><span class="p">,</span> <span class="n">rc</span><span class="o">=</span><span class="n">rc</span><span class="p">,</span> <span class="n">dbname</span><span class="o">=</span><span class="n">dbname</span><span class="p">,</span> <span class="nb">len</span><span class="o">=</span><span class="nb">len</span><span class="p">,</span> <span class="nb">str</span><span class="o">=</span><span class="nb">str</span><span class="p">,</span>
+                           <span class="n">status</span><span class="o">=</span><span class="n">status</span><span class="p">,</span> <span class="n">status_id</span><span class="o">=</span><span class="n">status_id</span><span class="p">,</span> <span class="n">objectid</span><span class="o">=</span><span class="n">objectid</span><span class="p">,</span>
+                           <span class="n">collname</span><span class="o">=</span><span class="n">collname</span><span class="p">,</span> <span class="n">coll</span><span class="o">=</span><span class="n">coll</span><span class="p">,</span> <span class="n">json_util</span><span class="o">=</span><span class="n">json_util</span><span class="p">,</span> <span class="nb">min</span><span class="o">=</span><span class="nb">min</span><span class="p">)</span></div>
+</pre></div>
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="relbar-bottom">
+        
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+    <li><a href="../../index.html">regolith</a> &raquo;</li>
+
+          <li><a href="../index.html" >Module code</a> &raquo;</li> 
+      </ul>
+    </div>
+    </div>
+
+    <div class="footer">
+        &copy; Copyright 2015, Anthony Scopatz.
+    </div>
+    <!-- cloud_sptheme 1.4 -->
+  </body>
+</html>

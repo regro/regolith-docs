@@ -1,0 +1,194 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Run Control Validators (regolith.validators) &mdash; regolith - research group content managment system</title>
+    
+    <link rel="stylesheet" href="../_static/blackcloud.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.1-dev',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../_static/jquery.cookie.js"></script>
+    <script type="text/javascript" src="../_static/cloud.js"></script>
+    <link rel="top" title="regolith - research group content managment system" href="../index.html" />
+    <link rel="up" title="Regolith API" href="index.html" />
+    <link rel="next" title="CLI Commands (regolith.commands)" href="commands.html" />
+    <link rel="prev" title="Tools (regolith.tools)" href="tools.html" /> 
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+  <body>
+    <div class="relbar-top">
+        
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="commands.html" title="CLI Commands (regolith.commands)"
+             accesskey="N">next</a></li>
+        <li class="right" >
+          <a href="tools.html" title="Tools (regolith.tools)"
+             accesskey="P">previous</a> &nbsp; &nbsp;</li>
+    <li><a href="../index.html">regolith</a> &raquo;</li>
+
+          <li><a href="index.html" accesskey="U">Regolith API</a> &raquo;</li> 
+      </ul>
+    </div>
+    </div>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="module-regolith.validators">
+<span id="run-control-validators-regolith-validators"></span><span id="regolith-validators"></span><h1>Run Control Validators (<tt class="docutils literal"><span class="pre">regolith.validators</span></tt>)<a class="headerlink" href="#module-regolith.validators" title="Permalink to this headline">¶</a></h1>
+<p>Validators and convertors for regolith input.</p>
+<dl class="function">
+<dt id="regolith.validators.always_false">
+<tt class="descclassname">regolith.validators.</tt><tt class="descname">always_false</tt><big>(</big><em>x</em><big>)</big><a class="reference internal" href="../_modules/regolith/validators.html#always_false"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.validators.always_false" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns False</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="regolith.validators.always_true">
+<tt class="descclassname">regolith.validators.</tt><tt class="descname">always_true</tt><big>(</big><em>x</em><big>)</big><a class="reference internal" href="../_modules/regolith/validators.html#always_true"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.validators.always_true" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns True</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="regolith.validators.ensure_database">
+<tt class="descclassname">regolith.validators.</tt><tt class="descname">ensure_database</tt><big>(</big><em>db</em><big>)</big><a class="reference internal" href="../_modules/regolith/validators.html#ensure_database"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.validators.ensure_database" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="regolith.validators.ensure_databases">
+<tt class="descclassname">regolith.validators.</tt><tt class="descname">ensure_databases</tt><big>(</big><em>dbs</em><big>)</big><a class="reference internal" href="../_modules/regolith/validators.html#ensure_databases"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.validators.ensure_databases" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ensures each dataset in a list of databases</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="regolith.validators.ensure_store">
+<tt class="descclassname">regolith.validators.</tt><tt class="descname">ensure_store</tt><big>(</big><em>store</em><big>)</big><a class="reference internal" href="../_modules/regolith/validators.html#ensure_store"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.validators.ensure_store" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="regolith.validators.ensure_stores">
+<tt class="descclassname">regolith.validators.</tt><tt class="descname">ensure_stores</tt><big>(</big><em>stores</em><big>)</big><a class="reference internal" href="../_modules/regolith/validators.html#ensure_stores"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.validators.ensure_stores" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ensures each store in a list of stores</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="regolith.validators.ensure_string">
+<tt class="descclassname">regolith.validators.</tt><tt class="descname">ensure_string</tt><big>(</big><em>x</em><big>)</big><a class="reference internal" href="../_modules/regolith/validators.html#ensure_string"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.validators.ensure_string" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a string if x is not a string, and x if it already is.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="regolith.validators.is_bool">
+<tt class="descclassname">regolith.validators.</tt><tt class="descname">is_bool</tt><big>(</big><em>x</em><big>)</big><a class="reference internal" href="../_modules/regolith/validators.html#is_bool"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.validators.is_bool" title="Permalink to this definition">¶</a></dt>
+<dd><p>Tests if something is a boolean</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="regolith.validators.is_int">
+<tt class="descclassname">regolith.validators.</tt><tt class="descname">is_int</tt><big>(</big><em>x</em><big>)</big><a class="reference internal" href="../_modules/regolith/validators.html#is_int"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.validators.is_int" title="Permalink to this definition">¶</a></dt>
+<dd><p>Tests if something is an integer</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="regolith.validators.is_string">
+<tt class="descclassname">regolith.validators.</tt><tt class="descname">is_string</tt><big>(</big><em>x</em><big>)</big><a class="reference internal" href="../_modules/regolith/validators.html#is_string"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.validators.is_string" title="Permalink to this definition">¶</a></dt>
+<dd><p>Tests if something is a string</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="regolith.validators.noop">
+<tt class="descclassname">regolith.validators.</tt><tt class="descname">noop</tt><big>(</big><em>x</em><big>)</big><a class="reference internal" href="../_modules/regolith/validators.html#noop"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.validators.noop" title="Permalink to this definition">¶</a></dt>
+<dd><p>Does nothing, just returns the input.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="regolith.validators.to_bool">
+<tt class="descclassname">regolith.validators.</tt><tt class="descname">to_bool</tt><big>(</big><em>x</em><big>)</big><a class="reference internal" href="../_modules/regolith/validators.html#to_bool"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.validators.to_bool" title="Permalink to this definition">¶</a></dt>
+<dd><p>&#8220;Converts to a boolean in a semantically meaningful way.</p>
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <div class="sphinxprev">
+    <h4>Previous page</h4>
+    <p class="topless"><a href="tools.html"
+                          title="Previous page">&larr; Tools (<tt class="docutils literal"><span class="pre">regolith.tools</span></tt>)</a></p>
+  </div>
+  <div class="sphinxnext">
+    <h4>Next page</h4>
+    <p class="topless"><a href="commands.html"
+                          title="Next page">&rarr; CLI Commands (<tt class="docutils literal"><span class="pre">regolith.commands</span></tt>)</a></p>
+  </div>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="relbar-bottom">
+        
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="commands.html" title="CLI Commands (regolith.commands)"
+             >next</a></li>
+        <li class="right" >
+          <a href="tools.html" title="Tools (regolith.tools)"
+             >previous</a> &nbsp; &nbsp;</li>
+    <li><a href="../index.html">regolith</a> &raquo;</li>
+
+          <li><a href="index.html" >Regolith API</a> &raquo;</li> 
+      </ul>
+    </div>
+    </div>
+
+    <div class="footer">
+        &copy; Copyright 2015, Anthony Scopatz.
+    </div>
+    <!-- cloud_sptheme 1.4 -->
+  </body>
+</html>

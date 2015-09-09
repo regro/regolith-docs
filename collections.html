@@ -1,0 +1,298 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Collections &mdash; regolith - research group content managment system</title>
+    
+    <link rel="stylesheet" href="_static/blackcloud.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="./" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.1-dev',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="_static/jquery.cookie.js"></script>
+    <script type="text/javascript" src="_static/cloud.js"></script>
+    <link rel="top" title="regolith - research group content managment system" href="index.html" />
+    <link rel="next" title="Regolith API" href="api/index.html" />
+    <link rel="prev" title="Top-level Configuration Keys" href="rc.html" /> 
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+  <body>
+    <div class="relbar-top">
+        
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="api/index.html" title="Regolith API"
+             accesskey="N">next</a></li>
+        <li class="right" >
+          <a href="rc.html" title="Top-level Configuration Keys"
+             accesskey="P">previous</a> &nbsp; &nbsp;</li>
+    <li><a href="index.html">regolith</a> &raquo;</li>
+ 
+      </ul>
+    </div>
+    </div>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="collections">
+<h1>Collections<a class="headerlink" href="#collections" title="Permalink to this headline">¶</a></h1>
+<p>This page describes recommended - but not required - schema for collections of a given
+name.</p>
+<div class="section" id="people">
+<h2>people<a class="headerlink" href="#people" title="Permalink to this headline">¶</a></h2>
+<p>This collection describes the members of the research group.  This is normally public
+data.</p>
+<div class="code python highlight-python"><div class="highlight"><pre><span class="p">{</span><span class="s">&quot;name&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="c"># Full, canonical name for the person</span>
+ <span class="s">&quot;title&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="c"># eg Dr., etc.</span>
+ <span class="s">&quot;position&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>  <span class="c"># such as professor, graduate student, or scientist</span>
+ <span class="s">&quot;aka&quot;</span><span class="p">:</span> <span class="p">[</span><span class="nb">str</span><span class="p">],</span>  <span class="c"># list of aliases</span>
+ <span class="s">&quot;avatar&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>  <span class="c"># URL to avatar</span>
+ <span class="s">&quot;bio&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>  <span class="c"># short biographical text</span>
+ <span class="s">&quot;education&quot;</span><span class="p">:</span> <span class="p">[{</span>  <span class="c"># list of dictionaries</span>
+    <span class="s">&quot;institution&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="s">&quot;location&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="s">&quot;degree&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="s">&quot;begin_year&quot;</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+    <span class="s">&quot;begin_month&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="c"># optional</span>
+    <span class="s">&quot;end_year&quot;</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+    <span class="s">&quot;end_month&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>  <span class="c"># optional</span>
+    <span class="s">&quot;gpa&quot;</span><span class="p">:</span> <span class="nb">float</span> <span class="ow">or</span> <span class="nb">str</span><span class="p">,</span> <span class="c"># optional</span>
+    <span class="s">&quot;other&quot;</span><span class="p">:</span> <span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="c"># list of strings of other pieces of information</span>
+    <span class="p">},</span>
+    <span class="o">...</span>
+    <span class="p">],</span>
+ <span class="s">&quot;employment&quot;</span><span class="p">:</span> <span class="p">[{</span>  <span class="c"># list of dicts</span>
+    <span class="s">&quot;organization&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="s">&quot;location&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="s">&quot;position&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="s">&quot;begin_year&quot;</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+    <span class="s">&quot;begin_month&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="c"># optional</span>
+    <span class="s">&quot;end_year&quot;</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+    <span class="s">&quot;end_month&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>  <span class="c"># optional</span>
+    <span class="s">&quot;other&quot;</span><span class="p">:</span> <span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="c"># list of strings of other pieces of information</span>
+    <span class="p">},</span>
+    <span class="o">...</span>
+    <span class="p">],</span>
+ <span class="s">&quot;funding&quot;</span><span class="p">:</span> <span class="p">[{</span> <span class="c"># list of dictionaries</span>
+    <span class="s">&quot;name&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="s">&quot;value&quot;</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
+    <span class="s">&quot;currency&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="c"># optional, defaults to &quot;$&quot;</span>
+    <span class="s">&quot;year&quot;</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+    <span class="s">&quot;month&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="c"># optional</span>
+    <span class="s">&quot;duration&quot;</span><span class="p">:</span> <span class="nb">str</span> <span class="ow">or</span> <span class="nb">int</span><span class="p">,</span> <span class="c"># optional length of award</span>
+    <span class="p">},</span>
+    <span class="o">...</span>
+    <span class="p">],</span>
+ <span class="s">&quot;service&quot;</span><span class="p">:</span> <span class="p">[{</span> <span class="c"># list of dictionaries</span>
+    <span class="s">&quot;name&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="s">&quot;description&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="c"># optional</span>
+    <span class="s">&quot;year&quot;</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+    <span class="s">&quot;month&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="c"># optional</span>
+    <span class="s">&quot;duration&quot;</span><span class="p">:</span> <span class="nb">str</span> <span class="ow">or</span> <span class="nb">int</span><span class="p">,</span> <span class="c"># optional length of service</span>
+    <span class="p">},</span>
+    <span class="o">...</span>
+    <span class="p">],</span>
+ <span class="s">&quot;honors&quot;</span><span class="p">:</span> <span class="p">[{</span> <span class="c"># list of dictionaries</span>
+    <span class="s">&quot;name&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="s">&quot;description&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="c"># optional</span>
+    <span class="s">&quot;year&quot;</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+    <span class="s">&quot;month&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="c"># optional</span>
+    <span class="p">},</span>
+    <span class="o">...</span>
+    <span class="p">],</span>
+ <span class="s">&quot;teaching&quot;</span><span class="p">:</span> <span class="p">[{</span> <span class="c"># list of dicts</span>
+    <span class="s">&quot;course&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>  <span class="c"># name of the course</span>
+    <span class="s">&quot;organization&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="s">&quot;position&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="s">&quot;year&quot;</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+    <span class="s">&quot;month&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="c"># optional</span>
+    <span class="s">&quot;end_year&quot;</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="c"># optional</span>
+    <span class="s">&quot;end_month&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>  <span class="c"># optional</span>
+    <span class="s">&quot;description&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="c"># optional</span>
+    <span class="s">&quot;website&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>  <span class="c"># optional URL</span>
+    <span class="s">&quot;syllabus&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>  <span class="c"># optional URL</span>
+    <span class="s">&quot;video&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>  <span class="c"># optional URL</span>
+    <span class="s">&quot;materials&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>  <span class="c"># optional URL</span>
+    <span class="p">},</span>
+    <span class="o">...</span>
+    <span class="p">],</span>
+ <span class="s">&quot;membership&quot;</span><span class="p">:</span> <span class="p">[{</span> <span class="c"># list of dicts</span>
+    <span class="s">&quot;organization&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="s">&quot;position&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="s">&quot;description&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="c"># optional</span>
+    <span class="s">&quot;begin_year&quot;</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+    <span class="s">&quot;begin_month&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="c"># optional</span>
+    <span class="s">&quot;end_year&quot;</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="c"># optional</span>
+    <span class="s">&quot;end_month&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>  <span class="c"># optional</span>
+    <span class="s">&quot;website&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>  <span class="c"># optional URL</span>
+    <span class="p">},</span>
+    <span class="o">...</span>
+    <span class="p">],</span>
+ <span class="s">&quot;skills&quot;</span><span class="p">:</span> <span class="p">[{</span> <span class="c"># list of dicts</span>
+    <span class="s">&quot;name&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="s">&quot;category&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="s">&quot;level&quot;</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="p">},</span>
+    <span class="o">...</span>
+    <span class="p">],</span>
+ <span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="citations">
+<h2>citations<a class="headerlink" href="#citations" title="Permalink to this headline">¶</a></h2>
+<p>This collection should contain bibtex equivalent fields.  Additionally, the keys <tt class="docutils literal"><span class="pre">&quot;entrytype&quot;</span></tt> denotes
+things like <tt class="docutils literal"><span class="pre">ARTICLE</span></tt>, and <tt class="docutils literal"><span class="pre">&quot;_id&quot;</span></tt> denotes the entry identifier.  Furthermore, the <tt class="docutils literal"><span class="pre">&quot;author&quot;</span></tt> key should
+be a list of strings.  See the Python project <a class="reference external" href="https://bibtexparser.readthedocs.org/">BibtexParser</a> for more
+information.</p>
+</div>
+<div class="section" id="projects">
+<h2>projects<a class="headerlink" href="#projects" title="Permalink to this headline">¶</a></h2>
+<p>This collection describes the research group projects. This is normally public data.</p>
+<div class="code python highlight-python"><div class="highlight"><pre><span class="p">{</span><span class="s">&quot;name&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+ <span class="s">&quot;description&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+ <span class="s">&quot;website&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+ <span class="s">&quot;repo&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="c"># src code repo, if available</span>
+ <span class="s">&quot;logo&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="c"># url to logo, optional</span>
+ <span class="s">&quot;other&quot;</span><span class="p">:</span> <span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="c"># other information, list of str</span>
+ <span class="s">&quot;team&quot;</span><span class="p">:</span> <span class="p">[{</span>  <span class="c"># list of dicts</span>
+    <span class="s">&quot;name&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="c"># should match a person&#39;s name  or AKA</span>
+    <span class="s">&quot;position&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="s">&quot;begin_year&quot;</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+    <span class="s">&quot;begin_month&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="c"># optional</span>
+    <span class="s">&quot;end_year&quot;</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="c"># optional</span>
+    <span class="s">&quot;end_month&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>  <span class="c"># optional</span>
+    <span class="p">},</span>
+    <span class="o">...</span>
+    <span class="p">],</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="news">
+<h2>news<a class="headerlink" href="#news" title="Permalink to this headline">¶</a></h2>
+<p>This collection describes the research group news. This is normally public data.</p>
+<div class="code python highlight-python"><div class="highlight"><pre><span class="p">{</span><span class="s">&quot;body&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+ <span class="s">&quot;author&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="c"># name that should match a person or AKA</span>
+ <span class="s">&quot;year&quot;</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+ <span class="s">&quot;month&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+ <span class="s">&quot;day&quot;</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+ <span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="jobs">
+<h2>jobs<a class="headerlink" href="#jobs" title="Permalink to this headline">¶</a></h2>
+<p>This collection describes the research group jobss. This is normally public data.</p>
+<div class="code python highlight-python"><div class="highlight"><pre><span class="p">{</span><span class="s">&quot;_id&quot;</span><span class="p">:</span> <span class="nb">str</span> <span class="ow">or</span> <span class="n">number</span><span class="p">,</span> <span class="c">#</span>
+ <span class="s">&quot;title&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+ <span class="s">&quot;description&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+ <span class="s">&quot;open&quot;</span><span class="p">:</span> <span class="nb">bool</span><span class="p">,</span>
+ <span class="s">&quot;contact&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>  <span class="c"># contact information for how to apply</span>
+ <span class="s">&quot;positions&quot;</span><span class="p">:</span> <span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="c"># list of string positions such as &quot;Graduate Student&quot;, &quot;Post-doctoral Scholar&quot;, etc</span>
+ <span class="s">&quot;background_fields&quot;</span><span class="p">:</span> <span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="c"># previous disciplines, eg. Nucleare Engineering or Computer Science</span>
+ <span class="s">&quot;year&quot;</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+ <span class="s">&quot;month&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+ <span class="s">&quot;day&quot;</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+ <span class="s">&quot;start_date&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>  <span class="c"># date or ASAP or similar</span>
+ <span class="s">&quot;expertise&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+ <span class="s">&quot;compensation&quot;</span><span class="p">:</span> <span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="c"># list of compensations</span>
+ <span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper"><div class="sphinxlocaltoc">
+    <h3><a href="index.html">Page contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">Collections</a><ul>
+<li><a class="reference internal" href="#people">people</a></li>
+<li><a class="reference internal" href="#citations">citations</a></li>
+<li><a class="reference internal" href="#projects">projects</a></li>
+<li><a class="reference internal" href="#news">news</a></li>
+<li><a class="reference internal" href="#jobs">jobs</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div class="sphinxprev">
+    <h4>Previous page</h4>
+    <p class="topless"><a href="rc.html"
+                          title="Previous page">&larr; Top-level Configuration Keys</a></p>
+  </div>
+  <div class="sphinxnext">
+    <h4>Next page</h4>
+    <p class="topless"><a href="api/index.html"
+                          title="Next page">&rarr; Regolith API</a></p>
+  </div>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="relbar-bottom">
+        
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="api/index.html" title="Regolith API"
+             >next</a></li>
+        <li class="right" >
+          <a href="rc.html" title="Top-level Configuration Keys"
+             >previous</a> &nbsp; &nbsp;</li>
+    <li><a href="index.html">regolith</a> &raquo;</li>
+ 
+      </ul>
+    </div>
+    </div>
+
+    <div class="footer">
+        &copy; Copyright 2015, Anthony Scopatz.
+    </div>
+    <!-- cloud_sptheme 1.4 -->
+  </body>
+</html>

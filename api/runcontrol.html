@@ -1,0 +1,182 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Run Controlers (regolith.runcontrol) &mdash; regolith - research group content managment system</title>
+    
+    <link rel="stylesheet" href="../_static/blackcloud.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.1-dev',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../_static/jquery.cookie.js"></script>
+    <script type="text/javascript" src="../_static/cloud.js"></script>
+    <link rel="top" title="regolith - research group content managment system" href="../index.html" />
+    <link rel="up" title="Regolith API" href="index.html" />
+    <link rel="next" title="Database Interface Tools (regolith.database)" href="database.html" />
+    <link rel="prev" title="Regolith API" href="index.html" /> 
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+  <body>
+    <div class="relbar-top">
+        
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="database.html" title="Database Interface Tools (regolith.database)"
+             accesskey="N">next</a></li>
+        <li class="right" >
+          <a href="index.html" title="Regolith API"
+             accesskey="P">previous</a> &nbsp; &nbsp;</li>
+    <li><a href="../index.html">regolith</a> &raquo;</li>
+
+          <li><a href="index.html" accesskey="U">Regolith API</a> &raquo;</li> 
+      </ul>
+    </div>
+    </div>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="module-regolith.runcontrol">
+<span id="run-controlers-regolith-runcontrol"></span><span id="regolith-runcontrol"></span><h1>Run Controlers (<tt class="docutils literal"><span class="pre">regolith.runcontrol</span></tt>)<a class="headerlink" href="#module-regolith.runcontrol" title="Permalink to this headline">¶</a></h1>
+<p>Run Control object for regolith</p>
+<dl class="data">
+<dt id="regolith.runcontrol.NotSpecified">
+<tt class="descclassname">regolith.runcontrol.</tt><tt class="descname">NotSpecified</tt><em class="property"> = NotSpecified</em><a class="headerlink" href="#regolith.runcontrol.NotSpecified" title="Permalink to this definition">¶</a></dt>
+<dd><p>A helper class singleton for run control meaning that a &#8216;real&#8217; value
+has not been given.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="regolith.runcontrol.NotSpecifiedType">
+<em class="property">class </em><tt class="descclassname">regolith.runcontrol.</tt><tt class="descname">NotSpecifiedType</tt><a class="reference internal" href="../_modules/regolith/runcontrol.html#NotSpecifiedType"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.runcontrol.NotSpecifiedType" title="Permalink to this definition">¶</a></dt>
+<dd><p>A helper class singleton for run control meaning that a &#8216;real&#8217; value
+has not been given.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="regolith.runcontrol.RunControl">
+<em class="property">class </em><tt class="descclassname">regolith.runcontrol.</tt><tt class="descname">RunControl</tt><big>(</big><em>_updaters=None</em>, <em>_validators=None</em>, <em>**kwargs</em><big>)</big><a class="reference internal" href="../_modules/regolith/runcontrol.html#RunControl"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.runcontrol.RunControl" title="Permalink to this definition">¶</a></dt>
+<dd><p>A composable configuration class. Unlike argparse.Namespace,
+this keeps the object dictionary (__dict__) separate from the run 
+control attributes dictionary (_dict).</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="regolith.runcontrol.ensuredirs">
+<tt class="descclassname">regolith.runcontrol.</tt><tt class="descname">ensuredirs</tt><big>(</big><em>f</em><big>)</big><a class="reference internal" href="../_modules/regolith/runcontrol.html#ensuredirs"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.runcontrol.ensuredirs" title="Permalink to this definition">¶</a></dt>
+<dd><p>For a file path, ensure that its directory path exists.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="regolith.runcontrol.exec_file">
+<tt class="descclassname">regolith.runcontrol.</tt><tt class="descname">exec_file</tt><big>(</big><em>filename</em>, <em>glb=None</em>, <em>loc=None</em><big>)</big><a class="reference internal" href="../_modules/regolith/runcontrol.html#exec_file"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.runcontrol.exec_file" title="Permalink to this definition">¶</a></dt>
+<dd><p>A function equivalent to the Python 2.x execfile statement.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="regolith.runcontrol.flatten">
+<tt class="descclassname">regolith.runcontrol.</tt><tt class="descname">flatten</tt><big>(</big><em>iterable</em><big>)</big><a class="reference internal" href="../_modules/regolith/runcontrol.html#flatten"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.runcontrol.flatten" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generator which returns flattened version of nested sequences.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="regolith.runcontrol.ishashable">
+<tt class="descclassname">regolith.runcontrol.</tt><tt class="descname">ishashable</tt><big>(</big><em>x</em><big>)</big><a class="reference internal" href="../_modules/regolith/runcontrol.html#ishashable"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.runcontrol.ishashable" title="Permalink to this definition">¶</a></dt>
+<dd><p>Tests if a value is hashable.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="regolith.runcontrol.touch">
+<tt class="descclassname">regolith.runcontrol.</tt><tt class="descname">touch</tt><big>(</big><em>filename</em><big>)</big><a class="reference internal" href="../_modules/regolith/runcontrol.html#touch"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.runcontrol.touch" title="Permalink to this definition">¶</a></dt>
+<dd><p>Opens a file and updates the mtime, like the posix command of the same name.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="regolith.runcontrol.warn_forbidden_name">
+<tt class="descclassname">regolith.runcontrol.</tt><tt class="descname">warn_forbidden_name</tt><big>(</big><em>forname</em>, <em>inname=None</em>, <em>rename=None</em><big>)</big><a class="reference internal" href="../_modules/regolith/runcontrol.html#warn_forbidden_name"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.runcontrol.warn_forbidden_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Warns the user that a forbidden name has been found.</p>
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <div class="sphinxprev">
+    <h4>Previous page</h4>
+    <p class="topless"><a href="index.html"
+                          title="Previous page">&larr; Regolith API</a></p>
+  </div>
+  <div class="sphinxnext">
+    <h4>Next page</h4>
+    <p class="topless"><a href="database.html"
+                          title="Next page">&rarr; Database Interface Tools (<tt class="docutils literal"><span class="pre">regolith.database</span></tt>)</a></p>
+  </div>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="relbar-bottom">
+        
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="database.html" title="Database Interface Tools (regolith.database)"
+             >next</a></li>
+        <li class="right" >
+          <a href="index.html" title="Regolith API"
+             >previous</a> &nbsp; &nbsp;</li>
+    <li><a href="../index.html">regolith</a> &raquo;</li>
+
+          <li><a href="index.html" >Regolith API</a> &raquo;</li> 
+      </ul>
+    </div>
+    </div>
+
+    <div class="footer">
+        &copy; Copyright 2015, Anthony Scopatz.
+    </div>
+    <!-- cloud_sptheme 1.4 -->
+  </body>
+</html>
