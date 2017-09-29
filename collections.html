@@ -1,35 +1,34 @@
 
 
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
-    <title>Collections &mdash; regolith - research group content managment system</title>
-    
+    <title>Collections &#8212; regolith - research group content managment system</title>
     <link rel="stylesheet" href="_static/blackcloud.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="./" type="text/css" />
-    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
         VERSION:     '0.1-dev',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
       };
     </script>
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/javascript" src="_static/jquery.cookie.js"></script>
+    <script type="text/javascript" src="_static/cloud.base.js"></script>
     <script type="text/javascript" src="_static/cloud.js"></script>
-    <link rel="top" title="regolith - research group content managment system" href="index.html" />
+    <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Regolith API" href="api/index.html" />
     <link rel="prev" title="Top-level Configuration Keys" href="rc.html" /> 
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -37,7 +36,7 @@
   <body>
     <div class="relbar-top">
         
-    <div class="related">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -46,7 +45,7 @@
         <li class="right" >
           <a href="rc.html" title="Top-level Configuration Keys"
              accesskey="P">previous</a> &nbsp; &nbsp;</li>
-    <li><a href="index.html">regolith</a> &raquo;</li>
+    <li><a href="index.html">regolith</a> &#187;</li>
  
       </ul>
     </div>
@@ -56,7 +55,7 @@
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body">
+          <div class="body" role="main">
             
   <div class="section" id="collections">
 <h1>Collections<a class="headerlink" href="#collections" title="Permalink to this headline">¶</a></h1>
@@ -66,96 +65,96 @@ name.</p>
 <h2>people<a class="headerlink" href="#people" title="Permalink to this headline">¶</a></h2>
 <p>This collection describes the members of the research group.  This is normally public
 data.</p>
-<div class="code python highlight-python"><div class="highlight"><pre><span class="p">{</span><span class="s">&quot;name&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="c"># Full, canonical name for the person</span>
- <span class="s">&quot;title&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="c"># eg Dr., etc.</span>
- <span class="s">&quot;position&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>  <span class="c"># such as professor, graduate student, or scientist</span>
- <span class="s">&quot;aka&quot;</span><span class="p">:</span> <span class="p">[</span><span class="nb">str</span><span class="p">],</span>  <span class="c"># list of aliases</span>
- <span class="s">&quot;avatar&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>  <span class="c"># URL to avatar</span>
- <span class="s">&quot;bio&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>  <span class="c"># short biographical text</span>
- <span class="s">&quot;education&quot;</span><span class="p">:</span> <span class="p">[{</span>  <span class="c"># list of dictionaries</span>
-    <span class="s">&quot;institution&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
-    <span class="s">&quot;location&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
-    <span class="s">&quot;degree&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
-    <span class="s">&quot;begin_year&quot;</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
-    <span class="s">&quot;begin_month&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="c"># optional</span>
-    <span class="s">&quot;end_year&quot;</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
-    <span class="s">&quot;end_month&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>  <span class="c"># optional</span>
-    <span class="s">&quot;gpa&quot;</span><span class="p">:</span> <span class="nb">float</span> <span class="ow">or</span> <span class="nb">str</span><span class="p">,</span> <span class="c"># optional</span>
-    <span class="s">&quot;other&quot;</span><span class="p">:</span> <span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="c"># list of strings of other pieces of information</span>
+<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="c1"># Full, canonical name for the person</span>
+ <span class="s2">&quot;title&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="c1"># eg Dr., etc.</span>
+ <span class="s2">&quot;position&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>  <span class="c1"># such as professor, graduate student, or scientist</span>
+ <span class="s2">&quot;aka&quot;</span><span class="p">:</span> <span class="p">[</span><span class="nb">str</span><span class="p">],</span>  <span class="c1"># list of aliases</span>
+ <span class="s2">&quot;avatar&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>  <span class="c1"># URL to avatar</span>
+ <span class="s2">&quot;bio&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>  <span class="c1"># short biographical text</span>
+ <span class="s2">&quot;education&quot;</span><span class="p">:</span> <span class="p">[{</span>  <span class="c1"># list of dictionaries</span>
+    <span class="s2">&quot;institution&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="s2">&quot;location&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="s2">&quot;degree&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="s2">&quot;begin_year&quot;</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+    <span class="s2">&quot;begin_month&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="c1"># optional</span>
+    <span class="s2">&quot;end_year&quot;</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+    <span class="s2">&quot;end_month&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>  <span class="c1"># optional</span>
+    <span class="s2">&quot;gpa&quot;</span><span class="p">:</span> <span class="nb">float</span> <span class="ow">or</span> <span class="nb">str</span><span class="p">,</span> <span class="c1"># optional</span>
+    <span class="s2">&quot;other&quot;</span><span class="p">:</span> <span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="c1"># list of strings of other pieces of information</span>
     <span class="p">},</span>
     <span class="o">...</span>
     <span class="p">],</span>
- <span class="s">&quot;employment&quot;</span><span class="p">:</span> <span class="p">[{</span>  <span class="c"># list of dicts</span>
-    <span class="s">&quot;organization&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
-    <span class="s">&quot;location&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
-    <span class="s">&quot;position&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
-    <span class="s">&quot;begin_year&quot;</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
-    <span class="s">&quot;begin_month&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="c"># optional</span>
-    <span class="s">&quot;end_year&quot;</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
-    <span class="s">&quot;end_month&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>  <span class="c"># optional</span>
-    <span class="s">&quot;other&quot;</span><span class="p">:</span> <span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="c"># list of strings of other pieces of information</span>
+ <span class="s2">&quot;employment&quot;</span><span class="p">:</span> <span class="p">[{</span>  <span class="c1"># list of dicts</span>
+    <span class="s2">&quot;organization&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="s2">&quot;location&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="s2">&quot;position&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="s2">&quot;begin_year&quot;</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+    <span class="s2">&quot;begin_month&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="c1"># optional</span>
+    <span class="s2">&quot;end_year&quot;</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+    <span class="s2">&quot;end_month&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>  <span class="c1"># optional</span>
+    <span class="s2">&quot;other&quot;</span><span class="p">:</span> <span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="c1"># list of strings of other pieces of information</span>
     <span class="p">},</span>
     <span class="o">...</span>
     <span class="p">],</span>
- <span class="s">&quot;funding&quot;</span><span class="p">:</span> <span class="p">[{</span> <span class="c"># list of dictionaries</span>
-    <span class="s">&quot;name&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
-    <span class="s">&quot;value&quot;</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
-    <span class="s">&quot;currency&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="c"># optional, defaults to &quot;$&quot;</span>
-    <span class="s">&quot;year&quot;</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
-    <span class="s">&quot;month&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="c"># optional</span>
-    <span class="s">&quot;duration&quot;</span><span class="p">:</span> <span class="nb">str</span> <span class="ow">or</span> <span class="nb">int</span><span class="p">,</span> <span class="c"># optional length of award</span>
+ <span class="s2">&quot;funding&quot;</span><span class="p">:</span> <span class="p">[{</span> <span class="c1"># list of dictionaries</span>
+    <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
+    <span class="s2">&quot;currency&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="c1"># optional, defaults to &quot;$&quot;</span>
+    <span class="s2">&quot;year&quot;</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+    <span class="s2">&quot;month&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="c1"># optional</span>
+    <span class="s2">&quot;duration&quot;</span><span class="p">:</span> <span class="nb">str</span> <span class="ow">or</span> <span class="nb">int</span><span class="p">,</span> <span class="c1"># optional length of award</span>
     <span class="p">},</span>
     <span class="o">...</span>
     <span class="p">],</span>
- <span class="s">&quot;service&quot;</span><span class="p">:</span> <span class="p">[{</span> <span class="c"># list of dictionaries</span>
-    <span class="s">&quot;name&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
-    <span class="s">&quot;description&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="c"># optional</span>
-    <span class="s">&quot;year&quot;</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
-    <span class="s">&quot;month&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="c"># optional</span>
-    <span class="s">&quot;duration&quot;</span><span class="p">:</span> <span class="nb">str</span> <span class="ow">or</span> <span class="nb">int</span><span class="p">,</span> <span class="c"># optional length of service</span>
+ <span class="s2">&quot;service&quot;</span><span class="p">:</span> <span class="p">[{</span> <span class="c1"># list of dictionaries</span>
+    <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="c1"># optional</span>
+    <span class="s2">&quot;year&quot;</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+    <span class="s2">&quot;month&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="c1"># optional</span>
+    <span class="s2">&quot;duration&quot;</span><span class="p">:</span> <span class="nb">str</span> <span class="ow">or</span> <span class="nb">int</span><span class="p">,</span> <span class="c1"># optional length of service</span>
     <span class="p">},</span>
     <span class="o">...</span>
     <span class="p">],</span>
- <span class="s">&quot;honors&quot;</span><span class="p">:</span> <span class="p">[{</span> <span class="c"># list of dictionaries</span>
-    <span class="s">&quot;name&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
-    <span class="s">&quot;description&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="c"># optional</span>
-    <span class="s">&quot;year&quot;</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
-    <span class="s">&quot;month&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="c"># optional</span>
+ <span class="s2">&quot;honors&quot;</span><span class="p">:</span> <span class="p">[{</span> <span class="c1"># list of dictionaries</span>
+    <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="c1"># optional</span>
+    <span class="s2">&quot;year&quot;</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+    <span class="s2">&quot;month&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="c1"># optional</span>
     <span class="p">},</span>
     <span class="o">...</span>
     <span class="p">],</span>
- <span class="s">&quot;teaching&quot;</span><span class="p">:</span> <span class="p">[{</span> <span class="c"># list of dicts</span>
-    <span class="s">&quot;course&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>  <span class="c"># name of the course</span>
-    <span class="s">&quot;organization&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
-    <span class="s">&quot;position&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
-    <span class="s">&quot;year&quot;</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
-    <span class="s">&quot;month&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="c"># optional</span>
-    <span class="s">&quot;end_year&quot;</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="c"># optional</span>
-    <span class="s">&quot;end_month&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>  <span class="c"># optional</span>
-    <span class="s">&quot;description&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="c"># optional</span>
-    <span class="s">&quot;website&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>  <span class="c"># optional URL</span>
-    <span class="s">&quot;syllabus&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>  <span class="c"># optional URL</span>
-    <span class="s">&quot;video&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>  <span class="c"># optional URL</span>
-    <span class="s">&quot;materials&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>  <span class="c"># optional URL</span>
+ <span class="s2">&quot;teaching&quot;</span><span class="p">:</span> <span class="p">[{</span> <span class="c1"># list of dicts</span>
+    <span class="s2">&quot;course&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>  <span class="c1"># name of the course</span>
+    <span class="s2">&quot;organization&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="s2">&quot;position&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="s2">&quot;year&quot;</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+    <span class="s2">&quot;month&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="c1"># optional</span>
+    <span class="s2">&quot;end_year&quot;</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="c1"># optional</span>
+    <span class="s2">&quot;end_month&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>  <span class="c1"># optional</span>
+    <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="c1"># optional</span>
+    <span class="s2">&quot;website&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>  <span class="c1"># optional URL</span>
+    <span class="s2">&quot;syllabus&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>  <span class="c1"># optional URL</span>
+    <span class="s2">&quot;video&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>  <span class="c1"># optional URL</span>
+    <span class="s2">&quot;materials&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>  <span class="c1"># optional URL</span>
     <span class="p">},</span>
     <span class="o">...</span>
     <span class="p">],</span>
- <span class="s">&quot;membership&quot;</span><span class="p">:</span> <span class="p">[{</span> <span class="c"># list of dicts</span>
-    <span class="s">&quot;organization&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
-    <span class="s">&quot;position&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
-    <span class="s">&quot;description&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="c"># optional</span>
-    <span class="s">&quot;begin_year&quot;</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
-    <span class="s">&quot;begin_month&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="c"># optional</span>
-    <span class="s">&quot;end_year&quot;</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="c"># optional</span>
-    <span class="s">&quot;end_month&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>  <span class="c"># optional</span>
-    <span class="s">&quot;website&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>  <span class="c"># optional URL</span>
+ <span class="s2">&quot;membership&quot;</span><span class="p">:</span> <span class="p">[{</span> <span class="c1"># list of dicts</span>
+    <span class="s2">&quot;organization&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="s2">&quot;position&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="c1"># optional</span>
+    <span class="s2">&quot;begin_year&quot;</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+    <span class="s2">&quot;begin_month&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="c1"># optional</span>
+    <span class="s2">&quot;end_year&quot;</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="c1"># optional</span>
+    <span class="s2">&quot;end_month&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>  <span class="c1"># optional</span>
+    <span class="s2">&quot;website&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>  <span class="c1"># optional URL</span>
     <span class="p">},</span>
     <span class="o">...</span>
     <span class="p">],</span>
- <span class="s">&quot;skills&quot;</span><span class="p">:</span> <span class="p">[{</span> <span class="c"># list of dicts</span>
-    <span class="s">&quot;name&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
-    <span class="s">&quot;category&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
-    <span class="s">&quot;level&quot;</span><span class="p">:</span> <span class="nb">str</span>
+ <span class="s2">&quot;skills&quot;</span><span class="p">:</span> <span class="p">[{</span> <span class="c1"># list of dicts</span>
+    <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="s2">&quot;category&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="s2">&quot;level&quot;</span><span class="p">:</span> <span class="nb">str</span>
     <span class="p">},</span>
     <span class="o">...</span>
     <span class="p">],</span>
@@ -165,27 +164,27 @@ data.</p>
 </div>
 <div class="section" id="citations">
 <h2>citations<a class="headerlink" href="#citations" title="Permalink to this headline">¶</a></h2>
-<p>This collection should contain bibtex equivalent fields.  Additionally, the keys <tt class="docutils literal"><span class="pre">&quot;entrytype&quot;</span></tt> denotes
-things like <tt class="docutils literal"><span class="pre">ARTICLE</span></tt>, and <tt class="docutils literal"><span class="pre">&quot;_id&quot;</span></tt> denotes the entry identifier.  Furthermore, the <tt class="docutils literal"><span class="pre">&quot;author&quot;</span></tt> key should
+<p>This collection should contain bibtex equivalent fields.  Additionally, the keys <code class="docutils literal"><span class="pre">&quot;entrytype&quot;</span></code> denotes
+things like <code class="docutils literal"><span class="pre">ARTICLE</span></code>, and <code class="docutils literal"><span class="pre">&quot;_id&quot;</span></code> denotes the entry identifier.  Furthermore, the <code class="docutils literal"><span class="pre">&quot;author&quot;</span></code> key should
 be a list of strings.  See the Python project <a class="reference external" href="https://bibtexparser.readthedocs.org/">BibtexParser</a> for more
 information.</p>
 </div>
 <div class="section" id="projects">
 <h2>projects<a class="headerlink" href="#projects" title="Permalink to this headline">¶</a></h2>
 <p>This collection describes the research group projects. This is normally public data.</p>
-<div class="code python highlight-python"><div class="highlight"><pre><span class="p">{</span><span class="s">&quot;name&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
- <span class="s">&quot;description&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
- <span class="s">&quot;website&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
- <span class="s">&quot;repo&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="c"># src code repo, if available</span>
- <span class="s">&quot;logo&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="c"># url to logo, optional</span>
- <span class="s">&quot;other&quot;</span><span class="p">:</span> <span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="c"># other information, list of str</span>
- <span class="s">&quot;team&quot;</span><span class="p">:</span> <span class="p">[{</span>  <span class="c"># list of dicts</span>
-    <span class="s">&quot;name&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="c"># should match a person&#39;s name  or AKA</span>
-    <span class="s">&quot;position&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
-    <span class="s">&quot;begin_year&quot;</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
-    <span class="s">&quot;begin_month&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="c"># optional</span>
-    <span class="s">&quot;end_year&quot;</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="c"># optional</span>
-    <span class="s">&quot;end_month&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>  <span class="c"># optional</span>
+<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+ <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+ <span class="s2">&quot;website&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+ <span class="s2">&quot;repo&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="c1"># src code repo, if available</span>
+ <span class="s2">&quot;logo&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="c1"># url to logo, optional</span>
+ <span class="s2">&quot;other&quot;</span><span class="p">:</span> <span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="c1"># other information, list of str</span>
+ <span class="s2">&quot;team&quot;</span><span class="p">:</span> <span class="p">[{</span>  <span class="c1"># list of dicts</span>
+    <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="c1"># should match a person&#39;s name  or AKA</span>
+    <span class="s2">&quot;position&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="s2">&quot;begin_year&quot;</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+    <span class="s2">&quot;begin_month&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="c1"># optional</span>
+    <span class="s2">&quot;end_year&quot;</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="c1"># optional</span>
+    <span class="s2">&quot;end_month&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>  <span class="c1"># optional</span>
     <span class="p">},</span>
     <span class="o">...</span>
     <span class="p">],</span>
@@ -196,32 +195,167 @@ information.</p>
 <div class="section" id="news">
 <h2>news<a class="headerlink" href="#news" title="Permalink to this headline">¶</a></h2>
 <p>This collection describes the research group news. This is normally public data.</p>
-<div class="code python highlight-python"><div class="highlight"><pre><span class="p">{</span><span class="s">&quot;body&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
- <span class="s">&quot;author&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="c"># name that should match a person or AKA</span>
- <span class="s">&quot;year&quot;</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
- <span class="s">&quot;month&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
- <span class="s">&quot;day&quot;</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span><span class="s2">&quot;body&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+ <span class="s2">&quot;author&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="c1"># name that should match a person or AKA</span>
+ <span class="s2">&quot;year&quot;</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+ <span class="s2">&quot;month&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+ <span class="s2">&quot;day&quot;</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
  <span class="p">}</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="jobs">
 <h2>jobs<a class="headerlink" href="#jobs" title="Permalink to this headline">¶</a></h2>
-<p>This collection describes the research group jobss. This is normally public data.</p>
-<div class="code python highlight-python"><div class="highlight"><pre><span class="p">{</span><span class="s">&quot;_id&quot;</span><span class="p">:</span> <span class="nb">str</span> <span class="ow">or</span> <span class="n">number</span><span class="p">,</span> <span class="c">#</span>
- <span class="s">&quot;title&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
- <span class="s">&quot;description&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
- <span class="s">&quot;open&quot;</span><span class="p">:</span> <span class="nb">bool</span><span class="p">,</span>
- <span class="s">&quot;contact&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>  <span class="c"># contact information for how to apply</span>
- <span class="s">&quot;positions&quot;</span><span class="p">:</span> <span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="c"># list of string positions such as &quot;Graduate Student&quot;, &quot;Post-doctoral Scholar&quot;, etc</span>
- <span class="s">&quot;background_fields&quot;</span><span class="p">:</span> <span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="c"># previous disciplines, eg. Nucleare Engineering or Computer Science</span>
- <span class="s">&quot;year&quot;</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
- <span class="s">&quot;month&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
- <span class="s">&quot;day&quot;</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
- <span class="s">&quot;start_date&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>  <span class="c"># date or ASAP or similar</span>
- <span class="s">&quot;expertise&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
- <span class="s">&quot;compensation&quot;</span><span class="p">:</span> <span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="c"># list of compensations</span>
+<p>This collection describes the research group jobs. This is normally public data.</p>
+<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span><span class="s2">&quot;_id&quot;</span><span class="p">:</span> <span class="nb">str</span> <span class="ow">or</span> <span class="n">number</span><span class="p">,</span> <span class="c1">#</span>
+ <span class="s2">&quot;title&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+ <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+ <span class="s2">&quot;open&quot;</span><span class="p">:</span> <span class="nb">bool</span><span class="p">,</span>
+ <span class="s2">&quot;contact&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>  <span class="c1"># contact information for how to apply</span>
+ <span class="s2">&quot;positions&quot;</span><span class="p">:</span> <span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="c1"># list of string positions such as &quot;Graduate Student&quot;, &quot;Post-doctoral Scholar&quot;, etc</span>
+ <span class="s2">&quot;background_fields&quot;</span><span class="p">:</span> <span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="c1"># previous disciplines, eg. Nucleare Engineering or Computer Science</span>
+ <span class="s2">&quot;year&quot;</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+ <span class="s2">&quot;month&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+ <span class="s2">&quot;day&quot;</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+ <span class="s2">&quot;start_date&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>  <span class="c1"># date or ASAP or similar</span>
+ <span class="s2">&quot;expertise&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+ <span class="s2">&quot;compensation&quot;</span><span class="p">:</span> <span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="c1"># list of compensations</span>
  <span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="blog">
+<h2>blog<a class="headerlink" href="#blog" title="Permalink to this headline">¶</a></h2>
+<p>This collection represents blog posts written by the members of the research group.</p>
+<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span><span class="s2">&quot;_id&quot;</span><span class="p">:</span> <span class="nb">str</span> <span class="ow">or</span> <span class="n">number</span><span class="p">,</span> <span class="c1"># short represntation, such as this-is-my-title</span>
+ <span class="s2">&quot;title&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>  <span class="c1"># full human readable title</span>
+ <span class="s2">&quot;original&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>  <span class="c1"># URL of original post, if this is a repost, optional</span>
+ <span class="s2">&quot;author&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="c1"># name or AKA of author</span>
+ <span class="s2">&quot;year&quot;</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+ <span class="s2">&quot;month&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+ <span class="s2">&quot;day&quot;</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+ <span class="s2">&quot;post&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="c1"># actual contents of the post</span>
+ <span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="proposals">
+<h2>proposals<a class="headerlink" href="#proposals" title="Permalink to this headline">¶</a></h2>
+<p>This collection represents proposals that have been submitted by the group.</p>
+<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span><span class="s2">&quot;_id&quot;</span><span class="p">:</span> <span class="nb">str</span> <span class="ow">or</span> <span class="n">number</span><span class="p">,</span> <span class="c1"># short represntation, such as this-is-my-name</span>
+ <span class="s2">&quot;title&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="c1"># actual title of proposal</span>
+ <span class="s2">&quot;pi&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>  <span class="c1"># principal investigator name</span>
+ <span class="s2">&quot;authors&quot;</span><span class="p">:</span> <span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="c1"># other investigator names</span>
+ <span class="s2">&quot;status&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="c1"># e.g. &#39;submitted&#39;, &#39;accepted&#39;, &#39;rejected&#39;</span>
+ <span class="s2">&quot;ammount&quot;</span><span class="p">:</span> <span class="nb">int</span> <span class="ow">or</span> <span class="nb">float</span><span class="p">,</span> <span class="c1"># value of award</span>
+ <span class="s2">&quot;currency&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="c1"># typically &#39;$&#39; or &#39;USD&#39;</span>
+ <span class="s2">&quot;durration&quot;</span><span class="p">:</span> <span class="nb">int</span> <span class="ow">or</span> <span class="nb">float</span><span class="p">,</span> <span class="c1"># number of years</span>
+ <span class="s2">&quot;year&quot;</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+ <span class="s2">&quot;month&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+ <span class="s2">&quot;day&quot;</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+ <span class="s2">&quot;pre&quot;</span><span class="p">:</span> <span class="p">{</span> <span class="c1"># Information about the pre-proposal, optional</span>
+    <span class="s2">&quot;year&quot;</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+    <span class="s2">&quot;month&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="s2">&quot;day&quot;</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+    <span class="s2">&quot;narrative&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="c1"># URL of document</span>
+    <span class="s2">&quot;benefit_of_collaboration&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="c1"># URL of document</span>
+    <span class="s2">&quot;cv&quot;</span><span class="p">:</span> <span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="c1"># URL to documents</span>
+    <span class="p">},</span>
+ <span class="s2">&quot;full&quot;</span><span class="p">:</span> <span class="p">{</span> <span class="c1"># Information about the pre-proposal, optional</span>
+    <span class="s2">&quot;narrative&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="c1"># URL of document</span>
+    <span class="s2">&quot;benefit_of_collaboration&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="c1"># URL of document</span>
+    <span class="s2">&quot;cv&quot;</span><span class="p">:</span> <span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="c1"># URL to documents</span>
+    <span class="p">},</span>
+ <span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="grants">
+<h2>grants<a class="headerlink" href="#grants" title="Permalink to this headline">¶</a></h2>
+<p>This collection represents grants that have been awarded to the group.</p>
+<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span><span class="s2">&quot;_id&quot;</span><span class="p">:</span> <span class="nb">str</span> <span class="ow">or</span> <span class="n">number</span><span class="p">,</span> <span class="c1"># short represntation, such as this-is-my-name</span>
+ <span class="s2">&quot;title&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="c1"># actual title of proposal</span>
+ <span class="s2">&quot;funder&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="c1"># the agency funding the work</span>
+ <span class="s2">&quot;program&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="c1"># the program the work was funded under</span>
+ <span class="s2">&quot;grant_id&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="c1"># optional, the identfier for this work, eg #42024</span>
+ <span class="s2">&quot;call_for_proposals&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>  <span class="c1"># optional, URL to the call for proposals</span>
+ <span class="s2">&quot;narrative&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="c1"># optional, URL of document</span>
+ <span class="s2">&quot;benefit_of_collaboration&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="c1"># optional, URL of document</span>
+ <span class="s2">&quot;amount&quot;</span><span class="p">:</span> <span class="nb">int</span> <span class="ow">or</span> <span class="nb">float</span><span class="p">,</span> <span class="c1"># value of award</span>
+ <span class="s2">&quot;currency&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="c1"># typically &#39;$&#39; or &#39;USD&#39;</span>
+ <span class="s2">&quot;begin_year&quot;</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+ <span class="s2">&quot;begin_month&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+ <span class="s2">&quot;begin_day&quot;</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>  <span class="c1"># optional</span>
+ <span class="s2">&quot;end_year&quot;</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+ <span class="s2">&quot;end_month&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+ <span class="s2">&quot;end_day&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>  <span class="c1"># optional</span>
+ <span class="s2">&quot;team&quot;</span><span class="p">:</span> <span class="p">[{</span>  <span class="c1"># list of dicts</span>
+    <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="c1"># should match a person&#39;s name  or AKA</span>
+    <span class="s2">&quot;position&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>   <span class="c1"># PI, Co-PI, Co-I, Researcher, etc.</span>
+    <span class="s2">&quot;institution&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="c1"># The institution of this investigator</span>
+    <span class="s2">&quot;subaward_amount&quot;</span><span class="p">,</span> <span class="nb">int</span> <span class="ow">or</span> <span class="nb">float</span><span class="p">,</span>  <span class="c1"># optional</span>
+    <span class="s2">&quot;cv&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>  <span class="c1"># optional, URL of document</span>
+    <span class="p">},</span>
+    <span class="o">...</span>
+    <span class="p">],</span>
+ <span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="students">
+<h2>students<a class="headerlink" href="#students" title="Permalink to this headline">¶</a></h2>
+<p>This is a collection of student names and metadata.</p>
+<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span><span class="s2">&quot;_id&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="c1"># short represntation, such as this-is-my-name</span>
+ <span class="s2">&quot;aka&quot;</span><span class="p">:</span> <span class="p">[</span><span class="nb">str</span><span class="p">],</span>  <span class="c1"># list of aliases, optional</span>
+ <span class="s2">&quot;email&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="c1"># email address, optional</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="courses">
+<h2>courses<a class="headerlink" href="#courses" title="Permalink to this headline">¶</a></h2>
+<p>This is a collection that describes a course, when it happened, and
+who is taking it.</p>
+<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span><span class="s2">&quot;_id&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="c1"># course unique id, such a EMCH-558-2016-S</span>
+ <span class="s2">&quot;department&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="c1"># department code, e.g. EMCH</span>
+ <span class="s2">&quot;number&quot;</span><span class="p">:</span> <span class="nb">int</span> <span class="ow">or</span> <span class="nb">str</span><span class="p">,</span>  <span class="c1"># class number, e.g. 558</span>
+ <span class="s2">&quot;year&quot;</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>  <span class="c1"># year taught, e.g. 2016</span>
+ <span class="s2">&quot;season&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>  <span class="c1"># semester or quarter instructed in, e.g. &#39;F&#39;, &#39;W&#39;, &#39;S&#39;, or &#39;M&#39;</span>
+ <span class="s2">&quot;students&quot;</span><span class="p">:</span> <span class="p">[</span><span class="nb">str</span><span class="p">],</span>  <span class="c1"># names of students enrolled in course</span>
+ <span class="s2">&quot;syllabus&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>  <span class="c1"># syllabus file name in store, optional</span>
+ <span class="s2">&quot;weights&quot;</span><span class="p">:</span> <span class="p">{</span><span class="nb">str</span><span class="p">:</span> <span class="nb">float</span><span class="p">},</span>  <span class="c1"># mapping from assignment category name</span>
+                           <span class="c1"># to fraction of final grade.</span>
+ <span class="s2">&quot;active&quot;</span><span class="p">:</span> <span class="nb">bool</span><span class="p">,</span>  <span class="c1"># whether  or not the course is actively being taught</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="assignments">
+<h2>assignments<a class="headerlink" href="#assignments" title="Permalink to this headline">¶</a></h2>
+<p>Assignment info.</p>
+<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span><span class="s2">&quot;_id&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="c1"># unique id, such a HW01-EMCH-558-2016-S</span>
+ <span class="s2">&quot;courses&quot;</span><span class="p">:</span> <span class="p">[</span><span class="nb">str</span><span class="p">],</span>  <span class="c1"># ids of the courses</span>
+ <span class="s2">&quot;category&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>  <span class="c1"># such as &#39;homework&#39; or &#39;final&#39;</span>
+ <span class="s2">&quot;file&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>  <span class="c1"># path to assignment file in store, optional</span>
+ <span class="s2">&quot;solution&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>  <span class="c1"># path to solution file in store, optional</span>
+ <span class="s2">&quot;question&quot;</span><span class="p">:</span> <span class="p">[</span><span class="nb">str</span><span class="p">],</span>  <span class="c1"># titles for the questions on this assignment,</span>
+                     <span class="c1"># optional, defaults to 1-indexed ints if absent.</span>
+ <span class="s2">&quot;points&quot;</span><span class="p">:</span> <span class="p">[</span><span class="nb">int</span> <span class="ow">or</span> <span class="nb">float</span><span class="p">],</span>  <span class="c1"># list of number of points possible for each</span>
+                            <span class="c1"># question. Length is the number of questions</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="grades">
+<h2>grades<a class="headerlink" href="#grades" title="Permalink to this headline">¶</a></h2>
+<p>The grade for a student on an assignment.</p>
+<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span><span class="s2">&quot;_id&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="c1"># unique id, typically the student-assignment-course</span>
+ <span class="s2">&quot;student&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>  <span class="c1"># student id</span>
+ <span class="s2">&quot;assignment&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>  <span class="c1"># assignment id</span>
+ <span class="s2">&quot;course&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="c1"># course id</span>
+ <span class="s2">&quot;scores&quot;</span><span class="p">:</span> <span class="p">[</span><span class="nb">int</span> <span class="ow">or</span> <span class="nb">float</span><span class="p">],</span>  <span class="c1"># the number of points earned on each question</span>
+ <span class="s2">&quot;filename&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>  <span class="c1"># path to file in store, optional</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 </div>
@@ -231,8 +365,8 @@ information.</p>
           </div>
         </div>
       </div>
-      <div class="sphinxsidebar">
-        <div class="sphinxsidebarwrapper"><div class="sphinxlocaltoc">
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><div class="sphinx-toc sphinxlocaltoc">
     <h3><a href="index.html">Page contents</a></h3>
     <ul>
 <li><a class="reference internal" href="#">Collections</a><ul>
@@ -241,6 +375,13 @@ information.</p>
 <li><a class="reference internal" href="#projects">projects</a></li>
 <li><a class="reference internal" href="#news">news</a></li>
 <li><a class="reference internal" href="#jobs">jobs</a></li>
+<li><a class="reference internal" href="#blog">blog</a></li>
+<li><a class="reference internal" href="#proposals">proposals</a></li>
+<li><a class="reference internal" href="#grants">grants</a></li>
+<li><a class="reference internal" href="#students">students</a></li>
+<li><a class="reference internal" href="#courses">courses</a></li>
+<li><a class="reference internal" href="#assignments">assignments</a></li>
+<li><a class="reference internal" href="#grades">grades</a></li>
 </ul>
 </li>
 </ul>
@@ -256,26 +397,40 @@ information.</p>
     <p class="topless"><a href="api/index.html"
                           title="Next page">&rarr; Regolith API</a></p>
   </div>
-<div id="searchbox" style="display: none">
+<div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
     <form class="search" action="search.html" method="get">
-      <input type="text" name="q" />
-      <input type="submit" value="Go" />
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
       <input type="hidden" name="check_keywords" value="yes" />
       <input type="hidden" name="area" value="default" />
     </form>
-    <p class="searchtip" style="font-size: 90%">
-    Enter search terms or a module, class or function name.
-    </p>
 </div>
 <script type="text/javascript">$('#searchbox').show(0);</script>
         </div>
       </div>
+    
+    
+        <div class="sidebar-toggle-group no-js">
+            
+            <button class="sidebar-toggle" id="sidebar-hide" title="Hide the sidebar menu">
+                 «
+                <span class="show-for-small">hide menu</span>
+                
+            </button>
+            <button class="sidebar-toggle" id="sidebar-show" title="Show the sidebar menu">
+                
+                <span class="show-for-small">menu</span>
+                <span class="hide-for-small">sidebar</span>
+                 »
+            </button>
+        </div>
+    
       <div class="clearer"></div>
     </div>
     <div class="relbar-bottom">
         
-    <div class="related">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -284,14 +439,14 @@ information.</p>
         <li class="right" >
           <a href="rc.html" title="Top-level Configuration Keys"
              >previous</a> &nbsp; &nbsp;</li>
-    <li><a href="index.html">regolith</a> &raquo;</li>
+    <li><a href="index.html">regolith</a> &#187;</li>
  
       </ul>
     </div>
     </div>
 
-    <div class="footer">
-        &copy; Copyright 2015, Anthony Scopatz.
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2015, Anthony Scopatz.
     </div>
     <!-- cloud_sptheme 1.4 -->
   </body>

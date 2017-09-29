@@ -1,35 +1,34 @@
 
 
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
-    <title>Top-level Configuration Keys &mdash; regolith - research group content managment system</title>
-    
+    <title>Top-level Configuration Keys &#8212; regolith - research group content managment system</title>
     <link rel="stylesheet" href="_static/blackcloud.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="./" type="text/css" />
-    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
         VERSION:     '0.1-dev',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
       };
     </script>
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/javascript" src="_static/jquery.cookie.js"></script>
+    <script type="text/javascript" src="_static/cloud.base.js"></script>
     <script type="text/javascript" src="_static/cloud.js"></script>
-    <link rel="top" title="regolith - research group content managment system" href="index.html" />
+    <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Collections" href="collections.html" />
     <link rel="prev" title="Regolith" href="index.html" /> 
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -37,7 +36,7 @@
   <body>
     <div class="relbar-top">
         
-    <div class="related">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -46,7 +45,7 @@
         <li class="right" >
           <a href="index.html" title="Regolith"
              accesskey="P">previous</a> &nbsp; &nbsp;</li>
-    <li><a href="index.html">regolith</a> &raquo;</li>
+    <li><a href="index.html">regolith</a> &#187;</li>
  
       </ul>
     </div>
@@ -56,33 +55,33 @@
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body">
+          <div class="body" role="main">
             
   <div class="section" id="top-level-configuration-keys">
 <h1>Top-level Configuration Keys<a class="headerlink" href="#top-level-configuration-keys" title="Permalink to this headline">¶</a></h1>
 <p>Herein are described the top-level keys in the run control file.</p>
 <div class="section" id="builddir">
-<h2><tt class="docutils literal"><span class="pre">builddir</span></tt><a class="headerlink" href="#builddir" title="Permalink to this headline">¶</a></h2>
+<h2><code class="docutils literal"><span class="pre">builddir</span></code><a class="headerlink" href="#builddir" title="Permalink to this headline">¶</a></h2>
 <p>The temporary location to build whatever it is needs building.</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="s">&#39;path/to/dir&#39;</span> <span class="ow">or</span> <span class="bp">None</span>  <span class="c"># string, optional</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="s1">&#39;path/to/dir&#39;</span> <span class="ow">or</span> <span class="bp">None</span>  <span class="c1"># string, optional</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="mongodbpath">
-<h2><tt class="docutils literal"><span class="pre">mongodbpath</span></tt><a class="headerlink" href="#mongodbpath" title="Permalink to this headline">¶</a></h2>
-<p>The value to pass into the <tt class="docutils literal"><span class="pre">--dbpath</span></tt> option to <tt class="docutils literal"><span class="pre">mongod</span></tt>.  Defaults to <tt class="docutils literal"><span class="pre">'${builddir}/_dbpath'</span></tt>
+<h2><code class="docutils literal"><span class="pre">mongodbpath</span></code><a class="headerlink" href="#mongodbpath" title="Permalink to this headline">¶</a></h2>
+<p>The value to pass into the <code class="docutils literal"><span class="pre">--dbpath</span></code> option to <code class="docutils literal"><span class="pre">mongod</span></code>.  Defaults to <code class="docutils literal"><span class="pre">'${builddir}/_dbpath'</span></code>
 if unspecified.</p>
 </div>
 <div class="section" id="databases">
-<h2><tt class="docutils literal"><span class="pre">databases</span></tt><a class="headerlink" href="#databases" title="Permalink to this headline">¶</a></h2>
+<h2><code class="docutils literal"><span class="pre">databases</span></code><a class="headerlink" href="#databases" title="Permalink to this headline">¶</a></h2>
 <p>This represents the public or private databases that are used to store unstructured data about the group
 and its activities.</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="p">[{</span>  <span class="c"># list of dictionaries in order of precedence</span>
- <span class="s">&#39;name&#39;</span><span class="p">:</span> <span class="s">&#39;x&#39;</span><span class="p">,</span>  <span class="c"># string identifier for databases name</span>
- <span class="s">&#39;url&#39;</span><span class="p">:</span> <span class="s">&#39;http://...&#39;</span><span class="p">,</span>  <span class="c"># location of database</span>
- <span class="s">&#39;path&#39;</span><span class="p">:</span> <span class="s">&#39;path/to/database&#39;</span><span class="p">,</span>  <span class="c"># inside of the resource location</span>
- <span class="s">&#39;public&#39;</span><span class="p">:</span> <span class="bp">True</span> <span class="o">|</span> <span class="bp">False</span><span class="p">,</span>  <span class="c"># whether the database is fully public or may contain</span>
-                          <span class="c"># sensitive information.</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="p">[{</span>  <span class="c1"># list of dictionaries in order of precedence</span>
+ <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;x&#39;</span><span class="p">,</span>  <span class="c1"># string identifier for databases name</span>
+ <span class="s1">&#39;url&#39;</span><span class="p">:</span> <span class="s1">&#39;http://...&#39;</span><span class="p">,</span>  <span class="c1"># location of database</span>
+ <span class="s1">&#39;path&#39;</span><span class="p">:</span> <span class="s1">&#39;path/to/database&#39;</span><span class="p">,</span>  <span class="c1"># inside of the resource location</span>
+ <span class="s1">&#39;public&#39;</span><span class="p">:</span> <span class="bp">True</span> <span class="o">|</span> <span class="bp">False</span><span class="p">,</span>  <span class="c1"># whether the database is fully public or may contain</span>
+                          <span class="c1"># sensitive information.</span>
  <span class="p">},</span>
  <span class="o">...</span>
  <span class="p">]</span>
@@ -90,33 +89,37 @@ and its activities.</p>
 </div>
 </div>
 <div class="section" id="stores">
-<h2><tt class="docutils literal"><span class="pre">stores</span></tt><a class="headerlink" href="#stores" title="Permalink to this headline">¶</a></h2>
+<h2><code class="docutils literal"><span class="pre">stores</span></code><a class="headerlink" href="#stores" title="Permalink to this headline">¶</a></h2>
 <p>This is used to represent connection information to document stores, think PDFs, images, etc.</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="p">[{</span>  <span class="c"># list of dictionaries in order of precedence</span>
- <span class="s">&#39;name&#39;</span><span class="p">:</span> <span class="s">&#39;x&#39;</span><span class="p">,</span>  <span class="c"># string identifier for store name</span>
- <span class="s">&#39;url&#39;</span><span class="p">:</span> <span class="s">&#39;http://...&#39;</span><span class="p">,</span>  <span class="c"># location of the store</span>
- <span class="s">&#39;path&#39;</span><span class="p">:</span> <span class="s">&#39;path/to/store&#39;</span> <span class="ow">or</span> <span class="bp">None</span><span class="p">,</span>  <span class="c"># inside of the resource location, optional</span>
- <span class="s">&#39;public&#39;</span><span class="p">:</span> <span class="bp">True</span> <span class="o">|</span> <span class="bp">False</span><span class="p">,</span>  <span class="c"># whether the store is fully public or may contain</span>
-                          <span class="c"># sensitive information.</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="p">[{</span>  <span class="c1"># list of dictionaries in order of precedence</span>
+ <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;x&#39;</span><span class="p">,</span>  <span class="c1"># string identifier for store name</span>
+ <span class="s1">&#39;url&#39;</span><span class="p">:</span> <span class="s1">&#39;http://...&#39;</span><span class="p">,</span>  <span class="c1"># location of the store</span>
+ <span class="s1">&#39;path&#39;</span><span class="p">:</span> <span class="s1">&#39;path/to/store&#39;</span> <span class="ow">or</span> <span class="bp">None</span><span class="p">,</span>  <span class="c1"># inside of the resource location, optional</span>
+ <span class="s1">&#39;public&#39;</span><span class="p">:</span> <span class="bp">True</span> <span class="o">|</span> <span class="bp">False</span><span class="p">,</span>  <span class="c1"># whether the store is fully public or may contain</span>
+                          <span class="c1"># sensitive information.</span>
  <span class="p">},</span>
  <span class="o">...</span>
  <span class="p">]</span>
 </pre></div>
 </div>
 </div>
+<div class="section" id="groupname">
+<h2><code class="docutils literal"><span class="pre">groupname</span></code><a class="headerlink" href="#groupname" title="Permalink to this headline">¶</a></h2>
+<p>This is a string of the research group name.</p>
+</div>
 <div class="section" id="cname">
-<h2><tt class="docutils literal"><span class="pre">cname</span></tt><a class="headerlink" href="#cname" title="Permalink to this headline">¶</a></h2>
+<h2><code class="docutils literal"><span class="pre">cname</span></code><a class="headerlink" href="#cname" title="Permalink to this headline">¶</a></h2>
 <p>This is a string of the CNAME value.  This will be put into a file called CNAME in the root
 HTML build dir, if it is present.</p>
 </div>
 <div class="section" id="deploy">
-<h2><tt class="docutils literal"><span class="pre">deploy</span></tt><a class="headerlink" href="#deploy" title="Permalink to this headline">¶</a></h2>
+<h2><code class="docutils literal"><span class="pre">deploy</span></code><a class="headerlink" href="#deploy" title="Permalink to this headline">¶</a></h2>
 <p>This is a list of deployment targets to send information to from the build directories.</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="p">[{</span>  <span class="c"># list of dictionaries in order of precedence</span>
- <span class="s">&#39;name&#39;</span><span class="p">:</span> <span class="s">&#39;x&#39;</span><span class="p">,</span>  <span class="c"># string identifier for store name</span>
- <span class="s">&#39;url&#39;</span><span class="p">:</span> <span class="s">&#39;http://...&#39;</span><span class="p">,</span>  <span class="c"># location of the store</span>
- <span class="s">&#39;src&#39;</span><span class="p">:</span> <span class="s">&#39;path/to/src/in/builddir&#39;</span><span class="p">,</span> <span class="c"># what are we copying, eg &#39;html&#39;(optional, the default)</span>
- <span class="s">&#39;dst&#39;</span><span class="p">:</span> <span class="s">&#39;path/to/dest/in/deploydir/x&#39;</span> <span class="ow">or</span> <span class="bp">None</span><span class="p">,</span>  <span class="c"># inside of the resource location, optional</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="p">[{</span>  <span class="c1"># list of dictionaries in order of precedence</span>
+ <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;x&#39;</span><span class="p">,</span>  <span class="c1"># string identifier for store name</span>
+ <span class="s1">&#39;url&#39;</span><span class="p">:</span> <span class="s1">&#39;http://...&#39;</span><span class="p">,</span>  <span class="c1"># location of the store</span>
+ <span class="s1">&#39;src&#39;</span><span class="p">:</span> <span class="s1">&#39;path/to/src/in/builddir&#39;</span><span class="p">,</span> <span class="c1"># what are we copying, eg &#39;html&#39;(optional, the default)</span>
+ <span class="s1">&#39;dst&#39;</span><span class="p">:</span> <span class="s1">&#39;path/to/dest/in/deploydir/x&#39;</span> <span class="ow">or</span> <span class="bp">None</span><span class="p">,</span>  <span class="c1"># inside of the resource location, optional</span>
  <span class="p">},</span>
  <span class="o">...</span>
  <span class="p">]</span>
@@ -124,10 +127,10 @@ HTML build dir, if it is present.</p>
 </div>
 </div>
 <div class="section" id="deploydir">
-<h2><tt class="docutils literal"><span class="pre">deploydir</span></tt><a class="headerlink" href="#deploydir" title="Permalink to this headline">¶</a></h2>
+<h2><code class="docutils literal"><span class="pre">deploydir</span></code><a class="headerlink" href="#deploydir" title="Permalink to this headline">¶</a></h2>
 <p>The temporary location to for all deployment directories.  If not present, this
-will default to a <tt class="docutils literal"><span class="pre">deploy</span></tt> dir inside of the <tt class="docutils literal"><span class="pre">builddir</span></tt></p>
-<div class="highlight-python"><div class="highlight"><pre><span class="s">&#39;path/to/dir&#39;</span> <span class="ow">or</span> <span class="bp">None</span>  <span class="c"># string, optional</span>
+will default to a <code class="docutils literal"><span class="pre">deploy</span></code> dir inside of the <code class="docutils literal"><span class="pre">builddir</span></code></p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="s1">&#39;path/to/dir&#39;</span> <span class="ow">or</span> <span class="bp">None</span>  <span class="c1"># string, optional</span>
 </pre></div>
 </div>
 </div>
@@ -137,38 +140,38 @@ will default to a <tt class="docutils literal"><span class="pre">deploy</span></
 <p>The following keys are normally set by the command line interface. However, you
 can set them in the run control file should you choose to.</p>
 <div class="section" id="cmd">
-<h2><tt class="docutils literal"><span class="pre">cmd</span></tt><a class="headerlink" href="#cmd" title="Permalink to this headline">¶</a></h2>
+<h2><code class="docutils literal"><span class="pre">cmd</span></code><a class="headerlink" href="#cmd" title="Permalink to this headline">¶</a></h2>
 <p>The command to run.</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="s">&#39;rc&#39;</span> <span class="o">|</span> <span class="s">&#39;add&#39;</span> <span class="o">|</span> <span class="o">...</span>  <span class="c"># str</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="s1">&#39;rc&#39;</span> <span class="o">|</span> <span class="s1">&#39;add&#39;</span> <span class="o">|</span> <span class="o">...</span>  <span class="c1"># str</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="client">
-<h2><tt class="docutils literal"><span class="pre">client</span></tt><a class="headerlink" href="#client" title="Permalink to this headline">¶</a></h2>
+<h2><code class="docutils literal"><span class="pre">client</span></code><a class="headerlink" href="#client" title="Permalink to this headline">¶</a></h2>
 <p>The MongoDB client to use.  This is almost always set by regolith internally.</p>
 </div>
 <div class="section" id="db">
-<h2><tt class="docutils literal"><span class="pre">db</span></tt><a class="headerlink" href="#db" title="Permalink to this headline">¶</a></h2>
-<p>The database to use.  This should coorespond to the name field of one of the <tt class="docutils literal"><span class="pre">databases</span></tt> entries.</p>
+<h2><code class="docutils literal"><span class="pre">db</span></code><a class="headerlink" href="#db" title="Permalink to this headline">¶</a></h2>
+<p>The database to use.  This should coorespond to the name field of one of the <code class="docutils literal"><span class="pre">databases</span></code> entries.</p>
 </div>
 <div class="section" id="coll">
-<h2><tt class="docutils literal"><span class="pre">coll</span></tt><a class="headerlink" href="#coll" title="Permalink to this headline">¶</a></h2>
+<h2><code class="docutils literal"><span class="pre">coll</span></code><a class="headerlink" href="#coll" title="Permalink to this headline">¶</a></h2>
 <p>The collection name inside of a database to use.</p>
 </div>
 <div class="section" id="documents">
-<h2><tt class="docutils literal"><span class="pre">documents</span></tt><a class="headerlink" href="#documents" title="Permalink to this headline">¶</a></h2>
+<h2><code class="docutils literal"><span class="pre">documents</span></code><a class="headerlink" href="#documents" title="Permalink to this headline">¶</a></h2>
 <p>List of documents to add, update, etc. Should be in JSON / mongodb format.</p>
 </div>
 <div class="section" id="public-only">
-<h2><tt class="docutils literal"><span class="pre">public_only</span></tt><a class="headerlink" href="#public-only" title="Permalink to this headline">¶</a></h2>
+<h2><code class="docutils literal"><span class="pre">public_only</span></code><a class="headerlink" href="#public-only" title="Permalink to this headline">¶</a></h2>
 <p>Boolean for whether to select only public databases.</p>
 </div>
 <div class="section" id="filename">
-<h2><tt class="docutils literal"><span class="pre">filename</span></tt><a class="headerlink" href="#filename" title="Permalink to this headline">¶</a></h2>
+<h2><code class="docutils literal"><span class="pre">filename</span></code><a class="headerlink" href="#filename" title="Permalink to this headline">¶</a></h2>
 <p>Sting that is a path to a file to operate on.</p>
 </div>
 <div class="section" id="debug">
-<h2><tt class="docutils literal"><span class="pre">debug</span></tt><a class="headerlink" href="#debug" title="Permalink to this headline">¶</a></h2>
+<h2><code class="docutils literal"><span class="pre">debug</span></code><a class="headerlink" href="#debug" title="Permalink to this headline">¶</a></h2>
 <p>Boolean for whether to run in debug mode or not.</p>
 </div>
 </div>
@@ -177,29 +180,30 @@ can set them in the run control file should you choose to.</p>
           </div>
         </div>
       </div>
-      <div class="sphinxsidebar">
-        <div class="sphinxsidebarwrapper"><div class="sphinxlocaltoc">
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><div class="sphinx-toc sphinxlocaltoc">
     <h3><a href="index.html">Page contents</a></h3>
     <ul>
 <li><a class="reference internal" href="#">Top-level Configuration Keys</a><ul>
-<li><a class="reference internal" href="#builddir"><tt class="docutils literal"><span class="pre">builddir</span></tt></a></li>
-<li><a class="reference internal" href="#mongodbpath"><tt class="docutils literal"><span class="pre">mongodbpath</span></tt></a></li>
-<li><a class="reference internal" href="#databases"><tt class="docutils literal"><span class="pre">databases</span></tt></a></li>
-<li><a class="reference internal" href="#stores"><tt class="docutils literal"><span class="pre">stores</span></tt></a></li>
-<li><a class="reference internal" href="#cname"><tt class="docutils literal"><span class="pre">cname</span></tt></a></li>
-<li><a class="reference internal" href="#deploy"><tt class="docutils literal"><span class="pre">deploy</span></tt></a></li>
-<li><a class="reference internal" href="#deploydir"><tt class="docutils literal"><span class="pre">deploydir</span></tt></a></li>
+<li><a class="reference internal" href="#builddir"><code class="docutils literal"><span class="pre">builddir</span></code></a></li>
+<li><a class="reference internal" href="#mongodbpath"><code class="docutils literal"><span class="pre">mongodbpath</span></code></a></li>
+<li><a class="reference internal" href="#databases"><code class="docutils literal"><span class="pre">databases</span></code></a></li>
+<li><a class="reference internal" href="#stores"><code class="docutils literal"><span class="pre">stores</span></code></a></li>
+<li><a class="reference internal" href="#groupname"><code class="docutils literal"><span class="pre">groupname</span></code></a></li>
+<li><a class="reference internal" href="#cname"><code class="docutils literal"><span class="pre">cname</span></code></a></li>
+<li><a class="reference internal" href="#deploy"><code class="docutils literal"><span class="pre">deploy</span></code></a></li>
+<li><a class="reference internal" href="#deploydir"><code class="docutils literal"><span class="pre">deploydir</span></code></a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#keys-usually-set-by-cli">Keys Usually Set by CLI</a><ul>
-<li><a class="reference internal" href="#cmd"><tt class="docutils literal"><span class="pre">cmd</span></tt></a></li>
-<li><a class="reference internal" href="#client"><tt class="docutils literal"><span class="pre">client</span></tt></a></li>
-<li><a class="reference internal" href="#db"><tt class="docutils literal"><span class="pre">db</span></tt></a></li>
-<li><a class="reference internal" href="#coll"><tt class="docutils literal"><span class="pre">coll</span></tt></a></li>
-<li><a class="reference internal" href="#documents"><tt class="docutils literal"><span class="pre">documents</span></tt></a></li>
-<li><a class="reference internal" href="#public-only"><tt class="docutils literal"><span class="pre">public_only</span></tt></a></li>
-<li><a class="reference internal" href="#filename"><tt class="docutils literal"><span class="pre">filename</span></tt></a></li>
-<li><a class="reference internal" href="#debug"><tt class="docutils literal"><span class="pre">debug</span></tt></a></li>
+<li><a class="reference internal" href="#cmd"><code class="docutils literal"><span class="pre">cmd</span></code></a></li>
+<li><a class="reference internal" href="#client"><code class="docutils literal"><span class="pre">client</span></code></a></li>
+<li><a class="reference internal" href="#db"><code class="docutils literal"><span class="pre">db</span></code></a></li>
+<li><a class="reference internal" href="#coll"><code class="docutils literal"><span class="pre">coll</span></code></a></li>
+<li><a class="reference internal" href="#documents"><code class="docutils literal"><span class="pre">documents</span></code></a></li>
+<li><a class="reference internal" href="#public-only"><code class="docutils literal"><span class="pre">public_only</span></code></a></li>
+<li><a class="reference internal" href="#filename"><code class="docutils literal"><span class="pre">filename</span></code></a></li>
+<li><a class="reference internal" href="#debug"><code class="docutils literal"><span class="pre">debug</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -215,26 +219,40 @@ can set them in the run control file should you choose to.</p>
     <p class="topless"><a href="collections.html"
                           title="Next page">&rarr; Collections</a></p>
   </div>
-<div id="searchbox" style="display: none">
+<div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
     <form class="search" action="search.html" method="get">
-      <input type="text" name="q" />
-      <input type="submit" value="Go" />
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
       <input type="hidden" name="check_keywords" value="yes" />
       <input type="hidden" name="area" value="default" />
     </form>
-    <p class="searchtip" style="font-size: 90%">
-    Enter search terms or a module, class or function name.
-    </p>
 </div>
 <script type="text/javascript">$('#searchbox').show(0);</script>
         </div>
       </div>
+    
+    
+        <div class="sidebar-toggle-group no-js">
+            
+            <button class="sidebar-toggle" id="sidebar-hide" title="Hide the sidebar menu">
+                 «
+                <span class="show-for-small">hide menu</span>
+                
+            </button>
+            <button class="sidebar-toggle" id="sidebar-show" title="Show the sidebar menu">
+                
+                <span class="show-for-small">menu</span>
+                <span class="hide-for-small">sidebar</span>
+                 »
+            </button>
+        </div>
+    
       <div class="clearer"></div>
     </div>
     <div class="relbar-bottom">
         
-    <div class="related">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -243,14 +261,14 @@ can set them in the run control file should you choose to.</p>
         <li class="right" >
           <a href="index.html" title="Regolith"
              >previous</a> &nbsp; &nbsp;</li>
-    <li><a href="index.html">regolith</a> &raquo;</li>
+    <li><a href="index.html">regolith</a> &#187;</li>
  
       </ul>
     </div>
     </div>
 
-    <div class="footer">
-        &copy; Copyright 2015, Anthony Scopatz.
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2015, Anthony Scopatz.
     </div>
     <!-- cloud_sptheme 1.4 -->
   </body>

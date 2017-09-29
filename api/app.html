@@ -1,51 +1,49 @@
 
 
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
-    <title>Web Application (regolith.app) &mdash; regolith - research group content managment system</title>
-    
+    <title>Web Application (regolith.app) &#8212; regolith - research group content managment system</title>
     <link rel="stylesheet" href="../_static/blackcloud.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../" type="text/css" />
-    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
         VERSION:     '0.1-dev',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
       };
     </script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/javascript" src="../_static/jquery.cookie.js"></script>
+    <script type="text/javascript" src="../_static/cloud.base.js"></script>
     <script type="text/javascript" src="../_static/cloud.js"></script>
-    <link rel="top" title="regolith - research group content managment system" href="../index.html" />
-    <link rel="up" title="Regolith API" href="index.html" />
+    <link rel="search" title="Search" href="../search.html" />
     <link rel="prev" title="Command Line Interface (regolith.main)" href="main.html" /> 
         <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
   <body>
     <div class="relbar-top">
         
-    <div class="related">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
           <a href="main.html" title="Command Line Interface (regolith.main)"
              accesskey="P">previous</a></li>
-    <li><a href="../index.html">regolith</a> &raquo;</li>
+    <li><a href="../index.html">regolith</a> &#187;</li>
 
-          <li><a href="index.html" accesskey="U">Regolith API</a> &raquo;</li> 
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Regolith API</a> &#187;</li> 
       </ul>
     </div>
     </div>
@@ -54,78 +52,71 @@
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body">
+          <div class="body" role="main">
             
-  <div class="section" id="module-regolith.app">
-<span id="web-application-regolith-app"></span><span id="regolith-app"></span><h1>Web Application (<tt class="docutils literal"><span class="pre">regolith.app</span></tt>)<a class="headerlink" href="#module-regolith.app" title="Permalink to this headline">¶</a></h1>
-<p>Flask app for looking at information in regolith.</p>
-<dl class="function">
-<dt id="regolith.app.collection_page">
-<tt class="descclassname">regolith.app.</tt><tt class="descname">collection_page</tt><big>(</big><em>dbname</em>, <em>collname</em><big>)</big><a class="reference internal" href="../_modules/regolith/app.html#collection_page"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.app.collection_page" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="function">
-<dt id="regolith.app.root">
-<tt class="descclassname">regolith.app.</tt><tt class="descname">root</tt><big>(</big><big>)</big><a class="reference internal" href="../_modules/regolith/app.html#root"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.app.root" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="function">
-<dt id="regolith.app.shutdown">
-<tt class="descclassname">regolith.app.</tt><tt class="descname">shutdown</tt><big>(</big><big>)</big><a class="reference internal" href="../_modules/regolith/app.html#shutdown"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.app.shutdown" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="function">
-<dt id="regolith.app.shutdown_server">
-<tt class="descclassname">regolith.app.</tt><tt class="descname">shutdown_server</tt><big>(</big><big>)</big><a class="reference internal" href="../_modules/regolith/app.html#shutdown_server"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.app.shutdown_server" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
+  <div class="section" id="web-application-regolith-app">
+<span id="regolith-app"></span><h1>Web Application (<code class="docutils literal"><span class="pre">regolith.app</span></code>)<a class="headerlink" href="#web-application-regolith-app" title="Permalink to this headline">¶</a></h1>
 </div>
 
 
           </div>
         </div>
       </div>
-      <div class="sphinxsidebar">
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
   <div class="sphinxprev">
     <h4>Previous page</h4>
     <p class="topless"><a href="main.html"
-                          title="Previous page">&larr; Command Line Interface (<tt class="docutils literal"><span class="pre">regolith.main</span></tt>)</a></p>
+                          title="Previous page">&larr; Command Line Interface (<code class="docutils literal"><span class="pre">regolith.main</span></code>)</a></p>
   </div>
-<div id="searchbox" style="display: none">
+<div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
     <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" />
-      <input type="submit" value="Go" />
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
       <input type="hidden" name="check_keywords" value="yes" />
       <input type="hidden" name="area" value="default" />
     </form>
-    <p class="searchtip" style="font-size: 90%">
-    Enter search terms or a module, class or function name.
-    </p>
 </div>
 <script type="text/javascript">$('#searchbox').show(0);</script>
         </div>
       </div>
+    
+    
+        <div class="sidebar-toggle-group no-js">
+            
+            <button class="sidebar-toggle" id="sidebar-hide" title="Hide the sidebar menu">
+                 «
+                <span class="show-for-small">hide menu</span>
+                
+            </button>
+            <button class="sidebar-toggle" id="sidebar-show" title="Show the sidebar menu">
+                
+                <span class="show-for-small">menu</span>
+                <span class="hide-for-small">sidebar</span>
+                 »
+            </button>
+        </div>
+    
       <div class="clearer"></div>
     </div>
     <div class="relbar-bottom">
         
-    <div class="related">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
           <a href="main.html" title="Command Line Interface (regolith.main)"
              >previous</a></li>
-    <li><a href="../index.html">regolith</a> &raquo;</li>
+    <li><a href="../index.html">regolith</a> &#187;</li>
 
-          <li><a href="index.html" >Regolith API</a> &raquo;</li> 
+          <li class="nav-item nav-item-1"><a href="index.html" >Regolith API</a> &#187;</li> 
       </ul>
     </div>
     </div>
 
-    <div class="footer">
-        &copy; Copyright 2015, Anthony Scopatz.
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2015, Anthony Scopatz.
     </div>
     <!-- cloud_sptheme 1.4 -->
   </body>
