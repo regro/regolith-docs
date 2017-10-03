@@ -55,6 +55,8 @@
 
 
 
+    
+
 
 
 
@@ -192,13 +194,13 @@ body
 {
     padding: 0;
     color: #000;
-    font-family: Georgia, "Bitstream Vera Serif", "New York", Palatino, serif;
+    font-family: "Open Sans", sans-serif;
     font-size: 100%;
     line-height: 1.5em;
 
     
         margin: 1em 1em 0;
-        background: #222127;
+        background: #41190A;
         background-attachment: fixed;
     
 }
@@ -230,8 +232,8 @@ body
 div.related
 {
     margin: 0 auto;
-    max-width: 11in  ; max width document will expand to.;
-    background: #323039;
+    max-width: 11.5in;
+    background: #AD6755;
     line-height: 1.5em;
     padding: .75em 0;
     color: #ffffff;
@@ -310,9 +312,9 @@ div.related li.right a
 div.related a:hover,
 div.related li.right a:hover
 {
-    background: #fff9e4;
-    color: #d39110;
-    border-color: #F8D186;
+    background: #FFF1E4;
+    color: #EB5703;
+    border-color: #EDB08D;
     text-decoration: none;
     text-shadow: none;
     
@@ -342,8 +344,8 @@ div.document
     
     position: relative;
     margin: 0 auto;
-    max-width: 11in  ; max width document will expand to.;
-    background: #f6fcfc;
+    max-width: 11.5in;
+    background: #FFFBF2;
 
     
 }
@@ -384,21 +386,21 @@ div.document.sidebar-hidden div.bodywrapper {
 
 div.body
 {
-    min-height: 6in ; min height of document;
+    min-height: 6in;
     
 
     
     background-color: #ffffff;
-    border-left: 1px solid #80858A;
+    border-left: 1px solid #EDDEDA;
     
         
             
     
-        -moz-box-shadow: -1px 0 2px #80858A;
-        -webkit-box-shadow: -1px 0 2px #80858A;
-        -o-box-shadow: -1px 0 2px #80858A;
-        -ms-box-shadow: -1px 0 2px #80858A;
-        box-shadow: -1px 0 2px #80858A;
+        -moz-box-shadow: -1px 0 2px #EDDEDA;
+        -webkit-box-shadow: -1px 0 2px #EDDEDA;
+        -o-box-shadow: -1px 0 2px #EDDEDA;
+        -ms-box-shadow: -1px 0 2px #EDDEDA;
+        box-shadow: -1px 0 2px #EDDEDA;
     
 
 
@@ -407,7 +409,7 @@ div.body
 
     line-height: 1.5em;
 
-    color: #323039;
+    color: #000000;
     padding: 30px 20px;
 
     
@@ -465,7 +467,7 @@ div.sphinxsidebar h4
     padding: 0;
     margin: 24px 16px 0 0;
 
-    font-family: Georgia, "Bitstream Vera Serif", "New York", Palatino, serif;
+    font-family: "Noticia Text", serif;
     font-weight: normal;
     color: #777777;
 }
@@ -499,16 +501,16 @@ div.sphinxsidebar ul
 
 div.sphinxsidebar a
 {
-    color: #003469;
+    color: #690A00;
     border: 1px solid transparent;
     border-width: 1px 0;
 }
 
 div.sphinxsidebar a:hover
 {
-    color: #d39110;
-    background: #fff9e4;
-    border-color: #F8D186;
+    color: #EB5703;
+    background: #FFF1E4;
+    border-color: #EDB08D;
     text-decoration: none;
 }
 
@@ -607,9 +609,9 @@ div.sphinxsidebar ul a:hover,
 div.sphinxprev a:hover,
 div.sphinxnext a:hover
 {
-    background: #fff9e4;
-    border-color: #F8D186;
-    color: #d39110;
+    background: #FFF1E4;
+    border-color: #EDB08D;
+    color: #EB5703;
     text-decoration: none;
 }
 
@@ -658,7 +660,7 @@ div.sphinx-toc li:before
 {
     position: absolute;
     left: -0.8em;
-    color: #d39110;
+    color: #EB5703;
 }
 
     
@@ -693,7 +695,7 @@ div.sphinx-toc li:before
 
 div.sphinx-toc li.focus.local > a:not(:hover)
 {
-    color: #d39110;
+    color: #EB5703;
 }
 
 
@@ -719,7 +721,7 @@ div.sphinx-toc li.toc-toggle.closed > a:after
 div.sphinxsidebar input,
 h1#search-documentation ~ form > input
 {
-    border: 1px solid #C0C0C0;
+    border: 1px solid rgba(0,0,0,.15);
     font-family: sans-serif;
     font-size: 1em;
 }
@@ -746,15 +748,15 @@ button.sidebar-toggle#sidebar-hide:hover,
 button.sidebar-toggle#sidebar-show:hover,
 .highlight .copybutton:hover
 {
-    background: #fff9e4;
-    color: #d39110;
-    border-color: #F8D186;
+    background: #FFF1E4;
+    color: #EB5703;
+    border-color: #EDB08D;
 }
 
 h1#search-documentation ~ form > input[type="text"]:focus,
 div.sphinxsidebar input[type="text"]:focus
 {
-    border-color: #F8D186;
+    border-color: #EDB08D;
 }
 
 .highlight .copybutton:hover:not(:active),
@@ -858,7 +860,7 @@ button#sidebar-hide
     
 
     background: transparent;
-    border: 1px solid #80858A;
+    border: 1px solid #EDDEDA;
     
         border-top-width: 0;
     
@@ -883,7 +885,7 @@ button#sidebar-show
     
 
     background: #F2F2F2;
-    border: 1px solid #C0C0C0;
+    border: 1px solid rgba(0,0,0,.15);
     
         border-top-width: 0;
     
@@ -898,7 +900,7 @@ button#sidebar-show
 
 div.footer
 {
-    color: #B0B0B0;
+    color: #AD6755;
     width: 100%;
     padding: 9px 0;
     text-align: center;
@@ -920,7 +922,7 @@ div.footer button.link
 div.footer a,
 div.footer button.link
 {
-    color: #B0B0B0;
+    color: #AD6755;
     text-decoration: underline;
 }
 
@@ -952,9 +954,9 @@ div.body h4,
 div.body h5,
 div.body h6
 {
-    font-family: Georgia, "Bitstream Vera Serif", "New York", Palatino, serif;
+    font-family: "Noticia Text", serif;
     font-weight: normal;
-    color: #000000;
+    color: #333;
     clear: both;
     
 }
@@ -1048,11 +1050,11 @@ h1#search-documentation
     
         
         padding: 6px 10px;
-        background-color: #77181E;
-        border: 1px solid #f6fcfc;
+        background-color: #A96C49;
+        border: 1px solid rgba(0,0,0,.125);
         border-width: 0 0 0 6px;
         color: #ffffff;
-        text-shadow: 1px 1px #f6fcfc;
+        text-shadow: 1px 1px rgba(0,0,0,.125);
 
         
     
@@ -1117,7 +1119,7 @@ div.body p.rubric,
 .section.emphasize-children > .section > h3
 {
     
-        background-color: #B2CCE0;
+        background-color: #C1957C;
         
     
 }
@@ -1139,8 +1141,8 @@ div.body p.rubric,
     .section.emphasize-children > .section > h3.highlighted
     {
         background-color: #fbe54e;
-        border-color: #F8D186;
-        color: #000000;
+        border-color: #EDB08D;
+        color: #333;
     }
 
 
@@ -1213,7 +1215,7 @@ h1#search-documentation
 
 #hide-page-sections { float: right; opacity: 0.88; }a.headerlink
 {
-    color: #003469;
+    color: #690A00;
     font-size: 0.8em;
     margin: 0 0 0 1px;
     padding: 0 5px 0 4px;
@@ -1234,9 +1236,9 @@ h1#search-documentation
 
 div.body a.headerlink:hover
 {
-    background-color: #fff9e4;
-    border-color: #F8D186;
-    color: #d39110;
+    background-color: #FFF1E4;
+    border-color: #EDB08D;
+    color: #EB5703;
     text-decoration: none;
     
 }
@@ -1264,10 +1266,10 @@ a.headerlink:hover:active
 .html-toggle-button:hover:after,
 .section.emphasize-children > .section > h3.html-toggle-button:hover:after 
 {
-    background: #fff9e4;
+    background: #FFF1E4;
     
 
-    border-color: #F8D186;
+    border-color: #EDB08D;
     
     
         -moz-border-radius: 4px;
@@ -1289,7 +1291,7 @@ a.headerlink:hover:active
 
 
 
-    color: #d39110;
+    color: #EB5703;
 }
 
 
@@ -1365,7 +1367,7 @@ div.body dd
 div.body hr {
     margin: 0 10px;
     background: none;
-    border: 1px dashed #C0C0C0;
+    border: 1px dashed rgba(0,0,0,.15);
     border-width: 1px 0 0 0;
 }
 
@@ -1404,7 +1406,7 @@ li > p ~ ul.simple { margin-bottom: 1.5em; }
 
 a
 {
-    color: #A92727;
+    color: #690A00;
     text-decoration: none;
 }
 
@@ -1416,8 +1418,8 @@ a:visited
 
 a:hover
 {
-    color: #d39110;
-    background: #fff9e4;
+    color: #EB5703;
+    background: #FFF1E4;
     text-decoration: underline;
 }
 
@@ -1452,7 +1454,7 @@ a.biglink
 
     a.external.issue:before
     {
-        content: "\25CE";
+        content: "\21D7";
     }
 
     a.external[href^="mailto:"]:before
@@ -1462,7 +1464,7 @@ a.biglink
 
     em.issue:before
     {
-        content: "\25CE";
+        content: "\21D7";
         padding-right: .1em;
     }
 dt:target,
@@ -1495,7 +1497,7 @@ table.docutils.plain tr.row-odd > * { background: none; }
 table.docutils.html-plain-table tr.row-odd > * { background: none; }table.docutils th {
     border: 0 solid transparent;
     padding: .4em;
-    font-family: Georgia, "Bitstream Vera Serif", "New York", Palatino, serif;
+    font-family: "Noticia Text", serif;
     background: rgba(0,0,0,.15);
 }
 
@@ -1773,9 +1775,9 @@ td.linenos pre
 
 div.highlight pre
 {
-    background-color: #f6fcfc;
+    background-color: #E7F3FF;
 
-    border: 1px solid #AACC99;
+    border: 1px solid rgba(0,0,0,.05);
     border-width: 1px 0;
     border-style: solid dotted dotted solid;
     
@@ -1788,7 +1790,7 @@ div.highlight pre
     
 
 
-    color: #000000;
+    color: #111111;
 }
 
 
@@ -1834,7 +1836,7 @@ code
 
 code.literal
 {
-    background-color: #f6fcfc;
+    background-color: rgba(0,0,0,.075);
     border: 1px solid rgba(0,0,0,.05);
     padding: 0px 4px;
     margin: 1px;
@@ -1855,7 +1857,7 @@ p code.literal { white-space: nowrap; }
 
 code.samp.literal > em
 {
-    font-family: Georgia, "Bitstream Vera Serif", "New York", Palatino, serif;
+    font-family: "Droid Sans Mono", monospace;
     padding: 0 1px;
     filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=
     60);
@@ -1890,7 +1892,7 @@ code.literal.xref
 
 .viewcode-back
 {
-    font-family: Georgia, "Bitstream Vera Serif", "New York", Palatino, serif;
+    font-family: "Open Sans", sans-serif;
 }
 
 div.viewcode-block:target
@@ -1967,13 +1969,13 @@ div.viewcode-block:target
     0.8em
     0;
 
-    border-bottom: 1px dotted #77181E;
-    color: #77181E;
+    border-bottom: 1px dotted #A96C49;
+    color: #A96C49;
 }
 
 .desc-section-2 > .section-header
 {
-    color: #77181E;
+    color: #A96C49;
 }
 
 .desc-section > .section-header:before
@@ -2040,20 +2042,20 @@ div.viewcode-block:target
     dl.staticmethod > dt
     {
         background-color:
-        #deebf5;
+        #EEE6D8;
     }
 
     dl.class > dt
     {
         background-color:
-        #eee3ce;
+        #EEE6D8;
         border-width: 0 0 0 6px;
     }
 
     dl.exception > dt
     {
         background-color:
-        #eee3ce;
+        #EEE6D8;
     }
 
     
@@ -2125,13 +2127,13 @@ table.indextable span.category
 {
     font-size: 80%;
     font-style: italic;
-    color: #84ADBE;
+    color: #999999;
 }
 
 table.indextable a,
 table.indextable a:hover span.category
 {
-    color: #A92727;
+    color: #690A00;
 }
 
 table.indextable span.category span.location
@@ -2161,7 +2163,7 @@ table.indextable td > dl > dd > dl
 }
 
 
-@media only screen and (min-width: 11in  ; max width document will expand to.)
+@media only screen and (min-width: 11.5in)
 {
     
     
@@ -2169,7 +2171,7 @@ table.indextable td > dl > dd > dl
 }
 
 
-@media only screen and (min-width: 700px ; max width of "minimal" mode (hides sidebar and other extras).)
+@media only screen and (min-width: 700px)
 {
     
     
@@ -2180,9 +2182,9 @@ table.indextable td > dl > dd > dl
 }
 
 
-@media only screen and (max-width: 11in  ; max width document will expand to.),
-       only screen and (max-width: 700px ; max width of "minimal" mode (hides sidebar and other extras).),
-       only screen and (max-device-width: 700px ; max width of "minimal" mode (hides sidebar and other extras).),
+@media only screen and (max-width: 11.5in),
+       only screen and (max-width: 700px),
+       only screen and (max-device-width: 700px),
        handheld
 {
     
@@ -2211,22 +2213,22 @@ table.indextable td > dl > dd > dl
 
         div.bodywrapper
         {
-                margin: 0 0 0 230px;
+                margin: 0 0 0 2.5in;
             
         }
     
 
-        div.sphinxsidebar { width: 230px; }
+        div.sphinxsidebar { width: 2.5in; }
     
 
-            .sidebar-toggle-group { width: 230px; }
+            .sidebar-toggle-group { width: 2.5in; }
         
 
 }
 
 
-@media only screen and (max-width: 700px ; max width of "minimal" mode (hides sidebar and other extras).),
-       only screen and (max-device-width: 700px ; max width of "minimal" mode (hides sidebar and other extras).),
+@media only screen and (max-width: 700px),
+       only screen and (max-device-width: 700px),
        handheld
 {
     
@@ -2268,7 +2270,7 @@ table.indextable td > dl > dd > dl
             top: 0;
             right: 0;
             background: #ffffff;
-            border-color: #C0C0C0;
+            border-color: rgba(0,0,0,.15);
         }
     
 
@@ -2331,7 +2333,7 @@ table.indextable td > dl > dd > dl
     div.body h5,
     div.body h6
     {
-        color: #000000 !important;
+        color: #333 !important;
         text-shadow: none !important;
         border: none !important;
         padding: 0;
