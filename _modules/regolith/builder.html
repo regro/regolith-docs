@@ -55,13 +55,18 @@
 
 <span class="kn">from</span> <span class="nn">regolith.cvbuilder</span> <span class="k">import</span> <span class="n">CVBuilder</span>
 <span class="kn">from</span> <span class="nn">regolith.htmlbuilder</span> <span class="k">import</span> <span class="n">HtmlBuilder</span>
+<span class="kn">from</span> <span class="nn">regolith.publistbuilder</span> <span class="k">import</span> <span class="n">PubListBuilder</span>
 <span class="kn">from</span> <span class="nn">regolith.gradebuilder</span> <span class="k">import</span> <span class="n">GradeReportBuilder</span>
+
 
 <span class="n">BUILDERS</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s1">&#39;cv&#39;</span><span class="p">:</span> <span class="n">CVBuilder</span><span class="p">,</span>
     <span class="s1">&#39;html&#39;</span><span class="p">:</span> <span class="n">HtmlBuilder</span><span class="p">,</span>
+    <span class="s1">&#39;publist&#39;</span><span class="p">:</span> <span class="n">PubListBuilder</span><span class="p">,</span>
     <span class="s1">&#39;grade&#39;</span><span class="p">:</span> <span class="n">GradeReportBuilder</span><span class="p">,</span>
+    <span class="s1">&#39;grades&#39;</span><span class="p">:</span> <span class="n">GradeReportBuilder</span><span class="p">,</span>
     <span class="p">}</span>
+
 
 <div class="viewcode-block" id="builder"><a class="viewcode-back" href="../../api/builder.html#regolith.builder.builder">[docs]</a><span class="k">def</span> <span class="nf">builder</span><span class="p">(</span><span class="n">btype</span><span class="p">,</span> <span class="n">rc</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Returns builder of the approriate type.&quot;&quot;&quot;</span>
