@@ -61,7 +61,6 @@
 <span class="kn">from</span> <span class="nn">regolith.emailer</span> <span class="k">import</span> <span class="n">emailer</span> <span class="k">as</span> <span class="n">email</span>
 <span class="kn">from</span> <span class="nn">regolith.deploy</span> <span class="k">import</span> <span class="n">deploy</span> <span class="k">as</span> <span class="n">dploy</span>
 
-
 <span class="n">RE_AND</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s1">&#39;\s+and\s+&#39;</span><span class="p">)</span>
 <span class="n">RE_SPACE</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s1">&#39;\s+&#39;</span><span class="p">)</span>
 
@@ -79,18 +78,37 @@
 
 <span class="k">def</span> <span class="nf">_ingest_citations</span><span class="p">(</span><span class="n">rc</span><span class="p">):</span>
     <span class="kn">import</span> <span class="nn">bibtexparser</span>
+    <span class="kn">from</span> <span class="nn">bibtexparser.bparser</span> <span class="k">import</span> <span class="n">BibTexParser</span>
+    <span class="kn">from</span> <span class="nn">bibtexparser.customization</span> <span class="k">import</span> <span class="n">getnames</span>
+
+    <span class="n">parser</span> <span class="o">=</span> <span class="n">BibTexParser</span><span class="p">()</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">ignore_nonstandard_types</span> <span class="o">=</span> <span class="kc">False</span>
+
+    <span class="k">def</span> <span class="nf">customizations</span><span class="p">(</span><span class="n">record</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;author&#39;</span><span class="p">,</span> <span class="s1">&#39;editor&#39;</span><span class="p">]:</span>
+            <span class="k">if</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">record</span><span class="p">:</span>
+                <span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">record</span><span class="p">[</span><span class="n">n</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="s1">&#39; &#39;</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;, &#39;</span><span class="p">)]</span>
+                <span class="n">b</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot; and &quot;</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">a</span><span class="p">]</span>
+                <span class="n">c</span> <span class="o">=</span> <span class="p">[</span><span class="n">item</span> <span class="k">for</span> <span class="n">sublist</span> <span class="ow">in</span> <span class="n">b</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">sublist</span><span class="p">]</span>
+                <span class="n">d</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">c</span><span class="p">]</span>
+                <span class="n">record</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="o">=</span> <span class="n">getnames</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">record</span>
+
+    <span class="n">parser</span><span class="o">.</span><span class="n">customization</span> <span class="o">=</span> <span class="n">customizations</span>
     <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">rc</span><span class="o">.</span><span class="n">filename</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-        <span class="n">bibs</span> <span class="o">=</span> <span class="n">bibtexparser</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+        <span class="n">bibs</span> <span class="o">=</span> <span class="n">bibtexparser</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">parser</span><span class="o">=</span><span class="n">parser</span><span class="p">)</span>
     <span class="n">coll</span> <span class="o">=</span> <span class="n">rc</span><span class="o">.</span><span class="n">client</span><span class="p">[</span><span class="n">rc</span><span class="o">.</span><span class="n">db</span><span class="p">][</span><span class="n">rc</span><span class="o">.</span><span class="n">coll</span><span class="p">]</span>
     <span class="k">for</span> <span class="n">bib</span> <span class="ow">in</span> <span class="n">bibs</span><span class="o">.</span><span class="n">entries</span><span class="p">:</span>
         <span class="n">bibid</span> <span class="o">=</span> <span class="n">bib</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s1">&#39;ID&#39;</span><span class="p">)</span>
         <span class="n">bib</span><span class="p">[</span><span class="s1">&#39;entrytype&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">bib</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s1">&#39;ENTRYTYPE&#39;</span><span class="p">)</span>
         <span class="k">if</span> <span class="s1">&#39;author&#39;</span> <span class="ow">in</span> <span class="n">bib</span><span class="p">:</span>
-            <span class="n">bib</span><span class="p">[</span><span class="s1">&#39;author&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">a</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">RE_AND</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">bib</span><span class="p">[</span><span class="s1">&#39;author&#39;</span><span class="p">])]</span>
+            <span class="n">bib</span><span class="p">[</span><span class="s1">&#39;author&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">a</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">for</span> <span class="n">b</span> <span class="ow">in</span> <span class="n">bib</span><span class="p">[</span><span class="s1">&#39;author&#39;</span><span class="p">]</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span>
+                             <span class="n">RE_AND</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">b</span><span class="p">)]</span>
         <span class="k">if</span> <span class="s1">&#39;title&#39;</span> <span class="ow">in</span> <span class="n">bib</span><span class="p">:</span>
             <span class="n">bib</span><span class="p">[</span><span class="s1">&#39;title&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">RE_SPACE</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">,</span> <span class="n">bib</span><span class="p">[</span><span class="s1">&#39;title&#39;</span><span class="p">])</span>
         <span class="n">rc</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">update_one</span><span class="p">(</span><span class="n">rc</span><span class="o">.</span><span class="n">db</span><span class="p">,</span> <span class="n">rc</span><span class="o">.</span><span class="n">coll</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;_id&#39;</span><span class="p">:</span> <span class="n">bibid</span><span class="p">},</span>
-                             <span class="p">{</span><span class="s1">&#39;$set&#39;</span><span class="p">:</span> <span class="n">bib</span><span class="p">},</span> <span class="n">upsert</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+                             <span class="n">bib</span><span class="p">,</span> <span class="n">upsert</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
 
 <span class="k">def</span> <span class="nf">_determine_ingest_coll</span><span class="p">(</span><span class="n">rc</span><span class="p">):</span>
@@ -106,7 +124,9 @@
     <span class="k">if</span> <span class="n">rc</span><span class="o">.</span><span class="n">coll</span> <span class="o">==</span> <span class="s1">&#39;citations&#39;</span><span class="p">:</span>
         <span class="n">_ingest_citations</span><span class="p">(</span><span class="n">rc</span><span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;don&#39;t know how to ingest collection </span><span class="si">{0!r}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">rc</span><span class="o">.</span><span class="n">coll</span><span class="p">))</span></div>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+            <span class="s2">&quot;don&#39;t know how to ingest collection </span><span class="si">{0!r}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">rc</span><span class="o">.</span><span class="n">coll</span><span class="p">))</span></div>
+
 
 <span class="k">def</span> <span class="nf">_run_app</span><span class="p">(</span><span class="n">app</span><span class="p">,</span> <span class="n">rc</span><span class="p">):</span>
     <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">app</span><span class="p">,</span> <span class="s1">&#39;rc&#39;</span><span class="p">):</span>
