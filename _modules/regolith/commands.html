@@ -65,6 +65,9 @@
 <span class="n">RE_AND</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s1">&#39;\s+and\s+&#39;</span><span class="p">)</span>
 <span class="n">RE_SPACE</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s1">&#39;\s+&#39;</span><span class="p">)</span>
 
+<span class="n">INGEST_COLL_LU</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;.bib&#39;</span><span class="p">:</span> <span class="s1">&#39;citations&#39;</span><span class="p">}</span>
+
+
 <div class="viewcode-block" id="add_cmd"><a class="viewcode-back" href="../../api/commands.html#regolith.commands.add_cmd">[docs]</a><span class="k">def</span> <span class="nf">add_cmd</span><span class="p">(</span><span class="n">rc</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Adds documents to a collection in a database.&quot;&quot;&quot;</span>
     <span class="n">db</span> <span class="o">=</span> <span class="n">rc</span><span class="o">.</span><span class="n">client</span><span class="p">[</span><span class="n">rc</span><span class="o">.</span><span class="n">db</span><span class="p">]</span>
@@ -93,9 +96,7 @@
 <span class="k">def</span> <span class="nf">_determine_ingest_coll</span><span class="p">(</span><span class="n">rc</span><span class="p">):</span>
     <span class="n">f</span> <span class="o">=</span> <span class="n">rc</span><span class="o">.</span><span class="n">filename</span>
     <span class="n">base</span><span class="p">,</span> <span class="n">ext</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">splitext</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
-    <span class="k">if</span> <span class="n">ext</span> <span class="o">==</span> <span class="s1">&#39;.bib&#39;</span><span class="p">:</span>
-        <span class="k">return</span> <span class="s1">&#39;citations&#39;</span>
-    <span class="k">return</span> <span class="n">base</span>
+    <span class="k">return</span> <span class="n">INGEST_COLL_LU</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">ext</span><span class="p">,</span> <span class="n">base</span><span class="p">)</span>
 
 
 <div class="viewcode-block" id="ingest"><a class="viewcode-back" href="../../api/commands.html#regolith.commands.ingest">[docs]</a><span class="k">def</span> <span class="nf">ingest</span><span class="p">(</span><span class="n">rc</span><span class="p">):</span>
