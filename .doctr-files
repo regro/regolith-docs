@@ -15,6 +15,7 @@
 ./_sources/api/deploy.rst.txt
 ./_sources/api/htmlbuilder.rst.txt
 ./_sources/api/index.rst.txt
+./_sources/api/interactive.rst.txt
 ./_sources/api/main.rst.txt
 ./_sources/api/runcontrol.rst.txt
 ./_sources/api/tools.rst.txt
@@ -63,6 +64,7 @@
 ./api/deploy.html
 ./api/htmlbuilder.html
 ./api/index.html
+./api/interactive.html
 ./api/main.html
 ./api/runcontrol.html
 ./api/tools.html
