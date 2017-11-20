@@ -171,6 +171,24 @@
     <span class="sd">&quot;&quot;&quot;Sets values for the class list.&quot;&quot;&quot;</span>
     <span class="kn">from</span> <span class="nn">regolith.classlist</span> <span class="k">import</span> <span class="n">register</span>
     <span class="n">register</span><span class="p">(</span><span class="n">rc</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="json_to_yaml"><a class="viewcode-back" href="../../api/commands.html#regolith.commands.json_to_yaml">[docs]</a><span class="k">def</span> <span class="nf">json_to_yaml</span><span class="p">(</span><span class="n">rc</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Converts JSON to YAML&quot;&quot;&quot;</span>
+    <span class="kn">from</span> <span class="nn">regolith</span> <span class="k">import</span> <span class="n">fsclient</span>
+    <span class="k">for</span> <span class="n">inp</span> <span class="ow">in</span> <span class="n">rc</span><span class="o">.</span><span class="n">files</span><span class="p">:</span>
+        <span class="n">base</span><span class="p">,</span> <span class="n">ext</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">splitext</span><span class="p">(</span><span class="n">inp</span><span class="p">)</span>
+        <span class="n">out</span> <span class="o">=</span> <span class="n">base</span> <span class="o">+</span> <span class="s1">&#39;.yaml&#39;</span>
+        <span class="n">fsclient</span><span class="o">.</span><span class="n">json_to_yaml</span><span class="p">(</span><span class="n">inp</span><span class="p">,</span> <span class="n">out</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="yaml_to_json"><a class="viewcode-back" href="../../api/commands.html#regolith.commands.yaml_to_json">[docs]</a><span class="k">def</span> <span class="nf">yaml_to_json</span><span class="p">(</span><span class="n">rc</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Converts YAML to JSON&quot;&quot;&quot;</span>
+    <span class="kn">from</span> <span class="nn">regolith</span> <span class="k">import</span> <span class="n">fsclient</span>
+    <span class="k">for</span> <span class="n">inp</span> <span class="ow">in</span> <span class="n">rc</span><span class="o">.</span><span class="n">files</span><span class="p">:</span>
+        <span class="n">base</span><span class="p">,</span> <span class="n">ext</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">splitext</span><span class="p">(</span><span class="n">inp</span><span class="p">)</span>
+        <span class="n">out</span> <span class="o">=</span> <span class="n">base</span> <span class="o">+</span> <span class="s1">&#39;.json&#39;</span>
+        <span class="n">fsclient</span><span class="o">.</span><span class="n">yaml_to_json</span><span class="p">(</span><span class="n">inp</span><span class="p">,</span> <span class="n">out</span><span class="p">)</span></div>
 </pre></div>
 
           </div>

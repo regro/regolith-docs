@@ -76,6 +76,8 @@
     <span class="s1">&#39;rc&#39;</span><span class="p">:</span> <span class="k">lambda</span> <span class="n">rc</span><span class="p">:</span> <span class="nb">print</span><span class="p">(</span><span class="n">rc</span><span class="o">.</span><span class="n">_pformat</span><span class="p">()),</span>
     <span class="s1">&#39;deploy&#39;</span><span class="p">:</span> <span class="n">commands</span><span class="o">.</span><span class="n">deploy</span><span class="p">,</span>
     <span class="s1">&#39;store&#39;</span><span class="p">:</span> <span class="n">storage</span><span class="o">.</span><span class="n">main</span><span class="p">,</span>
+    <span class="s1">&#39;json-to-yaml&#39;</span><span class="p">:</span> <span class="n">commands</span><span class="o">.</span><span class="n">json_to_yaml</span><span class="p">,</span>
+    <span class="s1">&#39;yaml-to-json&#39;</span><span class="p">:</span> <span class="n">commands</span><span class="o">.</span><span class="n">yaml_to_json</span><span class="p">,</span>
     <span class="p">}</span>
 
 <span class="n">CONNECTED_COMMANDS</span> <span class="o">=</span> <span class="p">{</span>
@@ -87,6 +89,9 @@
     <span class="s1">&#39;email&#39;</span><span class="p">:</span> <span class="n">commands</span><span class="o">.</span><span class="n">email</span><span class="p">,</span>
     <span class="s1">&#39;classlist&#39;</span><span class="p">:</span> <span class="n">commands</span><span class="o">.</span><span class="n">classlist</span><span class="p">,</span>
     <span class="p">}</span>
+
+<span class="n">NEED_RC</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">CONNECTED_COMMANDS</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+<span class="n">NEED_RC</span> <span class="o">|=</span> <span class="p">{</span><span class="s1">&#39;rc&#39;</span><span class="p">,</span> <span class="s1">&#39;deploy&#39;</span><span class="p">,</span> <span class="s1">&#39;store&#39;</span><span class="p">}</span>
 
 
 <div class="viewcode-block" id="load_json_rcfile"><a class="viewcode-back" href="../../api/main.html#regolith.main.load_json_rcfile">[docs]</a><span class="k">def</span> <span class="nf">load_json_rcfile</span><span class="p">(</span><span class="n">fname</span><span class="p">):</span>
@@ -191,6 +196,14 @@
     <span class="n">clp</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-d&#39;</span><span class="p">,</span> <span class="s1">&#39;--dry-run&#39;</span><span class="p">,</span> <span class="n">dest</span><span class="o">=</span><span class="s1">&#39;dry_run&#39;</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="s1">&#39;store_true&#39;</span><span class="p">,</span>
                      <span class="n">default</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;only does a dry run and reports results&#39;</span><span class="p">)</span>
     <span class="n">clp</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;--db&#39;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;database name&#39;</span><span class="p">,</span> <span class="n">dest</span><span class="o">=</span><span class="s1">&#39;db&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+
+    <span class="c1"># JSON-to-YAML subparser</span>
+    <span class="n">jty</span> <span class="o">=</span> <span class="n">subp</span><span class="o">.</span><span class="n">add_parser</span><span class="p">(</span><span class="s1">&#39;json-to-yaml&#39;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Converts files from JSON to YAML&#39;</span><span class="p">)</span>
+    <span class="n">jty</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;files&#39;</span><span class="p">,</span> <span class="n">nargs</span><span class="o">=</span><span class="s1">&#39;+&#39;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;file names to convert&#39;</span><span class="p">)</span>
+
+    <span class="c1"># YAML-to-JSON subparser</span>
+    <span class="n">ytj</span> <span class="o">=</span> <span class="n">subp</span><span class="o">.</span><span class="n">add_parser</span><span class="p">(</span><span class="s1">&#39;yaml-to-json&#39;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Converts files from YAML to JSON&#39;</span><span class="p">)</span>
+    <span class="n">ytj</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;files&#39;</span><span class="p">,</span> <span class="n">nargs</span><span class="o">=</span><span class="s1">&#39;+&#39;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;file names to convert&#39;</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">p</span></div>
 
 
@@ -210,11 +223,13 @@
 
 <div class="viewcode-block" id="main"><a class="viewcode-back" href="../../api/main.html#regolith.main.main">[docs]</a><span class="k">def</span> <span class="nf">main</span><span class="p">(</span><span class="n">args</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
     <span class="n">rc</span> <span class="o">=</span> <span class="n">DEFAULT_RC</span>
-    <span class="n">rc</span><span class="o">.</span><span class="n">_update</span><span class="p">(</span><span class="n">load_rcfile</span><span class="p">(</span><span class="s1">&#39;regolithrc.json&#39;</span><span class="p">))</span>
     <span class="n">parser</span> <span class="o">=</span> <span class="n">create_parser</span><span class="p">()</span>
     <span class="n">ns</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">(</span><span class="n">args</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">ns</span><span class="o">.</span><span class="n">cmd</span> <span class="ow">in</span> <span class="n">NEED_RC</span><span class="p">:</span>
+        <span class="n">rc</span><span class="o">.</span><span class="n">_update</span><span class="p">(</span><span class="n">load_rcfile</span><span class="p">(</span><span class="s1">&#39;regolithrc.json&#39;</span><span class="p">))</span>
     <span class="n">rc</span><span class="o">.</span><span class="n">_update</span><span class="p">(</span><span class="n">ns</span><span class="o">.</span><span class="vm">__dict__</span><span class="p">)</span>
-    <span class="n">filter_databases</span><span class="p">(</span><span class="n">rc</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">ns</span><span class="o">.</span><span class="n">cmd</span> <span class="ow">in</span> <span class="n">NEED_RC</span><span class="p">:</span>
+        <span class="n">filter_databases</span><span class="p">(</span><span class="n">rc</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">rc</span><span class="o">.</span><span class="n">cmd</span> <span class="ow">in</span> <span class="n">DISCONNECTED_COMMANDS</span><span class="p">:</span>
         <span class="n">DISCONNECTED_COMMANDS</span><span class="p">[</span><span class="n">rc</span><span class="o">.</span><span class="n">cmd</span><span class="p">](</span><span class="n">rc</span><span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
