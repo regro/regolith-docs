@@ -30,8 +30,8 @@
     <script type="text/javascript" src="../_static/cloud.js"></script>
     <link rel="shortcut icon" href="../_static/regolith-logo.ico"/>
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Run Control Validators (regolith.validators)" href="validators.html" />
-    <link rel="prev" title="Deployment Tools (regolith.deploy)" href="deploy.html" /> 
+    <link rel="next" title="Date Tools (regolith.dates)" href="dates.html" />
+    <link rel="prev" title="Builder Base Class (regolith.basebuilder)" href="basebuilder.html" /> 
         <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
   <body>
@@ -41,10 +41,10 @@
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="validators.html" title="Run Control Validators (regolith.validators)"
+          <a href="dates.html" title="Date Tools (regolith.dates)"
              accesskey="N">next</a></li>
         <li class="right" >
-          <a href="deploy.html" title="Deployment Tools (regolith.deploy)"
+          <a href="basebuilder.html" title="Builder Base Class (regolith.basebuilder)"
              accesskey="P">previous</a> &nbsp; &nbsp;</li>
     <li><a href="../index.html">regolith</a> &#187;</li>
 
@@ -65,13 +65,22 @@
 <dl class="function">
 <dt id="regolith.tools.all_docs_from_collection">
 <code class="descclassname">regolith.tools.</code><code class="descname">all_docs_from_collection</code><span class="sig-paren">(</span><em>client</em>, <em>collname</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#all_docs_from_collection"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.tools.all_docs_from_collection" title="Permalink to this definition">¶</a></dt>
-<dd><p>Yield all entries in for all collections of a given name in a given database.</p>
+<dd><p>Yield all entries in for all collections of a given name in a given
+database.</p>
 </dd></dl>
 
 <dl class="function">
-<dt id="regolith.tools.date_to_float">
-<code class="descclassname">regolith.tools.</code><code class="descname">date_to_float</code><span class="sig-paren">(</span><em>y</em>, <em>m</em>, <em>d=0</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#date_to_float"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.tools.date_to_float" title="Permalink to this definition">¶</a></dt>
-<dd><p>Converts years / months / days to a float, eg 2015.0818 is August 18th 2015.</p>
+<dt id="regolith.tools.awards_grants_honors">
+<code class="descclassname">regolith.tools.</code><code class="descname">awards_grants_honors</code><span class="sig-paren">(</span><em>p</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#awards_grants_honors"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.tools.awards_grants_honors" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make sorted awards grants and honors list.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>p</strong> (<em>dict</em>) – The person entry</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="function">
@@ -95,7 +104,67 @@
 <dl class="function">
 <dt id="regolith.tools.fallback">
 <code class="descclassname">regolith.tools.</code><code class="descname">fallback</code><span class="sig-paren">(</span><em>cond</em>, <em>backup</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#fallback"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.tools.fallback" title="Permalink to this definition">¶</a></dt>
-<dd><p>Decorator for returning the object if cond is true and a backup if cond is false.</p>
+<dd><p>Decorator for returning the object if cond is true and a backup if
+cond is false.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="regolith.tools.filter_grants">
+<code class="descclassname">regolith.tools.</code><code class="descname">filter_grants</code><span class="sig-paren">(</span><em>input_grants</em>, <em>names</em>, <em>pi=True</em>, <em>reverse=True</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#filter_grants"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.tools.filter_grants" title="Permalink to this definition">¶</a></dt>
+<dd><p>Filter grants by those involved</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>input_grants</strong> (<em>list of dict</em>) – The publication citations</li>
+<li><strong>names</strong> (<em>set of str</em>) – The authors to be filtered against</li>
+<li><strong>pi</strong> (<em>bool, optional</em>) – If True add the grant amount to that person’s total amount</li>
+<li><strong>reverse</strong> (<em>bool, optional</em>) – If True reverse the order, defaults to False</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="regolith.tools.filter_projects">
+<code class="descclassname">regolith.tools.</code><code class="descname">filter_projects</code><span class="sig-paren">(</span><em>projects</em>, <em>authors</em>, <em>reverse=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#filter_projects"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.tools.filter_projects" title="Permalink to this definition">¶</a></dt>
+<dd><p>Filter projects by the author(s)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>projects</strong> (<em>list of dict</em>) – The publication citations</li>
+<li><strong>authors</strong> (<em>set of str</em>) – The authors to be filtered against</li>
+<li><strong>reverse</strong> (<em>bool, optional</em>) – If True reverse the order, defaults to False</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="regolith.tools.filter_publications">
+<code class="descclassname">regolith.tools.</code><code class="descname">filter_publications</code><span class="sig-paren">(</span><em>citations</em>, <em>authors</em>, <em>reverse=False</em>, <em>bold=True</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#filter_publications"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.tools.filter_publications" title="Permalink to this definition">¶</a></dt>
+<dd><p>Filter publications by the author(s)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>citations</strong> (<em>list of dict</em>) – The publication citations</li>
+<li><strong>authors</strong> (<em>set of str</em>) – The authors to be filtered against</li>
+<li><strong>reverse</strong> (<em>bool, optional</em>) – If True reverse the order, defaults to False</li>
+<li><strong>bold</strong> (<em>bool, optional</em>) – If True put latex bold around the author(s) in question</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="function">
@@ -105,15 +174,42 @@
 </dd></dl>
 
 <dl class="function">
-<dt id="regolith.tools.month_and_year">
-<code class="descclassname">regolith.tools.</code><code class="descname">month_and_year</code><span class="sig-paren">(</span><em>m=None</em>, <em>y=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#month_and_year"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.tools.month_and_year" title="Permalink to this definition">¶</a></dt>
-<dd><p>Creates a string from month and year data, if available.</p>
+<dt id="regolith.tools.latex_safe">
+<code class="descclassname">regolith.tools.</code><code class="descname">latex_safe</code><span class="sig-paren">(</span><em>s</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#latex_safe"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.tools.latex_safe" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make string latex safe</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>s</strong> (<em>str</em>)</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="function">
-<dt id="regolith.tools.month_to_int">
-<code class="descclassname">regolith.tools.</code><code class="descname">month_to_int</code><span class="sig-paren">(</span><em>m</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#month_to_int"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.tools.month_to_int" title="Permalink to this definition">¶</a></dt>
-<dd><p>Converts a month to an integer.</p>
+<dt id="regolith.tools.make_bibtex_file">
+<code class="descclassname">regolith.tools.</code><code class="descname">make_bibtex_file</code><span class="sig-paren">(</span><em>pubs</em>, <em>pid</em>, <em>person_dir='.'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#make_bibtex_file"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.tools.make_bibtex_file" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make a bibtex file given the publications</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>pubs</strong> (<em>list of dict</em>) – The publications</li>
+<li><strong>pid</strong> (<em>str</em>) – The person id</li>
+<li><strong>person_dir</strong> (<em>str, optional</em>) – The person’s directory</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="regolith.tools.month_and_year">
+<code class="descclassname">regolith.tools.</code><code class="descname">month_and_year</code><span class="sig-paren">(</span><em>m=None</em>, <em>y=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#month_and_year"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.tools.month_and_year" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a string from month and year data, if available.</p>
 </dd></dl>
 
 <dl class="function">
@@ -135,13 +231,13 @@
         </a></p>
   <div class="sphinxprev">
     <h4>Previous page</h4>
-    <p class="topless"><a href="deploy.html"
-                          title="Previous page">&larr; Deployment Tools (<code class="docutils literal"><span class="pre">regolith.deploy</span></code>)</a></p>
+    <p class="topless"><a href="basebuilder.html"
+                          title="Previous page">&larr; Builder Base Class (<code class="docutils literal"><span class="pre">regolith.basebuilder</span></code>)</a></p>
   </div>
   <div class="sphinxnext">
     <h4>Next page</h4>
-    <p class="topless"><a href="validators.html"
-                          title="Next page">&rarr; Run Control Validators (<code class="docutils literal"><span class="pre">regolith.validators</span></code>)</a></p>
+    <p class="topless"><a href="dates.html"
+                          title="Next page">&rarr; Date Tools (<code class="docutils literal"><span class="pre">regolith.dates</span></code>)</a></p>
   </div>
 <div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
@@ -180,10 +276,10 @@
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="validators.html" title="Run Control Validators (regolith.validators)"
+          <a href="dates.html" title="Date Tools (regolith.dates)"
              >next</a></li>
         <li class="right" >
-          <a href="deploy.html" title="Deployment Tools (regolith.deploy)"
+          <a href="basebuilder.html" title="Builder Base Class (regolith.basebuilder)"
              >previous</a> &nbsp; &nbsp;</li>
     <li><a href="../index.html">regolith</a> &#187;</li>
 

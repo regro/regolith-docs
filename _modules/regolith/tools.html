@@ -54,19 +54,34 @@
   <h1>Source code for regolith.tools</h1><div class="highlight"><pre>
 <span></span><span class="sd">&quot;&quot;&quot;Misc. regolith tools.</span>
 <span class="sd">&quot;&quot;&quot;</span>
-<span class="kn">import</span> <span class="nn">os</span>
-<span class="kn">import</span> <span class="nn">re</span>
-<span class="kn">import</span> <span class="nn">sys</span>
-<span class="kn">import</span> <span class="nn">platform</span>
 <span class="kn">import</span> <span class="nn">email.utils</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">platform</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">from</span> <span class="nn">copy</span> <span class="k">import</span> <span class="n">deepcopy</span>
+
 <span class="kn">from</span> <span class="nn">datetime</span> <span class="k">import</span> <span class="n">datetime</span>
+
+<span class="kn">from</span> <span class="nn">regolith.dates</span> <span class="k">import</span> <span class="n">month_to_int</span><span class="p">,</span> <span class="n">date_to_float</span>
+<span class="kn">from</span> <span class="nn">regolith.sorters</span> <span class="k">import</span> <span class="n">doc_date_key</span><span class="p">,</span> <span class="n">id_key</span><span class="p">,</span> <span class="n">ene_date_key</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="kn">from</span> <span class="nn">bibtexparser.bwriter</span> <span class="k">import</span> <span class="n">BibTexWriter</span>
+    <span class="kn">from</span> <span class="nn">bibtexparser.bibdatabase</span> <span class="k">import</span> <span class="n">BibDatabase</span>
+
+    <span class="n">HAVE_BIBTEX_PARSER</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
+    <span class="n">HAVE_BIBTEX_PARSER</span> <span class="o">=</span> <span class="kc">False</span>
+
+<span class="n">LATEX_OPTS</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;-halt-on-error&#39;</span><span class="p">,</span> <span class="s1">&#39;-file-line-error&#39;</span><span class="p">]</span>
 
 <span class="k">if</span> <span class="n">sys</span><span class="o">.</span><span class="n">version_info</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mi">3</span><span class="p">:</span>
     <span class="n">string_types</span> <span class="o">=</span> <span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="nb">bytes</span><span class="p">)</span>
     <span class="n">unicode_type</span> <span class="o">=</span> <span class="nb">str</span>
 <span class="k">else</span><span class="p">:</span>
-    <span class="n">string_types</span> <span class="o">=</span> <span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="n">unicode</span><span class="p">)</span>
-    <span class="n">unicode_type</span> <span class="o">=</span> <span class="n">unicode</span>
+    <span class="k">pass</span>
+    <span class="c1"># string_types = (str, unicode)</span>
+    <span class="c1"># unicode_type = unicode</span>
 
 <span class="n">DEFAULT_ENCODING</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">getdefaultencoding</span><span class="p">()</span>
 
@@ -91,15 +106,18 @@
 
 
 <div class="viewcode-block" id="fallback"><a class="viewcode-back" href="../../api/tools.html#regolith.tools.fallback">[docs]</a><span class="k">def</span> <span class="nf">fallback</span><span class="p">(</span><span class="n">cond</span><span class="p">,</span> <span class="n">backup</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Decorator for returning the object if cond is true and a backup if cond is false.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="sd">&quot;&quot;&quot;Decorator for returning the object if cond is true and a backup if</span>
+<span class="sd">    cond is false. &quot;&quot;&quot;</span>
+
     <span class="k">def</span> <span class="nf">dec</span><span class="p">(</span><span class="n">obj</span><span class="p">):</span>
         <span class="k">return</span> <span class="n">obj</span> <span class="k">if</span> <span class="n">cond</span> <span class="k">else</span> <span class="n">backup</span>
+
     <span class="k">return</span> <span class="n">dec</span></div>
 
 
 <div class="viewcode-block" id="all_docs_from_collection"><a class="viewcode-back" href="../../api/tools.html#regolith.tools.all_docs_from_collection">[docs]</a><span class="k">def</span> <span class="nf">all_docs_from_collection</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="n">collname</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Yield all entries in for all collections of a given name in a given database.&quot;&quot;&quot;</span>
+    <span class="sd">&quot;&quot;&quot;Yield all entries in for all collections of a given name in a given</span>
+<span class="sd">    database. &quot;&quot;&quot;</span>
     <span class="k">for</span> <span class="n">dbname</span> <span class="ow">in</span> <span class="n">client</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
         <span class="k">if</span> <span class="n">dbname</span> <span class="o">==</span> <span class="s1">&#39;local&#39;</span><span class="p">:</span>
             <span class="k">continue</span>
@@ -108,65 +126,8 @@
         <span class="k">yield from</span> <span class="n">client</span><span class="o">.</span><span class="n">all_documents</span><span class="p">(</span><span class="n">dbname</span><span class="p">,</span> <span class="n">collname</span><span class="p">)</span></div>
 
 
-<span class="n">MONTHS</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s1">&#39;jan&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
-    <span class="s1">&#39;jan.&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
-    <span class="s1">&#39;january&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
-    <span class="s1">&#39;feb&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
-    <span class="s1">&#39;feb.&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
-    <span class="s1">&#39;february&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
-    <span class="s1">&#39;mar&#39;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
-    <span class="s1">&#39;mar.&#39;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
-    <span class="s1">&#39;march&#39;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
-    <span class="s1">&#39;apr&#39;</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span>
-    <span class="s1">&#39;apr.&#39;</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span>
-    <span class="s1">&#39;april&#39;</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span>
-    <span class="s1">&#39;may&#39;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span>
-    <span class="s1">&#39;may.&#39;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span>
-    <span class="s1">&#39;jun&#39;</span><span class="p">:</span> <span class="mi">6</span><span class="p">,</span>
-    <span class="s1">&#39;jun.&#39;</span><span class="p">:</span> <span class="mi">6</span><span class="p">,</span>
-    <span class="s1">&#39;june&#39;</span><span class="p">:</span> <span class="mi">6</span><span class="p">,</span>
-    <span class="s1">&#39;jul&#39;</span><span class="p">:</span> <span class="mi">7</span><span class="p">,</span>
-    <span class="s1">&#39;jul.&#39;</span><span class="p">:</span> <span class="mi">7</span><span class="p">,</span>
-    <span class="s1">&#39;july&#39;</span><span class="p">:</span> <span class="mi">7</span><span class="p">,</span>
-    <span class="s1">&#39;aug&#39;</span><span class="p">:</span> <span class="mi">8</span><span class="p">,</span>
-    <span class="s1">&#39;aug.&#39;</span><span class="p">:</span> <span class="mi">8</span><span class="p">,</span>
-    <span class="s1">&#39;august&#39;</span><span class="p">:</span> <span class="mi">8</span><span class="p">,</span>
-    <span class="s1">&#39;sep&#39;</span><span class="p">:</span> <span class="mi">9</span><span class="p">,</span>
-    <span class="s1">&#39;sep.&#39;</span><span class="p">:</span> <span class="mi">9</span><span class="p">,</span>
-    <span class="s1">&#39;sept&#39;</span><span class="p">:</span> <span class="mi">9</span><span class="p">,</span>
-    <span class="s1">&#39;sept.&#39;</span><span class="p">:</span> <span class="mi">9</span><span class="p">,</span>
-    <span class="s1">&#39;september&#39;</span><span class="p">:</span> <span class="mi">9</span><span class="p">,</span>
-    <span class="s1">&#39;oct&#39;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
-    <span class="s1">&#39;oct.&#39;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
-    <span class="s1">&#39;october&#39;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
-    <span class="s1">&#39;nov&#39;</span><span class="p">:</span> <span class="mi">11</span><span class="p">,</span>
-    <span class="s1">&#39;nov.&#39;</span><span class="p">:</span> <span class="mi">11</span><span class="p">,</span>
-    <span class="s1">&#39;november&#39;</span><span class="p">:</span> <span class="mi">11</span><span class="p">,</span>
-    <span class="s1">&#39;dec&#39;</span><span class="p">:</span> <span class="mi">12</span><span class="p">,</span>
-    <span class="s1">&#39;dec.&#39;</span><span class="p">:</span> <span class="mi">12</span><span class="p">,</span>
-    <span class="s1">&#39;december&#39;</span><span class="p">:</span> <span class="mi">12</span><span class="p">,</span>
-    <span class="s1">&#39;&#39;</span><span class="p">:</span> <span class="mi">1</span>
-    <span class="p">}</span>
-
 <span class="n">SHORT_MONTH_NAMES</span> <span class="o">=</span> <span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="s1">&#39;Jan&#39;</span><span class="p">,</span> <span class="s1">&#39;Feb&#39;</span><span class="p">,</span> <span class="s1">&#39;Mar&#39;</span><span class="p">,</span> <span class="s1">&#39;Apr&#39;</span><span class="p">,</span> <span class="s1">&#39;May&#39;</span><span class="p">,</span> <span class="s1">&#39;Jun&#39;</span><span class="p">,</span> <span class="s1">&#39;Jul&#39;</span><span class="p">,</span>
                      <span class="s1">&#39;Aug&#39;</span><span class="p">,</span> <span class="s1">&#39;Sept&#39;</span><span class="p">,</span> <span class="s1">&#39;Oct&#39;</span><span class="p">,</span> <span class="s1">&#39;Nov&#39;</span><span class="p">,</span> <span class="s1">&#39;Dec&#39;</span><span class="p">)</span>
-
-<div class="viewcode-block" id="month_to_int"><a class="viewcode-back" href="../../api/tools.html#regolith.tools.month_to_int">[docs]</a><span class="k">def</span> <span class="nf">month_to_int</span><span class="p">(</span><span class="n">m</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Converts a month to an integer.&quot;&quot;&quot;</span>
-    <span class="k">try</span><span class="p">:</span>
-        <span class="n">m</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
-    <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
-        <span class="n">m</span> <span class="o">=</span> <span class="n">MONTHS</span><span class="p">[</span><span class="n">m</span><span class="o">.</span><span class="n">lower</span><span class="p">()]</span>
-    <span class="k">return</span> <span class="n">m</span></div>
-
-
-<div class="viewcode-block" id="date_to_float"><a class="viewcode-back" href="../../api/tools.html#regolith.tools.date_to_float">[docs]</a><span class="k">def</span> <span class="nf">date_to_float</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">d</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Converts years / months / days to a float, eg 2015.0818 is August 18th 2015.&quot;&quot;&quot;</span>
-    <span class="n">y</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
-    <span class="n">m</span> <span class="o">=</span> <span class="n">month_to_int</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
-    <span class="n">d</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">y</span> <span class="o">+</span> <span class="p">(</span><span class="n">m</span><span class="o">/</span><span class="mf">100.0</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="n">d</span><span class="o">/</span><span class="mf">100000.0</span><span class="p">)</span></div>
 
 
 <div class="viewcode-block" id="date_to_rfc822"><a class="viewcode-back" href="../../api/tools.html#regolith.tools.date_to_rfc822">[docs]</a><span class="k">def</span> <span class="nf">date_to_rfc822</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">d</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
@@ -196,6 +157,180 @@
     <span class="n">m</span> <span class="o">=</span> <span class="n">month_to_int</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
     <span class="k">return</span> <span class="s1">&#39;</span><span class="si">{0}</span><span class="s1"> </span><span class="si">{1}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">SHORT_MONTH_NAMES</span><span class="p">[</span><span class="n">m</span><span class="p">],</span> <span class="n">y</span><span class="p">)</span></div>
 
+
+<div class="viewcode-block" id="filter_publications"><a class="viewcode-back" href="../../api/tools.html#regolith.tools.filter_publications">[docs]</a><span class="k">def</span> <span class="nf">filter_publications</span><span class="p">(</span><span class="n">citations</span><span class="p">,</span> <span class="n">authors</span><span class="p">,</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">bold</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Filter publications by the author(s)</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    citations : list of dict</span>
+<span class="sd">        The publication citations</span>
+<span class="sd">    authors : set of str</span>
+<span class="sd">        The authors to be filtered against</span>
+<span class="sd">    reverse : bool, optional</span>
+<span class="sd">        If True reverse the order, defaults to False</span>
+<span class="sd">    bold : bool, optional</span>
+<span class="sd">        If True put latex bold around the author(s) in question</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">pubs</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">pub</span> <span class="ow">in</span> <span class="n">citations</span><span class="p">:</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">pub</span><span class="p">[</span><span class="s1">&#39;author&#39;</span><span class="p">])</span> <span class="o">&amp;</span> <span class="n">authors</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">continue</span>
+        <span class="n">pub</span> <span class="o">=</span> <span class="n">deepcopy</span><span class="p">(</span><span class="n">pub</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">bold</span><span class="p">:</span>
+            <span class="n">bold_self</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">pub</span><span class="p">[</span><span class="s1">&#39;author&#39;</span><span class="p">]:</span>
+                <span class="k">if</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">authors</span><span class="p">:</span>
+                    <span class="n">bold_self</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\\</span><span class="s1">textbf{&#39;</span> <span class="o">+</span> <span class="n">a</span> <span class="o">+</span> <span class="s1">&#39;}&#39;</span><span class="p">)</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">bold_self</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+            <span class="n">pub</span><span class="p">[</span><span class="s1">&#39;author&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">bold_self</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">pub</span> <span class="o">=</span> <span class="n">deepcopy</span><span class="p">(</span><span class="n">pub</span><span class="p">)</span>
+        <span class="n">pubs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">pub</span><span class="p">)</span>
+    <span class="n">pubs</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="n">doc_date_key</span><span class="p">,</span> <span class="n">reverse</span><span class="o">=</span><span class="n">reverse</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">pubs</span></div>
+
+
+<div class="viewcode-block" id="filter_projects"><a class="viewcode-back" href="../../api/tools.html#regolith.tools.filter_projects">[docs]</a><span class="k">def</span> <span class="nf">filter_projects</span><span class="p">(</span><span class="n">projects</span><span class="p">,</span> <span class="n">authors</span><span class="p">,</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Filter projects by the author(s)</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    projects : list of dict</span>
+<span class="sd">        The publication citations</span>
+<span class="sd">    authors : set of str</span>
+<span class="sd">        The authors to be filtered against</span>
+<span class="sd">    reverse : bool, optional</span>
+<span class="sd">        If True reverse the order, defaults to False</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">projs</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">proj</span> <span class="ow">in</span> <span class="n">projects</span><span class="p">:</span>
+        <span class="n">team_names</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">gets</span><span class="p">(</span><span class="n">proj</span><span class="p">[</span><span class="s1">&#39;team&#39;</span><span class="p">],</span> <span class="s1">&#39;name&#39;</span><span class="p">))</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">team_names</span> <span class="o">&amp;</span> <span class="n">authors</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">continue</span>
+        <span class="n">proj</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">proj</span><span class="p">)</span>
+        <span class="n">proj</span><span class="p">[</span><span class="s1">&#39;team&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">proj</span><span class="p">[</span><span class="s1">&#39;team&#39;</span><span class="p">]</span> <span class="k">if</span> <span class="n">x</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span> <span class="ow">in</span> <span class="n">authors</span><span class="p">]</span>
+        <span class="n">projs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">proj</span><span class="p">)</span>
+    <span class="n">projs</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="n">id_key</span><span class="p">,</span> <span class="n">reverse</span><span class="o">=</span><span class="n">reverse</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">projs</span></div>
+
+
+<div class="viewcode-block" id="filter_grants"><a class="viewcode-back" href="../../api/tools.html#regolith.tools.filter_grants">[docs]</a><span class="k">def</span> <span class="nf">filter_grants</span><span class="p">(</span><span class="n">input_grants</span><span class="p">,</span> <span class="n">names</span><span class="p">,</span> <span class="n">pi</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Filter grants by those involved</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    input_grants : list of dict</span>
+<span class="sd">        The publication citations</span>
+<span class="sd">    names : set of str</span>
+<span class="sd">        The authors to be filtered against</span>
+<span class="sd">    pi : bool, optional</span>
+<span class="sd">        If True add the grant amount to that person&#39;s total amount</span>
+<span class="sd">    reverse : bool, optional</span>
+<span class="sd">        If True reverse the order, defaults to False</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">grants</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">total_amount</span> <span class="o">=</span> <span class="mf">0.0</span>
+    <span class="n">subaward_amount</span> <span class="o">=</span> <span class="mf">0.0</span>
+    <span class="k">for</span> <span class="n">grant</span> <span class="ow">in</span> <span class="n">input_grants</span><span class="p">:</span>
+        <span class="n">team_names</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">gets</span><span class="p">(</span><span class="n">grant</span><span class="p">[</span><span class="s1">&#39;team&#39;</span><span class="p">],</span> <span class="s1">&#39;name&#39;</span><span class="p">))</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">team_names</span> <span class="o">&amp;</span> <span class="n">names</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">continue</span>
+        <span class="n">grant</span> <span class="o">=</span> <span class="n">deepcopy</span><span class="p">(</span><span class="n">grant</span><span class="p">)</span>
+        <span class="n">person</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">grant</span><span class="p">[</span><span class="s1">&#39;team&#39;</span><span class="p">]</span> <span class="k">if</span> <span class="n">x</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span> <span class="ow">in</span> <span class="n">names</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">pi</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">person</span><span class="p">[</span><span class="s1">&#39;position&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s1">&#39;pi&#39;</span><span class="p">:</span>
+                <span class="n">total_amount</span> <span class="o">+=</span> <span class="n">grant</span><span class="p">[</span><span class="s1">&#39;amount&#39;</span><span class="p">]</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">continue</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">person</span><span class="p">[</span><span class="s1">&#39;position&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s1">&#39;pi&#39;</span><span class="p">:</span>
+                <span class="k">continue</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">total_amount</span> <span class="o">+=</span> <span class="n">grant</span><span class="p">[</span><span class="s1">&#39;amount&#39;</span><span class="p">]</span>
+                <span class="n">subaward_amount</span> <span class="o">+=</span> <span class="n">person</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;subaward_amount&#39;</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span>
+                <span class="n">grant</span><span class="p">[</span><span class="s1">&#39;subaward_amount&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">person</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;subaward_amount&#39;</span><span class="p">,</span>
+                                                      <span class="mf">0.0</span><span class="p">)</span>
+                <span class="n">grant</span><span class="p">[</span><span class="s1">&#39;pi&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">grant</span><span class="p">[</span><span class="s1">&#39;team&#39;</span><span class="p">]</span> <span class="k">if</span>
+                               <span class="n">x</span><span class="p">[</span><span class="s1">&#39;position&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s1">&#39;pi&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+                <span class="n">grant</span><span class="p">[</span><span class="s1">&#39;me&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">person</span>
+        <span class="n">grants</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">grant</span><span class="p">)</span>
+    <span class="n">grants</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="n">ene_date_key</span><span class="p">,</span> <span class="n">reverse</span><span class="o">=</span><span class="n">reverse</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">grants</span><span class="p">,</span> <span class="n">total_amount</span><span class="p">,</span> <span class="n">subaward_amount</span></div>
+
+
+<div class="viewcode-block" id="awards_grants_honors"><a class="viewcode-back" href="../../api/tools.html#regolith.tools.awards_grants_honors">[docs]</a><span class="k">def</span> <span class="nf">awards_grants_honors</span><span class="p">(</span><span class="n">p</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Make sorted awards grants and honors list.</span>
+<span class="sd">    </span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    p : dict</span>
+<span class="sd">        The person entry</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">aghs</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">p</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;funding&#39;</span><span class="p">,</span> <span class="p">()):</span>
+        <span class="n">d</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;description&#39;</span><span class="p">:</span> <span class="s1">&#39;</span><span class="si">{0}</span><span class="s1"> (</span><span class="si">{1}{2:,}</span><span class="s1">)&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+            <span class="n">latex_safe</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]),</span>
+            <span class="n">x</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;currency&#39;</span><span class="p">,</span> <span class="s1">&#39;$&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;$&#39;</span><span class="p">,</span> <span class="s1">&#39;\$&#39;</span><span class="p">),</span> <span class="n">x</span><span class="p">[</span><span class="s1">&#39;value&#39;</span><span class="p">]),</span>
+            <span class="s1">&#39;year&#39;</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="s1">&#39;year&#39;</span><span class="p">],</span>
+            <span class="s1">&#39;_key&#39;</span><span class="p">:</span> <span class="n">date_to_float</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="s1">&#39;year&#39;</span><span class="p">],</span> <span class="n">x</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;month&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)),</span>
+        <span class="p">}</span>
+        <span class="n">aghs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">p</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;service&#39;</span><span class="p">,</span> <span class="p">[])</span> <span class="o">+</span> <span class="n">p</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;honors&#39;</span><span class="p">,</span> <span class="p">[]):</span>
+        <span class="n">d</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;description&#39;</span><span class="p">:</span> <span class="n">latex_safe</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]),</span>
+             <span class="s1">&#39;year&#39;</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="s1">&#39;year&#39;</span><span class="p">],</span>
+             <span class="s1">&#39;_key&#39;</span><span class="p">:</span> <span class="n">date_to_float</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="s1">&#39;year&#39;</span><span class="p">],</span> <span class="n">x</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;month&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)),</span>
+             <span class="p">}</span>
+        <span class="n">aghs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
+    <span class="n">aghs</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;_key&#39;</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)),</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">aghs</span></div>
+
+
+<div class="viewcode-block" id="latex_safe"><a class="viewcode-back" href="../../api/tools.html#regolith.tools.latex_safe">[docs]</a><span class="k">def</span> <span class="nf">latex_safe</span><span class="p">(</span><span class="n">s</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Make string latex safe</span>
+<span class="sd">    </span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    s : str</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">s</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;&amp;&#39;</span><span class="p">,</span> <span class="s1">&#39;\&amp;&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;$&#39;</span><span class="p">,</span> <span class="s1">&#39;\$&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;#&#39;</span><span class="p">,</span> <span class="s1">&#39;\#&#39;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="make_bibtex_file"><a class="viewcode-back" href="../../api/tools.html#regolith.tools.make_bibtex_file">[docs]</a><span class="k">def</span> <span class="nf">make_bibtex_file</span><span class="p">(</span><span class="n">pubs</span><span class="p">,</span> <span class="n">pid</span><span class="p">,</span> <span class="n">person_dir</span><span class="o">=</span><span class="s1">&#39;.&#39;</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Make a bibtex file given the publications</span>
+<span class="sd">    </span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    pubs : list of dict</span>
+<span class="sd">        The publications</span>
+<span class="sd">    pid : str</span>
+<span class="sd">        The person id</span>
+<span class="sd">    person_dir : str, optional</span>
+<span class="sd">        The person&#39;s directory</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">HAVE_BIBTEX_PARSER</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">None</span>
+    <span class="n">skip_keys</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;ID&#39;</span><span class="p">,</span> <span class="s1">&#39;ENTRYTYPE&#39;</span><span class="p">,</span> <span class="s1">&#39;author&#39;</span><span class="p">}</span>
+    <span class="n">bibdb</span> <span class="o">=</span> <span class="n">BibDatabase</span><span class="p">()</span>
+    <span class="n">bibwriter</span> <span class="o">=</span> <span class="n">BibTexWriter</span><span class="p">()</span>
+    <span class="n">bibdb</span><span class="o">.</span><span class="n">entries</span> <span class="o">=</span> <span class="n">ents</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">pub</span> <span class="ow">in</span> <span class="n">pubs</span><span class="p">:</span>
+        <span class="n">ent</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">pub</span><span class="p">)</span>
+        <span class="n">ent</span><span class="p">[</span><span class="s1">&#39;ID&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ent</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s1">&#39;_id&#39;</span><span class="p">)</span>
+        <span class="n">ent</span><span class="p">[</span><span class="s1">&#39;ENTRYTYPE&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ent</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s1">&#39;entrytype&#39;</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;author&#39;</span><span class="p">,</span> <span class="s1">&#39;editor&#39;</span><span class="p">]:</span>
+            <span class="k">if</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">ent</span><span class="p">:</span>
+                <span class="n">ent</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39; and &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">ent</span><span class="p">[</span><span class="n">n</span><span class="p">])</span>
+        <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">ent</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+            <span class="k">if</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">skip_keys</span><span class="p">:</span>
+                <span class="k">continue</span>
+            <span class="n">ent</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">latex_safe</span><span class="p">(</span><span class="n">ent</span><span class="p">[</span><span class="n">key</span><span class="p">])</span>
+        <span class="n">ents</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ent</span><span class="p">)</span>
+    <span class="n">fname</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">person_dir</span><span class="p">,</span> <span class="n">pid</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;.bib&#39;</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">bibwriter</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">bibdb</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">fname</span></div>
 </pre></div>
 
           </div>

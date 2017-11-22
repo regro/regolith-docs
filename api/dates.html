@@ -7,7 +7,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Interactive Sessions (regolith.interact) &#8212; regolith - research group content managment system</title>
+    <title>Date Tools (regolith.dates) &#8212; regolith - research group content managment system</title>
     <link rel="stylesheet" href="../_static/cloud.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Noticia+Text|Open+Sans|Droid+Sans+Mono" type="text/css" />
@@ -30,7 +30,8 @@
     <script type="text/javascript" src="../_static/cloud.js"></script>
     <link rel="shortcut icon" href="../_static/regolith-logo.ico"/>
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="prev" title="Web Application (regolith.app)" href="app.html" /> 
+    <link rel="next" title="Run Control Validators (regolith.validators)" href="validators.html" />
+    <link rel="prev" title="Tools (regolith.tools)" href="tools.html" /> 
         <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
   <body>
@@ -40,8 +41,11 @@
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="app.html" title="Web Application (regolith.app)"
-             accesskey="P">previous</a></li>
+          <a href="validators.html" title="Run Control Validators (regolith.validators)"
+             accesskey="N">next</a></li>
+        <li class="right" >
+          <a href="tools.html" title="Tools (regolith.tools)"
+             accesskey="P">previous</a> &nbsp; &nbsp;</li>
     <li><a href="../index.html">regolith</a> &#187;</li>
 
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Regolith API</a> &#187;</li> 
@@ -55,16 +59,22 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="interactive-sessions-regolith-interact">
-<span id="regolith-interactive"></span><h1>Interactive Sessions (<code class="docutils literal"><span class="pre">regolith.interact</span></code>)<a class="headerlink" href="#interactive-sessions-regolith-interact" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="usage">
-<h2>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">regolith.interact</span> <span class="kn">import</span> <span class="o">*</span>
-<span class="n">cj</span> <span class="o">=</span> <span class="n">col</span><span class="p">[</span><span class="s1">&#39;people&#39;</span><span class="p">][</span><span class="s1">&#39;CJ-Wright&#39;</span><span class="p">]</span>
-<span class="n">active</span> <span class="o">=</span> <span class="p">[</span><span class="n">p</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">col</span><span class="p">[</span><span class="s1">&#39;people&#39;</span><span class="p">]</span> <span class="k">if</span> <span class="n">p</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;active&#39;</span><span class="p">,</span> <span class="bp">True</span><span class="p">)]</span>
-</pre></div>
-</div>
-</div>
+  <div class="section" id="module-regolith.dates">
+<span id="date-tools-regolith-dates"></span><span id="regolith-dates"></span><h1>Date Tools (<code class="docutils literal"><span class="pre">regolith.dates</span></code>)<a class="headerlink" href="#module-regolith.dates" title="Permalink to this headline">¶</a></h1>
+<p>Date based tools</p>
+<dl class="function">
+<dt id="regolith.dates.date_to_float">
+<code class="descclassname">regolith.dates.</code><code class="descname">date_to_float</code><span class="sig-paren">(</span><em>y</em>, <em>m</em>, <em>d=0</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/dates.html#date_to_float"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.dates.date_to_float" title="Permalink to this definition">¶</a></dt>
+<dd><p>Converts years / months / days to a float, eg 2015.0818 is August
+18th 2015.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="regolith.dates.month_to_int">
+<code class="descclassname">regolith.dates.</code><code class="descname">month_to_int</code><span class="sig-paren">(</span><em>m</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/dates.html#month_to_int"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.dates.month_to_int" title="Permalink to this definition">¶</a></dt>
+<dd><p>Converts a month to an integer.</p>
+</dd></dl>
+
 </div>
 
 
@@ -75,20 +85,16 @@
         <div class="sphinxsidebarwrapper">
         <p class="logo"><a href="../index.html" title="index">
           <img class="logo" src="../_static/regolith-logo.svg" alt="Logo"/>
-        </a></p><div class="sphinx-toc sphinxlocaltoc">
-    <h3><a href="../index.html">Page contents</a></h3>
-    <ul>
-<li><a class="reference internal" href="#">Interactive Sessions (<code class="docutils literal"><span class="pre">regolith.interact</span></code>)</a><ul>
-<li><a class="reference internal" href="#usage">Usage</a></li>
-</ul>
-</li>
-</ul>
-
-  </div>
+        </a></p>
   <div class="sphinxprev">
     <h4>Previous page</h4>
-    <p class="topless"><a href="app.html"
-                          title="Previous page">&larr; Web Application (<code class="docutils literal"><span class="pre">regolith.app</span></code>)</a></p>
+    <p class="topless"><a href="tools.html"
+                          title="Previous page">&larr; Tools (<code class="docutils literal"><span class="pre">regolith.tools</span></code>)</a></p>
+  </div>
+  <div class="sphinxnext">
+    <h4>Next page</h4>
+    <p class="topless"><a href="validators.html"
+                          title="Next page">&rarr; Run Control Validators (<code class="docutils literal"><span class="pre">regolith.validators</span></code>)</a></p>
   </div>
 <div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
@@ -127,8 +133,11 @@
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="app.html" title="Web Application (regolith.app)"
-             >previous</a></li>
+          <a href="validators.html" title="Run Control Validators (regolith.validators)"
+             >next</a></li>
+        <li class="right" >
+          <a href="tools.html" title="Tools (regolith.tools)"
+             >previous</a> &nbsp; &nbsp;</li>
     <li><a href="../index.html">regolith</a> &#187;</li>
 
           <li class="nav-item nav-item-1"><a href="index.html" >Regolith API</a> &#187;</li> 

@@ -1,0 +1,207 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>CV Builder (regolith.cvbuilder) &#8212; regolith - research group content managment system</title>
+    <link rel="stylesheet" href="../_static/cloud.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Noticia+Text|Open+Sans|Droid+Sans+Mono" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.1.6',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../_static/jquery.cookie.js"></script>
+    <script type="text/javascript" src="../_static/cloud.base.js"></script>
+    <script type="text/javascript" src="../_static/cloud.js"></script>
+    <link rel="shortcut icon" href="../_static/regolith-logo.ico"/>
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Deployment Tools (regolith.deploy)" href="deploy.html" />
+    <link rel="prev" title="Website Builder (regolith.htmlbuilder)" href="htmlbuilder.html" /> 
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+  <body>
+    <div class="relbar-top">
+        
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="deploy.html" title="Deployment Tools (regolith.deploy)"
+             accesskey="N">next</a></li>
+        <li class="right" >
+          <a href="htmlbuilder.html" title="Website Builder (regolith.htmlbuilder)"
+             accesskey="P">previous</a> &nbsp; &nbsp;</li>
+    <li><a href="../index.html">regolith</a> &#187;</li>
+
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Regolith API</a> &#187;</li> 
+      </ul>
+    </div>
+    </div>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="module-regolith.cvbuilder">
+<span id="cv-builder-regolith-cvbuilder"></span><span id="regolith-cvbuilder"></span><h1>CV Builder (<code class="docutils literal"><span class="pre">regolith.cvbuilder</span></code>)<a class="headerlink" href="#module-regolith.cvbuilder" title="Permalink to this headline">¶</a></h1>
+<p>Builder for CVs.</p>
+<dl class="class">
+<dt id="regolith.cvbuilder.CVBuilder">
+<em class="property">class </em><code class="descclassname">regolith.cvbuilder.</code><code class="descname">CVBuilder</code><span class="sig-paren">(</span><em>rc</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/cvbuilder.html#CVBuilder"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.cvbuilder.CVBuilder" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build CV from database entries</p>
+<dl class="attribute">
+<dt id="regolith.cvbuilder.CVBuilder.btype">
+<code class="descname">btype</code><em class="property"> = 'cv'</em><a class="headerlink" href="#regolith.cvbuilder.CVBuilder.btype" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="regolith.cvbuilder.CVBuilder.build">
+<code class="descname">build</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#regolith.cvbuilder.CVBuilder.build" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build the thing that is being built, note this runs all commands
+listed in <code class="docutils literal"><span class="pre">self.cmds</span></code></p>
+</dd></dl>
+
+<dl class="method">
+<dt id="regolith.cvbuilder.CVBuilder.clean">
+<code class="descname">clean</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/cvbuilder.html#CVBuilder.clean"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.cvbuilder.CVBuilder.clean" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove files created by latex</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="regolith.cvbuilder.CVBuilder.construct_global_ctx">
+<code class="descname">construct_global_ctx</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/cvbuilder.html#CVBuilder.construct_global_ctx"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.cvbuilder.CVBuilder.construct_global_ctx" title="Permalink to this definition">¶</a></dt>
+<dd><p>Constructs the global context</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="regolith.cvbuilder.CVBuilder.latex">
+<code class="descname">latex</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/cvbuilder.html#CVBuilder.latex"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.cvbuilder.CVBuilder.latex" title="Permalink to this definition">¶</a></dt>
+<dd><p>Render latex template</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="regolith.cvbuilder.CVBuilder.pdf">
+<code class="descname">pdf</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/cvbuilder.html#CVBuilder.pdf"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.cvbuilder.CVBuilder.pdf" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compiles latex files to PDF</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="regolith.cvbuilder.CVBuilder.render">
+<code class="descname">render</code><span class="sig-paren">(</span><em>tname</em>, <em>fname</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#regolith.cvbuilder.CVBuilder.render" title="Permalink to this definition">¶</a></dt>
+<dd><p>Render the template into a file using the kwargs and global context</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>tname</strong> (<em>str</em>) – Template name</li>
+<li><strong>fname</strong> (<em>str</em>) – Resulting file name</li>
+<li><strong>kwargs</strong> (<em>dict</em>) – Additional kwargs to the renderer</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="regolith.cvbuilder.CVBuilder.run">
+<code class="descname">run</code><span class="sig-paren">(</span><em>cmd</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/cvbuilder.html#CVBuilder.run"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.cvbuilder.CVBuilder.run" title="Permalink to this definition">¶</a></dt>
+<dd><p>Run command in build dir</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+        <p class="logo"><a href="../index.html" title="index">
+          <img class="logo" src="../_static/regolith-logo.svg" alt="Logo"/>
+        </a></p>
+  <div class="sphinxprev">
+    <h4>Previous page</h4>
+    <p class="topless"><a href="htmlbuilder.html"
+                          title="Previous page">&larr; Website Builder (<code class="docutils literal"><span class="pre">regolith.htmlbuilder</span></code>)</a></p>
+  </div>
+  <div class="sphinxnext">
+    <h4>Next page</h4>
+    <p class="topless"><a href="deploy.html"
+                          title="Next page">&rarr; Deployment Tools (<code class="docutils literal"><span class="pre">regolith.deploy</span></code>)</a></p>
+  </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+    
+    
+        <div class="sidebar-toggle-group no-js">
+            
+            <button class="sidebar-toggle" id="sidebar-hide" title="Hide the sidebar menu">
+                 «
+                <span class="show-for-small">hide menu</span>
+                
+            </button>
+            <button class="sidebar-toggle" id="sidebar-show" title="Show the sidebar menu">
+                
+                <span class="show-for-small">menu</span>
+                <span class="hide-for-small">sidebar</span>
+                 »
+            </button>
+        </div>
+    
+      <div class="clearer"></div>
+    </div>
+    <div class="relbar-bottom">
+        
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="deploy.html" title="Deployment Tools (regolith.deploy)"
+             >next</a></li>
+        <li class="right" >
+          <a href="htmlbuilder.html" title="Website Builder (regolith.htmlbuilder)"
+             >previous</a> &nbsp; &nbsp;</li>
+    <li><a href="../index.html">regolith</a> &#187;</li>
+
+          <li class="nav-item nav-item-1"><a href="index.html" >Regolith API</a> &#187;</li> 
+      </ul>
+    </div>
+    </div>
+
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2015, Anthony Scopatz.
+    </div>
+    <!-- cloud_sptheme 1.4 -->
+  </body>
+</html>

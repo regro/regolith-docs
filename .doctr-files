@@ -1,7 +1,10 @@
 ./_modules/index.html
+./_modules/regolith/basebuilder.html
 ./_modules/regolith/builder.html
 ./_modules/regolith/commands.html
+./_modules/regolith/cvbuilder.html
 ./_modules/regolith/database.html
+./_modules/regolith/dates.html
 ./_modules/regolith/deploy.html
 ./_modules/regolith/htmlbuilder.html
 ./_modules/regolith/main.html
@@ -9,9 +12,12 @@
 ./_modules/regolith/tools.html
 ./_modules/regolith/validators.html
 ./_sources/api/app.rst.txt
+./_sources/api/basebuilder.rst.txt
 ./_sources/api/builder.rst.txt
 ./_sources/api/commands.rst.txt
+./_sources/api/cvbuilder.rst.txt
 ./_sources/api/database.rst.txt
+./_sources/api/dates.rst.txt
 ./_sources/api/deploy.rst.txt
 ./_sources/api/htmlbuilder.rst.txt
 ./_sources/api/index.rst.txt
@@ -61,9 +67,12 @@
 ./_static/up.png
 ./_static/websupport.js
 ./api/app.html
+./api/basebuilder.html
 ./api/builder.html
 ./api/commands.html
+./api/cvbuilder.html
 ./api/database.html
+./api/dates.html
 ./api/deploy.html
 ./api/htmlbuilder.html
 ./api/index.html

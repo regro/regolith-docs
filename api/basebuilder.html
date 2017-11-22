@@ -7,7 +7,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Web Application (regolith.app) &#8212; regolith - research group content managment system</title>
+    <title>Builder Base Class (regolith.basebuilder) &#8212; regolith - research group content managment system</title>
     <link rel="stylesheet" href="../_static/cloud.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Noticia+Text|Open+Sans|Droid+Sans+Mono" type="text/css" />
@@ -30,8 +30,8 @@
     <script type="text/javascript" src="../_static/cloud.js"></script>
     <link rel="shortcut icon" href="../_static/regolith-logo.ico"/>
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Interactive Sessions (regolith.interact)" href="interactive.html" />
-    <link rel="prev" title="Command Line Interface (regolith.main)" href="main.html" /> 
+    <link rel="next" title="Tools (regolith.tools)" href="tools.html" />
+    <link rel="prev" title="Deployment Tools (regolith.deploy)" href="deploy.html" /> 
         <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
   <body>
@@ -41,10 +41,10 @@
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="interactive.html" title="Interactive Sessions (regolith.interact)"
+          <a href="tools.html" title="Tools (regolith.tools)"
              accesskey="N">next</a></li>
         <li class="right" >
-          <a href="main.html" title="Command Line Interface (regolith.main)"
+          <a href="deploy.html" title="Deployment Tools (regolith.deploy)"
              accesskey="P">previous</a> &nbsp; &nbsp;</li>
     <li><a href="../index.html">regolith</a> &#187;</li>
 
@@ -59,8 +59,47 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="web-application-regolith-app">
-<span id="regolith-app"></span><h1>Web Application (<code class="docutils literal"><span class="pre">regolith.app</span></code>)<a class="headerlink" href="#web-application-regolith-app" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="module-regolith.basebuilder">
+<span id="builder-base-class-regolith-basebuilder"></span><span id="regolith-basebuilder"></span><h1>Builder Base Class (<code class="docutils literal"><span class="pre">regolith.basebuilder</span></code>)<a class="headerlink" href="#module-regolith.basebuilder" title="Permalink to this headline">¶</a></h1>
+<p>Builder Base Class</p>
+<dl class="class">
+<dt id="regolith.basebuilder.BuilderBase">
+<em class="property">class </em><code class="descclassname">regolith.basebuilder.</code><code class="descname">BuilderBase</code><span class="sig-paren">(</span><em>rc</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/basebuilder.html#BuilderBase"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.basebuilder.BuilderBase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Base class for builders</p>
+<dl class="method">
+<dt id="regolith.basebuilder.BuilderBase.build">
+<code class="descname">build</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/basebuilder.html#BuilderBase.build"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.basebuilder.BuilderBase.build" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build the thing that is being built, note this runs all commands
+listed in <code class="docutils literal"><span class="pre">self.cmds</span></code></p>
+</dd></dl>
+
+<dl class="method">
+<dt id="regolith.basebuilder.BuilderBase.construct_global_ctx">
+<code class="descname">construct_global_ctx</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/basebuilder.html#BuilderBase.construct_global_ctx"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.basebuilder.BuilderBase.construct_global_ctx" title="Permalink to this definition">¶</a></dt>
+<dd><p>Constructs the global context</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="regolith.basebuilder.BuilderBase.render">
+<code class="descname">render</code><span class="sig-paren">(</span><em>tname</em>, <em>fname</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/basebuilder.html#BuilderBase.render"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.basebuilder.BuilderBase.render" title="Permalink to this definition">¶</a></dt>
+<dd><p>Render the template into a file using the kwargs and global context</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>tname</strong> (<em>str</em>) – Template name</li>
+<li><strong>fname</strong> (<em>str</em>) – Resulting file name</li>
+<li><strong>kwargs</strong> (<em>dict</em>) – Additional kwargs to the renderer</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
 </div>
 
 
@@ -74,13 +113,13 @@
         </a></p>
   <div class="sphinxprev">
     <h4>Previous page</h4>
-    <p class="topless"><a href="main.html"
-                          title="Previous page">&larr; Command Line Interface (<code class="docutils literal"><span class="pre">regolith.main</span></code>)</a></p>
+    <p class="topless"><a href="deploy.html"
+                          title="Previous page">&larr; Deployment Tools (<code class="docutils literal"><span class="pre">regolith.deploy</span></code>)</a></p>
   </div>
   <div class="sphinxnext">
     <h4>Next page</h4>
-    <p class="topless"><a href="interactive.html"
-                          title="Next page">&rarr; Interactive Sessions (<code class="docutils literal"><span class="pre">regolith.interact</span></code>)</a></p>
+    <p class="topless"><a href="tools.html"
+                          title="Next page">&rarr; Tools (<code class="docutils literal"><span class="pre">regolith.tools</span></code>)</a></p>
   </div>
 <div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
@@ -119,10 +158,10 @@
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="interactive.html" title="Interactive Sessions (regolith.interact)"
+          <a href="tools.html" title="Tools (regolith.tools)"
              >next</a></li>
         <li class="right" >
-          <a href="main.html" title="Command Line Interface (regolith.main)"
+          <a href="deploy.html" title="Deployment Tools (regolith.deploy)"
              >previous</a> &nbsp; &nbsp;</li>
     <li><a href="../index.html">regolith</a> &#187;</li>
 

@@ -30,7 +30,7 @@
     <script type="text/javascript" src="../_static/cloud.js"></script>
     <link rel="shortcut icon" href="../_static/regolith-logo.ico"/>
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Deployment Tools (regolith.deploy)" href="deploy.html" />
+    <link rel="next" title="CV Builder (regolith.cvbuilder)" href="cvbuilder.html" />
     <link rel="prev" title="Builders (regolith.builder)" href="builder.html" /> 
         <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
@@ -41,7 +41,7 @@
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="deploy.html" title="Deployment Tools (regolith.deploy)"
+          <a href="cvbuilder.html" title="CV Builder (regolith.cvbuilder)"
              accesskey="N">next</a></li>
         <li class="right" >
           <a href="builder.html" title="Builders (regolith.builder)"
@@ -65,15 +65,18 @@
 <dl class="class">
 <dt id="regolith.htmlbuilder.HtmlBuilder">
 <em class="property">class </em><code class="descclassname">regolith.htmlbuilder.</code><code class="descname">HtmlBuilder</code><span class="sig-paren">(</span><em>rc</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/htmlbuilder.html#HtmlBuilder"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.htmlbuilder.HtmlBuilder" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="method">
+<dd><p>Build HTML files for website</p>
+<dl class="method">
 <dt id="regolith.htmlbuilder.HtmlBuilder.abstracts">
 <code class="descname">abstracts</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/htmlbuilder.html#HtmlBuilder.abstracts"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.htmlbuilder.HtmlBuilder.abstracts" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Render each abstract</p>
+</dd></dl>
 
 <dl class="method">
 <dt id="regolith.htmlbuilder.HtmlBuilder.blog">
 <code class="descname">blog</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/htmlbuilder.html#HtmlBuilder.blog"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.htmlbuilder.HtmlBuilder.blog" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Render the blog and rss</p>
+</dd></dl>
 
 <dl class="attribute">
 <dt id="regolith.htmlbuilder.HtmlBuilder.btype">
@@ -82,38 +85,35 @@
 
 <dl class="method">
 <dt id="regolith.htmlbuilder.HtmlBuilder.build">
-<code class="descname">build</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/htmlbuilder.html#HtmlBuilder.build"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.htmlbuilder.HtmlBuilder.build" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<code class="descname">build</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#regolith.htmlbuilder.HtmlBuilder.build" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build the thing that is being built, note this runs all commands
+listed in <code class="docutils literal"><span class="pre">self.cmds</span></code></p>
+</dd></dl>
 
 <dl class="method">
 <dt id="regolith.htmlbuilder.HtmlBuilder.cname">
 <code class="descname">cname</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/htmlbuilder.html#HtmlBuilder.cname"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.htmlbuilder.HtmlBuilder.cname" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Add CNAME</p>
+</dd></dl>
 
 <dl class="method">
 <dt id="regolith.htmlbuilder.HtmlBuilder.construct_global_ctx">
 <code class="descname">construct_global_ctx</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/htmlbuilder.html#HtmlBuilder.construct_global_ctx"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.htmlbuilder.HtmlBuilder.construct_global_ctx" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Constructs the global context</p>
+</dd></dl>
 
 <dl class="method">
-<dt id="regolith.htmlbuilder.HtmlBuilder.filter_projects">
-<code class="descname">filter_projects</code><span class="sig-paren">(</span><em>authors</em>, <em>reverse=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/htmlbuilder.html#HtmlBuilder.filter_projects"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.htmlbuilder.HtmlBuilder.filter_projects" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="regolith.htmlbuilder.HtmlBuilder.filter_publications">
-<code class="descname">filter_publications</code><span class="sig-paren">(</span><em>authors</em>, <em>reverse=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/htmlbuilder.html#HtmlBuilder.filter_publications"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.htmlbuilder.HtmlBuilder.filter_publications" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dt id="regolith.htmlbuilder.HtmlBuilder.finish">
+<code class="descname">finish</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/htmlbuilder.html#HtmlBuilder.finish"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.htmlbuilder.HtmlBuilder.finish" title="Permalink to this definition">¶</a></dt>
+<dd><p>Move files over to their destination and remove them from the
+source</p>
+</dd></dl>
 
 <dl class="method">
 <dt id="regolith.htmlbuilder.HtmlBuilder.jobs">
 <code class="descname">jobs</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/htmlbuilder.html#HtmlBuilder.jobs"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.htmlbuilder.HtmlBuilder.jobs" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="regolith.htmlbuilder.HtmlBuilder.make_bibtex_file">
-<code class="descname">make_bibtex_file</code><span class="sig-paren">(</span><em>pubs</em>, <em>pid</em>, <em>person_dir='.'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/htmlbuilder.html#HtmlBuilder.make_bibtex_file"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.htmlbuilder.HtmlBuilder.make_bibtex_file" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Render the jobs and each job</p>
+</dd></dl>
 
 <dl class="method">
 <dt id="regolith.htmlbuilder.HtmlBuilder.nojekyll">
@@ -124,22 +124,39 @@
 <dl class="method">
 <dt id="regolith.htmlbuilder.HtmlBuilder.people">
 <code class="descname">people</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/htmlbuilder.html#HtmlBuilder.people"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.htmlbuilder.HtmlBuilder.people" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Render people, former members, and each person</p>
+</dd></dl>
 
 <dl class="method">
 <dt id="regolith.htmlbuilder.HtmlBuilder.projects">
 <code class="descname">projects</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/htmlbuilder.html#HtmlBuilder.projects"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.htmlbuilder.HtmlBuilder.projects" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Render projects</p>
+</dd></dl>
 
 <dl class="method">
 <dt id="regolith.htmlbuilder.HtmlBuilder.render">
-<code class="descname">render</code><span class="sig-paren">(</span><em>tname</em>, <em>fname</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/htmlbuilder.html#HtmlBuilder.render"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.htmlbuilder.HtmlBuilder.render" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<code class="descname">render</code><span class="sig-paren">(</span><em>tname</em>, <em>fname</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#regolith.htmlbuilder.HtmlBuilder.render" title="Permalink to this definition">¶</a></dt>
+<dd><p>Render the template into a file using the kwargs and global context</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>tname</strong> (<em>str</em>) – Template name</li>
+<li><strong>fname</strong> (<em>str</em>) – Resulting file name</li>
+<li><strong>kwargs</strong> (<em>dict</em>) – Additional kwargs to the renderer</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 <dl class="method">
 <dt id="regolith.htmlbuilder.HtmlBuilder.root_index">
 <code class="descname">root_index</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/htmlbuilder.html#HtmlBuilder.root_index"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.htmlbuilder.HtmlBuilder.root_index" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Render root index</p>
+</dd></dl>
 
 </dd></dl>
 
@@ -161,8 +178,8 @@
   </div>
   <div class="sphinxnext">
     <h4>Next page</h4>
-    <p class="topless"><a href="deploy.html"
-                          title="Next page">&rarr; Deployment Tools (<code class="docutils literal"><span class="pre">regolith.deploy</span></code>)</a></p>
+    <p class="topless"><a href="cvbuilder.html"
+                          title="Next page">&rarr; CV Builder (<code class="docutils literal"><span class="pre">regolith.cvbuilder</span></code>)</a></p>
   </div>
 <div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
@@ -201,7 +218,7 @@
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="deploy.html" title="Deployment Tools (regolith.deploy)"
+          <a href="cvbuilder.html" title="CV Builder (regolith.cvbuilder)"
              >next</a></li>
         <li class="right" >
           <a href="builder.html" title="Builders (regolith.builder)"
