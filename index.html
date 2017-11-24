@@ -7,7 +7,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Regolith &#8212; regolith - research group content managment system</title>
+    <title>Regolith &#8212; regolith - software group content managment system</title>
     <link rel="stylesheet" href="_static/cloud.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Noticia+Text|Open+Sans|Droid+Sans+Mono" type="text/css" />
@@ -62,12 +62,90 @@
 </div>
 <script type="text/javascript">initRgDungeon();</script><div class="section" id="regolith">
 <h1>Regolith<a class="headerlink" href="#regolith" title="Permalink to this headline">¶</a></h1>
-<p>Regolith is a content management system for research groups.</p>
+<p>Regolith is a content management system for software &amp; research groups.
+Regolith creates and manages a database of people, publictaions, projects,
+proposals &amp; grants, courses, and more! From this database, regolith is then
+able to:</p>
+<ul class="simple">
+<li>Generate a group website,</li>
+<li>Generate CVs and publication lists for the group members,</li>
+<li>Act as a grade book for your courses, and more!</li>
+</ul>
+<p>Databases may be file-based (JSON and YAML) or MongoDB-based.</p>
+<p>Regolith is developed as a <a class="reference external" href="https://regro.github.io/">regro project</a></p>
+</div>
+<div class="section" id="installation">
+<h1>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h1>
+<p>Regolith packages are available from conda-forge and PyPI:</p>
+<p><strong>conda:</strong></p>
+<div class="highlight-sh"><div class="highlight"><pre><span></span>$ conda install -c conda-forge regolith
+</pre></div>
+</div>
+<p><strong>pip:</strong></p>
+<div class="highlight-sh"><div class="highlight"><pre><span></span>$ pip install regolith
+</pre></div>
+</div>
+</div>
+<div class="section" id="example-sites">
+<h1>Example Sites<a class="headerlink" href="#example-sites" title="Permalink to this headline">¶</a></h1>
+<p>The following are some sample websites that are powered by regolith, even though building
+websites is just one of the many facets of this tool:</p>
+<ol class="arabic simple">
+<li><a class="reference external" href="http://www.ergs.sc.edu">ERGS Home Page</a></li>
+<li><a class="reference external" href="http://twofcs.ergs.sc.edu">Technical WorkShop on Fuel Cycle Simulation</a></li>
+</ol>
+</div>
+<div class="section" id="run-control">
+<h1>Run Control<a class="headerlink" href="#run-control" title="Permalink to this headline">¶</a></h1>
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="rc.html">Top-level Configuration Keys</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rc.html#keys-usually-set-by-cli">Keys Usually Set by CLI</a></li>
-<li class="toctree-l1"><a class="reference internal" href="collections.html">Collections</a></li>
+</ul>
+</div>
+</div>
+<div class="section" id="database-collections">
+<h1>Database Collections<a class="headerlink" href="#database-collections" title="Permalink to this headline">¶</a></h1>
+<p><strong>Collections</strong> are the regolith (and mongo) abstraction for <em>tables</em>.
+<strong>Entries</strong> (or <em>rows</em>) in
+a collection must follow the schema defined below. In general, the following notions
+hold:</p>
+<ul class="simple">
+<li>An entry is a dictionary with string keys.</li>
+<li>Each entry must contain a unique identifier. This is called <code class="docutils literal"><span class="pre">&quot;_id&quot;</span></code> in JSON
+and Mongo, and is simply the top-level key in YAML.</li>
+<li>A collection is a list of entries that follow the same schema.</li>
+</ul>
+<p>Not all regolith actions will use every collection type. It is common for regolith
+projects to just use some of the collections below. For example, building a group
+website will use different collections than managing students and grades in a course!
+With these points in mind, feel free to dive into the databases below!</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="collections/index.html">Collections</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="collections/abstracts.html">Abstracts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="collections/assignments.html">Assignments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="collections/blog.html">Blog</a></li>
+<li class="toctree-l2"><a class="reference internal" href="collections/citations.html">Citations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="collections/courses.html">Courses</a></li>
+<li class="toctree-l2"><a class="reference internal" href="collections/grades.html">Grades</a></li>
+<li class="toctree-l2"><a class="reference internal" href="collections/grants.html">Grants</a></li>
+<li class="toctree-l2"><a class="reference internal" href="collections/jobs.html">Jobs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="collections/news.html">News</a></li>
+<li class="toctree-l2"><a class="reference internal" href="collections/people.html">People</a></li>
+<li class="toctree-l2"><a class="reference internal" href="collections/projects.html">Projects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="collections/proposals.html">Proposals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="collections/students.html">Students</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="regolith-api">
+<h1>Regolith API<a class="headerlink" href="#regolith-api" title="Permalink to this headline">¶</a></h1>
+<p>For those who want to dive deeper into the library itself.</p>
+<div class="toctree-wrapper compound">
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="api/index.html">Regolith API</a></li>
 </ul>
 </div>
@@ -81,7 +159,18 @@
         <div class="sphinxsidebarwrapper">
         <p class="logo"><a href="#" title="index">
           <img class="logo" src="_static/regolith-logo.svg" alt="Logo"/>
-        </a></p>
+        </a></p><div class="sphinx-toc sphinxlocaltoc">
+    <h3><a href="#">Page contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">Regolith</a></li>
+<li><a class="reference internal" href="#installation">Installation</a></li>
+<li><a class="reference internal" href="#example-sites">Example Sites</a></li>
+<li><a class="reference internal" href="#run-control">Run Control</a></li>
+<li><a class="reference internal" href="#database-collections">Database Collections</a></li>
+<li><a class="reference internal" href="#regolith-api">Regolith API</a></li>
+</ul>
+
+  </div>
   <div class="sphinxnext">
     <h4>Next page</h4>
     <p class="topless"><a href="rc.html"

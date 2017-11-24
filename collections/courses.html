@@ -1,0 +1,246 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Courses &#8212; regolith - software group content managment system</title>
+    <link rel="stylesheet" href="../_static/cloud.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Noticia+Text|Open+Sans|Droid+Sans+Mono" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.1.6',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../_static/jquery.cookie.js"></script>
+    <script type="text/javascript" src="../_static/cloud.base.js"></script>
+    <script type="text/javascript" src="../_static/cloud.js"></script>
+    <link rel="shortcut icon" href="../_static/regolith-logo.ico"/>
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Grades" href="grades.html" />
+    <link rel="prev" title="Citations" href="citations.html" /> 
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+  <body>
+    <div class="relbar-top">
+        
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="grades.html" title="Grades"
+             accesskey="N">next</a></li>
+        <li class="right" >
+          <a href="citations.html" title="Citations"
+             accesskey="P">previous</a> &nbsp; &nbsp;</li>
+    <li><a href="../index.html">regolith</a> &#187;</li>
+
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Collections</a> &#187;</li> 
+      </ul>
+    </div>
+    </div>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="courses">
+<h1>Courses<a class="headerlink" href="#courses" title="Permalink to this headline">¶</a></h1>
+<p>This is a collection that describes a course, when it happened, and
+who is taking it. This is likely private.</p>
+<div class="section" id="schema">
+<h2>Schema<a class="headerlink" href="#schema" title="Permalink to this headline">¶</a></h2>
+<p>The following lists key names mapped to its type and meaning for each entry.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">_id:</th><td class="field-body">str, course unique id, such a EMCH-558-2016-S</td>
+</tr>
+<tr class="field-even field"><th class="field-name">department:</th><td class="field-body">str, department code, e.g. EMCH</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">number:</th><td class="field-body">int or str, class number, e.g. 558</td>
+</tr>
+<tr class="field-even field"><th class="field-name">year:</th><td class="field-body">int, year taught, e.g. 2016</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">season:</th><td class="field-body">str,  semester or quarter instructed in, e.g. ‘F’, ‘W’, ‘S’, or ‘M’</td>
+</tr>
+<tr class="field-even field"><th class="field-name">students:</th><td class="field-body">list of str, names of students enrolled in course</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">syllabus:</th><td class="field-body">str,  syllabus file name in store, optional</td>
+</tr>
+<tr class="field-even field"><th class="field-name">scale:</th><td class="field-body">list of 2-lists of <code class="docutils literal"><span class="pre">[float,</span> <span class="pre">str]</span></code> This is a listing of lower bounds (as a faction)
+and the grade that is achieved by obtaining greater than or equal to that value.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">weights:</th><td class="field-body">dict of str keys and float values,  mapping from assignment category name
+to fraction of final grade.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">active:</th><td class="field-body">bool, whether  or not the course is actively being taught</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="yaml-example">
+<h2>YAML Example<a class="headerlink" href="#yaml-example" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-yaml"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">EMCH-552-2016-F</span><span class="p p-Indicator">:</span>
+  <span class="l l-Scalar l-Scalar-Plain">active</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
+  <span class="l l-Scalar l-Scalar-Plain">season</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">F</span>
+  <span class="l l-Scalar l-Scalar-Plain">department</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">EMCH</span>
+  <span class="l l-Scalar l-Scalar-Plain">number</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">552</span>
+  <span class="l l-Scalar l-Scalar-Plain">scale</span><span class="p p-Indicator">:</span>
+    <span class="p p-Indicator">-</span>   <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">0.875</span>
+        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">A</span>
+    <span class="p p-Indicator">-</span>   <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">0.8125</span>
+        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">B+</span>
+    <span class="p p-Indicator">-</span>   <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">0.75</span>
+        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">B</span>
+    <span class="p p-Indicator">-</span>   <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">0.6875</span>
+        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">C+</span>
+    <span class="p p-Indicator">-</span>   <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">0.625</span>
+        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">C</span>
+    <span class="p p-Indicator">-</span>   <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">0.5625</span>
+        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">D+</span>
+    <span class="p p-Indicator">-</span>   <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">0.5</span>
+        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">D</span>
+    <span class="p p-Indicator">-</span>   <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">-1.0</span>
+        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">F</span>
+  <span class="l l-Scalar l-Scalar-Plain">students</span><span class="p p-Indicator">:</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Human A. Person</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Human B. Person</span>
+  <span class="l l-Scalar l-Scalar-Plain">syllabus</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">emch552-2016-f-syllabus.pdf</span>
+  <span class="l l-Scalar l-Scalar-Plain">weights</span><span class="p p-Indicator">:</span>
+    <span class="l l-Scalar l-Scalar-Plain">class-notes</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">0.15</span>
+    <span class="l l-Scalar l-Scalar-Plain">final</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">0.3</span>
+    <span class="l l-Scalar l-Scalar-Plain">homework</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">0.35</span>
+    <span class="l l-Scalar l-Scalar-Plain">midterm</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">0.2</span>
+  <span class="l l-Scalar l-Scalar-Plain">year</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">2016</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="json-mongo-example">
+<h2>JSON/Mongo Example<a class="headerlink" href="#json-mongo-example" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-json"><div class="highlight"><pre><span></span><span class="p">{</span><span class="nt">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;EMCH-552-2016-F&quot;</span><span class="p">,</span>
+ <span class="nt">&quot;active&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+ <span class="nt">&quot;department&quot;</span><span class="p">:</span> <span class="s2">&quot;EMCH&quot;</span><span class="p">,</span>
+ <span class="nt">&quot;number&quot;</span><span class="p">:</span> <span class="mi">552</span><span class="p">,</span>
+ <span class="nt">&quot;scale&quot;</span><span class="p">:</span> <span class="p">[[</span><span class="mf">0.875</span><span class="p">,</span> <span class="s2">&quot;A&quot;</span><span class="p">],</span>
+           <span class="p">[</span><span class="mf">0.8125</span><span class="p">,</span> <span class="s2">&quot;B+&quot;</span><span class="p">],</span>
+           <span class="p">[</span><span class="mf">0.75</span><span class="p">,</span> <span class="s2">&quot;B&quot;</span><span class="p">],</span>
+           <span class="p">[</span><span class="mf">0.6875</span><span class="p">,</span> <span class="s2">&quot;C+&quot;</span><span class="p">],</span>
+           <span class="p">[</span><span class="mf">0.625</span><span class="p">,</span> <span class="s2">&quot;C&quot;</span><span class="p">],</span>
+           <span class="p">[</span><span class="mf">0.5625</span><span class="p">,</span> <span class="s2">&quot;D+&quot;</span><span class="p">],</span>
+           <span class="p">[</span><span class="mf">0.5</span><span class="p">,</span> <span class="s2">&quot;D&quot;</span><span class="p">],</span>
+           <span class="p">[</span><span class="mf">-1.0</span><span class="p">,</span> <span class="s2">&quot;F&quot;</span><span class="p">]],</span>
+ <span class="nt">&quot;season&quot;</span><span class="p">:</span> <span class="s2">&quot;F&quot;</span><span class="p">,</span>
+ <span class="nt">&quot;students&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;Human A. Person&quot;</span><span class="p">,</span> <span class="s2">&quot;Human B. Person&quot;</span><span class="p">],</span>
+ <span class="nt">&quot;syllabus&quot;</span><span class="p">:</span> <span class="s2">&quot;emch552-2016-f-syllabus.pdf&quot;</span><span class="p">,</span>
+ <span class="nt">&quot;weights&quot;</span><span class="p">:</span> <span class="p">{</span><span class="nt">&quot;class-notes&quot;</span><span class="p">:</span> <span class="mf">0.15</span><span class="p">,</span>
+             <span class="nt">&quot;final&quot;</span><span class="p">:</span> <span class="mf">0.3</span><span class="p">,</span>
+             <span class="nt">&quot;homework&quot;</span><span class="p">:</span> <span class="mf">0.35</span><span class="p">,</span>
+             <span class="nt">&quot;midterm&quot;</span><span class="p">:</span> <span class="mf">0.2</span><span class="p">},</span>
+ <span class="nt">&quot;year&quot;</span><span class="p">:</span> <span class="mi">2016</span><span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+        <p class="logo"><a href="../index.html" title="index">
+          <img class="logo" src="../_static/regolith-logo.svg" alt="Logo"/>
+        </a></p><div class="sphinx-toc sphinxlocaltoc">
+    <h3><a href="../index.html">Page contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">Courses</a><ul>
+<li><a class="reference internal" href="#schema">Schema</a></li>
+<li><a class="reference internal" href="#yaml-example">YAML Example</a></li>
+<li><a class="reference internal" href="#json-mongo-example">JSON/Mongo Example</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div class="sphinxprev">
+    <h4>Previous page</h4>
+    <p class="topless"><a href="citations.html"
+                          title="Previous page">&larr; Citations</a></p>
+  </div>
+  <div class="sphinxnext">
+    <h4>Next page</h4>
+    <p class="topless"><a href="grades.html"
+                          title="Next page">&rarr; Grades</a></p>
+  </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+    
+    
+        <div class="sidebar-toggle-group no-js">
+            
+            <button class="sidebar-toggle" id="sidebar-hide" title="Hide the sidebar menu">
+                 «
+                <span class="show-for-small">hide menu</span>
+                
+            </button>
+            <button class="sidebar-toggle" id="sidebar-show" title="Show the sidebar menu">
+                
+                <span class="show-for-small">menu</span>
+                <span class="hide-for-small">sidebar</span>
+                 »
+            </button>
+        </div>
+    
+      <div class="clearer"></div>
+    </div>
+    <div class="relbar-bottom">
+        
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="grades.html" title="Grades"
+             >next</a></li>
+        <li class="right" >
+          <a href="citations.html" title="Citations"
+             >previous</a> &nbsp; &nbsp;</li>
+    <li><a href="../index.html">regolith</a> &#187;</li>
+
+          <li class="nav-item nav-item-1"><a href="index.html" >Collections</a> &#187;</li> 
+      </ul>
+    </div>
+    </div>
+
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2015, Anthony Scopatz.
+    </div>
+    <!-- cloud_sptheme 1.4 -->
+  </body>
+</html>

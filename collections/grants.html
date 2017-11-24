@@ -1,0 +1,275 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Grants &#8212; regolith - software group content managment system</title>
+    <link rel="stylesheet" href="../_static/cloud.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Noticia+Text|Open+Sans|Droid+Sans+Mono" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.1.6',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../_static/jquery.cookie.js"></script>
+    <script type="text/javascript" src="../_static/cloud.base.js"></script>
+    <script type="text/javascript" src="../_static/cloud.js"></script>
+    <link rel="shortcut icon" href="../_static/regolith-logo.ico"/>
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Jobs" href="jobs.html" />
+    <link rel="prev" title="Grades" href="grades.html" /> 
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+  <body>
+    <div class="relbar-top">
+        
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="jobs.html" title="Jobs"
+             accesskey="N">next</a></li>
+        <li class="right" >
+          <a href="grades.html" title="Grades"
+             accesskey="P">previous</a> &nbsp; &nbsp;</li>
+    <li><a href="../index.html">regolith</a> &#187;</li>
+
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Collections</a> &#187;</li> 
+      </ul>
+    </div>
+    </div>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="grants">
+<h1>Grants<a class="headerlink" href="#grants" title="Permalink to this headline">¶</a></h1>
+<p>This collection represents grants that have been awarded to the group.</p>
+<div class="section" id="schema">
+<h2>Schema<a class="headerlink" href="#schema" title="Permalink to this headline">¶</a></h2>
+<p>The following lists key names mapped to its type and meaning for each entry.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">_id:</th><td class="field-body"><p class="first">str or number, short represntation, such as this-is-my-name</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">title:</th><td class="field-body"><p class="first">str, actual title of proposal / grant</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">funder:</th><td class="field-body"><p class="first">str, the agency funding the work</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">program:</th><td class="field-body"><p class="first">str, the program the work was funded under</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">grant_id:</th><td class="field-body"><p class="first">str, optional, the identfier for this work, eg #42024</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">call_for_proposals:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><p class="first">str,  optional, URL to the call for proposals</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">narrative:</th><td class="field-body"><p class="first">str, optional, URL of document</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">benefit_of_collaboration:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><p class="first">str, optional, URL of document</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">amount:</th><td class="field-body"><p class="first">int or float, value of award</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">currency:</th><td class="field-body"><p class="first">str, typically ‘$’ or ‘USD’</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">begin_year:</th><td class="field-body"><p class="first">int, start year of the grant</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">begin_month:</th><td class="field-body"><p class="first">str, start month of the grant</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">begin_day:</th><td class="field-body"><p class="first">int,  start day of the grant, optional</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">end_year:</th><td class="field-body"><p class="first">int, end year of the grant</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">end_month”:</th><td class="field-body"><p class="first">str, end month of the grant</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">end_day:</th><td class="field-body"><p class="first">str, end day of teh grant, optional</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">team:</th><td class="field-body"><p class="first">list of dicts, information about the team members participating in the grant.
+These dicts have the following form:</p>
+<div class="last highlight-python"><div class="highlight"><pre><span></span><span class="p">[{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="c1"># should match a person&#39;s name  or AKA</span>
+  <span class="s2">&quot;position&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>   <span class="c1"># PI, Co-PI, Co-I, Researcher, etc.</span>
+  <span class="s2">&quot;institution&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="c1"># The institution of this investigator</span>
+  <span class="s2">&quot;subaward_amount&quot;</span><span class="p">,</span> <span class="nb">int</span> <span class="ow">or</span> <span class="nb">float</span><span class="p">,</span>  <span class="c1"># optional</span>
+  <span class="s2">&quot;cv&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>  <span class="c1"># optional, URL of document</span>
+  <span class="p">},</span>
+  <span class="o">...</span>
+  <span class="p">]</span>
+</pre></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="yaml-example">
+<h2>YAML Example<a class="headerlink" href="#yaml-example" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-yaml"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">SymPy-1.1</span><span class="p p-Indicator">:</span>
+  <span class="l l-Scalar l-Scalar-Plain">amount</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">3000.0</span>
+  <span class="l l-Scalar l-Scalar-Plain">begin_day</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
+  <span class="l l-Scalar l-Scalar-Plain">begin_month</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">May</span>
+  <span class="l l-Scalar l-Scalar-Plain">begin_year</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">2017</span>
+  <span class="l l-Scalar l-Scalar-Plain">call_for_proposals</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">https://groups.google.com/d/msg/numfocus/wPjhdm8NJiA/S8JL1_NZDQAJ</span>
+  <span class="l l-Scalar l-Scalar-Plain">end_day</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">31</span>
+  <span class="l l-Scalar l-Scalar-Plain">end_month</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">December</span>
+  <span class="l l-Scalar l-Scalar-Plain">end_year</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">2017</span>
+  <span class="l l-Scalar l-Scalar-Plain">funder</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">NumFOCUS</span>
+  <span class="l l-Scalar l-Scalar-Plain">narrative</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">https://docs.google.com/document/d/1nZxqoL-Ucni_aXLWmXtRDd3IWqW0mZBO65CEvDrsXZM/edit?usp=sharing</span>
+  <span class="l l-Scalar l-Scalar-Plain">program</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Small Development Grants</span>
+  <span class="l l-Scalar l-Scalar-Plain">team</span><span class="p p-Indicator">:</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">institution</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">University of South Carolina</span>
+      <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Anthony Scopatz</span>
+      <span class="l l-Scalar l-Scalar-Plain">position</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">PI</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">institution</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">University of South Carolina</span>
+      <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Aaron Meurer</span>
+      <span class="l l-Scalar l-Scalar-Plain">position</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">researcher</span>
+  <span class="l l-Scalar l-Scalar-Plain">title</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">SymPy 1.1 Release Support</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="json-mongo-example">
+<h2>JSON/Mongo Example<a class="headerlink" href="#json-mongo-example" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-json"><div class="highlight"><pre><span></span><span class="p">{</span><span class="nt">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;SymPy-1.1&quot;</span><span class="p">,</span>
+ <span class="nt">&quot;amount&quot;</span><span class="p">:</span> <span class="mf">3000.0</span><span class="p">,</span>
+ <span class="nt">&quot;begin_day&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+ <span class="nt">&quot;begin_month&quot;</span><span class="p">:</span> <span class="s2">&quot;May&quot;</span><span class="p">,</span>
+ <span class="nt">&quot;begin_year&quot;</span><span class="p">:</span> <span class="mi">2017</span><span class="p">,</span>
+ <span class="nt">&quot;call_for_proposals&quot;</span><span class="p">:</span> <span class="s2">&quot;https://groups.google.com/d/msg/numfocus/wPjhdm8NJiA/S8JL1_NZDQAJ&quot;</span><span class="p">,</span>
+ <span class="nt">&quot;end_day&quot;</span><span class="p">:</span> <span class="mi">31</span><span class="p">,</span>
+ <span class="nt">&quot;end_month&quot;</span><span class="p">:</span> <span class="s2">&quot;December&quot;</span><span class="p">,</span>
+ <span class="nt">&quot;end_year&quot;</span><span class="p">:</span> <span class="mi">2017</span><span class="p">,</span>
+ <span class="nt">&quot;funder&quot;</span><span class="p">:</span> <span class="s2">&quot;NumFOCUS&quot;</span><span class="p">,</span>
+ <span class="nt">&quot;narrative&quot;</span><span class="p">:</span> <span class="s2">&quot;https://docs.google.com/document/d/1nZxqoL-Ucni_aXLWmXtRDd3IWqW0mZBO65CEvDrsXZM/edit?usp=sharing&quot;</span><span class="p">,</span>
+ <span class="nt">&quot;program&quot;</span><span class="p">:</span> <span class="s2">&quot;Small Development Grants&quot;</span><span class="p">,</span>
+ <span class="nt">&quot;team&quot;</span><span class="p">:</span> <span class="p">[{</span><span class="nt">&quot;institution&quot;</span><span class="p">:</span> <span class="s2">&quot;University of South Carolina&quot;</span><span class="p">,</span>
+           <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Anthony Scopatz&quot;</span><span class="p">,</span>
+           <span class="nt">&quot;position&quot;</span><span class="p">:</span> <span class="s2">&quot;PI&quot;</span><span class="p">},</span>
+          <span class="p">{</span><span class="nt">&quot;institution&quot;</span><span class="p">:</span> <span class="s2">&quot;University of South Carolina&quot;</span><span class="p">,</span>
+           <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Aaron Meurer&quot;</span><span class="p">,</span>
+           <span class="nt">&quot;position&quot;</span><span class="p">:</span> <span class="s2">&quot;researcher&quot;</span><span class="p">}</span>
+        <span class="p">],</span>
+ <span class="nt">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;SymPy 1.1 Release Support&quot;</span><span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+        <p class="logo"><a href="../index.html" title="index">
+          <img class="logo" src="../_static/regolith-logo.svg" alt="Logo"/>
+        </a></p><div class="sphinx-toc sphinxlocaltoc">
+    <h3><a href="../index.html">Page contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">Grants</a><ul>
+<li><a class="reference internal" href="#schema">Schema</a></li>
+<li><a class="reference internal" href="#yaml-example">YAML Example</a></li>
+<li><a class="reference internal" href="#json-mongo-example">JSON/Mongo Example</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div class="sphinxprev">
+    <h4>Previous page</h4>
+    <p class="topless"><a href="grades.html"
+                          title="Previous page">&larr; Grades</a></p>
+  </div>
+  <div class="sphinxnext">
+    <h4>Next page</h4>
+    <p class="topless"><a href="jobs.html"
+                          title="Next page">&rarr; Jobs</a></p>
+  </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+    
+    
+        <div class="sidebar-toggle-group no-js">
+            
+            <button class="sidebar-toggle" id="sidebar-hide" title="Hide the sidebar menu">
+                 «
+                <span class="show-for-small">hide menu</span>
+                
+            </button>
+            <button class="sidebar-toggle" id="sidebar-show" title="Show the sidebar menu">
+                
+                <span class="show-for-small">menu</span>
+                <span class="hide-for-small">sidebar</span>
+                 »
+            </button>
+        </div>
+    
+      <div class="clearer"></div>
+    </div>
+    <div class="relbar-bottom">
+        
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="jobs.html" title="Jobs"
+             >next</a></li>
+        <li class="right" >
+          <a href="grades.html" title="Grades"
+             >previous</a> &nbsp; &nbsp;</li>
+    <li><a href="../index.html">regolith</a> &#187;</li>
+
+          <li class="nav-item nav-item-1"><a href="index.html" >Collections</a> &#187;</li> 
+      </ul>
+    </div>
+    </div>
+
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2015, Anthony Scopatz.
+    </div>
+    <!-- cloud_sptheme 1.4 -->
+  </body>
+</html>

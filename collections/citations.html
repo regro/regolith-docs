@@ -1,0 +1,245 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Citations &#8212; regolith - software group content managment system</title>
+    <link rel="stylesheet" href="../_static/cloud.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Noticia+Text|Open+Sans|Droid+Sans+Mono" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.1.6',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../_static/jquery.cookie.js"></script>
+    <script type="text/javascript" src="../_static/cloud.base.js"></script>
+    <script type="text/javascript" src="../_static/cloud.js"></script>
+    <link rel="shortcut icon" href="../_static/regolith-logo.ico"/>
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Courses" href="courses.html" />
+    <link rel="prev" title="Blog" href="blog.html" /> 
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+  <body>
+    <div class="relbar-top">
+        
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="courses.html" title="Courses"
+             accesskey="N">next</a></li>
+        <li class="right" >
+          <a href="blog.html" title="Blog"
+             accesskey="P">previous</a> &nbsp; &nbsp;</li>
+    <li><a href="../index.html">regolith</a> &#187;</li>
+
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Collections</a> &#187;</li> 
+      </ul>
+    </div>
+    </div>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="citations">
+<h1>Citations<a class="headerlink" href="#citations" title="Permalink to this headline">¶</a></h1>
+<p>This collection should contain bibtex equivalent fields.  Additionally,
+the keys <code class="docutils literal"><span class="pre">&quot;entrytype&quot;</span></code> denotes things like <code class="docutils literal"><span class="pre">ARTICLE</span></code>, and <code class="docutils literal"><span class="pre">&quot;_id&quot;</span></code> denotes
+the entry identifier.  Furthermore, the <code class="docutils literal"><span class="pre">&quot;author&quot;</span></code> key should be a list of
+strings.  See the Python project <a class="reference external" href="https://bibtexparser.readthedocs.org/">BibtexParser</a>
+for more information.</p>
+<div class="section" id="schema">
+<h2>Schema<a class="headerlink" href="#schema" title="Permalink to this headline">¶</a></h2>
+<p>The following lists key names mapped to its type and meaning for each entry.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">_id:</th><td class="field-body">str, unique identifier for the citation.</td>
+</tr>
+</tbody>
+</table>
+<p>Other keys in this schema are the same as bibtex citations/</p>
+</div>
+<div class="section" id="yaml-example">
+<h2>YAML Example<a class="headerlink" href="#yaml-example" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-yaml"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">meurer2016sympy</span><span class="p p-Indicator">:</span>
+  <span class="l l-Scalar l-Scalar-Plain">author</span><span class="p p-Indicator">:</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Meurer, Aaron</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Smith, Christopher P</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Paprocki, Mateusz</span>
+    <span class="p p-Indicator">-</span> <span class="s">&quot;{\\v{C}}ert{\\&#39;\\i}k,</span><span class="nv"> </span><span class="s">Ond{\\v{r}}ej&quot;</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Rocklin, Matthew</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Kumar, AMiT</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Ivanov, Sergiu</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Moore, Jason K</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Singh, Sartaj</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Rathnayake, Thilina</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Sean Vig</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Brian E Granger</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Richard P Muller</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Francesco Bonazzi</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Harsh Gupta</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Shivam Vats</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Fredrik Johansson</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Fabian Pedregosa</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Matthew J Curry</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Ashutosh Saboo</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Isuru Fernando</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Sumith Kulal</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Robert Cimrman</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Anthony Scopatz</span>
+  <span class="l l-Scalar l-Scalar-Plain">entrytype</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">article</span>
+  <span class="l l-Scalar l-Scalar-Plain">journal</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">PeerJ Computer Science</span>
+  <span class="l l-Scalar l-Scalar-Plain">month</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Jan</span>
+  <span class="l l-Scalar l-Scalar-Plain">pages</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">e103</span>
+  <span class="l l-Scalar l-Scalar-Plain">publisher</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">PeerJ Inc. San Francisco, USA</span>
+  <span class="l l-Scalar l-Scalar-Plain">title</span><span class="p p-Indicator">:</span> <span class="s">&#39;SymPy:</span><span class="nv"> </span><span class="s">Symbolic</span><span class="nv"> </span><span class="s">computing</span><span class="nv"> </span><span class="s">in</span><span class="nv"> </span><span class="s">Python&#39;</span>
+  <span class="l l-Scalar l-Scalar-Plain">volume</span><span class="p p-Indicator">:</span> <span class="s">&#39;4&#39;</span>
+  <span class="l l-Scalar l-Scalar-Plain">year</span><span class="p p-Indicator">:</span> <span class="s">&#39;2017&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="json-mongo-example">
+<h2>JSON/Mongo Example<a class="headerlink" href="#json-mongo-example" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-json"><div class="highlight"><pre><span></span><span class="p">{</span><span class="nt">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;meurer2016sympy&quot;</span><span class="p">,</span>
+ <span class="nt">&quot;author&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;Meurer, Aaron&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Smith, Christopher P&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Paprocki, Mateusz&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;{\\v{C}}ert{\\&#39;\\i}k, Ond{\\v{r}}ej&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Rocklin, Matthew&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Kumar, AMiT&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Ivanov, Sergiu&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Moore, Jason K&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Singh, Sartaj&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Rathnayake, Thilina&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Sean Vig&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Brian E Granger&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Richard P Muller&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Francesco Bonazzi&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Harsh Gupta&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Shivam Vats&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Fredrik Johansson&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Fabian Pedregosa&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Matthew J Curry&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Ashutosh Saboo&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Isuru Fernando&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Sumith Kulal&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Robert Cimrman&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Anthony Scopatz&quot;</span><span class="p">],</span>
+ <span class="nt">&quot;entrytype&quot;</span><span class="p">:</span> <span class="s2">&quot;article&quot;</span><span class="p">,</span>
+ <span class="nt">&quot;journal&quot;</span><span class="p">:</span> <span class="s2">&quot;PeerJ Computer Science&quot;</span><span class="p">,</span>
+ <span class="nt">&quot;month&quot;</span><span class="p">:</span> <span class="s2">&quot;Jan&quot;</span><span class="p">,</span>
+ <span class="nt">&quot;pages&quot;</span><span class="p">:</span> <span class="s2">&quot;e103&quot;</span><span class="p">,</span>
+ <span class="nt">&quot;publisher&quot;</span><span class="p">:</span> <span class="s2">&quot;PeerJ Inc. San Francisco, USA&quot;</span><span class="p">,</span>
+ <span class="nt">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;SymPy: Symbolic computing in Python&quot;</span><span class="p">,</span>
+ <span class="nt">&quot;volume&quot;</span><span class="p">:</span> <span class="s2">&quot;4&quot;</span><span class="p">,</span>
+ <span class="nt">&quot;year&quot;</span><span class="p">:</span> <span class="s2">&quot;2017&quot;</span><span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+        <p class="logo"><a href="../index.html" title="index">
+          <img class="logo" src="../_static/regolith-logo.svg" alt="Logo"/>
+        </a></p><div class="sphinx-toc sphinxlocaltoc">
+    <h3><a href="../index.html">Page contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">Citations</a><ul>
+<li><a class="reference internal" href="#schema">Schema</a></li>
+<li><a class="reference internal" href="#yaml-example">YAML Example</a></li>
+<li><a class="reference internal" href="#json-mongo-example">JSON/Mongo Example</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div class="sphinxprev">
+    <h4>Previous page</h4>
+    <p class="topless"><a href="blog.html"
+                          title="Previous page">&larr; Blog</a></p>
+  </div>
+  <div class="sphinxnext">
+    <h4>Next page</h4>
+    <p class="topless"><a href="courses.html"
+                          title="Next page">&rarr; Courses</a></p>
+  </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+    
+    
+        <div class="sidebar-toggle-group no-js">
+            
+            <button class="sidebar-toggle" id="sidebar-hide" title="Hide the sidebar menu">
+                 «
+                <span class="show-for-small">hide menu</span>
+                
+            </button>
+            <button class="sidebar-toggle" id="sidebar-show" title="Show the sidebar menu">
+                
+                <span class="show-for-small">menu</span>
+                <span class="hide-for-small">sidebar</span>
+                 »
+            </button>
+        </div>
+    
+      <div class="clearer"></div>
+    </div>
+    <div class="relbar-bottom">
+        
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="courses.html" title="Courses"
+             >next</a></li>
+        <li class="right" >
+          <a href="blog.html" title="Blog"
+             >previous</a> &nbsp; &nbsp;</li>
+    <li><a href="../index.html">regolith</a> &#187;</li>
+
+          <li class="nav-item nav-item-1"><a href="index.html" >Collections</a> &#187;</li> 
+      </ul>
+    </div>
+    </div>
+
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2015, Anthony Scopatz.
+    </div>
+    <!-- cloud_sptheme 1.4 -->
+  </body>
+</html>

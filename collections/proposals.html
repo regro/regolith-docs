@@ -1,0 +1,279 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Proposals &#8212; regolith - software group content managment system</title>
+    <link rel="stylesheet" href="../_static/cloud.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Noticia+Text|Open+Sans|Droid+Sans+Mono" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.1.6',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../_static/jquery.cookie.js"></script>
+    <script type="text/javascript" src="../_static/cloud.base.js"></script>
+    <script type="text/javascript" src="../_static/cloud.js"></script>
+    <link rel="shortcut icon" href="../_static/regolith-logo.ico"/>
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Students" href="students.html" />
+    <link rel="prev" title="Projects" href="projects.html" /> 
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+  <body>
+    <div class="relbar-top">
+        
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="students.html" title="Students"
+             accesskey="N">next</a></li>
+        <li class="right" >
+          <a href="projects.html" title="Projects"
+             accesskey="P">previous</a> &nbsp; &nbsp;</li>
+    <li><a href="../index.html">regolith</a> &#187;</li>
+
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Collections</a> &#187;</li> 
+      </ul>
+    </div>
+    </div>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="proposals">
+<h1>Proposals<a class="headerlink" href="#proposals" title="Permalink to this headline">¶</a></h1>
+<p>This collection represents proposals that have been submitted by the group.</p>
+<div class="section" id="schema">
+<h2>Schema<a class="headerlink" href="#schema" title="Permalink to this headline">¶</a></h2>
+<p>The following lists key names mapped to its type and meaning for each entry.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">_id:</th><td class="field-body"><p class="first">str or number, short represntation, such as this-is-my-name</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">title:</th><td class="field-body"><p class="first">str, actual title of proposal</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">pi:</th><td class="field-body"><p class="first">str, principal investigator name</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">authors:</th><td class="field-body"><p class="first">list of str, other investigator names</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">status:</th><td class="field-body"><p class="first">str, e.g. ‘submitted’, ‘accepted’, ‘rejected’</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">ammount:</th><td class="field-body"><p class="first">int or float, value of award</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">currency:</th><td class="field-body"><p class="first">str, typically ‘$’ or ‘USD’</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">durration:</th><td class="field-body"><p class="first">int or float, number of years</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">year:</th><td class="field-body"><p class="first">int, Year that the proposal is due</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">month:</th><td class="field-body"><p class="first">str, month that the proposal is due</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">day:</th><td class="field-body"><p class="first">int, day that the proposal is due</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">pre:</th><td class="field-body"><p class="first">dict,  Information about the pre-proposal, optional.
+This dict has the following form:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="p">{</span><span class="s2">&quot;year&quot;</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+ <span class="s2">&quot;month&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+ <span class="s2">&quot;day&quot;</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+ <span class="s2">&quot;narrative&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="c1"># URL of document</span>
+ <span class="s2">&quot;benefit_of_collaboration&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="c1"># URL of document</span>
+ <span class="s2">&quot;cv&quot;</span><span class="p">:</span> <span class="nb">list</span> <span class="n">of</span> <span class="nb">str</span><span class="p">,</span> <span class="c1"># URL to documents</span>
+ <span class="p">}</span>
+</pre></div>
+</div>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">full:</th><td class="field-body"><p class="first">Information about the pre-proposal, optional
+This dict has the following form:</p>
+<div class="last highlight-python"><div class="highlight"><pre><span></span><span class="p">{</span><span class="s2">&quot;narrative&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="c1"># URL of document</span>
+ <span class="s2">&quot;benefit_of_collaboration&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="c1"># URL of document</span>
+ <span class="s2">&quot;cv&quot;</span><span class="p">:</span> <span class="nb">list</span> <span class="n">of</span> <span class="nb">str</span><span class="p">,</span> <span class="c1"># URL to documents</span>
+ <span class="p">}</span>
+</pre></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="yaml-example">
+<h2>YAML Example<a class="headerlink" href="#yaml-example" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-yaml"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">mypropsal</span><span class="p p-Indicator">:</span>
+    <span class="l l-Scalar l-Scalar-Plain">title</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">A very fine proposal indeed</span>
+    <span class="l l-Scalar l-Scalar-Plain">pi</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Anthony Scopatz</span>
+    <span class="l l-Scalar l-Scalar-Plain">authors</span><span class="p p-Indicator">:</span>
+        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Anthony Scopatz</span>
+        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Robert Flanagan</span>
+    <span class="l l-Scalar l-Scalar-Plain">status</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">submitted</span>
+    <span class="l l-Scalar l-Scalar-Plain">ammount</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">1000000.0</span>
+    <span class="l l-Scalar l-Scalar-Plain">currency</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">USD</span>
+    <span class="l l-Scalar l-Scalar-Plain">durration</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">3</span>
+    <span class="l l-Scalar l-Scalar-Plain">year</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">1999</span>
+    <span class="l l-Scalar l-Scalar-Plain">month</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Aug</span>
+    <span class="l l-Scalar l-Scalar-Plain">day</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">18</span>
+    <span class="l l-Scalar l-Scalar-Plain">pre</span><span class="p p-Indicator">:</span>
+        <span class="l l-Scalar l-Scalar-Plain">year</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">1998</span>
+        <span class="l l-Scalar l-Scalar-Plain">month</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Aug</span>
+        <span class="l l-Scalar l-Scalar-Plain">day</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">2</span>
+        <span class="l l-Scalar l-Scalar-Plain">narrative</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">http://some.com/pdf</span>
+        <span class="l l-Scalar l-Scalar-Plain">benefit_of_collaboration</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">http://pdf.com/benefit_of_collaboration</span>
+        <span class="l l-Scalar l-Scalar-Plain">cv</span><span class="p p-Indicator">:</span>
+            <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">http://pdf.com/scopatz-cv</span>
+            <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">http://pdf.com/flanagan-cv</span>
+    <span class="l l-Scalar l-Scalar-Plain">full</span><span class="p p-Indicator">:</span>
+        <span class="l l-Scalar l-Scalar-Plain">narrative</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">http://some.com/pdf</span>
+        <span class="l l-Scalar l-Scalar-Plain">benefit_of_collaboration</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">http://pdf.com/benefit_of_collaboration</span>
+        <span class="l l-Scalar l-Scalar-Plain">cv</span><span class="p p-Indicator">:</span>
+            <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">http://pdf.com/scopatz-cv</span>
+            <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">http://pdf.com/flanagan-cv</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="json-mongo-example">
+<h2>JSON/Mongo Example<a class="headerlink" href="#json-mongo-example" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-json"><div class="highlight"><pre><span></span><span class="p">{</span><span class="nt">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;mypropsal&quot;</span><span class="p">,</span>
+ <span class="nt">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;A very fine proposal indeed&quot;</span><span class="p">,</span>
+ <span class="nt">&quot;pi&quot;</span><span class="p">:</span> <span class="s2">&quot;Anthony Scopatz&quot;</span><span class="p">,</span>
+ <span class="nt">&quot;authors&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;Anthony Scopatz&quot;</span><span class="p">,</span>
+             <span class="s2">&quot;Robert Flanagan&quot;</span><span class="p">],</span>
+ <span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;submitted&quot;</span><span class="p">,</span>
+ <span class="nt">&quot;ammount&quot;</span><span class="p">:</span> <span class="mf">1000000.0</span><span class="p">,</span>
+ <span class="nt">&quot;currency&quot;</span><span class="p">:</span> <span class="s2">&quot;USD&quot;</span><span class="p">,</span>
+ <span class="nt">&quot;durration&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+ <span class="nt">&quot;year&quot;</span><span class="p">:</span> <span class="mi">1999</span><span class="p">,</span>
+ <span class="nt">&quot;month&quot;</span><span class="p">:</span> <span class="s2">&quot;Aug&quot;</span><span class="p">,</span>
+ <span class="nt">&quot;day&quot;</span><span class="p">:</span> <span class="mi">18</span><span class="p">,</span>
+ <span class="nt">&quot;pre&quot;</span><span class="p">:</span> <span class="p">{</span><span class="nt">&quot;year&quot;</span><span class="p">:</span> <span class="mi">1998</span><span class="p">,</span>
+         <span class="nt">&quot;month&quot;</span><span class="p">:</span> <span class="s2">&quot;Aug&quot;</span><span class="p">,</span>
+         <span class="nt">&quot;day&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+         <span class="nt">&quot;narrative&quot;</span><span class="p">:</span> <span class="s2">&quot;http://some.com/pdf&quot;</span>
+         <span class="s2">&quot;benefit_of_collaboration&quot;</span><span class="p">:</span> <span class="s2">&quot;http://pdf.com/benefit_of_collaboration&quot;</span><span class="p">,</span>
+         <span class="nt">&quot;cv&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;http://pdf.com/scopatz-cv&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;http://pdf.com/flanagan-cv&quot;</span><span class="p">]},</span>
+ <span class="nt">&quot;full&quot;</span><span class="p">:</span> <span class="p">{</span><span class="nt">&quot;narrative&quot;</span><span class="p">:</span> <span class="s2">&quot;http://some.com/pdf&quot;</span>
+         <span class="s2">&quot;benefit_of_collaboration&quot;</span><span class="p">:</span> <span class="s2">&quot;http://pdf.com/benefit_of_collaboration&quot;</span><span class="p">,</span>
+         <span class="nt">&quot;cv&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;http://pdf.com/scopatz-cv&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;http://pdf.com/flanagan-cv&quot;</span><span class="p">]}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+        <p class="logo"><a href="../index.html" title="index">
+          <img class="logo" src="../_static/regolith-logo.svg" alt="Logo"/>
+        </a></p><div class="sphinx-toc sphinxlocaltoc">
+    <h3><a href="../index.html">Page contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">Proposals</a><ul>
+<li><a class="reference internal" href="#schema">Schema</a></li>
+<li><a class="reference internal" href="#yaml-example">YAML Example</a></li>
+<li><a class="reference internal" href="#json-mongo-example">JSON/Mongo Example</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div class="sphinxprev">
+    <h4>Previous page</h4>
+    <p class="topless"><a href="projects.html"
+                          title="Previous page">&larr; Projects</a></p>
+  </div>
+  <div class="sphinxnext">
+    <h4>Next page</h4>
+    <p class="topless"><a href="students.html"
+                          title="Next page">&rarr; Students</a></p>
+  </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+    
+    
+        <div class="sidebar-toggle-group no-js">
+            
+            <button class="sidebar-toggle" id="sidebar-hide" title="Hide the sidebar menu">
+                 «
+                <span class="show-for-small">hide menu</span>
+                
+            </button>
+            <button class="sidebar-toggle" id="sidebar-show" title="Show the sidebar menu">
+                
+                <span class="show-for-small">menu</span>
+                <span class="hide-for-small">sidebar</span>
+                 »
+            </button>
+        </div>
+    
+      <div class="clearer"></div>
+    </div>
+    <div class="relbar-bottom">
+        
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="students.html" title="Students"
+             >next</a></li>
+        <li class="right" >
+          <a href="projects.html" title="Projects"
+             >previous</a> &nbsp; &nbsp;</li>
+    <li><a href="../index.html">regolith</a> &#187;</li>
+
+          <li class="nav-item nav-item-1"><a href="index.html" >Collections</a> &#187;</li> 
+      </ul>
+    </div>
+    </div>
+
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2015, Anthony Scopatz.
+    </div>
+    <!-- cloud_sptheme 1.4 -->
+  </body>
+</html>
