@@ -69,17 +69,17 @@
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">_id:</th><td class="field-body">str, unique id, typically the student-assignment-course</td>
+<tr class="field-odd field"><th class="field-name">_id:</th><td class="field-body">string, unique id, typically the student-assignment-course, required</td>
 </tr>
-<tr class="field-even field"><th class="field-name">student:</th><td class="field-body">str,  student id</td>
+<tr class="field-even field"><th class="field-name">assignment:</th><td class="field-body">string, assignment id, required</td>
 </tr>
-<tr class="field-odd field"><th class="field-name">assignment:</th><td class="field-body">str,  assignment id</td>
+<tr class="field-odd field"><th class="field-name">course:</th><td class="field-body">string, course id, required</td>
 </tr>
-<tr class="field-even field"><th class="field-name">course:</th><td class="field-body">str, course id</td>
+<tr class="field-even field"><th class="field-name">filename:</th><td class="field-body">string, path to file in store, optional</td>
 </tr>
-<tr class="field-odd field"><th class="field-name">scores:</th><td class="field-body">list of int or float,  the number of points earned on each question</td>
+<tr class="field-odd field"><th class="field-name">scores:</th><td class="field-body">(‘integer’, ‘float’), the number of points earned on each question, required</td>
 </tr>
-<tr class="field-even field"><th class="field-name">filename:</th><td class="field-body">str,  path to file in store, optional</td>
+<tr class="field-even field"><th class="field-name">student:</th><td class="field-body">string, student id, required</td>
 </tr>
 </tbody>
 </table>
@@ -93,15 +93,23 @@
     <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
     <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">1.6</span>
     <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">3</span>
+  <span class="l l-Scalar l-Scalar-Plain">student</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">hap</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="json-mongo-example">
 <h2>JSON/Mongo Example<a class="headerlink" href="#json-mongo-example" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-json"><div class="highlight"><pre><span></span><span class="p">{</span><span class="nt">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;Human A. Person-rx-power-hw02-EMCH-758-2017-S&quot;</span><span class="p">,</span>
- <span class="nt">&quot;assignment&quot;</span><span class="p">:</span> <span class="s2">&quot;2017-rx-power-hw02&quot;</span><span class="p">,</span>
- <span class="nt">&quot;course&quot;</span><span class="p">:</span> <span class="s2">&quot;EMCH-758-2017-S&quot;</span><span class="p">,</span>
- <span class="nt">&quot;scores&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mf">1.6</span><span class="p">,</span> <span class="mi">3</span><span class="p">]}</span>
+<div class="highlight-json"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;Human A. Person-rx-power-hw02-EMCH-758-2017-S&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;assignment&quot;</span><span class="p">:</span> <span class="s2">&quot;2017-rx-power-hw02&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;course&quot;</span><span class="p">:</span> <span class="s2">&quot;EMCH-758-2017-S&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;scores&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="mi">1</span><span class="p">,</span>
+        <span class="mf">1.6</span><span class="p">,</span>
+        <span class="mi">3</span>
+    <span class="p">],</span>
+    <span class="nt">&quot;student&quot;</span><span class="p">:</span> <span class="s2">&quot;hap&quot;</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 </div>

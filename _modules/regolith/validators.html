@@ -52,12 +52,12 @@
           <div class="body" role="main">
             
   <h1>Source code for regolith.validators</h1><div class="highlight"><pre>
-<span></span><span class="sd">&quot;&quot;&quot;Validators and convertors for regolith input.&quot;&quot;&quot;</span>
+<span></span><span class="sd">&quot;&quot;&quot;Validators and converters for regolith input.&quot;&quot;&quot;</span>
 <span class="kn">import</span> <span class="nn">os</span>
-<span class="kn">import</span> <span class="nn">re</span>
 <span class="kn">from</span> <span class="nn">getpass</span> <span class="k">import</span> <span class="n">getpass</span>
 
 <span class="kn">from</span> <span class="nn">regolith.tools</span> <span class="k">import</span> <span class="n">string_types</span>
+
 
 <div class="viewcode-block" id="noop"><a class="viewcode-back" href="../../api/validators.html#regolith.validators.noop">[docs]</a><span class="k">def</span> <span class="nf">noop</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Does nothing, just returns the input.&quot;&quot;&quot;</span>
@@ -83,6 +83,7 @@
     <span class="sd">&quot;&quot;&quot;Tests if something is a boolean&quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="nb">bool</span><span class="p">)</span></div>
 
+
 <div class="viewcode-block" id="is_string"><a class="viewcode-back" href="../../api/validators.html#regolith.validators.is_string">[docs]</a><span class="k">def</span> <span class="nf">is_string</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Tests if something is a string&quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">string_types</span><span class="p">)</span></div>
@@ -107,6 +108,7 @@
         <span class="k">return</span> <span class="n">x</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="n">x</span><span class="p">)</span></div>
+
 
 <div class="viewcode-block" id="ensure_database"><a class="viewcode-back" href="../../api/validators.html#regolith.validators.ensure_database">[docs]</a><span class="k">def</span> <span class="nf">ensure_database</span><span class="p">(</span><span class="n">db</span><span class="p">):</span>
     <span class="n">db</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ensure_string</span><span class="p">(</span><span class="n">db</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">])</span>
@@ -163,7 +165,7 @@
     <span class="s1">&#39;databases&#39;</span><span class="p">:</span> <span class="p">(</span><span class="n">always_false</span><span class="p">,</span> <span class="n">ensure_databases</span><span class="p">),</span>
     <span class="s1">&#39;stores&#39;</span><span class="p">:</span> <span class="p">(</span><span class="n">always_false</span><span class="p">,</span> <span class="n">ensure_stores</span><span class="p">),</span>
     <span class="s1">&#39;email&#39;</span><span class="p">:</span> <span class="p">(</span><span class="n">always_false</span><span class="p">,</span> <span class="n">ensure_email</span><span class="p">),</span>
-    <span class="p">}</span>
+<span class="p">}</span>
 </pre></div>
 
           </div>

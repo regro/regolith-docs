@@ -69,21 +69,19 @@
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">_id:</th><td class="field-body">str, A unique id for the assignment, such a HW01-EMCH-558-2016-S</td>
+<tr class="field-odd field"><th class="field-name">_id:</th><td class="field-body">string, A unique id for the assignment, such as HW01-EMCH-558-2016-S, required</td>
 </tr>
-<tr class="field-even field"><th class="field-name">courses:</th><td class="field-body">list of str,  ids of the courses that have this assignment</td>
+<tr class="field-even field"><th class="field-name">category:</th><td class="field-body">string, such as ‘homework’ or ‘final’, required</td>
 </tr>
-<tr class="field-odd field"><th class="field-name">category:</th><td class="field-body">str, such as ‘homework’ or ‘final’</td>
+<tr class="field-odd field"><th class="field-name">courses:</th><td class="field-body">string, ids of the courses that have this assignment, required</td>
 </tr>
-<tr class="field-even field"><th class="field-name">file:</th><td class="field-body">str, path to assignment file in store, optional</td>
+<tr class="field-even field"><th class="field-name">file:</th><td class="field-body">string, path to assignment file in store, optional</td>
 </tr>
-<tr class="field-odd field"><th class="field-name">solution:</th><td class="field-body">str, path to solution file in store, optional</td>
+<tr class="field-odd field"><th class="field-name">points:</th><td class="field-body">(‘integer’, ‘float’), list of number of points possible for each question. Length is the number of questions, required</td>
 </tr>
-<tr class="field-even field"><th class="field-name">question:</th><td class="field-body">list of str,  titles for the questions on this assignment,
-optional, defaults to 1-indexed ints if absent.</td>
+<tr class="field-even field"><th class="field-name">question:</th><td class="field-body">string, titles for the questions on this assignment, optional</td>
 </tr>
-<tr class="field-odd field"><th class="field-name">points:</th><td class="field-body">list of int or float, list of number of points possible for each
-question. Length is the number of questions</td>
+<tr class="field-odd field"><th class="field-name">solution:</th><td class="field-body">string, path to solution file in store, optional</td>
 </tr>
 </tbody>
 </table>
@@ -108,11 +106,24 @@ question. Length is the number of questions</td>
 </div>
 <div class="section" id="json-mongo-example">
 <h2>JSON/Mongo Example<a class="headerlink" href="#json-mongo-example" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-json"><div class="highlight"><pre><span></span><span class="p">{</span><span class="nt">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;hw01-rx-power&quot;</span><span class="p">,</span>
- <span class="nt">&quot;category&quot;</span><span class="p">:</span> <span class="s2">&quot;homework&quot;</span><span class="p">,</span>
- <span class="nt">&quot;courses&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;EMCH-558-2016-S&quot;</span><span class="p">,</span> <span class="s2">&quot;EMCH-758-2016-S&quot;</span><span class="p">],</span>
- <span class="nt">&quot;points&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span>
- <span class="nt">&quot;questions&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;1-9&quot;</span><span class="p">,</span> <span class="s2">&quot;1-10&quot;</span><span class="p">,</span> <span class="s2">&quot;1-12&quot;</span><span class="p">]}</span>
+<div class="highlight-json"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;hw01-rx-power&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;category&quot;</span><span class="p">:</span> <span class="s2">&quot;homework&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;courses&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="s2">&quot;EMCH-558-2016-S&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;EMCH-758-2016-S&quot;</span>
+    <span class="p">],</span>
+    <span class="nt">&quot;points&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="mi">1</span><span class="p">,</span>
+        <span class="mi">2</span><span class="p">,</span>
+        <span class="mi">3</span>
+    <span class="p">],</span>
+    <span class="nt">&quot;questions&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="s2">&quot;1-9&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;1-10&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;1-12&quot;</span>
+    <span class="p">]</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 </div>

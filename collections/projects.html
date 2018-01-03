@@ -69,40 +69,49 @@
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">_id:</th><td class="field-body"><p class="first">str, Unique project identifier.</p>
+<tr class="field-odd field"><th class="field-name">_id:</th><td class="field-body"><p class="first">string, Unique project identifier., required</p>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">name:</th><td class="field-body"><p class="first">str, name of the project.</p>
+<tr class="field-even field"><th class="field-name">description:</th><td class="field-body"><p class="first">string, brief project description., required</p>
 </td>
 </tr>
-<tr class="field-odd field"><th class="field-name">description:</th><td class="field-body"><p class="first">str, brief project description.</p>
+<tr class="field-odd field"><th class="field-name">grant:</th><td class="field-body"><p class="first">string, Grant id if there is a grant supporting this project, optional</p>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">website:</th><td class="field-body"><p class="first">str, URL of the website.</p>
+<tr class="field-even field"><th class="field-name">logo:</th><td class="field-body"><p class="first">string, URL to the project logo, optional</p>
 </td>
 </tr>
-<tr class="field-odd field"><th class="field-name">repo:</th><td class="field-body"><p class="first">str, URL of the source code repo, if available, optional.</p>
+<tr class="field-odd field"><th class="field-name">name:</th><td class="field-body"><p class="first">string, name of the project., required</p>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">logo:</th><td class="field-body"><p class="first">str, URL to the project logo, optional.</p>
+<tr class="field-even field"><th class="field-name">other:</th><td class="field-body"><p class="first">[‘list’, ‘string’], other information about the project, optional</p>
 </td>
 </tr>
-<tr class="field-odd field"><th class="field-name">other:</th><td class="field-body"><p class="first">list of str, other information about the project, optional/</p>
+<tr class="field-odd field"><th class="field-name">repo:</th><td class="field-body"><p class="first">string, URL of the source code repo, if available, optional</p>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">team:</th><td class="field-body"><p class="first">list of dict, People who are/have been woking on this project.
-These dicts have the following structure:</p>
-<div class="last highlight-python"><div class="highlight"><pre><span></span><span class="p">[{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="c1"># should match a person&#39;s name  or AKA</span>
-  <span class="s2">&quot;position&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
-  <span class="s2">&quot;begin_year&quot;</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
-  <span class="s2">&quot;begin_month&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="c1"># optional</span>
-  <span class="s2">&quot;end_year&quot;</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="c1"># optional</span>
-  <span class="s2">&quot;end_month&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>  <span class="c1"># optional</span>
-  <span class="p">},</span>
-  <span class="o">...</span>
-  <span class="p">]</span>
-</pre></div>
-</div>
+<tr class="field-even field"><th class="field-name">team:</th><td class="field-body"><p class="first">list, People who are/have been working on this project., required</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">begin_month:</th><td class="field-body">string, optional</td>
+</tr>
+<tr class="field-even field"><th class="field-name">begin_year:</th><td class="field-body">integer, optional</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">end_month:</th><td class="field-body">string, optional</td>
+</tr>
+<tr class="field-even field"><th class="field-name">end_year:</th><td class="field-body">integer, optional</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">name:</th><td class="field-body">string, optional</td>
+</tr>
+<tr class="field-even field"><th class="field-name">position:</th><td class="field-body">string, optional</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">website:</th><td class="field-body"><p class="first last">string, URL of the website., required</p>
 </td>
 </tr>
 </tbody>
@@ -113,6 +122,7 @@ These dicts have the following structure:</p>
 <div class="highlight-yaml"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">Cyclus</span><span class="p p-Indicator">:</span>
   <span class="l l-Scalar l-Scalar-Plain">description</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Agent-Based Nuclear Fuel Cycle Simulator</span>
   <span class="l l-Scalar l-Scalar-Plain">logo</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">http://fuelcycle.org/_static/big_c.png</span>
+  <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Cyclus</span>
   <span class="l l-Scalar l-Scalar-Plain">other</span><span class="p p-Indicator">:</span>
     <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Discrete facilities with discrete material transactions</span>
     <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Low barrier to entry, rapid payback to adoption</span>
@@ -130,19 +140,28 @@ These dicts have the following structure:</p>
 </div>
 <div class="section" id="json-mongo-example">
 <h2>JSON/Mongo Example<a class="headerlink" href="#json-mongo-example" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-json"><div class="highlight"><pre><span></span><span class="p">{</span><span class="nt">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;Cyclus&quot;</span><span class="p">,</span>
- <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Agent-Based Nuclear Fuel Cycle Simulator&quot;</span><span class="p">,</span>
- <span class="nt">&quot;logo&quot;</span><span class="p">:</span> <span class="s2">&quot;http://fuelcycle.org/_static/big_c.png&quot;</span><span class="p">,</span>
- <span class="nt">&quot;other&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;Discrete facilities with discrete material transactions&quot;</span><span class="p">,</span>
-           <span class="s2">&quot;Low barrier to entry, rapid payback to adoption&quot;</span><span class="p">],</span>
- <span class="nt">&quot;repo&quot;</span><span class="p">:</span> <span class="s2">&quot;https://github.com/cyclus/cyclus/&quot;</span><span class="p">,</span>
- <span class="nt">&quot;team&quot;</span><span class="p">:</span> <span class="p">[{</span><span class="nt">&quot;begin_month&quot;</span><span class="p">:</span> <span class="s2">&quot;June&quot;</span><span class="p">,</span>
-           <span class="nt">&quot;begin_year&quot;</span><span class="p">:</span> <span class="mi">2013</span><span class="p">,</span>
-           <span class="nt">&quot;end_month&quot;</span><span class="p">:</span> <span class="s2">&quot;July&quot;</span><span class="p">,</span>
-           <span class="nt">&quot;end_year&quot;</span><span class="p">:</span> <span class="mi">2015</span><span class="p">,</span>
-           <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Anthony Scopatz&quot;</span><span class="p">,</span>
-           <span class="nt">&quot;position&quot;</span><span class="p">:</span> <span class="s2">&quot;Project Lead&quot;</span><span class="p">}],</span>
- <span class="nt">&quot;website&quot;</span><span class="p">:</span> <span class="s2">&quot;http://fuelcycle.org/&quot;</span><span class="p">}</span>
+<div class="highlight-json"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;Cyclus&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Agent-Based Nuclear Fuel Cycle Simulator&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;logo&quot;</span><span class="p">:</span> <span class="s2">&quot;http://fuelcycle.org/_static/big_c.png&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Cyclus&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;other&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="s2">&quot;Discrete facilities with discrete material transactions&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;Low barrier to entry, rapid payback to adoption&quot;</span>
+    <span class="p">],</span>
+    <span class="nt">&quot;repo&quot;</span><span class="p">:</span> <span class="s2">&quot;https://github.com/cyclus/cyclus/&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;team&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;begin_month&quot;</span><span class="p">:</span> <span class="s2">&quot;June&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;begin_year&quot;</span><span class="p">:</span> <span class="mi">2013</span><span class="p">,</span>
+            <span class="nt">&quot;end_month&quot;</span><span class="p">:</span> <span class="s2">&quot;July&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;end_year&quot;</span><span class="p">:</span> <span class="mi">2015</span><span class="p">,</span>
+            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Anthony Scopatz&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;position&quot;</span><span class="p">:</span> <span class="s2">&quot;Project Lead&quot;</span>
+        <span class="p">}</span>
+    <span class="p">],</span>
+    <span class="nt">&quot;website&quot;</span><span class="p">:</span> <span class="s2">&quot;http://fuelcycle.org/&quot;</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 </div>

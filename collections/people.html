@@ -61,8 +61,7 @@
             
   <div class="section" id="people">
 <h1>People<a class="headerlink" href="#people" title="Permalink to this headline">¶</a></h1>
-<p>This collection describes the members of the research group.  This is normally public
-data.</p>
+<p>This collection describes the members of the research group.  This is normally public data.</p>
 <div class="section" id="schema">
 <h2>Schema<a class="headerlink" href="#schema" title="Permalink to this headline">¶</a></h2>
 <p>The following lists key names mapped to its type and meaning for each entry.</p>
@@ -70,164 +69,216 @@ data.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">_id:</th><td class="field-body"><p class="first">str, unique identifier for the group member</p>
+<tr class="field-odd field"><th class="field-name">_id:</th><td class="field-body"><p class="first">string, unique identifier for the group member, required</p>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">name:</th><td class="field-body"><p class="first">str, Full, canonical name for the person</p>
+<tr class="field-even field"><th class="field-name">active:</th><td class="field-body"><p class="first">boolean, If the person is an active member, default True., optional</p>
 </td>
 </tr>
-<tr class="field-odd field"><th class="field-name">title:</th><td class="field-body"><p class="first">str, for example, Dr., etc.</p>
+<tr class="field-odd field"><th class="field-name">aka:</th><td class="field-body"><p class="first">[‘string’, ‘list’], list of aliases (also-known-as), useful for identifying the group member in citations or elsewhere., required</p>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">position:</th><td class="field-body"><p class="first">str, such as professor, graduate student, or scientist</p>
+<tr class="field-even field"><th class="field-name">avatar:</th><td class="field-body"><p class="first">string, URL to avatar, required</p>
 </td>
 </tr>
-<tr class="field-odd field"><th class="field-name">email:</th><td class="field-body"><p class="first">str, email address of the group member, optional.</p>
+<tr class="field-odd field"><th class="field-name">bio:</th><td class="field-body"><p class="first">string, short biographical text, required</p>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">aka:</th><td class="field-body"><p class="first">list of str,  list of aliases (also-known-as), useful for identifying
-the group member in citations or elsewhere.</p>
+<tr class="field-even field"><th class="field-name">collab:</th><td class="field-body"><p class="first">boolean, If the person is a collaborator, default False., optional</p>
 </td>
 </tr>
-<tr class="field-odd field"><th class="field-name">avatar:</th><td class="field-body"><p class="first">str, URL to avatar</p>
+<tr class="field-odd field"><th class="field-name">education:</th><td class="field-body"><p class="first">list, This contains the educational information for the group member., required</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">begin_month:</th><td class="field-body">string, optional</td>
+</tr>
+<tr class="field-even field"><th class="field-name">begin_year:</th><td class="field-body">integer, optional</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">degree:</th><td class="field-body">string, optional</td>
+</tr>
+<tr class="field-even field"><th class="field-name">end_month:</th><td class="field-body">string, optional</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">end_year:</th><td class="field-body">integer, optional</td>
+</tr>
+<tr class="field-even field"><th class="field-name">gpa:</th><td class="field-body">(‘float’, ‘string’), optional</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">institution:</th><td class="field-body">string, optional</td>
+</tr>
+<tr class="field-even field"><th class="field-name">location:</th><td class="field-body">string, optional</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">other:</th><td class="field-body">string, optional</td>
+</tr>
+</tbody>
+</table>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">bio:</th><td class="field-body"><p class="first">str, short biographical text</p>
+<tr class="field-even field"><th class="field-name">email:</th><td class="field-body"><p class="first">string, email address of the group member, optional</p>
 </td>
 </tr>
-<tr class="field-odd field"><th class="field-name">active:</th><td class="field-body"><p class="first">bool, If the person is an active member, default True.</p>
+<tr class="field-odd field"><th class="field-name">employment:</th><td class="field-body"><p class="first">list, Employment information, similar to educational information., required</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">begin_month:</th><td class="field-body">string, optional</td>
+</tr>
+<tr class="field-even field"><th class="field-name">begin_year:</th><td class="field-body">integer, optional</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">end_month:</th><td class="field-body">string, optional</td>
+</tr>
+<tr class="field-even field"><th class="field-name">end_year:</th><td class="field-body">integer, optional</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">location:</th><td class="field-body">string, optional</td>
+</tr>
+<tr class="field-even field"><th class="field-name">organization:</th><td class="field-body">string, optional</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">other:</th><td class="field-body">string, optional</td>
+</tr>
+<tr class="field-even field"><th class="field-name">position:</th><td class="field-body">string, optional</td>
+</tr>
+</tbody>
+</table>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">collab:</th><td class="field-body"><p class="first">bool, If the person is a collaborator, default False.</p>
+<tr class="field-odd field"><th class="field-name">funding:</th><td class="field-body"><p class="first">list, Funding and scholarship that the group member has individually obtained in the past. <strong>WARNING:</strong> this is not to be confused with the <strong>grants</strong> collection, optional</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">currency:</th><td class="field-body">string, optional</td>
+</tr>
+<tr class="field-even field"><th class="field-name">duration:</th><td class="field-body">string, optional</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">month:</th><td class="field-body">string, optional</td>
+</tr>
+<tr class="field-even field"><th class="field-name">name:</th><td class="field-body">string, optional</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">value:</th><td class="field-body">(‘float’, ‘integer’), optional</td>
+</tr>
+<tr class="field-even field"><th class="field-name">year:</th><td class="field-body">integer, optional</td>
+</tr>
+</tbody>
+</table>
 </td>
 </tr>
-<tr class="field-odd field"><th class="field-name">education:</th><td class="field-body"><p class="first">list of dictionaries, This contains the educational information for
-the group member.  These dicts have the following form:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="p">[{</span><span class="s2">&quot;institution&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
-  <span class="s2">&quot;location&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
-  <span class="s2">&quot;degree&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
-  <span class="s2">&quot;begin_year&quot;</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
-  <span class="s2">&quot;begin_month&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="c1"># optional</span>
-  <span class="s2">&quot;end_year&quot;</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
-  <span class="s2">&quot;end_month&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>  <span class="c1"># optional</span>
-  <span class="s2">&quot;gpa&quot;</span><span class="p">:</span> <span class="nb">float</span> <span class="ow">or</span> <span class="nb">str</span><span class="p">,</span> <span class="c1"># optional</span>
-  <span class="s2">&quot;other&quot;</span><span class="p">:</span> <span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="c1"># list of strings of other pieces of information</span>
-  <span class="p">},</span>
-  <span class="o">...</span>
-  <span class="p">]</span>
-</pre></div>
-</div>
+<tr class="field-odd field"><th class="field-name">honors:</th><td class="field-body"><p class="first">list, Honors that have been awarded to this group member, optional</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">description:</th><td class="field-body">string, optional</td>
+</tr>
+<tr class="field-even field"><th class="field-name">month:</th><td class="field-body">string, optional</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">name:</th><td class="field-body">string, optional</td>
+</tr>
+<tr class="field-even field"><th class="field-name">year:</th><td class="field-body">integer, optional</td>
+</tr>
+</tbody>
+</table>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">employment:</th><td class="field-body"><p class="first">list of dicts, Employment information, similar to educational information.
-These dicts have the following form:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="p">[{</span><span class="s2">&quot;organization&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
-  <span class="s2">&quot;location&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
-  <span class="s2">&quot;position&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
-  <span class="s2">&quot;begin_year&quot;</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
-  <span class="s2">&quot;begin_month&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="c1"># optional</span>
-  <span class="s2">&quot;end_year&quot;</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
-  <span class="s2">&quot;end_month&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>  <span class="c1"># optional</span>
-  <span class="s2">&quot;other&quot;</span><span class="p">:</span> <span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="c1"># list of strings of other pieces of information</span>
-  <span class="p">},</span>
-  <span class="o">...</span>
-  <span class="p">]</span>
-</pre></div>
-</div>
+<tr class="field-odd field"><th class="field-name">membership:</th><td class="field-body"><p class="first">list, Professional organizations this member is a part of, optional</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">begin_month:</th><td class="field-body">string, optional</td>
+</tr>
+<tr class="field-even field"><th class="field-name">begin_year:</th><td class="field-body">integer, optional</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">description:</th><td class="field-body">string, optional</td>
+</tr>
+<tr class="field-even field"><th class="field-name">end_month:</th><td class="field-body">string, optional</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">end_year:</th><td class="field-body">integer, optional</td>
+</tr>
+<tr class="field-even field"><th class="field-name">organization:</th><td class="field-body">string, optional</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">position:</th><td class="field-body">string, optional</td>
+</tr>
+<tr class="field-even field"><th class="field-name">website:</th><td class="field-body">string, optional</td>
+</tr>
+</tbody>
+</table>
 </td>
 </tr>
-<tr class="field-odd field"><th class="field-name">funding:</th><td class="field-body"><p class="first">list of dicts, Funding and scholarship that the group member has
-individually obtained in the past (optional). <strong>WARNING:</strong> this is not to be confused
-with the <strong>grants</strong> collection, that may refee back to group members.
-These dicts have the following form:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="p">[{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
-  <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
-  <span class="s2">&quot;currency&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="c1"># optional, defaults to &quot;$&quot;</span>
-  <span class="s2">&quot;year&quot;</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
-  <span class="s2">&quot;month&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="c1"># optional</span>
-  <span class="s2">&quot;duration&quot;</span><span class="p">:</span> <span class="nb">str</span> <span class="ow">or</span> <span class="nb">int</span><span class="p">,</span> <span class="c1"># optional length of award</span>
-  <span class="p">},</span>
-  <span class="o">...</span>
-  <span class="p">]</span>
-</pre></div>
-</div>
+<tr class="field-odd field"><th class="field-name">name:</th><td class="field-body"><p class="first">string, Full, canonical name for the person, required</p>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">service:</th><td class="field-body"><p class="first">list of dicts, Service that this group member has provided (optional).
-These dicts have the following form:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="p">[{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
-  <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="c1"># optional</span>
-  <span class="s2">&quot;year&quot;</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
-  <span class="s2">&quot;month&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="c1"># optional</span>
-  <span class="s2">&quot;duration&quot;</span><span class="p">:</span> <span class="nb">str</span> <span class="ow">or</span> <span class="nb">int</span><span class="p">,</span> <span class="c1"># optional length of service</span>
-  <span class="p">},</span>
-  <span class="o">...</span>
-  <span class="p">]</span>
-</pre></div>
-</div>
+<tr class="field-even field"><th class="field-name">position:</th><td class="field-body"><p class="first">string, such as professor, graduate student, or scientist, required</p>
 </td>
 </tr>
-<tr class="field-odd field"><th class="field-name">honors:</th><td class="field-body"><p class="first">list of dicts, Honors that have been awarded to this group member (optional).
-These dicts have the following form:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="p">[{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
-  <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="c1"># optional</span>
-  <span class="s2">&quot;year&quot;</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
-  <span class="s2">&quot;month&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="c1"># optional</span>
-  <span class="p">},</span>
-  <span class="o">...</span>
-  <span class="p">]</span>
-</pre></div>
-</div>
+<tr class="field-odd field"><th class="field-name">service:</th><td class="field-body"><p class="first">list, Service that this group member has provided, optional</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">description:</th><td class="field-body">string, optional</td>
+</tr>
+<tr class="field-even field"><th class="field-name">duration:</th><td class="field-body">string, optional</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">month:</th><td class="field-body">string, optional</td>
+</tr>
+<tr class="field-even field"><th class="field-name">name:</th><td class="field-body">string, optional</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">year:</th><td class="field-body">integer, optional</td>
+</tr>
+</tbody>
+</table>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">teaching:</th><td class="field-body"><p class="first">list of dicts, Courses that this group member has taught, if any (optional).
-These dicts have the following form:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="p">[{</span><span class="s2">&quot;course&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>  <span class="c1"># name of the course</span>
-  <span class="s2">&quot;organization&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
-  <span class="s2">&quot;position&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
-  <span class="s2">&quot;year&quot;</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
-  <span class="s2">&quot;month&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="c1"># optional</span>
-  <span class="s2">&quot;end_year&quot;</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="c1"># optional</span>
-  <span class="s2">&quot;end_month&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>  <span class="c1"># optional</span>
-  <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="c1"># optional</span>
-  <span class="s2">&quot;website&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>  <span class="c1"># optional URL</span>
-  <span class="s2">&quot;syllabus&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>  <span class="c1"># optional URL</span>
-  <span class="s2">&quot;video&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>  <span class="c1"># optional URL</span>
-  <span class="s2">&quot;materials&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>  <span class="c1"># optional URL</span>
-  <span class="p">},</span>
-  <span class="o">...</span>
-  <span class="p">]</span>
-</pre></div>
-</div>
+<tr class="field-even field"><th class="field-name">skills:</th><td class="field-body"><p class="first">list, Skill the group member has, optional</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">category:</th><td class="field-body">string, optional</td>
+</tr>
+<tr class="field-even field"><th class="field-name">level:</th><td class="field-body">string, optional</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">name:</th><td class="field-body">string, optional</td>
+</tr>
+</tbody>
+</table>
 </td>
 </tr>
-<tr class="field-odd field"><th class="field-name">membership:</th><td class="field-body"><p class="first">list of dicts, Profesional organizations this member is a part of (optional).
-These dicts have the following form:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="p">[{</span><span class="s2">&quot;organization&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
-  <span class="s2">&quot;position&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
-  <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="c1"># optional</span>
-  <span class="s2">&quot;begin_year&quot;</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
-  <span class="s2">&quot;begin_month&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="c1"># optional</span>
-  <span class="s2">&quot;end_year&quot;</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="c1"># optional</span>
-  <span class="s2">&quot;end_month&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>  <span class="c1"># optional</span>
-  <span class="s2">&quot;website&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>  <span class="c1"># optional URL</span>
-  <span class="p">},</span>
-  <span class="o">...</span>
-  <span class="p">]</span>
-</pre></div>
-</div>
+<tr class="field-even field"><th class="field-name">teaching:</th><td class="field-body"><p class="first">list, Courses that this group member has taught, if any, optional</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">course:</th><td class="field-body">string, optional</td>
+</tr>
+<tr class="field-even field"><th class="field-name">description:</th><td class="field-body">string, optional</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">end_month:</th><td class="field-body">string, optional</td>
+</tr>
+<tr class="field-even field"><th class="field-name">end_year:</th><td class="field-body">integer, optional</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">materials:</th><td class="field-body">string, optional</td>
+</tr>
+<tr class="field-even field"><th class="field-name">month:</th><td class="field-body">string, optional</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">organization:</th><td class="field-body">string, optional</td>
+</tr>
+<tr class="field-even field"><th class="field-name">position:</th><td class="field-body">string, optional</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">syllabus:</th><td class="field-body">string, optional</td>
+</tr>
+<tr class="field-even field"><th class="field-name">video:</th><td class="field-body">string, optional</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">website:</th><td class="field-body">string, optional</td>
+</tr>
+<tr class="field-even field"><th class="field-name">year:</th><td class="field-body">integer, optional</td>
+</tr>
+</tbody>
+</table>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">skills:</th><td class="field-body"><p class="first">list of dicts, Skill the group member has (optional)
-These dicts have the following form:</p>
-<div class="last highlight-python"><div class="highlight"><pre><span></span><span class="p">[{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
-  <span class="s2">&quot;category&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
-  <span class="s2">&quot;level&quot;</span><span class="p">:</span> <span class="nb">str</span>
-  <span class="p">},</span>
-  <span class="o">...</span>
-  <span class="p">]</span>
-</pre></div>
-</div>
+<tr class="field-odd field"><th class="field-name">title:</th><td class="field-body"><p class="first last">string, for example, Dr., etc., optional</p>
 </td>
 </tr>
 </tbody>
@@ -236,31 +287,14 @@ These dicts have the following form:</p>
 <div class="section" id="yaml-example">
 <h2>YAML Example<a class="headerlink" href="#yaml-example" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-yaml"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">scopatz</span><span class="p p-Indicator">:</span>
-  <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Anthony Scopatz</span>
-  <span class="l l-Scalar l-Scalar-Plain">position</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">professor</span>
-  <span class="l l-Scalar l-Scalar-Plain">title</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Dr.</span>
-  <span class="l l-Scalar l-Scalar-Plain">email</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">scopatz@cec.sc.edu</span>
   <span class="l l-Scalar l-Scalar-Plain">aka</span><span class="p p-Indicator">:</span>
-    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Scopatz, A. M.</span>
-    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Scopatz, Anthony</span>
-    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Scopatz, Anthony M</span>
-    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Scopatz, Anthony M.</span>
-    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">A. M. Scopatz</span>
-    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Anthony M Scopatz</span>
-    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Anthony M. Scopatz</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Scopatz</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Scopatz, A</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Scopatz, A.</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Scopatz, A M</span>
     <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Anthony Michael Scopatz</span>
   <span class="l l-Scalar l-Scalar-Plain">avatar</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">https://avatars1.githubusercontent.com/u/320553?v=3&amp;s=200</span>
-  <span class="l l-Scalar l-Scalar-Plain">bio</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Anthony Scopatz is currently an Assistant Professor at the University of South</span>
-    <span class="l l-Scalar l-Scalar-Plain">Carolina in the Nuclear Engineering program in the Mechanical Engineering Department.</span>
-    <span class="l l-Scalar l-Scalar-Plain">He is a computational physicist and long time Python developer. Anthony holds</span>
-    <span class="l l-Scalar l-Scalar-Plain">his BS in Physics from UC, Santa Barbara and a Ph.D. in Mechanical / Nuclear Engineering</span>
-    <span class="l l-Scalar l-Scalar-Plain">from UT Austin. A former Enthought employee, he spent his post-doctoral studies</span>
-    <span class="l l-Scalar l-Scalar-Plain">at the FLASH Center at the University of Chicago in the Astrophysics Department.</span>
-    <span class="l l-Scalar l-Scalar-Plain">Then he became a Staff Scientist at the University of Wisconsin-Maidson in Engineering</span>
-    <span class="l l-Scalar l-Scalar-Plain">Physics. Anthony&#39;s research interests revolve around essential physics modeling</span>
-    <span class="l l-Scalar l-Scalar-Plain">of the nuclear fuel cycle, and information theory &amp; entropy. Anthony is proudly</span>
-    <span class="l l-Scalar l-Scalar-Plain">a fellow of the Python Software Foundation and has published and spoken at numerous</span>
-    <span class="l l-Scalar l-Scalar-Plain">conferences on a variety of science &amp; software development topics.</span>
+  <span class="l l-Scalar l-Scalar-Plain">bio</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Anthony Scopatz is currently an Assistant Professor</span>
   <span class="l l-Scalar l-Scalar-Plain">education</span><span class="p p-Indicator">:</span>
     <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">begin_year</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">2008</span>
       <span class="l l-Scalar l-Scalar-Plain">degree</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Ph.D. Mechanical Engineering, Nuclear and Radiation Engineering Program</span>
@@ -285,6 +319,7 @@ These dicts have the following form:</p>
       <span class="l l-Scalar l-Scalar-Plain">location</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Santa Barbara, CA</span>
       <span class="l l-Scalar l-Scalar-Plain">other</span><span class="p p-Indicator">:</span>
         <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Graduated with a Major in Physics and a Minor in Mathematics</span>
+  <span class="l l-Scalar l-Scalar-Plain">email</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">scopatz@cec.sc.edu</span>
   <span class="l l-Scalar l-Scalar-Plain">employment</span><span class="p p-Indicator">:</span>
     <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">begin_year</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">2015</span>
       <span class="l l-Scalar l-Scalar-Plain">location</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Columbia, SC</span>
@@ -319,41 +354,7 @@ These dicts have the following form:</p>
           <span class="s">FLASH.&#39;</span>
         <span class="p p-Indicator">-</span> <span class="s">&#39;OpacPlot:</span><span class="nv"> </span><span class="s">HDF5-based</span><span class="nv"> </span><span class="s">equation</span><span class="nv"> </span><span class="s">of</span><span class="nv"> </span><span class="s">state</span><span class="nv"> </span><span class="s">and</span><span class="nv"> </span><span class="s">opacity</span><span class="nv"> </span><span class="s">file</span><span class="nv"> </span><span class="s">format.&#39;</span>
         <span class="p p-Indicator">-</span> <span class="s">&#39;Website:</span><span class="nv"> </span><span class="s">http://flash.uchicago.edu/site/&#39;</span>
-      <span class="l l-Scalar l-Scalar-Plain">position</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Research Scientist, Postdoctoral Scholar, Astronomy &amp; Astrophysics</span>
-        <span class="l l-Scalar l-Scalar-Plain">Dept.</span>
-    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">begin_month</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">May</span>
-      <span class="l l-Scalar l-Scalar-Plain">begin_year</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">2010</span>
-      <span class="l l-Scalar l-Scalar-Plain">end_month</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">October</span>
-      <span class="l l-Scalar l-Scalar-Plain">end_year</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">2011</span>
-      <span class="l l-Scalar l-Scalar-Plain">location</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Austin, TX</span>
-      <span class="l l-Scalar l-Scalar-Plain">organization</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Enthought, Inc.</span>
-      <span class="l l-Scalar l-Scalar-Plain">other</span><span class="p p-Indicator">:</span>
-        <span class="p p-Indicator">-</span> <span class="s">&#39;PlotTool:</span><span class="nv"> </span><span class="s">Time</span><span class="nv"> </span><span class="s">series</span><span class="nv"> </span><span class="s">data</span><span class="nv"> </span><span class="s">visualization</span><span class="nv"> </span><span class="s">for</span><span class="nv"> </span><span class="s">J.P.</span><span class="nv"> </span><span class="s">Morgan</span><span class="nv"> </span><span class="s">Chase.&#39;</span>
-        <span class="p p-Indicator">-</span> <span class="s">&#39;PivotTable:</span><span class="nv"> </span><span class="s">Data</span><span class="nv"> </span><span class="s">cube</span><span class="nv"> </span><span class="s">configuration,</span><span class="nv"> </span><span class="s">management,</span><span class="nv"> </span><span class="s">and</span><span class="nv"> </span><span class="s">visualization</span><span class="nv"> </span><span class="s">for</span>
-          <span class="s">J.P.</span><span class="nv"> </span><span class="s">Morgan</span><span class="nv"> </span><span class="s">Chase.&#39;</span>
-        <span class="p p-Indicator">-</span> <span class="s">&#39;WIPP-PA:</span><span class="nv"> </span><span class="s">Waste</span><span class="nv"> </span><span class="s">Isolation</span><span class="nv"> </span><span class="s">Pilot</span><span class="nv"> </span><span class="s">Project</span><span class="nv"> </span><span class="s">Performance</span><span class="nv"> </span><span class="s">Assessment</span><span class="nv"> </span><span class="s">tool</span><span class="nv"> </span><span class="s">for</span>
-          <span class="s">Sandia</span><span class="nv"> </span><span class="s">Nat’l</span><span class="nv"> </span><span class="s">Labs.&#39;</span>
-        <span class="p p-Indicator">-</span> <span class="s">&#39;EasyGuide2:</span><span class="nv"> </span><span class="s">Dental</span><span class="nv"> </span><span class="s">implant</span><span class="nv"> </span><span class="s">imaging</span><span class="nv"> </span><span class="s">software</span><span class="nv"> </span><span class="s">for</span><span class="nv"> </span><span class="s">Keystone</span><span class="nv"> </span><span class="s">Dental.&#39;</span>
-      <span class="l l-Scalar l-Scalar-Plain">position</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Scientific Software Developer</span>
-    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">begin_year</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">2002</span>
-      <span class="l l-Scalar l-Scalar-Plain">end_year</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">2005</span>
-      <span class="l l-Scalar l-Scalar-Plain">location</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Santa Barbara, CA</span>
-      <span class="l l-Scalar l-Scalar-Plain">organization</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">University of California, Santa Barbara</span>
-      <span class="l l-Scalar l-Scalar-Plain">other</span><span class="p p-Indicator">:</span>
-        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Terahertz Continuous Wave Spectroscopy</span>
-        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Studied the effect of Terahertz waves on biomacromolecules in water.</span>
-      <span class="l l-Scalar l-Scalar-Plain">position</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Undergraduate Research Assistant</span>
-    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">begin_month</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">June</span>
-      <span class="l l-Scalar l-Scalar-Plain">begin_year</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">2004</span>
-      <span class="l l-Scalar l-Scalar-Plain">end_month</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">August</span>
-      <span class="l l-Scalar l-Scalar-Plain">end_year</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">2004</span>
-      <span class="l l-Scalar l-Scalar-Plain">location</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Los Alamos, NM</span>
-      <span class="l l-Scalar l-Scalar-Plain">organization</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Los Alamos National Laboratory</span>
-      <span class="l l-Scalar l-Scalar-Plain">other</span><span class="p p-Indicator">:</span>
-        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Terahertz Pump-Probe Spectroscopy</span>
-        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Looked at the effect of Terahertz waves on Erbium-Arsenide on a Gallium-Arsenide</span>
-          <span class="l l-Scalar l-Scalar-Plain">substrate.</span>
-      <span class="l l-Scalar l-Scalar-Plain">position</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Summer Internship/Visiting Scientist</span>
+      <span class="l l-Scalar l-Scalar-Plain">position</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Research Scientist, Postdoctoral Scholar</span>
   <span class="l l-Scalar l-Scalar-Plain">funding</span><span class="p p-Indicator">:</span>
     <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Omega Laser User&#39;s Group Travel Award</span>
       <span class="l l-Scalar l-Scalar-Plain">value</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">1100</span>
@@ -361,13 +362,6 @@ These dicts have the following form:</p>
     <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">NIF User&#39;s Group Travel Award</span>
       <span class="l l-Scalar l-Scalar-Plain">value</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">1150</span>
       <span class="l l-Scalar l-Scalar-Plain">year</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">2013</span>
-    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Innovations in Fuel Cycle Research, 2nd place Systems Engineering and</span>
-        <span class="l l-Scalar l-Scalar-Plain">Analysis</span>
-      <span class="l l-Scalar l-Scalar-Plain">value</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">2500</span>
-      <span class="l l-Scalar l-Scalar-Plain">year</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">2010</span>
-    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="s">&#39;MCNPX</span><span class="nv"> </span><span class="s">Bug</span><span class="nv"> </span><span class="s">#100&#39;</span>
-      <span class="l l-Scalar l-Scalar-Plain">value</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">20</span>
-      <span class="l l-Scalar l-Scalar-Plain">year</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">2009</span>
   <span class="l l-Scalar l-Scalar-Plain">membership</span><span class="p p-Indicator">:</span>
     <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">begin_year</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">2006</span>
       <span class="l l-Scalar l-Scalar-Plain">organization</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">American Nuclear Society</span>
@@ -375,24 +369,8 @@ These dicts have the following form:</p>
     <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">begin_year</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">2013</span>
       <span class="l l-Scalar l-Scalar-Plain">organization</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Python Software Foundation</span>
       <span class="l l-Scalar l-Scalar-Plain">position</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Fellow</span>
-    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">begin_year</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">2011</span>
-      <span class="l l-Scalar l-Scalar-Plain">end_year</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">2014</span>
-      <span class="l l-Scalar l-Scalar-Plain">organization</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">NumFOCUS</span>
-      <span class="l l-Scalar l-Scalar-Plain">position</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Founding Treasurer &amp; Board Member</span>
-      <span class="l l-Scalar l-Scalar-Plain">website</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">http://numfocus.org</span>
-  <span class="l l-Scalar l-Scalar-Plain">service</span><span class="p p-Indicator">:</span>
-    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">SciPy 2014 Communications Chair</span>
-      <span class="l l-Scalar l-Scalar-Plain">year</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">2014</span>
-    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">SciPy 2013 Communications Chair</span>
-      <span class="l l-Scalar l-Scalar-Plain">year</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">2013</span>
-    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">SciPy 2012 Open Spaces Chair</span>
-      <span class="l l-Scalar l-Scalar-Plain">year</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">2012</span>
-    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">SciPy 2011 Chair of Python &amp; Core Technologies Track</span>
-      <span class="l l-Scalar l-Scalar-Plain">year</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">2011</span>
-    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">PyCon 2010 Program Committee Member</span>
-      <span class="l l-Scalar l-Scalar-Plain">year</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">2010</span>
-    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Peer Reviewer for Nuclear Engineering &amp; Design (NED-D-09-00256)</span>
-      <span class="l l-Scalar l-Scalar-Plain">year</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">2009</span>
+  <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Anthony Scopatz</span>
+  <span class="l l-Scalar l-Scalar-Plain">position</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">professor</span>
   <span class="l l-Scalar l-Scalar-Plain">skills</span><span class="p p-Indicator">:</span>
     <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">category</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Programming Languages</span>
       <span class="l l-Scalar l-Scalar-Plain">level</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">expert</span>
@@ -400,135 +378,174 @@ These dicts have the following form:</p>
     <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">category</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Programming Languages</span>
       <span class="l l-Scalar l-Scalar-Plain">level</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">expert</span>
       <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Cython</span>
-    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">category</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Programming Languages</span>
-      <span class="l l-Scalar l-Scalar-Plain">level</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">expert</span>
-      <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">C</span>
-    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">category</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Programming Languages</span>
-      <span class="l l-Scalar l-Scalar-Plain">level</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">expert</span>
-      <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">C++</span>
-    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">category</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Programming Languages</span>
-      <span class="l l-Scalar l-Scalar-Plain">level</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">expert</span>
-      <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Bash</span>
-    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">category</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Specialized Software</span>
-      <span class="l l-Scalar l-Scalar-Plain">level</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">expert</span>
-      <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Linux</span>
-    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">category</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Specialized Software</span>
-      <span class="l l-Scalar l-Scalar-Plain">level</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">intermediate</span>
-      <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">MongoDB</span>
   <span class="l l-Scalar l-Scalar-Plain">teaching</span><span class="p p-Indicator">:</span>
     <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">course</span><span class="p p-Indicator">:</span> <span class="s">&#39;EMCH</span><span class="nv"> </span><span class="s">552:</span><span class="nv"> </span><span class="s">Intro</span><span class="nv"> </span><span class="s">to</span><span class="nv"> </span><span class="s">Nuclear</span><span class="nv"> </span><span class="s">Engineering&#39;</span>
-      <span class="l l-Scalar l-Scalar-Plain">description</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">This course is an introduction to nuclear physics and engineering,</span>
-        <span class="l l-Scalar l-Scalar-Plain">covering the important underlying science and mathematics to nuclear power</span>
-        <span class="l l-Scalar l-Scalar-Plain">generation. Unlike previous sememsters, this course was taught in a flipped</span>
-        <span class="l l-Scalar l-Scalar-Plain">style.</span>
+      <span class="l l-Scalar l-Scalar-Plain">description</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">This course is an introduction to nuclear physics.</span>
       <span class="l l-Scalar l-Scalar-Plain">month</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">August</span>
       <span class="l l-Scalar l-Scalar-Plain">organization</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">University of South Carolina</span>
       <span class="l l-Scalar l-Scalar-Plain">position</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Professor</span>
       <span class="l l-Scalar l-Scalar-Plain">syllabus</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">https://drive.google.com/open?id=0BxUpd34yizZreDBCMEJNY2FUbnc</span>
       <span class="l l-Scalar l-Scalar-Plain">year</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">2017</span>
     <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">course</span><span class="p p-Indicator">:</span> <span class="s">&#39;EMCH</span><span class="nv"> </span><span class="s">558/758:</span><span class="nv"> </span><span class="s">Reactor</span><span class="nv"> </span><span class="s">Power</span><span class="nv"> </span><span class="s">Systems&#39;</span>
-      <span class="l l-Scalar l-Scalar-Plain">description</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">This course covers conventional Pressurized Water Reactors (PWR)</span>
-        <span class="l l-Scalar l-Scalar-Plain">and Boiling Water Reactors (BWR) system energy designs for transport, containment,</span>
-        <span class="l l-Scalar l-Scalar-Plain">and accident prevention and mitigation. Near term, developmental, and proposed</span>
-        <span class="l l-Scalar l-Scalar-Plain">enhanced capability reactor system designs. Cross listed as an undergraduate</span>
-        <span class="l l-Scalar l-Scalar-Plain">and graduate course.</span>
+      <span class="l l-Scalar l-Scalar-Plain">description</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">This course covers conventional reactors.</span>
       <span class="l l-Scalar l-Scalar-Plain">month</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">January</span>
       <span class="l l-Scalar l-Scalar-Plain">organization</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">University of South Carolina</span>
       <span class="l l-Scalar l-Scalar-Plain">position</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Professor</span>
       <span class="l l-Scalar l-Scalar-Plain">syllabus</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">https://docs.google.com/document/d/1uMAx_KFZK9ugYyF6wWtLLWgITVhaTBkAf8-PxiboYdM/edit?usp=sharing</span>
       <span class="l l-Scalar l-Scalar-Plain">year</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">2017</span>
+  <span class="l l-Scalar l-Scalar-Plain">title</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Dr.</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="json-mongo-example">
 <h2>JSON/Mongo Example<a class="headerlink" href="#json-mongo-example" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-json"><div class="highlight"><pre><span></span><span class="p">{</span><span class="nt">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;scopatz&quot;</span><span class="p">,</span>
- <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Anthony Scopatz&quot;</span><span class="p">,</span>
- <span class="nt">&quot;position&quot;</span><span class="p">:</span> <span class="s2">&quot;professor&quot;</span><span class="p">,</span>
- <span class="nt">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;Dr.&quot;</span><span class="p">,</span>
- <span class="nt">&quot;aka&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;Scopatz&quot;</span><span class="p">,</span> <span class="s2">&quot;Scopatz, A&quot;</span><span class="p">,</span> <span class="s2">&quot;Scopatz, A.&quot;</span><span class="p">,</span> <span class="s2">&quot;Scopatz, A M&quot;</span><span class="p">,</span> <span class="s2">&quot;Anthony Michael Scopatz&quot;</span><span class="p">],</span>
- <span class="nt">&quot;avatar&quot;</span><span class="p">:</span> <span class="s2">&quot;https://avatars1.githubusercontent.com/u/320553?v=3&amp;s=200&quot;</span><span class="p">,</span>
- <span class="nt">&quot;email&quot;</span><span class="p">:</span> <span class="s2">&quot;scopatz@cec.sc.edu&quot;</span><span class="p">,</span>
- <span class="nt">&quot;bio&quot;</span><span class="p">:</span> <span class="s2">&quot;Anthony Scopatz is currently an Assistant Professor&quot;</span><span class="p">,</span>
- <span class="nt">&quot;education&quot;</span><span class="p">:</span> <span class="p">[{</span><span class="nt">&quot;begin_year&quot;</span><span class="p">:</span> <span class="mi">2008</span><span class="p">,</span>
-                <span class="nt">&quot;degree&quot;</span><span class="p">:</span> <span class="s2">&quot;Ph.D. Mechanical Engineering, Nuclear and Radiation Engineering Program&quot;</span><span class="p">,</span>
-                <span class="nt">&quot;end_year&quot;</span><span class="p">:</span> <span class="mi">2011</span><span class="p">,</span>
-                <span class="nt">&quot;institution&quot;</span><span class="p">:</span> <span class="s2">&quot;The University of Texas at Austin&quot;</span><span class="p">,</span>
-                <span class="nt">&quot;location&quot;</span><span class="p">:</span> <span class="s2">&quot;Austin, TX&quot;</span><span class="p">,</span>
-                <span class="nt">&quot;other&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;Adviser: Erich A. Schneider&quot;</span><span class="p">,</span>
-                          <span class="s2">&quot;Dissertation: Essential Physics for Fuel Cycle Modeling &amp; Analysis&quot;</span><span class="p">]},</span>
-               <span class="p">{</span><span class="nt">&quot;begin_year&quot;</span><span class="p">:</span> <span class="mi">2006</span><span class="p">,</span>
-                <span class="nt">&quot;degree&quot;</span><span class="p">:</span> <span class="s2">&quot;M.S.E. Mechanical Engineering, Nuclear and Radiation Engineering Program&quot;</span><span class="p">,</span>
-                <span class="nt">&quot;end_year&quot;</span><span class="p">:</span> <span class="mi">2007</span><span class="p">,</span>
-                <span class="nt">&quot;institution&quot;</span><span class="p">:</span> <span class="s2">&quot;The University of Texas at Austin&quot;</span><span class="p">,</span>
-                <span class="nt">&quot;location&quot;</span><span class="p">:</span> <span class="s2">&quot;Austin, TX&quot;</span><span class="p">,</span>
-                <span class="nt">&quot;other&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;Adviser: Erich A. Schneider&quot;</span><span class="p">,</span>
-                          <span class="s2">&quot;Thesis: Recyclable Uranium Options under the Global Nuclear Energy Partnership&quot;</span><span class="p">]},</span>
-               <span class="p">{</span><span class="nt">&quot;begin_year&quot;</span><span class="p">:</span> <span class="mi">2002</span><span class="p">,</span>
-                <span class="nt">&quot;degree&quot;</span><span class="p">:</span> <span class="s2">&quot;B.S. Physics&quot;</span><span class="p">,</span>
-                <span class="nt">&quot;end_year&quot;</span><span class="p">:</span> <span class="mi">2006</span><span class="p">,</span>
-                <span class="nt">&quot;institution&quot;</span><span class="p">:</span> <span class="s2">&quot;University of California, Santa Barbara&quot;</span><span class="p">,</span>
-                <span class="nt">&quot;location&quot;</span><span class="p">:</span> <span class="s2">&quot;Santa Barbara, CA&quot;</span><span class="p">,</span>
-                <span class="nt">&quot;other&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;Graduated with a Major in Physics and a Minor in Mathematics&quot;</span><span class="p">]}],</span>
- <span class="nt">&quot;employment&quot;</span><span class="p">:</span> <span class="p">[{</span><span class="nt">&quot;begin_year&quot;</span><span class="p">:</span> <span class="mi">2015</span><span class="p">,</span>
-                 <span class="nt">&quot;location&quot;</span><span class="p">:</span> <span class="s2">&quot;Columbia, SC&quot;</span><span class="p">,</span>
-                 <span class="nt">&quot;organization&quot;</span><span class="p">:</span> <span class="s2">&quot;The University of South Carolina&quot;</span><span class="p">,</span>
-                 <span class="nt">&quot;other&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;Cyclus: An agent-based, discrete time nuclear fuel cycle simulator.&quot;</span><span class="p">,</span>
-                           <span class="s2">&quot;PyNE: The Nuclear Engineering Toolkit.&quot;</span><span class="p">,</span>
-                           <span class="s2">&quot;Website: http://www.ergs.sc.edu/&quot;</span><span class="p">],</span>
-                 <span class="nt">&quot;position&quot;</span><span class="p">:</span> <span class="s2">&quot;Assistant Professor, Mechanical Engineering Department&quot;</span><span class="p">},</span>
-                <span class="p">{</span><span class="nt">&quot;begin_year&quot;</span><span class="p">:</span> <span class="mi">2013</span><span class="p">,</span>
-                 <span class="nt">&quot;end_year&quot;</span><span class="p">:</span> <span class="mi">2015</span><span class="p">,</span>
-                 <span class="nt">&quot;location&quot;</span><span class="p">:</span> <span class="s2">&quot;Madison, WI&quot;</span><span class="p">,</span>
-                 <span class="nt">&quot;organization&quot;</span><span class="p">:</span> <span class="s2">&quot;CNERG, The University of Wisconsin-Madison&quot;</span><span class="p">,</span>
-                 <span class="nt">&quot;other&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;Cyclus: An agent-based, discrete time nuclear fuel cycle simulator.&quot;</span><span class="p">,</span>
-                           <span class="s2">&quot;PyNE: The Nuclear Engineering Toolkit.&quot;</span><span class="p">,</span>
-                           <span class="s2">&quot;Website: https://cnerg.github.io/&quot;</span><span class="p">],</span>
-                 <span class="nt">&quot;position&quot;</span><span class="p">:</span> <span class="s2">&quot;Associate Scientist, Engineering Physics Department&quot;</span><span class="p">},</span>
-                <span class="p">{</span><span class="nt">&quot;begin_month&quot;</span><span class="p">:</span> <span class="s2">&quot;Nov&quot;</span><span class="p">,</span>
-                 <span class="nt">&quot;begin_year&quot;</span><span class="p">:</span> <span class="mi">2011</span><span class="p">,</span>
-                 <span class="nt">&quot;end_month&quot;</span><span class="p">:</span> <span class="s2">&quot;May&quot;</span><span class="p">,</span>
-                 <span class="nt">&quot;end_year&quot;</span><span class="p">:</span> <span class="mi">2013</span><span class="p">,</span>
-                 <span class="nt">&quot;location&quot;</span><span class="p">:</span> <span class="s2">&quot;Chicago, IL&quot;</span><span class="p">,</span>
-                 <span class="nt">&quot;organization&quot;</span><span class="p">:</span> <span class="s2">&quot;The FLASH Center, The University of Chicago&quot;</span><span class="p">,</span>
-                 <span class="nt">&quot;other&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;NIF: Simulation of magnetic field generation from neutral plasmas using FLASH.&quot;</span><span class="p">,</span> <span class="s2">&quot;CosmoB: Simulation of magnetic field generation from neutral plasmas using FLASH.&quot;</span><span class="p">,</span>
-                           <span class="s2">&quot;FLASH4: High-energy density physics capabilities and utilities.&quot;</span><span class="p">,</span>
-                           <span class="s2">&quot;Simulated Diagnostics: Schlieren, shadowgraphy, Langmuir probes, etc. from FLASH.&quot;</span><span class="p">,</span>
-                           <span class="s2">&quot;OpacPlot: HDF5-based equation of state and opacity file format.&quot;</span><span class="p">,</span>
-                           <span class="s2">&quot;Website: http://flash.uchicago.edu/site/&quot;</span><span class="p">],</span>
-                 <span class="nt">&quot;position&quot;</span><span class="p">:</span> <span class="s2">&quot;Research Scientist, Postdoctoral Scholar&quot;</span><span class="p">}],</span>
-<span class="nt">&quot;funding&quot;</span><span class="p">:</span> <span class="p">[{</span><span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Omega Laser User&#39;s Group Travel Award&quot;</span><span class="p">,</span>
-             <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="mi">1100</span><span class="p">,</span>
-             <span class="nt">&quot;year&quot;</span><span class="p">:</span> <span class="mi">2013</span><span class="p">},</span>
-            <span class="p">{</span><span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;NIF User&#39;s Group Travel Award&quot;</span><span class="p">,</span>
-             <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="mi">1150</span><span class="p">,</span>
-             <span class="nt">&quot;year&quot;</span><span class="p">:</span> <span class="mi">2013</span><span class="p">}],</span>
-<span class="nt">&quot;membership&quot;</span><span class="p">:</span> <span class="p">[{</span><span class="nt">&quot;begin_year&quot;</span><span class="p">:</span> <span class="mi">2006</span><span class="p">,</span>
-                <span class="nt">&quot;organization&quot;</span><span class="p">:</span> <span class="s2">&quot;American Nuclear Society&quot;</span><span class="p">,</span>
-                <span class="nt">&quot;position&quot;</span><span class="p">:</span> <span class="s2">&quot;Member&quot;</span><span class="p">},</span>
-               <span class="p">{</span><span class="nt">&quot;begin_year&quot;</span><span class="p">:</span> <span class="mi">2013</span><span class="p">,</span>
-                <span class="nt">&quot;organization&quot;</span><span class="p">:</span> <span class="s2">&quot;Python Software Foundation&quot;</span><span class="p">,</span>
-                <span class="nt">&quot;position&quot;</span><span class="p">:</span> <span class="s2">&quot;Fellow&quot;</span><span class="p">}],</span>
-<span class="nt">&quot;skills&quot;</span><span class="p">:</span> <span class="p">[{</span><span class="nt">&quot;category&quot;</span><span class="p">:</span> <span class="s2">&quot;Programming Languages&quot;</span><span class="p">,</span>
+<div class="highlight-json"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;scopatz&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;aka&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="s2">&quot;Scopatz&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;Scopatz, A&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;Scopatz, A.&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;Scopatz, A M&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;Anthony Michael Scopatz&quot;</span>
+    <span class="p">],</span>
+    <span class="nt">&quot;avatar&quot;</span><span class="p">:</span> <span class="s2">&quot;https://avatars1.githubusercontent.com/u/320553?v=3&amp;s=200&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;bio&quot;</span><span class="p">:</span> <span class="s2">&quot;Anthony Scopatz is currently an Assistant Professor&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;education&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;begin_year&quot;</span><span class="p">:</span> <span class="mi">2008</span><span class="p">,</span>
+            <span class="nt">&quot;degree&quot;</span><span class="p">:</span> <span class="s2">&quot;Ph.D. Mechanical Engineering, Nuclear and Radiation Engineering Program&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;end_year&quot;</span><span class="p">:</span> <span class="mi">2011</span><span class="p">,</span>
+            <span class="nt">&quot;institution&quot;</span><span class="p">:</span> <span class="s2">&quot;The University of Texas at Austin&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;location&quot;</span><span class="p">:</span> <span class="s2">&quot;Austin, TX&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;other&quot;</span><span class="p">:</span> <span class="p">[</span>
+                <span class="s2">&quot;Adviser: Erich A. Schneider&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;Dissertation: Essential Physics for Fuel Cycle Modeling &amp; Analysis&quot;</span>
+            <span class="p">]</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;begin_year&quot;</span><span class="p">:</span> <span class="mi">2006</span><span class="p">,</span>
+            <span class="nt">&quot;degree&quot;</span><span class="p">:</span> <span class="s2">&quot;M.S.E. Mechanical Engineering, Nuclear and Radiation Engineering Program&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;end_year&quot;</span><span class="p">:</span> <span class="mi">2007</span><span class="p">,</span>
+            <span class="nt">&quot;institution&quot;</span><span class="p">:</span> <span class="s2">&quot;The University of Texas at Austin&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;location&quot;</span><span class="p">:</span> <span class="s2">&quot;Austin, TX&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;other&quot;</span><span class="p">:</span> <span class="p">[</span>
+                <span class="s2">&quot;Adviser: Erich A. Schneider&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;Thesis: Recyclable Uranium Options under the Global Nuclear Energy Partnership&quot;</span>
+            <span class="p">]</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;begin_year&quot;</span><span class="p">:</span> <span class="mi">2002</span><span class="p">,</span>
+            <span class="nt">&quot;degree&quot;</span><span class="p">:</span> <span class="s2">&quot;B.S. Physics&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;end_year&quot;</span><span class="p">:</span> <span class="mi">2006</span><span class="p">,</span>
+            <span class="nt">&quot;institution&quot;</span><span class="p">:</span> <span class="s2">&quot;University of California, Santa Barbara&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;location&quot;</span><span class="p">:</span> <span class="s2">&quot;Santa Barbara, CA&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;other&quot;</span><span class="p">:</span> <span class="p">[</span>
+                <span class="s2">&quot;Graduated with a Major in Physics and a Minor in Mathematics&quot;</span>
+            <span class="p">]</span>
+        <span class="p">}</span>
+    <span class="p">],</span>
+    <span class="nt">&quot;email&quot;</span><span class="p">:</span> <span class="s2">&quot;scopatz@cec.sc.edu&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;employment&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;begin_year&quot;</span><span class="p">:</span> <span class="mi">2015</span><span class="p">,</span>
+            <span class="nt">&quot;location&quot;</span><span class="p">:</span> <span class="s2">&quot;Columbia, SC&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;organization&quot;</span><span class="p">:</span> <span class="s2">&quot;The University of South Carolina&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;other&quot;</span><span class="p">:</span> <span class="p">[</span>
+                <span class="s2">&quot;Cyclus: An agent-based, discrete time nuclear fuel cycle simulator.&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;PyNE: The Nuclear Engineering Toolkit.&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;Website: http://www.ergs.sc.edu/&quot;</span>
+            <span class="p">],</span>
+            <span class="nt">&quot;position&quot;</span><span class="p">:</span> <span class="s2">&quot;Assistant Professor, Mechanical Engineering Department&quot;</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;begin_year&quot;</span><span class="p">:</span> <span class="mi">2013</span><span class="p">,</span>
+            <span class="nt">&quot;end_year&quot;</span><span class="p">:</span> <span class="mi">2015</span><span class="p">,</span>
+            <span class="nt">&quot;location&quot;</span><span class="p">:</span> <span class="s2">&quot;Madison, WI&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;organization&quot;</span><span class="p">:</span> <span class="s2">&quot;CNERG, The University of Wisconsin-Madison&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;other&quot;</span><span class="p">:</span> <span class="p">[</span>
+                <span class="s2">&quot;Cyclus: An agent-based, discrete time nuclear fuel cycle simulator.&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;PyNE: The Nuclear Engineering Toolkit.&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;Website: https://cnerg.github.io/&quot;</span>
+            <span class="p">],</span>
+            <span class="nt">&quot;position&quot;</span><span class="p">:</span> <span class="s2">&quot;Associate Scientist, Engineering Physics Department&quot;</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;begin_month&quot;</span><span class="p">:</span> <span class="s2">&quot;Nov&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;begin_year&quot;</span><span class="p">:</span> <span class="mi">2011</span><span class="p">,</span>
+            <span class="nt">&quot;end_month&quot;</span><span class="p">:</span> <span class="s2">&quot;May&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;end_year&quot;</span><span class="p">:</span> <span class="mi">2013</span><span class="p">,</span>
+            <span class="nt">&quot;location&quot;</span><span class="p">:</span> <span class="s2">&quot;Chicago, IL&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;organization&quot;</span><span class="p">:</span> <span class="s2">&quot;The FLASH Center, The University of Chicago&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;other&quot;</span><span class="p">:</span> <span class="p">[</span>
+                <span class="s2">&quot;NIF: Simulation of magnetic field generation from neutral plasmas using FLASH.&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;CosmoB: Simulation of magnetic field generation from neutral plasmas using FLASH.&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;FLASH4: High-energy density physics capabilities and utilities.&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;Simulated Diagnostics: Schlieren, shadowgraphy, Langmuir probes, etc. from FLASH.&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;OpacPlot: HDF5-based equation of state and opacity file format.&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;Website: http://flash.uchicago.edu/site/&quot;</span>
+            <span class="p">],</span>
+            <span class="nt">&quot;position&quot;</span><span class="p">:</span> <span class="s2">&quot;Research Scientist, Postdoctoral Scholar&quot;</span>
+        <span class="p">}</span>
+    <span class="p">],</span>
+    <span class="nt">&quot;funding&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Omega Laser User&#39;s Group Travel Award&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="mi">1100</span><span class="p">,</span>
+            <span class="nt">&quot;year&quot;</span><span class="p">:</span> <span class="mi">2013</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;NIF User&#39;s Group Travel Award&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="mi">1150</span><span class="p">,</span>
+            <span class="nt">&quot;year&quot;</span><span class="p">:</span> <span class="mi">2013</span>
+        <span class="p">}</span>
+    <span class="p">],</span>
+    <span class="nt">&quot;membership&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;begin_year&quot;</span><span class="p">:</span> <span class="mi">2006</span><span class="p">,</span>
+            <span class="nt">&quot;organization&quot;</span><span class="p">:</span> <span class="s2">&quot;American Nuclear Society&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;position&quot;</span><span class="p">:</span> <span class="s2">&quot;Member&quot;</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;begin_year&quot;</span><span class="p">:</span> <span class="mi">2013</span><span class="p">,</span>
+            <span class="nt">&quot;organization&quot;</span><span class="p">:</span> <span class="s2">&quot;Python Software Foundation&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;position&quot;</span><span class="p">:</span> <span class="s2">&quot;Fellow&quot;</span>
+        <span class="p">}</span>
+    <span class="p">],</span>
+    <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Anthony Scopatz&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;position&quot;</span><span class="p">:</span> <span class="s2">&quot;professor&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;skills&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;category&quot;</span><span class="p">:</span> <span class="s2">&quot;Programming Languages&quot;</span><span class="p">,</span>
             <span class="nt">&quot;level&quot;</span><span class="p">:</span> <span class="s2">&quot;expert&quot;</span><span class="p">,</span>
-            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Python&quot;</span><span class="p">},</span>
-           <span class="p">{</span><span class="nt">&quot;category&quot;</span><span class="p">:</span> <span class="s2">&quot;Programming Languages&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Python&quot;</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;category&quot;</span><span class="p">:</span> <span class="s2">&quot;Programming Languages&quot;</span><span class="p">,</span>
             <span class="nt">&quot;level&quot;</span><span class="p">:</span> <span class="s2">&quot;expert&quot;</span><span class="p">,</span>
-            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Cython&quot;</span><span class="p">}],</span>
-<span class="nt">&quot;teaching&quot;</span><span class="p">:</span> <span class="p">[{</span><span class="nt">&quot;course&quot;</span><span class="p">:</span> <span class="s2">&quot;EMCH 552: Intro to Nuclear Engineering&quot;</span><span class="p">,</span>
-              <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;This course is an introduction to nuclear physics.&quot;</span><span class="p">,</span>
-              <span class="nt">&quot;month&quot;</span><span class="p">:</span> <span class="s2">&quot;August&quot;</span><span class="p">,</span>
-              <span class="nt">&quot;organization&quot;</span><span class="p">:</span> <span class="s2">&quot;University of South Carolina&quot;</span><span class="p">,</span>
-              <span class="nt">&quot;position&quot;</span><span class="p">:</span> <span class="s2">&quot;Professor&quot;</span><span class="p">,</span>
-              <span class="nt">&quot;syllabus&quot;</span><span class="p">:</span> <span class="s2">&quot;https://drive.google.com/open?id=0BxUpd34yizZreDBCMEJNY2FUbnc&quot;</span><span class="p">,</span>
-              <span class="nt">&quot;year&quot;</span><span class="p">:</span> <span class="mi">2017</span><span class="p">},</span>
-             <span class="p">{</span><span class="nt">&quot;course&quot;</span><span class="p">:</span> <span class="s2">&quot;EMCH 558/758: Reactor Power Systems&quot;</span><span class="p">,</span>
-              <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;This course covers conventional reactors.&quot;</span><span class="p">,</span>
-              <span class="nt">&quot;month&quot;</span><span class="p">:</span> <span class="s2">&quot;January&quot;</span><span class="p">,</span>
-              <span class="nt">&quot;organization&quot;</span><span class="p">:</span> <span class="s2">&quot;University of South Carolina&quot;</span><span class="p">,</span>
-              <span class="nt">&quot;position&quot;</span><span class="p">:</span> <span class="s2">&quot;Professor&quot;</span><span class="p">,</span>
-              <span class="nt">&quot;syllabus&quot;</span><span class="p">:</span> <span class="s2">&quot;https://docs.google.com/document/d/1uMAx_KFZK9ugYyF6wWtLLWgITVhaTBkAf8-PxiboYdM/edit?usp=sharing&quot;</span><span class="p">,</span>
-              <span class="nt">&quot;year&quot;</span><span class="p">:</span> <span class="mi">2017</span><span class="p">}]</span>
+            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Cython&quot;</span>
+        <span class="p">}</span>
+    <span class="p">],</span>
+    <span class="nt">&quot;teaching&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;course&quot;</span><span class="p">:</span> <span class="s2">&quot;EMCH 552: Intro to Nuclear Engineering&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;This course is an introduction to nuclear physics.&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;month&quot;</span><span class="p">:</span> <span class="s2">&quot;August&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;organization&quot;</span><span class="p">:</span> <span class="s2">&quot;University of South Carolina&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;position&quot;</span><span class="p">:</span> <span class="s2">&quot;Professor&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;syllabus&quot;</span><span class="p">:</span> <span class="s2">&quot;https://drive.google.com/open?id=0BxUpd34yizZreDBCMEJNY2FUbnc&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;year&quot;</span><span class="p">:</span> <span class="mi">2017</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;course&quot;</span><span class="p">:</span> <span class="s2">&quot;EMCH 558/758: Reactor Power Systems&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;This course covers conventional reactors.&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;month&quot;</span><span class="p">:</span> <span class="s2">&quot;January&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;organization&quot;</span><span class="p">:</span> <span class="s2">&quot;University of South Carolina&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;position&quot;</span><span class="p">:</span> <span class="s2">&quot;Professor&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;syllabus&quot;</span><span class="p">:</span> <span class="s2">&quot;https://docs.google.com/document/d/1uMAx_KFZK9ugYyF6wWtLLWgITVhaTBkAf8-PxiboYdM/edit?usp=sharing&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;year&quot;</span><span class="p">:</span> <span class="mi">2017</span>
+        <span class="p">}</span>
+    <span class="p">],</span>
+    <span class="nt">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;Dr.&quot;</span>
 <span class="p">}</span>
 </pre></div>
 </div>

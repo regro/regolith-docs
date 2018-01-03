@@ -69,21 +69,21 @@
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">_id:</th><td class="field-body">str, short represntation, such as this-is-my-title</td>
+<tr class="field-odd field"><th class="field-name">_id:</th><td class="field-body">string, short representation, such as this-is-my-title, required</td>
 </tr>
-<tr class="field-even field"><th class="field-name">title:</th><td class="field-body">str,  full human readable title</td>
+<tr class="field-even field"><th class="field-name">author:</th><td class="field-body">string, name or AKA of author, required</td>
 </tr>
-<tr class="field-odd field"><th class="field-name">original:</th><td class="field-body">str, URL of original post, if this is a repost, optional</td>
+<tr class="field-odd field"><th class="field-name">day:</th><td class="field-body">integer, Publication day, required</td>
 </tr>
-<tr class="field-even field"><th class="field-name">author:</th><td class="field-body">str, name or AKA of author</td>
+<tr class="field-even field"><th class="field-name">month:</th><td class="field-body">string, Publication month, required</td>
 </tr>
-<tr class="field-odd field"><th class="field-name">year:</th><td class="field-body">int, Publication year</td>
+<tr class="field-odd field"><th class="field-name">original:</th><td class="field-body">string, URL of original post, if this is a repost, optional</td>
 </tr>
-<tr class="field-even field"><th class="field-name">month:</th><td class="field-body">str, Publication month</td>
+<tr class="field-even field"><th class="field-name">post:</th><td class="field-body">string, actual contents of the post, required</td>
 </tr>
-<tr class="field-odd field"><th class="field-name">day:</th><td class="field-body">int, Publication day</td>
+<tr class="field-odd field"><th class="field-name">title:</th><td class="field-body">string, full human readable title, required</td>
 </tr>
-<tr class="field-even field"><th class="field-name">post:</th><td class="field-body">str, actual contents of the post</td>
+<tr class="field-even field"><th class="field-name">year:</th><td class="field-body">integer, Publication year, required</td>
 </tr>
 </tbody>
 </table>
@@ -91,27 +91,28 @@
 <div class="section" id="yaml-example">
 <h2>YAML Example<a class="headerlink" href="#yaml-example" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-yaml"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">my-vision</span><span class="p p-Indicator">:</span>
-    <span class="l l-Scalar l-Scalar-Plain">title</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">My Vision</span>
-    <span class="l l-Scalar l-Scalar-Plain">author</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Anthony Scopatz</span>
-    <span class="l l-Scalar l-Scalar-Plain">year</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">2015</span>
-    <span class="l l-Scalar l-Scalar-Plain">month</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">September</span>
-    <span class="l l-Scalar l-Scalar-Plain">day</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">18</span>
-    <span class="l l-Scalar l-Scalar-Plain">original</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">https://scopatz.com/my-vision/</span>
-    <span class="l l-Scalar l-Scalar-Plain">post</span><span class="p p-Indicator">:</span> <span class="p p-Indicator">|</span>
-        <span class="no">I would like see things move forward. Deep, I know!</span>
+  <span class="l l-Scalar l-Scalar-Plain">author</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Anthony Scopatz</span>
+  <span class="l l-Scalar l-Scalar-Plain">day</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">18</span>
+  <span class="l l-Scalar l-Scalar-Plain">month</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">September</span>
+  <span class="l l-Scalar l-Scalar-Plain">original</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">https://scopatz.com/my-vision/</span>
+  <span class="l l-Scalar l-Scalar-Plain">post</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">I would like see things move forward. Deep, I know!</span>
+  <span class="l l-Scalar l-Scalar-Plain">title</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">My Vision</span>
+  <span class="l l-Scalar l-Scalar-Plain">year</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">2015</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="json-mongo-example">
 <h2>JSON/Mongo Example<a class="headerlink" href="#json-mongo-example" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-json"><div class="highlight"><pre><span></span><span class="p">{</span><span class="nt">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;my-vision&quot;</span><span class="p">,</span>
- <span class="nt">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;My Vision&quot;</span><span class="p">,</span>
- <span class="nt">&quot;author&quot;</span><span class="p">:</span> <span class="s2">&quot;Anthony Scopatz&quot;</span><span class="p">,</span>
- <span class="nt">&quot;year&quot;</span><span class="p">:</span> <span class="mi">2015</span><span class="p">,</span>
- <span class="nt">&quot;month&quot;</span><span class="p">:</span> <span class="s2">&quot;September&quot;</span><span class="p">,</span>
- <span class="nt">&quot;day&quot;</span><span class="p">:</span> <span class="mi">18</span><span class="p">,</span>
- <span class="nt">&quot;original&quot;</span><span class="p">:</span> <span class="s2">&quot;https://scopatz.com/my-vision/&quot;</span><span class="p">,</span>
- <span class="nt">&quot;post&quot;</span><span class="p">:</span> <span class="s2">&quot;I would like see things move forward. Deep, I know!&quot;</span><span class="p">}</span>
+<div class="highlight-json"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;my-vision&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;author&quot;</span><span class="p">:</span> <span class="s2">&quot;Anthony Scopatz&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;day&quot;</span><span class="p">:</span> <span class="mi">18</span><span class="p">,</span>
+    <span class="nt">&quot;month&quot;</span><span class="p">:</span> <span class="s2">&quot;September&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;original&quot;</span><span class="p">:</span> <span class="s2">&quot;https://scopatz.com/my-vision/&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;post&quot;</span><span class="p">:</span> <span class="s2">&quot;I would like see things move forward. Deep, I know!&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;My Vision&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;year&quot;</span><span class="p">:</span> <span class="mi">2015</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 </div>

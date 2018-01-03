@@ -69,13 +69,13 @@
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">_id:</th><td class="field-body">str, short represntation, such as this-is-my-name</td>
+<tr class="field-odd field"><th class="field-name">_id:</th><td class="field-body">string, short representation, such as this-is-my-name, required</td>
 </tr>
-<tr class="field-even field"><th class="field-name">aka:</th><td class="field-body">list of str, list of aliases, optional</td>
+<tr class="field-even field"><th class="field-name">aka:</th><td class="field-body">(‘list’, ‘string’), list of aliases, optional</td>
 </tr>
-<tr class="field-odd field"><th class="field-name">email:</th><td class="field-body">str, email address, optional</td>
+<tr class="field-odd field"><th class="field-name">email:</th><td class="field-body">string, email address, optional</td>
 </tr>
-<tr class="field-even field"><th class="field-name">university_id:</th><td class="field-body">str, The university identifier for the student, optional</td>
+<tr class="field-even field"><th class="field-name">university_id:</th><td class="field-body">string, The university identifier for the student, optional</td>
 </tr>
 </tbody>
 </table>
@@ -92,10 +92,14 @@
 </div>
 <div class="section" id="json-mongo-example">
 <h2>JSON/Mongo Example<a class="headerlink" href="#json-mongo-example" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-json"><div class="highlight"><pre><span></span><span class="p">{</span><span class="nt">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;Human A. Person&quot;</span><span class="p">,</span>
- <span class="nt">&quot;aka&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;H. A. Person&quot;</span><span class="p">],</span>
- <span class="nt">&quot;email&quot;</span><span class="p">:</span> <span class="s2">&quot;haperson@uni.edu&quot;</span><span class="p">,</span>
- <span class="nt">&quot;university_id&quot;</span><span class="p">:</span> <span class="s2">&quot;HAP42&quot;</span><span class="p">}</span>
+<div class="highlight-json"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;Human A. Person&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;aka&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="s2">&quot;H. A. Person&quot;</span>
+    <span class="p">],</span>
+    <span class="nt">&quot;email&quot;</span><span class="p">:</span> <span class="s2">&quot;haperson@uni.edu&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;university_id&quot;</span><span class="p">:</span> <span class="s2">&quot;HAP42&quot;</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 </div>

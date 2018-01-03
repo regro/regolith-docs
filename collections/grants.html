@@ -69,68 +69,88 @@
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">_id:</th><td class="field-body"><p class="first">str or number, short represntation, such as this-is-my-name</p>
+<tr class="field-odd field"><th class="field-name">_id:</th><td class="field-body"><p class="first">(‘string’, ‘integer’, ‘float’), short representation, such as this-is-my-name, required</p>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">title:</th><td class="field-body"><p class="first">str, actual title of proposal / grant</p>
+<tr class="field-even field"><th class="field-name">amount:</th><td class="field-body"><p class="first">(‘integer’, ‘float’), value of award, required</p>
 </td>
 </tr>
-<tr class="field-odd field"><th class="field-name">funder:</th><td class="field-body"><p class="first">str, the agency funding the work</p>
+<tr class="field-odd field"><th class="field-name">begin_day:</th><td class="field-body"><p class="first">integer, start day of the grant, optional</p>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">program:</th><td class="field-body"><p class="first">str, the program the work was funded under</p>
+<tr class="field-even field"><th class="field-name">begin_month:</th><td class="field-body"><p class="first">string, start month of the grant, required</p>
 </td>
 </tr>
-<tr class="field-odd field"><th class="field-name">grant_id:</th><td class="field-body"><p class="first">str, optional, the identfier for this work, eg #42024</p>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name" colspan="2">call_for_proposals:</th></tr>
-<tr class="field-even field"><td>&#160;</td><td class="field-body"><p class="first">str,  optional, URL to the call for proposals</p>
-</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">narrative:</th><td class="field-body"><p class="first">str, optional, URL of document</p>
+<tr class="field-odd field"><th class="field-name">begin_year:</th><td class="field-body"><p class="first">integer, start year of the grant, required</p>
 </td>
 </tr>
 <tr class="field-even field"><th class="field-name" colspan="2">benefit_of_collaboration:</th></tr>
-<tr class="field-even field"><td>&#160;</td><td class="field-body"><p class="first">str, optional, URL of document</p>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><p class="first">string, optional</p>
 </td>
 </tr>
-<tr class="field-odd field"><th class="field-name">amount:</th><td class="field-body"><p class="first">int or float, value of award</p>
+<tr class="field-odd field"><th class="field-name" colspan="2">call_for_proposals:</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><p class="first">string, optional</p>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">currency:</th><td class="field-body"><p class="first">str, typically ‘$’ or ‘USD’</p>
+<tr class="field-even field"><th class="field-name">currency:</th><td class="field-body"><p class="first">string, typically ‘$’ or ‘USD’, optional</p>
 </td>
 </tr>
-<tr class="field-odd field"><th class="field-name">begin_year:</th><td class="field-body"><p class="first">int, start year of the grant</p>
+<tr class="field-odd field"><th class="field-name">end_day:</th><td class="field-body"><p class="first">(‘string’, ‘integer’), end day of the grant, optional</p>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">begin_month:</th><td class="field-body"><p class="first">str, start month of the grant</p>
+<tr class="field-even field"><th class="field-name">end_month”:</th><td class="field-body"><p class="first">string, end month of the grant, optional</p>
 </td>
 </tr>
-<tr class="field-odd field"><th class="field-name">begin_day:</th><td class="field-body"><p class="first">int,  start day of the grant, optional</p>
+<tr class="field-odd field"><th class="field-name">end_year:</th><td class="field-body"><p class="first">integer, end year of the grant, required</p>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">end_year:</th><td class="field-body"><p class="first">int, end year of the grant</p>
+<tr class="field-even field"><th class="field-name">funder:</th><td class="field-body"><p class="first">string, the agency funding the work, required</p>
 </td>
 </tr>
-<tr class="field-odd field"><th class="field-name">end_month”:</th><td class="field-body"><p class="first">str, end month of the grant</p>
+<tr class="field-odd field"><th class="field-name">grant_id:</th><td class="field-body"><p class="first">string, the identifier for this work, optional</p>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">end_day:</th><td class="field-body"><p class="first">str, end day of teh grant, optional</p>
+<tr class="field-even field"><th class="field-name">narrative:</th><td class="field-body"><p class="first">string, optional</p>
 </td>
 </tr>
-<tr class="field-odd field"><th class="field-name">team:</th><td class="field-body"><p class="first">list of dicts, information about the team members participating in the grant.
-These dicts have the following form:</p>
-<div class="last highlight-python"><div class="highlight"><pre><span></span><span class="p">[{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="c1"># should match a person&#39;s name  or AKA</span>
-  <span class="s2">&quot;position&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>   <span class="c1"># PI, Co-PI, Co-I, Researcher, etc.</span>
-  <span class="s2">&quot;institution&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="c1"># The institution of this investigator</span>
-  <span class="s2">&quot;subaward_amount&quot;</span><span class="p">,</span> <span class="nb">int</span> <span class="ow">or</span> <span class="nb">float</span><span class="p">,</span>  <span class="c1"># optional</span>
-  <span class="s2">&quot;cv&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>  <span class="c1"># optional, URL of document</span>
-  <span class="p">},</span>
-  <span class="o">...</span>
-  <span class="p">]</span>
-</pre></div>
-</div>
+<tr class="field-odd field"><th class="field-name">program:</th><td class="field-body"><p class="first">string, the program the work was funded under, required</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">status:</th><td class="field-body"><p class="first">string, status of the grant, required</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">team:</th><td class="field-body"><p class="first">list, information about the team members participating in the grant., required</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">cv:</th><td class="field-body">string, optional</td>
+</tr>
+<tr class="field-even field"><th class="field-name">institution:</th><td class="field-body">string, optional</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">name:</th><td class="field-body">string, optional</td>
+</tr>
+<tr class="field-even field"><th class="field-name">position:</th><td class="field-body">string, optional</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">subaward_amount:</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">(‘integer’, ‘float’), optional</td>
+</tr>
+<tr class="field-even field"><th class="field-name">cv:</th><td class="field-body">string, optional</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">institution:</th><td class="field-body">string, optional</td>
+</tr>
+<tr class="field-even field"><th class="field-name">name:</th><td class="field-body">string, optional</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">position:</th><td class="field-body">string, optional</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">subaward_amount:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">(‘integer’, ‘float’), optional</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">title:</th><td class="field-body"><p class="first last">string, actual title of proposal / grant, required</p>
 </td>
 </tr>
 </tbody>
@@ -163,26 +183,33 @@ These dicts have the following form:</p>
 </div>
 <div class="section" id="json-mongo-example">
 <h2>JSON/Mongo Example<a class="headerlink" href="#json-mongo-example" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-json"><div class="highlight"><pre><span></span><span class="p">{</span><span class="nt">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;SymPy-1.1&quot;</span><span class="p">,</span>
- <span class="nt">&quot;amount&quot;</span><span class="p">:</span> <span class="mf">3000.0</span><span class="p">,</span>
- <span class="nt">&quot;begin_day&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
- <span class="nt">&quot;begin_month&quot;</span><span class="p">:</span> <span class="s2">&quot;May&quot;</span><span class="p">,</span>
- <span class="nt">&quot;begin_year&quot;</span><span class="p">:</span> <span class="mi">2017</span><span class="p">,</span>
- <span class="nt">&quot;call_for_proposals&quot;</span><span class="p">:</span> <span class="s2">&quot;https://groups.google.com/d/msg/numfocus/wPjhdm8NJiA/S8JL1_NZDQAJ&quot;</span><span class="p">,</span>
- <span class="nt">&quot;end_day&quot;</span><span class="p">:</span> <span class="mi">31</span><span class="p">,</span>
- <span class="nt">&quot;end_month&quot;</span><span class="p">:</span> <span class="s2">&quot;December&quot;</span><span class="p">,</span>
- <span class="nt">&quot;end_year&quot;</span><span class="p">:</span> <span class="mi">2017</span><span class="p">,</span>
- <span class="nt">&quot;funder&quot;</span><span class="p">:</span> <span class="s2">&quot;NumFOCUS&quot;</span><span class="p">,</span>
- <span class="nt">&quot;narrative&quot;</span><span class="p">:</span> <span class="s2">&quot;https://docs.google.com/document/d/1nZxqoL-Ucni_aXLWmXtRDd3IWqW0mZBO65CEvDrsXZM/edit?usp=sharing&quot;</span><span class="p">,</span>
- <span class="nt">&quot;program&quot;</span><span class="p">:</span> <span class="s2">&quot;Small Development Grants&quot;</span><span class="p">,</span>
- <span class="nt">&quot;team&quot;</span><span class="p">:</span> <span class="p">[{</span><span class="nt">&quot;institution&quot;</span><span class="p">:</span> <span class="s2">&quot;University of South Carolina&quot;</span><span class="p">,</span>
-           <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Anthony Scopatz&quot;</span><span class="p">,</span>
-           <span class="nt">&quot;position&quot;</span><span class="p">:</span> <span class="s2">&quot;PI&quot;</span><span class="p">},</span>
-          <span class="p">{</span><span class="nt">&quot;institution&quot;</span><span class="p">:</span> <span class="s2">&quot;University of South Carolina&quot;</span><span class="p">,</span>
-           <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Aaron Meurer&quot;</span><span class="p">,</span>
-           <span class="nt">&quot;position&quot;</span><span class="p">:</span> <span class="s2">&quot;researcher&quot;</span><span class="p">}</span>
-        <span class="p">],</span>
- <span class="nt">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;SymPy 1.1 Release Support&quot;</span><span class="p">}</span>
+<div class="highlight-json"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;SymPy-1.1&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;amount&quot;</span><span class="p">:</span> <span class="mf">3000.0</span><span class="p">,</span>
+    <span class="nt">&quot;begin_day&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="nt">&quot;begin_month&quot;</span><span class="p">:</span> <span class="s2">&quot;May&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;begin_year&quot;</span><span class="p">:</span> <span class="mi">2017</span><span class="p">,</span>
+    <span class="nt">&quot;call_for_proposals&quot;</span><span class="p">:</span> <span class="s2">&quot;https://groups.google.com/d/msg/numfocus/wPjhdm8NJiA/S8JL1_NZDQAJ&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;end_day&quot;</span><span class="p">:</span> <span class="mi">31</span><span class="p">,</span>
+    <span class="nt">&quot;end_month&quot;</span><span class="p">:</span> <span class="s2">&quot;December&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;end_year&quot;</span><span class="p">:</span> <span class="mi">2017</span><span class="p">,</span>
+    <span class="nt">&quot;funder&quot;</span><span class="p">:</span> <span class="s2">&quot;NumFOCUS&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;narrative&quot;</span><span class="p">:</span> <span class="s2">&quot;https://docs.google.com/document/d/1nZxqoL-Ucni_aXLWmXtRDd3IWqW0mZBO65CEvDrsXZM/edit?usp=sharing&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;program&quot;</span><span class="p">:</span> <span class="s2">&quot;Small Development Grants&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;team&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;institution&quot;</span><span class="p">:</span> <span class="s2">&quot;University of South Carolina&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Anthony Scopatz&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;position&quot;</span><span class="p">:</span> <span class="s2">&quot;PI&quot;</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;institution&quot;</span><span class="p">:</span> <span class="s2">&quot;University of South Carolina&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Aaron Meurer&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;position&quot;</span><span class="p">:</span> <span class="s2">&quot;researcher&quot;</span>
+        <span class="p">}</span>
+    <span class="p">],</span>
+    <span class="nt">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;SymPy 1.1 Release Support&quot;</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 </div>

@@ -69,61 +69,29 @@
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">_id:</th><td class="field-body"><p class="first">str or number, short represntation, such as this-is-my-name</p>
-</td>
+<tr class="field-odd field"><th class="field-name">_id:</th><td class="field-body">(‘string’, ‘integer’, ‘float’), short representation, such as this-is-my-name, required</td>
 </tr>
-<tr class="field-even field"><th class="field-name">title:</th><td class="field-body"><p class="first">str, actual title of proposal</p>
-</td>
+<tr class="field-even field"><th class="field-name">amount:</th><td class="field-body">(‘integer’, ‘float’), value of award, required</td>
 </tr>
-<tr class="field-odd field"><th class="field-name">pi:</th><td class="field-body"><p class="first">str, principal investigator name</p>
-</td>
+<tr class="field-odd field"><th class="field-name">authors:</th><td class="field-body">string, other investigator names, required</td>
 </tr>
-<tr class="field-even field"><th class="field-name">authors:</th><td class="field-body"><p class="first">list of str, other investigator names</p>
-</td>
+<tr class="field-even field"><th class="field-name">currency:</th><td class="field-body">string, typically ‘$’ or ‘USD’, required</td>
 </tr>
-<tr class="field-odd field"><th class="field-name">status:</th><td class="field-body"><p class="first">str, e.g. ‘submitted’, ‘accepted’, ‘rejected’</p>
-</td>
+<tr class="field-odd field"><th class="field-name">day:</th><td class="field-body">integer, day that the proposal is due, required</td>
 </tr>
-<tr class="field-even field"><th class="field-name">ammount:</th><td class="field-body"><p class="first">int or float, value of award</p>
-</td>
+<tr class="field-even field"><th class="field-name">duration:</th><td class="field-body">(‘integer’, ‘float’), number of years, required</td>
 </tr>
-<tr class="field-odd field"><th class="field-name">currency:</th><td class="field-body"><p class="first">str, typically ‘$’ or ‘USD’</p>
-</td>
+<tr class="field-odd field"><th class="field-name">month:</th><td class="field-body">string, month that the proposal is due, required</td>
 </tr>
-<tr class="field-even field"><th class="field-name">durration:</th><td class="field-body"><p class="first">int or float, number of years</p>
-</td>
+<tr class="field-even field"><th class="field-name">pi:</th><td class="field-body">string, principal investigator name, required</td>
 </tr>
-<tr class="field-odd field"><th class="field-name">year:</th><td class="field-body"><p class="first">int, Year that the proposal is due</p>
-</td>
+<tr class="field-odd field"><th class="field-name">pre:</th><td class="field-body">dict, Information about the pre-proposal, optional</td>
 </tr>
-<tr class="field-even field"><th class="field-name">month:</th><td class="field-body"><p class="first">str, month that the proposal is due</p>
-</td>
+<tr class="field-even field"><th class="field-name">status:</th><td class="field-body">string, e.g. ‘submitted’, ‘accepted’, ‘rejected’, required</td>
 </tr>
-<tr class="field-odd field"><th class="field-name">day:</th><td class="field-body"><p class="first">int, day that the proposal is due</p>
-</td>
+<tr class="field-odd field"><th class="field-name">title:</th><td class="field-body">string, actual title of proposal, required</td>
 </tr>
-<tr class="field-even field"><th class="field-name">pre:</th><td class="field-body"><p class="first">dict,  Information about the pre-proposal, optional.
-This dict has the following form:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="p">{</span><span class="s2">&quot;year&quot;</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
- <span class="s2">&quot;month&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
- <span class="s2">&quot;day&quot;</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
- <span class="s2">&quot;narrative&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="c1"># URL of document</span>
- <span class="s2">&quot;benefit_of_collaboration&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="c1"># URL of document</span>
- <span class="s2">&quot;cv&quot;</span><span class="p">:</span> <span class="nb">list</span> <span class="n">of</span> <span class="nb">str</span><span class="p">,</span> <span class="c1"># URL to documents</span>
- <span class="p">}</span>
-</pre></div>
-</div>
-</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">full:</th><td class="field-body"><p class="first">Information about the pre-proposal, optional
-This dict has the following form:</p>
-<div class="last highlight-python"><div class="highlight"><pre><span></span><span class="p">{</span><span class="s2">&quot;narrative&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="c1"># URL of document</span>
- <span class="s2">&quot;benefit_of_collaboration&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="c1"># URL of document</span>
- <span class="s2">&quot;cv&quot;</span><span class="p">:</span> <span class="nb">list</span> <span class="n">of</span> <span class="nb">str</span><span class="p">,</span> <span class="c1"># URL to documents</span>
- <span class="p">}</span>
-</pre></div>
-</div>
-</td>
+<tr class="field-even field"><th class="field-name">year:</th><td class="field-body">integer, Year that the proposal is due, required</td>
 </tr>
 </tbody>
 </table>
@@ -131,61 +99,72 @@ This dict has the following form:</p>
 <div class="section" id="yaml-example">
 <h2>YAML Example<a class="headerlink" href="#yaml-example" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-yaml"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">mypropsal</span><span class="p p-Indicator">:</span>
-    <span class="l l-Scalar l-Scalar-Plain">title</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">A very fine proposal indeed</span>
-    <span class="l l-Scalar l-Scalar-Plain">pi</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Anthony Scopatz</span>
-    <span class="l l-Scalar l-Scalar-Plain">authors</span><span class="p p-Indicator">:</span>
-        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Anthony Scopatz</span>
-        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Robert Flanagan</span>
-    <span class="l l-Scalar l-Scalar-Plain">status</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">submitted</span>
-    <span class="l l-Scalar l-Scalar-Plain">ammount</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">1000000.0</span>
-    <span class="l l-Scalar l-Scalar-Plain">currency</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">USD</span>
-    <span class="l l-Scalar l-Scalar-Plain">durration</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">3</span>
-    <span class="l l-Scalar l-Scalar-Plain">year</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">1999</span>
+  <span class="l l-Scalar l-Scalar-Plain">ammount</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">1000000.0</span>
+  <span class="l l-Scalar l-Scalar-Plain">authors</span><span class="p p-Indicator">:</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Anthony Scopatz</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Robert Flanagan</span>
+  <span class="l l-Scalar l-Scalar-Plain">currency</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">USD</span>
+  <span class="l l-Scalar l-Scalar-Plain">day</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">18</span>
+  <span class="l l-Scalar l-Scalar-Plain">durration</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">3</span>
+  <span class="l l-Scalar l-Scalar-Plain">full</span><span class="p p-Indicator">:</span>
+    <span class="l l-Scalar l-Scalar-Plain">benefit_of_collaboration</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">http://pdf.com/benefit_of_collaboration</span>
+    <span class="l l-Scalar l-Scalar-Plain">cv</span><span class="p p-Indicator">:</span>
+      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">http://pdf.com/scopatz-cv</span>
+      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">http://pdf.com/flanagan-cv</span>
+    <span class="l l-Scalar l-Scalar-Plain">narrative</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">http://some.com/pdf</span>
+  <span class="l l-Scalar l-Scalar-Plain">month</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Aug</span>
+  <span class="l l-Scalar l-Scalar-Plain">pi</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Anthony Scopatz</span>
+  <span class="l l-Scalar l-Scalar-Plain">pre</span><span class="p p-Indicator">:</span>
+    <span class="l l-Scalar l-Scalar-Plain">benefit_of_collaboration</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">http://pdf.com/benefit_of_collaboration</span>
+    <span class="l l-Scalar l-Scalar-Plain">cv</span><span class="p p-Indicator">:</span>
+      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">http://pdf.com/scopatz-cv</span>
+      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">http://pdf.com/flanagan-cv</span>
+    <span class="l l-Scalar l-Scalar-Plain">day</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">2</span>
     <span class="l l-Scalar l-Scalar-Plain">month</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Aug</span>
-    <span class="l l-Scalar l-Scalar-Plain">day</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">18</span>
-    <span class="l l-Scalar l-Scalar-Plain">pre</span><span class="p p-Indicator">:</span>
-        <span class="l l-Scalar l-Scalar-Plain">year</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">1998</span>
-        <span class="l l-Scalar l-Scalar-Plain">month</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Aug</span>
-        <span class="l l-Scalar l-Scalar-Plain">day</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">2</span>
-        <span class="l l-Scalar l-Scalar-Plain">narrative</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">http://some.com/pdf</span>
-        <span class="l l-Scalar l-Scalar-Plain">benefit_of_collaboration</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">http://pdf.com/benefit_of_collaboration</span>
-        <span class="l l-Scalar l-Scalar-Plain">cv</span><span class="p p-Indicator">:</span>
-            <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">http://pdf.com/scopatz-cv</span>
-            <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">http://pdf.com/flanagan-cv</span>
-    <span class="l l-Scalar l-Scalar-Plain">full</span><span class="p p-Indicator">:</span>
-        <span class="l l-Scalar l-Scalar-Plain">narrative</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">http://some.com/pdf</span>
-        <span class="l l-Scalar l-Scalar-Plain">benefit_of_collaboration</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">http://pdf.com/benefit_of_collaboration</span>
-        <span class="l l-Scalar l-Scalar-Plain">cv</span><span class="p p-Indicator">:</span>
-            <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">http://pdf.com/scopatz-cv</span>
-            <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">http://pdf.com/flanagan-cv</span>
+    <span class="l l-Scalar l-Scalar-Plain">narrative</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">http://some.com/pdf</span>
+    <span class="l l-Scalar l-Scalar-Plain">year</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">1998</span>
+  <span class="l l-Scalar l-Scalar-Plain">status</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">submitted</span>
+  <span class="l l-Scalar l-Scalar-Plain">title</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">A very fine proposal indeed</span>
+  <span class="l l-Scalar l-Scalar-Plain">year</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">1999</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="json-mongo-example">
 <h2>JSON/Mongo Example<a class="headerlink" href="#json-mongo-example" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-json"><div class="highlight"><pre><span></span><span class="p">{</span><span class="nt">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;mypropsal&quot;</span><span class="p">,</span>
- <span class="nt">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;A very fine proposal indeed&quot;</span><span class="p">,</span>
- <span class="nt">&quot;pi&quot;</span><span class="p">:</span> <span class="s2">&quot;Anthony Scopatz&quot;</span><span class="p">,</span>
- <span class="nt">&quot;authors&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;Anthony Scopatz&quot;</span><span class="p">,</span>
-             <span class="s2">&quot;Robert Flanagan&quot;</span><span class="p">],</span>
- <span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;submitted&quot;</span><span class="p">,</span>
- <span class="nt">&quot;ammount&quot;</span><span class="p">:</span> <span class="mf">1000000.0</span><span class="p">,</span>
- <span class="nt">&quot;currency&quot;</span><span class="p">:</span> <span class="s2">&quot;USD&quot;</span><span class="p">,</span>
- <span class="nt">&quot;durration&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
- <span class="nt">&quot;year&quot;</span><span class="p">:</span> <span class="mi">1999</span><span class="p">,</span>
- <span class="nt">&quot;month&quot;</span><span class="p">:</span> <span class="s2">&quot;Aug&quot;</span><span class="p">,</span>
- <span class="nt">&quot;day&quot;</span><span class="p">:</span> <span class="mi">18</span><span class="p">,</span>
- <span class="nt">&quot;pre&quot;</span><span class="p">:</span> <span class="p">{</span><span class="nt">&quot;year&quot;</span><span class="p">:</span> <span class="mi">1998</span><span class="p">,</span>
-         <span class="nt">&quot;month&quot;</span><span class="p">:</span> <span class="s2">&quot;Aug&quot;</span><span class="p">,</span>
-         <span class="nt">&quot;day&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
-         <span class="nt">&quot;narrative&quot;</span><span class="p">:</span> <span class="s2">&quot;http://some.com/pdf&quot;</span><span class="p">,</span>
-         <span class="nt">&quot;benefit_of_collaboration&quot;</span><span class="p">:</span> <span class="s2">&quot;http://pdf.com/benefit_of_collaboration&quot;</span><span class="p">,</span>
-         <span class="nt">&quot;cv&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;http://pdf.com/scopatz-cv&quot;</span><span class="p">,</span>
-                <span class="s2">&quot;http://pdf.com/flanagan-cv&quot;</span><span class="p">]},</span>
- <span class="nt">&quot;full&quot;</span><span class="p">:</span> <span class="p">{</span><span class="nt">&quot;narrative&quot;</span><span class="p">:</span> <span class="s2">&quot;http://some.com/pdf&quot;</span>
-         <span class="s2">&quot;benefit_of_collaboration&quot;</span><span class="p">:</span> <span class="s2">&quot;http://pdf.com/benefit_of_collaboration&quot;</span><span class="p">,</span>
-         <span class="nt">&quot;cv&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;http://pdf.com/scopatz-cv&quot;</span><span class="p">,</span>
-                <span class="s2">&quot;http://pdf.com/flanagan-cv&quot;</span><span class="p">]}</span>
+<div class="highlight-json"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;mypropsal&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;ammount&quot;</span><span class="p">:</span> <span class="mf">1000000.0</span><span class="p">,</span>
+    <span class="nt">&quot;authors&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="s2">&quot;Anthony Scopatz&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;Robert Flanagan&quot;</span>
+    <span class="p">],</span>
+    <span class="nt">&quot;currency&quot;</span><span class="p">:</span> <span class="s2">&quot;USD&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;day&quot;</span><span class="p">:</span> <span class="mi">18</span><span class="p">,</span>
+    <span class="nt">&quot;durration&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+    <span class="nt">&quot;full&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;benefit_of_collaboration&quot;</span><span class="p">:</span> <span class="s2">&quot;http://pdf.com/benefit_of_collaboration&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;cv&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="s2">&quot;http://pdf.com/scopatz-cv&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;http://pdf.com/flanagan-cv&quot;</span>
+        <span class="p">],</span>
+        <span class="nt">&quot;narrative&quot;</span><span class="p">:</span> <span class="s2">&quot;http://some.com/pdf&quot;</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;month&quot;</span><span class="p">:</span> <span class="s2">&quot;Aug&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;pi&quot;</span><span class="p">:</span> <span class="s2">&quot;Anthony Scopatz&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;pre&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;benefit_of_collaboration&quot;</span><span class="p">:</span> <span class="s2">&quot;http://pdf.com/benefit_of_collaboration&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;cv&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="s2">&quot;http://pdf.com/scopatz-cv&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;http://pdf.com/flanagan-cv&quot;</span>
+        <span class="p">],</span>
+        <span class="nt">&quot;day&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+        <span class="nt">&quot;month&quot;</span><span class="p">:</span> <span class="s2">&quot;Aug&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;narrative&quot;</span><span class="p">:</span> <span class="s2">&quot;http://some.com/pdf&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;year&quot;</span><span class="p">:</span> <span class="mi">1998</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;submitted&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;A very fine proposal indeed&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;year&quot;</span><span class="p">:</span> <span class="mi">1999</span>
 <span class="p">}</span>
 </pre></div>
 </div>
