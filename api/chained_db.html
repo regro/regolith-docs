@@ -1,0 +1,223 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Base class for chaining DBs (regolith.chained_db) &#8212; regolith - software group content managment system</title>
+    <link rel="stylesheet" href="../_static/cloud.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Noticia+Text|Open+Sans|Droid+Sans+Mono" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.1.7',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../_static/jquery.cookie.js"></script>
+    <script type="text/javascript" src="../_static/cloud.base.js"></script>
+    <script type="text/javascript" src="../_static/cloud.js"></script>
+    <link rel="shortcut icon" href="../_static/regolith-logo.ico"/>
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Tools (regolith.tools)" href="tools.html" />
+    <link rel="prev" title="Builder Base Class (regolith.basebuilder)" href="basebuilder.html" /> 
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+  <body>
+    <div class="relbar-top">
+        
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="tools.html" title="Tools (regolith.tools)"
+             accesskey="N">next</a></li>
+        <li class="right" >
+          <a href="basebuilder.html" title="Builder Base Class (regolith.basebuilder)"
+             accesskey="P">previous</a> &nbsp; &nbsp;</li>
+    <li><a href="../index.html">regolith</a> &#187;</li>
+
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Regolith API</a> &#187;</li> 
+      </ul>
+    </div>
+    </div>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="module-regolith.chained_db">
+<span id="base-class-for-chaining-dbs-regolith-chained-db"></span><span id="regolith-chained-db"></span><h1>Base class for chaining DBs (<code class="docutils literal"><span class="pre">regolith.chained_db</span></code>)<a class="headerlink" href="#module-regolith.chained_db" title="Permalink to this headline">¶</a></h1>
+<p>Base class for chaining DBs</p>
+<dl class="class">
+<dt id="regolith.chained_db.ChainDB">
+<em class="property">class </em><code class="descclassname">regolith.chained_db.</code><code class="descname">ChainDB</code><span class="sig-paren">(</span><em>*maps</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/chained_db.html#ChainDB"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.chained_db.ChainDB" title="Permalink to this definition">¶</a></dt>
+<dd><p>A ChainMap who’s <code class="docutils literal"><span class="pre">_getitem__</span></code> returns either a ChainDB or
+the result</p>
+<dl class="method">
+<dt id="regolith.chained_db.ChainDB.clear">
+<code class="descname">clear</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#regolith.chained_db.ChainDB.clear" title="Permalink to this definition">¶</a></dt>
+<dd><p>Clear maps[0], leaving maps[1:] intact.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="regolith.chained_db.ChainDB.copy">
+<code class="descname">copy</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#regolith.chained_db.ChainDB.copy" title="Permalink to this definition">¶</a></dt>
+<dd><p>New ChainMap or subclass with a new copy of maps[0] and refs to maps[1:]</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="regolith.chained_db.ChainDB.fromkeys">
+<code class="descname">fromkeys</code><span class="sig-paren">(</span><em>iterable</em>, <em>*args</em><span class="sig-paren">)</span><a class="headerlink" href="#regolith.chained_db.ChainDB.fromkeys" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a ChainMap with a single dict created from the iterable.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="regolith.chained_db.ChainDB.get">
+<code class="descname">get</code><span class="sig-paren">(</span><em>key</em>, <em>default=None</em><span class="sig-paren">)</span><a class="headerlink" href="#regolith.chained_db.ChainDB.get" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="regolith.chained_db.ChainDB.items">
+<code class="descname">items</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; a set-like object providing a view on D's items<a class="headerlink" href="#regolith.chained_db.ChainDB.items" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="regolith.chained_db.ChainDB.keys">
+<code class="descname">keys</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; a set-like object providing a view on D's keys<a class="headerlink" href="#regolith.chained_db.ChainDB.keys" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="regolith.chained_db.ChainDB.new_child">
+<code class="descname">new_child</code><span class="sig-paren">(</span><em>m=None</em><span class="sig-paren">)</span><a class="headerlink" href="#regolith.chained_db.ChainDB.new_child" title="Permalink to this definition">¶</a></dt>
+<dd><p>New ChainMap with a new map followed by all previous maps.
+If no map is provided, an empty dict is used.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="regolith.chained_db.ChainDB.parents">
+<code class="descname">parents</code><a class="headerlink" href="#regolith.chained_db.ChainDB.parents" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>New ChainMap from maps[1</em> – ].</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="regolith.chained_db.ChainDB.pop">
+<code class="descname">pop</code><span class="sig-paren">(</span><em>key</em>, <em>*args</em><span class="sig-paren">)</span><a class="headerlink" href="#regolith.chained_db.ChainDB.pop" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove <em>key</em> from maps[0] and return its value. Raise KeyError if <em>key</em> not in maps[0].</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="regolith.chained_db.ChainDB.popitem">
+<code class="descname">popitem</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#regolith.chained_db.ChainDB.popitem" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove and return an item pair from maps[0]. Raise KeyError is maps[0] is empty.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="regolith.chained_db.ChainDB.setdefault">
+<code class="descname">setdefault</code><span class="sig-paren">(</span><em>k</em><span class="optional">[</span>, <em>d</em><span class="optional">]</span><span class="sig-paren">)</span> &#x2192; D.get(k,d), also set D[k]=d if k not in D<a class="headerlink" href="#regolith.chained_db.ChainDB.setdefault" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="regolith.chained_db.ChainDB.update">
+<code class="descname">update</code><span class="sig-paren">(</span><span class="optional">[</span><em>E</em>, <span class="optional">]</span><em>**F</em><span class="sig-paren">)</span> &#x2192; None.  Update D from mapping/iterable E and F.<a class="headerlink" href="#regolith.chained_db.ChainDB.update" title="Permalink to this definition">¶</a></dt>
+<dd><p>If E present and has a .keys() method, does:     for k in E: D[k] = E[k]
+If E present and lacks .keys() method, does:     for (k, v) in E: D[k] = v
+In either case, this is followed by: for k, v in F.items(): D[k] = v</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="regolith.chained_db.ChainDB.values">
+<code class="descname">values</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; an object providing a view on D's values<a class="headerlink" href="#regolith.chained_db.ChainDB.values" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+        <p class="logo"><a href="../index.html" title="index">
+          <img class="logo" src="../_static/regolith-logo.svg" alt="Logo"/>
+        </a></p>
+  <div class="sphinxprev">
+    <h4>Previous page</h4>
+    <p class="topless"><a href="basebuilder.html"
+                          title="Previous page">&larr; Builder Base Class (<code class="docutils literal"><span class="pre">regolith.basebuilder</span></code>)</a></p>
+  </div>
+  <div class="sphinxnext">
+    <h4>Next page</h4>
+    <p class="topless"><a href="tools.html"
+                          title="Next page">&rarr; Tools (<code class="docutils literal"><span class="pre">regolith.tools</span></code>)</a></p>
+  </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+    
+    
+        <div class="sidebar-toggle-group no-js">
+            
+            <button class="sidebar-toggle" id="sidebar-hide" title="Hide the sidebar menu">
+                 «
+                <span class="show-for-small">hide menu</span>
+                
+            </button>
+            <button class="sidebar-toggle" id="sidebar-show" title="Show the sidebar menu">
+                
+                <span class="show-for-small">menu</span>
+                <span class="hide-for-small">sidebar</span>
+                 »
+            </button>
+        </div>
+    
+      <div class="clearer"></div>
+    </div>
+    <div class="relbar-bottom">
+        
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="tools.html" title="Tools (regolith.tools)"
+             >next</a></li>
+        <li class="right" >
+          <a href="basebuilder.html" title="Builder Base Class (regolith.basebuilder)"
+             >previous</a> &nbsp; &nbsp;</li>
+    <li><a href="../index.html">regolith</a> &#187;</li>
+
+          <li class="nav-item nav-item-1"><a href="index.html" >Regolith API</a> &#187;</li> 
+      </ul>
+    </div>
+    </div>
+
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2015, Anthony Scopatz.
+    </div>
+    <!-- cloud_sptheme 1.4 -->
+  </body>
+</html>

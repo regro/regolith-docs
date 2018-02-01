@@ -54,19 +54,17 @@
   <h1>Source code for regolith.database</h1><div class="highlight"><pre>
 <span></span><span class="sd">&quot;&quot;&quot;Helps manage mongodb setup and connections.&quot;&quot;&quot;</span>
 <span class="kn">import</span> <span class="nn">os</span>
-<span class="kn">import</span> <span class="nn">time</span>
-<span class="kn">import</span> <span class="nn">shutil</span>
 <span class="kn">import</span> <span class="nn">subprocess</span>
-<span class="kn">from</span> <span class="nn">glob</span> <span class="k">import</span> <span class="n">iglob</span>
-<span class="kn">from</span> <span class="nn">warnings</span> <span class="k">import</span> <span class="n">warn</span>
+<span class="kn">from</span> <span class="nn">collections</span> <span class="k">import</span> <span class="n">ChainMap</span>
 <span class="kn">from</span> <span class="nn">contextlib</span> <span class="k">import</span> <span class="n">contextmanager</span>
+<span class="kn">from</span> <span class="nn">warnings</span> <span class="k">import</span> <span class="n">warn</span>
 
 <span class="k">try</span><span class="p">:</span>
     <span class="kn">import</span> <span class="nn">hglib</span>
 <span class="k">except</span><span class="p">:</span>
     <span class="n">hglib</span> <span class="o">=</span> <span class="kc">None</span>
 
-<span class="kn">from</span> <span class="nn">regolith.tools</span> <span class="k">import</span> <span class="n">dbdirname</span><span class="p">,</span> <span class="n">dbpathname</span>
+<span class="kn">from</span> <span class="nn">regolith.tools</span> <span class="k">import</span> <span class="n">dbdirname</span>
 <span class="kn">from</span> <span class="nn">regolith.fsclient</span> <span class="k">import</span> <span class="n">FileSystemClient</span>
 <span class="kn">from</span> <span class="nn">regolith.mongoclient</span> <span class="k">import</span> <span class="n">MongoClient</span>
 
@@ -171,10 +169,24 @@
 
 <div class="viewcode-block" id="connect"><a class="viewcode-back" href="../../api/database.html#regolith.database.connect">[docs]</a><span class="nd">@contextmanager</span>
 <span class="k">def</span> <span class="nf">connect</span><span class="p">(</span><span class="n">rc</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Context manager for ensuring that database is properly setup and torn down&quot;&quot;&quot;</span>
+    <span class="sd">&quot;&quot;&quot;Context manager for ensuring that database is properly setup and torn</span>
+<span class="sd">    down&quot;&quot;&quot;</span>
     <span class="n">client</span> <span class="o">=</span> <span class="n">CLIENTS</span><span class="p">[</span><span class="n">rc</span><span class="o">.</span><span class="n">backend</span><span class="p">](</span><span class="n">rc</span><span class="p">)</span>
+    <span class="n">client</span><span class="o">.</span><span class="n">open</span><span class="p">()</span>
+    <span class="n">chained_db</span> <span class="o">=</span> <span class="p">{}</span>
     <span class="k">for</span> <span class="n">db</span> <span class="ow">in</span> <span class="n">rc</span><span class="o">.</span><span class="n">databases</span><span class="p">:</span>
+        <span class="k">if</span> <span class="s1">&#39;blacklist&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">db</span><span class="p">:</span>
+            <span class="n">db</span><span class="p">[</span><span class="s1">&#39;blacklist&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;.travis.yml&#39;</span><span class="p">,</span> <span class="s1">&#39;.travis.yaml&#39;</span><span class="p">]</span>
         <span class="n">load_database</span><span class="p">(</span><span class="n">db</span><span class="p">,</span> <span class="n">client</span><span class="p">,</span> <span class="n">rc</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">base</span><span class="p">,</span> <span class="n">coll</span> <span class="ow">in</span> <span class="n">client</span><span class="o">.</span><span class="n">dbs</span><span class="p">[</span><span class="n">db</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="k">if</span> <span class="n">base</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">chained_db</span><span class="p">:</span>
+                <span class="n">chained_db</span><span class="p">[</span><span class="n">base</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+            <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">coll</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+                <span class="k">if</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">chained_db</span><span class="p">[</span><span class="n">base</span><span class="p">]:</span>
+                    <span class="n">chained_db</span><span class="p">[</span><span class="n">base</span><span class="p">][</span><span class="n">k</span><span class="p">]</span><span class="o">.</span><span class="n">maps</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">chained_db</span><span class="p">[</span><span class="n">base</span><span class="p">][</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">ChainMap</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+    <span class="n">client</span><span class="o">.</span><span class="n">chained_db</span> <span class="o">=</span> <span class="n">chained_db</span>
     <span class="k">yield</span> <span class="n">client</span>
     <span class="k">for</span> <span class="n">db</span> <span class="ow">in</span> <span class="n">rc</span><span class="o">.</span><span class="n">databases</span><span class="p">:</span>
         <span class="n">dump_database</span><span class="p">(</span><span class="n">db</span><span class="p">,</span> <span class="n">client</span><span class="p">,</span> <span class="n">rc</span><span class="p">)</span>

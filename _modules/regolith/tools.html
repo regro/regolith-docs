@@ -118,12 +118,7 @@
 <div class="viewcode-block" id="all_docs_from_collection"><a class="viewcode-back" href="../../api/tools.html#regolith.tools.all_docs_from_collection">[docs]</a><span class="k">def</span> <span class="nf">all_docs_from_collection</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="n">collname</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Yield all entries in for all collections of a given name in a given</span>
 <span class="sd">    database. &quot;&quot;&quot;</span>
-    <span class="k">for</span> <span class="n">dbname</span> <span class="ow">in</span> <span class="n">client</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
-        <span class="k">if</span> <span class="n">dbname</span> <span class="o">==</span> <span class="s1">&#39;local&#39;</span><span class="p">:</span>
-            <span class="k">continue</span>
-        <span class="k">if</span> <span class="n">collname</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">client</span><span class="o">.</span><span class="n">collection_names</span><span class="p">(</span><span class="n">dbname</span><span class="p">):</span>
-            <span class="k">continue</span>
-        <span class="k">yield from</span> <span class="n">client</span><span class="o">.</span><span class="n">all_documents</span><span class="p">(</span><span class="n">dbname</span><span class="p">,</span> <span class="n">collname</span><span class="p">)</span></div>
+    <span class="k">yield from</span> <span class="n">client</span><span class="o">.</span><span class="n">all_documents</span><span class="p">(</span><span class="n">collname</span><span class="p">)</span></div>
 
 
 <span class="n">SHORT_MONTH_NAMES</span> <span class="o">=</span> <span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="s1">&#39;Jan&#39;</span><span class="p">,</span> <span class="s1">&#39;Feb&#39;</span><span class="p">,</span> <span class="s1">&#39;Mar&#39;</span><span class="p">,</span> <span class="s1">&#39;Apr&#39;</span><span class="p">,</span> <span class="s1">&#39;May&#39;</span><span class="p">,</span> <span class="s1">&#39;Jun&#39;</span><span class="p">,</span> <span class="s1">&#39;Jul&#39;</span><span class="p">,</span>
