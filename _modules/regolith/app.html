@@ -52,6 +52,7 @@
 <span class="kn">from</span> <span class="nn">flask</span> <span class="k">import</span> <span class="n">Flask</span><span class="p">,</span> <span class="n">abort</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="n">render_template</span><span class="p">,</span> <span class="n">redirect</span><span class="p">,</span> <span class="n">url_for</span>
 
 <span class="kn">from</span> <span class="nn">regolith.schemas</span> <span class="k">import</span> <span class="n">validate</span>
+<span class="kn">from</span> <span class="nn">regolith.chained_db</span> <span class="k">import</span> <span class="n">_convert_to_dict</span>
 
 
 <span class="n">app</span> <span class="o">=</span> <span class="n">Flask</span><span class="p">(</span><span class="s1">&#39;regolith&#39;</span><span class="p">)</span>
@@ -160,8 +161,9 @@
             <span class="n">deled</span> <span class="o">=</span> <span class="n">rc</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">delete_one</span><span class="p">(</span><span class="n">dbname</span><span class="p">,</span> <span class="n">collname</span><span class="p">,</span> <span class="n">body</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s1">&#39;collection.html&#39;</span><span class="p">,</span> <span class="n">rc</span><span class="o">=</span><span class="n">rc</span><span class="p">,</span> <span class="n">dbname</span><span class="o">=</span><span class="n">dbname</span><span class="p">,</span> <span class="nb">len</span><span class="o">=</span><span class="nb">len</span><span class="p">,</span>
                            <span class="nb">str</span><span class="o">=</span><span class="nb">str</span><span class="p">,</span>
-                           <span class="n">status</span><span class="o">=</span><span class="n">status</span><span class="p">,</span> <span class="n">status_id</span><span class="o">=</span><span class="n">status_id</span><span class="p">,</span></div>
-                           <span class="n">collname</span><span class="o">=</span><span class="n">collname</span><span class="p">,</span> <span class="n">coll</span><span class="o">=</span><span class="n">coll</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="n">json</span><span class="p">,</span> <span class="nb">min</span><span class="o">=</span><span class="nb">min</span><span class="p">)</span>
+                           <span class="n">status</span><span class="o">=</span><span class="n">status</span><span class="p">,</span> <span class="n">status_id</span><span class="o">=</span><span class="n">status_id</span><span class="p">,</span>
+                           <span class="n">collname</span><span class="o">=</span><span class="n">collname</span><span class="p">,</span> <span class="n">coll</span><span class="o">=</span><span class="n">coll</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="n">json</span><span class="p">,</span> <span class="nb">min</span><span class="o">=</span><span class="nb">min</span><span class="p">,</span></div>
+                           <span class="n">conv</span><span class="o">=</span><span class="n">_convert_to_dict</span><span class="p">)</span>
 </pre></div>
 
           </div>
