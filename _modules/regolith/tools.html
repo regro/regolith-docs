@@ -149,7 +149,7 @@
 
 
 <div class="viewcode-block" id="filter_publications"><a class="viewcode-back" href="../../api/tools.html#regolith.tools.filter_publications">[docs]</a><span class="k">def</span> <span class="nf">filter_publications</span><span class="p">(</span><span class="n">citations</span><span class="p">,</span> <span class="n">authors</span><span class="p">,</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">bold</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Filter publications by the author(s)</span>
+    <span class="sd">&quot;&quot;&quot;Filter publications by the author(s)/editor(s)</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -164,7 +164,9 @@
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">pubs</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="k">for</span> <span class="n">pub</span> <span class="ow">in</span> <span class="n">citations</span><span class="p">:</span>
-        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">pub</span><span class="p">[</span><span class="s1">&#39;author&#39;</span><span class="p">])</span> <span class="o">&amp;</span> <span class="n">authors</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">pub</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;author&#39;</span><span class="p">,</span> <span class="p">[]))</span>
+               <span class="o">&amp;</span> <span class="nb">set</span><span class="p">(</span><span class="n">pub</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;editor&#39;</span><span class="p">,</span> <span class="p">[]))</span>
+               <span class="o">&amp;</span> <span class="n">authors</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
             <span class="k">continue</span>
         <span class="n">pub</span> <span class="o">=</span> <span class="n">deepcopy</span><span class="p">(</span><span class="n">pub</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">bold</span><span class="p">:</span>
