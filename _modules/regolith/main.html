@@ -80,6 +80,7 @@
     <span class="s1">&#39;build&#39;</span><span class="p">:</span> <span class="n">commands</span><span class="o">.</span><span class="n">build</span><span class="p">,</span>
     <span class="s1">&#39;email&#39;</span><span class="p">:</span> <span class="n">commands</span><span class="o">.</span><span class="n">email</span><span class="p">,</span>
     <span class="s1">&#39;classlist&#39;</span><span class="p">:</span> <span class="n">commands</span><span class="o">.</span><span class="n">classlist</span><span class="p">,</span>
+    <span class="s1">&#39;validate&#39;</span><span class="p">:</span> <span class="n">commands</span><span class="o">.</span><span class="n">validate</span>
     <span class="p">}</span>
 
 <span class="n">NEED_RC</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">CONNECTED_COMMANDS</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
@@ -195,7 +196,11 @@
 
     <span class="c1"># YAML-to-JSON subparser</span>
     <span class="n">ytj</span> <span class="o">=</span> <span class="n">subp</span><span class="o">.</span><span class="n">add_parser</span><span class="p">(</span><span class="s1">&#39;yaml-to-json&#39;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Converts files from YAML to JSON&#39;</span><span class="p">)</span>
-    <span class="n">ytj</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;files&#39;</span><span class="p">,</span> <span class="n">nargs</span><span class="o">=</span><span class="s1">&#39;+&#39;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;file names to convert&#39;</span><span class="p">)</span></div>
+    <span class="n">ytj</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;files&#39;</span><span class="p">,</span> <span class="n">nargs</span><span class="o">=</span><span class="s1">&#39;+&#39;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;file names to convert&#39;</span><span class="p">)</span>
+
+    <span class="c1"># Validator</span>
+    <span class="n">val</span> <span class="o">=</span> <span class="n">subp</span><span class="o">.</span><span class="n">add_parser</span><span class="p">(</span><span class="s1">&#39;validate&#39;</span><span class="p">,</span>
+                          <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Validates db&#39;</span><span class="p">)</span></div>
     <span class="k">return</span> <span class="n">p</span>
 
 

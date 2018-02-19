@@ -45,6 +45,8 @@
 ./_sources/collections/projects.rst.txt
 ./_sources/collections/proposals.rst.txt
 ./_sources/collections/students.rst.txt
+./_sources/commands/index.rst.txt
+./_sources/commands/validate.rst.txt
 ./_sources/index.rst.txt
 ./_sources/rc.rst.txt
 ./_static/ajax-loader.gif
@@ -117,6 +119,8 @@
 ./collections/projects.html
 ./collections/proposals.html
 ./collections/students.html
+./commands/index.html
+./commands/validate.html
 ./index.html
 ./objects.inv
 ./rc.html

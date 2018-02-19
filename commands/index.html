@@ -8,7 +8,7 @@
   <head>
         <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Interactive Sessions (regolith.interact) &#8212; regolith - software group content managment system</title>
+    <title>Regolith Commands &#8212; regolith - software group content managment system</title>
     <link rel="stylesheet" href="../_static/cloud.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Noticia+Text|Open+Sans|Droid+Sans+Mono" type="text/css" />
@@ -22,8 +22,8 @@
     <script type="text/javascript" src="../_static/cloud.js"></script>
     <link rel="shortcut icon" href="../_static/regolith-logo.ico"/>
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Regolith Commands" href="../commands/index.html" />
-    <link rel="prev" title="Web Application (regolith.app)" href="app.html" /> 
+    <link rel="next" title="validate" href="validate.html" />
+    <link rel="prev" title="Interactive Sessions (regolith.interact)" href="../api/interactive.html" /> 
         <meta name="viewport" content="width=device-width, initial-scale=1">
   </head><body>
     <div class="relbar-top">
@@ -32,14 +32,13 @@
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="../commands/index.html" title="Regolith Commands"
+          <a href="validate.html" title="validate"
              accesskey="N">next</a></li>
         <li class="right" >
-          <a href="app.html" title="Web Application (regolith.app)"
+          <a href="../api/interactive.html" title="Interactive Sessions (regolith.interact)"
              accesskey="P">previous</a> &nbsp; &nbsp;</li>
     <li><a href="../index.html">regolith</a> &#187;</li>
-
-          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Regolith API</a> &#187;</li> 
+ 
       </ul>
     </div>
     </div>
@@ -50,15 +49,13 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="interactive-sessions-regolith-interact">
-<span id="regolith-interactive"></span><h1>Interactive Sessions (<code class="docutils literal notranslate"><span class="pre">regolith.interact</span></code>)<a class="headerlink" href="#interactive-sessions-regolith-interact" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="usage">
-<h2>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">regolith.interact</span> <span class="kn">import</span> <span class="o">*</span>
-<span class="n">cj</span> <span class="o">=</span> <span class="n">col</span><span class="p">[</span><span class="s1">&#39;people&#39;</span><span class="p">][</span><span class="s1">&#39;CJ-Wright&#39;</span><span class="p">]</span>
-<span class="n">active</span> <span class="o">=</span> <span class="p">[</span><span class="n">p</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">col</span><span class="p">[</span><span class="s1">&#39;people&#39;</span><span class="p">]</span> <span class="k">if</span> <span class="n">p</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;active&#39;</span><span class="p">,</span> <span class="bp">True</span><span class="p">)]</span>
-</pre></div>
-</div>
+  <div class="section" id="regolith-commands">
+<span id="commands"></span><h1>Regolith Commands<a class="headerlink" href="#regolith-commands" title="Permalink to this headline">¶</a></h1>
+<p>Shell commands for regolith</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="validate.html"><code class="docutils literal notranslate"><span class="pre">validate</span></code></a></li>
+</ul>
 </div>
 </div>
 
@@ -70,25 +67,16 @@
         <div class="sphinxsidebarwrapper">
         <p class="logo"><a href="../index.html" title="index">
           <img class="logo" src="../_static/regolith-logo.svg" alt="Logo"/>
-        </a></p><div class="sphinx-toc sphinxlocaltoc">
-    <h3><a href="../index.html">Page contents</a></h3>
-    <ul>
-<li><a class="reference internal" href="#">Interactive Sessions (<code class="docutils literal notranslate"><span class="pre">regolith.interact</span></code>)</a><ul>
-<li><a class="reference internal" href="#usage">Usage</a></li>
-</ul>
-</li>
-</ul>
-
-  </div>
+        </a></p>
   <div class="sphinxprev">
     <h4>Previous page</h4>
-    <p class="topless"><a href="app.html"
-                          title="Previous page">&larr; Web Application (<code class="docutils literal notranslate"><span class="pre">regolith.app</span></code>)</a></p>
+    <p class="topless"><a href="../api/interactive.html"
+                          title="Previous page">&larr; Interactive Sessions (<code class="docutils literal notranslate"><span class="pre">regolith.interact</span></code>)</a></p>
   </div>
   <div class="sphinxnext">
     <h4>Next page</h4>
-    <p class="topless"><a href="../commands/index.html"
-                          title="Next page">&rarr; Regolith Commands</a></p>
+    <p class="topless"><a href="validate.html"
+                          title="Next page">&rarr; <code class="docutils literal notranslate"><span class="pre">validate</span></code></a></p>
   </div>
 <div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
@@ -129,14 +117,13 @@
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="../commands/index.html" title="Regolith Commands"
+          <a href="validate.html" title="validate"
              >next</a></li>
         <li class="right" >
-          <a href="app.html" title="Web Application (regolith.app)"
+          <a href="../api/interactive.html" title="Interactive Sessions (regolith.interact)"
              >previous</a> &nbsp; &nbsp;</li>
     <li><a href="../index.html">regolith</a> &#187;</li>
-
-          <li class="nav-item nav-item-1"><a href="index.html" >Regolith API</a> &#187;</li> 
+ 
       </ul>
     </div>
     </div>
