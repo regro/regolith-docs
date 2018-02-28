@@ -108,7 +108,7 @@
                     <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">form</span><span class="p">[</span><span class="s1">&#39;body&#39;</span><span class="p">])</span>
                 <span class="n">traceback</span><span class="o">.</span><span class="n">print_exc</span><span class="p">()</span>
                 <span class="k">raise</span>
-            <span class="n">tv</span><span class="p">,</span> <span class="n">errors</span> <span class="o">=</span> <span class="n">validate</span><span class="p">(</span><span class="n">dbname</span><span class="p">,</span> <span class="n">body</span><span class="p">)</span>
+            <span class="n">tv</span><span class="p">,</span> <span class="n">errors</span> <span class="o">=</span> <span class="n">validate</span><span class="p">(</span><span class="n">dbname</span><span class="p">,</span> <span class="n">body</span><span class="p">,</span> <span class="n">rc</span><span class="o">.</span><span class="n">schemas</span><span class="p">)</span>
             <span class="k">if</span> <span class="ow">not</span> <span class="n">tv</span><span class="p">:</span>
                 <span class="n">td</span> <span class="o">=</span> <span class="n">tempfile</span><span class="o">.</span><span class="n">TemporaryDirectory</span><span class="p">()</span>
                 <span class="n">n</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">td</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="s1">&#39;regolith.txt&#39;</span><span class="p">)</span>
@@ -137,7 +137,7 @@
                     <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">form</span><span class="p">[</span><span class="s1">&#39;body&#39;</span><span class="p">])</span>
                 <span class="n">traceback</span><span class="o">.</span><span class="n">print_exc</span><span class="p">()</span>
                 <span class="k">raise</span>
-            <span class="n">tv</span><span class="p">,</span> <span class="n">errors</span> <span class="o">=</span> <span class="n">validate</span><span class="p">(</span><span class="n">dbname</span><span class="p">,</span> <span class="n">body</span><span class="p">)</span>
+            <span class="n">tv</span><span class="p">,</span> <span class="n">errors</span> <span class="o">=</span> <span class="n">validate</span><span class="p">(</span><span class="n">dbname</span><span class="p">,</span> <span class="n">body</span><span class="p">,</span> <span class="n">rc</span><span class="o">.</span><span class="n">schemas</span><span class="p">)</span>
             <span class="k">if</span> <span class="ow">not</span> <span class="n">tv</span><span class="p">:</span>
                 <span class="n">td</span> <span class="o">=</span> <span class="n">tempfile</span><span class="o">.</span><span class="n">TemporaryDirectory</span><span class="p">()</span>
                 <span class="n">n</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">td</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="s1">&#39;regolith.txt&#39;</span><span class="p">)</span>

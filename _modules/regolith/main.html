@@ -45,6 +45,7 @@
   <h1>Source code for regolith.main</h1><div class="highlight"><pre>
 <span></span><span class="sd">&quot;&quot;&quot;The main CLI for regolith&quot;&quot;&quot;</span>
 <span class="kn">from</span> <span class="nn">__future__</span> <span class="k">import</span> <span class="n">print_function</span>
+<span class="kn">import</span> <span class="nn">copy</span>
 <span class="kn">import</span> <span class="nn">os</span>
 <span class="kn">import</span> <span class="nn">json</span>
 <span class="kn">from</span> <span class="nn">argparse</span> <span class="k">import</span> <span class="n">ArgumentParser</span><span class="p">,</span> <span class="n">RawTextHelpFormatter</span>
@@ -56,6 +57,7 @@
 <span class="kn">from</span> <span class="nn">regolith</span> <span class="k">import</span> <span class="n">commands</span>
 <span class="kn">from</span> <span class="nn">regolith</span> <span class="k">import</span> <span class="n">storage</span>
 <span class="kn">from</span> <span class="nn">regolith.builder</span> <span class="k">import</span> <span class="n">BUILDERS</span>
+<span class="kn">from</span> <span class="nn">regolith.schemas</span> <span class="k">import</span> <span class="n">SCHEMAS</span>
 
 <span class="n">DEFAULT_RC</span> <span class="o">=</span> <span class="n">RunControl</span><span class="p">(</span>
     <span class="n">_validators</span><span class="o">=</span><span class="n">DEFAULT_VALIDATORS</span><span class="p">,</span>
@@ -226,6 +228,14 @@
     <span class="k">if</span> <span class="n">ns</span><span class="o">.</span><span class="n">cmd</span> <span class="ow">in</span> <span class="n">NEED_RC</span><span class="p">:</span>
         <span class="n">rc</span><span class="o">.</span><span class="n">_update</span><span class="p">(</span><span class="n">load_rcfile</span><span class="p">(</span><span class="s1">&#39;regolithrc.json&#39;</span><span class="p">))</span>
     <span class="n">rc</span><span class="o">.</span><span class="n">_update</span><span class="p">(</span><span class="n">ns</span><span class="o">.</span><span class="vm">__dict__</span><span class="p">)</span>
+    <span class="k">if</span> <span class="s1">&#39;schemas&#39;</span> <span class="ow">in</span> <span class="n">rc</span><span class="o">.</span><span class="n">_dict</span><span class="p">:</span>
+        <span class="n">user_schema</span> <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">deepcopy</span><span class="p">(</span><span class="n">rc</span><span class="o">.</span><span class="n">schemas</span><span class="p">)</span>
+        <span class="n">rc</span><span class="o">.</span><span class="n">schemas</span> <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">deepcopy</span><span class="p">(</span><span class="n">SCHEMAS</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">user_schema</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">k2</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">user_schema</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+                <span class="n">rc</span><span class="o">.</span><span class="n">schemas</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="n">k2</span><span class="p">]</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">rc</span><span class="o">.</span><span class="n">schemas</span> <span class="o">=</span> <span class="n">SCHEMAS</span>
     <span class="k">if</span> <span class="n">ns</span><span class="o">.</span><span class="n">cmd</span> <span class="ow">in</span> <span class="n">NEED_RC</span><span class="p">:</span>
         <span class="n">filter_databases</span><span class="p">(</span><span class="n">rc</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">rc</span><span class="o">.</span><span class="n">cmd</span> <span class="ow">in</span> <span class="n">DISCONNECTED_COMMANDS</span><span class="p">:</span>

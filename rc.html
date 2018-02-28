@@ -171,6 +171,17 @@ can set them in the run control file should you choose to.</p>
 <p>List of files to not load when loading databases. If not provided, blacklists
 <code class="docutils literal notranslate"><span class="pre">['.travis.yml',</span> <span class="pre">'.travis.yaml']</span></code></p>
 </div>
+<div class="section" id="schemas">
+<h2><code class="docutils literal notranslate"><span class="pre">schemas</span></code><a class="headerlink" href="#schemas" title="Permalink to this headline">¶</a></h2>
+<p>Dict of dicts which overrides the schema for a key in a collection.</p>
+<p>For example:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">schema</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;people&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;anyof_type&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;string&#39;</span><span class="p">,</span> <span class="s1">&#39;number&#39;</span><span class="p">]}}}</span>
+</pre></div>
+</div>
+<p>would allow the names of people to also be
+<a class="reference external" href="https://youtu.be/nW-bFGzNMXw?t=42s">numbers</a>.</p>
+<p>See the collections for a complete list of the schemas.</p>
+</div>
 </div>
 
 
@@ -205,6 +216,7 @@ can set them in the run control file should you choose to.</p>
 <li><a class="reference internal" href="#filename"><code class="docutils literal notranslate"><span class="pre">filename</span></code></a></li>
 <li><a class="reference internal" href="#debug"><code class="docutils literal notranslate"><span class="pre">debug</span></code></a></li>
 <li><a class="reference internal" href="#blacklist"><code class="docutils literal notranslate"><span class="pre">blacklist</span></code></a></li>
+<li><a class="reference internal" href="#schemas"><code class="docutils literal notranslate"><span class="pre">schemas</span></code></a></li>
 </ul>
 </li>
 </ul>
