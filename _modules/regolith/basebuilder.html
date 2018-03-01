@@ -6,7 +6,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-        <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>regolith.basebuilder &#8212; regolith - software group content managment system</title>
     <link rel="stylesheet" href="../../_static/cloud.css" type="text/css" />
@@ -43,15 +43,29 @@
           <div class="body" role="main">
             
   <h1>Source code for regolith.basebuilder</h1><div class="highlight"><pre>
-<span></span><span class="sd">&quot;&quot;&quot;Builder Base Class&quot;&quot;&quot;</span>
+<span></span><span class="sd">&quot;&quot;&quot;Builder Base Classes&quot;&quot;&quot;</span>
 <span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">subprocess</span>
+<span class="kn">from</span> <span class="nn">glob</span> <span class="k">import</span> <span class="n">glob</span>
 <span class="kn">from</span> <span class="nn">itertools</span> <span class="k">import</span> <span class="n">groupby</span>
 
 <span class="kn">from</span> <span class="nn">jinja2</span> <span class="k">import</span> <span class="n">Environment</span><span class="p">,</span> <span class="n">FileSystemLoader</span>
 
-<span class="kn">from</span> <span class="nn">regolith.sorters</span> <span class="k">import</span> <span class="n">doc_date_key</span><span class="p">,</span> <span class="n">category_val</span><span class="p">,</span> \
-    <span class="n">level_val</span><span class="p">,</span> <span class="n">date_key</span>
-<span class="kn">from</span> <span class="nn">regolith.tools</span> <span class="k">import</span> <span class="n">date_to_rfc822</span><span class="p">,</span> <span class="n">rfc822now</span><span class="p">,</span> <span class="n">gets</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="kn">from</span> <span class="nn">bibtexparser.bwriter</span> <span class="k">import</span> <span class="n">BibTexWriter</span>
+    <span class="kn">from</span> <span class="nn">bibtexparser.bibdatabase</span> <span class="k">import</span> <span class="n">BibDatabase</span>
+
+    <span class="n">HAVE_BIBTEX_PARSER</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
+    <span class="n">HAVE_BIBTEX_PARSER</span> <span class="o">=</span> <span class="kc">False</span>
+
+<span class="kn">from</span> <span class="nn">regolith.sorters</span> <span class="k">import</span> <span class="p">(</span><span class="n">doc_date_key</span><span class="p">,</span> <span class="n">category_val</span><span class="p">,</span> <span class="n">level_val</span><span class="p">,</span> <span class="n">date_key</span><span class="p">)</span>
+<span class="kn">from</span> <span class="nn">regolith.tools</span> <span class="k">import</span> <span class="p">(</span><span class="n">date_to_rfc822</span><span class="p">,</span> <span class="n">rfc822now</span><span class="p">,</span> <span class="n">gets</span><span class="p">,</span> <span class="n">LATEX_OPTS</span><span class="p">,</span>
+                            <span class="n">month_and_year</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="latex_safe"><a class="viewcode-back" href="../../api/basebuilder.html#regolith.basebuilder.latex_safe">[docs]</a><span class="k">def</span> <span class="nf">latex_safe</span><span class="p">(</span><span class="n">s</span><span class="p">):</span></div>
+    <span class="k">return</span> <span class="n">s</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;&amp;&#39;</span><span class="p">,</span> <span class="s1">&#39;\&amp;&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;$&#39;</span><span class="p">,</span> <span class="s1">&#39;\$&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;#&#39;</span><span class="p">,</span> <span class="s1">&#39;\#&#39;</span><span class="p">)</span>
 
 
 <div class="viewcode-block" id="BuilderBase"><a class="viewcode-back" href="../../api/basebuilder.html#regolith.basebuilder.BuilderBase">[docs]</a><span class="k">class</span> <span class="nc">BuilderBase</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
@@ -115,6 +129,45 @@
         <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">bldir</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
         <span class="k">for</span> <span class="n">cmd</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">cmds</span><span class="p">:</span></div></div>
             <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cmd</span><span class="p">)()</span>
+
+
+<div class="viewcode-block" id="LatexBuilderBase"><a class="viewcode-back" href="../../api/basebuilder.html#regolith.basebuilder.LatexBuilderBase">[docs]</a><span class="k">class</span> <span class="nc">LatexBuilderBase</span><span class="p">(</span><span class="n">BuilderBase</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Base class for Latex builders&quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">rc</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">rc</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cmds</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;latex&#39;</span><span class="p">,</span> <span class="s1">&#39;clean&#39;</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">HAVE_BIBTEX_PARSER</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">bibdb</span> <span class="o">=</span> <span class="n">BibDatabase</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">bibwriter</span> <span class="o">=</span> <span class="n">BibTexWriter</span><span class="p">()</span>
+
+<div class="viewcode-block" id="LatexBuilderBase.construct_global_ctx"><a class="viewcode-back" href="../../api/basebuilder.html#regolith.basebuilder.LatexBuilderBase.construct_global_ctx">[docs]</a>    <span class="k">def</span> <span class="nf">construct_global_ctx</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">construct_global_ctx</span><span class="p">()</span>
+        <span class="n">gtx</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">gtx</span>
+        <span class="n">gtx</span><span class="p">[</span><span class="s1">&#39;month_and_year&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">month_and_year</span></div>
+        <span class="n">gtx</span><span class="p">[</span><span class="s1">&#39;latex_safe&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">latex_safe</span>
+
+<div class="viewcode-block" id="LatexBuilderBase.run"><a class="viewcode-back" href="../../api/basebuilder.html#regolith.basebuilder.LatexBuilderBase.run">[docs]</a>    <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cmd</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Run command in build dir&quot;&quot;&quot;</span></div>
+        <span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">cmd</span><span class="p">,</span> <span class="n">cwd</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">bldir</span><span class="p">,</span> <span class="n">check</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<div class="viewcode-block" id="LatexBuilderBase.pdf"><a class="viewcode-back" href="../../api/basebuilder.html#regolith.basebuilder.LatexBuilderBase.pdf">[docs]</a>    <span class="k">def</span> <span class="nf">pdf</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">base</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Compiles latex files to PDF&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">run</span><span class="p">([</span><span class="s1">&#39;latex&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="n">LATEX_OPTS</span> <span class="o">+</span> <span class="p">[</span><span class="n">base</span> <span class="o">+</span> <span class="s1">&#39;.tex&#39;</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">run</span><span class="p">([</span><span class="s1">&#39;bibtex&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="p">[</span><span class="n">base</span> <span class="o">+</span> <span class="s1">&#39;.aux&#39;</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">run</span><span class="p">([</span><span class="s1">&#39;latex&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="n">LATEX_OPTS</span> <span class="o">+</span> <span class="p">[</span><span class="n">base</span> <span class="o">+</span> <span class="s1">&#39;.tex&#39;</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">run</span><span class="p">([</span><span class="s1">&#39;latex&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="n">LATEX_OPTS</span> <span class="o">+</span> <span class="p">[</span><span class="n">base</span> <span class="o">+</span> <span class="s1">&#39;.tex&#39;</span><span class="p">])</span></div>
+        <span class="bp">self</span><span class="o">.</span><span class="n">run</span><span class="p">([</span><span class="s1">&#39;dvipdf&#39;</span><span class="p">,</span> <span class="n">base</span><span class="p">])</span>
+
+<div class="viewcode-block" id="LatexBuilderBase.clean"><a class="viewcode-back" href="../../api/basebuilder.html#regolith.basebuilder.LatexBuilderBase.clean">[docs]</a>    <span class="k">def</span> <span class="nf">clean</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Remove files created by latex&quot;&quot;&quot;</span>
+        <span class="n">postfixes</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;*.dvi&#39;</span><span class="p">,</span> <span class="s1">&#39;*.toc&#39;</span><span class="p">,</span> <span class="s1">&#39;*.aux&#39;</span><span class="p">,</span> <span class="s1">&#39;*.out&#39;</span><span class="p">,</span> <span class="s1">&#39;*.log&#39;</span><span class="p">,</span> <span class="s1">&#39;*.bbl&#39;</span><span class="p">,</span>
+                     <span class="s1">&#39;*.blg&#39;</span><span class="p">,</span> <span class="s1">&#39;*.log&#39;</span><span class="p">,</span> <span class="s1">&#39;*.spl&#39;</span><span class="p">,</span> <span class="s1">&#39;*~&#39;</span><span class="p">,</span> <span class="s1">&#39;*.spl&#39;</span><span class="p">,</span> <span class="s1">&#39;*.run.xml&#39;</span><span class="p">,</span>
+                     <span class="s1">&#39;*-blx.bib&#39;</span><span class="p">]</span>
+        <span class="n">to_rm</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">pst</span> <span class="ow">in</span> <span class="n">postfixes</span><span class="p">:</span>
+            <span class="n">to_rm</span> <span class="o">+=</span> <span class="n">glob</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">bldir</span><span class="p">,</span> <span class="n">pst</span><span class="p">))</span>
+        <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="nb">set</span><span class="p">(</span><span class="n">to_rm</span><span class="p">):</span></div></div>
+            <span class="n">os</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
 </pre></div>
 
           </div>
