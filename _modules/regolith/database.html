@@ -103,8 +103,6 @@
     <span class="sd">&quot;&quot;&quot;Loads a local database&quot;&quot;&quot;</span>
     <span class="c1"># make sure that we expand user stuff</span>
     <span class="n">db</span><span class="p">[</span><span class="s1">&#39;url&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">expanduser</span><span class="p">(</span><span class="n">db</span><span class="p">[</span><span class="s1">&#39;url&#39;</span><span class="p">])</span>
-    <span class="c1"># tell everything this is a local </span>
-    <span class="n">rc</span><span class="o">.</span><span class="n">local</span> <span class="o">=</span> <span class="kc">True</span>
     <span class="c1"># import all of the data</span></div>
     <span class="n">client</span><span class="o">.</span><span class="n">load_database</span><span class="p">(</span><span class="n">db</span><span class="p">)</span>
 
@@ -116,10 +114,11 @@
         <span class="n">load_git_database</span><span class="p">(</span><span class="n">db</span><span class="p">,</span> <span class="n">client</span><span class="p">,</span> <span class="n">rc</span><span class="p">)</span>
     <span class="k">elif</span> <span class="n">url</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">&#39;hg+&#39;</span><span class="p">):</span>
         <span class="n">load_hg_database</span><span class="p">(</span><span class="n">db</span><span class="p">,</span> <span class="n">client</span><span class="p">,</span> <span class="n">rc</span><span class="p">)</span>
-    <span class="k">elif</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">url</span><span class="p">):</span>
+    <span class="k">elif</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">expanduser</span><span class="p">(</span><span class="n">url</span><span class="p">)):</span>
         <span class="n">load_local_database</span><span class="p">(</span><span class="n">db</span><span class="p">,</span> <span class="n">client</span><span class="p">,</span> <span class="n">rc</span><span class="p">)</span>
-    <span class="k">else</span><span class="p">:</span></div>
-        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;Do not know how to load this kind of database&#39;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;Do not know how to load this kind of database: &#39;</span></div>
+                         <span class="s1">&#39;</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">db</span><span class="p">))</span>
 
 
 <div class="viewcode-block" id="dump_git_database"><a class="viewcode-back" href="../../api/database.html#regolith.database.dump_git_database">[docs]</a><span class="k">def</span> <span class="nf">dump_git_database</span><span class="p">(</span><span class="n">db</span><span class="p">,</span> <span class="n">client</span><span class="p">,</span> <span class="n">rc</span><span class="p">):</span>
