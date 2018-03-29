@@ -63,21 +63,21 @@
     <span class="n">rc</span> <span class="o">=</span> <span class="n">app</span><span class="o">.</span><span class="n">rc</span>
     <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">method</span> <span class="o">==</span> <span class="s1">&#39;POST&#39;</span><span class="p">:</span>
         <span class="n">form</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">form</span>
-        <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="s1">&#39;/db/</span><span class="si">{dbname}</span><span class="s1">/coll/</span><span class="si">{collname}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="o">**</span><span class="n">form</span><span class="p">))</span></div>
-    <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s1">&#39;index.html&#39;</span><span class="p">,</span> <span class="n">rc</span><span class="o">=</span><span class="n">rc</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="s1">&#39;/db/</span><span class="si">{dbname}</span><span class="s1">/coll/</span><span class="si">{collname}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="o">**</span><span class="n">form</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s1">&#39;index.html&#39;</span><span class="p">,</span> <span class="n">rc</span><span class="o">=</span><span class="n">rc</span><span class="p">)</span></div>
 
 
 <div class="viewcode-block" id="shutdown_server"><a class="viewcode-back" href="../../api/app.html#regolith.app.shutdown_server">[docs]</a><span class="k">def</span> <span class="nf">shutdown_server</span><span class="p">():</span>
     <span class="n">func</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;werkzeug.server.shutdown&#39;</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">func</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s1">&#39;Not running with the Werkzeug Server&#39;</span><span class="p">)</span></div>
-    <span class="n">func</span><span class="p">()</span>
+        <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s1">&#39;Not running with the Werkzeug Server&#39;</span><span class="p">)</span>
+    <span class="n">func</span><span class="p">()</span></div>
 
 
 <div class="viewcode-block" id="shutdown"><a class="viewcode-back" href="../../api/app.html#regolith.app.shutdown">[docs]</a><span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s1">&#39;/shutdown&#39;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;GET&#39;</span><span class="p">,</span> <span class="s1">&#39;POST&#39;</span><span class="p">])</span>
 <span class="k">def</span> <span class="nf">shutdown</span><span class="p">():</span>
-    <span class="n">shutdown_server</span><span class="p">()</span></div>
-    <span class="k">return</span> <span class="s1">&#39;Regolith server shutting down...</span><span class="se">\n</span><span class="s1">&#39;</span>
+    <span class="n">shutdown_server</span><span class="p">()</span>
+    <span class="k">return</span> <span class="s1">&#39;Regolith server shutting down...</span><span class="se">\n</span><span class="s1">&#39;</span></div>
 
 
 <div class="viewcode-block" id="collection_page"><a class="viewcode-back" href="../../api/app.html#regolith.app.collection_page">[docs]</a><span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s1">&#39;/db/&lt;dbname&gt;/coll/&lt;collname&gt;&#39;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;GET&#39;</span><span class="p">,</span> <span class="s1">&#39;POST&#39;</span><span class="p">])</span>
@@ -162,8 +162,8 @@
     <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s1">&#39;collection.html&#39;</span><span class="p">,</span> <span class="n">rc</span><span class="o">=</span><span class="n">rc</span><span class="p">,</span> <span class="n">dbname</span><span class="o">=</span><span class="n">dbname</span><span class="p">,</span> <span class="nb">len</span><span class="o">=</span><span class="nb">len</span><span class="p">,</span>
                            <span class="nb">str</span><span class="o">=</span><span class="nb">str</span><span class="p">,</span>
                            <span class="n">status</span><span class="o">=</span><span class="n">status</span><span class="p">,</span> <span class="n">status_id</span><span class="o">=</span><span class="n">status_id</span><span class="p">,</span>
-                           <span class="n">collname</span><span class="o">=</span><span class="n">collname</span><span class="p">,</span> <span class="n">coll</span><span class="o">=</span><span class="n">coll</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="n">json</span><span class="p">,</span> <span class="nb">min</span><span class="o">=</span><span class="nb">min</span><span class="p">,</span></div>
-                           <span class="n">conv</span><span class="o">=</span><span class="n">_convert_to_dict</span><span class="p">)</span>
+                           <span class="n">collname</span><span class="o">=</span><span class="n">collname</span><span class="p">,</span> <span class="n">coll</span><span class="o">=</span><span class="n">coll</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="n">json</span><span class="p">,</span> <span class="nb">min</span><span class="o">=</span><span class="nb">min</span><span class="p">,</span>
+                           <span class="n">conv</span><span class="o">=</span><span class="n">_convert_to_dict</span><span class="p">)</span></div>
 </pre></div>
 
           </div>

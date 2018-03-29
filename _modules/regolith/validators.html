@@ -51,33 +51,33 @@
 
 
 <div class="viewcode-block" id="noop"><a class="viewcode-back" href="../../api/validators.html#regolith.validators.noop">[docs]</a><span class="k">def</span> <span class="nf">noop</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Does nothing, just returns the input.&quot;&quot;&quot;</span></div>
-    <span class="k">return</span> <span class="n">x</span>
+    <span class="sd">&quot;&quot;&quot;Does nothing, just returns the input.&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">x</span></div>
 
 
 <div class="viewcode-block" id="is_int"><a class="viewcode-back" href="../../api/validators.html#regolith.validators.is_int">[docs]</a><span class="k">def</span> <span class="nf">is_int</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Tests if something is an integer&quot;&quot;&quot;</span></div>
-    <span class="k">return</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span>
+    <span class="sd">&quot;&quot;&quot;Tests if something is an integer&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span></div>
 
 
 <div class="viewcode-block" id="always_true"><a class="viewcode-back" href="../../api/validators.html#regolith.validators.always_true">[docs]</a><span class="k">def</span> <span class="nf">always_true</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Returns True&quot;&quot;&quot;</span></div>
-    <span class="k">return</span> <span class="kc">True</span>
+    <span class="sd">&quot;&quot;&quot;Returns True&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="kc">True</span></div>
 
 
 <div class="viewcode-block" id="always_false"><a class="viewcode-back" href="../../api/validators.html#regolith.validators.always_false">[docs]</a><span class="k">def</span> <span class="nf">always_false</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Returns False&quot;&quot;&quot;</span></div>
-    <span class="k">return</span> <span class="kc">False</span>
+    <span class="sd">&quot;&quot;&quot;Returns False&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="kc">False</span></div>
 
 
 <div class="viewcode-block" id="is_bool"><a class="viewcode-back" href="../../api/validators.html#regolith.validators.is_bool">[docs]</a><span class="k">def</span> <span class="nf">is_bool</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Tests if something is a boolean&quot;&quot;&quot;</span></div>
-    <span class="k">return</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="nb">bool</span><span class="p">)</span>
+    <span class="sd">&quot;&quot;&quot;Tests if something is a boolean&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="nb">bool</span><span class="p">)</span></div>
 
 
 <div class="viewcode-block" id="is_string"><a class="viewcode-back" href="../../api/validators.html#regolith.validators.is_string">[docs]</a><span class="k">def</span> <span class="nf">is_string</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Tests if something is a string&quot;&quot;&quot;</span></div>
-    <span class="k">return</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">string_types</span><span class="p">)</span>
+    <span class="sd">&quot;&quot;&quot;Tests if something is a string&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">string_types</span><span class="p">)</span></div>
 
 
 <span class="n">_FALSES</span> <span class="o">=</span> <span class="nb">frozenset</span><span class="p">([</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;0&#39;</span><span class="p">,</span> <span class="s1">&#39;n&#39;</span><span class="p">,</span> <span class="s1">&#39;f&#39;</span><span class="p">,</span> <span class="s1">&#39;no&#39;</span><span class="p">,</span> <span class="s1">&#39;none&#39;</span><span class="p">,</span> <span class="s1">&#39;false&#39;</span><span class="p">])</span>
@@ -89,42 +89,42 @@
         <span class="k">return</span> <span class="n">x</span>
     <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">string_types</span><span class="p">):</span>
         <span class="k">return</span> <span class="kc">False</span> <span class="k">if</span> <span class="n">x</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="ow">in</span> <span class="n">_FALSES</span> <span class="k">else</span> <span class="kc">True</span>
-    <span class="k">else</span><span class="p">:</span></div>
-        <span class="k">return</span> <span class="nb">bool</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="nb">bool</span><span class="p">(</span><span class="n">x</span><span class="p">)</span></div>
 
 
 <div class="viewcode-block" id="ensure_string"><a class="viewcode-back" href="../../api/validators.html#regolith.validators.ensure_string">[docs]</a><span class="k">def</span> <span class="nf">ensure_string</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Returns a string if x is not a string, and x if it already is.&quot;&quot;&quot;</span>
     <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">string_types</span><span class="p">):</span>
         <span class="k">return</span> <span class="n">x</span>
-    <span class="k">else</span><span class="p">:</span></div>
-        <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="n">x</span><span class="p">)</span></div>
 
 
 <div class="viewcode-block" id="ensure_database"><a class="viewcode-back" href="../../api/validators.html#regolith.validators.ensure_database">[docs]</a><span class="k">def</span> <span class="nf">ensure_database</span><span class="p">(</span><span class="n">db</span><span class="p">):</span>
     <span class="n">db</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ensure_string</span><span class="p">(</span><span class="n">db</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">])</span>
     <span class="n">db</span><span class="p">[</span><span class="s1">&#39;url&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ensure_string</span><span class="p">(</span><span class="n">db</span><span class="p">[</span><span class="s1">&#39;url&#39;</span><span class="p">])</span>
     <span class="n">db</span><span class="p">[</span><span class="s1">&#39;path&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ensure_string</span><span class="p">(</span><span class="n">db</span><span class="p">[</span><span class="s1">&#39;path&#39;</span><span class="p">])</span>
-    <span class="n">db</span><span class="p">[</span><span class="s1">&#39;public&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">to_bool</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;public&#39;</span><span class="p">,</span> <span class="kc">True</span><span class="p">))</span></div>
-    <span class="k">return</span> <span class="n">db</span>
+    <span class="n">db</span><span class="p">[</span><span class="s1">&#39;public&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">to_bool</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;public&#39;</span><span class="p">,</span> <span class="kc">True</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">db</span></div>
 
 
 <div class="viewcode-block" id="ensure_databases"><a class="viewcode-back" href="../../api/validators.html#regolith.validators.ensure_databases">[docs]</a><span class="k">def</span> <span class="nf">ensure_databases</span><span class="p">(</span><span class="n">dbs</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Ensures each dataset in a list of databases&quot;&quot;&quot;</span></div>
-    <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="n">ensure_database</span><span class="p">,</span> <span class="n">dbs</span><span class="p">))</span>
+    <span class="sd">&quot;&quot;&quot;Ensures each dataset in a list of databases&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="n">ensure_database</span><span class="p">,</span> <span class="n">dbs</span><span class="p">))</span></div>
 
 
 <div class="viewcode-block" id="ensure_store"><a class="viewcode-back" href="../../api/validators.html#regolith.validators.ensure_store">[docs]</a><span class="k">def</span> <span class="nf">ensure_store</span><span class="p">(</span><span class="n">store</span><span class="p">):</span>
     <span class="n">store</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ensure_string</span><span class="p">(</span><span class="n">store</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">])</span>
     <span class="n">store</span><span class="p">[</span><span class="s1">&#39;url&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ensure_string</span><span class="p">(</span><span class="n">store</span><span class="p">[</span><span class="s1">&#39;url&#39;</span><span class="p">])</span>
     <span class="n">store</span><span class="p">[</span><span class="s1">&#39;path&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ensure_string</span><span class="p">(</span><span class="n">store</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;path&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span> <span class="ow">or</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
-    <span class="n">store</span><span class="p">[</span><span class="s1">&#39;public&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">to_bool</span><span class="p">(</span><span class="n">store</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;public&#39;</span><span class="p">,</span> <span class="kc">True</span><span class="p">))</span></div>
-    <span class="k">return</span> <span class="n">store</span>
+    <span class="n">store</span><span class="p">[</span><span class="s1">&#39;public&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">to_bool</span><span class="p">(</span><span class="n">store</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;public&#39;</span><span class="p">,</span> <span class="kc">True</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">store</span></div>
 
 
 <div class="viewcode-block" id="ensure_stores"><a class="viewcode-back" href="../../api/validators.html#regolith.validators.ensure_stores">[docs]</a><span class="k">def</span> <span class="nf">ensure_stores</span><span class="p">(</span><span class="n">stores</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Ensures each store in a list of stores&quot;&quot;&quot;</span></div>
-    <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="n">ensure_store</span><span class="p">,</span> <span class="n">stores</span><span class="p">))</span>
+    <span class="sd">&quot;&quot;&quot;Ensures each store in a list of stores&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="n">ensure_store</span><span class="p">,</span> <span class="n">stores</span><span class="p">))</span></div>
 
 
 <div class="viewcode-block" id="ensure_email"><a class="viewcode-back" href="../../api/validators.html#regolith.validators.ensure_email">[docs]</a><span class="k">def</span> <span class="nf">ensure_email</span><span class="p">(</span><span class="n">email</span><span class="p">):</span>
@@ -146,8 +146,8 @@
     <span class="n">email</span><span class="p">[</span><span class="s1">&#39;user&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">email</span><span class="p">[</span><span class="s1">&#39;from&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">partition</span><span class="p">(</span><span class="s1">&#39;@&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
     <span class="n">email</span><span class="p">[</span><span class="s1">&#39;port&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">email</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;port&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
     <span class="n">email</span><span class="p">[</span><span class="s1">&#39;verbosity&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">email</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;verbosity&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
-    <span class="n">email</span><span class="p">[</span><span class="s1">&#39;tls&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">to_bool</span><span class="p">(</span><span class="n">email</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;tls&#39;</span><span class="p">,</span> <span class="kc">False</span><span class="p">))</span></div>
-    <span class="k">return</span> <span class="n">email</span>
+    <span class="n">email</span><span class="p">[</span><span class="s1">&#39;tls&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">to_bool</span><span class="p">(</span><span class="n">email</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;tls&#39;</span><span class="p">,</span> <span class="kc">False</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">email</span></div>
 
 
 <span class="n">DEFAULT_VALIDATORS</span> <span class="o">=</span> <span class="p">{</span>

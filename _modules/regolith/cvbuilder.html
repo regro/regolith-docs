@@ -63,8 +63,8 @@
         <span class="n">gtx</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">gtx</span>
         <span class="n">rc</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">rc</span>
         <span class="n">gtx</span><span class="p">[</span><span class="s1">&#39;people&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">all_docs_from_collection</span><span class="p">(</span><span class="n">rc</span><span class="o">.</span><span class="n">client</span><span class="p">,</span> <span class="s1">&#39;people&#39;</span><span class="p">),</span>
-                               <span class="n">key</span><span class="o">=</span><span class="n">position_key</span><span class="p">,</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span></div>
-        <span class="n">gtx</span><span class="p">[</span><span class="s1">&#39;all_docs_from_collection&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">all_docs_from_collection</span>
+                               <span class="n">key</span><span class="o">=</span><span class="n">position_key</span><span class="p">,</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">gtx</span><span class="p">[</span><span class="s1">&#39;all_docs_from_collection&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">all_docs_from_collection</span></div>
 
 <div class="viewcode-block" id="CVBuilder.latex"><a class="viewcode-back" href="../../api/cvbuilder.html#regolith.cvbuilder.CVBuilder.latex">[docs]</a>    <span class="k">def</span> <span class="nf">latex</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Render latex template&quot;&quot;&quot;</span>
@@ -95,8 +95,8 @@
                         <span class="n">pi_grants</span><span class="o">=</span><span class="n">pi_grants</span><span class="p">,</span> <span class="n">pi_amount</span><span class="o">=</span><span class="n">pi_amount</span><span class="p">,</span>
                         <span class="n">coi_grants</span><span class="o">=</span><span class="n">coi_grants</span><span class="p">,</span> <span class="n">coi_amount</span><span class="o">=</span><span class="n">coi_amount</span><span class="p">,</span>
                         <span class="n">coi_sub_amount</span><span class="o">=</span><span class="n">coi_sub_amount</span><span class="p">,</span>
-                        <span class="p">)</span></div></div>
-            <span class="bp">self</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">p</span><span class="p">[</span><span class="s1">&#39;_id&#39;</span><span class="p">])</span>
+                        <span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">p</span><span class="p">[</span><span class="s1">&#39;_id&#39;</span><span class="p">])</span></div></div>
 </pre></div>
 
           </div>

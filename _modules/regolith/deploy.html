@@ -61,8 +61,8 @@
     <span class="sd">&quot;&quot;&quot;Ensure deployment dir is on rc and physically exists.&quot;&quot;&quot;</span>
     <span class="k">if</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">rc</span><span class="p">,</span> <span class="s1">&#39;deploydir&#39;</span><span class="p">)</span> <span class="ow">or</span> <span class="n">rc</span><span class="o">.</span><span class="n">deploydir</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
         <span class="n">rc</span><span class="o">.</span><span class="n">deploydir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">rc</span><span class="o">.</span><span class="n">builddir</span><span class="p">,</span> <span class="s1">&#39;deploy&#39;</span><span class="p">)</span>
-    <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isdir</span><span class="p">(</span><span class="n">rc</span><span class="o">.</span><span class="n">deploydir</span><span class="p">):</span></div>
-        <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">rc</span><span class="o">.</span><span class="n">deploydir</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isdir</span><span class="p">(</span><span class="n">rc</span><span class="o">.</span><span class="n">deploydir</span><span class="p">):</span>
+        <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">rc</span><span class="o">.</span><span class="n">deploydir</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span></div>
 
 
 <div class="viewcode-block" id="deploy_git"><a class="viewcode-back" href="../../api/deploy.html#regolith.deploy.deploy_git">[docs]</a><span class="k">def</span> <span class="nf">deploy_git</span><span class="p">(</span><span class="n">rc</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">src</span><span class="o">=</span><span class="s1">&#39;html&#39;</span><span class="p">,</span> <span class="n">dst</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
@@ -95,8 +95,8 @@
     <span class="k">try</span><span class="p">:</span>
         <span class="n">subprocess</span><span class="o">.</span><span class="n">check_call</span><span class="p">(</span><span class="n">cmd</span><span class="p">,</span> <span class="n">cwd</span><span class="o">=</span><span class="n">targetdir</span><span class="p">)</span>
     <span class="k">except</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">CalledProcessError</span><span class="p">:</span> 
-        <span class="n">warn</span><span class="p">(</span><span class="s1">&#39;Could not git push from &#39;</span> <span class="o">+</span> <span class="n">targetdir</span><span class="p">,</span> <span class="ne">RuntimeWarning</span><span class="p">)</span></div>
-        <span class="k">return</span>    
+        <span class="n">warn</span><span class="p">(</span><span class="s1">&#39;Could not git push from &#39;</span> <span class="o">+</span> <span class="n">targetdir</span><span class="p">,</span> <span class="ne">RuntimeWarning</span><span class="p">)</span>
+        <span class="k">return</span>    </div>
 
 <div class="viewcode-block" id="deploy_hg"><a class="viewcode-back" href="../../api/deploy.html#regolith.deploy.deploy_hg">[docs]</a><span class="k">def</span> <span class="nf">deploy_hg</span><span class="p">(</span><span class="n">rc</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">src</span><span class="o">=</span><span class="s1">&#39;html&#39;</span><span class="p">,</span> <span class="n">dst</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Loads an hg database&quot;&quot;&quot;</span>
@@ -117,8 +117,8 @@
     <span class="n">copy_tree</span><span class="p">(</span><span class="n">srcdir</span><span class="p">,</span> <span class="n">dstdir</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
     <span class="c1"># commit everything</span>
     <span class="n">client</span><span class="o">.</span><span class="n">commit</span><span class="p">(</span><span class="n">message</span><span class="o">=</span><span class="s1">&#39;regolith auto-deploy at </span><span class="si">{0}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()),</span>
-                  <span class="n">addremove</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span></div>
-    <span class="n">client</span><span class="o">.</span><span class="n">push</span><span class="p">()</span>
+                  <span class="n">addremove</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">client</span><span class="o">.</span><span class="n">push</span><span class="p">()</span></div>
 
 <div class="viewcode-block" id="deploy"><a class="viewcode-back" href="../../api/deploy.html#regolith.deploy.deploy">[docs]</a><span class="k">def</span> <span class="nf">deploy</span><span class="p">(</span><span class="n">rc</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">src</span><span class="o">=</span><span class="s1">&#39;html&#39;</span><span class="p">,</span> <span class="n">dst</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Deploys a target&quot;&quot;&quot;</span>
@@ -127,8 +127,8 @@
         <span class="n">deploy_git</span><span class="p">(</span><span class="n">rc</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">src</span><span class="o">=</span><span class="n">src</span><span class="p">,</span> <span class="n">dst</span><span class="o">=</span><span class="n">dst</span><span class="p">)</span>
     <span class="k">elif</span> <span class="n">url</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">&#39;hg+&#39;</span><span class="p">):</span>
         <span class="n">deploy_hg</span><span class="p">(</span><span class="n">rc</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">src</span><span class="o">=</span><span class="n">src</span><span class="p">,</span> <span class="n">dst</span><span class="o">=</span><span class="n">dst</span><span class="p">)</span>
-    <span class="k">else</span><span class="p">:</span></div>
-        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;Do not know how to deploy to this kind of URL: &#39;</span> <span class="o">+</span> <span class="n">url</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;Do not know how to deploy to this kind of URL: &#39;</span> <span class="o">+</span> <span class="n">url</span><span class="p">)</span></div>
 
 </pre></div>
 

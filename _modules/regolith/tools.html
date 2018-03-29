@@ -88,15 +88,15 @@
         <span class="n">dbsdir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">rc</span><span class="o">.</span><span class="n">builddir</span><span class="p">,</span> <span class="s1">&#39;_dbs&#39;</span><span class="p">)</span>
         <span class="n">dbdir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">dbsdir</span><span class="p">,</span> <span class="n">db</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">])</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="n">dbdir</span> <span class="o">=</span> <span class="n">db</span><span class="p">[</span><span class="s1">&#39;url&#39;</span><span class="p">]</span></div>
-    <span class="k">return</span> <span class="n">dbdir</span>
+        <span class="n">dbdir</span> <span class="o">=</span> <span class="n">db</span><span class="p">[</span><span class="s1">&#39;url&#39;</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">dbdir</span></div>
 
 
 <div class="viewcode-block" id="dbpathname"><a class="viewcode-back" href="../../api/tools.html#regolith.tools.dbpathname">[docs]</a><span class="k">def</span> <span class="nf">dbpathname</span><span class="p">(</span><span class="n">db</span><span class="p">,</span> <span class="n">rc</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Gets the database path name.&quot;&quot;&quot;</span>
     <span class="n">dbdir</span> <span class="o">=</span> <span class="n">dbdirname</span><span class="p">(</span><span class="n">db</span><span class="p">,</span> <span class="n">rc</span><span class="p">)</span>
-    <span class="n">dbpath</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">dbdir</span><span class="p">,</span> <span class="n">db</span><span class="p">[</span><span class="s1">&#39;path&#39;</span><span class="p">])</span></div>
-    <span class="k">return</span> <span class="n">dbpath</span>
+    <span class="n">dbpath</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">dbdir</span><span class="p">,</span> <span class="n">db</span><span class="p">[</span><span class="s1">&#39;path&#39;</span><span class="p">])</span>
+    <span class="k">return</span> <span class="n">dbpath</span></div>
 
 
 <div class="viewcode-block" id="fallback"><a class="viewcode-back" href="../../api/tools.html#regolith.tools.fallback">[docs]</a><span class="k">def</span> <span class="nf">fallback</span><span class="p">(</span><span class="n">cond</span><span class="p">,</span> <span class="n">backup</span><span class="p">):</span>
@@ -105,14 +105,14 @@
 
     <span class="k">def</span> <span class="nf">dec</span><span class="p">(</span><span class="n">obj</span><span class="p">):</span>
         <span class="k">return</span> <span class="n">obj</span> <span class="k">if</span> <span class="n">cond</span> <span class="k">else</span> <span class="n">backup</span>
-</div>
-    <span class="k">return</span> <span class="n">dec</span>
+
+    <span class="k">return</span> <span class="n">dec</span></div>
 
 
 <div class="viewcode-block" id="all_docs_from_collection"><a class="viewcode-back" href="../../api/tools.html#regolith.tools.all_docs_from_collection">[docs]</a><span class="k">def</span> <span class="nf">all_docs_from_collection</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="n">collname</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Yield all entries in for all collections of a given name in a given</span>
-<span class="sd">    database. &quot;&quot;&quot;</span></div>
-    <span class="k">yield from</span> <span class="n">client</span><span class="o">.</span><span class="n">all_documents</span><span class="p">(</span><span class="n">collname</span><span class="p">)</span>
+<span class="sd">    database. &quot;&quot;&quot;</span>
+    <span class="k">yield from</span> <span class="n">client</span><span class="o">.</span><span class="n">all_documents</span><span class="p">(</span><span class="n">collname</span><span class="p">)</span></div>
 
 
 <span class="n">SHORT_MONTH_NAMES</span> <span class="o">=</span> <span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="s1">&#39;Jan&#39;</span><span class="p">,</span> <span class="s1">&#39;Feb&#39;</span><span class="p">,</span> <span class="s1">&#39;Mar&#39;</span><span class="p">,</span> <span class="s1">&#39;Apr&#39;</span><span class="p">,</span> <span class="s1">&#39;May&#39;</span><span class="p">,</span> <span class="s1">&#39;Jun&#39;</span><span class="p">,</span> <span class="s1">&#39;Jul&#39;</span><span class="p">,</span>
@@ -121,20 +121,20 @@
 
 <div class="viewcode-block" id="date_to_rfc822"><a class="viewcode-back" href="../../api/tools.html#regolith.tools.date_to_rfc822">[docs]</a><span class="k">def</span> <span class="nf">date_to_rfc822</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">d</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Converts a date to an RFC 822 formatted string.&quot;&quot;&quot;</span>
-    <span class="n">d</span> <span class="o">=</span> <span class="n">datetime</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">y</span><span class="p">),</span> <span class="n">month_to_int</span><span class="p">(</span><span class="n">m</span><span class="p">),</span> <span class="nb">int</span><span class="p">(</span><span class="n">d</span><span class="p">))</span></div>
-    <span class="k">return</span> <span class="n">email</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">format_datetime</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
+    <span class="n">d</span> <span class="o">=</span> <span class="n">datetime</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">y</span><span class="p">),</span> <span class="n">month_to_int</span><span class="p">(</span><span class="n">m</span><span class="p">),</span> <span class="nb">int</span><span class="p">(</span><span class="n">d</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">email</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">format_datetime</span><span class="p">(</span><span class="n">d</span><span class="p">)</span></div>
 
 
 <div class="viewcode-block" id="rfc822now"><a class="viewcode-back" href="../../api/tools.html#regolith.tools.rfc822now">[docs]</a><span class="k">def</span> <span class="nf">rfc822now</span><span class="p">():</span>
     <span class="sd">&quot;&quot;&quot;Creates a string of the current time according to RFC 822.&quot;&quot;&quot;</span>
-    <span class="n">now</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">utcnow</span><span class="p">()</span></div>
-    <span class="k">return</span> <span class="n">email</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">format_datetime</span><span class="p">(</span><span class="n">now</span><span class="p">)</span>
+    <span class="n">now</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">utcnow</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">email</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">format_datetime</span><span class="p">(</span><span class="n">now</span><span class="p">)</span></div>
 
 
 <div class="viewcode-block" id="gets"><a class="viewcode-back" href="../../api/tools.html#regolith.tools.gets">[docs]</a><span class="k">def</span> <span class="nf">gets</span><span class="p">(</span><span class="n">seq</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Gets a key from every element of a sequence if possible.&quot;&quot;&quot;</span>
-    <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">seq</span><span class="p">:</span></div>
-        <span class="k">yield</span> <span class="n">x</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">default</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">seq</span><span class="p">:</span>
+        <span class="k">yield</span> <span class="n">x</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">default</span><span class="p">)</span></div>
 
 
 <div class="viewcode-block" id="month_and_year"><a class="viewcode-back" href="../../api/tools.html#regolith.tools.month_and_year">[docs]</a><span class="k">def</span> <span class="nf">month_and_year</span><span class="p">(</span><span class="n">m</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
@@ -143,8 +143,8 @@
         <span class="k">return</span> <span class="s2">&quot;present&quot;</span>
     <span class="k">if</span> <span class="n">m</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
         <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
-    <span class="n">m</span> <span class="o">=</span> <span class="n">month_to_int</span><span class="p">(</span><span class="n">m</span><span class="p">)</span></div>
-    <span class="k">return</span> <span class="s1">&#39;</span><span class="si">{0}</span><span class="s1"> </span><span class="si">{1}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">SHORT_MONTH_NAMES</span><span class="p">[</span><span class="n">m</span><span class="p">],</span> <span class="n">y</span><span class="p">)</span>
+    <span class="n">m</span> <span class="o">=</span> <span class="n">month_to_int</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
+    <span class="k">return</span> <span class="s1">&#39;</span><span class="si">{0}</span><span class="s1"> </span><span class="si">{1}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">SHORT_MONTH_NAMES</span><span class="p">[</span><span class="n">m</span><span class="p">],</span> <span class="n">y</span><span class="p">)</span></div>
 
 
 <div class="viewcode-block" id="filter_publications"><a class="viewcode-back" href="../../api/tools.html#regolith.tools.filter_publications">[docs]</a><span class="k">def</span> <span class="nf">filter_publications</span><span class="p">(</span><span class="n">citations</span><span class="p">,</span> <span class="n">authors</span><span class="p">,</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">bold</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
@@ -179,8 +179,8 @@
         <span class="k">else</span><span class="p">:</span>
             <span class="n">pub</span> <span class="o">=</span> <span class="n">deepcopy</span><span class="p">(</span><span class="n">pub</span><span class="p">)</span>
         <span class="n">pubs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">pub</span><span class="p">)</span>
-    <span class="n">pubs</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="n">doc_date_key</span><span class="p">,</span> <span class="n">reverse</span><span class="o">=</span><span class="n">reverse</span><span class="p">)</span></div>
-    <span class="k">return</span> <span class="n">pubs</span>
+    <span class="n">pubs</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="n">doc_date_key</span><span class="p">,</span> <span class="n">reverse</span><span class="o">=</span><span class="n">reverse</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">pubs</span></div>
 
 
 <div class="viewcode-block" id="filter_projects"><a class="viewcode-back" href="../../api/tools.html#regolith.tools.filter_projects">[docs]</a><span class="k">def</span> <span class="nf">filter_projects</span><span class="p">(</span><span class="n">projects</span><span class="p">,</span> <span class="n">authors</span><span class="p">,</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
@@ -203,8 +203,8 @@
         <span class="n">proj</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">proj</span><span class="p">)</span>
         <span class="n">proj</span><span class="p">[</span><span class="s1">&#39;team&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">proj</span><span class="p">[</span><span class="s1">&#39;team&#39;</span><span class="p">]</span> <span class="k">if</span> <span class="n">x</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span> <span class="ow">in</span> <span class="n">authors</span><span class="p">]</span>
         <span class="n">projs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">proj</span><span class="p">)</span>
-    <span class="n">projs</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="n">id_key</span><span class="p">,</span> <span class="n">reverse</span><span class="o">=</span><span class="n">reverse</span><span class="p">)</span></div>
-    <span class="k">return</span> <span class="n">projs</span>
+    <span class="n">projs</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="n">id_key</span><span class="p">,</span> <span class="n">reverse</span><span class="o">=</span><span class="n">reverse</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">projs</span></div>
 
 
 <div class="viewcode-block" id="filter_grants"><a class="viewcode-back" href="../../api/tools.html#regolith.tools.filter_grants">[docs]</a><span class="k">def</span> <span class="nf">filter_grants</span><span class="p">(</span><span class="n">input_grants</span><span class="p">,</span> <span class="n">names</span><span class="p">,</span> <span class="n">pi</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
@@ -247,8 +247,8 @@
                                <span class="n">x</span><span class="p">[</span><span class="s1">&#39;position&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s1">&#39;pi&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
                 <span class="n">grant</span><span class="p">[</span><span class="s1">&#39;me&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">person</span>
         <span class="n">grants</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">grant</span><span class="p">)</span>
-    <span class="n">grants</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="n">ene_date_key</span><span class="p">,</span> <span class="n">reverse</span><span class="o">=</span><span class="n">reverse</span><span class="p">)</span></div>
-    <span class="k">return</span> <span class="n">grants</span><span class="p">,</span> <span class="n">total_amount</span><span class="p">,</span> <span class="n">subaward_amount</span>
+    <span class="n">grants</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="n">ene_date_key</span><span class="p">,</span> <span class="n">reverse</span><span class="o">=</span><span class="n">reverse</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">grants</span><span class="p">,</span> <span class="n">total_amount</span><span class="p">,</span> <span class="n">subaward_amount</span></div>
 
 
 <div class="viewcode-block" id="awards_grants_honors"><a class="viewcode-back" href="../../api/tools.html#regolith.tools.awards_grants_honors">[docs]</a><span class="k">def</span> <span class="nf">awards_grants_honors</span><span class="p">(</span><span class="n">p</span><span class="p">):</span>
@@ -283,8 +283,8 @@
                       <span class="s1">&#39;_key&#39;</span><span class="p">:</span> <span class="n">date_to_float</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="s1">&#39;begin_year&#39;</span><span class="p">],</span>
                                             <span class="n">x</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;month&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">))})</span>
         <span class="n">aghs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
-    <span class="n">aghs</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;_key&#39;</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)),</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span></div>
-    <span class="k">return</span> <span class="n">aghs</span>
+    <span class="n">aghs</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;_key&#39;</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)),</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">aghs</span></div>
 
 
 <div class="viewcode-block" id="latex_safe"><a class="viewcode-back" href="../../api/tools.html#regolith.tools.latex_safe">[docs]</a><span class="k">def</span> <span class="nf">latex_safe</span><span class="p">(</span><span class="n">s</span><span class="p">):</span>
@@ -294,8 +294,8 @@
 <span class="sd">    ----------</span>
 <span class="sd">    s : str</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">return</span> <span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;&amp;&#39;</span><span class="p">,</span> <span class="s1">&#39;\&amp;&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;$&#39;</span><span class="p">,</span> <span class="s1">&#39;\$&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;#&#39;</span><span class="p">,</span> <span class="s1">&#39;\#&#39;</span><span class="p">)</span></div>
-            <span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;_&#39;</span><span class="p">,</span> <span class="s1">&#39;\_&#39;</span><span class="p">))</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;&amp;&#39;</span><span class="p">,</span> <span class="s1">&#39;\&amp;&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;$&#39;</span><span class="p">,</span> <span class="s1">&#39;\$&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;#&#39;</span><span class="p">,</span> <span class="s1">&#39;\#&#39;</span><span class="p">)</span>
+            <span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;_&#39;</span><span class="p">,</span> <span class="s1">&#39;\_&#39;</span><span class="p">))</span></div>
 
 
 <div class="viewcode-block" id="make_bibtex_file"><a class="viewcode-back" href="../../api/tools.html#regolith.tools.make_bibtex_file">[docs]</a><span class="k">def</span> <span class="nf">make_bibtex_file</span><span class="p">(</span><span class="n">pubs</span><span class="p">,</span> <span class="n">pid</span><span class="p">,</span> <span class="n">person_dir</span><span class="o">=</span><span class="s1">&#39;.&#39;</span><span class="p">):</span>
@@ -330,8 +330,8 @@
         <span class="n">ents</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ent</span><span class="p">)</span>
     <span class="n">fname</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">person_dir</span><span class="p">,</span> <span class="n">pid</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;.bib&#39;</span>
     <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-        <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">bibwriter</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">bibdb</span><span class="p">))</span></div>
-    <span class="k">return</span> <span class="n">fname</span>
+        <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">bibwriter</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">bibdb</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">fname</span></div>
 </pre></div>
 
           </div>
