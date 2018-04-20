@@ -15,12 +15,20 @@ The following lists key names mapped to its type and meaning for each entry.
 :repo: string, URL of the source code repo, if available, optional
 :team: list, People who are/have been working on this project., required
 
-	:begin_month: string, optional
-	:begin_year: integer, optional
-	:end_month: string, optional
-	:end_year: integer, optional
-	:name: string, optional
-	:position: string, optional
+
+		:begin_month: string, optional
+		:begin_year: integer, optional
+		:end_month: string, optional
+		:end_year: integer, optional
+		:name: string, optional
+		:position: string, optional
+
+		:begin_month: string, optional
+		:begin_year: integer, optional
+		:end_month: string, optional
+		:end_year: integer, optional
+		:name: string, optional
+		:position: string, optional
 :website: string, URL of the website., required
 
 

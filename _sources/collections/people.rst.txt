@@ -14,78 +14,149 @@ The following lists key names mapped to its type and meaning for each entry.
 :collab: boolean, If the person is a collaborator, default False., optional
 :education: list, This contains the educational information for the group member., required
 
-	:begin_month: string, optional
-	:begin_year: integer, optional
-	:degree: string, optional
-	:end_month: string, optional
-	:end_year: integer, optional
-	:gpa: ('float', 'string'), optional
-	:institution: string, optional
-	:location: string, optional
-	:other: string, optional
+
+		:begin_month: string, optional
+		:begin_year: integer, optional
+		:degree: string, optional
+		:end_month: string, optional
+		:end_year: integer, optional
+		:gpa: ('float', 'string'), optional
+		:institution: string, optional
+		:location: string, optional
+		:other: string, optional
+
+		:begin_month: string, optional
+		:begin_year: integer, optional
+		:degree: string, optional
+		:end_month: string, optional
+		:end_year: integer, optional
+		:gpa: ('float', 'string'), optional
+		:institution: string, optional
+		:location: string, optional
+		:other: string, optional
 :email: string, email address of the group member, optional
 :employment: list, Employment information, similar to educational information., required
 
-	:begin_month: string, optional
-	:begin_year: integer, optional
-	:end_month: string, optional
-	:end_year: integer, optional
-	:location: string, optional
-	:organization: string, optional
-	:other: string, optional
-	:position: string, optional
+
+		:begin_month: string, optional
+		:begin_year: integer, optional
+		:end_month: string, optional
+		:end_year: integer, optional
+		:location: string, optional
+		:organization: string, optional
+		:other: string, optional
+		:position: string, optional
+
+		:begin_month: string, optional
+		:begin_year: integer, optional
+		:end_month: string, optional
+		:end_year: integer, optional
+		:location: string, optional
+		:organization: string, optional
+		:other: string, optional
+		:position: string, optional
 :funding: list, Funding and scholarship that the group member has individually obtained in the past. **WARNING:** this is not to be confused with the **grants** collection, optional
 
-	:currency: string, optional
-	:duration: string, optional
-	:month: string, optional
-	:name: string, optional
-	:value: ('float', 'integer'), optional
-	:year: integer, optional
+
+		:currency: string, optional
+		:duration: string, optional
+		:month: string, optional
+		:name: string, optional
+		:value: ('float', 'integer'), optional
+		:year: integer, optional
+
+		:currency: string, optional
+		:duration: string, optional
+		:month: string, optional
+		:name: string, optional
+		:value: ('float', 'integer'), optional
+		:year: integer, optional
 :honors: list, Honors that have been awarded to this group member, optional
 
-	:description: string, optional
-	:month: string, optional
-	:name: string, optional
-	:year: integer, optional
+
+		:description: string, optional
+		:month: string, optional
+		:name: string, optional
+		:year: integer, optional
+
+		:description: string, optional
+		:month: string, optional
+		:name: string, optional
+		:year: integer, optional
 :membership: list, Professional organizations this member is a part of, optional
 
-	:begin_month: string, optional
-	:begin_year: integer, optional
-	:description: string, optional
-	:end_month: string, optional
-	:end_year: integer, optional
-	:organization: string, optional
-	:position: string, optional
-	:website: string, optional
+
+		:begin_month: string, optional
+		:begin_year: integer, optional
+		:description: string, optional
+		:end_month: string, optional
+		:end_year: integer, optional
+		:organization: string, optional
+		:position: string, optional
+		:website: string, optional
+
+		:begin_month: string, optional
+		:begin_year: integer, optional
+		:description: string, optional
+		:end_month: string, optional
+		:end_year: integer, optional
+		:organization: string, optional
+		:position: string, optional
+		:website: string, optional
 :name: string, Full, canonical name for the person, required
 :position: string, such as professor, graduate student, or scientist, required
 :service: list, Service that this group member has provided, optional
 
-	:description: string, optional
-	:duration: string, optional
-	:month: string, optional
-	:name: string, optional
-	:year: integer, optional
+
+		:description: string, optional
+		:duration: string, optional
+		:month: string, optional
+		:name: string, optional
+		:year: integer, optional
+
+		:description: string, optional
+		:duration: string, optional
+		:month: string, optional
+		:name: string, optional
+		:year: integer, optional
 :skills: list, Skill the group member has, optional
 
-	:category: string, optional
-	:level: string, optional
-	:name: string, optional
+
+		:category: string, optional
+		:level: string, optional
+		:name: string, optional
+
+		:category: string, optional
+		:level: string, optional
+		:name: string, optional
 :teaching: list, Courses that this group member has taught, if any, optional
 
-	:course: string, optional
-	:description: string, optional
-	:end_month: string, optional
-	:end_year: integer, optional
-	:materials: string, optional
-	:month: string, optional
-	:organization: string, optional
-	:position: string, optional
-	:syllabus: string, optional
-	:video: string, optional
-	:website: string, optional
-	:year: integer, optional
+
+		:course: string, optional
+		:description: string, optional
+		:end_month: string, optional
+		:end_year: integer, optional
+		:materials: string, optional
+		:month: string, optional
+		:organization: string, optional
+		:position: string, optional
+		:syllabus: string, optional
+		:video: string, optional
+		:website: string, optional
+		:year: integer, optional
+
+		:course: string, optional
+		:description: string, optional
+		:end_month: string, optional
+		:end_year: integer, optional
+		:materials: string, optional
+		:month: string, optional
+		:organization: string, optional
+		:position: string, optional
+		:syllabus: string, optional
+		:video: string, optional
+		:website: string, optional
+		:year: integer, optional
 :title: string, for example, Dr., etc., optional
 
 
