@@ -2,10 +2,13 @@
 ./_modules/collections/abc.html
 ./_modules/index.html
 ./_modules/regolith/app.html
+./_modules/regolith/builder.html
 ./_modules/regolith/chained_db.html
+./_modules/regolith/commands.html
 ./_modules/regolith/database.html
 ./_modules/regolith/dates.html
 ./_modules/regolith/deploy.html
+./_modules/regolith/main.html
 ./_modules/regolith/runcontrol.html
 ./_modules/regolith/tools.html
 ./_modules/regolith/validators.html
