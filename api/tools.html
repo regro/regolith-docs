@@ -93,6 +93,31 @@ database.</p>
 </dd></dl>
 
 <dl class="function">
+<dt id="regolith.tools.document_by_value">
+<code class="descclassname">regolith.tools.</code><code class="descname">document_by_value</code><span class="sig-paren">(</span><em>documents</em>, <em>address</em>, <em>value</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#document_by_value"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.tools.document_by_value" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a specific document by one of its values</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>documents</strong> (<em>generator</em>) – Generator which yields the documents</li>
+<li><strong>address</strong> (<em>str or tuple</em>) – The address of the data in the document</li>
+<li><strong>value</strong> (<em>any</em>) – The expected value for the document</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">The first document which matches the request</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">dict</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
 <dt id="regolith.tools.fallback">
 <code class="descclassname">regolith.tools.</code><code class="descname">fallback</code><span class="sig-paren">(</span><em>cond</em>, <em>backup</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#fallback"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.tools.fallback" title="Permalink to this definition">¶</a></dt>
 <dd><p>Decorator for returning the object if cond is true and a backup if

@@ -332,6 +332,33 @@
     <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
         <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">bibwriter</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">bibdb</span><span class="p">))</span>
     <span class="k">return</span> <span class="n">fname</span></div>
+
+
+<div class="viewcode-block" id="document_by_value"><a class="viewcode-back" href="../../api/tools.html#regolith.tools.document_by_value">[docs]</a><span class="k">def</span> <span class="nf">document_by_value</span><span class="p">(</span><span class="n">documents</span><span class="p">,</span> <span class="n">address</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Get a specific document by one of its values</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    documents: generator</span>
+<span class="sd">        Generator which yields the documents</span>
+<span class="sd">    address: str or tuple</span>
+<span class="sd">        The address of the data in the document</span>
+<span class="sd">    value: any</span>
+<span class="sd">        The expected value for the document</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    dict:</span>
+<span class="sd">        The first document which matches the request</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">address</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="n">address</span> <span class="o">=</span> <span class="p">(</span><span class="n">address</span><span class="p">,</span> <span class="p">)</span>
+    <span class="k">for</span> <span class="n">g_doc</span> <span class="ow">in</span> <span class="n">documents</span><span class="p">:</span>
+        <span class="n">doc</span> <span class="o">=</span> <span class="n">deepcopy</span><span class="p">(</span><span class="n">g_doc</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">address</span> <span class="ow">in</span> <span class="n">address</span><span class="p">:</span>
+            <span class="n">doc</span> <span class="o">=</span> <span class="n">doc</span><span class="p">[</span><span class="n">address</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">doc</span> <span class="o">==</span> <span class="n">value</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">g_doc</span></div>
 </pre></div>
 
           </div>

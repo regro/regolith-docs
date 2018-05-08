@@ -35,6 +35,7 @@
 ./_sources/collections/courses.rst.txt
 ./_sources/collections/grades.rst.txt
 ./_sources/collections/grants.rst.txt
+./_sources/collections/group.rst.txt
 ./_sources/collections/index.rst.txt
 ./_sources/collections/jobs.rst.txt
 ./_sources/collections/news.rst.txt
@@ -109,6 +110,7 @@
 ./collections/courses.html
 ./collections/grades.html
 ./collections/grants.html
+./collections/group.html
 ./collections/index.html
 ./collections/jobs.html
 ./collections/news.html
