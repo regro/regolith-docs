@@ -3,6 +3,9 @@
 ./_modules/index.html
 ./_modules/regolith/app.html
 ./_modules/regolith/builder.html
+./_modules/regolith/builders/basebuilder.html
+./_modules/regolith/builders/cvbuilder.html
+./_modules/regolith/builders/htmlbuilder.html
 ./_modules/regolith/chained_db.html
 ./_modules/regolith/commands.html
 ./_modules/regolith/database.html

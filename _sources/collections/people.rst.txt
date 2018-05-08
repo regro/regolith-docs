@@ -23,7 +23,7 @@ The following lists key names mapped to its type and meaning for each entry.
 		:gpa: ('float', 'string'), optional
 		:institution: string, optional
 		:location: string, optional
-		:other: string, optional
+		:other: ['string', 'list'], optional
 
 		:begin_month: string, optional
 		:begin_year: integer, optional
@@ -33,7 +33,7 @@ The following lists key names mapped to its type and meaning for each entry.
 		:gpa: ('float', 'string'), optional
 		:institution: string, optional
 		:location: string, optional
-		:other: string, optional
+		:other: ['string', 'list'], optional
 :email: string, email address of the group member, optional
 :employment: list, Employment information, similar to educational information., required
 
@@ -44,7 +44,7 @@ The following lists key names mapped to its type and meaning for each entry.
 		:end_year: integer, optional
 		:location: string, optional
 		:organization: string, optional
-		:other: string, optional
+		:other: ['string', 'list'], optional
 		:position: string, optional
 
 		:begin_month: string, optional
@@ -53,7 +53,7 @@ The following lists key names mapped to its type and meaning for each entry.
 		:end_year: integer, optional
 		:location: string, optional
 		:organization: string, optional
-		:other: string, optional
+		:other: ['string', 'list'], optional
 		:position: string, optional
 :funding: list, Funding and scholarship that the group member has individually obtained in the past. **WARNING:** this is not to be confused with the **grants** collection, optional
 

@@ -89,7 +89,7 @@
 <tr class="field-odd field"><th class="field-name">end_day:</th><td class="field-body"><p class="first">(‘string’, ‘integer’), end day of the grant, optional</p>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">end_month”:</th><td class="field-body"><p class="first">string, end month of the grant, optional</p>
+<tr class="field-even field"><th class="field-name">end_month:</th><td class="field-body"><p class="first">string, end month of the grant, optional</p>
 </td>
 </tr>
 <tr class="field-odd field"><th class="field-name">end_year:</th><td class="field-body"><p class="first">integer, end year of the grant, required</p>
@@ -108,6 +108,16 @@
 </td>
 </tr>
 <tr class="field-even field"><th class="field-name">status:</th><td class="field-body"><p class="first">string, status of the grant, required</p>
+<dl class="docutils">
+<dt>Allowed values:</dt>
+<dd><ul class="first last simple">
+<li>pending</li>
+<li>declined</li>
+<li>accepted</li>
+<li>in-prep</li>
+</ul>
+</dd>
+</dl>
 </td>
 </tr>
 <tr class="field-odd field"><th class="field-name">team:</th><td class="field-body"><p class="first">list, information about the team members participating in the grant., required</p>
@@ -161,6 +171,7 @@
   <span class="l l-Scalar l-Scalar-Plain">funder</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">NumFOCUS</span>
   <span class="l l-Scalar l-Scalar-Plain">narrative</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">https://docs.google.com/document/d/1nZxqoL-Ucni_aXLWmXtRDd3IWqW0mZBO65CEvDrsXZM/edit?usp=sharing</span>
   <span class="l l-Scalar l-Scalar-Plain">program</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Small Development Grants</span>
+  <span class="l l-Scalar l-Scalar-Plain">status</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">pending</span>
   <span class="l l-Scalar l-Scalar-Plain">team</span><span class="p p-Indicator">:</span>
     <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">institution</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">University of South Carolina</span>
       <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Anthony Scopatz</span>
@@ -187,6 +198,7 @@
     <span class="nt">&quot;funder&quot;</span><span class="p">:</span> <span class="s2">&quot;NumFOCUS&quot;</span><span class="p">,</span>
     <span class="nt">&quot;narrative&quot;</span><span class="p">:</span> <span class="s2">&quot;https://docs.google.com/document/d/1nZxqoL-Ucni_aXLWmXtRDd3IWqW0mZBO65CEvDrsXZM/edit?usp=sharing&quot;</span><span class="p">,</span>
     <span class="nt">&quot;program&quot;</span><span class="p">:</span> <span class="s2">&quot;Small Development Grants&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;pending&quot;</span><span class="p">,</span>
     <span class="nt">&quot;team&quot;</span><span class="p">:</span> <span class="p">[</span>
         <span class="p">{</span>
             <span class="nt">&quot;institution&quot;</span><span class="p">:</span> <span class="s2">&quot;University of South Carolina&quot;</span><span class="p">,</span>

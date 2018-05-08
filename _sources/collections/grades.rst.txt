@@ -10,7 +10,8 @@ The following lists key names mapped to its type and meaning for each entry.
 :assignment: string, assignment id, required
 :course: string, course id, required
 :filename: string, path to file in store, optional
-:scores: ('integer', 'float'), the number of points earned on each question, required
+:scores: list, the number of points earned on each question, required
+
 :student: string, student id, required
 
 

@@ -8,14 +8,15 @@ The following lists key names mapped to its type and meaning for each entry.
 
 :_id: ('string', 'integer', 'float'), short representation, such as this-is-my-name, required
 :amount: ('integer', 'float'), value of award, required
-:authors: string, other investigator names, required
+:authors: ['list', 'string'], other investigator names, required
 :currency: string, typically '$' or 'USD', required
 :day: integer, day that the proposal is due, required
 :duration: ('integer', 'float'), number of years, required
+:full: dict, full body of the proposal, optional
 :month: string, month that the proposal is due, required
 :pi: string, principal investigator name, required
 :pre: dict, Information about the pre-proposal, optional
-:status: string, e.g. 'submitted', 'accepted', 'rejected', required
+:status: string, e.g. 'pending', 'accepted', 'rejected', required
 :title: string, actual title of proposal, required
 :year: integer, Year that the proposal is due, required
 
@@ -26,13 +27,13 @@ YAML Example
 .. code-block:: yaml
 
 	mypropsal:
-	  ammount: 1000000.0
+	  amount: 1000000.0
 	  authors:
 	    - Anthony Scopatz
 	    - Robert Flanagan
 	  currency: USD
 	  day: 18
-	  durration: 3
+	  duration: 3
 	  full:
 	    benefit_of_collaboration: http://pdf.com/benefit_of_collaboration
 	    cv:
@@ -62,14 +63,14 @@ JSON/Mongo Example
 
 	{
 	    "_id": "mypropsal",
-	    "ammount": 1000000.0,
+	    "amount": 1000000.0,
 	    "authors": [
 	        "Anthony Scopatz",
 	        "Robert Flanagan"
 	    ],
 	    "currency": "USD",
 	    "day": 18,
-	    "durration": 3,
+	    "duration": 3,
 	    "full": {
 	        "benefit_of_collaboration": "http://pdf.com/benefit_of_collaboration",
 	        "cv": [

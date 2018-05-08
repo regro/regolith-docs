@@ -8,10 +8,11 @@ The following lists key names mapped to its type and meaning for each entry.
 
 :_id: string, A unique id for the assignment, such as HW01-EMCH-558-2016-S, required
 :category: string, such as 'homework' or 'final', required
-:courses: string, ids of the courses that have this assignment, required
+:courses: ['string', 'list'], ids of the courses that have this assignment, required
 :file: string, path to assignment file in store, optional
-:points: ('integer', 'float'), list of number of points possible for each question. Length is the number of questions, required
-:question: string, titles for the questions on this assignment, optional
+:points: list, list of number of points possible for each question. Length is the number of questions, required
+
+:questions: list, titles for the questions on this assignment, optional
 :solution: string, path to solution file in store, optional
 
 
