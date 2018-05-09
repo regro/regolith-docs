@@ -1,5 +1,5 @@
-Group
-=====
+Groups
+======
 Information about the research groupthis is generally public information
 
 Schema

@@ -184,6 +184,38 @@ cond is false.</p>
 </dd></dl>
 
 <dl class="function">
+<dt id="regolith.tools.fuzzy_retrieval">
+<code class="descclassname">regolith.tools.</code><code class="descname">fuzzy_retrieval</code><span class="sig-paren">(</span><em>documents</em>, <em>sources</em>, <em>value</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#fuzzy_retrieval"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.tools.fuzzy_retrieval" title="Permalink to this definition">¶</a></dt>
+<dd><p>Retrieve a document from the documents where value is compared against
+multiple potential sources</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>documents</strong> (<em>generator</em>) – The documents</li>
+<li><strong>sources</strong> (<em>iterable</em>) – The potential data sources</li>
+<li><strong>value</strong> – The value to compare against to find the document of interest</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">The document</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">dict</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Examples</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">fuzzy_retrieval</span><span class="p">(</span><span class="n">people</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;aka&#39;</span><span class="p">,</span> <span class="s1">&#39;name&#39;</span><span class="p">],</span> <span class="s1">&#39;pi_name&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This would get the person entry for where either the alias or the name was
+<code class="docutils literal notranslate"><span class="pre">pi_name</span></code>.</p>
+</dd></dl>
+
+<dl class="function">
 <dt id="regolith.tools.gets">
 <code class="descclassname">regolith.tools.</code><code class="descname">gets</code><span class="sig-paren">(</span><em>seq</em>, <em>key</em>, <em>default=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#gets"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.tools.gets" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets a key from every element of a sequence if possible.</p>

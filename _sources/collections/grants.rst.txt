@@ -20,7 +20,10 @@ The following lists key names mapped to its type and meaning for each entry.
 :funder: string, the agency funding the work, required
 :grant_id: string, the identifier for this work, optional
 :narrative: string, optional
+:person_months_academic: integer, Number of months of funding during the academicyear, optional
+:person_months_summer: integer, Number of months of funding during the summer, optional
 :program: string, the program the work was funded under, required
+:scope: string, The scope of the grant, answers the prompt: "Describe Research Including Synergies and Delineation with Respect to this Proposal/Award:", optional
 :status: string, status of the grant, required
 
 	Allowed values: 

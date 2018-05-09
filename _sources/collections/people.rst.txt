@@ -83,6 +83,7 @@ The following lists key names mapped to its type and meaning for each entry.
 		:month: string, optional
 		:name: string, optional
 		:year: integer, optional
+:initials: string, The canonical initials for this group member, optional
 :membership: list, Professional organizations this member is a part of, optional
 
 
@@ -241,6 +242,7 @@ YAML Example
 	    - name: NIF User's Group Travel Award
 	      value: 1150
 	      year: 2013
+	  initials: AMS
 	  membership:
 	    - begin_year: 2006
 	      organization: American Nuclear Society
@@ -380,6 +382,7 @@ JSON/Mongo Example
 	            "year": 2013
 	        }
 	    ],
+	    "initials": "AMS",
 	    "membership": [
 	        {
 	            "begin_year": 2006,
