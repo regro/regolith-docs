@@ -9,14 +9,30 @@ The following lists key names mapped to its type and meaning for each entry.
 :_id: ('string', 'integer', 'float'), short representation, such as this-is-my-name, required
 :amount: ('integer', 'float'), value of award, required
 :authors: ['list', 'string'], other investigator names, required
+:call_for_proposals: string, optional
 :currency: string, typically '$' or 'USD', required
 :day: integer, day that the proposal is due, required
 :duration: ('integer', 'float'), number of years, required
 :full: dict, full body of the proposal, optional
 :month: string, month that the proposal is due, required
+:other_agencies_submitted: ['list', 'string'], Other agencies the proposal has been sent to, optional
 :pi: string, principal investigator name, required
 :pre: dict, Information about the pre-proposal, optional
 :status: string, e.g. 'pending', 'accepted', 'rejected', required
+:team: list, information about the team members participating in the grant., optional
+
+
+		:cv: string, optional
+		:institution: string, optional
+		:name: string, optional
+		:position: string, optional
+		:subaward_amount: ('integer', 'float'), optional
+
+		:cv: string, optional
+		:institution: string, optional
+		:name: string, optional
+		:position: string, optional
+		:subaward_amount: ('integer', 'float'), optional
 :title: string, actual title of proposal, required
 :year: integer, Year that the proposal is due, required
 
@@ -26,6 +42,34 @@ YAML Example
 
 .. code-block:: yaml
 
+	dmref15:
+	  amount: 982785.0
+	  authors:
+	    - qdu
+	    - dhsu
+	    - sbillinge
+	  call_for_proposals: http://www.nsf.gov/pubs/2014/nsf14591/nsf14591.htm
+	  currency: $
+	  day: 2
+	  duration: 3
+	  month: february
+	  other_agencies_submitted: None
+	  pi: Simon Billinge
+	  status: approved
+	  team:
+	    - institution: Columbia Unviersity
+	      name: qdu
+	      position: Co-PI
+	    - institution: Columbia Unviersity
+	      name: dhsu
+	      position: Co-PI
+	    - institution: Columbia Unviersity
+	      name: sbillinge
+	      position: PI
+	      subaward_amount: 330000.0
+	  title: 'DMREF: Novel, data validated, nanostructure determination methods for accelerating
+	    materials discovery'
+	  year: 2015
 	mypropsal:
 	  amount: 1000000.0
 	  authors:
@@ -61,6 +105,43 @@ JSON/Mongo Example
 
 .. code-block:: json
 
+	{
+	    "_id": "dmref15",
+	    "amount": 982785.0,
+	    "authors": [
+	        "qdu",
+	        "dhsu",
+	        "sbillinge"
+	    ],
+	    "call_for_proposals": "http://www.nsf.gov/pubs/2014/nsf14591/nsf14591.htm",
+	    "currency": "$",
+	    "day": 2,
+	    "duration": 3,
+	    "month": "february",
+	    "other_agencies_submitted": "None",
+	    "pi": "Simon Billinge",
+	    "status": "approved",
+	    "team": [
+	        {
+	            "institution": "Columbia Unviersity",
+	            "name": "qdu",
+	            "position": "Co-PI"
+	        },
+	        {
+	            "institution": "Columbia Unviersity",
+	            "name": "dhsu",
+	            "position": "Co-PI"
+	        },
+	        {
+	            "institution": "Columbia Unviersity",
+	            "name": "sbillinge",
+	            "position": "PI",
+	            "subaward_amount": 330000.0
+	        }
+	    ],
+	    "title": "DMREF: Novel, data validated, nanostructure determination methods for accelerating materials discovery",
+	    "year": 2015
+	}
 	{
 	    "_id": "mypropsal",
 	    "amount": 1000000.0,

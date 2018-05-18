@@ -60,38 +60,118 @@
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">_id:</th><td class="field-body">(‘string’, ‘integer’, ‘float’), short representation, such as this-is-my-name, required</td>
+<tr class="field-odd field"><th class="field-name">_id:</th><td class="field-body"><p class="first">(‘string’, ‘integer’, ‘float’), short representation, such as this-is-my-name, required</p>
+</td>
 </tr>
-<tr class="field-even field"><th class="field-name">amount:</th><td class="field-body">(‘integer’, ‘float’), value of award, required</td>
+<tr class="field-even field"><th class="field-name">amount:</th><td class="field-body"><p class="first">(‘integer’, ‘float’), value of award, required</p>
+</td>
 </tr>
-<tr class="field-odd field"><th class="field-name">authors:</th><td class="field-body">[‘list’, ‘string’], other investigator names, required</td>
+<tr class="field-odd field"><th class="field-name">authors:</th><td class="field-body"><p class="first">[‘list’, ‘string’], other investigator names, required</p>
+</td>
 </tr>
-<tr class="field-even field"><th class="field-name">currency:</th><td class="field-body">string, typically ‘$’ or ‘USD’, required</td>
+<tr class="field-even field"><th class="field-name" colspan="2">call_for_proposals:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><p class="first">string, optional</p>
+</td>
 </tr>
-<tr class="field-odd field"><th class="field-name">day:</th><td class="field-body">integer, day that the proposal is due, required</td>
+<tr class="field-odd field"><th class="field-name">currency:</th><td class="field-body"><p class="first">string, typically ‘$’ or ‘USD’, required</p>
+</td>
 </tr>
-<tr class="field-even field"><th class="field-name">duration:</th><td class="field-body">(‘integer’, ‘float’), number of years, required</td>
+<tr class="field-even field"><th class="field-name">day:</th><td class="field-body"><p class="first">integer, day that the proposal is due, required</p>
+</td>
 </tr>
-<tr class="field-odd field"><th class="field-name">full:</th><td class="field-body">dict, full body of the proposal, optional</td>
+<tr class="field-odd field"><th class="field-name">duration:</th><td class="field-body"><p class="first">(‘integer’, ‘float’), number of years, required</p>
+</td>
 </tr>
-<tr class="field-even field"><th class="field-name">month:</th><td class="field-body">string, month that the proposal is due, required</td>
+<tr class="field-even field"><th class="field-name">full:</th><td class="field-body"><p class="first">dict, full body of the proposal, optional</p>
+</td>
 </tr>
-<tr class="field-odd field"><th class="field-name">pi:</th><td class="field-body">string, principal investigator name, required</td>
+<tr class="field-odd field"><th class="field-name">month:</th><td class="field-body"><p class="first">string, month that the proposal is due, required</p>
+</td>
 </tr>
-<tr class="field-even field"><th class="field-name">pre:</th><td class="field-body">dict, Information about the pre-proposal, optional</td>
+<tr class="field-even field"><th class="field-name" colspan="2">other_agencies_submitted:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><p class="first">[‘list’, ‘string’], Other agencies the proposal has been sent to, optional</p>
+</td>
 </tr>
-<tr class="field-odd field"><th class="field-name">status:</th><td class="field-body">string, e.g. ‘pending’, ‘accepted’, ‘rejected’, required</td>
+<tr class="field-odd field"><th class="field-name">pi:</th><td class="field-body"><p class="first">string, principal investigator name, required</p>
+</td>
 </tr>
-<tr class="field-even field"><th class="field-name">title:</th><td class="field-body">string, actual title of proposal, required</td>
+<tr class="field-even field"><th class="field-name">pre:</th><td class="field-body"><p class="first">dict, Information about the pre-proposal, optional</p>
+</td>
 </tr>
-<tr class="field-odd field"><th class="field-name">year:</th><td class="field-body">integer, Year that the proposal is due, required</td>
+<tr class="field-odd field"><th class="field-name">status:</th><td class="field-body"><p class="first">string, e.g. ‘pending’, ‘accepted’, ‘rejected’, required</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">team:</th><td class="field-body"><p class="first">list, information about the team members participating in the grant., optional</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">cv:</th><td class="field-body">string, optional</td>
+</tr>
+<tr class="field-even field"><th class="field-name">institution:</th><td class="field-body">string, optional</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">name:</th><td class="field-body">string, optional</td>
+</tr>
+<tr class="field-even field"><th class="field-name">position:</th><td class="field-body">string, optional</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">subaward_amount:</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">(‘integer’, ‘float’), optional</td>
+</tr>
+<tr class="field-even field"><th class="field-name">cv:</th><td class="field-body">string, optional</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">institution:</th><td class="field-body">string, optional</td>
+</tr>
+<tr class="field-even field"><th class="field-name">name:</th><td class="field-body">string, optional</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">position:</th><td class="field-body">string, optional</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">subaward_amount:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">(‘integer’, ‘float’), optional</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">title:</th><td class="field-body"><p class="first">string, actual title of proposal, required</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">year:</th><td class="field-body"><p class="first last">integer, Year that the proposal is due, required</p>
+</td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="section" id="yaml-example">
 <h2>YAML Example<a class="headerlink" href="#yaml-example" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">mypropsal</span><span class="p p-Indicator">:</span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">dmref15</span><span class="p p-Indicator">:</span>
+  <span class="l l-Scalar l-Scalar-Plain">amount</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">982785.0</span>
+  <span class="l l-Scalar l-Scalar-Plain">authors</span><span class="p p-Indicator">:</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">qdu</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">dhsu</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">sbillinge</span>
+  <span class="l l-Scalar l-Scalar-Plain">call_for_proposals</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">http://www.nsf.gov/pubs/2014/nsf14591/nsf14591.htm</span>
+  <span class="l l-Scalar l-Scalar-Plain">currency</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">$</span>
+  <span class="l l-Scalar l-Scalar-Plain">day</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">2</span>
+  <span class="l l-Scalar l-Scalar-Plain">duration</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">3</span>
+  <span class="l l-Scalar l-Scalar-Plain">month</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">february</span>
+  <span class="l l-Scalar l-Scalar-Plain">other_agencies_submitted</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+  <span class="l l-Scalar l-Scalar-Plain">pi</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Simon Billinge</span>
+  <span class="l l-Scalar l-Scalar-Plain">status</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">approved</span>
+  <span class="l l-Scalar l-Scalar-Plain">team</span><span class="p p-Indicator">:</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">institution</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Columbia Unviersity</span>
+      <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">qdu</span>
+      <span class="l l-Scalar l-Scalar-Plain">position</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Co-PI</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">institution</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Columbia Unviersity</span>
+      <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">dhsu</span>
+      <span class="l l-Scalar l-Scalar-Plain">position</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Co-PI</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">institution</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Columbia Unviersity</span>
+      <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">sbillinge</span>
+      <span class="l l-Scalar l-Scalar-Plain">position</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">PI</span>
+      <span class="l l-Scalar l-Scalar-Plain">subaward_amount</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">330000.0</span>
+  <span class="l l-Scalar l-Scalar-Plain">title</span><span class="p p-Indicator">:</span> <span class="s">&#39;DMREF:</span><span class="nv"> </span><span class="s">Novel,</span><span class="nv"> </span><span class="s">data</span><span class="nv"> </span><span class="s">validated,</span><span class="nv"> </span><span class="s">nanostructure</span><span class="nv"> </span><span class="s">determination</span><span class="nv"> </span><span class="s">methods</span><span class="nv"> </span><span class="s">for</span><span class="nv"> </span><span class="s">accelerating</span>
+    <span class="s">materials</span><span class="nv"> </span><span class="s">discovery&#39;</span>
+  <span class="l l-Scalar l-Scalar-Plain">year</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">2015</span>
+<span class="l l-Scalar l-Scalar-Plain">mypropsal</span><span class="p p-Indicator">:</span>
   <span class="l l-Scalar l-Scalar-Plain">amount</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">1000000.0</span>
   <span class="l l-Scalar l-Scalar-Plain">authors</span><span class="p p-Indicator">:</span>
     <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Anthony Scopatz</span>
@@ -125,6 +205,43 @@
 <div class="section" id="json-mongo-example">
 <h2>JSON/Mongo Example<a class="headerlink" href="#json-mongo-example" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;dmref15&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;amount&quot;</span><span class="p">:</span> <span class="mf">982785.0</span><span class="p">,</span>
+    <span class="nt">&quot;authors&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="s2">&quot;qdu&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;dhsu&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;sbillinge&quot;</span>
+    <span class="p">],</span>
+    <span class="nt">&quot;call_for_proposals&quot;</span><span class="p">:</span> <span class="s2">&quot;http://www.nsf.gov/pubs/2014/nsf14591/nsf14591.htm&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;currency&quot;</span><span class="p">:</span> <span class="s2">&quot;$&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;day&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+    <span class="nt">&quot;duration&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+    <span class="nt">&quot;month&quot;</span><span class="p">:</span> <span class="s2">&quot;february&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;other_agencies_submitted&quot;</span><span class="p">:</span> <span class="s2">&quot;None&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;pi&quot;</span><span class="p">:</span> <span class="s2">&quot;Simon Billinge&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;approved&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;team&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;institution&quot;</span><span class="p">:</span> <span class="s2">&quot;Columbia Unviersity&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;qdu&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;position&quot;</span><span class="p">:</span> <span class="s2">&quot;Co-PI&quot;</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;institution&quot;</span><span class="p">:</span> <span class="s2">&quot;Columbia Unviersity&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;dhsu&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;position&quot;</span><span class="p">:</span> <span class="s2">&quot;Co-PI&quot;</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;institution&quot;</span><span class="p">:</span> <span class="s2">&quot;Columbia Unviersity&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;sbillinge&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;position&quot;</span><span class="p">:</span> <span class="s2">&quot;PI&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;subaward_amount&quot;</span><span class="p">:</span> <span class="mf">330000.0</span>
+        <span class="p">}</span>
+    <span class="p">],</span>
+    <span class="nt">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;DMREF: Novel, data validated, nanostructure determination methods for accelerating materials discovery&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;year&quot;</span><span class="p">:</span> <span class="mi">2015</span>
+<span class="p">}</span>
+<span class="p">{</span>
     <span class="nt">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;mypropsal&quot;</span><span class="p">,</span>
     <span class="nt">&quot;amount&quot;</span><span class="p">:</span> <span class="mf">1000000.0</span><span class="p">,</span>
     <span class="nt">&quot;authors&quot;</span><span class="p">:</span> <span class="p">[</span>

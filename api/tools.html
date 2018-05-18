@@ -126,7 +126,7 @@ cond is false.</p>
 
 <dl class="function">
 <dt id="regolith.tools.filter_grants">
-<code class="descclassname">regolith.tools.</code><code class="descname">filter_grants</code><span class="sig-paren">(</span><em>input_grants</em>, <em>names</em>, <em>pi=True</em>, <em>reverse=True</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#filter_grants"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.tools.filter_grants" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">regolith.tools.</code><code class="descname">filter_grants</code><span class="sig-paren">(</span><em>input_grants</em>, <em>names</em>, <em>pi=True</em>, <em>reverse=True</em>, <em>multi_pi=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#filter_grants"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.tools.filter_grants" title="Permalink to this definition">¶</a></dt>
 <dd><p>Filter grants by those involved</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -137,6 +137,7 @@ cond is false.</p>
 <li><strong>names</strong> (<em>set of str</em>) – The authors to be filtered against</li>
 <li><strong>pi</strong> (<em>bool, optional</em>) – If True add the grant amount to that person’s total amount</li>
 <li><strong>reverse</strong> (<em>bool, optional</em>) – If True reverse the order, defaults to False</li>
+<li><strong>multi_pi</strong> (<em>bool, optional</em>) – If True compute sub-awards for multi PI grants, defaults to False</li>
 </ul>
 </td>
 </tr>

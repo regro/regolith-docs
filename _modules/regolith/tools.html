@@ -207,7 +207,7 @@
     <span class="k">return</span> <span class="n">projs</span></div>
 
 
-<div class="viewcode-block" id="filter_grants"><a class="viewcode-back" href="../../api/tools.html#regolith.tools.filter_grants">[docs]</a><span class="k">def</span> <span class="nf">filter_grants</span><span class="p">(</span><span class="n">input_grants</span><span class="p">,</span> <span class="n">names</span><span class="p">,</span> <span class="n">pi</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+<div class="viewcode-block" id="filter_grants"><a class="viewcode-back" href="../../api/tools.html#regolith.tools.filter_grants">[docs]</a><span class="k">def</span> <span class="nf">filter_grants</span><span class="p">(</span><span class="n">input_grants</span><span class="p">,</span> <span class="n">names</span><span class="p">,</span> <span class="n">pi</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">multi_pi</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Filter grants by those involved</span>
 
 <span class="sd">    Parameters</span>
@@ -220,6 +220,8 @@
 <span class="sd">        If True add the grant amount to that person&#39;s total amount</span>
 <span class="sd">    reverse : bool, optional</span>
 <span class="sd">        If True reverse the order, defaults to False</span>
+<span class="sd">    multi_pi : bool, optional</span>
+<span class="sd">        If True compute sub-awards for multi PI grants, defaults to False</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">grants</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="n">total_amount</span> <span class="o">=</span> <span class="mf">0.0</span>
@@ -235,6 +237,10 @@
                 <span class="n">total_amount</span> <span class="o">+=</span> <span class="n">grant</span><span class="p">[</span><span class="s1">&#39;amount&#39;</span><span class="p">]</span>
             <span class="k">else</span><span class="p">:</span>
                 <span class="k">continue</span>
+        <span class="k">elif</span> <span class="n">multi_pi</span><span class="p">:</span>
+            <span class="n">grant</span><span class="p">[</span><span class="s1">&#39;subaward_amount&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">person</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;subaward_amount&#39;</span><span class="p">,</span>
+                                                  <span class="mf">0.0</span><span class="p">)</span>
+            <span class="n">grant</span><span class="p">[</span><span class="s1">&#39;multi_pi&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">any</span><span class="p">(</span><span class="n">gets</span><span class="p">(</span><span class="n">grant</span><span class="p">[</span><span class="s1">&#39;team&#39;</span><span class="p">],</span> <span class="s1">&#39;subaward_amount&#39;</span><span class="p">))</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="k">if</span> <span class="n">person</span><span class="p">[</span><span class="s1">&#39;position&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s1">&#39;pi&#39;</span><span class="p">:</span>
                 <span class="k">continue</span>
