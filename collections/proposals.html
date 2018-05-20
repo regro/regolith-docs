@@ -99,10 +99,25 @@
 </td>
 </tr>
 <tr class="field-odd field"><th class="field-name">status:</th><td class="field-body"><p class="first">string, e.g. ‘pending’, ‘accepted’, ‘rejected’, required</p>
+<dl class="docutils">
+<dt>Allowed values:</dt>
+<dd><ul class="first last simple">
+<li>pending</li>
+<li>declined</li>
+<li>accepted</li>
+<li>in-prep</li>
+</ul>
+</dd>
+</dl>
 </td>
 </tr>
 <tr class="field-even field"><th class="field-name">team:</th><td class="field-body"><p class="first">list, information about the team members participating in the grant., optional</p>
 <table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">type:</th><td class="field-body"><p class="first">dict, optional</p>
+<table class="last docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
@@ -117,25 +132,18 @@
 <tr class="field-odd field"><th class="field-name" colspan="2">subaward_amount:</th></tr>
 <tr class="field-odd field"><td>&#160;</td><td class="field-body">(‘integer’, ‘float’), optional</td>
 </tr>
-<tr class="field-even field"><th class="field-name">cv:</th><td class="field-body">string, optional</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">institution:</th><td class="field-body">string, optional</td>
-</tr>
-<tr class="field-even field"><th class="field-name">name:</th><td class="field-body">string, optional</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">position:</th><td class="field-body">string, optional</td>
-</tr>
-<tr class="field-even field"><th class="field-name" colspan="2">subaward_amount:</th></tr>
-<tr class="field-even field"><td>&#160;</td><td class="field-body">(‘integer’, ‘float’), optional</td>
+</tbody>
+</table>
+</td>
 </tr>
 </tbody>
 </table>
 </td>
 </tr>
-<tr class="field-odd field"><th class="field-name">title:</th><td class="field-body"><p class="first">string, actual title of proposal, required</p>
+<tr class="field-even field"><th class="field-name">title:</th><td class="field-body"><p class="first">string, actual title of proposal, required</p>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">year:</th><td class="field-body"><p class="first last">integer, Year that the proposal is due, required</p>
+<tr class="field-odd field"><th class="field-name">year:</th><td class="field-body"><p class="first last">integer, Year that the proposal is due, required</p>
 </td>
 </tr>
 </tbody>

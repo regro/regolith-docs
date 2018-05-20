@@ -43,6 +43,7 @@
 ./_sources/collections/jobs.rst.txt
 ./_sources/collections/news.rst.txt
 ./_sources/collections/people.rst.txt
+./_sources/collections/presentations.rst.txt
 ./_sources/collections/projects.rst.txt
 ./_sources/collections/proposals.rst.txt
 ./_sources/collections/students.rst.txt
@@ -118,6 +119,7 @@
 ./collections/jobs.html
 ./collections/news.html
 ./collections/people.html
+./collections/presentations.html
 ./collections/projects.html
 ./collections/proposals.html
 ./collections/students.html

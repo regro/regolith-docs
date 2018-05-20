@@ -60,19 +60,34 @@
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">_id:</th><td class="field-body">string, A unique id for the assignment, such as HW01-EMCH-558-2016-S, required</td>
+<tr class="field-odd field"><th class="field-name">_id:</th><td class="field-body"><p class="first">string, A unique id for the assignment, such as HW01-EMCH-558-2016-S, required</p>
+</td>
 </tr>
-<tr class="field-even field"><th class="field-name">category:</th><td class="field-body">string, such as ‘homework’ or ‘final’, required</td>
+<tr class="field-even field"><th class="field-name">category:</th><td class="field-body"><p class="first">string, such as ‘homework’ or ‘final’, required</p>
+</td>
 </tr>
-<tr class="field-odd field"><th class="field-name">courses:</th><td class="field-body">[‘string’, ‘list’], ids of the courses that have this assignment, required</td>
+<tr class="field-odd field"><th class="field-name">courses:</th><td class="field-body"><p class="first">[‘string’, ‘list’], ids of the courses that have this assignment, required</p>
+</td>
 </tr>
-<tr class="field-even field"><th class="field-name">file:</th><td class="field-body">string, path to assignment file in store, optional</td>
+<tr class="field-even field"><th class="field-name">file:</th><td class="field-body"><p class="first">string, path to assignment file in store, optional</p>
+</td>
 </tr>
-<tr class="field-odd field"><th class="field-name">points:</th><td class="field-body">list, list of number of points possible for each question. Length is the number of questions, required</td>
+<tr class="field-odd field"><th class="field-name">points:</th><td class="field-body"><p class="first">list, list of number of points possible for each question. Length is the number of questions, required</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">anyof_type:</th><td class="field-body">[‘integer’, ‘float’], optional</td>
 </tr>
-<tr class="field-even field"><th class="field-name">questions:</th><td class="field-body">list, titles for the questions on this assignment, optional</td>
+</tbody>
+</table>
+</td>
 </tr>
-<tr class="field-odd field"><th class="field-name">solution:</th><td class="field-body">string, path to solution file in store, optional</td>
+<tr class="field-even field"><th class="field-name">questions:</th><td class="field-body"><p class="first">list, titles for the questions on this assignment, optional</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">solution:</th><td class="field-body"><p class="first last">string, path to solution file in store, optional</p>
+</td>
 </tr>
 </tbody>
 </table>

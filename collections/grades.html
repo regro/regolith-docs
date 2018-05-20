@@ -60,17 +60,31 @@
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">_id:</th><td class="field-body">string, unique id, typically the student-assignment-course, required</td>
+<tr class="field-odd field"><th class="field-name">_id:</th><td class="field-body"><p class="first">string, unique id, typically the student-assignment-course, required</p>
+</td>
 </tr>
-<tr class="field-even field"><th class="field-name">assignment:</th><td class="field-body">string, assignment id, required</td>
+<tr class="field-even field"><th class="field-name">assignment:</th><td class="field-body"><p class="first">string, assignment id, required</p>
+</td>
 </tr>
-<tr class="field-odd field"><th class="field-name">course:</th><td class="field-body">string, course id, required</td>
+<tr class="field-odd field"><th class="field-name">course:</th><td class="field-body"><p class="first">string, course id, required</p>
+</td>
 </tr>
-<tr class="field-even field"><th class="field-name">filename:</th><td class="field-body">string, path to file in store, optional</td>
+<tr class="field-even field"><th class="field-name">filename:</th><td class="field-body"><p class="first">string, path to file in store, optional</p>
+</td>
 </tr>
-<tr class="field-odd field"><th class="field-name">scores:</th><td class="field-body">list, the number of points earned on each question, required</td>
+<tr class="field-odd field"><th class="field-name">scores:</th><td class="field-body"><p class="first">list, the number of points earned on each question, required</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">anyof_type:</th><td class="field-body">[‘integer’, ‘float’], optional</td>
 </tr>
-<tr class="field-even field"><th class="field-name">student:</th><td class="field-body">string, student id, required</td>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">student:</th><td class="field-body"><p class="first last">string, student id, required</p>
+</td>
 </tr>
 </tbody>
 </table>

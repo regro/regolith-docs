@@ -12,6 +12,7 @@ The following lists key names mapped to its type and meaning for each entry.
 :file: string, path to assignment file in store, optional
 :points: list, list of number of points possible for each question. Length is the number of questions, required
 
+	:anyof_type: ['integer', 'float'], optional
 :questions: list, titles for the questions on this assignment, optional
 :solution: string, path to solution file in store, optional
 

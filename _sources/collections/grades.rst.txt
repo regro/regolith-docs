@@ -12,6 +12,7 @@ The following lists key names mapped to its type and meaning for each entry.
 :filename: string, path to file in store, optional
 :scores: list, the number of points earned on each question, required
 
+	:anyof_type: ['integer', 'float'], optional
 :student: string, student id, required
 
 

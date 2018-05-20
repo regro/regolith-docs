@@ -1,0 +1,88 @@
+Presentations
+=============
+This collection describes presentations that groupmembers make at conferences, symposia, seminars andso on.
+
+Schema
+------
+The following lists key names mapped to its type and meaning for each entry.
+
+:_id: string, unique id for the presentation, required
+:abstract: string, abstract of the presentation, optional
+:authors: ['string', 'list'], Author list., required
+:begin_day: integer, optional
+:begin_month: string, required
+:begin_year: integer, year the conference or trip begins., required
+:department: string, department of the institution where thepresentation will be made, if applicable.  should be discoverable in institutions., optional
+:end_day: integer, optional
+:end_month: string, optional
+:end_year: integer, year the conference or trip ends, optional
+:institution: string, institution where thepresentation will be made, if applicable., optional
+:meeting_name: string, full name of the conference or meeting.  If it is a departmental seminar or colloquium, write Seminaror Colloquium and fill in department and institution fields, required
+:project: ['string', 'list'], project or list of projects that this presentation is associated with.  Should bediscoverable in projects collection, optional
+:title: string, title of the presentation, required
+:type: string, type of presentation, required
+
+	Allowed values: 
+		* award
+		* colloquium
+		* contributed_oral
+		* invited
+		* keynote
+		* nobel
+		* plenary
+		* poster
+		* seminar
+
+
+YAML Example
+------------
+
+.. code-block:: yaml
+
+	18sb_ignobel:
+	  abstract: We pulled apart graphite with tape
+	  authors:
+	    - sbanerjee
+	    - cliu
+	    - sbillinge
+	  begin_day: 22
+	  begin_month: May
+	  begin_year: 2018
+	  department: APAM
+	  end_day: 22
+	  end_month: May
+	  end_year: 2018
+	  institution: bnl
+	  meeting_name: 2018 NSLS-II and CFN Users Meeting
+	  project: 18sob_clustermining
+	  title: 'ClusterMining: extracting core structures of metallic nanoparticles from
+	    the atomic pair distribution function'
+	  type: poster
+
+
+JSON/Mongo Example
+------------------
+
+.. code-block:: json
+
+	{
+	    "_id": "18sb_ignobel",
+	    "abstract": "We pulled apart graphite with tape",
+	    "authors": [
+	        "sbanerjee",
+	        "cliu",
+	        "sbillinge"
+	    ],
+	    "begin_day": 22,
+	    "begin_month": "May",
+	    "begin_year": 2018,
+	    "department": "APAM",
+	    "end_day": 22,
+	    "end_month": "May",
+	    "end_year": 2018,
+	    "institution": "bnl",
+	    "meeting_name": "2018 NSLS-II and CFN Users Meeting",
+	    "project": "18sob_clustermining",
+	    "title": "ClusterMining: extracting core structures of metallic nanoparticles from the atomic pair distribution function",
+	    "type": "poster"
+	}

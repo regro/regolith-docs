@@ -37,12 +37,7 @@ The following lists key names mapped to its type and meaning for each entry.
 		* in-prep
 :team: list, information about the team members participating in the grant., required
 
-
-		:cv: string, optional
-		:institution: string, optional
-		:name: string, optional
-		:position: string, optional
-		:subaward_amount: ('integer', 'float'), optional
+	:type: dict, optional
 
 		:cv: string, optional
 		:institution: string, optional

@@ -1,0 +1,264 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Presentations &#8212; regolith - software group content managment system</title>
+    <link rel="stylesheet" href="../_static/cloud.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Noticia+Text|Open+Sans|Droid+Sans+Mono" type="text/css" />
+    <script type="text/javascript" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../_static/jquery.cookie.js"></script>
+    <script type="text/javascript" src="../_static/cloud.base.js"></script>
+    <script type="text/javascript" src="../_static/cloud.js"></script>
+    <link rel="shortcut icon" href="../_static/regolith-logo.ico"/>
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Projects" href="projects.html" />
+    <link rel="prev" title="People" href="people.html" /> 
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head><body>
+    <div class="relbar-top">
+        
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="projects.html" title="Projects"
+             accesskey="N">next</a></li>
+        <li class="right" >
+          <a href="people.html" title="People"
+             accesskey="P">previous</a> &nbsp; &nbsp;</li>
+    <li><a href="../index.html">regolith</a> &#187;</li>
+
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Collections</a> &#187;</li> 
+      </ul>
+    </div>
+    </div>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="presentations">
+<h1>Presentations<a class="headerlink" href="#presentations" title="Permalink to this headline">¶</a></h1>
+<p>This collection describes presentations that groupmembers make at conferences, symposia, seminars andso on.</p>
+<div class="section" id="schema">
+<h2>Schema<a class="headerlink" href="#schema" title="Permalink to this headline">¶</a></h2>
+<p>The following lists key names mapped to its type and meaning for each entry.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">_id:</th><td class="field-body"><p class="first">string, unique id for the presentation, required</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">abstract:</th><td class="field-body"><p class="first">string, abstract of the presentation, optional</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">authors:</th><td class="field-body"><p class="first">[‘string’, ‘list’], Author list., required</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">begin_day:</th><td class="field-body"><p class="first">integer, optional</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">begin_month:</th><td class="field-body"><p class="first">string, required</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">begin_year:</th><td class="field-body"><p class="first">integer, year the conference or trip begins., required</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">department:</th><td class="field-body"><p class="first">string, department of the institution where thepresentation will be made, if applicable.  should be discoverable in institutions., optional</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">end_day:</th><td class="field-body"><p class="first">integer, optional</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">end_month:</th><td class="field-body"><p class="first">string, optional</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">end_year:</th><td class="field-body"><p class="first">integer, year the conference or trip ends, optional</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">institution:</th><td class="field-body"><p class="first">string, institution where thepresentation will be made, if applicable., optional</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">meeting_name:</th><td class="field-body"><p class="first">string, full name of the conference or meeting.  If it is a departmental seminar or colloquium, write Seminaror Colloquium and fill in department and institution fields, required</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">project:</th><td class="field-body"><p class="first">[‘string’, ‘list’], project or list of projects that this presentation is associated with.  Should bediscoverable in projects collection, optional</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">title:</th><td class="field-body"><p class="first">string, title of the presentation, required</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">type:</th><td class="field-body"><p class="first">string, type of presentation, required</p>
+<dl class="last docutils">
+<dt>Allowed values:</dt>
+<dd><ul class="first last simple">
+<li>award</li>
+<li>colloquium</li>
+<li>contributed_oral</li>
+<li>invited</li>
+<li>keynote</li>
+<li>nobel</li>
+<li>plenary</li>
+<li>poster</li>
+<li>seminar</li>
+</ul>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="yaml-example">
+<h2>YAML Example<a class="headerlink" href="#yaml-example" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">18sb_ignobel</span><span class="p p-Indicator">:</span>
+  <span class="l l-Scalar l-Scalar-Plain">abstract</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">We pulled apart graphite with tape</span>
+  <span class="l l-Scalar l-Scalar-Plain">authors</span><span class="p p-Indicator">:</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">sbanerjee</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">cliu</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">sbillinge</span>
+  <span class="l l-Scalar l-Scalar-Plain">begin_day</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">22</span>
+  <span class="l l-Scalar l-Scalar-Plain">begin_month</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">May</span>
+  <span class="l l-Scalar l-Scalar-Plain">begin_year</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">2018</span>
+  <span class="l l-Scalar l-Scalar-Plain">department</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">APAM</span>
+  <span class="l l-Scalar l-Scalar-Plain">end_day</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">22</span>
+  <span class="l l-Scalar l-Scalar-Plain">end_month</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">May</span>
+  <span class="l l-Scalar l-Scalar-Plain">end_year</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">2018</span>
+  <span class="l l-Scalar l-Scalar-Plain">institution</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">bnl</span>
+  <span class="l l-Scalar l-Scalar-Plain">meeting_name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">2018 NSLS-II and CFN Users Meeting</span>
+  <span class="l l-Scalar l-Scalar-Plain">project</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">18sob_clustermining</span>
+  <span class="l l-Scalar l-Scalar-Plain">title</span><span class="p p-Indicator">:</span> <span class="s">&#39;ClusterMining:</span><span class="nv"> </span><span class="s">extracting</span><span class="nv"> </span><span class="s">core</span><span class="nv"> </span><span class="s">structures</span><span class="nv"> </span><span class="s">of</span><span class="nv"> </span><span class="s">metallic</span><span class="nv"> </span><span class="s">nanoparticles</span><span class="nv"> </span><span class="s">from</span>
+    <span class="s">the</span><span class="nv"> </span><span class="s">atomic</span><span class="nv"> </span><span class="s">pair</span><span class="nv"> </span><span class="s">distribution</span><span class="nv"> </span><span class="s">function&#39;</span>
+  <span class="l l-Scalar l-Scalar-Plain">type</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">poster</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="json-mongo-example">
+<h2>JSON/Mongo Example<a class="headerlink" href="#json-mongo-example" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;18sb_ignobel&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;abstract&quot;</span><span class="p">:</span> <span class="s2">&quot;We pulled apart graphite with tape&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;authors&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="s2">&quot;sbanerjee&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;cliu&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;sbillinge&quot;</span>
+    <span class="p">],</span>
+    <span class="nt">&quot;begin_day&quot;</span><span class="p">:</span> <span class="mi">22</span><span class="p">,</span>
+    <span class="nt">&quot;begin_month&quot;</span><span class="p">:</span> <span class="s2">&quot;May&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;begin_year&quot;</span><span class="p">:</span> <span class="mi">2018</span><span class="p">,</span>
+    <span class="nt">&quot;department&quot;</span><span class="p">:</span> <span class="s2">&quot;APAM&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;end_day&quot;</span><span class="p">:</span> <span class="mi">22</span><span class="p">,</span>
+    <span class="nt">&quot;end_month&quot;</span><span class="p">:</span> <span class="s2">&quot;May&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;end_year&quot;</span><span class="p">:</span> <span class="mi">2018</span><span class="p">,</span>
+    <span class="nt">&quot;institution&quot;</span><span class="p">:</span> <span class="s2">&quot;bnl&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;meeting_name&quot;</span><span class="p">:</span> <span class="s2">&quot;2018 NSLS-II and CFN Users Meeting&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;project&quot;</span><span class="p">:</span> <span class="s2">&quot;18sob_clustermining&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;ClusterMining: extracting core structures of metallic nanoparticles from the atomic pair distribution function&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;poster&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+        <p class="logo"><a href="../index.html" title="index">
+          <img class="logo" src="../_static/regolith-logo.svg" alt="Logo"/>
+        </a></p><div class="sphinx-toc sphinxlocaltoc">
+    <h3><a href="../index.html">Page contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">Presentations</a><ul>
+<li><a class="reference internal" href="#schema">Schema</a></li>
+<li><a class="reference internal" href="#yaml-example">YAML Example</a></li>
+<li><a class="reference internal" href="#json-mongo-example">JSON/Mongo Example</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div class="sphinxprev">
+    <h4>Previous page</h4>
+    <p class="topless"><a href="people.html"
+                          title="Previous page">&larr; People</a></p>
+  </div>
+  <div class="sphinxnext">
+    <h4>Next page</h4>
+    <p class="topless"><a href="projects.html"
+                          title="Next page">&rarr; Projects</a></p>
+  </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+    
+    
+        <div class="sidebar-toggle-group no-js">
+            
+            <button class="sidebar-toggle" id="sidebar-hide" title="Hide the sidebar menu">
+                 «
+                <span class="show-for-small">hide menu</span>
+                
+            </button>
+            <button class="sidebar-toggle" id="sidebar-show" title="Show the sidebar menu">
+                
+                <span class="show-for-small">menu</span>
+                <span class="hide-for-small">sidebar</span>
+                 »
+            </button>
+        </div>
+    
+      <div class="clearer"></div>
+    </div>
+    <div class="relbar-bottom">
+        
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="projects.html" title="Projects"
+             >next</a></li>
+        <li class="right" >
+          <a href="people.html" title="People"
+             >previous</a> &nbsp; &nbsp;</li>
+    <li><a href="../index.html">regolith</a> &#187;</li>
+
+          <li class="nav-item nav-item-1"><a href="index.html" >Collections</a> &#187;</li> 
+      </ul>
+    </div>
+    </div>
+
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2015, Anthony Scopatz.
+    </div>
+    <!-- cloud_sptheme 1.4 -->
+  </body>
+</html>
