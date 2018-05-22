@@ -1,9 +1,9 @@
-validate
-========
+rc
+==
 
 .. code-block:: bash
 
-	usage: regolith validate [-h]
+	usage: regolith rc [-h]
 
 	optional arguments:
 	  -h, --help  show this help message and exit

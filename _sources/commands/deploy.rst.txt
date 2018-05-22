@@ -1,9 +1,9 @@
-validate
-========
+deploy
+======
 
 .. code-block:: bash
 
-	usage: regolith validate [-h]
+	usage: regolith deploy [-h]
 
 	optional arguments:
 	  -h, --help  show this help message and exit

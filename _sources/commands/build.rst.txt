@@ -1,0 +1,15 @@
+build
+=====
+
+.. code-block:: bash
+
+	usage: regolith build [-h] [--no-pdf] build_targets [build_targets ...]
+
+	positional arguments:
+	  build_targets  targets to build. Currently valid targets are: 
+	                 ['cv', 'html', 'publist', 'grade', 'grades', 'resume', 'current-pending']
+
+	optional arguments:
+	  -h, --help     show this help message and exit
+	  --no-pdf       don't produce PDFs during the build (for builds which produce PDFs)
+

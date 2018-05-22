@@ -1,10 +1,11 @@
-validate
-========
+grade
+=====
 
 .. code-block:: bash
 
-	usage: regolith validate [-h]
+	usage: regolith grade [-h] [--debug]
 
 	optional arguments:
 	  -h, --help  show this help message and exit
+	  --debug     starts server in debug mode
 

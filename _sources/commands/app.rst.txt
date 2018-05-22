@@ -1,10 +1,11 @@
-validate
-========
+app
+===
 
 .. code-block:: bash
 
-	usage: regolith validate [-h]
+	usage: regolith app [-h] [--debug]
 
 	optional arguments:
 	  -h, --help  show this help message and exit
+	  --debug     starts server in debug mode
 

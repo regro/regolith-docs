@@ -8,7 +8,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>validate &#8212; regolith - software group content managment system</title>
+    <title>email &#8212; regolith - software group content managment system</title>
     <link rel="stylesheet" href="../_static/cloud.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Noticia+Text|Open+Sans|Droid+Sans+Mono" type="text/css" />
@@ -22,8 +22,8 @@
     <script type="text/javascript" src="../_static/cloud.js"></script>
     <link rel="shortcut icon" href="../_static/regolith-logo.ico"/>
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="yaml-to-json" href="yaml-to-json.html" />
-    <link rel="prev" title="store" href="store.html" /> 
+    <link rel="next" title="grade" href="grade.html" />
+    <link rel="prev" title="deploy" href="deploy.html" /> 
         <meta name="viewport" content="width=device-width, initial-scale=1">
   </head><body>
     <div class="relbar-top">
@@ -32,10 +32,10 @@
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="yaml-to-json.html" title="yaml-to-json"
+          <a href="grade.html" title="grade"
              accesskey="N">next</a></li>
         <li class="right" >
-          <a href="store.html" title="store"
+          <a href="deploy.html" title="deploy"
              accesskey="P">previous</a> &nbsp; &nbsp;</li>
     <li><a href="../index.html">regolith</a> &#187;</li>
 
@@ -50,12 +50,26 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="validate">
-<h1>validate<a class="headerlink" href="#validate" title="Permalink to this headline">¶</a></h1>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>usage: regolith validate <span class="o">[</span>-h<span class="o">]</span>
+  <div class="section" id="email">
+<h1>email<a class="headerlink" href="#email" title="Permalink to this headline">¶</a></h1>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>usage: regolith email <span class="o">[</span>-h<span class="o">]</span> <span class="o">[</span>--to TO<span class="o">]</span> <span class="o">[</span>--subject SUBJECT<span class="o">]</span> <span class="o">[</span>--body BODY<span class="o">]</span>
+                      <span class="o">[</span>--attach ATTACHMENTS <span class="o">[</span>ATTACHMENTS ...<span class="o">]]</span>
+                      <span class="o">[</span>-c COURSE_IDS <span class="o">[</span>COURSE_IDS ...<span class="o">]]</span> <span class="o">[</span>--db DB<span class="o">]</span>
+                      email_target
+
+positional arguments:
+  email_target          targets to email, eg <span class="s2">&quot;test&quot;</span> or <span class="s2">&quot;grades&quot;</span>.
 
 optional arguments:
-  -h, --help  show this <span class="nb">help</span> message and <span class="nb">exit</span>
+  -h, --help            show this <span class="nb">help</span> message and <span class="nb">exit</span>
+  --to TO               receiver of email
+  --subject SUBJECT     email subject line
+  --body BODY           email body, as restructured text
+  --attach ATTACHMENTS <span class="o">[</span>ATTACHMENTS ...<span class="o">]</span>
+                        attachments to send along as well.
+  -c COURSE_IDS <span class="o">[</span>COURSE_IDS ...<span class="o">]</span>, --course-id COURSE_IDS <span class="o">[</span>COURSE_IDS ...<span class="o">]</span>
+                        course identifier that should be emailed.
+  --db DB               database name
 </pre></div>
 </div>
 </div>
@@ -71,13 +85,13 @@ optional arguments:
         </a></p>
   <div class="sphinxprev">
     <h4>Previous page</h4>
-    <p class="topless"><a href="store.html"
-                          title="Previous page">&larr; store</a></p>
+    <p class="topless"><a href="deploy.html"
+                          title="Previous page">&larr; deploy</a></p>
   </div>
   <div class="sphinxnext">
     <h4>Next page</h4>
-    <p class="topless"><a href="yaml-to-json.html"
-                          title="Next page">&rarr; yaml-to-json</a></p>
+    <p class="topless"><a href="grade.html"
+                          title="Next page">&rarr; grade</a></p>
   </div>
 <div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
@@ -118,10 +132,10 @@ optional arguments:
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="yaml-to-json.html" title="yaml-to-json"
+          <a href="grade.html" title="grade"
              >next</a></li>
         <li class="right" >
-          <a href="store.html" title="store"
+          <a href="deploy.html" title="deploy"
              >previous</a> &nbsp; &nbsp;</li>
     <li><a href="../index.html">regolith</a> &#187;</li>
 
