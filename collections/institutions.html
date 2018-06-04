@@ -1,0 +1,204 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Institutions &#8212; regolith - software group content managment system</title>
+    <link rel="stylesheet" href="../_static/cloud.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Noticia+Text|Open+Sans|Droid+Sans+Mono" type="text/css" />
+    <script type="text/javascript" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../_static/jquery.cookie.js"></script>
+    <script type="text/javascript" src="../_static/cloud.base.js"></script>
+    <script type="text/javascript" src="../_static/cloud.js"></script>
+    <link rel="shortcut icon" href="../_static/regolith-logo.ico"/>
+    <link rel="search" title="Search" href="../search.html" /> 
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head><body>
+    <div class="relbar-top">
+        
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+    <li><a href="../index.html">regolith</a> &#187;</li>
+ 
+      </ul>
+    </div>
+    </div>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="institutions">
+<h1>Institutions<a class="headerlink" href="#institutions" title="Permalink to this headline">¶</a></h1>
+<p>This collection will contain all the institutionsin the world and their departments and addresses</p>
+<div class="section" id="schema">
+<h2>Schema<a class="headerlink" href="#schema" title="Permalink to this headline">¶</a></h2>
+<p>The following lists key names mapped to its type and meaning for each entry.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">_id:</th><td class="field-body">string, unique identifier for the institution., required</td>
+</tr>
+<tr class="field-even field"><th class="field-name">aka:</th><td class="field-body">list, list of all the different names this the institution is known by, required</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">city:</th><td class="field-body">string, the city where the institution is, required</td>
+</tr>
+<tr class="field-even field"><th class="field-name">country:</th><td class="field-body">string, The city where the instution is, required</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">departments:</th><td class="field-body">dict, all the departments and centers andvarious units in the institution, optional</td>
+</tr>
+<tr class="field-even field"><th class="field-name">name:</th><td class="field-body">string, the canonical name of the institutions, required</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">schools:</th><td class="field-body">dict, this is more for universities, but it be used for larger divisions in big organizations, optional</td>
+</tr>
+<tr class="field-even field"><th class="field-name">state:</th><td class="field-body">string, the state where the institution is, required</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">zip:</th><td class="field-body">string, the zip or postal code of the institution, required</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="yaml-example">
+<h2>YAML Example<a class="headerlink" href="#yaml-example" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">columbiau</span><span class="p p-Indicator">:</span>
+  <span class="l l-Scalar l-Scalar-Plain">aka</span><span class="p p-Indicator">:</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Columbia University</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Columbia</span>
+  <span class="l l-Scalar l-Scalar-Plain">city</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">New York</span>
+  <span class="l l-Scalar l-Scalar-Plain">country</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">USA</span>
+  <span class="l l-Scalar l-Scalar-Plain">departments</span><span class="p p-Indicator">:</span>
+    <span class="l l-Scalar l-Scalar-Plain">apam</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Department of Applied Physicsand Applied Mathematics</span>
+    <span class="l l-Scalar l-Scalar-Plain">cheme</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Department of ChemicalEngineering</span>
+    <span class="l l-Scalar l-Scalar-Plain">chemistry</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Department of Chemistry</span>
+    <span class="l l-Scalar l-Scalar-Plain">cs</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Computer Science Department</span>
+    <span class="l l-Scalar l-Scalar-Plain">eaee</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Department of Earth andEnvironmental Engineering</span>
+    <span class="l l-Scalar l-Scalar-Plain">physics</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Department of Physics</span>
+  <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Columbia University</span>
+  <span class="l l-Scalar l-Scalar-Plain">schools</span><span class="p p-Indicator">:</span>
+    <span class="l l-Scalar l-Scalar-Plain">aka</span><span class="p p-Indicator">:</span>
+      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">SEAS</span>
+      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Columbia Engineering</span>
+    <span class="l l-Scalar l-Scalar-Plain">seas</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">School of Engineering and Applied Science</span>
+  <span class="l l-Scalar l-Scalar-Plain">state</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">NY</span>
+  <span class="l l-Scalar l-Scalar-Plain">zip</span><span class="p p-Indicator">:</span> <span class="s">&#39;10027&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="json-mongo-example">
+<h2>JSON/Mongo Example<a class="headerlink" href="#json-mongo-example" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;columbiau&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;aka&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="s2">&quot;Columbia University&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;Columbia&quot;</span>
+    <span class="p">],</span>
+    <span class="nt">&quot;city&quot;</span><span class="p">:</span> <span class="s2">&quot;New York&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;country&quot;</span><span class="p">:</span> <span class="s2">&quot;USA&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;departments&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;apam&quot;</span><span class="p">:</span> <span class="s2">&quot;Department of Applied Physicsand Applied Mathematics&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;cheme&quot;</span><span class="p">:</span> <span class="s2">&quot;Department of ChemicalEngineering&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;chemistry&quot;</span><span class="p">:</span> <span class="s2">&quot;Department of Chemistry&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;cs&quot;</span><span class="p">:</span> <span class="s2">&quot;Computer Science Department&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;eaee&quot;</span><span class="p">:</span> <span class="s2">&quot;Department of Earth andEnvironmental Engineering&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;physics&quot;</span><span class="p">:</span> <span class="s2">&quot;Department of Physics&quot;</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Columbia University&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;schools&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;aka&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="s2">&quot;SEAS&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Columbia Engineering&quot;</span>
+        <span class="p">],</span>
+        <span class="nt">&quot;seas&quot;</span><span class="p">:</span> <span class="s2">&quot;School of Engineering and Applied Science&quot;</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;state&quot;</span><span class="p">:</span> <span class="s2">&quot;NY&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;zip&quot;</span><span class="p">:</span> <span class="s2">&quot;10027&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+        <p class="logo"><a href="../index.html" title="index">
+          <img class="logo" src="../_static/regolith-logo.svg" alt="Logo"/>
+        </a></p><div class="sphinx-toc sphinxlocaltoc">
+    <h3><a href="../index.html">Page contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">Institutions</a><ul>
+<li><a class="reference internal" href="#schema">Schema</a></li>
+<li><a class="reference internal" href="#yaml-example">YAML Example</a></li>
+<li><a class="reference internal" href="#json-mongo-example">JSON/Mongo Example</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+    
+    
+        <div class="sidebar-toggle-group no-js">
+            
+            <button class="sidebar-toggle" id="sidebar-hide" title="Hide the sidebar menu">
+                 «
+                <span class="show-for-small">hide menu</span>
+                
+            </button>
+            <button class="sidebar-toggle" id="sidebar-show" title="Show the sidebar menu">
+                
+                <span class="show-for-small">menu</span>
+                <span class="hide-for-small">sidebar</span>
+                 »
+            </button>
+        </div>
+    
+      <div class="clearer"></div>
+    </div>
+    <div class="relbar-bottom">
+        
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+    <li><a href="../index.html">regolith</a> &#187;</li>
+ 
+      </ul>
+    </div>
+    </div>
+
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2015, Anthony Scopatz.
+    </div>
+    <!-- cloud_sptheme 1.4 -->
+  </body>
+</html>

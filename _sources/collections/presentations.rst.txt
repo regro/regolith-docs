@@ -17,8 +17,16 @@ The following lists key names mapped to its type and meaning for each entry.
 :end_month: string, optional
 :end_year: integer, year the conference or trip ends, optional
 :institution: string, institution where thepresentation will be made, if applicable., optional
-:meeting_name: string, full name of the conference or meeting.  If it is a departmental seminar or colloquium, write Seminaror Colloquium and fill in department and institution fields, required
-:project: ['string', 'list'], project or list of projects that this presentation is associated with.  Should bediscoverable in projects collection, optional
+:location: string, city and {state or country} of meeting, optional
+:meeting_name: string, full name of the conference or meeting.  If it is a departmental seminar or colloquium, write Seminaror Colloquium and fill in department and institution fields, optional
+:notes: ['list', 'string'], any reminder or memory aid about anything, optional
+:project: ['string', 'list'], project or list of projects that this presentation is associated with.  Should be discoverable in projects collection, optional
+:status: string, was the invitation accepted or declined, was the trip cancelled?, required
+
+	Allowed values: 
+		* accepted
+		* declined
+		* cancelled
 :title: string, title of the presentation, required
 :type: string, type of presentation, required
 
@@ -39,22 +47,44 @@ YAML Example
 
 .. code-block:: yaml
 
-	18sb_ignobel:
-	  abstract: We pulled apart graphite with tape
+	18sb04_kentstate:
+	  abstract: We made the case for local structure
 	  authors:
-	    - sbanerjee
-	    - cliu
-	    - sbillinge
+	    - scopatz
 	  begin_day: 22
 	  begin_month: May
 	  begin_year: 2018
-	  department: APAM
+	  department: physics
 	  end_day: 22
 	  end_month: May
 	  end_year: 2018
-	  institution: bnl
+	  institution: columbiau
+	  notes:
+	    - what a week!
+	  project: 18kj_conservation
+	  status: accepted
+	  title: Nanostructure challenges and successes from 16th Century warships to 21st
+	    Century energy
+	  type: colloquium
+	18sb_nslsii:
+	  abstract: We pulled apart graphite with tape
+	  authors:
+	    - scopatz
+	  begin_day: 22
+	  begin_month: May
+	  begin_year: 2018
+	  department: apam
+	  end_day: 22
+	  end_month: May
+	  end_year: 2018
+	  institution: columbiau
+	  location: Upton NY
 	  meeting_name: 2018 NSLS-II and CFN Users Meeting
+	  notes:
+	    - We hope the weather will be sunny
+	    - if the weather is nice we will go to the beach
 	  project: 18sob_clustermining
+	  status: accepted
 	  title: 'ClusterMining: extracting core structures of metallic nanoparticles from
 	    the atomic pair distribution function'
 	  type: poster
@@ -66,23 +96,49 @@ JSON/Mongo Example
 .. code-block:: json
 
 	{
-	    "_id": "18sb_ignobel",
-	    "abstract": "We pulled apart graphite with tape",
+	    "_id": "18sb04_kentstate",
+	    "abstract": "We made the case for local structure",
 	    "authors": [
-	        "sbanerjee",
-	        "cliu",
-	        "sbillinge"
+	        "scopatz"
 	    ],
 	    "begin_day": 22,
 	    "begin_month": "May",
 	    "begin_year": 2018,
-	    "department": "APAM",
+	    "department": "physics",
 	    "end_day": 22,
 	    "end_month": "May",
 	    "end_year": 2018,
-	    "institution": "bnl",
+	    "institution": "columbiau",
+	    "notes": [
+	        "what a week!"
+	    ],
+	    "project": "18kj_conservation",
+	    "status": "accepted",
+	    "title": "Nanostructure challenges and successes from 16th Century warships to 21st Century energy",
+	    "type": "colloquium"
+	}
+	{
+	    "_id": "18sb_nslsii",
+	    "abstract": "We pulled apart graphite with tape",
+	    "authors": [
+	        "scopatz"
+	    ],
+	    "begin_day": 22,
+	    "begin_month": "May",
+	    "begin_year": 2018,
+	    "department": "apam",
+	    "end_day": 22,
+	    "end_month": "May",
+	    "end_year": 2018,
+	    "institution": "columbiau",
+	    "location": "Upton NY",
 	    "meeting_name": "2018 NSLS-II and CFN Users Meeting",
+	    "notes": [
+	        "We hope the weather will be sunny",
+	        "if the weather is nice we will go to the beach"
+	    ],
 	    "project": "18sob_clustermining",
+	    "status": "accepted",
 	    "title": "ClusterMining: extracting core structures of metallic nanoparticles from the atomic pair distribution function",
 	    "type": "poster"
 	}

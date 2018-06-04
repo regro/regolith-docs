@@ -40,6 +40,7 @@
 ./_sources/collections/grants.rst.txt
 ./_sources/collections/groups.rst.txt
 ./_sources/collections/index.rst.txt
+./_sources/collections/institutions.rst.txt
 ./_sources/collections/jobs.rst.txt
 ./_sources/collections/news.rst.txt
 ./_sources/collections/people.rst.txt
@@ -128,6 +129,7 @@
 ./collections/grants.html
 ./collections/groups.html
 ./collections/index.html
+./collections/institutions.html
 ./collections/jobs.html
 ./collections/news.html
 ./collections/people.html

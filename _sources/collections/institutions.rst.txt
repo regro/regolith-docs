@@ -1,0 +1,79 @@
+Institutions
+============
+This collection will contain all the institutionsin the world and their departments and addresses
+
+Schema
+------
+The following lists key names mapped to its type and meaning for each entry.
+
+:_id: string, unique identifier for the institution., required
+:aka: list, list of all the different names this the institution is known by, required
+:city: string, the city where the institution is, required
+:country: string, The city where the instution is, required
+:departments: dict, all the departments and centers andvarious units in the institution, optional
+:name: string, the canonical name of the institutions, required
+:schools: dict, this is more for universities, but it be used for larger divisions in big organizations, optional
+:state: string, the state where the institution is, required
+:zip: string, the zip or postal code of the institution, required
+
+
+YAML Example
+------------
+
+.. code-block:: yaml
+
+	columbiau:
+	  aka:
+	    - Columbia University
+	    - Columbia
+	  city: New York
+	  country: USA
+	  departments:
+	    apam: Department of Applied Physicsand Applied Mathematics
+	    cheme: Department of ChemicalEngineering
+	    chemistry: Department of Chemistry
+	    cs: Computer Science Department
+	    eaee: Department of Earth andEnvironmental Engineering
+	    physics: Department of Physics
+	  name: Columbia University
+	  schools:
+	    aka:
+	      - SEAS
+	      - Columbia Engineering
+	    seas: School of Engineering and Applied Science
+	  state: NY
+	  zip: '10027'
+
+
+JSON/Mongo Example
+------------------
+
+.. code-block:: json
+
+	{
+	    "_id": "columbiau",
+	    "aka": [
+	        "Columbia University",
+	        "Columbia"
+	    ],
+	    "city": "New York",
+	    "country": "USA",
+	    "departments": {
+	        "apam": "Department of Applied Physicsand Applied Mathematics",
+	        "cheme": "Department of ChemicalEngineering",
+	        "chemistry": "Department of Chemistry",
+	        "cs": "Computer Science Department",
+	        "eaee": "Department of Earth andEnvironmental Engineering",
+	        "physics": "Department of Physics"
+	    },
+	    "name": "Columbia University",
+	    "schools": {
+	        "aka": [
+	            "SEAS",
+	            "Columbia Engineering"
+	        ],
+	        "seas": "School of Engineering and Applied Science"
+	    },
+	    "state": "NY",
+	    "zip": "10027"
+	}

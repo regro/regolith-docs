@@ -85,7 +85,7 @@ YAML Example
 	  funder: NSF
 	  grant_id: DMREF-1534910
 	  institution: Columbia University
-	  notes: ' Designing Materials to Revolutionize and Engineer our Future (DMREF) '
+	  notes: ' Designing Materials to Revolutionize and Engineer our Future (DMREF)'
 	  person_months_academic: 0.0
 	  person_months_summer: 0.25
 	  program: DMREF
@@ -153,7 +153,7 @@ JSON/Mongo Example
 	    "funder": "NSF",
 	    "grant_id": "DMREF-1534910",
 	    "institution": "Columbia University",
-	    "notes": " Designing Materials to Revolutionize and Engineer our Future (DMREF) ",
+	    "notes": " Designing Materials to Revolutionize and Engineer our Future (DMREF)",
 	    "person_months_academic": 0.0,
 	    "person_months_summer": 0.25,
 	    "program": "DMREF",
