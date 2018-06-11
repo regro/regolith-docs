@@ -103,6 +103,7 @@ The following lists key names mapped to its type and meaning for each entry.
 		:month: string, optional
 		:name: string, optional
 		:year: integer, optional
+		:other: ['string', 'list'], optional
 :skills: list, Skill the group member has, optional
 
 	:type: dict, optional

@@ -7,9 +7,9 @@ Schema
 The following lists key names mapped to its type and meaning for each entry.
 
 :_id: string, unique identifier for the institution., required
-:aka: list, list of all the different names this the institution is known by, required
+:aka: list, list of all the different names this the institution is known by, optional
 :city: string, the city where the institution is, required
-:country: string, The city where the instution is, required
+:country: string, The country where the institution is, required
 :departments: dict, all the departments and centers andvarious units in the institution, optional
 :name: string, the canonical name of the institutions, required
 :schools: dict, this is more for universities, but it be used for larger divisions in big organizations, optional
@@ -37,10 +37,11 @@ YAML Example
 	    physics: Department of Physics
 	  name: Columbia University
 	  schools:
-	    aka:
-	      - SEAS
-	      - Columbia Engineering
-	    seas: School of Engineering and Applied Science
+	    seas:
+	      aka:
+	        - SEAS
+	        - Columbia Engineering
+	      name: School of Engineering and Applied Science
 	  state: NY
 	  zip: '10027'
 
@@ -68,11 +69,13 @@ JSON/Mongo Example
 	    },
 	    "name": "Columbia University",
 	    "schools": {
-	        "aka": [
-	            "SEAS",
-	            "Columbia Engineering"
-	        ],
-	        "seas": "School of Engineering and Applied Science"
+	        "seas": {
+	            "aka": [
+	                "SEAS",
+	                "Columbia Engineering"
+	            ],
+	            "name": "School of Engineering and Applied Science"
+	        }
 	    },
 	    "state": "NY",
 	    "zip": "10027"

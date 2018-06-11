@@ -21,7 +21,9 @@
     <script type="text/javascript" src="../_static/cloud.base.js"></script>
     <script type="text/javascript" src="../_static/cloud.js"></script>
     <link rel="shortcut icon" href="../_static/regolith-logo.ico"/>
-    <link rel="search" title="Search" href="../search.html" /> 
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Jobs" href="jobs.html" />
+    <link rel="prev" title="Groups" href="groups.html" /> 
         <meta name="viewport" content="width=device-width, initial-scale=1">
   </head><body>
     <div class="relbar-top">
@@ -29,8 +31,15 @@
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="jobs.html" title="Jobs"
+             accesskey="N">next</a></li>
+        <li class="right" >
+          <a href="groups.html" title="Groups"
+             accesskey="P">previous</a> &nbsp; &nbsp;</li>
     <li><a href="../index.html">regolith</a> &#187;</li>
- 
+
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Collections</a> &#187;</li> 
       </ul>
     </div>
     </div>
@@ -53,11 +62,11 @@
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">_id:</th><td class="field-body">string, unique identifier for the institution., required</td>
 </tr>
-<tr class="field-even field"><th class="field-name">aka:</th><td class="field-body">list, list of all the different names this the institution is known by, required</td>
+<tr class="field-even field"><th class="field-name">aka:</th><td class="field-body">list, list of all the different names this the institution is known by, optional</td>
 </tr>
 <tr class="field-odd field"><th class="field-name">city:</th><td class="field-body">string, the city where the institution is, required</td>
 </tr>
-<tr class="field-even field"><th class="field-name">country:</th><td class="field-body">string, The city where the instution is, required</td>
+<tr class="field-even field"><th class="field-name">country:</th><td class="field-body">string, The country where the institution is, required</td>
 </tr>
 <tr class="field-odd field"><th class="field-name">departments:</th><td class="field-body">dict, all the departments and centers andvarious units in the institution, optional</td>
 </tr>
@@ -89,10 +98,11 @@
     <span class="l l-Scalar l-Scalar-Plain">physics</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Department of Physics</span>
   <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Columbia University</span>
   <span class="l l-Scalar l-Scalar-Plain">schools</span><span class="p p-Indicator">:</span>
-    <span class="l l-Scalar l-Scalar-Plain">aka</span><span class="p p-Indicator">:</span>
-      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">SEAS</span>
-      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Columbia Engineering</span>
-    <span class="l l-Scalar l-Scalar-Plain">seas</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">School of Engineering and Applied Science</span>
+    <span class="l l-Scalar l-Scalar-Plain">seas</span><span class="p p-Indicator">:</span>
+      <span class="l l-Scalar l-Scalar-Plain">aka</span><span class="p p-Indicator">:</span>
+        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">SEAS</span>
+        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Columbia Engineering</span>
+      <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">School of Engineering and Applied Science</span>
   <span class="l l-Scalar l-Scalar-Plain">state</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">NY</span>
   <span class="l l-Scalar l-Scalar-Plain">zip</span><span class="p p-Indicator">:</span> <span class="s">&#39;10027&#39;</span>
 </pre></div>
@@ -118,11 +128,13 @@
     <span class="p">},</span>
     <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Columbia University&quot;</span><span class="p">,</span>
     <span class="nt">&quot;schools&quot;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="nt">&quot;aka&quot;</span><span class="p">:</span> <span class="p">[</span>
-            <span class="s2">&quot;SEAS&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;Columbia Engineering&quot;</span>
-        <span class="p">],</span>
-        <span class="nt">&quot;seas&quot;</span><span class="p">:</span> <span class="s2">&quot;School of Engineering and Applied Science&quot;</span>
+        <span class="nt">&quot;seas&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;aka&quot;</span><span class="p">:</span> <span class="p">[</span>
+                <span class="s2">&quot;SEAS&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;Columbia Engineering&quot;</span>
+            <span class="p">],</span>
+            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;School of Engineering and Applied Science&quot;</span>
+        <span class="p">}</span>
     <span class="p">},</span>
     <span class="nt">&quot;state&quot;</span><span class="p">:</span> <span class="s2">&quot;NY&quot;</span><span class="p">,</span>
     <span class="nt">&quot;zip&quot;</span><span class="p">:</span> <span class="s2">&quot;10027&quot;</span>
@@ -151,6 +163,16 @@
 </li>
 </ul>
 
+  </div>
+  <div class="sphinxprev">
+    <h4>Previous page</h4>
+    <p class="topless"><a href="groups.html"
+                          title="Previous page">&larr; Groups</a></p>
+  </div>
+  <div class="sphinxnext">
+    <h4>Next page</h4>
+    <p class="topless"><a href="jobs.html"
+                          title="Next page">&rarr; Jobs</a></p>
   </div>
 <div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
@@ -190,8 +212,15 @@
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="jobs.html" title="Jobs"
+             >next</a></li>
+        <li class="right" >
+          <a href="groups.html" title="Groups"
+             >previous</a> &nbsp; &nbsp;</li>
     <li><a href="../index.html">regolith</a> &#187;</li>
- 
+
+          <li class="nav-item nav-item-1"><a href="index.html" >Collections</a> &#187;</li> 
       </ul>
     </div>
     </div>

@@ -209,6 +209,8 @@
     <span class="c1"># Validator</span>
     <span class="n">val</span> <span class="o">=</span> <span class="n">subp</span><span class="o">.</span><span class="n">add_parser</span><span class="p">(</span><span class="s1">&#39;validate&#39;</span><span class="p">,</span>
                           <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Validates db&#39;</span><span class="p">)</span>
+    <span class="n">val</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;--collection&#39;</span><span class="p">,</span> <span class="n">dest</span><span class="o">=</span><span class="s1">&#39;collection&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                     <span class="n">help</span><span class="o">=</span><span class="s1">&#39;If provided only validate that collection&#39;</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">p</span></div>
 
 

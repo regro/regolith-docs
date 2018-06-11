@@ -52,11 +52,23 @@
             
   <div class="section" id="validate">
 <h1>validate<a class="headerlink" href="#validate" title="Permalink to this headline">¶</a></h1>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>usage: regolith validate <span class="o">[</span>-h<span class="o">]</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>usage: regolith validate <span class="o">[</span>-h<span class="o">]</span> <span class="o">[</span>--collection COLLECTION<span class="o">]</span>
 
 optional arguments:
-  -h, --help  show this <span class="nb">help</span> message and <span class="nb">exit</span>
+  -h, --help            show this <span class="nb">help</span> message and <span class="nb">exit</span>
+  --collection COLLECTION
+                        If provided only validate that collection
 </pre></div>
+</div>
+<div class="section" id="misc">
+<h2>Misc<a class="headerlink" href="#misc" title="Permalink to this headline">¶</a></h2>
+<p>This can also be added as a git hook by adding the following to
+<code class="docutils literal notranslate"><span class="pre">.git/hooks/pre-commit</span></code></p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/sh</span>
+regolith validate
+</pre></div>
+</div>
+<p>This can be enabled with <code class="docutils literal notranslate"><span class="pre">chmod</span> <span class="pre">+x</span> <span class="pre">.git/hooks/pre-commit</span></code></p>
 </div>
 </div>
 
@@ -68,7 +80,16 @@ optional arguments:
         <div class="sphinxsidebarwrapper">
         <p class="logo"><a href="../index.html" title="index">
           <img class="logo" src="../_static/regolith-logo.svg" alt="Logo"/>
-        </a></p>
+        </a></p><div class="sphinx-toc sphinxlocaltoc">
+    <h3><a href="../index.html">Page contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">validate</a><ul>
+<li><a class="reference internal" href="#misc">Misc</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
   <div class="sphinxprev">
     <h4>Previous page</h4>
     <p class="topless"><a href="store.html"
