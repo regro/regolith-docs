@@ -19,6 +19,8 @@ The following lists key names mapped to its type and meaning for each entry.
 		:begin_month: string, optional
 		:begin_year: integer, optional
 		:degree: string, optional
+		:department: string, department withinthe institution, optional
+		:group: string, this employment is/was ina group in groups coll, optional
 		:end_month: string, optional
 		:end_year: integer, optional
 		:gpa: ('float', 'string'), optional
@@ -34,6 +36,7 @@ The following lists key names mapped to its type and meaning for each entry.
 		:begin_year: integer, optional
 		:end_month: string, optional
 		:end_year: integer, optional
+		:group: string, this employment is/was ina group in groups coll, optional
 		:location: string, optional
 		:organization: string, optional
 		:other: ['string', 'list'], optional
@@ -143,7 +146,9 @@ YAML Example
 	  education:
 	    - begin_year: 2008
 	      degree: Ph.D. Mechanical Engineering, Nuclear and Radiation Engineering Program
+	      department: apam
 	      end_year: 2011
+	      group: ergs
 	      institution: The University of Texas at Austin
 	      location: Austin, TX
 	      other:
@@ -167,6 +172,7 @@ YAML Example
 	  email: scopatz@cec.sc.edu
 	  employment:
 	    - begin_year: 2015
+	      group: ergs
 	      location: Columbia, SC
 	      organization: The University of South Carolina
 	      other:
@@ -262,7 +268,9 @@ JSON/Mongo Example
 	        {
 	            "begin_year": 2008,
 	            "degree": "Ph.D. Mechanical Engineering, Nuclear and Radiation Engineering Program",
+	            "department": "apam",
 	            "end_year": 2011,
+	            "group": "ergs",
 	            "institution": "The University of Texas at Austin",
 	            "location": "Austin, TX",
 	            "other": [
@@ -296,6 +304,7 @@ JSON/Mongo Example
 	    "employment": [
 	        {
 	            "begin_year": 2015,
+	            "group": "ergs",
 	            "location": "Columbia, SC",
 	            "organization": "The University of South Carolina",
 	            "other": [

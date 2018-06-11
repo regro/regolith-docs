@@ -94,6 +94,10 @@
 </tr>
 <tr class="field-odd field"><th class="field-name">degree:</th><td class="field-body">string, optional</td>
 </tr>
+<tr class="field-even field"><th class="field-name">department:</th><td class="field-body">string, department withinthe institution, optional</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">group:</th><td class="field-body">string, this employment is/was ina group in groups coll, optional</td>
+</tr>
 <tr class="field-even field"><th class="field-name">end_month:</th><td class="field-body">string, optional</td>
 </tr>
 <tr class="field-odd field"><th class="field-name">end_year:</th><td class="field-body">integer, optional</td>
@@ -135,23 +139,25 @@
 </tr>
 <tr class="field-even field"><th class="field-name">end_year:</th><td class="field-body">integer, optional</td>
 </tr>
-<tr class="field-odd field"><th class="field-name">location:</th><td class="field-body">string, optional</td>
+<tr class="field-odd field"><th class="field-name">group:</th><td class="field-body">string, this employment is/was ina group in groups coll, optional</td>
 </tr>
-<tr class="field-even field"><th class="field-name">organization:</th><td class="field-body">string, optional</td>
+<tr class="field-even field"><th class="field-name">location:</th><td class="field-body">string, optional</td>
 </tr>
-<tr class="field-odd field"><th class="field-name">other:</th><td class="field-body">[‘string’, ‘list’], optional</td>
+<tr class="field-odd field"><th class="field-name">organization:</th><td class="field-body">string, optional</td>
 </tr>
-<tr class="field-even field"><th class="field-name">position:</th><td class="field-body">string, optional</td>
+<tr class="field-even field"><th class="field-name">other:</th><td class="field-body">[‘string’, ‘list’], optional</td>
 </tr>
-</tbody>
-</table>
-</td>
+<tr class="field-odd field"><th class="field-name">position:</th><td class="field-body">string, optional</td>
 </tr>
 </tbody>
 </table>
 </td>
 </tr>
-<tr class="field-odd field"><th class="field-name">funding:</th><td class="field-body"><p class="first">list, Funding and scholarship that the group member has individually obtained in the past. <strong>WARNING:</strong> this is not to be confused with the <strong>grants</strong> collection, optional</p>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">funding:</th><td class="field-body"><p class="first">list, Funding and scholarship that the group member has individually obtained in the past. <strong>WARNING:</strong> this is not to be confused with the <strong>grants</strong> collection, optional</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -388,7 +394,9 @@
   <span class="l l-Scalar l-Scalar-Plain">education</span><span class="p p-Indicator">:</span>
     <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">begin_year</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">2008</span>
       <span class="l l-Scalar l-Scalar-Plain">degree</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Ph.D. Mechanical Engineering, Nuclear and Radiation Engineering Program</span>
+      <span class="l l-Scalar l-Scalar-Plain">department</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">apam</span>
       <span class="l l-Scalar l-Scalar-Plain">end_year</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">2011</span>
+      <span class="l l-Scalar l-Scalar-Plain">group</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">ergs</span>
       <span class="l l-Scalar l-Scalar-Plain">institution</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">The University of Texas at Austin</span>
       <span class="l l-Scalar l-Scalar-Plain">location</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Austin, TX</span>
       <span class="l l-Scalar l-Scalar-Plain">other</span><span class="p p-Indicator">:</span>
@@ -412,6 +420,7 @@
   <span class="l l-Scalar l-Scalar-Plain">email</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">scopatz@cec.sc.edu</span>
   <span class="l l-Scalar l-Scalar-Plain">employment</span><span class="p p-Indicator">:</span>
     <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">begin_year</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">2015</span>
+      <span class="l l-Scalar l-Scalar-Plain">group</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">ergs</span>
       <span class="l l-Scalar l-Scalar-Plain">location</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Columbia, SC</span>
       <span class="l l-Scalar l-Scalar-Plain">organization</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">The University of South Carolina</span>
       <span class="l l-Scalar l-Scalar-Plain">other</span><span class="p p-Indicator">:</span>
@@ -505,7 +514,9 @@
         <span class="p">{</span>
             <span class="nt">&quot;begin_year&quot;</span><span class="p">:</span> <span class="mi">2008</span><span class="p">,</span>
             <span class="nt">&quot;degree&quot;</span><span class="p">:</span> <span class="s2">&quot;Ph.D. Mechanical Engineering, Nuclear and Radiation Engineering Program&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;department&quot;</span><span class="p">:</span> <span class="s2">&quot;apam&quot;</span><span class="p">,</span>
             <span class="nt">&quot;end_year&quot;</span><span class="p">:</span> <span class="mi">2011</span><span class="p">,</span>
+            <span class="nt">&quot;group&quot;</span><span class="p">:</span> <span class="s2">&quot;ergs&quot;</span><span class="p">,</span>
             <span class="nt">&quot;institution&quot;</span><span class="p">:</span> <span class="s2">&quot;The University of Texas at Austin&quot;</span><span class="p">,</span>
             <span class="nt">&quot;location&quot;</span><span class="p">:</span> <span class="s2">&quot;Austin, TX&quot;</span><span class="p">,</span>
             <span class="nt">&quot;other&quot;</span><span class="p">:</span> <span class="p">[</span>
@@ -539,6 +550,7 @@
     <span class="nt">&quot;employment&quot;</span><span class="p">:</span> <span class="p">[</span>
         <span class="p">{</span>
             <span class="nt">&quot;begin_year&quot;</span><span class="p">:</span> <span class="mi">2015</span><span class="p">,</span>
+            <span class="nt">&quot;group&quot;</span><span class="p">:</span> <span class="s2">&quot;ergs&quot;</span><span class="p">,</span>
             <span class="nt">&quot;location&quot;</span><span class="p">:</span> <span class="s2">&quot;Columbia, SC&quot;</span><span class="p">,</span>
             <span class="nt">&quot;organization&quot;</span><span class="p">:</span> <span class="s2">&quot;The University of South Carolina&quot;</span><span class="p">,</span>
             <span class="nt">&quot;other&quot;</span><span class="p">:</span> <span class="p">[</span>
