@@ -7,6 +7,7 @@ Schema
 The following lists key names mapped to its type and meaning for each entry.
 
 :_id: string, Unique identifier for submission. This generally includes the author name and part of the title., required
+:aka: list, other names for the group, required
 :department: string, Name of host department, required
 :email: string, Contact email for the group, required
 :institution: string, Name of the host institution, required
@@ -23,6 +24,9 @@ YAML Example
 .. code-block:: yaml
 
 	ergs:
+	  aka:
+	    - Energy Research Group Something
+	    - Scopatz Group
 	  department: Mechanical Engineering
 	  email: <b>scopatz</b> <i>(AT)</i> <b>cec.sc.edu</b>
 	  institution: University of South Carolina
@@ -48,6 +52,10 @@ JSON/Mongo Example
 
 	{
 	    "_id": "ergs",
+	    "aka": [
+	        "Energy Research Group Something",
+	        "Scopatz Group"
+	    ],
 	    "department": "Mechanical Engineering",
 	    "email": "<b>scopatz</b> <i>(AT)</i> <b>cec.sc.edu</b>",
 	    "institution": "University of South Carolina",
