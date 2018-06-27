@@ -8,7 +8,6 @@
 ./_modules/regolith/builders/htmlbuilder.html
 ./_modules/regolith/chained_db.html
 ./_modules/regolith/commands.html
-./_modules/regolith/database.html
 ./_modules/regolith/dates.html
 ./_modules/regolith/deploy.html
 ./_modules/regolith/main.html

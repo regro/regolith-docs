@@ -64,7 +64,8 @@
     <span class="n">backend</span><span class="o">=</span><span class="s1">&#39;filesystem&#39;</span><span class="p">,</span>
     <span class="n">builddir</span><span class="o">=</span><span class="s1">&#39;_build&#39;</span><span class="p">,</span>
     <span class="n">mongodbpath</span><span class="o">=</span><span class="nb">property</span><span class="p">(</span><span class="k">lambda</span> <span class="bp">self</span><span class="p">:</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">builddir</span><span class="p">,</span> <span class="s1">&#39;_dbpath&#39;</span><span class="p">)),</span>
-    <span class="n">local</span><span class="o">=</span><span class="kc">False</span>
+    <span class="n">local</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+    <span class="n">user_config</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">expanduser</span><span class="p">(</span><span class="s1">&#39;~/.config/regolith/user.json&#39;</span><span class="p">)</span>
     <span class="p">)</span>
 
 <span class="n">DISCONNECTED_COMMANDS</span> <span class="o">=</span> <span class="p">{</span>
@@ -233,6 +234,8 @@
     <span class="n">parser</span> <span class="o">=</span> <span class="n">create_parser</span><span class="p">()</span>
     <span class="n">ns</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">(</span><span class="n">args</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">ns</span><span class="o">.</span><span class="n">cmd</span> <span class="ow">in</span> <span class="n">NEED_RC</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">rc</span><span class="o">.</span><span class="n">user_config</span><span class="p">):</span>
+            <span class="n">rc</span><span class="o">.</span><span class="n">_update</span><span class="p">(</span><span class="n">load_rcfile</span><span class="p">(</span><span class="n">rc</span><span class="o">.</span><span class="n">user_config</span><span class="p">))</span>
         <span class="n">rc</span><span class="o">.</span><span class="n">_update</span><span class="p">(</span><span class="n">load_rcfile</span><span class="p">(</span><span class="s1">&#39;regolithrc.json&#39;</span><span class="p">))</span>
     <span class="n">rc</span><span class="o">.</span><span class="n">_update</span><span class="p">(</span><span class="n">ns</span><span class="o">.</span><span class="vm">__dict__</span><span class="p">)</span>
     <span class="k">if</span> <span class="s1">&#39;schemas&#39;</span> <span class="ow">in</span> <span class="n">rc</span><span class="o">.</span><span class="n">_dict</span><span class="p">:</span>

@@ -183,6 +183,17 @@ can set them in the run control file should you choose to.</p>
 <p>See the collections for a complete list of the schemas.</p>
 </div>
 </div>
+<div class="section" id="user-configuration">
+<h1>User Configuration<a class="headerlink" href="#user-configuration" title="Permalink to this headline">¶</a></h1>
+<p>Users can also provide information available to all databases via a local user
+configuration file.
+The file must be stored in <code class="docutils literal notranslate"><span class="pre">'~/.config/regolith/user.json</span></code> and can have
+keys similar to <code class="docutils literal notranslate"><span class="pre">regolithrc.json</span></code>.
+Note that these keys are applied before the <code class="docutils literal notranslate"><span class="pre">regolithrc.json</span></code> so if there
+are conflicting keys the user keys are overridden.
+These keys could be used for storing information for emailing, git remotes,
+and other configuration.</p>
+</div>
 
 
           </div>
@@ -219,6 +230,7 @@ can set them in the run control file should you choose to.</p>
 <li><a class="reference internal" href="#schemas"><code class="docutils literal notranslate"><span class="pre">schemas</span></code></a></li>
 </ul>
 </li>
+<li><a class="reference internal" href="#user-configuration">User Configuration</a></li>
 </ul>
 
   </div>
