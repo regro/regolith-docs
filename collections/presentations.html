@@ -72,7 +72,7 @@
 <tr class="field-even field"><th class="field-name">begin_day:</th><td class="field-body"><p class="first">integer, optional</p>
 </td>
 </tr>
-<tr class="field-odd field"><th class="field-name">begin_month:</th><td class="field-body"><p class="first">string, required</p>
+<tr class="field-odd field"><th class="field-name">begin_month:</th><td class="field-body"><p class="first">integer, required</p>
 </td>
 </tr>
 <tr class="field-even field"><th class="field-name">begin_year:</th><td class="field-body"><p class="first">integer, year the conference or trip begins., required</p>
@@ -84,7 +84,7 @@
 <tr class="field-even field"><th class="field-name">end_day:</th><td class="field-body"><p class="first">integer, optional</p>
 </td>
 </tr>
-<tr class="field-odd field"><th class="field-name">end_month:</th><td class="field-body"><p class="first">string, optional</p>
+<tr class="field-odd field"><th class="field-name">end_month:</th><td class="field-body"><p class="first">integer, optional</p>
 </td>
 </tr>
 <tr class="field-even field"><th class="field-name">end_year:</th><td class="field-body"><p class="first">integer, year the conference or trip ends, optional</p>
@@ -105,10 +105,12 @@
 <tr class="field-odd field"><th class="field-name">project:</th><td class="field-body"><p class="first">[‘string’, ‘list’], project or list of projects that this presentation is associated with.  Should be discoverable in projects collection, optional</p>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">status:</th><td class="field-body"><p class="first">string, was the invitation accepted or declined, was the trip cancelled?, required</p>
+<tr class="field-even field"><th class="field-name">status:</th><td class="field-body"><p class="first">string, Is the application in prep or submitted, was the invitation accepted or declined, was the trip cancelled?, required</p>
 <dl class="docutils">
 <dt>Allowed values:</dt>
 <dd><ul class="first last simple">
+<li>in-prep</li>
+<li>submitted</li>
 <li>accepted</li>
 <li>declined</li>
 <li>cancelled</li>
@@ -129,7 +131,6 @@
 <li>contributed_oral</li>
 <li>invited</li>
 <li>keynote</li>
-<li>nobel</li>
 <li>plenary</li>
 <li>poster</li>
 <li>seminar</li>
@@ -148,11 +149,11 @@
   <span class="l l-Scalar l-Scalar-Plain">authors</span><span class="p p-Indicator">:</span>
     <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">scopatz</span>
   <span class="l l-Scalar l-Scalar-Plain">begin_day</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">22</span>
-  <span class="l l-Scalar l-Scalar-Plain">begin_month</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">May</span>
+  <span class="l l-Scalar l-Scalar-Plain">begin_month</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">5</span>
   <span class="l l-Scalar l-Scalar-Plain">begin_year</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">2018</span>
   <span class="l l-Scalar l-Scalar-Plain">department</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">physics</span>
   <span class="l l-Scalar l-Scalar-Plain">end_day</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">22</span>
-  <span class="l l-Scalar l-Scalar-Plain">end_month</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">May</span>
+  <span class="l l-Scalar l-Scalar-Plain">end_month</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">5</span>
   <span class="l l-Scalar l-Scalar-Plain">end_year</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">2018</span>
   <span class="l l-Scalar l-Scalar-Plain">institution</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">columbiau</span>
   <span class="l l-Scalar l-Scalar-Plain">notes</span><span class="p p-Indicator">:</span>
@@ -167,11 +168,11 @@
   <span class="l l-Scalar l-Scalar-Plain">authors</span><span class="p p-Indicator">:</span>
     <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">scopatz</span>
   <span class="l l-Scalar l-Scalar-Plain">begin_day</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">22</span>
-  <span class="l l-Scalar l-Scalar-Plain">begin_month</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">May</span>
+  <span class="l l-Scalar l-Scalar-Plain">begin_month</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">5</span>
   <span class="l l-Scalar l-Scalar-Plain">begin_year</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">2018</span>
   <span class="l l-Scalar l-Scalar-Plain">department</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">apam</span>
   <span class="l l-Scalar l-Scalar-Plain">end_day</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">22</span>
-  <span class="l l-Scalar l-Scalar-Plain">end_month</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">May</span>
+  <span class="l l-Scalar l-Scalar-Plain">end_month</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">5</span>
   <span class="l l-Scalar l-Scalar-Plain">end_year</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">2018</span>
   <span class="l l-Scalar l-Scalar-Plain">institution</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">columbiau</span>
   <span class="l l-Scalar l-Scalar-Plain">location</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Upton NY</span>
@@ -196,11 +197,11 @@
         <span class="s2">&quot;scopatz&quot;</span>
     <span class="p">],</span>
     <span class="nt">&quot;begin_day&quot;</span><span class="p">:</span> <span class="mi">22</span><span class="p">,</span>
-    <span class="nt">&quot;begin_month&quot;</span><span class="p">:</span> <span class="s2">&quot;May&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;begin_month&quot;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span>
     <span class="nt">&quot;begin_year&quot;</span><span class="p">:</span> <span class="mi">2018</span><span class="p">,</span>
     <span class="nt">&quot;department&quot;</span><span class="p">:</span> <span class="s2">&quot;physics&quot;</span><span class="p">,</span>
     <span class="nt">&quot;end_day&quot;</span><span class="p">:</span> <span class="mi">22</span><span class="p">,</span>
-    <span class="nt">&quot;end_month&quot;</span><span class="p">:</span> <span class="s2">&quot;May&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;end_month&quot;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span>
     <span class="nt">&quot;end_year&quot;</span><span class="p">:</span> <span class="mi">2018</span><span class="p">,</span>
     <span class="nt">&quot;institution&quot;</span><span class="p">:</span> <span class="s2">&quot;columbiau&quot;</span><span class="p">,</span>
     <span class="nt">&quot;notes&quot;</span><span class="p">:</span> <span class="p">[</span>
@@ -218,11 +219,11 @@
         <span class="s2">&quot;scopatz&quot;</span>
     <span class="p">],</span>
     <span class="nt">&quot;begin_day&quot;</span><span class="p">:</span> <span class="mi">22</span><span class="p">,</span>
-    <span class="nt">&quot;begin_month&quot;</span><span class="p">:</span> <span class="s2">&quot;May&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;begin_month&quot;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span>
     <span class="nt">&quot;begin_year&quot;</span><span class="p">:</span> <span class="mi">2018</span><span class="p">,</span>
     <span class="nt">&quot;department&quot;</span><span class="p">:</span> <span class="s2">&quot;apam&quot;</span><span class="p">,</span>
     <span class="nt">&quot;end_day&quot;</span><span class="p">:</span> <span class="mi">22</span><span class="p">,</span>
-    <span class="nt">&quot;end_month&quot;</span><span class="p">:</span> <span class="s2">&quot;May&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;end_month&quot;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span>
     <span class="nt">&quot;end_year&quot;</span><span class="p">:</span> <span class="mi">2018</span><span class="p">,</span>
     <span class="nt">&quot;institution&quot;</span><span class="p">:</span> <span class="s2">&quot;columbiau&quot;</span><span class="p">,</span>
     <span class="nt">&quot;location&quot;</span><span class="p">:</span> <span class="s2">&quot;Upton NY&quot;</span><span class="p">,</span>

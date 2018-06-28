@@ -10,20 +10,22 @@ The following lists key names mapped to its type and meaning for each entry.
 :abstract: string, abstract of the presentation, optional
 :authors: ['string', 'list'], Author list., required
 :begin_day: integer, optional
-:begin_month: string, required
+:begin_month: integer, required
 :begin_year: integer, year the conference or trip begins., required
 :department: string, department of the institution where thepresentation will be made, if applicable.  should be discoverable in institutions., optional
 :end_day: integer, optional
-:end_month: string, optional
+:end_month: integer, optional
 :end_year: integer, year the conference or trip ends, optional
 :institution: string, institution where thepresentation will be made, if applicable., optional
 :location: string, city and {state or country} of meeting, optional
 :meeting_name: string, full name of the conference or meeting.  If it is a departmental seminar or colloquium, write Seminaror Colloquium and fill in department and institution fields, optional
 :notes: ['list', 'string'], any reminder or memory aid about anything, optional
 :project: ['string', 'list'], project or list of projects that this presentation is associated with.  Should be discoverable in projects collection, optional
-:status: string, was the invitation accepted or declined, was the trip cancelled?, required
+:status: string, Is the application in prep or submitted, was the invitation accepted or declined, was the trip cancelled?, required
 
 	Allowed values: 
+		* in-prep
+		* submitted
 		* accepted
 		* declined
 		* cancelled
@@ -36,7 +38,6 @@ The following lists key names mapped to its type and meaning for each entry.
 		* contributed_oral
 		* invited
 		* keynote
-		* nobel
 		* plenary
 		* poster
 		* seminar
@@ -52,11 +53,11 @@ YAML Example
 	  authors:
 	    - scopatz
 	  begin_day: 22
-	  begin_month: May
+	  begin_month: 5
 	  begin_year: 2018
 	  department: physics
 	  end_day: 22
-	  end_month: May
+	  end_month: 5
 	  end_year: 2018
 	  institution: columbiau
 	  notes:
@@ -71,11 +72,11 @@ YAML Example
 	  authors:
 	    - scopatz
 	  begin_day: 22
-	  begin_month: May
+	  begin_month: 5
 	  begin_year: 2018
 	  department: apam
 	  end_day: 22
-	  end_month: May
+	  end_month: 5
 	  end_year: 2018
 	  institution: columbiau
 	  location: Upton NY
@@ -102,11 +103,11 @@ JSON/Mongo Example
 	        "scopatz"
 	    ],
 	    "begin_day": 22,
-	    "begin_month": "May",
+	    "begin_month": 5,
 	    "begin_year": 2018,
 	    "department": "physics",
 	    "end_day": 22,
-	    "end_month": "May",
+	    "end_month": 5,
 	    "end_year": 2018,
 	    "institution": "columbiau",
 	    "notes": [
@@ -124,11 +125,11 @@ JSON/Mongo Example
 	        "scopatz"
 	    ],
 	    "begin_day": 22,
-	    "begin_month": "May",
+	    "begin_month": 5,
 	    "begin_year": 2018,
 	    "department": "apam",
 	    "end_day": 22,
-	    "end_month": "May",
+	    "end_month": 5,
 	    "end_year": 2018,
 	    "institution": "columbiau",
 	    "location": "Upton NY",
