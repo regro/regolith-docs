@@ -56,14 +56,21 @@
 <span class="kn">import</span> <span class="nn">subprocess</span>
 <span class="kn">from</span> <span class="nn">copy</span> <span class="k">import</span> <span class="n">deepcopy</span>
 <span class="kn">from</span> <span class="nn">pprint</span> <span class="k">import</span> <span class="n">pformat</span>
-<span class="kn">from</span> <span class="nn">collections</span> <span class="k">import</span> <span class="n">Mapping</span><span class="p">,</span> <span class="n">Iterable</span><span class="p">,</span> <span class="n">Hashable</span><span class="p">,</span> <span class="n">Sequence</span><span class="p">,</span> <span class="n">namedtuple</span><span class="p">,</span> \
-    <span class="n">MutableMapping</span>
+<span class="kn">from</span> <span class="nn">collections</span> <span class="k">import</span> <span class="p">(</span>
+    <span class="n">Mapping</span><span class="p">,</span>
+    <span class="n">Iterable</span><span class="p">,</span>
+    <span class="n">Hashable</span><span class="p">,</span>
+    <span class="n">Sequence</span><span class="p">,</span>
+    <span class="n">namedtuple</span><span class="p">,</span>
+    <span class="n">MutableMapping</span><span class="p">,</span>
+<span class="p">)</span>
 <span class="kn">from</span> <span class="nn">hashlib</span> <span class="k">import</span> <span class="n">md5</span>
 <span class="kn">from</span> <span class="nn">warnings</span> <span class="k">import</span> <span class="n">warn</span>
 
 <span class="kn">from</span> <span class="nn">regolith.validators</span> <span class="k">import</span> <span class="n">always_true</span><span class="p">,</span> <span class="n">noop</span>
 
-<span class="n">FORBIDDEN_NAMES</span> <span class="o">=</span> <span class="nb">frozenset</span><span class="p">([</span><span class="s1">&#39;del&#39;</span><span class="p">,</span> <span class="s1">&#39;global&#39;</span><span class="p">])</span>
+<span class="n">FORBIDDEN_NAMES</span> <span class="o">=</span> <span class="nb">frozenset</span><span class="p">([</span><span class="s2">&quot;del&quot;</span><span class="p">,</span> <span class="s2">&quot;global&quot;</span><span class="p">])</span>
+
 
 <div class="viewcode-block" id="warn_forbidden_name"><a class="viewcode-back" href="../../api/runcontrol.html#regolith.runcontrol.warn_forbidden_name">[docs]</a><span class="k">def</span> <span class="nf">warn_forbidden_name</span><span class="p">(</span><span class="n">forname</span><span class="p">,</span> <span class="n">inname</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">rename</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Warns the user that a forbidden name has been found.&quot;&quot;&quot;</span>
@@ -75,39 +82,44 @@
     <span class="n">warn</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span> <span class="ne">RuntimeWarning</span><span class="p">)</span></div>
 
 
-
 <div class="viewcode-block" id="ensuredirs"><a class="viewcode-back" href="../../api/runcontrol.html#regolith.runcontrol.ensuredirs">[docs]</a><span class="k">def</span> <span class="nf">ensuredirs</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;For a file path, ensure that its directory path exists.&quot;&quot;&quot;</span>
     <span class="n">d</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">f</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
     <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isdir</span><span class="p">(</span><span class="n">d</span><span class="p">):</span>
         <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">d</span><span class="p">)</span></div>
 
+
 <div class="viewcode-block" id="touch"><a class="viewcode-back" href="../../api/runcontrol.html#regolith.runcontrol.touch">[docs]</a><span class="k">def</span> <span class="nf">touch</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Opens a file and updates the mtime, like the posix command of the same name.&quot;&quot;&quot;</span>
-    <span class="k">with</span> <span class="n">io</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="k">with</span> <span class="n">io</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s2">&quot;a&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
         <span class="n">os</span><span class="o">.</span><span class="n">utime</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span></div>
 
 
 <div class="viewcode-block" id="exec_file"><a class="viewcode-back" href="../../api/runcontrol.html#regolith.runcontrol.exec_file">[docs]</a><span class="k">def</span> <span class="nf">exec_file</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">glb</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;A function equivalent to the Python 2.x execfile statement.&quot;&quot;&quot;</span>
-    <span class="k">with</span> <span class="n">io</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="k">with</span> <span class="n">io</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
         <span class="n">src</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
     <span class="n">exec</span><span class="p">(</span><span class="nb">compile</span><span class="p">(</span><span class="n">src</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="s2">&quot;exec&quot;</span><span class="p">),</span> <span class="n">glb</span><span class="p">,</span> <span class="n">loc</span><span class="p">)</span></div>
+
 
 <span class="c1">#</span>
 <span class="c1"># Run Control</span>
 <span class="c1">#</span>
 
+
 <div class="viewcode-block" id="NotSpecifiedType"><a class="viewcode-back" href="../../api/runcontrol.html#regolith.runcontrol.NotSpecifiedType">[docs]</a><span class="k">class</span> <span class="nc">NotSpecifiedType</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;A helper class singleton for run control meaning that a &#39;real&#39; value</span>
 <span class="sd">    has not been given.&quot;&quot;&quot;</span>
+
     <span class="k">def</span> <span class="nf">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="s2">&quot;NotSpecified&quot;</span></div>
+
 
 <span class="n">NotSpecified</span> <span class="o">=</span> <span class="n">NotSpecifiedType</span><span class="p">()</span>
 <span class="sd">&quot;&quot;&quot;A helper class singleton for run control meaning that a &#39;real&#39; value</span>
 <span class="sd">has not been given.</span>
 <span class="sd">&quot;&quot;&quot;</span>
+
 
 <div class="viewcode-block" id="RunControl"><a class="viewcode-back" href="../../api/runcontrol.html#regolith.runcontrol.RunControl">[docs]</a><span class="k">class</span> <span class="nc">RunControl</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;A composable configuration class. Unlike argparse.Namespace,</span>
@@ -143,7 +155,7 @@
         <span class="k">return</span> <span class="n">value</span>
 
     <span class="k">def</span> <span class="nf">__setattr__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
-        <span class="k">if</span> <span class="n">key</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">&#39;_&#39;</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">key</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;_&quot;</span><span class="p">):</span>
             <span class="bp">self</span><span class="o">.</span><span class="vm">__dict__</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="k">if</span> <span class="n">value</span> <span class="ow">is</span> <span class="n">NotSpecified</span> <span class="ow">and</span> <span class="n">key</span> <span class="ow">in</span> <span class="bp">self</span><span class="p">:</span>
@@ -184,11 +196,14 @@
         <span class="k">return</span> <span class="s2">&quot;</span><span class="si">{0}</span><span class="s2">(</span><span class="si">{1}</span><span class="s2">)&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="p">,</span> <span class="n">s</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">__contains__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
-        <span class="k">return</span> <span class="n">key</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_dict</span> <span class="ow">or</span> <span class="n">key</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__dict__</span> <span class="ow">or</span> \
-                                    <span class="n">key</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__dict__</span>
+        <span class="k">return</span> <span class="p">(</span>
+            <span class="n">key</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_dict</span>
+            <span class="ow">or</span> <span class="n">key</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__dict__</span>
+            <span class="ow">or</span> <span class="n">key</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__dict__</span>
+        <span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">__eq__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
-        <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="s1">&#39;_dict&#39;</span><span class="p">):</span>
+        <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="s2">&quot;_dict&quot;</span><span class="p">):</span>
             <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_dict</span> <span class="o">==</span> <span class="n">other</span><span class="o">.</span><span class="n">_dict</span>
         <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="n">Mapping</span><span class="p">):</span>
             <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_dict</span> <span class="o">==</span> <span class="n">other</span>
@@ -196,7 +211,7 @@
             <span class="k">return</span> <span class="bp">NotImplemented</span>
 
     <span class="k">def</span> <span class="nf">__ne__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
-        <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="s1">&#39;_dict&#39;</span><span class="p">):</span>
+        <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="s2">&quot;_dict&quot;</span><span class="p">):</span>
             <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_dict</span> <span class="o">!=</span> <span class="n">other</span><span class="o">.</span><span class="n">_dict</span>
         <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="n">Mapping</span><span class="p">):</span>
             <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_dict</span> <span class="o">!=</span> <span class="n">other</span>
@@ -209,9 +224,9 @@
 <span class="sd">        value is called to perform the update.  This function should return</span>
 <span class="sd">        a copy to be safe and not update in-place.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="s1">&#39;_dict&#39;</span><span class="p">):</span>
+        <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="s2">&quot;_dict&quot;</span><span class="p">):</span>
             <span class="n">other</span> <span class="o">=</span> <span class="n">other</span><span class="o">.</span><span class="n">_dict</span>
-        <span class="k">elif</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="s1">&#39;items&#39;</span><span class="p">):</span>
+        <span class="k">elif</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="s2">&quot;items&quot;</span><span class="p">):</span>
             <span class="n">other</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">other</span><span class="p">)</span>
         <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">other</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
             <span class="k">if</span> <span class="n">v</span> <span class="ow">is</span> <span class="n">NotSpecified</span><span class="p">:</span>
@@ -239,7 +254,6 @@
         <span class="k">return</span> <span class="n">value</span> <span class="k">if</span> <span class="n">validator</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="k">else</span> <span class="n">convertor</span><span class="p">(</span><span class="n">value</span><span class="p">)</span></div>
 
 
-
 <div class="viewcode-block" id="flatten"><a class="viewcode-back" href="../../api/runcontrol.html#regolith.runcontrol.flatten">[docs]</a><span class="k">def</span> <span class="nf">flatten</span><span class="p">(</span><span class="n">iterable</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Generator which returns flattened version of nested sequences.&quot;&quot;&quot;</span>
     <span class="k">for</span> <span class="n">el</span> <span class="ow">in</span> <span class="n">iterable</span><span class="p">:</span>
@@ -251,9 +265,11 @@
         <span class="k">else</span><span class="p">:</span>
             <span class="k">yield</span> <span class="n">el</span></div>
 
+
 <span class="c1">#</span>
 <span class="c1"># Memoization</span>
 <span class="c1">#</span>
+
 
 <div class="viewcode-block" id="ishashable"><a class="viewcode-back" href="../../api/runcontrol.html#regolith.runcontrol.ishashable">[docs]</a><span class="k">def</span> <span class="nf">ishashable</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Tests if a value is hashable.&quot;&quot;&quot;</span>
@@ -263,10 +279,9 @@
         <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">Iterable</span><span class="p">):</span>
             <span class="k">return</span> <span class="nb">all</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="n">ishashable</span><span class="p">,</span> <span class="n">x</span><span class="p">))</span>
         <span class="k">else</span><span class="p">:</span>
-         <span class="k">return</span> <span class="kc">True</span>
+            <span class="k">return</span> <span class="kc">True</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="k">return</span> <span class="kc">False</span></div>
-
 </pre></div>
 
           </div>

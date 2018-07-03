@@ -55,18 +55,20 @@
 <span class="kn">from</span> <span class="nn">regolith.emailer</span> <span class="k">import</span> <span class="n">emailer</span> <span class="k">as</span> <span class="n">email</span>
 <span class="kn">from</span> <span class="nn">regolith.deploy</span> <span class="k">import</span> <span class="n">deploy</span> <span class="k">as</span> <span class="n">dploy</span>
 
-<span class="n">RE_AND</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s1">&#39;\s+and\s+&#39;</span><span class="p">)</span>
-<span class="n">RE_SPACE</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s1">&#39;\s+&#39;</span><span class="p">)</span>
+<span class="n">RE_AND</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s2">&quot;\s+and\s+&quot;</span><span class="p">)</span>
+<span class="n">RE_SPACE</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s2">&quot;\s+&quot;</span><span class="p">)</span>
 
-<span class="n">INGEST_COLL_LU</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;.bib&#39;</span><span class="p">:</span> <span class="s1">&#39;citations&#39;</span><span class="p">}</span>
+<span class="n">INGEST_COLL_LU</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;.bib&quot;</span><span class="p">:</span> <span class="s2">&quot;citations&quot;</span><span class="p">}</span>
 
 
 <div class="viewcode-block" id="add_cmd"><a class="viewcode-back" href="../../api/commands.html#regolith.commands.add_cmd">[docs]</a><span class="k">def</span> <span class="nf">add_cmd</span><span class="p">(</span><span class="n">rc</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Adds documents to a collection in a database.&quot;&quot;&quot;</span>
     <span class="n">db</span> <span class="o">=</span> <span class="n">rc</span><span class="o">.</span><span class="n">client</span><span class="p">[</span><span class="n">rc</span><span class="o">.</span><span class="n">db</span><span class="p">]</span>
     <span class="n">coll</span> <span class="o">=</span> <span class="n">db</span><span class="p">[</span><span class="n">rc</span><span class="o">.</span><span class="n">coll</span><span class="p">]</span>
-    <span class="n">docs</span> <span class="o">=</span> <span class="p">[</span><span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">doc</span><span class="p">)</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">doc</span><span class="p">,</span> <span class="n">string_types</span><span class="p">)</span> <span class="k">else</span> <span class="n">doc</span>
-            <span class="k">for</span> <span class="n">doc</span> <span class="ow">in</span> <span class="n">rc</span><span class="o">.</span><span class="n">documents</span><span class="p">]</span>
+    <span class="n">docs</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">doc</span><span class="p">)</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">doc</span><span class="p">,</span> <span class="n">string_types</span><span class="p">)</span> <span class="k">else</span> <span class="n">doc</span>
+        <span class="k">for</span> <span class="n">doc</span> <span class="ow">in</span> <span class="n">rc</span><span class="o">.</span><span class="n">documents</span>
+    <span class="p">]</span>
     <span class="n">rc</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">insert_many</span><span class="p">(</span><span class="n">rc</span><span class="o">.</span><span class="n">db</span><span class="p">,</span> <span class="n">rc</span><span class="o">.</span><span class="n">coll</span><span class="p">,</span> <span class="n">docs</span><span class="p">)</span></div>
 
 
@@ -79,9 +81,9 @@
     <span class="n">parser</span><span class="o">.</span><span class="n">ignore_nonstandard_types</span> <span class="o">=</span> <span class="kc">False</span>
 
     <span class="k">def</span> <span class="nf">customizations</span><span class="p">(</span><span class="n">record</span><span class="p">):</span>
-        <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;author&#39;</span><span class="p">,</span> <span class="s1">&#39;editor&#39;</span><span class="p">]:</span>
+        <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;author&quot;</span><span class="p">,</span> <span class="s2">&quot;editor&quot;</span><span class="p">]:</span>
             <span class="k">if</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">record</span><span class="p">:</span>
-                <span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">record</span><span class="p">[</span><span class="n">n</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="s1">&#39; &#39;</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;, &#39;</span><span class="p">)]</span>
+                <span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">record</span><span class="p">[</span><span class="n">n</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="s2">&quot; &quot;</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;, &quot;</span><span class="p">)]</span>
                 <span class="n">b</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot; and &quot;</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">a</span><span class="p">]</span>
                 <span class="n">c</span> <span class="o">=</span> <span class="p">[</span><span class="n">item</span> <span class="k">for</span> <span class="n">sublist</span> <span class="ow">in</span> <span class="n">b</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">sublist</span><span class="p">]</span>
                 <span class="n">d</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">c</span><span class="p">]</span>
@@ -90,19 +92,19 @@
         <span class="k">return</span> <span class="n">record</span>
 
     <span class="n">parser</span><span class="o">.</span><span class="n">customization</span> <span class="o">=</span> <span class="n">customizations</span>
-    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">rc</span><span class="o">.</span><span class="n">filename</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">rc</span><span class="o">.</span><span class="n">filename</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
         <span class="n">bibs</span> <span class="o">=</span> <span class="n">bibtexparser</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">parser</span><span class="o">=</span><span class="n">parser</span><span class="p">)</span>
     <span class="n">coll</span> <span class="o">=</span> <span class="n">rc</span><span class="o">.</span><span class="n">client</span><span class="p">[</span><span class="n">rc</span><span class="o">.</span><span class="n">db</span><span class="p">][</span><span class="n">rc</span><span class="o">.</span><span class="n">coll</span><span class="p">]</span>
     <span class="k">for</span> <span class="n">bib</span> <span class="ow">in</span> <span class="n">bibs</span><span class="o">.</span><span class="n">entries</span><span class="p">:</span>
-        <span class="n">bibid</span> <span class="o">=</span> <span class="n">bib</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s1">&#39;ID&#39;</span><span class="p">)</span>
-        <span class="n">bib</span><span class="p">[</span><span class="s1">&#39;entrytype&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">bib</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s1">&#39;ENTRYTYPE&#39;</span><span class="p">)</span>
-        <span class="k">if</span> <span class="s1">&#39;author&#39;</span> <span class="ow">in</span> <span class="n">bib</span><span class="p">:</span>
-            <span class="n">bib</span><span class="p">[</span><span class="s1">&#39;author&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">a</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">for</span> <span class="n">b</span> <span class="ow">in</span> <span class="n">bib</span><span class="p">[</span><span class="s1">&#39;author&#39;</span><span class="p">]</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span>
-                             <span class="n">RE_AND</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">b</span><span class="p">)]</span>
-        <span class="k">if</span> <span class="s1">&#39;title&#39;</span> <span class="ow">in</span> <span class="n">bib</span><span class="p">:</span>
-            <span class="n">bib</span><span class="p">[</span><span class="s1">&#39;title&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">RE_SPACE</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">,</span> <span class="n">bib</span><span class="p">[</span><span class="s1">&#39;title&#39;</span><span class="p">])</span>
-        <span class="n">rc</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">update_one</span><span class="p">(</span><span class="n">rc</span><span class="o">.</span><span class="n">db</span><span class="p">,</span> <span class="n">rc</span><span class="o">.</span><span class="n">coll</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;_id&#39;</span><span class="p">:</span> <span class="n">bibid</span><span class="p">},</span>
-                             <span class="n">bib</span><span class="p">,</span> <span class="n">upsert</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">bibid</span> <span class="o">=</span> <span class="n">bib</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;ID&quot;</span><span class="p">)</span>
+        <span class="n">bib</span><span class="p">[</span><span class="s2">&quot;entrytype&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">bib</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;ENTRYTYPE&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="s2">&quot;author&quot;</span> <span class="ow">in</span> <span class="n">bib</span><span class="p">:</span>
+            <span class="n">bib</span><span class="p">[</span><span class="s2">&quot;author&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span>
+                <span class="n">a</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">for</span> <span class="n">b</span> <span class="ow">in</span> <span class="n">bib</span><span class="p">[</span><span class="s2">&quot;author&quot;</span><span class="p">]</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">RE_AND</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+            <span class="p">]</span>
+        <span class="k">if</span> <span class="s2">&quot;title&quot;</span> <span class="ow">in</span> <span class="n">bib</span><span class="p">:</span>
+            <span class="n">bib</span><span class="p">[</span><span class="s2">&quot;title&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">RE_SPACE</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">,</span> <span class="n">bib</span><span class="p">[</span><span class="s2">&quot;title&quot;</span><span class="p">])</span>
+        <span class="n">rc</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">update_one</span><span class="p">(</span><span class="n">rc</span><span class="o">.</span><span class="n">db</span><span class="p">,</span> <span class="n">rc</span><span class="o">.</span><span class="n">coll</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;_id&quot;</span><span class="p">:</span> <span class="n">bibid</span><span class="p">},</span> <span class="n">bib</span><span class="p">,</span> <span class="n">upsert</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
 
 <span class="k">def</span> <span class="nf">_determine_ingest_coll</span><span class="p">(</span><span class="n">rc</span><span class="p">):</span>
@@ -115,34 +117,37 @@
     <span class="sd">&quot;&quot;&quot;Ingests a foreign resource into a database.&quot;&quot;&quot;</span>
     <span class="k">if</span> <span class="n">rc</span><span class="o">.</span><span class="n">coll</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
         <span class="n">rc</span><span class="o">.</span><span class="n">coll</span> <span class="o">=</span> <span class="n">_determine_ingest_coll</span><span class="p">(</span><span class="n">rc</span><span class="p">)</span>
-    <span class="k">if</span> <span class="n">rc</span><span class="o">.</span><span class="n">coll</span> <span class="o">==</span> <span class="s1">&#39;citations&#39;</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">rc</span><span class="o">.</span><span class="n">coll</span> <span class="o">==</span> <span class="s2">&quot;citations&quot;</span><span class="p">:</span>
         <span class="n">_ingest_citations</span><span class="p">(</span><span class="n">rc</span><span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
-            <span class="s2">&quot;don&#39;t know how to ingest collection </span><span class="si">{0!r}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">rc</span><span class="o">.</span><span class="n">coll</span><span class="p">))</span></div>
+            <span class="s2">&quot;don&#39;t know how to ingest collection </span><span class="si">{0!r}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">rc</span><span class="o">.</span><span class="n">coll</span><span class="p">)</span>
+        <span class="p">)</span></div>
 
 
 <span class="k">def</span> <span class="nf">_run_app</span><span class="p">(</span><span class="n">app</span><span class="p">,</span> <span class="n">rc</span><span class="p">):</span>
-    <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">app</span><span class="p">,</span> <span class="s1">&#39;rc&#39;</span><span class="p">):</span>
-        <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s1">&#39;cannot assign rc to app&#39;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">app</span><span class="p">,</span> <span class="s2">&quot;rc&quot;</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;cannot assign rc to app&quot;</span><span class="p">)</span>
     <span class="n">app</span><span class="o">.</span><span class="n">rc</span> <span class="o">=</span> <span class="n">rc</span>
     <span class="n">app</span><span class="o">.</span><span class="n">debug</span> <span class="o">=</span> <span class="n">rc</span><span class="o">.</span><span class="n">debug</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">DO NOT type Ctrl-C to close the server!!!&#39;</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Instead, run the following:&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">DO NOT type Ctrl-C to close the server!!!&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Instead, run the following:&quot;</span><span class="p">)</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">$ curl -d &#39;&#39; http://localhost:5000/shutdown</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
-    <span class="n">app</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">host</span><span class="o">=</span><span class="s1">&#39;localhost&#39;</span><span class="p">)</span>
+    <span class="n">app</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">host</span><span class="o">=</span><span class="s2">&quot;localhost&quot;</span><span class="p">)</span>
     <span class="k">del</span> <span class="n">app</span><span class="o">.</span><span class="n">rc</span>
 
 
 <div class="viewcode-block" id="app"><a class="viewcode-back" href="../../api/commands.html#regolith.commands.app">[docs]</a><span class="k">def</span> <span class="nf">app</span><span class="p">(</span><span class="n">rc</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Runs flask app&quot;&quot;&quot;</span>
     <span class="kn">from</span> <span class="nn">regolith.app</span> <span class="k">import</span> <span class="n">app</span>
+
     <span class="n">_run_app</span><span class="p">(</span><span class="n">app</span><span class="p">,</span> <span class="n">rc</span><span class="p">)</span></div>
 
 
 <div class="viewcode-block" id="grade"><a class="viewcode-back" href="../../api/commands.html#regolith.commands.grade">[docs]</a><span class="k">def</span> <span class="nf">grade</span><span class="p">(</span><span class="n">rc</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Runs flask grading app&quot;&quot;&quot;</span>
     <span class="kn">from</span> <span class="nn">regolith.grader</span> <span class="k">import</span> <span class="n">app</span>
+
     <span class="n">_run_app</span><span class="p">(</span><span class="n">app</span><span class="p">,</span> <span class="n">rc</span><span class="p">)</span></div>
 
 
@@ -155,8 +160,8 @@
 
 <div class="viewcode-block" id="deploy"><a class="viewcode-back" href="../../api/commands.html#regolith.commands.deploy">[docs]</a><span class="k">def</span> <span class="nf">deploy</span><span class="p">(</span><span class="n">rc</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Deploys all of the deployment targets.&quot;&quot;&quot;</span>
-    <span class="k">if</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">rc</span><span class="p">,</span> <span class="s1">&#39;deploy&#39;</span><span class="p">)</span> <span class="ow">or</span> <span class="nb">len</span><span class="p">(</span><span class="n">rc</span><span class="o">.</span><span class="n">deploy</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-        <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s1">&#39;run control has no deployment targets!&#39;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">rc</span><span class="p">,</span> <span class="s2">&quot;deploy&quot;</span><span class="p">)</span> <span class="ow">or</span> <span class="nb">len</span><span class="p">(</span><span class="n">rc</span><span class="o">.</span><span class="n">deploy</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;run control has no deployment targets!&quot;</span><span class="p">)</span>
     <span class="k">for</span> <span class="n">target</span> <span class="ow">in</span> <span class="n">rc</span><span class="o">.</span><span class="n">deploy</span><span class="p">:</span>
         <span class="n">dploy</span><span class="p">(</span><span class="n">rc</span><span class="p">,</span> <span class="o">**</span><span class="n">target</span><span class="p">)</span></div>
 
@@ -164,33 +169,37 @@
 <div class="viewcode-block" id="classlist"><a class="viewcode-back" href="../../api/commands.html#regolith.commands.classlist">[docs]</a><span class="k">def</span> <span class="nf">classlist</span><span class="p">(</span><span class="n">rc</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Sets values for the class list.&quot;&quot;&quot;</span>
     <span class="kn">from</span> <span class="nn">regolith.classlist</span> <span class="k">import</span> <span class="n">register</span>
+
     <span class="n">register</span><span class="p">(</span><span class="n">rc</span><span class="p">)</span></div>
 
 
 <div class="viewcode-block" id="json_to_yaml"><a class="viewcode-back" href="../../api/commands.html#regolith.commands.json_to_yaml">[docs]</a><span class="k">def</span> <span class="nf">json_to_yaml</span><span class="p">(</span><span class="n">rc</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Converts JSON to YAML&quot;&quot;&quot;</span>
     <span class="kn">from</span> <span class="nn">regolith</span> <span class="k">import</span> <span class="n">fsclient</span>
+
     <span class="k">for</span> <span class="n">inp</span> <span class="ow">in</span> <span class="n">rc</span><span class="o">.</span><span class="n">files</span><span class="p">:</span>
         <span class="n">base</span><span class="p">,</span> <span class="n">ext</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">splitext</span><span class="p">(</span><span class="n">inp</span><span class="p">)</span>
-        <span class="n">out</span> <span class="o">=</span> <span class="n">base</span> <span class="o">+</span> <span class="s1">&#39;.yaml&#39;</span>
+        <span class="n">out</span> <span class="o">=</span> <span class="n">base</span> <span class="o">+</span> <span class="s2">&quot;.yaml&quot;</span>
         <span class="n">fsclient</span><span class="o">.</span><span class="n">json_to_yaml</span><span class="p">(</span><span class="n">inp</span><span class="p">,</span> <span class="n">out</span><span class="p">)</span></div>
 
 
 <div class="viewcode-block" id="yaml_to_json"><a class="viewcode-back" href="../../api/commands.html#regolith.commands.yaml_to_json">[docs]</a><span class="k">def</span> <span class="nf">yaml_to_json</span><span class="p">(</span><span class="n">rc</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Converts YAML to JSON&quot;&quot;&quot;</span>
     <span class="kn">from</span> <span class="nn">regolith</span> <span class="k">import</span> <span class="n">fsclient</span>
+
     <span class="k">for</span> <span class="n">inp</span> <span class="ow">in</span> <span class="n">rc</span><span class="o">.</span><span class="n">files</span><span class="p">:</span>
         <span class="n">base</span><span class="p">,</span> <span class="n">ext</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">splitext</span><span class="p">(</span><span class="n">inp</span><span class="p">)</span>
-        <span class="n">out</span> <span class="o">=</span> <span class="n">base</span> <span class="o">+</span> <span class="s1">&#39;.json&#39;</span>
+        <span class="n">out</span> <span class="o">=</span> <span class="n">base</span> <span class="o">+</span> <span class="s2">&quot;.json&quot;</span>
         <span class="n">fsclient</span><span class="o">.</span><span class="n">yaml_to_json</span><span class="p">(</span><span class="n">inp</span><span class="p">,</span> <span class="n">out</span><span class="p">)</span></div>
 
 
 <div class="viewcode-block" id="validate"><a class="viewcode-back" href="../../api/commands.html#regolith.commands.validate">[docs]</a><span class="k">def</span> <span class="nf">validate</span><span class="p">(</span><span class="n">rc</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Validate the combined database against the schemas&quot;&quot;&quot;</span>
     <span class="kn">from</span> <span class="nn">regolith.schemas</span> <span class="k">import</span> <span class="n">validate</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;=&#39;</span> <span class="o">*</span> <span class="mi">10</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">VALIDATING</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;=&quot;</span> <span class="o">*</span> <span class="mi">10</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">VALIDATING</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
     <span class="n">any_errors</span> <span class="o">=</span> <span class="kc">False</span>
-    <span class="k">if</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">rc</span><span class="p">,</span> <span class="s1">&#39;collection&#39;</span><span class="p">):</span>
+    <span class="k">if</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">rc</span><span class="p">,</span> <span class="s2">&quot;collection&quot;</span><span class="p">):</span>
         <span class="n">db</span> <span class="o">=</span> <span class="p">{</span><span class="n">rc</span><span class="o">.</span><span class="n">collection</span><span class="p">:</span> <span class="n">rc</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">chained_db</span><span class="p">[</span><span class="n">rc</span><span class="o">.</span><span class="n">collection</span><span class="p">]}</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="n">db</span> <span class="o">=</span> <span class="n">rc</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">chained_db</span>
@@ -202,16 +211,16 @@
                 <span class="k">if</span> <span class="n">errored_print</span> <span class="ow">is</span> <span class="kc">False</span><span class="p">:</span>
                     <span class="n">errored_print</span> <span class="o">=</span> <span class="kc">True</span>
                     <span class="n">any_errors</span> <span class="o">=</span> <span class="kc">True</span>
-                    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Errors found in </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="p">))</span>
-                    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;=&#39;</span><span class="o">*</span><span class="nb">len</span><span class="p">(</span><span class="s1">&#39;Errors found in </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="p">)))</span>
-                <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;ERROR in </span><span class="si">{}</span><span class="s1">:&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">doc_id</span><span class="p">))</span>
+                    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Errors found in </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="p">))</span>
+                    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;=&quot;</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="s2">&quot;Errors found in </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="p">)))</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;ERROR in </span><span class="si">{}</span><span class="s2">:&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">doc_id</span><span class="p">))</span>
                 <span class="n">pprint</span><span class="p">(</span><span class="n">v</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
                 <span class="k">for</span> <span class="n">vv</span> <span class="ow">in</span> <span class="n">v</span><span class="p">[</span><span class="mi">1</span><span class="p">]:</span>
                     <span class="n">pprint</span><span class="p">(</span><span class="n">doc</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">vv</span><span class="p">))</span>
-                <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;-&#39;</span><span class="o">*</span><span class="mi">15</span><span class="p">)</span>
-                <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;-&quot;</span> <span class="o">*</span> <span class="mi">15</span><span class="p">)</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
     <span class="k">if</span> <span class="ow">not</span> <span class="n">any_errors</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">NO ERRORS IN DBS</span><span class="se">\n</span><span class="s1">&#39;</span> <span class="o">+</span> <span class="s1">&#39;=&#39;</span> <span class="o">*</span> <span class="mi">15</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">NO ERRORS IN DBS</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="o">+</span> <span class="s2">&quot;=&quot;</span> <span class="o">*</span> <span class="mi">15</span><span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="s2">&quot;Validation failed on some records&quot;</span><span class="p">)</span></div>
 </pre></div>
