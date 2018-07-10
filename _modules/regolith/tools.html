@@ -399,7 +399,7 @@
             <span class="k">return</span> <span class="n">g_doc</span></div>
 
 
-<div class="viewcode-block" id="fuzzy_retrieval"><a class="viewcode-back" href="../../api/tools.html#regolith.tools.fuzzy_retrieval">[docs]</a><span class="k">def</span> <span class="nf">fuzzy_retrieval</span><span class="p">(</span><span class="n">documents</span><span class="p">,</span> <span class="n">sources</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+<div class="viewcode-block" id="fuzzy_retrieval"><a class="viewcode-back" href="../../api/tools.html#regolith.tools.fuzzy_retrieval">[docs]</a><span class="k">def</span> <span class="nf">fuzzy_retrieval</span><span class="p">(</span><span class="n">documents</span><span class="p">,</span> <span class="n">sources</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">case_sensitive</span> <span class="o">=</span> <span class="kc">True</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Retrieve a document from the documents where value is compared against</span>
 <span class="sd">    multiple potential sources</span>
 
@@ -411,6 +411,8 @@
 <span class="sd">        The potential data sources</span>
 <span class="sd">    value:</span>
 <span class="sd">        The value to compare against to find the document of interest</span>
+<span class="sd">    case_sensitive: Bool</span>
+<span class="sd">        When true will match case (Default = True)</span>
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
@@ -419,9 +421,9 @@
 
 <span class="sd">    Examples</span>
 <span class="sd">    --------</span>
-<span class="sd">    &gt;&gt;&gt; fuzzy_retrieval(people, [&#39;aka&#39;, &#39;name&#39;], &#39;pi_name&#39;)</span>
+<span class="sd">    &gt;&gt;&gt; fuzzy_retrieval(people, [&#39;aka&#39;, &#39;name&#39;], &#39;pi_name&#39;, case_sensitive = False)</span>
 
-<span class="sd">    This would get the person entry for where either the alias or the name was</span>
+<span class="sd">    This would get the person entry for which either the alias or the name was</span>
 <span class="sd">    ``pi_name``.</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -442,8 +444,14 @@
                 <span class="n">returns</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ret</span><span class="p">)</span>
             <span class="k">else</span><span class="p">:</span>
                 <span class="n">returns</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">ret</span><span class="p">)</span>
-        <span class="k">if</span> <span class="n">value</span> <span class="ow">in</span> <span class="nb">frozenset</span><span class="p">(</span><span class="n">returns</span><span class="p">):</span>
-            <span class="k">return</span> <span class="n">doc</span></div>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">case_sensitive</span><span class="p">:</span>
+            <span class="n">returns</span> <span class="o">=</span> <span class="p">[</span><span class="n">ret</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="k">for</span> <span class="n">ret</span> <span class="ow">in</span> <span class="n">returns</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">ret</span><span class="p">,</span><span class="nb">str</span><span class="p">)]</span>
+            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+                <span class="k">if</span> <span class="n">value</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="ow">in</span> <span class="nb">frozenset</span><span class="p">(</span><span class="n">returns</span><span class="p">):</span>
+                    <span class="k">return</span> <span class="n">doc</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">value</span> <span class="ow">in</span> <span class="nb">frozenset</span><span class="p">(</span><span class="n">returns</span><span class="p">):</span>
+                <span class="k">return</span> <span class="n">doc</span></div>
 </pre></div>
 
           </div>

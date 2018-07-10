@@ -186,7 +186,7 @@ cond is false.</p>
 
 <dl class="function">
 <dt id="regolith.tools.fuzzy_retrieval">
-<code class="descclassname">regolith.tools.</code><code class="descname">fuzzy_retrieval</code><span class="sig-paren">(</span><em>documents</em>, <em>sources</em>, <em>value</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#fuzzy_retrieval"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.tools.fuzzy_retrieval" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">regolith.tools.</code><code class="descname">fuzzy_retrieval</code><span class="sig-paren">(</span><em>documents</em>, <em>sources</em>, <em>value</em>, <em>case_sensitive=True</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#fuzzy_retrieval"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.tools.fuzzy_retrieval" title="Permalink to this definition">¶</a></dt>
 <dd><p>Retrieve a document from the documents where value is compared against
 multiple potential sources</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -197,6 +197,7 @@ multiple potential sources</p>
 <li><strong>documents</strong> (<em>generator</em>) – The documents</li>
 <li><strong>sources</strong> (<em>iterable</em>) – The potential data sources</li>
 <li><strong>value</strong> – The value to compare against to find the document of interest</li>
+<li><strong>case_sensitive</strong> (<em>Bool</em>) – When true will match case (Default = True)</li>
 </ul>
 </td>
 </tr>
@@ -209,10 +210,10 @@ multiple potential sources</p>
 </tbody>
 </table>
 <p class="rubric">Examples</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">fuzzy_retrieval</span><span class="p">(</span><span class="n">people</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;aka&#39;</span><span class="p">,</span> <span class="s1">&#39;name&#39;</span><span class="p">],</span> <span class="s1">&#39;pi_name&#39;</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">fuzzy_retrieval</span><span class="p">(</span><span class="n">people</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;aka&#39;</span><span class="p">,</span> <span class="s1">&#39;name&#39;</span><span class="p">],</span> <span class="s1">&#39;pi_name&#39;</span><span class="p">,</span> <span class="n">case_sensitive</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>This would get the person entry for where either the alias or the name was
+<p>This would get the person entry for which either the alias or the name was
 <code class="docutils literal notranslate"><span class="pre">pi_name</span></code>.</p>
 </dd></dl>
 
