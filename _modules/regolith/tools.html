@@ -177,11 +177,11 @@
     <span class="n">pubs</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="k">for</span> <span class="n">pub</span> <span class="ow">in</span> <span class="n">citations</span><span class="p">:</span>
         <span class="k">if</span> <span class="p">(</span>
-            <span class="nb">len</span><span class="p">(</span>
-                <span class="nb">set</span><span class="p">(</span><span class="n">pub</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;author&quot;</span><span class="p">,</span> <span class="p">[]))</span>
-                <span class="o">|</span> <span class="nb">set</span><span class="p">(</span><span class="n">pub</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;editor&quot;</span><span class="p">,</span> <span class="p">[]))</span> <span class="o">&amp;</span> <span class="n">authors</span>
-            <span class="p">)</span>
-            <span class="o">==</span> <span class="mi">0</span>
+                <span class="nb">len</span><span class="p">(</span>
+                    <span class="nb">set</span><span class="p">(</span><span class="n">pub</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;author&quot;</span><span class="p">,</span> <span class="p">[]))</span>
+                    <span class="o">|</span> <span class="nb">set</span><span class="p">(</span><span class="n">pub</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;editor&quot;</span><span class="p">,</span> <span class="p">[]))</span> <span class="o">&amp;</span> <span class="n">authors</span>
+                <span class="p">)</span>
+                <span class="o">==</span> <span class="mi">0</span>
         <span class="p">):</span>
             <span class="k">continue</span>
         <span class="n">pub</span> <span class="o">=</span> <span class="n">deepcopy</span><span class="p">(</span><span class="n">pub</span><span class="p">)</span>
@@ -330,9 +330,9 @@
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="p">(</span>
         <span class="n">s</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;&amp;&quot;</span><span class="p">,</span> <span class="s2">&quot;\&amp;&quot;</span><span class="p">)</span>
-        <span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;$&quot;</span><span class="p">,</span> <span class="s2">&quot;\$&quot;</span><span class="p">)</span>
-        <span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;#&quot;</span><span class="p">,</span> <span class="s2">&quot;\#&quot;</span><span class="p">)</span>
-        <span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;_&quot;</span><span class="p">,</span> <span class="s2">&quot;\_&quot;</span><span class="p">)</span>
+            <span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;$&quot;</span><span class="p">,</span> <span class="s2">&quot;\$&quot;</span><span class="p">)</span>
+            <span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;#&quot;</span><span class="p">,</span> <span class="s2">&quot;\#&quot;</span><span class="p">)</span>
+            <span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;_&quot;</span><span class="p">,</span> <span class="s2">&quot;\_&quot;</span><span class="p">)</span>
     <span class="p">)</span></div>
 
 
@@ -399,7 +399,7 @@
             <span class="k">return</span> <span class="n">g_doc</span></div>
 
 
-<div class="viewcode-block" id="fuzzy_retrieval"><a class="viewcode-back" href="../../api/tools.html#regolith.tools.fuzzy_retrieval">[docs]</a><span class="k">def</span> <span class="nf">fuzzy_retrieval</span><span class="p">(</span><span class="n">documents</span><span class="p">,</span> <span class="n">sources</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">case_sensitive</span> <span class="o">=</span> <span class="kc">True</span><span class="p">):</span>
+<div class="viewcode-block" id="fuzzy_retrieval"><a class="viewcode-back" href="../../api/tools.html#regolith.tools.fuzzy_retrieval">[docs]</a><span class="k">def</span> <span class="nf">fuzzy_retrieval</span><span class="p">(</span><span class="n">documents</span><span class="p">,</span> <span class="n">sources</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">case_sensitive</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Retrieve a document from the documents where value is compared against</span>
 <span class="sd">    multiple potential sources</span>
 
@@ -445,13 +445,38 @@
             <span class="k">else</span><span class="p">:</span>
                 <span class="n">returns</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">ret</span><span class="p">)</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="n">case_sensitive</span><span class="p">:</span>
-            <span class="n">returns</span> <span class="o">=</span> <span class="p">[</span><span class="n">ret</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="k">for</span> <span class="n">ret</span> <span class="ow">in</span> <span class="n">returns</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">ret</span><span class="p">,</span><span class="nb">str</span><span class="p">)]</span>
+            <span class="n">returns</span> <span class="o">=</span> <span class="p">[</span><span class="n">ret</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="k">for</span> <span class="n">ret</span> <span class="ow">in</span> <span class="n">returns</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">ret</span><span class="p">,</span> <span class="nb">str</span><span class="p">)]</span>
             <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
                 <span class="k">if</span> <span class="n">value</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="ow">in</span> <span class="nb">frozenset</span><span class="p">(</span><span class="n">returns</span><span class="p">):</span>
                     <span class="k">return</span> <span class="n">doc</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="k">if</span> <span class="n">value</span> <span class="ow">in</span> <span class="nb">frozenset</span><span class="p">(</span><span class="n">returns</span><span class="p">):</span>
                 <span class="k">return</span> <span class="n">doc</span></div>
+
+<div class="viewcode-block" id="number_suffix"><a class="viewcode-back" href="../../api/tools.html#regolith.tools.number_suffix">[docs]</a><span class="k">def</span> <span class="nf">number_suffix</span><span class="p">(</span><span class="n">number</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;returns the suffix that adjectivises a number (st, nd, rd, th)</span>
+
+<span class="sd">    Paramters</span>
+<span class="sd">    ---------</span>
+<span class="sd">    number: integer</span>
+<span class="sd">        The number.  If number is not an integer, returns an empty string</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    suffix: string</span>
+<span class="sd">        The suffix (st, nd, rd, th)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">number</span><span class="p">,</span> <span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">)):</span>
+        <span class="k">return</span> <span class="s2">&quot;&quot;</span>
+    <span class="k">if</span> <span class="mi">10</span> <span class="o">&lt;</span> <span class="n">number</span> <span class="o">&lt;</span> <span class="mi">20</span><span class="p">:</span>
+        <span class="n">suffix</span> <span class="o">=</span> <span class="s2">&quot;th&quot;</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">suffix</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="mi">1</span><span class="p">:</span> <span class="s2">&quot;st&quot;</span><span class="p">,</span>
+            <span class="mi">2</span><span class="p">:</span> <span class="s2">&quot;nd&quot;</span><span class="p">,</span>
+            <span class="mi">3</span><span class="p">:</span> <span class="s2">&quot;rd&quot;</span><span class="p">}</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">number</span> <span class="o">%</span> <span class="mi">10</span><span class="p">,</span> <span class="s2">&quot;th&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">suffix</span></div>
+
 </pre></div>
 
           </div>
