@@ -73,6 +73,7 @@ The following lists key names mapped to its type and meaning for each entry.
 		:position: string, optional
 		:website: string, optional
 :name: string, Full, canonical name for the person, required
+:orcid_id: string, The ORCID ID of the person, optional
 :position: string, such as professor, graduate student, or scientist, required
 
 	Allowed values: 
@@ -223,6 +224,7 @@ YAML Example
 	      organization: Python Software Foundation
 	      position: Fellow
 	  name: Anthony Scopatz
+	  orcid_id: 0000-0002-9432-4248
 	  position: professor
 	  skills:
 	    - category: Programming Languages
@@ -371,6 +373,7 @@ JSON/Mongo Example
 	        }
 	    ],
 	    "name": "Anthony Scopatz",
+	    "orcid_id": "0000-0002-9432-4248",
 	    "position": "professor",
 	    "skills": [
 	        {
