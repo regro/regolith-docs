@@ -2,6 +2,7 @@
 ./_modules/collections/abc.html
 ./_modules/index.html
 ./_modules/regolith/app.html
+./_modules/regolith/broker.html
 ./_modules/regolith/builder.html
 ./_modules/regolith/builders/basebuilder.html
 ./_modules/regolith/builders/cvbuilder.html
@@ -16,6 +17,7 @@
 ./_modules/regolith/validators.html
 ./_sources/api/app.rst.txt
 ./_sources/api/basebuilder.rst.txt
+./_sources/api/broker.rst.txt
 ./_sources/api/builder.rst.txt
 ./_sources/api/chained_db.rst.txt
 ./_sources/api/commands.rst.txt
@@ -30,6 +32,7 @@
 ./_sources/api/runcontrol.rst.txt
 ./_sources/api/tools.rst.txt
 ./_sources/api/validators.rst.txt
+./_sources/broker.rst.txt
 ./_sources/collections/abstracts.rst.txt
 ./_sources/collections/assignments.rst.txt
 ./_sources/collections/blog.rst.txt
@@ -105,6 +108,7 @@
 ./_static/websupport.js
 ./api/app.html
 ./api/basebuilder.html
+./api/broker.html
 ./api/builder.html
 ./api/chained_db.html
 ./api/commands.html
@@ -119,6 +123,7 @@
 ./api/runcontrol.html
 ./api/tools.html
 ./api/validators.html
+./broker.html
 ./collections/abstracts.html
 ./collections/assignments.html
 ./collections/blog.html

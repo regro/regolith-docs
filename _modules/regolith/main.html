@@ -47,26 +47,15 @@
 <span class="kn">from</span> <span class="nn">__future__</span> <span class="k">import</span> <span class="n">print_function</span>
 <span class="kn">import</span> <span class="nn">copy</span>
 <span class="kn">import</span> <span class="nn">os</span>
-<span class="kn">import</span> <span class="nn">json</span>
 <span class="kn">from</span> <span class="nn">argparse</span> <span class="k">import</span> <span class="n">ArgumentParser</span><span class="p">,</span> <span class="n">RawTextHelpFormatter</span>
 
 <span class="kn">from</span> <span class="nn">regolith.commands</span> <span class="k">import</span> <span class="n">INGEST_COLL_LU</span>
-<span class="kn">from</span> <span class="nn">regolith.runcontrol</span> <span class="k">import</span> <span class="n">RunControl</span><span class="p">,</span> <span class="n">NotSpecified</span>
-<span class="kn">from</span> <span class="nn">regolith.validators</span> <span class="k">import</span> <span class="n">DEFAULT_VALIDATORS</span>
+<span class="kn">from</span> <span class="nn">regolith.runcontrol</span> <span class="k">import</span> <span class="n">DEFAULT_RC</span><span class="p">,</span> <span class="n">load_rcfile</span><span class="p">,</span> <span class="n">filter_databases</span>
 <span class="kn">from</span> <span class="nn">regolith.database</span> <span class="k">import</span> <span class="n">connect</span>
 <span class="kn">from</span> <span class="nn">regolith</span> <span class="k">import</span> <span class="n">commands</span>
 <span class="kn">from</span> <span class="nn">regolith</span> <span class="k">import</span> <span class="n">storage</span>
 <span class="kn">from</span> <span class="nn">regolith.builder</span> <span class="k">import</span> <span class="n">BUILDERS</span>
 <span class="kn">from</span> <span class="nn">regolith.schemas</span> <span class="k">import</span> <span class="n">SCHEMAS</span>
-
-<span class="n">DEFAULT_RC</span> <span class="o">=</span> <span class="n">RunControl</span><span class="p">(</span>
-    <span class="n">_validators</span><span class="o">=</span><span class="n">DEFAULT_VALIDATORS</span><span class="p">,</span>
-    <span class="n">backend</span><span class="o">=</span><span class="s2">&quot;filesystem&quot;</span><span class="p">,</span>
-    <span class="n">builddir</span><span class="o">=</span><span class="s2">&quot;_build&quot;</span><span class="p">,</span>
-    <span class="n">mongodbpath</span><span class="o">=</span><span class="nb">property</span><span class="p">(</span><span class="k">lambda</span> <span class="bp">self</span><span class="p">:</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">builddir</span><span class="p">,</span> <span class="s2">&quot;_dbpath&quot;</span><span class="p">)),</span>
-    <span class="n">local</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-    <span class="n">user_config</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">expanduser</span><span class="p">(</span><span class="s2">&quot;~/.config/regolith/user.json&quot;</span><span class="p">),</span>
-<span class="p">)</span>
 
 <span class="n">DISCONNECTED_COMMANDS</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s2">&quot;rc&quot;</span><span class="p">:</span> <span class="k">lambda</span> <span class="n">rc</span><span class="p">:</span> <span class="nb">print</span><span class="p">(</span><span class="n">rc</span><span class="o">.</span><span class="n">_pformat</span><span class="p">()),</span>
@@ -89,25 +78,6 @@
 
 <span class="n">NEED_RC</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">CONNECTED_COMMANDS</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
 <span class="n">NEED_RC</span> <span class="o">|=</span> <span class="p">{</span><span class="s2">&quot;rc&quot;</span><span class="p">,</span> <span class="s2">&quot;deploy&quot;</span><span class="p">,</span> <span class="s2">&quot;store&quot;</span><span class="p">}</span>
-
-
-<div class="viewcode-block" id="load_json_rcfile"><a class="viewcode-back" href="../../api/main.html#regolith.main.load_json_rcfile">[docs]</a><span class="k">def</span> <span class="nf">load_json_rcfile</span><span class="p">(</span><span class="n">fname</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Loads a JSON run control file.&quot;&quot;&quot;</span>
-    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-        <span class="n">rc</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">rc</span></div>
-
-
-<div class="viewcode-block" id="load_rcfile"><a class="viewcode-back" href="../../api/main.html#regolith.main.load_rcfile">[docs]</a><span class="k">def</span> <span class="nf">load_rcfile</span><span class="p">(</span><span class="n">fname</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Loads a run control file.&quot;&quot;&quot;</span>
-    <span class="n">base</span><span class="p">,</span> <span class="n">ext</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">splitext</span><span class="p">(</span><span class="n">fname</span><span class="p">)</span>
-    <span class="k">if</span> <span class="n">ext</span> <span class="o">==</span> <span class="s2">&quot;.json&quot;</span><span class="p">:</span>
-        <span class="n">rc</span> <span class="o">=</span> <span class="n">load_json_rcfile</span><span class="p">(</span><span class="n">fname</span><span class="p">)</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span>
-            <span class="s2">&quot;could not detemine run control file type from extension.&quot;</span>
-        <span class="p">)</span>
-    <span class="k">return</span> <span class="n">rc</span></div>
 
 
 <div class="viewcode-block" id="create_parser"><a class="viewcode-back" href="../../api/main.html#regolith.main.create_parser">[docs]</a><span class="k">def</span> <span class="nf">create_parser</span><span class="p">():</span>
@@ -301,20 +271,6 @@
         <span class="n">help</span><span class="o">=</span><span class="s2">&quot;If provided only validate that collection&quot;</span><span class="p">,</span>
     <span class="p">)</span>
     <span class="k">return</span> <span class="n">p</span></div>
-
-
-<div class="viewcode-block" id="filter_databases"><a class="viewcode-back" href="../../api/main.html#regolith.main.filter_databases">[docs]</a><span class="k">def</span> <span class="nf">filter_databases</span><span class="p">(</span><span class="n">rc</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Filters the databases list down to only the ones we need, in place.&quot;&quot;&quot;</span>
-    <span class="n">dbs</span> <span class="o">=</span> <span class="n">rc</span><span class="o">.</span><span class="n">databases</span>
-    <span class="n">public_only</span> <span class="o">=</span> <span class="n">rc</span><span class="o">.</span><span class="n">_get</span><span class="p">(</span><span class="s2">&quot;public_only&quot;</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
-    <span class="k">if</span> <span class="n">public_only</span><span class="p">:</span>
-        <span class="n">dbs</span> <span class="o">=</span> <span class="p">[</span><span class="n">db</span> <span class="k">for</span> <span class="n">db</span> <span class="ow">in</span> <span class="n">dbs</span> <span class="k">if</span> <span class="n">db</span><span class="p">[</span><span class="s2">&quot;public&quot;</span><span class="p">]]</span>
-    <span class="n">dbname</span> <span class="o">=</span> <span class="n">rc</span><span class="o">.</span><span class="n">_get</span><span class="p">(</span><span class="s2">&quot;db&quot;</span><span class="p">)</span>
-    <span class="k">if</span> <span class="n">dbname</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="n">dbs</span> <span class="o">=</span> <span class="p">[</span><span class="n">db</span> <span class="k">for</span> <span class="n">db</span> <span class="ow">in</span> <span class="n">dbs</span> <span class="k">if</span> <span class="n">db</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="n">dbname</span><span class="p">]</span>
-    <span class="k">elif</span> <span class="nb">len</span><span class="p">(</span><span class="n">dbs</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
-        <span class="n">rc</span><span class="o">.</span><span class="n">db</span> <span class="o">=</span> <span class="n">dbs</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s2">&quot;name&quot;</span><span class="p">]</span>
-    <span class="n">rc</span><span class="o">.</span><span class="n">databases</span> <span class="o">=</span> <span class="n">dbs</span></div>
 
 
 <div class="viewcode-block" id="main"><a class="viewcode-back" href="../../api/main.html#regolith.main.main">[docs]</a><span class="k">def</span> <span class="nf">main</span><span class="p">(</span><span class="n">args</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
