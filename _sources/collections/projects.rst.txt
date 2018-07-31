@@ -33,6 +33,7 @@ YAML Example
 
 	Cyclus:
 	  description: Agent-Based Nuclear Fuel Cycle Simulator
+	  grant: dmref15
 	  logo: http://fuelcycle.org/_static/big_c.png
 	  name: Cyclus
 	  other:
@@ -57,6 +58,7 @@ JSON/Mongo Example
 	{
 	    "_id": "Cyclus",
 	    "description": "Agent-Based Nuclear Fuel Cycle Simulator",
+	    "grant": "dmref15",
 	    "logo": "http://fuelcycle.org/_static/big_c.png",
 	    "name": "Cyclus",
 	    "other": [

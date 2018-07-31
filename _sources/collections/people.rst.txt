@@ -51,6 +51,12 @@ The following lists key names mapped to its type and meaning for each entry.
 		:name: string, optional
 		:value: ('float', 'integer'), optional
 		:year: integer, optional
+:home_address: dict, The person's home address, optional
+
+	:street: string, street address, optional
+	:city: string, name of home city, optional
+	:state: string, name o home state, optional
+	:zip: string, zip code, optional
 :honors: list, Honors that have been awarded to this group member, optional
 
 	:type: dict, optional
@@ -215,6 +221,11 @@ YAML Example
 	    - name: NIF User's Group Travel Award
 	      value: 1150
 	      year: 2013
+	  home_address:
+	    city: The big apple
+	    state: plasma
+	    street: 123 Wallabe Ln
+	    zip: '007'
 	  initials: AMS
 	  membership:
 	    - begin_year: 2006
@@ -359,6 +370,12 @@ JSON/Mongo Example
 	            "year": 2013
 	        }
 	    ],
+	    "home_address": {
+	        "city": "The big apple",
+	        "state": "plasma",
+	        "street": "123 Wallabe Ln",
+	        "zip": "007"
+	    },
 	    "initials": "AMS",
 	    "membership": [
 	        {
