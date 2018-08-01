@@ -121,7 +121,7 @@
 <tr class="field-even field"><th class="field-name">email:</th><td class="field-body"><p class="first">string, email address of the group member, optional</p>
 </td>
 </tr>
-<tr class="field-odd field"><th class="field-name">employment:</th><td class="field-body"><p class="first">list, Employment information, similar to educational information., required</p>
+<tr class="field-odd field"><th class="field-name">employment:</th><td class="field-body"><p class="first">list, Employment information, similar to educational information., optional</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -320,6 +320,10 @@
 </tr>
 <tr class="field-odd field"><th class="field-name">year:</th><td class="field-body">integer, optional</td>
 </tr>
+<tr class="field-even field"><th class="field-name">begin_year:</th><td class="field-body">integer, optional</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">end_year:</th><td class="field-body">integer, optional</td>
+</tr>
 <tr class="field-even field"><th class="field-name">other:</th><td class="field-body">[‘string’, ‘list’], optional</td>
 </tr>
 </tbody>
@@ -439,6 +443,12 @@
       <span class="l l-Scalar l-Scalar-Plain">location</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Santa Barbara, CA</span>
       <span class="l l-Scalar l-Scalar-Plain">other</span><span class="p p-Indicator">:</span>
         <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Graduated with a Major in Physics and a Minor in Mathematics</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">begin_year</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">2008</span>
+      <span class="l l-Scalar l-Scalar-Plain">degree</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">ongoing</span>
+      <span class="l l-Scalar l-Scalar-Plain">department</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">earth</span>
+      <span class="l l-Scalar l-Scalar-Plain">group</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">life</span>
+      <span class="l l-Scalar l-Scalar-Plain">institution</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">solar system</span>
+      <span class="l l-Scalar l-Scalar-Plain">location</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">land, mostly</span>
   <span class="l l-Scalar l-Scalar-Plain">email</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">scopatz@cec.sc.edu</span>
   <span class="l l-Scalar l-Scalar-Plain">employment</span><span class="p p-Indicator">:</span>
     <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">begin_year</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">2015</span>
@@ -499,6 +509,14 @@
   <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Anthony Scopatz</span>
   <span class="l l-Scalar l-Scalar-Plain">orcid_id</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">0000-0002-9432-4248</span>
   <span class="l l-Scalar l-Scalar-Plain">position</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">professor</span>
+  <span class="l l-Scalar l-Scalar-Plain">service</span><span class="p p-Indicator">:</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="s">&#39;Master</span><span class="nv"> </span><span class="s">of</span><span class="nv"> </span><span class="s">Ceremonies</span><span class="nv"> </span><span class="s">and</span><span class="nv"> </span><span class="s">Organizer</span><span class="nv"> </span><span class="s">Brown</span><span class="nv"> </span><span class="s">University</span><span class="nv"> </span><span class="s">&quot;Chemistry:</span><span class="nv"> </span><span class="s">Believe</span>
+        <span class="s">it</span><span class="nv"> </span><span class="s">or</span><span class="nv"> </span><span class="s">Not&quot;</span><span class="nv"> </span><span class="s">public</span><span class="nv"> </span><span class="s">chemistry</span><span class="nv"> </span><span class="s">demonstration&#39;</span>
+      <span class="l l-Scalar l-Scalar-Plain">year</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">2013</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">begin_year</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">2012</span>
+      <span class="l l-Scalar l-Scalar-Plain">end_year</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">2014</span>
+      <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Renewable Energy Presenter and Facility Tour Guide at the NSLS &quot;Science</span>
+        <span class="l l-Scalar l-Scalar-Plain">Sunday&quot; laboratory open house at Brookhaven National Laboratory</span>
   <span class="l l-Scalar l-Scalar-Plain">skills</span><span class="p p-Indicator">:</span>
     <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">category</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Programming Languages</span>
       <span class="l l-Scalar l-Scalar-Plain">level</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">expert</span>
@@ -572,6 +590,14 @@
             <span class="nt">&quot;other&quot;</span><span class="p">:</span> <span class="p">[</span>
                 <span class="s2">&quot;Graduated with a Major in Physics and a Minor in Mathematics&quot;</span>
             <span class="p">]</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;begin_year&quot;</span><span class="p">:</span> <span class="mi">2008</span><span class="p">,</span>
+            <span class="nt">&quot;degree&quot;</span><span class="p">:</span> <span class="s2">&quot;ongoing&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;department&quot;</span><span class="p">:</span> <span class="s2">&quot;earth&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;group&quot;</span><span class="p">:</span> <span class="s2">&quot;life&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;institution&quot;</span><span class="p">:</span> <span class="s2">&quot;solar system&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;location&quot;</span><span class="p">:</span> <span class="s2">&quot;land, mostly&quot;</span>
         <span class="p">}</span>
     <span class="p">],</span>
     <span class="nt">&quot;email&quot;</span><span class="p">:</span> <span class="s2">&quot;scopatz@cec.sc.edu&quot;</span><span class="p">,</span>
@@ -652,6 +678,17 @@
     <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Anthony Scopatz&quot;</span><span class="p">,</span>
     <span class="nt">&quot;orcid_id&quot;</span><span class="p">:</span> <span class="s2">&quot;0000-0002-9432-4248&quot;</span><span class="p">,</span>
     <span class="nt">&quot;position&quot;</span><span class="p">:</span> <span class="s2">&quot;professor&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;service&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Master of Ceremonies and Organizer Brown University \&quot;Chemistry: Believe it or Not\&quot; public chemistry demonstration&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;year&quot;</span><span class="p">:</span> <span class="mi">2013</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;begin_year&quot;</span><span class="p">:</span> <span class="mi">2012</span><span class="p">,</span>
+            <span class="nt">&quot;end_year&quot;</span><span class="p">:</span> <span class="mi">2014</span><span class="p">,</span>
+            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Renewable Energy Presenter and Facility Tour Guide at the NSLS \&quot;Science Sunday\&quot; laboratory open house at Brookhaven National Laboratory&quot;</span>
+        <span class="p">}</span>
+    <span class="p">],</span>
     <span class="nt">&quot;skills&quot;</span><span class="p">:</span> <span class="p">[</span>
         <span class="p">{</span>
             <span class="nt">&quot;category&quot;</span><span class="p">:</span> <span class="s2">&quot;Programming Languages&quot;</span><span class="p">,</span>

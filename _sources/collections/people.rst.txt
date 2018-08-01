@@ -28,7 +28,7 @@ The following lists key names mapped to its type and meaning for each entry.
 		:location: string, optional
 		:other: ['string', 'list'], optional
 :email: string, email address of the group member, optional
-:employment: list, Employment information, similar to educational information., required
+:employment: list, Employment information, similar to educational information., optional
 
 	:type: dict, optional
 
@@ -110,6 +110,8 @@ The following lists key names mapped to its type and meaning for each entry.
 		:month: string, optional
 		:name: string, optional
 		:year: integer, optional
+		:begin_year: integer, optional
+		:end_year: integer, optional
 		:other: ['string', 'list'], optional
 :skills: list, Skill the group member has, optional
 
@@ -177,6 +179,12 @@ YAML Example
 	      location: Santa Barbara, CA
 	      other:
 	        - Graduated with a Major in Physics and a Minor in Mathematics
+	    - begin_year: 2008
+	      degree: ongoing
+	      department: earth
+	      group: life
+	      institution: solar system
+	      location: land, mostly
 	  email: scopatz@cec.sc.edu
 	  employment:
 	    - begin_year: 2015
@@ -237,6 +245,14 @@ YAML Example
 	  name: Anthony Scopatz
 	  orcid_id: 0000-0002-9432-4248
 	  position: professor
+	  service:
+	    - name: 'Master of Ceremonies and Organizer Brown University "Chemistry: Believe
+	        it or Not" public chemistry demonstration'
+	      year: 2013
+	    - begin_year: 2012
+	      end_year: 2014
+	      name: Renewable Energy Presenter and Facility Tour Guide at the NSLS "Science
+	        Sunday" laboratory open house at Brookhaven National Laboratory
 	  skills:
 	    - category: Programming Languages
 	      level: expert
@@ -312,6 +328,14 @@ JSON/Mongo Example
 	            "other": [
 	                "Graduated with a Major in Physics and a Minor in Mathematics"
 	            ]
+	        },
+	        {
+	            "begin_year": 2008,
+	            "degree": "ongoing",
+	            "department": "earth",
+	            "group": "life",
+	            "institution": "solar system",
+	            "location": "land, mostly"
 	        }
 	    ],
 	    "email": "scopatz@cec.sc.edu",
@@ -392,6 +416,17 @@ JSON/Mongo Example
 	    "name": "Anthony Scopatz",
 	    "orcid_id": "0000-0002-9432-4248",
 	    "position": "professor",
+	    "service": [
+	        {
+	            "name": "Master of Ceremonies and Organizer Brown University \"Chemistry: Believe it or Not\" public chemistry demonstration",
+	            "year": 2013
+	        },
+	        {
+	            "begin_year": 2012,
+	            "end_year": 2014,
+	            "name": "Renewable Energy Presenter and Facility Tour Guide at the NSLS \"Science Sunday\" laboratory open house at Brookhaven National Laboratory"
+	        }
+	    ],
 	    "skills": [
 	        {
 	            "category": "Programming Languages",
