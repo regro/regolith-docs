@@ -26,7 +26,7 @@ The following lists key names mapped to its type and meaning for each entry.
 		:gpa: ('float', 'string'), optional
 		:institution: string, optional
 		:location: string, optional
-		:other: ['string', 'list'], optional
+		:other: list, optional
 :email: string, email address of the group member, optional
 :employment: list, Employment information, similar to educational information., optional
 
@@ -39,7 +39,7 @@ The following lists key names mapped to its type and meaning for each entry.
 		:group: string, this employment is/was ina group in groups coll, optional
 		:location: string, optional
 		:organization: string, optional
-		:other: ['string', 'list'], optional
+		:other: list, optional
 		:position: string, optional
 :funding: list, Funding and scholarship that the group member has individually obtained in the past. **WARNING:** this is not to be confused with the **grants** collection, optional
 

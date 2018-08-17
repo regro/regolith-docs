@@ -225,13 +225,19 @@ multiple potential sources</p>
 
 <dl class="function">
 <dt id="regolith.tools.latex_safe">
-<code class="descclassname">regolith.tools.</code><code class="descname">latex_safe</code><span class="sig-paren">(</span><em>s</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#latex_safe"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.tools.latex_safe" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">regolith.tools.</code><code class="descname">latex_safe</code><span class="sig-paren">(</span><em>s</em>, <em>url_check=True</em>, <em>wrapper='url'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#latex_safe"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.tools.latex_safe" title="Permalink to this definition">¶</a></dt>
 <dd><p>Make string latex safe</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>s</strong> (<em>str</em>)</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>s</strong> (<em>str</em>)</li>
+<li><strong>url_check</strong> (<em>bool, optional</em>) – If True check for URLs and wrap them, if False check for URL but don’t
+wrap, defaults to True</li>
+<li><strong>wrapper</strong> (<em>str, optional</em>) – The wrapper for wrapping urls defaults to url</li>
+</ul>
+</td>
 </tr>
 </tbody>
 </table>
