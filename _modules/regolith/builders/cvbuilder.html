@@ -56,7 +56,9 @@
     <span class="n">filter_grants</span><span class="p">,</span>
     <span class="n">awards_grants_honors</span><span class="p">,</span>
     <span class="n">make_bibtex_file</span><span class="p">,</span>
-    <span class="n">fuzzy_retrieval</span><span class="p">)</span>
+    <span class="n">fuzzy_retrieval</span><span class="p">,</span>
+    <span class="n">dereference_institution</span><span class="p">,</span>
+<span class="p">)</span>
 
 
 <div class="viewcode-block" id="CVBuilder"><a class="viewcode-back" href="../../../api/cvbuilder.html#regolith.builders.cvbuilder.CVBuilder">[docs]</a><span class="k">class</span> <span class="nc">CVBuilder</span><span class="p">(</span><span class="n">LatexBuilderBase</span><span class="p">):</span>
@@ -74,9 +76,8 @@
             <span class="n">key</span><span class="o">=</span><span class="n">position_key</span><span class="p">,</span>
             <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
         <span class="p">)</span>
-        <span class="n">gtx</span><span class="p">[</span><span class="s1">&#39;institutions&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span>
-            <span class="n">all_docs_from_collection</span><span class="p">(</span><span class="n">rc</span><span class="o">.</span><span class="n">client</span><span class="p">,</span> <span class="s2">&quot;institutions&quot;</span><span class="p">),</span>
-            <span class="n">key</span><span class="o">=</span><span class="n">_id_key</span><span class="p">,</span>
+        <span class="n">gtx</span><span class="p">[</span><span class="s2">&quot;institutions&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span>
+            <span class="n">all_docs_from_collection</span><span class="p">(</span><span class="n">rc</span><span class="o">.</span><span class="n">client</span><span class="p">,</span> <span class="s2">&quot;institutions&quot;</span><span class="p">),</span> <span class="n">key</span><span class="o">=</span><span class="n">_id_key</span>
         <span class="p">)</span>
         <span class="n">gtx</span><span class="p">[</span><span class="s2">&quot;all_docs_from_collection&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">all_docs_from_collection</span></div>
 
@@ -108,23 +109,10 @@
                 <span class="n">grants</span><span class="p">,</span> <span class="n">names</span><span class="p">,</span> <span class="n">pi</span><span class="o">=</span><span class="kc">False</span>
             <span class="p">)</span>
             <span class="n">aghs</span> <span class="o">=</span> <span class="n">awards_grants_honors</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+            <span class="c1"># TODO: pull this out so we can use it everywhere</span>
             <span class="k">for</span> <span class="n">ee</span> <span class="ow">in</span> <span class="p">[</span><span class="n">emp</span><span class="p">,</span> <span class="n">edu</span><span class="p">]:</span>
                 <span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">ee</span><span class="p">:</span>
-                    <span class="n">inst</span> <span class="o">=</span> <span class="n">e</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;institution&#39;</span><span class="p">)</span>
-                    <span class="n">db_inst</span> <span class="o">=</span> <span class="n">fuzzy_retrieval</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">gtx</span><span class="p">[</span><span class="s1">&#39;institutions&#39;</span><span class="p">],</span>
-                                              <span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;_id&#39;</span><span class="p">,</span> <span class="s1">&#39;aka&#39;</span><span class="p">],</span> <span class="n">inst</span><span class="p">)</span>
-                    <span class="k">if</span> <span class="n">db_inst</span><span class="p">:</span>
-                        <span class="n">e</span><span class="p">[</span><span class="s1">&#39;institution&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">db_inst</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span>
-                        <span class="n">e</span><span class="p">[</span><span class="s1">&#39;organization&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">db_inst</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span>
-                        <span class="k">if</span> <span class="n">db_inst</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;country&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="s1">&#39;USA&#39;</span><span class="p">:</span>
-                            <span class="n">state_country</span> <span class="o">=</span> <span class="n">db_inst</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;state&#39;</span><span class="p">)</span>
-                        <span class="k">else</span><span class="p">:</span>
-                            <span class="n">state_country</span> <span class="o">=</span> <span class="n">db_inst</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;country&#39;</span><span class="p">)</span>
-                        <span class="n">e</span><span class="p">[</span><span class="s1">&#39;location&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="si">{}</span><span class="s1">, </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">db_inst</span><span class="p">[</span><span class="s1">&#39;city&#39;</span><span class="p">],</span>
-                                                        <span class="n">state_country</span><span class="p">)</span>
-                        <span class="k">if</span> <span class="s1">&#39;department&#39;</span> <span class="ow">in</span> <span class="n">e</span><span class="p">:</span>
-                            <span class="n">e</span><span class="p">[</span><span class="s1">&#39;department&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">db_inst</span><span class="p">[</span>
-                                <span class="s1">&#39;departments&#39;</span><span class="p">][</span><span class="n">e</span><span class="p">[</span><span class="s1">&#39;department&#39;</span><span class="p">]][</span><span class="s1">&#39;name&#39;</span><span class="p">]</span>
+                    <span class="n">dereference_institution</span><span class="p">(</span><span class="n">e</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">gtx</span><span class="p">[</span><span class="s2">&quot;institutions&quot;</span><span class="p">])</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">render</span><span class="p">(</span>
                 <span class="s2">&quot;cv.tex&quot;</span><span class="p">,</span>
                 <span class="n">p</span><span class="p">[</span><span class="s2">&quot;_id&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot;.tex&quot;</span><span class="p">,</span>
