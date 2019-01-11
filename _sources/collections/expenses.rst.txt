@@ -21,6 +21,7 @@ The following lists key names mapped to its type and meaning for each entry.
 		:purpose: string, reason for expense, optional
 		:unsegregated_expense: float, The allowed expenses, optional
 		:segregated_expense: float, The unallowed expenses, optional
+		:original_currency: float, The currency the payment was made in, optional
 :overall_purpose: string, The reason for the expenses, required
 :payee: string, The name or id of the payee filing the expense, required
 :project: ['string', 'list'], project or list of projects that this presentation is associated with.  Should be discoverable in projects collection, required
