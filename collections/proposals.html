@@ -1,17 +1,15 @@
 
 
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
     <title>Proposals &#8212; regolith - software group content managment system</title>
     <link rel="stylesheet" href="../_static/cloud.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Noticia+Text|Open+Sans|Droid+Sans+Mono" />
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Noticia+Text|Open+Sans|Droid+Sans+Mono" type="text/css" />
     <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
@@ -56,98 +54,87 @@
 <div class="section" id="schema">
 <h2>Schema<a class="headerlink" href="#schema" title="Permalink to this headline">¶</a></h2>
 <p>The following lists key names mapped to its type and meaning for each entry.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">_id:</th><td class="field-body"><p class="first">(‘string’, ‘integer’, ‘float’), short representation, such as this-is-my-name, required</p>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">amount:</th><td class="field-body"><p class="first">(‘integer’, ‘float’), value of award, required</p>
-</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">authors:</th><td class="field-body"><p class="first">[‘list’, ‘string’], other investigator names, required</p>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name" colspan="2">call_for_proposals:</th></tr>
-<tr class="field-even field"><td>&#160;</td><td class="field-body"><p class="first">string, optional</p>
-</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">currency:</th><td class="field-body"><p class="first">string, typically ‘$’ or ‘USD’, required</p>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">day:</th><td class="field-body"><p class="first">integer, day that the proposal is due, required</p>
-</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">duration:</th><td class="field-body"><p class="first">(‘integer’, ‘float’), number of years, required</p>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">full:</th><td class="field-body"><p class="first">dict, full body of the proposal, optional</p>
-</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">month:</th><td class="field-body"><p class="first">string, month that the proposal is due, required</p>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name" colspan="2">other_agencies_submitted:</th></tr>
-<tr class="field-even field"><td>&#160;</td><td class="field-body"><p class="first">[‘list’, ‘string’], Other agencies the proposal has been sent to, optional</p>
-</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">pi:</th><td class="field-body"><p class="first">string, principal investigator name, required</p>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">pre:</th><td class="field-body"><p class="first">dict, Information about the pre-proposal, optional</p>
-</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">status:</th><td class="field-body"><p class="first">string, e.g. ‘pending’, ‘accepted’, ‘rejected’, required</p>
-<dl class="docutils">
-<dt>Allowed values:</dt>
-<dd><ul class="first last simple">
-<li>pending</li>
-<li>declined</li>
-<li>accepted</li>
-<li>in-prep</li>
+<dl class="field-list">
+<dt class="field-odd">_id</dt>
+<dd class="field-odd"><p>(‘string’, ‘integer’, ‘float’), short representation, such as this-is-my-name, required</p>
+</dd>
+<dt class="field-even">amount</dt>
+<dd class="field-even"><p>(‘integer’, ‘float’), value of award, required</p>
+</dd>
+<dt class="field-odd">authors</dt>
+<dd class="field-odd"><p>[‘list’, ‘string’], other investigator names, required</p>
+</dd>
+<dt class="field-even">call_for_proposals</dt>
+<dd class="field-even"><p>string, optional</p>
+</dd>
+<dt class="field-odd">currency</dt>
+<dd class="field-odd"><p>string, typically ‘$’ or ‘USD’, required</p>
+</dd>
+<dt class="field-even">day</dt>
+<dd class="field-even"><p>integer, day that the proposal is due, required</p>
+</dd>
+<dt class="field-odd">duration</dt>
+<dd class="field-odd"><p>(‘integer’, ‘float’), number of years, required</p>
+</dd>
+<dt class="field-even">full</dt>
+<dd class="field-even"><p>dict, full body of the proposal, optional</p>
+</dd>
+<dt class="field-odd">month</dt>
+<dd class="field-odd"><p>string, month that the proposal is due, required</p>
+</dd>
+<dt class="field-even">other_agencies_submitted</dt>
+<dd class="field-even"><p>[‘list’, ‘string’], Other agencies the proposal has been sent to, optional</p>
+</dd>
+<dt class="field-odd">pi</dt>
+<dd class="field-odd"><p>string, principal investigator name, required</p>
+</dd>
+<dt class="field-even">pre</dt>
+<dd class="field-even"><p>dict, Information about the pre-proposal, optional</p>
+</dd>
+<dt class="field-odd">status</dt>
+<dd class="field-odd"><p>string, e.g. ‘pending’, ‘accepted’, ‘rejected’, required</p>
+<dl class="simple">
+<dt>Allowed values:</dt><dd><ul class="simple">
+<li><p>pending</p></li>
+<li><p>declined</p></li>
+<li><p>accepted</p></li>
+<li><p>in-prep</p></li>
 </ul>
 </dd>
 </dl>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">team:</th><td class="field-body"><p class="first">list, information about the team members participating in the grant., optional</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">type:</th><td class="field-body"><p class="first">dict, optional</p>
-<table class="last docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">cv:</th><td class="field-body">string, optional</td>
-</tr>
-<tr class="field-even field"><th class="field-name">institution:</th><td class="field-body">string, optional</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">name:</th><td class="field-body">string, optional</td>
-</tr>
-<tr class="field-even field"><th class="field-name">position:</th><td class="field-body">string, optional</td>
-</tr>
-<tr class="field-odd field"><th class="field-name" colspan="2">subaward_amount:</th></tr>
-<tr class="field-odd field"><td>&#160;</td><td class="field-body">(‘integer’, ‘float’), optional</td>
-</tr>
-</tbody>
-</table>
-</td>
-</tr>
-</tbody>
-</table>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">title:</th><td class="field-body"><p class="first">string, actual title of proposal, required</p>
-</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">year:</th><td class="field-body"><p class="first last">integer, Year that the proposal is due, required</p>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+<dt class="field-even">team</dt>
+<dd class="field-even"><p>list, information about the team members participating in the grant., optional</p>
+<dl class="field-list simple">
+<dt class="field-odd">type</dt>
+<dd class="field-odd"><p>dict, optional</p>
+<dl class="field-list simple">
+<dt class="field-odd">cv</dt>
+<dd class="field-odd"><p>string, optional</p>
+</dd>
+<dt class="field-even">institution</dt>
+<dd class="field-even"><p>string, optional</p>
+</dd>
+<dt class="field-odd">name</dt>
+<dd class="field-odd"><p>string, optional</p>
+</dd>
+<dt class="field-even">position</dt>
+<dd class="field-even"><p>string, optional</p>
+</dd>
+<dt class="field-odd">subaward_amount</dt>
+<dd class="field-odd"><p>(‘integer’, ‘float’), optional</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">title</dt>
+<dd class="field-even"><p>string, actual title of proposal, required</p>
+</dd>
+<dt class="field-odd">year</dt>
+<dd class="field-odd"><p>integer, Year that the proposal is due, required</p>
+</dd>
+</dl>
 </div>
 <div class="section" id="yaml-example">
 <h2>YAML Example<a class="headerlink" href="#yaml-example" title="Permalink to this headline">¶</a></h2>
@@ -325,8 +312,6 @@
     <form class="search" action="../search.html" method="get">
       <input type="text" name="q" />
       <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
     </form>
     </div>
 </div>

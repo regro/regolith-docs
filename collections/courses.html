@@ -1,17 +1,15 @@
 
 
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
     <title>Courses &#8212; regolith - software group content managment system</title>
     <link rel="stylesheet" href="../_static/cloud.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Noticia+Text|Open+Sans|Droid+Sans+Mono" />
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Noticia+Text|Open+Sans|Droid+Sans+Mono" type="text/css" />
     <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
@@ -57,34 +55,40 @@ who is taking it. This is likely private.</p>
 <div class="section" id="schema">
 <h2>Schema<a class="headerlink" href="#schema" title="Permalink to this headline">¶</a></h2>
 <p>The following lists key names mapped to its type and meaning for each entry.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">_id:</th><td class="field-body">str, course unique id, such a EMCH-558-2016-S</td>
-</tr>
-<tr class="field-even field"><th class="field-name">department:</th><td class="field-body">str, department code, e.g. EMCH</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">number:</th><td class="field-body">int or str, class number, e.g. 558</td>
-</tr>
-<tr class="field-even field"><th class="field-name">year:</th><td class="field-body">int, year taught, e.g. 2016</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">season:</th><td class="field-body">str,  semester or quarter instructed in, e.g. ‘F’, ‘W’, ‘S’, or ‘M’</td>
-</tr>
-<tr class="field-even field"><th class="field-name">students:</th><td class="field-body">list of str, names of students enrolled in course</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">syllabus:</th><td class="field-body">str,  syllabus file name in store, optional</td>
-</tr>
-<tr class="field-even field"><th class="field-name">scale:</th><td class="field-body">list of 2-lists of <code class="docutils literal notranslate"><span class="pre">[float,</span> <span class="pre">str]</span></code> This is a listing of lower bounds (as a faction)
-and the grade that is achieved by obtaining greater than or equal to that value.</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">weights:</th><td class="field-body">dict of str keys and float values,  mapping from assignment category name
-to fraction of final grade.</td>
-</tr>
-<tr class="field-even field"><th class="field-name">active:</th><td class="field-body">bool, whether  or not the course is actively being taught</td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">_id</dt>
+<dd class="field-odd"><p>str, course unique id, such a EMCH-558-2016-S</p>
+</dd>
+<dt class="field-even">department</dt>
+<dd class="field-even"><p>str, department code, e.g. EMCH</p>
+</dd>
+<dt class="field-odd">number</dt>
+<dd class="field-odd"><p>int or str, class number, e.g. 558</p>
+</dd>
+<dt class="field-even">year</dt>
+<dd class="field-even"><p>int, year taught, e.g. 2016</p>
+</dd>
+<dt class="field-odd">season</dt>
+<dd class="field-odd"><p>str,  semester or quarter instructed in, e.g. ‘F’, ‘W’, ‘S’, or ‘M’</p>
+</dd>
+<dt class="field-even">students</dt>
+<dd class="field-even"><p>list of str, names of students enrolled in course</p>
+</dd>
+<dt class="field-odd">syllabus</dt>
+<dd class="field-odd"><p>str,  syllabus file name in store, optional</p>
+</dd>
+<dt class="field-even">scale</dt>
+<dd class="field-even"><p>list of 2-lists of <code class="docutils literal notranslate"><span class="pre">[float,</span> <span class="pre">str]</span></code> This is a listing of lower bounds (as a faction)
+and the grade that is achieved by obtaining greater than or equal to that value.</p>
+</dd>
+<dt class="field-odd">weights</dt>
+<dd class="field-odd"><p>dict of str keys and float values,  mapping from assignment category name
+to fraction of final grade.</p>
+</dd>
+<dt class="field-even">active</dt>
+<dd class="field-even"><p>bool, whether  or not the course is actively being taught</p>
+</dd>
+</dl>
 </div>
 <div class="section" id="yaml-example">
 <h2>YAML Example<a class="headerlink" href="#yaml-example" title="Permalink to this headline">¶</a></h2>
@@ -186,8 +190,6 @@ to fraction of final grade.</td>
     <form class="search" action="../search.html" method="get">
       <input type="text" name="q" />
       <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
     </form>
     </div>
 </div>

@@ -1,17 +1,15 @@
 
 
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
     <title>Grants &#8212; regolith - software group content managment system</title>
     <link rel="stylesheet" href="../_static/cloud.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Noticia+Text|Open+Sans|Droid+Sans+Mono" />
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Noticia+Text|Open+Sans|Droid+Sans+Mono" type="text/css" />
     <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
@@ -56,127 +54,114 @@
 <div class="section" id="schema">
 <h2>Schema<a class="headerlink" href="#schema" title="Permalink to this headline">¶</a></h2>
 <p>The following lists key names mapped to its type and meaning for each entry.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">_id:</th><td class="field-body"><p class="first">(‘string’, ‘integer’, ‘float’), short representation, such as this-is-my-name, required</p>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">account:</th><td class="field-body"><p class="first">string, the account number which holds the funds, optional</p>
-</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">admin:</th><td class="field-body"><p class="first">string, the group administering the grant, optional</p>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">amount:</th><td class="field-body"><p class="first">(‘integer’, ‘float’), value of award, required</p>
-</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">begin_day:</th><td class="field-body"><p class="first">integer, start day of the grant, optional</p>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">begin_month:</th><td class="field-body"><p class="first">string, start month of the grant, required</p>
-</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">begin_year:</th><td class="field-body"><p class="first">integer, start year of the grant, required</p>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name" colspan="2">benefit_of_collaboration:</th></tr>
-<tr class="field-even field"><td>&#160;</td><td class="field-body"><p class="first">string, optional</p>
-</td>
-</tr>
-<tr class="field-odd field"><th class="field-name" colspan="2">call_for_proposals:</th></tr>
-<tr class="field-odd field"><td>&#160;</td><td class="field-body"><p class="first">string, optional</p>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">currency:</th><td class="field-body"><p class="first">string, typically ‘$’ or ‘USD’, optional</p>
-</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">end_day:</th><td class="field-body"><p class="first">(‘string’, ‘integer’), end day of the grant, optional</p>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">end_month:</th><td class="field-body"><p class="first">string, end month of the grant, optional</p>
-</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">end_year:</th><td class="field-body"><p class="first">integer, end year of the grant, required</p>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">funder:</th><td class="field-body"><p class="first">string, the agency funding the work, required</p>
-</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">grant_id:</th><td class="field-body"><p class="first">string, the identifier for this work, optional</p>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">institution:</th><td class="field-body"><p class="first">string, the host institution for the grant, optional</p>
-</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">narrative:</th><td class="field-body"><p class="first">string, optional</p>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">notes:</th><td class="field-body"><p class="first">string, notes about the grant, optional</p>
-</td>
-</tr>
-<tr class="field-odd field"><th class="field-name" colspan="2">person_months_academic:</th></tr>
-<tr class="field-odd field"><td>&#160;</td><td class="field-body"><p class="first">[‘integer’, ‘float’], Number of months of funding during the academicyear, optional</p>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name" colspan="2">person_months_summer:</th></tr>
-<tr class="field-even field"><td>&#160;</td><td class="field-body"><p class="first">[‘integer’, ‘float’], Number of months of funding during the summer, optional</p>
-</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">program:</th><td class="field-body"><p class="first">string, the program the work was funded under, required</p>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">scope:</th><td class="field-body"><p class="first">string, The scope of the grant, answers the prompt: “Describe Research Including Synergies and Delineation with Respect to this Proposal/Award:”, optional</p>
-</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">status:</th><td class="field-body"><p class="first">string, status of the grant, optional</p>
-<dl class="docutils">
-<dt>Allowed values:</dt>
-<dd><ul class="first last simple">
-<li>pending</li>
-<li>declined</li>
-<li>accepted</li>
-<li>in-prep</li>
+<dl class="field-list">
+<dt class="field-odd">_id</dt>
+<dd class="field-odd"><p>(‘string’, ‘integer’, ‘float’), short representation, such as this-is-my-name, required</p>
+</dd>
+<dt class="field-even">account</dt>
+<dd class="field-even"><p>string, the account number which holds the funds, optional</p>
+</dd>
+<dt class="field-odd">admin</dt>
+<dd class="field-odd"><p>string, the group administering the grant, optional</p>
+</dd>
+<dt class="field-even">amount</dt>
+<dd class="field-even"><p>(‘integer’, ‘float’), value of award, required</p>
+</dd>
+<dt class="field-odd">begin_day</dt>
+<dd class="field-odd"><p>integer, start day of the grant, optional</p>
+</dd>
+<dt class="field-even">begin_month</dt>
+<dd class="field-even"><p>string, start month of the grant, required</p>
+</dd>
+<dt class="field-odd">begin_year</dt>
+<dd class="field-odd"><p>integer, start year of the grant, required</p>
+</dd>
+<dt class="field-even">benefit_of_collaboration</dt>
+<dd class="field-even"><p>string, optional</p>
+</dd>
+<dt class="field-odd">call_for_proposals</dt>
+<dd class="field-odd"><p>string, optional</p>
+</dd>
+<dt class="field-even">currency</dt>
+<dd class="field-even"><p>string, typically ‘$’ or ‘USD’, optional</p>
+</dd>
+<dt class="field-odd">end_day</dt>
+<dd class="field-odd"><p>(‘string’, ‘integer’), end day of the grant, optional</p>
+</dd>
+<dt class="field-even">end_month</dt>
+<dd class="field-even"><p>string, end month of the grant, optional</p>
+</dd>
+<dt class="field-odd">end_year</dt>
+<dd class="field-odd"><p>integer, end year of the grant, required</p>
+</dd>
+<dt class="field-even">funder</dt>
+<dd class="field-even"><p>string, the agency funding the work, required</p>
+</dd>
+<dt class="field-odd">grant_id</dt>
+<dd class="field-odd"><p>string, the identifier for this work, optional</p>
+</dd>
+<dt class="field-even">institution</dt>
+<dd class="field-even"><p>string, the host institution for the grant, optional</p>
+</dd>
+<dt class="field-odd">narrative</dt>
+<dd class="field-odd"><p>string, optional</p>
+</dd>
+<dt class="field-even">notes</dt>
+<dd class="field-even"><p>string, notes about the grant, optional</p>
+</dd>
+<dt class="field-odd">person_months_academic</dt>
+<dd class="field-odd"><p>[‘integer’, ‘float’], Number of months of funding during the academicyear, optional</p>
+</dd>
+<dt class="field-even">person_months_summer</dt>
+<dd class="field-even"><p>[‘integer’, ‘float’], Number of months of funding during the summer, optional</p>
+</dd>
+<dt class="field-odd">program</dt>
+<dd class="field-odd"><p>string, the program the work was funded under, required</p>
+</dd>
+<dt class="field-even">scope</dt>
+<dd class="field-even"><p>string, The scope of the grant, answers the prompt: “Describe Research Including Synergies and Delineation with Respect to this Proposal/Award:”, optional</p>
+</dd>
+<dt class="field-odd">status</dt>
+<dd class="field-odd"><p>string, status of the grant, optional</p>
+<dl class="simple">
+<dt>Allowed values:</dt><dd><ul class="simple">
+<li><p>pending</p></li>
+<li><p>declined</p></li>
+<li><p>accepted</p></li>
+<li><p>in-prep</p></li>
 </ul>
 </dd>
 </dl>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">team:</th><td class="field-body"><p class="first">list, information about the team members participating in the grant., required</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">type:</th><td class="field-body"><p class="first">dict, optional</p>
-<table class="last docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">cv:</th><td class="field-body">string, optional</td>
-</tr>
-<tr class="field-even field"><th class="field-name">institution:</th><td class="field-body">string, optional</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">name:</th><td class="field-body">string, optional</td>
-</tr>
-<tr class="field-even field"><th class="field-name">position:</th><td class="field-body">string, optional</td>
-</tr>
-<tr class="field-odd field"><th class="field-name" colspan="2">subaward_amount:</th></tr>
-<tr class="field-odd field"><td>&#160;</td><td class="field-body">(‘integer’, ‘float’), optional</td>
-</tr>
-</tbody>
-</table>
-</td>
-</tr>
-</tbody>
-</table>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">title:</th><td class="field-body"><p class="first last">string, actual title of proposal / grant, required</p>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+<dt class="field-even">team</dt>
+<dd class="field-even"><p>list, information about the team members participating in the grant., required</p>
+<dl class="field-list simple">
+<dt class="field-odd">type</dt>
+<dd class="field-odd"><p>dict, optional</p>
+<dl class="field-list simple">
+<dt class="field-odd">cv</dt>
+<dd class="field-odd"><p>string, optional</p>
+</dd>
+<dt class="field-even">institution</dt>
+<dd class="field-even"><p>string, optional</p>
+</dd>
+<dt class="field-odd">name</dt>
+<dd class="field-odd"><p>string, optional</p>
+</dd>
+<dt class="field-even">position</dt>
+<dd class="field-even"><p>string, optional</p>
+</dd>
+<dt class="field-odd">subaward_amount</dt>
+<dd class="field-odd"><p>(‘integer’, ‘float’), optional</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">title</dt>
+<dd class="field-even"><p>string, actual title of proposal / grant, required</p>
+</dd>
+</dl>
 </div>
 <div class="section" id="yaml-example">
 <h2>YAML Example<a class="headerlink" href="#yaml-example" title="Permalink to this headline">¶</a></h2>
@@ -345,8 +330,6 @@
     <form class="search" action="../search.html" method="get">
       <input type="text" name="q" />
       <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
     </form>
     </div>
 </div>

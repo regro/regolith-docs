@@ -1,17 +1,15 @@
 
 
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
     <title>Groups &#8212; regolith - software group content managment system</title>
     <link rel="stylesheet" href="../_static/cloud.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Noticia+Text|Open+Sans|Droid+Sans+Mono" />
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Noticia+Text|Open+Sans|Droid+Sans+Mono" type="text/css" />
     <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
@@ -56,33 +54,38 @@
 <div class="section" id="schema">
 <h2>Schema<a class="headerlink" href="#schema" title="Permalink to this headline">¶</a></h2>
 <p>The following lists key names mapped to its type and meaning for each entry.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">_id:</th><td class="field-body">string, Unique identifier for submission. This generally includes the author name and part of the title., required</td>
-</tr>
-<tr class="field-even field"><th class="field-name">aka:</th><td class="field-body">list, other names for the group, required</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">department:</th><td class="field-body">string, Name of host department, required</td>
-</tr>
-<tr class="field-even field"><th class="field-name">email:</th><td class="field-body">string, Contact email for the group, required</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">institution:</th><td class="field-body">string, Name of the host institution, required</td>
-</tr>
-<tr class="field-even field"><th class="field-name" colspan="2">mission_statement:</th></tr>
-<tr class="field-even field"><td>&#160;</td><td class="field-body">string, Mission statement of the group, optional</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">name:</th><td class="field-body">string, Name of the group, required</td>
-</tr>
-<tr class="field-even field"><th class="field-name">pi_name:</th><td class="field-body">string, The name of the Principle Investigator, required</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">projects:</th><td class="field-body">string, About line for projects, required</td>
-</tr>
-<tr class="field-even field"><th class="field-name">website:</th><td class="field-body">string, URL to group webpage, optional</td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">_id</dt>
+<dd class="field-odd"><p>string, Unique identifier for submission. This generally includes the author name and part of the title., required</p>
+</dd>
+<dt class="field-even">aka</dt>
+<dd class="field-even"><p>list, other names for the group, required</p>
+</dd>
+<dt class="field-odd">department</dt>
+<dd class="field-odd"><p>string, Name of host department, required</p>
+</dd>
+<dt class="field-even">email</dt>
+<dd class="field-even"><p>string, Contact email for the group, required</p>
+</dd>
+<dt class="field-odd">institution</dt>
+<dd class="field-odd"><p>string, Name of the host institution, required</p>
+</dd>
+<dt class="field-even">mission_statement</dt>
+<dd class="field-even"><p>string, Mission statement of the group, optional</p>
+</dd>
+<dt class="field-odd">name</dt>
+<dd class="field-odd"><p>string, Name of the group, required</p>
+</dd>
+<dt class="field-even">pi_name</dt>
+<dd class="field-even"><p>string, The name of the Principle Investigator, required</p>
+</dd>
+<dt class="field-odd">projects</dt>
+<dd class="field-odd"><p>string, About line for projects, required</p>
+</dd>
+<dt class="field-even">website</dt>
+<dd class="field-even"><p>string, URL to group webpage, optional</p>
+</dd>
+</dl>
 </div>
 <div class="section" id="yaml-example">
 <h2>YAML Example<a class="headerlink" href="#yaml-example" title="Permalink to this headline">¶</a></h2>
@@ -167,8 +170,6 @@
     <form class="search" action="../search.html" method="get">
       <input type="text" name="q" />
       <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
     </form>
     </div>
 </div>

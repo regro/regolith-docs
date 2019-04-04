@@ -1,17 +1,15 @@
 
 
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
     <title>Presentations &#8212; regolith - software group content managment system</title>
     <link rel="stylesheet" href="../_static/cloud.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Noticia+Text|Open+Sans|Droid+Sans+Mono" />
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Noticia+Text|Open+Sans|Droid+Sans+Mono" type="text/css" />
     <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
@@ -56,91 +54,85 @@
 <div class="section" id="schema">
 <h2>Schema<a class="headerlink" href="#schema" title="Permalink to this headline">¶</a></h2>
 <p>The following lists key names mapped to its type and meaning for each entry.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">_id:</th><td class="field-body"><p class="first">string, unique id for the presentation, required</p>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">abstract:</th><td class="field-body"><p class="first">string, abstract of the presentation, optional</p>
-</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">authors:</th><td class="field-body"><p class="first">[‘string’, ‘list’], Author list., required</p>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">begin_day:</th><td class="field-body"><p class="first">integer, optional</p>
-</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">begin_month:</th><td class="field-body"><p class="first">integer, required</p>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">begin_year:</th><td class="field-body"><p class="first">integer, year the conference or trip begins., required</p>
-</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">department:</th><td class="field-body"><p class="first">string, department of the institution where thepresentation will be made, if applicable.  should be discoverable in institutions., optional</p>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">end_day:</th><td class="field-body"><p class="first">integer, optional</p>
-</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">end_month:</th><td class="field-body"><p class="first">integer, optional</p>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">end_year:</th><td class="field-body"><p class="first">integer, year the conference or trip ends, optional</p>
-</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">institution:</th><td class="field-body"><p class="first">string, institution where thepresentation will be made, if applicable., optional</p>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">location:</th><td class="field-body"><p class="first">string, city and {state or country} of meeting, optional</p>
-</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">meeting_name:</th><td class="field-body"><p class="first">string, full name of the conference or meeting.  If it is a departmental seminar or colloquium, write Seminaror Colloquium and fill in department and institution fields, optional</p>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">notes:</th><td class="field-body"><p class="first">[‘list’, ‘string’], any reminder or memory aid about anything, optional</p>
-</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">project:</th><td class="field-body"><p class="first">[‘string’, ‘list’], project or list of projects that this presentation is associated with.  Should be discoverable in projects collection, optional</p>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">status:</th><td class="field-body"><p class="first">string, Is the application in prep or submitted, was the invitation accepted or declined, was the trip cancelled?, required</p>
-<dl class="docutils">
-<dt>Allowed values:</dt>
-<dd><ul class="first last simple">
-<li>in-prep</li>
-<li>submitted</li>
-<li>accepted</li>
-<li>declined</li>
-<li>cancelled</li>
+<dl class="field-list">
+<dt class="field-odd">_id</dt>
+<dd class="field-odd"><p>string, unique id for the presentation, required</p>
+</dd>
+<dt class="field-even">abstract</dt>
+<dd class="field-even"><p>string, abstract of the presentation, optional</p>
+</dd>
+<dt class="field-odd">authors</dt>
+<dd class="field-odd"><p>[‘string’, ‘list’], Author list., required</p>
+</dd>
+<dt class="field-even">begin_day</dt>
+<dd class="field-even"><p>integer, optional</p>
+</dd>
+<dt class="field-odd">begin_month</dt>
+<dd class="field-odd"><p>integer, required</p>
+</dd>
+<dt class="field-even">begin_year</dt>
+<dd class="field-even"><p>integer, year the conference or trip begins., required</p>
+</dd>
+<dt class="field-odd">department</dt>
+<dd class="field-odd"><p>string, department of the institution where thepresentation will be made, if applicable.  should be discoverable in institutions., optional</p>
+</dd>
+<dt class="field-even">end_day</dt>
+<dd class="field-even"><p>integer, optional</p>
+</dd>
+<dt class="field-odd">end_month</dt>
+<dd class="field-odd"><p>integer, optional</p>
+</dd>
+<dt class="field-even">end_year</dt>
+<dd class="field-even"><p>integer, year the conference or trip ends, optional</p>
+</dd>
+<dt class="field-odd">institution</dt>
+<dd class="field-odd"><p>string, institution where thepresentation will be made, if applicable., optional</p>
+</dd>
+<dt class="field-even">location</dt>
+<dd class="field-even"><p>string, city and {state or country} of meeting, optional</p>
+</dd>
+<dt class="field-odd">meeting_name</dt>
+<dd class="field-odd"><p>string, full name of the conference or meeting.  If it is a departmental seminar or colloquium, write Seminaror Colloquium and fill in department and institution fields, optional</p>
+</dd>
+<dt class="field-even">notes</dt>
+<dd class="field-even"><p>[‘list’, ‘string’], any reminder or memory aid about anything, optional</p>
+</dd>
+<dt class="field-odd">project</dt>
+<dd class="field-odd"><p>[‘string’, ‘list’], project or list of projects that this presentation is associated with.  Should be discoverable in projects collection, optional</p>
+</dd>
+<dt class="field-even">status</dt>
+<dd class="field-even"><p>string, Is the application in prep or submitted, was the invitation accepted or declined, was the trip cancelled?, required</p>
+<dl class="simple">
+<dt>Allowed values:</dt><dd><ul class="simple">
+<li><p>in-prep</p></li>
+<li><p>submitted</p></li>
+<li><p>accepted</p></li>
+<li><p>declined</p></li>
+<li><p>cancelled</p></li>
 </ul>
 </dd>
 </dl>
-</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">title:</th><td class="field-body"><p class="first">string, title of the presentation, required</p>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">type:</th><td class="field-body"><p class="first">string, type of presentation, required</p>
-<dl class="last docutils">
-<dt>Allowed values:</dt>
-<dd><ul class="first last simple">
-<li>award</li>
-<li>colloquium</li>
-<li>contributed_oral</li>
-<li>invited</li>
-<li>keynote</li>
-<li>plenary</li>
-<li>poster</li>
-<li>seminar</li>
+</dd>
+<dt class="field-odd">title</dt>
+<dd class="field-odd"><p>string, title of the presentation, required</p>
+</dd>
+<dt class="field-even">type</dt>
+<dd class="field-even"><p>string, type of presentation, required</p>
+<dl class="simple">
+<dt>Allowed values:</dt><dd><ul class="simple">
+<li><p>award</p></li>
+<li><p>colloquium</p></li>
+<li><p>contributed_oral</p></li>
+<li><p>invited</p></li>
+<li><p>keynote</p></li>
+<li><p>plenary</p></li>
+<li><p>poster</p></li>
+<li><p>seminar</p></li>
 </ul>
 </dd>
 </dl>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+</dl>
 </div>
 <div class="section" id="yaml-example">
 <h2>YAML Example<a class="headerlink" href="#yaml-example" title="Permalink to this headline">¶</a></h2>
@@ -278,8 +270,6 @@
     <form class="search" action="../search.html" method="get">
       <input type="text" name="q" />
       <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
     </form>
     </div>
 </div>

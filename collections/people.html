@@ -1,17 +1,15 @@
 
 
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
     <title>People &#8212; regolith - software group content managment system</title>
     <link rel="stylesheet" href="../_static/cloud.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Noticia+Text|Open+Sans|Droid+Sans+Mono" />
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Noticia+Text|Open+Sans|Droid+Sans+Mono" type="text/css" />
     <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
@@ -56,355 +54,347 @@
 <div class="section" id="schema">
 <h2>Schema<a class="headerlink" href="#schema" title="Permalink to this headline">¶</a></h2>
 <p>The following lists key names mapped to its type and meaning for each entry.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">_id:</th><td class="field-body"><p class="first">string, unique identifier for the group member, required</p>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">active:</th><td class="field-body"><p class="first">boolean, If the person is an active member, default True., optional</p>
-</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">aka:</th><td class="field-body"><p class="first">[‘string’, ‘list’], list of aliases (also-known-as), useful for identifying the group member in citations or elsewhere., required</p>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">avatar:</th><td class="field-body"><p class="first">string, URL to avatar, required</p>
-</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">bio:</th><td class="field-body"><p class="first">string, short biographical text, required</p>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">collab:</th><td class="field-body"><p class="first">boolean, If the person is a collaborator, default False., optional</p>
-</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">education:</th><td class="field-body"><p class="first">list, This contains the educational information for the group member., required</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">type:</th><td class="field-body"><p class="first">dict, optional</p>
-<table class="last docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">begin_month:</th><td class="field-body">string, optional</td>
-</tr>
-<tr class="field-even field"><th class="field-name">begin_year:</th><td class="field-body">integer, optional</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">degree:</th><td class="field-body">string, optional</td>
-</tr>
-<tr class="field-even field"><th class="field-name">department:</th><td class="field-body">string, department withinthe institution, optional</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">group:</th><td class="field-body">string, this employment is/was ina group in groups coll, optional</td>
-</tr>
-<tr class="field-even field"><th class="field-name">end_month:</th><td class="field-body">string, optional</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">end_year:</th><td class="field-body">integer, optional</td>
-</tr>
-<tr class="field-even field"><th class="field-name">gpa:</th><td class="field-body">(‘float’, ‘string’), optional</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">institution:</th><td class="field-body">string, optional</td>
-</tr>
-<tr class="field-even field"><th class="field-name">location:</th><td class="field-body">string, optional</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">other:</th><td class="field-body">list, optional</td>
-</tr>
-</tbody>
-</table>
-</td>
-</tr>
-</tbody>
-</table>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">email:</th><td class="field-body"><p class="first">string, email address of the group member, optional</p>
-</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">employment:</th><td class="field-body"><p class="first">list, Employment information, similar to educational information., optional</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">type:</th><td class="field-body"><p class="first">dict, optional</p>
-<table class="last docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">begin_month:</th><td class="field-body">string, optional</td>
-</tr>
-<tr class="field-even field"><th class="field-name">begin_year:</th><td class="field-body">integer, optional</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">end_month:</th><td class="field-body">string, optional</td>
-</tr>
-<tr class="field-even field"><th class="field-name">end_year:</th><td class="field-body">integer, optional</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">group:</th><td class="field-body">string, this employment is/was ina group in groups coll, optional</td>
-</tr>
-<tr class="field-even field"><th class="field-name">location:</th><td class="field-body">string, optional</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">organization:</th><td class="field-body">string, optional</td>
-</tr>
-<tr class="field-even field"><th class="field-name">other:</th><td class="field-body">list, optional</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">position:</th><td class="field-body">string, optional</td>
-</tr>
-</tbody>
-</table>
-</td>
-</tr>
-</tbody>
-</table>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">funding:</th><td class="field-body"><p class="first">list, Funding and scholarship that the group member has individually obtained in the past. <strong>WARNING:</strong> this is not to be confused with the <strong>grants</strong> collection, optional</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">type:</th><td class="field-body"><p class="first">dict, optional</p>
-<table class="last docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">currency:</th><td class="field-body">string, optional</td>
-</tr>
-<tr class="field-even field"><th class="field-name">duration:</th><td class="field-body">string, optional</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">month:</th><td class="field-body">string, optional</td>
-</tr>
-<tr class="field-even field"><th class="field-name">name:</th><td class="field-body">string, optional</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">value:</th><td class="field-body">(‘float’, ‘integer’), optional</td>
-</tr>
-<tr class="field-even field"><th class="field-name">year:</th><td class="field-body">integer, optional</td>
-</tr>
-</tbody>
-</table>
-</td>
-</tr>
-</tbody>
-</table>
-</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">home_address:</th><td class="field-body"><p class="first">dict, The person’s home address, optional</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">street:</th><td class="field-body">string, street address, optional</td>
-</tr>
-<tr class="field-even field"><th class="field-name">city:</th><td class="field-body">string, name of home city, optional</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">state:</th><td class="field-body">string, name o home state, optional</td>
-</tr>
-<tr class="field-even field"><th class="field-name">zip:</th><td class="field-body">string, zip code, optional</td>
-</tr>
-</tbody>
-</table>
-</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">honors:</th><td class="field-body"><p class="first">list, Honors that have been awarded to this group member, optional</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">type:</th><td class="field-body"><p class="first">dict, optional</p>
-<table class="last docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">description:</th><td class="field-body">string, optional</td>
-</tr>
-<tr class="field-even field"><th class="field-name">month:</th><td class="field-body">string, optional</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">name:</th><td class="field-body">string, optional</td>
-</tr>
-<tr class="field-even field"><th class="field-name">year:</th><td class="field-body">integer, optional</td>
-</tr>
-</tbody>
-</table>
-</td>
-</tr>
-</tbody>
-</table>
-</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">initials:</th><td class="field-body"><p class="first">string, The canonical initials for this group member, optional</p>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">membership:</th><td class="field-body"><p class="first">list, Professional organizations this member is a part of, optional</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">type:</th><td class="field-body"><p class="first">dict, optional</p>
-<table class="last docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">begin_month:</th><td class="field-body">string, optional</td>
-</tr>
-<tr class="field-even field"><th class="field-name">begin_year:</th><td class="field-body">integer, optional</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">description:</th><td class="field-body">string, optional</td>
-</tr>
-<tr class="field-even field"><th class="field-name">end_month:</th><td class="field-body">string, optional</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">end_year:</th><td class="field-body">integer, optional</td>
-</tr>
-<tr class="field-even field"><th class="field-name">organization:</th><td class="field-body">string, optional</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">position:</th><td class="field-body">string, optional</td>
-</tr>
-<tr class="field-even field"><th class="field-name">website:</th><td class="field-body">string, optional</td>
-</tr>
-</tbody>
-</table>
-</td>
-</tr>
-</tbody>
-</table>
-</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">name:</th><td class="field-body"><p class="first">string, Full, canonical name for the person, required</p>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">orcid_id:</th><td class="field-body"><p class="first">string, The ORCID ID of the person, optional</p>
-</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">position:</th><td class="field-body"><p class="first">string, such as professor, graduate student, or scientist, required</p>
-<dl class="docutils">
-<dt>Allowed values:</dt>
-<dd><ul class="first last simple">
-<li><code class="docutils literal notranslate"><span class="pre">''</span></code></li>
-<li>undergraduate research assistant</li>
-<li>graduate research assistant</li>
-<li>research assistant</li>
-<li>post-doctoral scholar</li>
-<li>assistant scientist</li>
-<li>research scientist</li>
-<li>associate scientist</li>
-<li>research associate</li>
-<li>ajunct professor</li>
-<li>programer</li>
-<li>programmer</li>
-<li>visiting scientist</li>
-<li>research assistant professor</li>
-<li>assistant professor</li>
-<li>associate professor</li>
-<li>professor emeritus</li>
-<li>professor</li>
+<dl class="field-list">
+<dt class="field-odd">_id</dt>
+<dd class="field-odd"><p>string, unique identifier for the group member, required</p>
+</dd>
+<dt class="field-even">active</dt>
+<dd class="field-even"><p>boolean, If the person is an active member, default True., optional</p>
+</dd>
+<dt class="field-odd">aka</dt>
+<dd class="field-odd"><p>[‘string’, ‘list’], list of aliases (also-known-as), useful for identifying the group member in citations or elsewhere., required</p>
+</dd>
+<dt class="field-even">avatar</dt>
+<dd class="field-even"><p>string, URL to avatar, required</p>
+</dd>
+<dt class="field-odd">bio</dt>
+<dd class="field-odd"><p>string, short biographical text, required</p>
+</dd>
+<dt class="field-even">collab</dt>
+<dd class="field-even"><p>boolean, If the person is a collaborator, default False., optional</p>
+</dd>
+<dt class="field-odd">education</dt>
+<dd class="field-odd"><p>list, This contains the educational information for the group member., required</p>
+<dl class="field-list simple">
+<dt class="field-odd">type</dt>
+<dd class="field-odd"><p>dict, optional</p>
+<dl class="field-list simple">
+<dt class="field-odd">begin_month</dt>
+<dd class="field-odd"><p>string, optional</p>
+</dd>
+<dt class="field-even">begin_year</dt>
+<dd class="field-even"><p>integer, optional</p>
+</dd>
+<dt class="field-odd">degree</dt>
+<dd class="field-odd"><p>string, optional</p>
+</dd>
+<dt class="field-even">department</dt>
+<dd class="field-even"><p>string, department withinthe institution, optional</p>
+</dd>
+<dt class="field-odd">group</dt>
+<dd class="field-odd"><p>string, this employment is/was ina group in groups coll, optional</p>
+</dd>
+<dt class="field-even">end_month</dt>
+<dd class="field-even"><p>string, optional</p>
+</dd>
+<dt class="field-odd">end_year</dt>
+<dd class="field-odd"><p>integer, optional</p>
+</dd>
+<dt class="field-even">gpa</dt>
+<dd class="field-even"><p>(‘float’, ‘string’), optional</p>
+</dd>
+<dt class="field-odd">institution</dt>
+<dd class="field-odd"><p>string, optional</p>
+</dd>
+<dt class="field-even">location</dt>
+<dd class="field-even"><p>string, optional</p>
+</dd>
+<dt class="field-odd">other</dt>
+<dd class="field-odd"><p>list, optional</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">email</dt>
+<dd class="field-even"><p>string, email address of the group member, optional</p>
+</dd>
+<dt class="field-odd">employment</dt>
+<dd class="field-odd"><p>list, Employment information, similar to educational information., optional</p>
+<dl class="field-list simple">
+<dt class="field-odd">type</dt>
+<dd class="field-odd"><p>dict, optional</p>
+<dl class="field-list simple">
+<dt class="field-odd">begin_month</dt>
+<dd class="field-odd"><p>string, optional</p>
+</dd>
+<dt class="field-even">begin_year</dt>
+<dd class="field-even"><p>integer, optional</p>
+</dd>
+<dt class="field-odd">end_month</dt>
+<dd class="field-odd"><p>string, optional</p>
+</dd>
+<dt class="field-even">end_year</dt>
+<dd class="field-even"><p>integer, optional</p>
+</dd>
+<dt class="field-odd">group</dt>
+<dd class="field-odd"><p>string, this employment is/was ina group in groups coll, optional</p>
+</dd>
+<dt class="field-even">location</dt>
+<dd class="field-even"><p>string, optional</p>
+</dd>
+<dt class="field-odd">organization</dt>
+<dd class="field-odd"><p>string, optional</p>
+</dd>
+<dt class="field-even">other</dt>
+<dd class="field-even"><p>list, optional</p>
+</dd>
+<dt class="field-odd">position</dt>
+<dd class="field-odd"><p>string, optional</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">funding</dt>
+<dd class="field-even"><p>list, Funding and scholarship that the group member has individually obtained in the past. <strong>WARNING:</strong> this is not to be confused with the <strong>grants</strong> collection, optional</p>
+<dl class="field-list simple">
+<dt class="field-odd">type</dt>
+<dd class="field-odd"><p>dict, optional</p>
+<dl class="field-list simple">
+<dt class="field-odd">currency</dt>
+<dd class="field-odd"><p>string, optional</p>
+</dd>
+<dt class="field-even">duration</dt>
+<dd class="field-even"><p>string, optional</p>
+</dd>
+<dt class="field-odd">month</dt>
+<dd class="field-odd"><p>string, optional</p>
+</dd>
+<dt class="field-even">name</dt>
+<dd class="field-even"><p>string, optional</p>
+</dd>
+<dt class="field-odd">value</dt>
+<dd class="field-odd"><p>(‘float’, ‘integer’), optional</p>
+</dd>
+<dt class="field-even">year</dt>
+<dd class="field-even"><p>integer, optional</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+<dt class="field-odd">home_address</dt>
+<dd class="field-odd"><p>dict, The person’s home address, optional</p>
+<dl class="field-list simple">
+<dt class="field-odd">street</dt>
+<dd class="field-odd"><p>string, street address, optional</p>
+</dd>
+<dt class="field-even">city</dt>
+<dd class="field-even"><p>string, name of home city, optional</p>
+</dd>
+<dt class="field-odd">state</dt>
+<dd class="field-odd"><p>string, name o home state, optional</p>
+</dd>
+<dt class="field-even">zip</dt>
+<dd class="field-even"><p>string, zip code, optional</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-odd">honors</dt>
+<dd class="field-odd"><p>list, Honors that have been awarded to this group member, optional</p>
+<dl class="field-list simple">
+<dt class="field-odd">type</dt>
+<dd class="field-odd"><p>dict, optional</p>
+<dl class="field-list simple">
+<dt class="field-odd">description</dt>
+<dd class="field-odd"><p>string, optional</p>
+</dd>
+<dt class="field-even">month</dt>
+<dd class="field-even"><p>string, optional</p>
+</dd>
+<dt class="field-odd">name</dt>
+<dd class="field-odd"><p>string, optional</p>
+</dd>
+<dt class="field-even">year</dt>
+<dd class="field-even"><p>integer, optional</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+<dt class="field-odd">initials</dt>
+<dd class="field-odd"><p>string, The canonical initials for this group member, optional</p>
+</dd>
+<dt class="field-even">membership</dt>
+<dd class="field-even"><p>list, Professional organizations this member is a part of, optional</p>
+<dl class="field-list simple">
+<dt class="field-odd">type</dt>
+<dd class="field-odd"><p>dict, optional</p>
+<dl class="field-list simple">
+<dt class="field-odd">begin_month</dt>
+<dd class="field-odd"><p>string, optional</p>
+</dd>
+<dt class="field-even">begin_year</dt>
+<dd class="field-even"><p>integer, optional</p>
+</dd>
+<dt class="field-odd">description</dt>
+<dd class="field-odd"><p>string, optional</p>
+</dd>
+<dt class="field-even">end_month</dt>
+<dd class="field-even"><p>string, optional</p>
+</dd>
+<dt class="field-odd">end_year</dt>
+<dd class="field-odd"><p>integer, optional</p>
+</dd>
+<dt class="field-even">organization</dt>
+<dd class="field-even"><p>string, optional</p>
+</dd>
+<dt class="field-odd">position</dt>
+<dd class="field-odd"><p>string, optional</p>
+</dd>
+<dt class="field-even">website</dt>
+<dd class="field-even"><p>string, optional</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+<dt class="field-odd">name</dt>
+<dd class="field-odd"><p>string, Full, canonical name for the person, required</p>
+</dd>
+<dt class="field-even">orcid_id</dt>
+<dd class="field-even"><p>string, The ORCID ID of the person, optional</p>
+</dd>
+<dt class="field-odd">position</dt>
+<dd class="field-odd"><p>string, such as professor, graduate student, or scientist, required</p>
+<dl class="simple">
+<dt>Allowed values:</dt><dd><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">''</span></code></p></li>
+<li><p>undergraduate research assistant</p></li>
+<li><p>graduate research assistant</p></li>
+<li><p>research assistant</p></li>
+<li><p>post-doctoral scholar</p></li>
+<li><p>assistant scientist</p></li>
+<li><p>research scientist</p></li>
+<li><p>associate scientist</p></li>
+<li><p>research associate</p></li>
+<li><p>ajunct professor</p></li>
+<li><p>programer</p></li>
+<li><p>programmer</p></li>
+<li><p>visiting scientist</p></li>
+<li><p>research assistant professor</p></li>
+<li><p>assistant professor</p></li>
+<li><p>associate professor</p></li>
+<li><p>professor emeritus</p></li>
+<li><p>professor</p></li>
 </ul>
 </dd>
 </dl>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">service:</th><td class="field-body"><p class="first">list, Service that this group member has provided, optional</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">type:</th><td class="field-body"><p class="first">dict, optional</p>
-<table class="last docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">description:</th><td class="field-body">string, optional</td>
-</tr>
-<tr class="field-even field"><th class="field-name">duration:</th><td class="field-body">string, optional</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">month:</th><td class="field-body">string, optional</td>
-</tr>
-<tr class="field-even field"><th class="field-name">name:</th><td class="field-body">string, optional</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">year:</th><td class="field-body">integer, optional</td>
-</tr>
-<tr class="field-even field"><th class="field-name">begin_year:</th><td class="field-body">integer, optional</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">end_year:</th><td class="field-body">integer, optional</td>
-</tr>
-<tr class="field-even field"><th class="field-name">other:</th><td class="field-body">[‘string’, ‘list’], optional</td>
-</tr>
-</tbody>
-</table>
-</td>
-</tr>
-</tbody>
-</table>
-</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">skills:</th><td class="field-body"><p class="first">list, Skill the group member has, optional</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">type:</th><td class="field-body"><p class="first">dict, optional</p>
-<table class="last docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">category:</th><td class="field-body">string, optional</td>
-</tr>
-<tr class="field-even field"><th class="field-name">level:</th><td class="field-body">string, optional</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">name:</th><td class="field-body">string, optional</td>
-</tr>
-</tbody>
-</table>
-</td>
-</tr>
-</tbody>
-</table>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">teaching:</th><td class="field-body"><p class="first">list, Courses that this group member has taught, if any, optional</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">type:</th><td class="field-body"><p class="first">dict, optional</p>
-<table class="last docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">course:</th><td class="field-body">string, optional</td>
-</tr>
-<tr class="field-even field"><th class="field-name">description:</th><td class="field-body">string, optional</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">end_month:</th><td class="field-body">string, optional</td>
-</tr>
-<tr class="field-even field"><th class="field-name">end_year:</th><td class="field-body">integer, optional</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">materials:</th><td class="field-body">string, optional</td>
-</tr>
-<tr class="field-even field"><th class="field-name">month:</th><td class="field-body">string, optional</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">organization:</th><td class="field-body">string, optional</td>
-</tr>
-<tr class="field-even field"><th class="field-name">position:</th><td class="field-body">string, optional</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">syllabus:</th><td class="field-body">string, optional</td>
-</tr>
-<tr class="field-even field"><th class="field-name">video:</th><td class="field-body">string, optional</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">website:</th><td class="field-body">string, optional</td>
-</tr>
-<tr class="field-even field"><th class="field-name">year:</th><td class="field-body">integer, optional</td>
-</tr>
-</tbody>
-</table>
-</td>
-</tr>
-</tbody>
-</table>
-</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">title:</th><td class="field-body"><p class="first last">string, for example, Dr., etc., optional</p>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+<dt class="field-even">service</dt>
+<dd class="field-even"><p>list, Service that this group member has provided, optional</p>
+<dl class="field-list simple">
+<dt class="field-odd">type</dt>
+<dd class="field-odd"><p>dict, optional</p>
+<dl class="field-list simple">
+<dt class="field-odd">description</dt>
+<dd class="field-odd"><p>string, optional</p>
+</dd>
+<dt class="field-even">duration</dt>
+<dd class="field-even"><p>string, optional</p>
+</dd>
+<dt class="field-odd">month</dt>
+<dd class="field-odd"><p>string, optional</p>
+</dd>
+<dt class="field-even">name</dt>
+<dd class="field-even"><p>string, optional</p>
+</dd>
+<dt class="field-odd">year</dt>
+<dd class="field-odd"><p>integer, optional</p>
+</dd>
+<dt class="field-even">begin_year</dt>
+<dd class="field-even"><p>integer, optional</p>
+</dd>
+<dt class="field-odd">end_year</dt>
+<dd class="field-odd"><p>integer, optional</p>
+</dd>
+<dt class="field-even">other</dt>
+<dd class="field-even"><p>[‘string’, ‘list’], optional</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+<dt class="field-odd">skills</dt>
+<dd class="field-odd"><p>list, Skill the group member has, optional</p>
+<dl class="field-list simple">
+<dt class="field-odd">type</dt>
+<dd class="field-odd"><p>dict, optional</p>
+<dl class="field-list simple">
+<dt class="field-odd">category</dt>
+<dd class="field-odd"><p>string, optional</p>
+</dd>
+<dt class="field-even">level</dt>
+<dd class="field-even"><p>string, optional</p>
+</dd>
+<dt class="field-odd">name</dt>
+<dd class="field-odd"><p>string, optional</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">teaching</dt>
+<dd class="field-even"><p>list, Courses that this group member has taught, if any, optional</p>
+<dl class="field-list simple">
+<dt class="field-odd">type</dt>
+<dd class="field-odd"><p>dict, optional</p>
+<dl class="field-list simple">
+<dt class="field-odd">course</dt>
+<dd class="field-odd"><p>string, optional</p>
+</dd>
+<dt class="field-even">description</dt>
+<dd class="field-even"><p>string, optional</p>
+</dd>
+<dt class="field-odd">end_month</dt>
+<dd class="field-odd"><p>string, optional</p>
+</dd>
+<dt class="field-even">end_year</dt>
+<dd class="field-even"><p>integer, optional</p>
+</dd>
+<dt class="field-odd">materials</dt>
+<dd class="field-odd"><p>string, optional</p>
+</dd>
+<dt class="field-even">month</dt>
+<dd class="field-even"><p>string, optional</p>
+</dd>
+<dt class="field-odd">organization</dt>
+<dd class="field-odd"><p>string, optional</p>
+</dd>
+<dt class="field-even">position</dt>
+<dd class="field-even"><p>string, optional</p>
+</dd>
+<dt class="field-odd">syllabus</dt>
+<dd class="field-odd"><p>string, optional</p>
+</dd>
+<dt class="field-even">video</dt>
+<dd class="field-even"><p>string, optional</p>
+</dd>
+<dt class="field-odd">website</dt>
+<dd class="field-odd"><p>string, optional</p>
+</dd>
+<dt class="field-even">year</dt>
+<dd class="field-even"><p>integer, optional</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+<dt class="field-odd">title</dt>
+<dd class="field-odd"><p>string, for example, Dr., etc., optional</p>
+</dd>
+</dl>
 </div>
 <div class="section" id="yaml-example">
 <h2>YAML Example<a class="headerlink" href="#yaml-example" title="Permalink to this headline">¶</a></h2>
@@ -764,8 +754,6 @@
     <form class="search" action="../search.html" method="get">
       <input type="text" name="q" />
       <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
     </form>
     </div>
 </div>

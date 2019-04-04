@@ -1,17 +1,15 @@
 
 
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
     <title>Abstracts &#8212; regolith - software group content managment system</title>
     <link rel="stylesheet" href="../_static/cloud.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Noticia+Text|Open+Sans|Droid+Sans+Mono" />
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Noticia+Text|Open+Sans|Droid+Sans+Mono" type="text/css" />
     <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
@@ -56,32 +54,38 @@
 <div class="section" id="schema">
 <h2>Schema<a class="headerlink" href="#schema" title="Permalink to this headline">¶</a></h2>
 <p>The following lists key names mapped to its type and meaning for each entry.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">_id:</th><td class="field-body">string, Unique identifier for submission. This generally includes the author name and part of the title., required</td>
-</tr>
-<tr class="field-even field"><th class="field-name">coauthors:</th><td class="field-body">string, names of coauthors, optional</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">email:</th><td class="field-body">string, contact email for the author., required</td>
-</tr>
-<tr class="field-even field"><th class="field-name">firstname:</th><td class="field-body">string, first name of the author., required</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">institution:</th><td class="field-body">string, name of the inistitution, required</td>
-</tr>
-<tr class="field-even field"><th class="field-name">lastname:</th><td class="field-body">string, last name of the author., required</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">references:</th><td class="field-body">string, HTML string of reference for the abstract itself, optional</td>
-</tr>
-<tr class="field-even field"><th class="field-name">text:</th><td class="field-body">string, HTML string of the abstract., required</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">timestamp:</th><td class="field-body">string, The time when the abstract was submitted., required</td>
-</tr>
-<tr class="field-even field"><th class="field-name">title:</th><td class="field-body">string, title of the presentation/paper., required</td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">_id</dt>
+<dd class="field-odd"><p>string, Unique identifier for submission. This generally includes the author name and part of the title., required</p>
+</dd>
+<dt class="field-even">coauthors</dt>
+<dd class="field-even"><p>string, names of coauthors, optional</p>
+</dd>
+<dt class="field-odd">email</dt>
+<dd class="field-odd"><p>string, contact email for the author., required</p>
+</dd>
+<dt class="field-even">firstname</dt>
+<dd class="field-even"><p>string, first name of the author., required</p>
+</dd>
+<dt class="field-odd">institution</dt>
+<dd class="field-odd"><p>string, name of the inistitution, required</p>
+</dd>
+<dt class="field-even">lastname</dt>
+<dd class="field-even"><p>string, last name of the author., required</p>
+</dd>
+<dt class="field-odd">references</dt>
+<dd class="field-odd"><p>string, HTML string of reference for the abstract itself, optional</p>
+</dd>
+<dt class="field-even">text</dt>
+<dd class="field-even"><p>string, HTML string of the abstract., required</p>
+</dd>
+<dt class="field-odd">timestamp</dt>
+<dd class="field-odd"><p>string, The time when the abstract was submitted., required</p>
+</dd>
+<dt class="field-even">title</dt>
+<dd class="field-even"><p>string, title of the presentation/paper., required</p>
+</dd>
+</dl>
 </div>
 <div class="section" id="yaml-example">
 <h2>YAML Example<a class="headerlink" href="#yaml-example" title="Permalink to this headline">¶</a></h2>
@@ -155,8 +159,6 @@
     <form class="search" action="../search.html" method="get">
       <input type="text" name="q" />
       <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
     </form>
     </div>
 </div>

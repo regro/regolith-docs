@@ -1,17 +1,15 @@
 
 
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
     <title>Jobs &#8212; regolith - software group content managment system</title>
     <link rel="stylesheet" href="../_static/cloud.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Noticia+Text|Open+Sans|Droid+Sans+Mono" />
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Noticia+Text|Open+Sans|Droid+Sans+Mono" type="text/css" />
     <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
@@ -56,39 +54,47 @@
 <div class="section" id="schema">
 <h2>Schema<a class="headerlink" href="#schema" title="Permalink to this headline">¶</a></h2>
 <p>The following lists key names mapped to its type and meaning for each entry.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">_id:</th><td class="field-body">str or number, unique job identifier</td>
-</tr>
-<tr class="field-even field"><th class="field-name">title:</th><td class="field-body">str, Job title</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">description:</th><td class="field-body">str, long description of the position</td>
-</tr>
-<tr class="field-even field"><th class="field-name">open:</th><td class="field-body">bool, flag for whether the job is currently open or not.</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">contact:</th><td class="field-body">str, contact information for how to apply</td>
-</tr>
-<tr class="field-even field"><th class="field-name">positions:</th><td class="field-body">list of strings, positions such as “Graduate Student”, “Post-doctoral Scholar”,</td>
-</tr>
-<tr class="field-odd field"><th class="field-name" colspan="2">background_fields:</th></tr>
-<tr class="field-odd field"><td>&#160;</td><td class="field-body">list of str, previous disciplines, e.g. Nuclear Engineering or Computer Science</td>
-</tr>
-<tr class="field-even field"><th class="field-name">year:</th><td class="field-body">int, year job posted</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">month:</th><td class="field-body">str, month the job was posted</td>
-</tr>
-<tr class="field-even field"><th class="field-name">day:</th><td class="field-body">int, day the job was posted</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">start_date:</th><td class="field-body">str, expected start date or “ASAP” or similar</td>
-</tr>
-<tr class="field-even field"><th class="field-name">expertise:</th><td class="field-body">str, Current skills applicatns should have</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">compensation:</th><td class="field-body">list of str, list of compensations for the position.</td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">_id</dt>
+<dd class="field-odd"><p>str or number, unique job identifier</p>
+</dd>
+<dt class="field-even">title</dt>
+<dd class="field-even"><p>str, Job title</p>
+</dd>
+<dt class="field-odd">description</dt>
+<dd class="field-odd"><p>str, long description of the position</p>
+</dd>
+<dt class="field-even">open</dt>
+<dd class="field-even"><p>bool, flag for whether the job is currently open or not.</p>
+</dd>
+<dt class="field-odd">contact</dt>
+<dd class="field-odd"><p>str, contact information for how to apply</p>
+</dd>
+<dt class="field-even">positions</dt>
+<dd class="field-even"><p>list of strings, positions such as “Graduate Student”, “Post-doctoral Scholar”,</p>
+</dd>
+<dt class="field-odd">background_fields</dt>
+<dd class="field-odd"><p>list of str, previous disciplines, e.g. Nuclear Engineering or Computer Science</p>
+</dd>
+<dt class="field-even">year</dt>
+<dd class="field-even"><p>int, year job posted</p>
+</dd>
+<dt class="field-odd">month</dt>
+<dd class="field-odd"><p>str, month the job was posted</p>
+</dd>
+<dt class="field-even">day</dt>
+<dd class="field-even"><p>int, day the job was posted</p>
+</dd>
+<dt class="field-odd">start_date</dt>
+<dd class="field-odd"><p>str, expected start date or “ASAP” or similar</p>
+</dd>
+<dt class="field-even">expertise</dt>
+<dd class="field-even"><p>str, Current skills applicatns should have</p>
+</dd>
+<dt class="field-odd">compensation</dt>
+<dd class="field-odd"><p>list of str, list of compensations for the position.</p>
+</dd>
+</dl>
 </div>
 <div class="section" id="yaml-example">
 <h2>YAML Example<a class="headerlink" href="#yaml-example" title="Permalink to this headline">¶</a></h2>
@@ -193,8 +199,6 @@
     <form class="search" action="../search.html" method="get">
       <input type="text" name="q" />
       <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
     </form>
     </div>
 </div>

@@ -1,17 +1,15 @@
 
 
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
     <title>Tools (regolith.tools) &#8212; regolith - software group content managment system</title>
     <link rel="stylesheet" href="../_static/cloud.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Noticia+Text|Open+Sans|Droid+Sans+Mono" />
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Noticia+Text|Open+Sans|Droid+Sans+Mono" type="text/css" />
     <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
@@ -64,14 +62,11 @@ database.</p>
 <dt id="regolith.tools.awards_grants_honors">
 <code class="descclassname">regolith.tools.</code><code class="descname">awards_grants_honors</code><span class="sig-paren">(</span><em>p</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#awards_grants_honors"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.tools.awards_grants_honors" title="Permalink to this definition">¶</a></dt>
 <dd><p>Make sorted awards grants and honors list.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>p</strong> (<em>dict</em>) – The person entry</td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>p</strong> (<em>dict</em>) – The person entry</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="function">
@@ -97,43 +92,35 @@ database.</p>
 <code class="descclassname">regolith.tools.</code><code class="descname">dereference_institution</code><span class="sig-paren">(</span><em>input_record</em>, <em>institutions</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#dereference_institution"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.tools.dereference_institution" title="Permalink to this definition">¶</a></dt>
 <dd><p>Tool for replacing placeholders for institutions with the actual
 institution data. Note that the replacement is done inplace</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>input_record</strong> (<em>dict</em>) – The record to dereference</li>
-<li><strong>institutions</strong> (<em>iterable of dicts</em>) – The institutions</li>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>input_record</strong> (<em>dict</em>) – The record to dereference</p></li>
+<li><p><strong>institutions</strong> (<em>iterable of dicts</em>) – The institutions</p></li>
 </ul>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="function">
 <dt id="regolith.tools.document_by_value">
 <code class="descclassname">regolith.tools.</code><code class="descname">document_by_value</code><span class="sig-paren">(</span><em>documents</em>, <em>address</em>, <em>value</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#document_by_value"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.tools.document_by_value" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get a specific document by one of its values</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>documents</strong> (<em>generator</em>) – Generator which yields the documents</li>
-<li><strong>address</strong> (<em>str or tuple</em>) – The address of the data in the document</li>
-<li><strong>value</strong> (<em>any</em>) – The expected value for the document</li>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>documents</strong> (<em>generator</em>) – Generator which yields the documents</p></li>
+<li><p><strong>address</strong> (<em>str or tuple</em>) – The address of the data in the document</p></li>
+<li><p><strong>value</strong> (<em>any</em>) – The expected value for the document</p></li>
 </ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">The first document which matches the request</p>
-</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">dict</p>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The first document which matches the request</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="function">
@@ -147,60 +134,48 @@ cond is false.</p>
 <dt id="regolith.tools.filter_grants">
 <code class="descclassname">regolith.tools.</code><code class="descname">filter_grants</code><span class="sig-paren">(</span><em>input_grants</em>, <em>names</em>, <em>pi=True</em>, <em>reverse=True</em>, <em>multi_pi=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#filter_grants"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.tools.filter_grants" title="Permalink to this definition">¶</a></dt>
 <dd><p>Filter grants by those involved</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>input_grants</strong> (<em>list of dict</em>) – The grants to filter</li>
-<li><strong>names</strong> (<em>set of str</em>) – The authors to be filtered against</li>
-<li><strong>pi</strong> (<em>bool, optional</em>) – If True add the grant amount to that person’s total amount</li>
-<li><strong>reverse</strong> (<em>bool, optional</em>) – If True reverse the order, defaults to False</li>
-<li><strong>multi_pi</strong> (<em>bool, optional</em>) – If True compute sub-awards for multi PI grants, defaults to False</li>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>input_grants</strong> (<em>list of dict</em>) – The grants to filter</p></li>
+<li><p><strong>names</strong> (<em>set of str</em>) – The authors to be filtered against</p></li>
+<li><p><strong>pi</strong> (<em>bool, optional</em>) – If True add the grant amount to that person’s total amount</p></li>
+<li><p><strong>reverse</strong> (<em>bool, optional</em>) – If True reverse the order, defaults to False</p></li>
+<li><p><strong>multi_pi</strong> (<em>bool, optional</em>) – If True compute sub-awards for multi PI grants, defaults to False</p></li>
 </ul>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="function">
 <dt id="regolith.tools.filter_projects">
 <code class="descclassname">regolith.tools.</code><code class="descname">filter_projects</code><span class="sig-paren">(</span><em>projects</em>, <em>authors</em>, <em>reverse=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#filter_projects"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.tools.filter_projects" title="Permalink to this definition">¶</a></dt>
 <dd><p>Filter projects by the author(s)</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>projects</strong> (<em>list of dict</em>) – The publication citations</li>
-<li><strong>authors</strong> (<em>set of str</em>) – The authors to be filtered against</li>
-<li><strong>reverse</strong> (<em>bool, optional</em>) – If True reverse the order, defaults to False</li>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>projects</strong> (<em>list of dict</em>) – The publication citations</p></li>
+<li><p><strong>authors</strong> (<em>set of str</em>) – The authors to be filtered against</p></li>
+<li><p><strong>reverse</strong> (<em>bool, optional</em>) – If True reverse the order, defaults to False</p></li>
 </ul>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="function">
 <dt id="regolith.tools.filter_publications">
 <code class="descclassname">regolith.tools.</code><code class="descname">filter_publications</code><span class="sig-paren">(</span><em>citations</em>, <em>authors</em>, <em>reverse=False</em>, <em>bold=True</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#filter_publications"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.tools.filter_publications" title="Permalink to this definition">¶</a></dt>
 <dd><p>Filter publications by the author(s)/editor(s)</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>citations</strong> (<em>list of dict</em>) – The publication citations</li>
-<li><strong>authors</strong> (<em>set of str</em>) – The authors to be filtered against</li>
-<li><strong>reverse</strong> (<em>bool, optional</em>) – If True reverse the order, defaults to False</li>
-<li><strong>bold</strong> (<em>bool, optional</em>) – If True put latex bold around the author(s) in question</li>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>citations</strong> (<em>list of dict</em>) – The publication citations</p></li>
+<li><p><strong>authors</strong> (<em>set of str</em>) – The authors to be filtered against</p></li>
+<li><p><strong>reverse</strong> (<em>bool, optional</em>) – If True reverse the order, defaults to False</p></li>
+<li><p><strong>bold</strong> (<em>bool, optional</em>) – If True put latex bold around the author(s) in question</p></li>
 </ul>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="function">
@@ -208,26 +183,22 @@ cond is false.</p>
 <code class="descclassname">regolith.tools.</code><code class="descname">fuzzy_retrieval</code><span class="sig-paren">(</span><em>documents</em>, <em>sources</em>, <em>value</em>, <em>case_sensitive=True</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#fuzzy_retrieval"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.tools.fuzzy_retrieval" title="Permalink to this definition">¶</a></dt>
 <dd><p>Retrieve a document from the documents where value is compared against
 multiple potential sources</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>documents</strong> (<em>generator</em>) – The documents</li>
-<li><strong>sources</strong> (<em>iterable</em>) – The potential data sources</li>
-<li><strong>value</strong> – The value to compare against to find the document of interest</li>
-<li><strong>case_sensitive</strong> (<em>Bool</em>) – When true will match case (Default = True)</li>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>documents</strong> (<em>generator</em>) – The documents</p></li>
+<li><p><strong>sources</strong> (<em>iterable</em>) – The potential data sources</p></li>
+<li><p><strong>value</strong> – The value to compare against to find the document of interest</p></li>
+<li><p><strong>case_sensitive</strong> (<em>Bool</em>) – When true will match case (Default = True)</p></li>
 </ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">The document</p>
-</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">dict</p>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The document</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
 <p class="rubric">Examples</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">fuzzy_retrieval</span><span class="p">(</span><span class="n">people</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;aka&#39;</span><span class="p">,</span> <span class="s1">&#39;name&#39;</span><span class="p">],</span> <span class="s1">&#39;pi_name&#39;</span><span class="p">,</span> <span class="n">case_sensitive</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span>
 </pre></div>
@@ -246,20 +217,16 @@ multiple potential sources</p>
 <dt id="regolith.tools.latex_safe">
 <code class="descclassname">regolith.tools.</code><code class="descname">latex_safe</code><span class="sig-paren">(</span><em>s</em>, <em>url_check=True</em>, <em>wrapper='url'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#latex_safe"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.tools.latex_safe" title="Permalink to this definition">¶</a></dt>
 <dd><p>Make string latex safe</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>s</strong> (<em>str</em>)</li>
-<li><strong>url_check</strong> (<em>bool, optional</em>) – If True check for URLs and wrap them, if False check for URL but don’t
-wrap, defaults to True</li>
-<li><strong>wrapper</strong> (<em>str, optional</em>) – The wrapper for wrapping urls defaults to url</li>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>s</strong> (<em>str</em>)</p></li>
+<li><p><strong>url_check</strong> (<em>bool, optional</em>) – If True check for URLs and wrap them, if False check for URL but don’t
+wrap, defaults to True</p></li>
+<li><p><strong>wrapper</strong> (<em>str, optional</em>) – The wrapper for wrapping urls defaults to url</p></li>
 </ul>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="function">
@@ -272,19 +239,15 @@ wrap, defaults to True</li>
 <dt id="regolith.tools.make_bibtex_file">
 <code class="descclassname">regolith.tools.</code><code class="descname">make_bibtex_file</code><span class="sig-paren">(</span><em>pubs</em>, <em>pid</em>, <em>person_dir='.'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#make_bibtex_file"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.tools.make_bibtex_file" title="Permalink to this definition">¶</a></dt>
 <dd><p>Make a bibtex file given the publications</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>pubs</strong> (<em>list of dict</em>) – The publications</li>
-<li><strong>pid</strong> (<em>str</em>) – The person id</li>
-<li><strong>person_dir</strong> (<em>str, optional</em>) – The person’s directory</li>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>pubs</strong> (<em>list of dict</em>) – The publications</p></li>
+<li><p><strong>pid</strong> (<em>str</em>) – The person id</p></li>
+<li><p><strong>person_dir</strong> (<em>str, optional</em>) – The person’s directory</p></li>
 </ul>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="function">
@@ -297,20 +260,18 @@ wrap, defaults to True</li>
 <dt id="regolith.tools.number_suffix">
 <code class="descclassname">regolith.tools.</code><code class="descname">number_suffix</code><span class="sig-paren">(</span><em>number</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#number_suffix"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.tools.number_suffix" title="Permalink to this definition">¶</a></dt>
 <dd><p>returns the suffix that adjectivises a number (st, nd, rd, th)</p>
-<dl class="docutils">
-<dt>number: integer</dt>
-<dd>The number.  If number is not an integer, returns an empty string</dd>
+<dl class="simple">
+<dt>number: integer</dt><dd><p>The number.  If number is not an integer, returns an empty string</p>
+</dd>
 </dl>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><strong>suffix</strong> – The suffix (st, nd, rd, th)</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">string</td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><strong>suffix</strong> – The suffix (st, nd, rd, th)</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>string</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="function">
@@ -346,8 +307,6 @@ wrap, defaults to True</li>
     <form class="search" action="../search.html" method="get">
       <input type="text" name="q" />
       <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
     </form>
     </div>
 </div>

@@ -1,17 +1,15 @@
 
 
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
     <title>Blog &#8212; regolith - software group content managment system</title>
     <link rel="stylesheet" href="../_static/cloud.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Noticia+Text|Open+Sans|Droid+Sans+Mono" />
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Noticia+Text|Open+Sans|Droid+Sans+Mono" type="text/css" />
     <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
@@ -56,28 +54,32 @@
 <div class="section" id="schema">
 <h2>Schema<a class="headerlink" href="#schema" title="Permalink to this headline">¶</a></h2>
 <p>The following lists key names mapped to its type and meaning for each entry.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">_id:</th><td class="field-body">string, short representation, such as this-is-my-title, required</td>
-</tr>
-<tr class="field-even field"><th class="field-name">author:</th><td class="field-body">string, name or AKA of author, required</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">day:</th><td class="field-body">integer, Publication day, required</td>
-</tr>
-<tr class="field-even field"><th class="field-name">month:</th><td class="field-body">string, Publication month, required</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">original:</th><td class="field-body">string, URL of original post, if this is a repost, optional</td>
-</tr>
-<tr class="field-even field"><th class="field-name">post:</th><td class="field-body">string, actual contents of the post, required</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">title:</th><td class="field-body">string, full human readable title, required</td>
-</tr>
-<tr class="field-even field"><th class="field-name">year:</th><td class="field-body">integer, Publication year, required</td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">_id</dt>
+<dd class="field-odd"><p>string, short representation, such as this-is-my-title, required</p>
+</dd>
+<dt class="field-even">author</dt>
+<dd class="field-even"><p>string, name or AKA of author, required</p>
+</dd>
+<dt class="field-odd">day</dt>
+<dd class="field-odd"><p>integer, Publication day, required</p>
+</dd>
+<dt class="field-even">month</dt>
+<dd class="field-even"><p>string, Publication month, required</p>
+</dd>
+<dt class="field-odd">original</dt>
+<dd class="field-odd"><p>string, URL of original post, if this is a repost, optional</p>
+</dd>
+<dt class="field-even">post</dt>
+<dd class="field-even"><p>string, actual contents of the post, required</p>
+</dd>
+<dt class="field-odd">title</dt>
+<dd class="field-odd"><p>string, full human readable title, required</p>
+</dd>
+<dt class="field-even">year</dt>
+<dd class="field-even"><p>integer, Publication year, required</p>
+</dd>
+</dl>
 </div>
 <div class="section" id="yaml-example">
 <h2>YAML Example<a class="headerlink" href="#yaml-example" title="Permalink to this headline">¶</a></h2>
@@ -145,8 +147,6 @@
     <form class="search" action="../search.html" method="get">
       <input type="text" name="q" />
       <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
     </form>
     </div>
 </div>

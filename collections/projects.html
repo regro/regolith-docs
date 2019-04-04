@@ -1,17 +1,15 @@
 
 
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
     <title>Projects &#8212; regolith - software group content managment system</title>
     <link rel="stylesheet" href="../_static/cloud.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Noticia+Text|Open+Sans|Droid+Sans+Mono" />
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Noticia+Text|Open+Sans|Droid+Sans+Mono" type="text/css" />
     <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
@@ -56,66 +54,60 @@
 <div class="section" id="schema">
 <h2>Schema<a class="headerlink" href="#schema" title="Permalink to this headline">¶</a></h2>
 <p>The following lists key names mapped to its type and meaning for each entry.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">_id:</th><td class="field-body"><p class="first">string, Unique project identifier., required</p>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">description:</th><td class="field-body"><p class="first">string, brief project description., required</p>
-</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">grant:</th><td class="field-body"><p class="first">string, Grant id if there is a grant supporting this project, optional</p>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">logo:</th><td class="field-body"><p class="first">string, URL to the project logo, optional</p>
-</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">name:</th><td class="field-body"><p class="first">string, name of the project., required</p>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">other:</th><td class="field-body"><p class="first">[‘list’, ‘string’], other information about the project, optional</p>
-</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">repo:</th><td class="field-body"><p class="first">string, URL of the source code repo, if available, optional</p>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">team:</th><td class="field-body"><p class="first">list, People who are/have been working on this project., required</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">type:</th><td class="field-body"><p class="first">dict, optional</p>
-<table class="last docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">begin_month:</th><td class="field-body">string, optional</td>
-</tr>
-<tr class="field-even field"><th class="field-name">begin_year:</th><td class="field-body">integer, optional</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">end_month:</th><td class="field-body">string, optional</td>
-</tr>
-<tr class="field-even field"><th class="field-name">end_year:</th><td class="field-body">integer, optional</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">name:</th><td class="field-body">string, optional</td>
-</tr>
-<tr class="field-even field"><th class="field-name">position:</th><td class="field-body">string, optional</td>
-</tr>
-</tbody>
-</table>
-</td>
-</tr>
-</tbody>
-</table>
-</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">website:</th><td class="field-body"><p class="first last">string, URL of the website., required</p>
-</td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">_id</dt>
+<dd class="field-odd"><p>string, Unique project identifier., required</p>
+</dd>
+<dt class="field-even">description</dt>
+<dd class="field-even"><p>string, brief project description., required</p>
+</dd>
+<dt class="field-odd">grant</dt>
+<dd class="field-odd"><p>string, Grant id if there is a grant supporting this project, optional</p>
+</dd>
+<dt class="field-even">logo</dt>
+<dd class="field-even"><p>string, URL to the project logo, optional</p>
+</dd>
+<dt class="field-odd">name</dt>
+<dd class="field-odd"><p>string, name of the project., required</p>
+</dd>
+<dt class="field-even">other</dt>
+<dd class="field-even"><p>[‘list’, ‘string’], other information about the project, optional</p>
+</dd>
+<dt class="field-odd">repo</dt>
+<dd class="field-odd"><p>string, URL of the source code repo, if available, optional</p>
+</dd>
+<dt class="field-even">team</dt>
+<dd class="field-even"><p>list, People who are/have been working on this project., required</p>
+<dl class="field-list simple">
+<dt class="field-odd">type</dt>
+<dd class="field-odd"><p>dict, optional</p>
+<dl class="field-list simple">
+<dt class="field-odd">begin_month</dt>
+<dd class="field-odd"><p>string, optional</p>
+</dd>
+<dt class="field-even">begin_year</dt>
+<dd class="field-even"><p>integer, optional</p>
+</dd>
+<dt class="field-odd">end_month</dt>
+<dd class="field-odd"><p>string, optional</p>
+</dd>
+<dt class="field-even">end_year</dt>
+<dd class="field-even"><p>integer, optional</p>
+</dd>
+<dt class="field-odd">name</dt>
+<dd class="field-odd"><p>string, optional</p>
+</dd>
+<dt class="field-even">position</dt>
+<dd class="field-even"><p>string, optional</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+<dt class="field-odd">website</dt>
+<dd class="field-odd"><p>string, URL of the website., required</p>
+</dd>
+</dl>
 </div>
 <div class="section" id="yaml-example">
 <h2>YAML Example<a class="headerlink" href="#yaml-example" title="Permalink to this headline">¶</a></h2>
@@ -205,8 +197,6 @@
     <form class="search" action="../search.html" method="get">
       <input type="text" name="q" />
       <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
     </form>
     </div>
 </div>

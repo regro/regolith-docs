@@ -1,17 +1,15 @@
 
 
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
     <title>Expenses &#8212; regolith - software group content managment system</title>
     <link rel="stylesheet" href="../_static/cloud.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Noticia+Text|Open+Sans|Droid+Sans+Mono" />
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Noticia+Text|Open+Sans|Droid+Sans+Mono" type="text/css" />
     <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
@@ -56,69 +54,58 @@
 <div class="section" id="schema">
 <h2>Schema<a class="headerlink" href="#schema" title="Permalink to this headline">¶</a></h2>
 <p>The following lists key names mapped to its type and meaning for each entry.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">_id:</th><td class="field-body"><p class="first">string, short representation, such as this-is-my-name, required</p>
-<dl class="docutils">
-<dt>Allowed values:</dt>
-<dd><ul class="first last simple">
-<li>travel</li>
-<li>business</li>
+<dl class="field-list">
+<dt class="field-odd">_id</dt>
+<dd class="field-odd"><p>string, short representation, such as this-is-my-name, required</p>
+<dl class="simple">
+<dt>Allowed values:</dt><dd><ul class="simple">
+<li><p>travel</p></li>
+<li><p>business</p></li>
 </ul>
 </dd>
 </dl>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name" colspan="2">itemized_expenses:</th></tr>
-<tr class="field-even field"><td>&#160;</td><td class="field-body"><p class="first">list, optional</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">type:</th><td class="field-body"><p class="first">dict, optional</p>
-<table class="last docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">day:</th><td class="field-body">integer, Expense day, optional</td>
-</tr>
-<tr class="field-even field"><th class="field-name">month:</th><td class="field-body">[‘string’, ‘integer’], Expense month, optional</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">year:</th><td class="field-body">integer, Expense year, optional</td>
-</tr>
-<tr class="field-even field"><th class="field-name">purpose:</th><td class="field-body">string, reason for expense, optional</td>
-</tr>
-<tr class="field-odd field"><th class="field-name" colspan="2">unsegregated_expense:</th></tr>
-<tr class="field-odd field"><td>&#160;</td><td class="field-body">float, The allowed expenses, optional</td>
-</tr>
-<tr class="field-even field"><th class="field-name" colspan="2">segregated_expense:</th></tr>
-<tr class="field-even field"><td>&#160;</td><td class="field-body">float, The unallowed expenses, optional</td>
-</tr>
-<tr class="field-odd field"><th class="field-name" colspan="2">original_currency:</th></tr>
-<tr class="field-odd field"><td>&#160;</td><td class="field-body">float, The currency the payment was made in, optional</td>
-</tr>
-</tbody>
-</table>
-</td>
-</tr>
-</tbody>
-</table>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name" colspan="2">overall_purpose:</th></tr>
-<tr class="field-even field"><td>&#160;</td><td class="field-body"><p class="first">string, The reason for the expenses, required</p>
-</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">payee:</th><td class="field-body"><p class="first">string, The name or id of the payee filing the expense, required</p>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">project:</th><td class="field-body"><p class="first last">[‘string’, ‘list’], project or list of projects that this presentation is associated with.  Should be discoverable in projects collection, required</p>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+<dt class="field-even">itemized_expenses</dt>
+<dd class="field-even"><p>list, optional</p>
+<dl class="field-list simple">
+<dt class="field-odd">type</dt>
+<dd class="field-odd"><p>dict, optional</p>
+<dl class="field-list simple">
+<dt class="field-odd">day</dt>
+<dd class="field-odd"><p>integer, Expense day, optional</p>
+</dd>
+<dt class="field-even">month</dt>
+<dd class="field-even"><p>[‘string’, ‘integer’], Expense month, optional</p>
+</dd>
+<dt class="field-odd">year</dt>
+<dd class="field-odd"><p>integer, Expense year, optional</p>
+</dd>
+<dt class="field-even">purpose</dt>
+<dd class="field-even"><p>string, reason for expense, optional</p>
+</dd>
+<dt class="field-odd">unsegregated_expense</dt>
+<dd class="field-odd"><p>float, The allowed expenses, optional</p>
+</dd>
+<dt class="field-even">segregated_expense</dt>
+<dd class="field-even"><p>float, The unallowed expenses, optional</p>
+</dd>
+<dt class="field-odd">original_currency</dt>
+<dd class="field-odd"><p>float, The currency the payment was made in, optional</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">overall_purpose</dt>
+<dd class="field-even"><p>string, The reason for the expenses, required</p>
+</dd>
+<dt class="field-odd">payee</dt>
+<dd class="field-odd"><p>string, The name or id of the payee filing the expense, required</p>
+</dd>
+<dt class="field-even">project</dt>
+<dd class="field-even"><p>[‘string’, ‘list’], project or list of projects that this presentation is associated with.  Should be discoverable in projects collection, required</p>
+</dd>
+</dl>
 </div>
 <div class="section" id="yaml-example">
 <h2>YAML Example<a class="headerlink" href="#yaml-example" title="Permalink to this headline">¶</a></h2>
@@ -323,8 +310,6 @@
     <form class="search" action="../search.html" method="get">
       <input type="text" name="q" />
       <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
     </form>
     </div>
 </div>

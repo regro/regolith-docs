@@ -1,17 +1,15 @@
 
 
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
     <title>Institutions &#8212; regolith - software group content managment system</title>
     <link rel="stylesheet" href="../_static/cloud.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Noticia+Text|Open+Sans|Droid+Sans+Mono" />
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Noticia+Text|Open+Sans|Droid+Sans+Mono" type="text/css" />
     <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
@@ -56,30 +54,35 @@
 <div class="section" id="schema">
 <h2>Schema<a class="headerlink" href="#schema" title="Permalink to this headline">¶</a></h2>
 <p>The following lists key names mapped to its type and meaning for each entry.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">_id:</th><td class="field-body">string, unique identifier for the institution., required</td>
-</tr>
-<tr class="field-even field"><th class="field-name">aka:</th><td class="field-body">list, list of all the different names this the institution is known by, optional</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">city:</th><td class="field-body">string, the city where the institution is, required</td>
-</tr>
-<tr class="field-even field"><th class="field-name">country:</th><td class="field-body">string, The country where the institution is, required</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">departments:</th><td class="field-body">dict, all the departments and centers andvarious units in the institution, optional</td>
-</tr>
-<tr class="field-even field"><th class="field-name">name:</th><td class="field-body">string, the canonical name of the institutions, required</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">schools:</th><td class="field-body">dict, this is more for universities, but it be used for larger divisions in big organizations, optional</td>
-</tr>
-<tr class="field-even field"><th class="field-name">state:</th><td class="field-body">string, the state where the institution is, required</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">zip:</th><td class="field-body">string, the zip or postal code of the institution, required</td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">_id</dt>
+<dd class="field-odd"><p>string, unique identifier for the institution., required</p>
+</dd>
+<dt class="field-even">aka</dt>
+<dd class="field-even"><p>list, list of all the different names this the institution is known by, optional</p>
+</dd>
+<dt class="field-odd">city</dt>
+<dd class="field-odd"><p>string, the city where the institution is, required</p>
+</dd>
+<dt class="field-even">country</dt>
+<dd class="field-even"><p>string, The country where the institution is, required</p>
+</dd>
+<dt class="field-odd">departments</dt>
+<dd class="field-odd"><p>dict, all the departments and centers andvarious units in the institution, optional</p>
+</dd>
+<dt class="field-even">name</dt>
+<dd class="field-even"><p>string, the canonical name of the institutions, required</p>
+</dd>
+<dt class="field-odd">schools</dt>
+<dd class="field-odd"><p>dict, this is more for universities, but it be used for larger divisions in big organizations, optional</p>
+</dd>
+<dt class="field-even">state</dt>
+<dd class="field-even"><p>string, the state where the institution is, required</p>
+</dd>
+<dt class="field-odd">zip</dt>
+<dd class="field-odd"><p>string, the zip or postal code of the institution, required</p>
+</dd>
+</dl>
 </div>
 <div class="section" id="yaml-example">
 <h2>YAML Example<a class="headerlink" href="#yaml-example" title="Permalink to this headline">¶</a></h2>
@@ -204,8 +207,6 @@
     <form class="search" action="../search.html" method="get">
       <input type="text" name="q" />
       <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
     </form>
     </div>
 </div>
