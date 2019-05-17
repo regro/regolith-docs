@@ -114,7 +114,13 @@
 
 <div class="viewcode-block" id="HtmlBuilder.root_index"><a class="viewcode-back" href="../../../api/htmlbuilder.html#regolith.builders.htmlbuilder.HtmlBuilder.root_index">[docs]</a>    <span class="k">def</span> <span class="nf">root_index</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Render root index&quot;&quot;&quot;</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="s2">&quot;root_index.html&quot;</span><span class="p">,</span> <span class="s2">&quot;index.html&quot;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Home&quot;</span><span class="p">)</span></div>
+        <span class="bp">self</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="s2">&quot;root_index.html&quot;</span><span class="p">,</span> <span class="s2">&quot;index.html&quot;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Home&quot;</span><span class="p">)</span>
+        <span class="n">make_bibtex_file</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">all_docs_from_collection</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">rc</span><span class="o">.</span><span class="n">client</span><span class="p">,</span>
+                                                       <span class="s2">&quot;citations&quot;</span><span class="p">)),</span>
+                         <span class="n">pid</span><span class="o">=</span><span class="s1">&#39;group&#39;</span><span class="p">,</span>
+                         <span class="n">person_dir</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">bldir</span><span class="p">,</span>
+                         <span class="p">)</span></div>
+
 
 <div class="viewcode-block" id="HtmlBuilder.people"><a class="viewcode-back" href="../../../api/htmlbuilder.html#regolith.builders.htmlbuilder.HtmlBuilder.people">[docs]</a>    <span class="k">def</span> <span class="nf">people</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Render people, former members, and each person&quot;&quot;&quot;</span>
