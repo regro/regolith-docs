@@ -1,0 +1,298 @@
+
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Refereereports &#8212; regolith - software group content managment system</title>
+    <link rel="stylesheet" href="../_static/cloud.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Noticia+Text|Open+Sans|Droid+Sans+Mono" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script type="text/javascript" src="../_static/jquery.cookie.js"></script>
+    <script type="text/javascript" src="../_static/cloud.base.js"></script>
+    <script type="text/javascript" src="../_static/cloud.js"></script>
+    <link rel="shortcut icon" href="../_static/regolith-logo.ico"/>
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Students" href="students.html" />
+    <link rel="prev" title="Proposals" href="proposals.html" /> 
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head><body>
+    <div class="relbar-top">
+        
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="students.html" title="Students"
+             accesskey="N">next</a></li>
+        <li class="right" >
+          <a href="proposals.html" title="Proposals"
+             accesskey="P">previous</a> &nbsp; &nbsp;</li>
+    <li><a href="../index.html">regolith</a> &#187;</li>
+
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Collections</a> &#187;</li> 
+      </ul>
+    </div>
+    </div>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="refereereports">
+<h1>Refereereports<a class="headerlink" href="#refereereports" title="Permalink to this headline">¶</a></h1>
+<p>This is a collection of information that will be be used to build a referee report. This should probably be private.</p>
+<div class="section" id="schema">
+<h2>Schema<a class="headerlink" href="#schema" title="Permalink to this headline">¶</a></h2>
+<p>The following lists key names mapped to its type and meaning for each entry.</p>
+<dl class="field-list">
+<dt class="field-odd">_id</dt>
+<dd class="field-odd"><p>string, the ID, required</p>
+</dd>
+<dt class="field-even">claimed_found_what</dt>
+<dd class="field-even"><p>list, What the authors claim to have found, required</p>
+<dl class="field-list simple">
+<dt class="field-odd">type</dt>
+<dd class="field-odd"><p>string, required</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">claimed_why_important</dt>
+<dd class="field-even"><p>list, What importance the authors claim, required</p>
+<dl class="field-list simple">
+<dt class="field-odd">type</dt>
+<dd class="field-odd"><p>string, required</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">did_how</dt>
+<dd class="field-even"><p>list, How the study was done, required</p>
+<dl class="field-list simple">
+<dt class="field-odd">type</dt>
+<dd class="field-odd"><p>string, required</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">did_what</dt>
+<dd class="field-even"><p>list, What the study was, required</p>
+<dl class="field-list simple">
+<dt class="field-odd">type</dt>
+<dd class="field-odd"><p>string, required</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">editor_eyes_only</dt>
+<dd class="field-even"><p>string, Comments you don’t want passed to the author, optional</p>
+</dd>
+<dt class="field-odd">final_assessment</dt>
+<dd class="field-odd"><p>list, Summary of impressions of the study, required</p>
+<dl class="field-list simple">
+<dt class="field-odd">type</dt>
+<dd class="field-odd"><p>string, required</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">first_author_last_name</dt>
+<dd class="field-even"><p>string, Last name of first author will be referred to with et al., required</p>
+</dd>
+<dt class="field-odd">freewrite</dt>
+<dd class="field-odd"><p>string, Things that you want to add that don’t fit into any category above, optional</p>
+</dd>
+<dt class="field-even">journal</dt>
+<dd class="field-even"><p>string, name of the journal, required</p>
+</dd>
+<dt class="field-odd">month</dt>
+<dd class="field-odd"><p>string, month when the review is being written, required</p>
+</dd>
+<dt class="field-even">recommendation</dt>
+<dd class="field-even"><p>string, Your publication recommendation, required</p>
+<dl class="simple">
+<dt>Allowed values:</dt><dd><ul class="simple">
+<li><p>reject</p></li>
+<li><p>asis</p></li>
+<li><p>smalledits</p></li>
+<li><p>diffjournal</p></li>
+<li><p>majoredits</p></li>
+</ul>
+</dd>
+</dl>
+</dd>
+<dt class="field-odd">reviewer</dt>
+<dd class="field-odd"><p>string, name of person reviewing the paper, required</p>
+</dd>
+<dt class="field-even">status</dt>
+<dd class="field-even"><p>string, Where you are with the review, required</p>
+<dl class="simple">
+<dt>Allowed values:</dt><dd><ul class="simple">
+<li><p>accepted</p></li>
+<li><p>declined</p></li>
+<li><p>downloaded</p></li>
+<li><p>inprogress</p></li>
+<li><p>submitted</p></li>
+</ul>
+</dd>
+</dl>
+</dd>
+<dt class="field-odd">title</dt>
+<dd class="field-odd"><p>string, title of the paper under review, required</p>
+</dd>
+<dt class="field-even">year</dt>
+<dd class="field-even"><p>string, year when the review is being done, required</p>
+</dd>
+</dl>
+</div>
+<div class="section" id="yaml-example">
+<h2>YAML Example<a class="headerlink" href="#yaml-example" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">1902nature</span><span class="p">:</span>
+  <span class="nt">claimed_found_what</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">gravity waves</span>
+  <span class="nt">claimed_why_important</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">more money for ice cream</span>
+  <span class="nt">did_how</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">measured with a ruler</span>
+  <span class="nt">did_what</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">found a much cheaper way to measure gravity waves</span>
+  <span class="nt">editor_eyes_only</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">to be honest, I don&#39;t believe a word of it</span>
+  <span class="nt">final_assessment</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">The authors should really start over</span>
+  <span class="nt">first_author_last_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Wingit</span>
+  <span class="nt">freewrite</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">this comment didn&#39;t fit anywhere above</span>
+  <span class="nt">journal</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Nature</span>
+  <span class="nt">month</span><span class="p">:</span> <span class="s">&#39;02&#39;</span>
+  <span class="nt">recommendation</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">reject</span>
+  <span class="nt">reviewer</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">sbillinge</span>
+  <span class="nt">status</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">submitted</span>
+  <span class="nt">title</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">a ruler approach to measuring gravity waves</span>
+  <span class="nt">year</span><span class="p">:</span> <span class="s">&#39;2019&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="json-mongo-example">
+<h2>JSON/Mongo Example<a class="headerlink" href="#json-mongo-example" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;1902nature&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;claimed_found_what&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="s2">&quot;gravity waves&quot;</span>
+    <span class="p">],</span>
+    <span class="nt">&quot;claimed_why_important&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="s2">&quot;more money for ice cream&quot;</span>
+    <span class="p">],</span>
+    <span class="nt">&quot;did_how&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="s2">&quot;measured with a ruler&quot;</span>
+    <span class="p">],</span>
+    <span class="nt">&quot;did_what&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="s2">&quot;found a much cheaper way to measure gravity waves&quot;</span>
+    <span class="p">],</span>
+    <span class="nt">&quot;editor_eyes_only&quot;</span><span class="p">:</span> <span class="s2">&quot;to be honest, I don&#39;t believe a word of it&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;final_assessment&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="s2">&quot;The authors should really start over&quot;</span>
+    <span class="p">],</span>
+    <span class="nt">&quot;first_author_last_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Wingit&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;freewrite&quot;</span><span class="p">:</span> <span class="s2">&quot;this comment didn&#39;t fit anywhere above&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;journal&quot;</span><span class="p">:</span> <span class="s2">&quot;Nature&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;month&quot;</span><span class="p">:</span> <span class="s2">&quot;02&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;recommendation&quot;</span><span class="p">:</span> <span class="s2">&quot;reject&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;reviewer&quot;</span><span class="p">:</span> <span class="s2">&quot;sbillinge&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;submitted&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;a ruler approach to measuring gravity waves&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;year&quot;</span><span class="p">:</span> <span class="s2">&quot;2019&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+        <p class="logo"><a href="../index.html" title="index">
+          <img class="logo" src="../_static/regolith-logo.svg" alt="Logo"/>
+        </a></p><div class="sphinx-toc sphinxlocaltoc">
+    <h3><a href="../index.html">Page contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">Refereereports</a><ul>
+<li><a class="reference internal" href="#schema">Schema</a></li>
+<li><a class="reference internal" href="#yaml-example">YAML Example</a></li>
+<li><a class="reference internal" href="#json-mongo-example">JSON/Mongo Example</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div class="sphinxprev">
+    <h4>Previous page</h4>
+    <p class="topless"><a href="proposals.html"
+                          title="Previous page">&larr; Proposals</a></p>
+  </div>
+  <div class="sphinxnext">
+    <h4>Next page</h4>
+    <p class="topless"><a href="students.html"
+                          title="Next page">&rarr; Students</a></p>
+  </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+    
+    
+        <div class="sidebar-toggle-group no-js">
+            
+            <button class="sidebar-toggle" id="sidebar-hide" title="Hide the sidebar menu">
+                 «
+                <span class="show-for-small">hide menu</span>
+                
+            </button>
+            <button class="sidebar-toggle" id="sidebar-show" title="Show the sidebar menu">
+                
+                <span class="show-for-small">menu</span>
+                <span class="hide-for-small">sidebar</span>
+                 »
+            </button>
+        </div>
+    
+      <div class="clearer"></div>
+    </div>
+    <div class="relbar-bottom">
+        
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="students.html" title="Students"
+             >next</a></li>
+        <li class="right" >
+          <a href="proposals.html" title="Proposals"
+             >previous</a> &nbsp; &nbsp;</li>
+    <li><a href="../index.html">regolith</a> &#187;</li>
+
+          <li class="nav-item nav-item-1"><a href="index.html" >Collections</a> &#187;</li> 
+      </ul>
+    </div>
+    </div>
+
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2015, Anthony Scopatz.
+    </div>
+    <!-- cloud_sptheme 1.4 -->
+  </body>
+</html>
