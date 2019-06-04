@@ -51,79 +51,84 @@
   <div class="section" id="module-regolith.validators">
 <span id="run-control-validators-regolith-validators"></span><span id="regolith-validators"></span><h1>Run Control Validators (<code class="docutils literal notranslate"><span class="pre">regolith.validators</span></code>)<a class="headerlink" href="#module-regolith.validators" title="Permalink to this headline">¶</a></h1>
 <p>Validators and converters for regolith input.</p>
+<dl class="data">
+<dt id="regolith.validators.DEFAULT_VALIDATORS">
+<code class="sig-prename descclassname">regolith.validators.</code><code class="sig-name descname">DEFAULT_VALIDATORS</code><em class="property"> = {'backend': (&lt;function is_string&gt;, &lt;function ensure_string&gt;), 'builddir': (&lt;function is_string&gt;, &lt;function ensure_string&gt;), 'databases': (&lt;function always_false&gt;, &lt;function ensure_databases&gt;), 'email': (&lt;function always_false&gt;, &lt;function ensure_email&gt;), 'stores': (&lt;function always_false&gt;, &lt;function ensure_stores&gt;)}</em><a class="headerlink" href="#regolith.validators.DEFAULT_VALIDATORS" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
 <dl class="function">
 <dt id="regolith.validators.always_false">
-<code class="descclassname">regolith.validators.</code><code class="descname">always_false</code><span class="sig-paren">(</span><em>x</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/validators.html#always_false"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.validators.always_false" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">regolith.validators.</code><code class="sig-name descname">always_false</code><span class="sig-paren">(</span><em class="sig-param">x</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/validators.html#always_false"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.validators.always_false" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns False</p>
 </dd></dl>
 
 <dl class="function">
 <dt id="regolith.validators.always_true">
-<code class="descclassname">regolith.validators.</code><code class="descname">always_true</code><span class="sig-paren">(</span><em>x</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/validators.html#always_true"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.validators.always_true" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">regolith.validators.</code><code class="sig-name descname">always_true</code><span class="sig-paren">(</span><em class="sig-param">x</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/validators.html#always_true"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.validators.always_true" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns True</p>
 </dd></dl>
 
 <dl class="function">
 <dt id="regolith.validators.ensure_database">
-<code class="descclassname">regolith.validators.</code><code class="descname">ensure_database</code><span class="sig-paren">(</span><em>db</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/validators.html#ensure_database"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.validators.ensure_database" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">regolith.validators.</code><code class="sig-name descname">ensure_database</code><span class="sig-paren">(</span><em class="sig-param">db</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/validators.html#ensure_database"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.validators.ensure_database" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="function">
 <dt id="regolith.validators.ensure_databases">
-<code class="descclassname">regolith.validators.</code><code class="descname">ensure_databases</code><span class="sig-paren">(</span><em>dbs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/validators.html#ensure_databases"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.validators.ensure_databases" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">regolith.validators.</code><code class="sig-name descname">ensure_databases</code><span class="sig-paren">(</span><em class="sig-param">dbs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/validators.html#ensure_databases"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.validators.ensure_databases" title="Permalink to this definition">¶</a></dt>
 <dd><p>Ensures each dataset in a list of databases</p>
 </dd></dl>
 
 <dl class="function">
 <dt id="regolith.validators.ensure_email">
-<code class="descclassname">regolith.validators.</code><code class="descname">ensure_email</code><span class="sig-paren">(</span><em>email</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/validators.html#ensure_email"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.validators.ensure_email" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">regolith.validators.</code><code class="sig-name descname">ensure_email</code><span class="sig-paren">(</span><em class="sig-param">email</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/validators.html#ensure_email"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.validators.ensure_email" title="Permalink to this definition">¶</a></dt>
 <dd><p>Ensures the email top-level key is well formed.</p>
 </dd></dl>
 
 <dl class="function">
 <dt id="regolith.validators.ensure_store">
-<code class="descclassname">regolith.validators.</code><code class="descname">ensure_store</code><span class="sig-paren">(</span><em>store</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/validators.html#ensure_store"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.validators.ensure_store" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">regolith.validators.</code><code class="sig-name descname">ensure_store</code><span class="sig-paren">(</span><em class="sig-param">store</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/validators.html#ensure_store"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.validators.ensure_store" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="function">
 <dt id="regolith.validators.ensure_stores">
-<code class="descclassname">regolith.validators.</code><code class="descname">ensure_stores</code><span class="sig-paren">(</span><em>stores</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/validators.html#ensure_stores"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.validators.ensure_stores" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">regolith.validators.</code><code class="sig-name descname">ensure_stores</code><span class="sig-paren">(</span><em class="sig-param">stores</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/validators.html#ensure_stores"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.validators.ensure_stores" title="Permalink to this definition">¶</a></dt>
 <dd><p>Ensures each store in a list of stores</p>
 </dd></dl>
 
 <dl class="function">
 <dt id="regolith.validators.ensure_string">
-<code class="descclassname">regolith.validators.</code><code class="descname">ensure_string</code><span class="sig-paren">(</span><em>x</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/validators.html#ensure_string"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.validators.ensure_string" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">regolith.validators.</code><code class="sig-name descname">ensure_string</code><span class="sig-paren">(</span><em class="sig-param">x</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/validators.html#ensure_string"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.validators.ensure_string" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a string if x is not a string, and x if it already is.</p>
 </dd></dl>
 
 <dl class="function">
 <dt id="regolith.validators.is_bool">
-<code class="descclassname">regolith.validators.</code><code class="descname">is_bool</code><span class="sig-paren">(</span><em>x</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/validators.html#is_bool"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.validators.is_bool" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">regolith.validators.</code><code class="sig-name descname">is_bool</code><span class="sig-paren">(</span><em class="sig-param">x</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/validators.html#is_bool"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.validators.is_bool" title="Permalink to this definition">¶</a></dt>
 <dd><p>Tests if something is a boolean</p>
 </dd></dl>
 
 <dl class="function">
 <dt id="regolith.validators.is_int">
-<code class="descclassname">regolith.validators.</code><code class="descname">is_int</code><span class="sig-paren">(</span><em>x</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/validators.html#is_int"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.validators.is_int" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">regolith.validators.</code><code class="sig-name descname">is_int</code><span class="sig-paren">(</span><em class="sig-param">x</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/validators.html#is_int"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.validators.is_int" title="Permalink to this definition">¶</a></dt>
 <dd><p>Tests if something is an integer</p>
 </dd></dl>
 
 <dl class="function">
 <dt id="regolith.validators.is_string">
-<code class="descclassname">regolith.validators.</code><code class="descname">is_string</code><span class="sig-paren">(</span><em>x</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/validators.html#is_string"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.validators.is_string" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">regolith.validators.</code><code class="sig-name descname">is_string</code><span class="sig-paren">(</span><em class="sig-param">x</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/validators.html#is_string"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.validators.is_string" title="Permalink to this definition">¶</a></dt>
 <dd><p>Tests if something is a string</p>
 </dd></dl>
 
 <dl class="function">
 <dt id="regolith.validators.noop">
-<code class="descclassname">regolith.validators.</code><code class="descname">noop</code><span class="sig-paren">(</span><em>x</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/validators.html#noop"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.validators.noop" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">regolith.validators.</code><code class="sig-name descname">noop</code><span class="sig-paren">(</span><em class="sig-param">x</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/validators.html#noop"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.validators.noop" title="Permalink to this definition">¶</a></dt>
 <dd><p>Does nothing, just returns the input.</p>
 </dd></dl>
 
 <dl class="function">
 <dt id="regolith.validators.to_bool">
-<code class="descclassname">regolith.validators.</code><code class="descname">to_bool</code><span class="sig-paren">(</span><em>x</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/validators.html#to_bool"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.validators.to_bool" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">regolith.validators.</code><code class="sig-name descname">to_bool</code><span class="sig-paren">(</span><em class="sig-param">x</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/validators.html#to_bool"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.validators.to_bool" title="Permalink to this definition">¶</a></dt>
 <dd><p>“Converts to a boolean in a semantically meaningful way.</p>
 </dd></dl>
 
@@ -149,10 +154,10 @@
                           title="Next page">&rarr; CLI Commands (<code class="docutils literal notranslate"><span class="pre">regolith.commands</span></code>)</a></p>
   </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
+  <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" />
+      <input type="text" name="q" aria-labelledby="searchlabel" />
       <input type="submit" value="Go" />
     </form>
     </div>

@@ -53,24 +53,24 @@
 <p>Builder Base Classes</p>
 <dl class="class">
 <dt id="regolith.builders.basebuilder.BuilderBase">
-<em class="property">class </em><code class="descclassname">regolith.builders.basebuilder.</code><code class="descname">BuilderBase</code><span class="sig-paren">(</span><em>rc</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/builders/basebuilder.html#BuilderBase"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.builders.basebuilder.BuilderBase" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">regolith.builders.basebuilder.</code><code class="sig-name descname">BuilderBase</code><span class="sig-paren">(</span><em class="sig-param">rc</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/builders/basebuilder.html#BuilderBase"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.builders.basebuilder.BuilderBase" title="Permalink to this definition">¶</a></dt>
 <dd><p>Base class for builders</p>
 <dl class="method">
 <dt id="regolith.builders.basebuilder.BuilderBase.build">
-<code class="descname">build</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/builders/basebuilder.html#BuilderBase.build"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.builders.basebuilder.BuilderBase.build" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">build</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/builders/basebuilder.html#BuilderBase.build"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.builders.basebuilder.BuilderBase.build" title="Permalink to this definition">¶</a></dt>
 <dd><p>Build the thing that is being built, note this runs all commands
 listed in <code class="docutils literal notranslate"><span class="pre">self.cmds</span></code></p>
 </dd></dl>
 
 <dl class="method">
 <dt id="regolith.builders.basebuilder.BuilderBase.construct_global_ctx">
-<code class="descname">construct_global_ctx</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/builders/basebuilder.html#BuilderBase.construct_global_ctx"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.builders.basebuilder.BuilderBase.construct_global_ctx" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">construct_global_ctx</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/builders/basebuilder.html#BuilderBase.construct_global_ctx"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.builders.basebuilder.BuilderBase.construct_global_ctx" title="Permalink to this definition">¶</a></dt>
 <dd><p>Constructs the global context</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="regolith.builders.basebuilder.BuilderBase.render">
-<code class="descname">render</code><span class="sig-paren">(</span><em>tname</em>, <em>fname</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/builders/basebuilder.html#BuilderBase.render"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.builders.basebuilder.BuilderBase.render" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">render</code><span class="sig-paren">(</span><em class="sig-param">tname</em>, <em class="sig-param">fname</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/builders/basebuilder.html#BuilderBase.render"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.builders.basebuilder.BuilderBase.render" title="Permalink to this definition">¶</a></dt>
 <dd><p>Render the template into a file using the kwargs and global context</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -85,38 +85,43 @@ listed in <code class="docutils literal notranslate"><span class="pre">self.cmds
 
 </dd></dl>
 
+<dl class="data">
+<dt id="regolith.builders.basebuilder.HAVE_BIBTEX_PARSER">
+<code class="sig-prename descclassname">regolith.builders.basebuilder.</code><code class="sig-name descname">HAVE_BIBTEX_PARSER</code><em class="property"> = True</em><a class="headerlink" href="#regolith.builders.basebuilder.HAVE_BIBTEX_PARSER" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
 <dl class="class">
 <dt id="regolith.builders.basebuilder.LatexBuilderBase">
-<em class="property">class </em><code class="descclassname">regolith.builders.basebuilder.</code><code class="descname">LatexBuilderBase</code><span class="sig-paren">(</span><em>rc</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/builders/basebuilder.html#LatexBuilderBase"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.builders.basebuilder.LatexBuilderBase" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">regolith.builders.basebuilder.</code><code class="sig-name descname">LatexBuilderBase</code><span class="sig-paren">(</span><em class="sig-param">rc</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/builders/basebuilder.html#LatexBuilderBase"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.builders.basebuilder.LatexBuilderBase" title="Permalink to this definition">¶</a></dt>
 <dd><p>Base class for Latex builders</p>
 <dl class="method">
 <dt id="regolith.builders.basebuilder.LatexBuilderBase.build">
-<code class="descname">build</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#regolith.builders.basebuilder.LatexBuilderBase.build" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">build</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#regolith.builders.basebuilder.LatexBuilderBase.build" title="Permalink to this definition">¶</a></dt>
 <dd><p>Build the thing that is being built, note this runs all commands
 listed in <code class="docutils literal notranslate"><span class="pre">self.cmds</span></code></p>
 </dd></dl>
 
 <dl class="method">
 <dt id="regolith.builders.basebuilder.LatexBuilderBase.clean">
-<code class="descname">clean</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/builders/basebuilder.html#LatexBuilderBase.clean"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.builders.basebuilder.LatexBuilderBase.clean" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">clean</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/builders/basebuilder.html#LatexBuilderBase.clean"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.builders.basebuilder.LatexBuilderBase.clean" title="Permalink to this definition">¶</a></dt>
 <dd><p>Remove files created by latex</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="regolith.builders.basebuilder.LatexBuilderBase.construct_global_ctx">
-<code class="descname">construct_global_ctx</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/builders/basebuilder.html#LatexBuilderBase.construct_global_ctx"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.builders.basebuilder.LatexBuilderBase.construct_global_ctx" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">construct_global_ctx</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/builders/basebuilder.html#LatexBuilderBase.construct_global_ctx"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.builders.basebuilder.LatexBuilderBase.construct_global_ctx" title="Permalink to this definition">¶</a></dt>
 <dd><p>Constructs the global context</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="regolith.builders.basebuilder.LatexBuilderBase.pdf">
-<code class="descname">pdf</code><span class="sig-paren">(</span><em>base</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/builders/basebuilder.html#LatexBuilderBase.pdf"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.builders.basebuilder.LatexBuilderBase.pdf" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">pdf</code><span class="sig-paren">(</span><em class="sig-param">base</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/builders/basebuilder.html#LatexBuilderBase.pdf"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.builders.basebuilder.LatexBuilderBase.pdf" title="Permalink to this definition">¶</a></dt>
 <dd><p>Compiles latex files to PDF</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="regolith.builders.basebuilder.LatexBuilderBase.render">
-<code class="descname">render</code><span class="sig-paren">(</span><em>tname</em>, <em>fname</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#regolith.builders.basebuilder.LatexBuilderBase.render" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">render</code><span class="sig-paren">(</span><em class="sig-param">tname</em>, <em class="sig-param">fname</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#regolith.builders.basebuilder.LatexBuilderBase.render" title="Permalink to this definition">¶</a></dt>
 <dd><p>Render the template into a file using the kwargs and global context</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -131,7 +136,7 @@ listed in <code class="docutils literal notranslate"><span class="pre">self.cmds
 
 <dl class="method">
 <dt id="regolith.builders.basebuilder.LatexBuilderBase.run">
-<code class="descname">run</code><span class="sig-paren">(</span><em>cmd</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/builders/basebuilder.html#LatexBuilderBase.run"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.builders.basebuilder.LatexBuilderBase.run" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">run</code><span class="sig-paren">(</span><em class="sig-param">cmd</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/builders/basebuilder.html#LatexBuilderBase.run"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.builders.basebuilder.LatexBuilderBase.run" title="Permalink to this definition">¶</a></dt>
 <dd><p>Run command in build dir</p>
 </dd></dl>
 
@@ -159,10 +164,10 @@ listed in <code class="docutils literal notranslate"><span class="pre">self.cmds
                           title="Next page">&rarr; Base class for chaining DBs (<code class="docutils literal notranslate"><span class="pre">regolith.chained_db</span></code>)</a></p>
   </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
+  <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" />
+      <input type="text" name="q" aria-labelledby="searchlabel" />
       <input type="submit" value="Go" />
     </form>
     </div>

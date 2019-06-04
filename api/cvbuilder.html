@@ -53,47 +53,47 @@
 <p>Builder for CVs.</p>
 <dl class="class">
 <dt id="regolith.builders.cvbuilder.CVBuilder">
-<em class="property">class </em><code class="descclassname">regolith.builders.cvbuilder.</code><code class="descname">CVBuilder</code><span class="sig-paren">(</span><em>rc</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/builders/cvbuilder.html#CVBuilder"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.builders.cvbuilder.CVBuilder" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">regolith.builders.cvbuilder.</code><code class="sig-name descname">CVBuilder</code><span class="sig-paren">(</span><em class="sig-param">rc</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/builders/cvbuilder.html#CVBuilder"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.builders.cvbuilder.CVBuilder" title="Permalink to this definition">¶</a></dt>
 <dd><p>Build CV from database entries</p>
 <dl class="attribute">
 <dt id="regolith.builders.cvbuilder.CVBuilder.btype">
-<code class="descname">btype</code><em class="property"> = 'cv'</em><a class="headerlink" href="#regolith.builders.cvbuilder.CVBuilder.btype" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">btype</code><em class="property"> = 'cv'</em><a class="headerlink" href="#regolith.builders.cvbuilder.CVBuilder.btype" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
 <dt id="regolith.builders.cvbuilder.CVBuilder.build">
-<code class="descname">build</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#regolith.builders.cvbuilder.CVBuilder.build" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">build</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#regolith.builders.cvbuilder.CVBuilder.build" title="Permalink to this definition">¶</a></dt>
 <dd><p>Build the thing that is being built, note this runs all commands
 listed in <code class="docutils literal notranslate"><span class="pre">self.cmds</span></code></p>
 </dd></dl>
 
 <dl class="method">
 <dt id="regolith.builders.cvbuilder.CVBuilder.clean">
-<code class="descname">clean</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#regolith.builders.cvbuilder.CVBuilder.clean" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">clean</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#regolith.builders.cvbuilder.CVBuilder.clean" title="Permalink to this definition">¶</a></dt>
 <dd><p>Remove files created by latex</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="regolith.builders.cvbuilder.CVBuilder.construct_global_ctx">
-<code class="descname">construct_global_ctx</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/builders/cvbuilder.html#CVBuilder.construct_global_ctx"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.builders.cvbuilder.CVBuilder.construct_global_ctx" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">construct_global_ctx</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/builders/cvbuilder.html#CVBuilder.construct_global_ctx"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.builders.cvbuilder.CVBuilder.construct_global_ctx" title="Permalink to this definition">¶</a></dt>
 <dd><p>Constructs the global context</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="regolith.builders.cvbuilder.CVBuilder.latex">
-<code class="descname">latex</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/builders/cvbuilder.html#CVBuilder.latex"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.builders.cvbuilder.CVBuilder.latex" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">latex</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/builders/cvbuilder.html#CVBuilder.latex"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.builders.cvbuilder.CVBuilder.latex" title="Permalink to this definition">¶</a></dt>
 <dd><p>Render latex template</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="regolith.builders.cvbuilder.CVBuilder.pdf">
-<code class="descname">pdf</code><span class="sig-paren">(</span><em>base</em><span class="sig-paren">)</span><a class="headerlink" href="#regolith.builders.cvbuilder.CVBuilder.pdf" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">pdf</code><span class="sig-paren">(</span><em class="sig-param">base</em><span class="sig-paren">)</span><a class="headerlink" href="#regolith.builders.cvbuilder.CVBuilder.pdf" title="Permalink to this definition">¶</a></dt>
 <dd><p>Compiles latex files to PDF</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="regolith.builders.cvbuilder.CVBuilder.render">
-<code class="descname">render</code><span class="sig-paren">(</span><em>tname</em>, <em>fname</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#regolith.builders.cvbuilder.CVBuilder.render" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">render</code><span class="sig-paren">(</span><em class="sig-param">tname</em>, <em class="sig-param">fname</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#regolith.builders.cvbuilder.CVBuilder.render" title="Permalink to this definition">¶</a></dt>
 <dd><p>Render the template into a file using the kwargs and global context</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -108,7 +108,7 @@ listed in <code class="docutils literal notranslate"><span class="pre">self.cmds
 
 <dl class="method">
 <dt id="regolith.builders.cvbuilder.CVBuilder.run">
-<code class="descname">run</code><span class="sig-paren">(</span><em>cmd</em><span class="sig-paren">)</span><a class="headerlink" href="#regolith.builders.cvbuilder.CVBuilder.run" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">run</code><span class="sig-paren">(</span><em class="sig-param">cmd</em><span class="sig-paren">)</span><a class="headerlink" href="#regolith.builders.cvbuilder.CVBuilder.run" title="Permalink to this definition">¶</a></dt>
 <dd><p>Run command in build dir</p>
 </dd></dl>
 
@@ -136,10 +136,10 @@ listed in <code class="docutils literal notranslate"><span class="pre">self.cmds
                           title="Next page">&rarr; Deployment Tools (<code class="docutils literal notranslate"><span class="pre">regolith.deploy</span></code>)</a></p>
   </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
+  <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" />
+      <input type="text" name="q" aria-labelledby="searchlabel" />
       <input type="submit" value="Go" />
     </form>
     </div>

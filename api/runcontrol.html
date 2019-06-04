@@ -52,22 +52,32 @@
 <span id="run-controlers-regolith-runcontrol"></span><span id="regolith-runcontrol"></span><h1>Run Controlers (<code class="docutils literal notranslate"><span class="pre">regolith.runcontrol</span></code>)<a class="headerlink" href="#module-regolith.runcontrol" title="Permalink to this headline">¶</a></h1>
 <p>Run Control object for regolith</p>
 <dl class="data">
+<dt id="regolith.runcontrol.DEFAULT_RC">
+<code class="sig-prename descclassname">regolith.runcontrol.</code><code class="sig-name descname">DEFAULT_RC</code><em class="property"> = RunControl(backend='filesystem', builddir='_build', databases=[{'name': 'twofcs', 'url': 'http://github.com/ergs/rg-db-twofcs.git', 'public': True, 'path': '.', 'blacklist': ['.travis.yml', '.travis.yaml']}], db='twofcs', force=False, local=False, mongodbpath=&lt;property object&gt;, user_config='/home/travis/.config/regolith/user.json')</em><a class="headerlink" href="#regolith.runcontrol.DEFAULT_RC" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="data">
+<dt id="regolith.runcontrol.FORBIDDEN_NAMES">
+<code class="sig-prename descclassname">regolith.runcontrol.</code><code class="sig-name descname">FORBIDDEN_NAMES</code><em class="property"> = frozenset({'del', 'global'})</em><a class="headerlink" href="#regolith.runcontrol.FORBIDDEN_NAMES" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="data">
 <dt id="regolith.runcontrol.NotSpecified">
-<code class="descclassname">regolith.runcontrol.</code><code class="descname">NotSpecified</code><em class="property"> = NotSpecified</em><a class="headerlink" href="#regolith.runcontrol.NotSpecified" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">regolith.runcontrol.</code><code class="sig-name descname">NotSpecified</code><em class="property"> = NotSpecified</em><a class="headerlink" href="#regolith.runcontrol.NotSpecified" title="Permalink to this definition">¶</a></dt>
 <dd><p>A helper class singleton for run control meaning that a ‘real’ value
 has not been given.</p>
 </dd></dl>
 
 <dl class="class">
 <dt id="regolith.runcontrol.NotSpecifiedType">
-<em class="property">class </em><code class="descclassname">regolith.runcontrol.</code><code class="descname">NotSpecifiedType</code><a class="reference internal" href="../_modules/regolith/runcontrol.html#NotSpecifiedType"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.runcontrol.NotSpecifiedType" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">regolith.runcontrol.</code><code class="sig-name descname">NotSpecifiedType</code><a class="reference internal" href="../_modules/regolith/runcontrol.html#NotSpecifiedType"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.runcontrol.NotSpecifiedType" title="Permalink to this definition">¶</a></dt>
 <dd><p>A helper class singleton for run control meaning that a ‘real’ value
 has not been given.</p>
 </dd></dl>
 
 <dl class="class">
 <dt id="regolith.runcontrol.RunControl">
-<em class="property">class </em><code class="descclassname">regolith.runcontrol.</code><code class="descname">RunControl</code><span class="sig-paren">(</span><em>_updaters=None</em>, <em>_validators=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/runcontrol.html#RunControl"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.runcontrol.RunControl" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">regolith.runcontrol.</code><code class="sig-name descname">RunControl</code><span class="sig-paren">(</span><em class="sig-param">_updaters=None</em>, <em class="sig-param">_validators=None</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/runcontrol.html#RunControl"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.runcontrol.RunControl" title="Permalink to this definition">¶</a></dt>
 <dd><p>A composable configuration class. Unlike argparse.Namespace,
 this keeps the object dictionary (__dict__) separate from the run
 control attributes dictionary (_dict).</p>
@@ -75,55 +85,55 @@ control attributes dictionary (_dict).</p>
 
 <dl class="function">
 <dt id="regolith.runcontrol.ensuredirs">
-<code class="descclassname">regolith.runcontrol.</code><code class="descname">ensuredirs</code><span class="sig-paren">(</span><em>f</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/runcontrol.html#ensuredirs"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.runcontrol.ensuredirs" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">regolith.runcontrol.</code><code class="sig-name descname">ensuredirs</code><span class="sig-paren">(</span><em class="sig-param">f</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/runcontrol.html#ensuredirs"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.runcontrol.ensuredirs" title="Permalink to this definition">¶</a></dt>
 <dd><p>For a file path, ensure that its directory path exists.</p>
 </dd></dl>
 
 <dl class="function">
 <dt id="regolith.runcontrol.exec_file">
-<code class="descclassname">regolith.runcontrol.</code><code class="descname">exec_file</code><span class="sig-paren">(</span><em>filename</em>, <em>glb=None</em>, <em>loc=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/runcontrol.html#exec_file"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.runcontrol.exec_file" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">regolith.runcontrol.</code><code class="sig-name descname">exec_file</code><span class="sig-paren">(</span><em class="sig-param">filename</em>, <em class="sig-param">glb=None</em>, <em class="sig-param">loc=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/runcontrol.html#exec_file"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.runcontrol.exec_file" title="Permalink to this definition">¶</a></dt>
 <dd><p>A function equivalent to the Python 2.x execfile statement.</p>
 </dd></dl>
 
 <dl class="function">
 <dt id="regolith.runcontrol.filter_databases">
-<code class="descclassname">regolith.runcontrol.</code><code class="descname">filter_databases</code><span class="sig-paren">(</span><em>rc</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/runcontrol.html#filter_databases"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.runcontrol.filter_databases" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">regolith.runcontrol.</code><code class="sig-name descname">filter_databases</code><span class="sig-paren">(</span><em class="sig-param">rc</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/runcontrol.html#filter_databases"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.runcontrol.filter_databases" title="Permalink to this definition">¶</a></dt>
 <dd><p>Filters the databases list down to only the ones we need, in place.</p>
 </dd></dl>
 
 <dl class="function">
 <dt id="regolith.runcontrol.flatten">
-<code class="descclassname">regolith.runcontrol.</code><code class="descname">flatten</code><span class="sig-paren">(</span><em>iterable</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/runcontrol.html#flatten"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.runcontrol.flatten" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">regolith.runcontrol.</code><code class="sig-name descname">flatten</code><span class="sig-paren">(</span><em class="sig-param">iterable</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/runcontrol.html#flatten"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.runcontrol.flatten" title="Permalink to this definition">¶</a></dt>
 <dd><p>Generator which returns flattened version of nested sequences.</p>
 </dd></dl>
 
 <dl class="function">
 <dt id="regolith.runcontrol.ishashable">
-<code class="descclassname">regolith.runcontrol.</code><code class="descname">ishashable</code><span class="sig-paren">(</span><em>x</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/runcontrol.html#ishashable"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.runcontrol.ishashable" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">regolith.runcontrol.</code><code class="sig-name descname">ishashable</code><span class="sig-paren">(</span><em class="sig-param">x</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/runcontrol.html#ishashable"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.runcontrol.ishashable" title="Permalink to this definition">¶</a></dt>
 <dd><p>Tests if a value is hashable.</p>
 </dd></dl>
 
 <dl class="function">
 <dt id="regolith.runcontrol.load_json_rcfile">
-<code class="descclassname">regolith.runcontrol.</code><code class="descname">load_json_rcfile</code><span class="sig-paren">(</span><em>fname</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/runcontrol.html#load_json_rcfile"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.runcontrol.load_json_rcfile" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">regolith.runcontrol.</code><code class="sig-name descname">load_json_rcfile</code><span class="sig-paren">(</span><em class="sig-param">fname</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/runcontrol.html#load_json_rcfile"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.runcontrol.load_json_rcfile" title="Permalink to this definition">¶</a></dt>
 <dd><p>Loads a JSON run control file.</p>
 </dd></dl>
 
 <dl class="function">
 <dt id="regolith.runcontrol.load_rcfile">
-<code class="descclassname">regolith.runcontrol.</code><code class="descname">load_rcfile</code><span class="sig-paren">(</span><em>fname</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/runcontrol.html#load_rcfile"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.runcontrol.load_rcfile" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">regolith.runcontrol.</code><code class="sig-name descname">load_rcfile</code><span class="sig-paren">(</span><em class="sig-param">fname</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/runcontrol.html#load_rcfile"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.runcontrol.load_rcfile" title="Permalink to this definition">¶</a></dt>
 <dd><p>Loads a run control file.</p>
 </dd></dl>
 
 <dl class="function">
 <dt id="regolith.runcontrol.touch">
-<code class="descclassname">regolith.runcontrol.</code><code class="descname">touch</code><span class="sig-paren">(</span><em>filename</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/runcontrol.html#touch"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.runcontrol.touch" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">regolith.runcontrol.</code><code class="sig-name descname">touch</code><span class="sig-paren">(</span><em class="sig-param">filename</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/runcontrol.html#touch"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.runcontrol.touch" title="Permalink to this definition">¶</a></dt>
 <dd><p>Opens a file and updates the mtime, like the posix command of the same name.</p>
 </dd></dl>
 
 <dl class="function">
 <dt id="regolith.runcontrol.warn_forbidden_name">
-<code class="descclassname">regolith.runcontrol.</code><code class="descname">warn_forbidden_name</code><span class="sig-paren">(</span><em>forname</em>, <em>inname=None</em>, <em>rename=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/runcontrol.html#warn_forbidden_name"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.runcontrol.warn_forbidden_name" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">regolith.runcontrol.</code><code class="sig-name descname">warn_forbidden_name</code><span class="sig-paren">(</span><em class="sig-param">forname</em>, <em class="sig-param">inname=None</em>, <em class="sig-param">rename=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/runcontrol.html#warn_forbidden_name"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.runcontrol.warn_forbidden_name" title="Permalink to this definition">¶</a></dt>
 <dd><p>Warns the user that a forbidden name has been found.</p>
 </dd></dl>
 
@@ -149,10 +159,10 @@ control attributes dictionary (_dict).</p>
                           title="Next page">&rarr; Database Interface Tools (<code class="docutils literal notranslate"><span class="pre">regolith.database</span></code>)</a></p>
   </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
+  <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" />
+      <input type="text" name="q" aria-labelledby="searchlabel" />
       <input type="submit" value="Go" />
     </form>
     </div>

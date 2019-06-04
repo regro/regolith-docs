@@ -51,16 +51,61 @@
   <div class="section" id="module-regolith.tools">
 <span id="tools-regolith-tools"></span><span id="regolith-tools"></span><h1>Tools (<code class="docutils literal notranslate"><span class="pre">regolith.tools</span></code>)<a class="headerlink" href="#module-regolith.tools" title="Permalink to this headline">¶</a></h1>
 <p>Misc. regolith tools.</p>
+<dl class="data">
+<dt id="regolith.tools.DEFAULT_ENCODING">
+<code class="sig-prename descclassname">regolith.tools.</code><code class="sig-name descname">DEFAULT_ENCODING</code><em class="property"> = 'utf-8'</em><a class="headerlink" href="#regolith.tools.DEFAULT_ENCODING" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="data">
+<dt id="regolith.tools.HAVE_BIBTEX_PARSER">
+<code class="sig-prename descclassname">regolith.tools.</code><code class="sig-name descname">HAVE_BIBTEX_PARSER</code><em class="property"> = True</em><a class="headerlink" href="#regolith.tools.HAVE_BIBTEX_PARSER" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="data">
+<dt id="regolith.tools.HTTP_RE">
+<code class="sig-prename descclassname">regolith.tools.</code><code class="sig-name descname">HTTP_RE</code><em class="property"> = re.compile('https?:\\/\\/(www\\.)?[-a-zA-Z0-9&#64;:%._\\+~#=]{2,256}\\.[a-z]{2,4}\\b([-a-zA-Z0-9&#64;:%_\\+.~#?&amp;//=]*)')</em><a class="headerlink" href="#regolith.tools.HTTP_RE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="data">
+<dt id="regolith.tools.LATEX_OPTS">
+<code class="sig-prename descclassname">regolith.tools.</code><code class="sig-name descname">LATEX_OPTS</code><em class="property"> = ['-halt-on-error', '-file-line-error']</em><a class="headerlink" href="#regolith.tools.LATEX_OPTS" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="data">
+<dt id="regolith.tools.ON_LINUX">
+<code class="sig-prename descclassname">regolith.tools.</code><code class="sig-name descname">ON_LINUX</code><em class="property"> = True</em><a class="headerlink" href="#regolith.tools.ON_LINUX" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="data">
+<dt id="regolith.tools.ON_MAC">
+<code class="sig-prename descclassname">regolith.tools.</code><code class="sig-name descname">ON_MAC</code><em class="property"> = False</em><a class="headerlink" href="#regolith.tools.ON_MAC" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="data">
+<dt id="regolith.tools.ON_POSIX">
+<code class="sig-prename descclassname">regolith.tools.</code><code class="sig-name descname">ON_POSIX</code><em class="property"> = True</em><a class="headerlink" href="#regolith.tools.ON_POSIX" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="data">
+<dt id="regolith.tools.ON_WINDOWS">
+<code class="sig-prename descclassname">regolith.tools.</code><code class="sig-name descname">ON_WINDOWS</code><em class="property"> = False</em><a class="headerlink" href="#regolith.tools.ON_WINDOWS" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="data">
+<dt id="regolith.tools.SHORT_MONTH_NAMES">
+<code class="sig-prename descclassname">regolith.tools.</code><code class="sig-name descname">SHORT_MONTH_NAMES</code><em class="property"> = (None, 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec')</em><a class="headerlink" href="#regolith.tools.SHORT_MONTH_NAMES" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
 <dl class="function">
 <dt id="regolith.tools.all_docs_from_collection">
-<code class="descclassname">regolith.tools.</code><code class="descname">all_docs_from_collection</code><span class="sig-paren">(</span><em>client</em>, <em>collname</em>, <em>copy=True</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#all_docs_from_collection"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.tools.all_docs_from_collection" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">regolith.tools.</code><code class="sig-name descname">all_docs_from_collection</code><span class="sig-paren">(</span><em class="sig-param">client</em>, <em class="sig-param">collname</em>, <em class="sig-param">copy=True</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#all_docs_from_collection"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.tools.all_docs_from_collection" title="Permalink to this definition">¶</a></dt>
 <dd><p>Yield all entries in for all collections of a given name in a given
 database.</p>
 </dd></dl>
 
 <dl class="function">
 <dt id="regolith.tools.awards_grants_honors">
-<code class="descclassname">regolith.tools.</code><code class="descname">awards_grants_honors</code><span class="sig-paren">(</span><em>p</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#awards_grants_honors"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.tools.awards_grants_honors" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">regolith.tools.</code><code class="sig-name descname">awards_grants_honors</code><span class="sig-paren">(</span><em class="sig-param">p</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#awards_grants_honors"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.tools.awards_grants_honors" title="Permalink to this definition">¶</a></dt>
 <dd><p>Make sorted awards grants and honors list.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -71,25 +116,25 @@ database.</p>
 
 <dl class="function">
 <dt id="regolith.tools.date_to_rfc822">
-<code class="descclassname">regolith.tools.</code><code class="descname">date_to_rfc822</code><span class="sig-paren">(</span><em>y</em>, <em>m</em>, <em>d=1</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#date_to_rfc822"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.tools.date_to_rfc822" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">regolith.tools.</code><code class="sig-name descname">date_to_rfc822</code><span class="sig-paren">(</span><em class="sig-param">y</em>, <em class="sig-param">m</em>, <em class="sig-param">d=1</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#date_to_rfc822"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.tools.date_to_rfc822" title="Permalink to this definition">¶</a></dt>
 <dd><p>Converts a date to an RFC 822 formatted string.</p>
 </dd></dl>
 
 <dl class="function">
 <dt id="regolith.tools.dbdirname">
-<code class="descclassname">regolith.tools.</code><code class="descname">dbdirname</code><span class="sig-paren">(</span><em>db</em>, <em>rc</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#dbdirname"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.tools.dbdirname" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">regolith.tools.</code><code class="sig-name descname">dbdirname</code><span class="sig-paren">(</span><em class="sig-param">db</em>, <em class="sig-param">rc</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#dbdirname"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.tools.dbdirname" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets the database dir name.</p>
 </dd></dl>
 
 <dl class="function">
 <dt id="regolith.tools.dbpathname">
-<code class="descclassname">regolith.tools.</code><code class="descname">dbpathname</code><span class="sig-paren">(</span><em>db</em>, <em>rc</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#dbpathname"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.tools.dbpathname" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">regolith.tools.</code><code class="sig-name descname">dbpathname</code><span class="sig-paren">(</span><em class="sig-param">db</em>, <em class="sig-param">rc</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#dbpathname"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.tools.dbpathname" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets the database path name.</p>
 </dd></dl>
 
 <dl class="function">
 <dt id="regolith.tools.dereference_institution">
-<code class="descclassname">regolith.tools.</code><code class="descname">dereference_institution</code><span class="sig-paren">(</span><em>input_record</em>, <em>institutions</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#dereference_institution"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.tools.dereference_institution" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">regolith.tools.</code><code class="sig-name descname">dereference_institution</code><span class="sig-paren">(</span><em class="sig-param">input_record</em>, <em class="sig-param">institutions</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#dereference_institution"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.tools.dereference_institution" title="Permalink to this definition">¶</a></dt>
 <dd><p>Tool for replacing placeholders for institutions with the actual
 institution data. Note that the replacement is done inplace</p>
 <dl class="field-list simple">
@@ -104,7 +149,7 @@ institution data. Note that the replacement is done inplace</p>
 
 <dl class="function">
 <dt id="regolith.tools.document_by_value">
-<code class="descclassname">regolith.tools.</code><code class="descname">document_by_value</code><span class="sig-paren">(</span><em>documents</em>, <em>address</em>, <em>value</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#document_by_value"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.tools.document_by_value" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">regolith.tools.</code><code class="sig-name descname">document_by_value</code><span class="sig-paren">(</span><em class="sig-param">documents</em>, <em class="sig-param">address</em>, <em class="sig-param">value</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#document_by_value"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.tools.document_by_value" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get a specific document by one of its values</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -125,14 +170,14 @@ institution data. Note that the replacement is done inplace</p>
 
 <dl class="function">
 <dt id="regolith.tools.fallback">
-<code class="descclassname">regolith.tools.</code><code class="descname">fallback</code><span class="sig-paren">(</span><em>cond</em>, <em>backup</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#fallback"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.tools.fallback" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">regolith.tools.</code><code class="sig-name descname">fallback</code><span class="sig-paren">(</span><em class="sig-param">cond</em>, <em class="sig-param">backup</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#fallback"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.tools.fallback" title="Permalink to this definition">¶</a></dt>
 <dd><p>Decorator for returning the object if cond is true and a backup if
 cond is false.</p>
 </dd></dl>
 
 <dl class="function">
 <dt id="regolith.tools.filter_grants">
-<code class="descclassname">regolith.tools.</code><code class="descname">filter_grants</code><span class="sig-paren">(</span><em>input_grants</em>, <em>names</em>, <em>pi=True</em>, <em>reverse=True</em>, <em>multi_pi=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#filter_grants"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.tools.filter_grants" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">regolith.tools.</code><code class="sig-name descname">filter_grants</code><span class="sig-paren">(</span><em class="sig-param">input_grants</em>, <em class="sig-param">names</em>, <em class="sig-param">pi=True</em>, <em class="sig-param">reverse=True</em>, <em class="sig-param">multi_pi=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#filter_grants"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.tools.filter_grants" title="Permalink to this definition">¶</a></dt>
 <dd><p>Filter grants by those involved</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -149,7 +194,7 @@ cond is false.</p>
 
 <dl class="function">
 <dt id="regolith.tools.filter_projects">
-<code class="descclassname">regolith.tools.</code><code class="descname">filter_projects</code><span class="sig-paren">(</span><em>projects</em>, <em>authors</em>, <em>reverse=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#filter_projects"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.tools.filter_projects" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">regolith.tools.</code><code class="sig-name descname">filter_projects</code><span class="sig-paren">(</span><em class="sig-param">projects</em>, <em class="sig-param">authors</em>, <em class="sig-param">reverse=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#filter_projects"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.tools.filter_projects" title="Permalink to this definition">¶</a></dt>
 <dd><p>Filter projects by the author(s)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -164,7 +209,7 @@ cond is false.</p>
 
 <dl class="function">
 <dt id="regolith.tools.filter_publications">
-<code class="descclassname">regolith.tools.</code><code class="descname">filter_publications</code><span class="sig-paren">(</span><em>citations</em>, <em>authors</em>, <em>reverse=False</em>, <em>bold=True</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#filter_publications"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.tools.filter_publications" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">regolith.tools.</code><code class="sig-name descname">filter_publications</code><span class="sig-paren">(</span><em class="sig-param">citations</em>, <em class="sig-param">authors</em>, <em class="sig-param">reverse=False</em>, <em class="sig-param">bold=True</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#filter_publications"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.tools.filter_publications" title="Permalink to this definition">¶</a></dt>
 <dd><p>Filter publications by the author(s)/editor(s)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -180,7 +225,7 @@ cond is false.</p>
 
 <dl class="function">
 <dt id="regolith.tools.fuzzy_retrieval">
-<code class="descclassname">regolith.tools.</code><code class="descname">fuzzy_retrieval</code><span class="sig-paren">(</span><em>documents</em>, <em>sources</em>, <em>value</em>, <em>case_sensitive=True</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#fuzzy_retrieval"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.tools.fuzzy_retrieval" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">regolith.tools.</code><code class="sig-name descname">fuzzy_retrieval</code><span class="sig-paren">(</span><em class="sig-param">documents</em>, <em class="sig-param">sources</em>, <em class="sig-param">value</em>, <em class="sig-param">case_sensitive=True</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#fuzzy_retrieval"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.tools.fuzzy_retrieval" title="Permalink to this definition">¶</a></dt>
 <dd><p>Retrieve a document from the documents where value is compared against
 multiple potential sources</p>
 <dl class="field-list simple">
@@ -209,13 +254,13 @@ multiple potential sources</p>
 
 <dl class="function">
 <dt id="regolith.tools.gets">
-<code class="descclassname">regolith.tools.</code><code class="descname">gets</code><span class="sig-paren">(</span><em>seq</em>, <em>key</em>, <em>default=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#gets"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.tools.gets" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">regolith.tools.</code><code class="sig-name descname">gets</code><span class="sig-paren">(</span><em class="sig-param">seq</em>, <em class="sig-param">key</em>, <em class="sig-param">default=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#gets"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.tools.gets" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets a key from every element of a sequence if possible.</p>
 </dd></dl>
 
 <dl class="function">
 <dt id="regolith.tools.latex_safe">
-<code class="descclassname">regolith.tools.</code><code class="descname">latex_safe</code><span class="sig-paren">(</span><em>s</em>, <em>url_check=True</em>, <em>wrapper='url'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#latex_safe"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.tools.latex_safe" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">regolith.tools.</code><code class="sig-name descname">latex_safe</code><span class="sig-paren">(</span><em class="sig-param">s</em>, <em class="sig-param">url_check=True</em>, <em class="sig-param">wrapper='url'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#latex_safe"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.tools.latex_safe" title="Permalink to this definition">¶</a></dt>
 <dd><p>Make string latex safe</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -231,13 +276,13 @@ wrap, defaults to True</p></li>
 
 <dl class="function">
 <dt id="regolith.tools.latex_safe_url">
-<code class="descclassname">regolith.tools.</code><code class="descname">latex_safe_url</code><span class="sig-paren">(</span><em>s</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#latex_safe_url"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.tools.latex_safe_url" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">regolith.tools.</code><code class="sig-name descname">latex_safe_url</code><span class="sig-paren">(</span><em class="sig-param">s</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#latex_safe_url"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.tools.latex_safe_url" title="Permalink to this definition">¶</a></dt>
 <dd><p>Makes a string that is a URL latex safe.</p>
 </dd></dl>
 
 <dl class="function">
 <dt id="regolith.tools.make_bibtex_file">
-<code class="descclassname">regolith.tools.</code><code class="descname">make_bibtex_file</code><span class="sig-paren">(</span><em>pubs</em>, <em>pid</em>, <em>person_dir='.'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#make_bibtex_file"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.tools.make_bibtex_file" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">regolith.tools.</code><code class="sig-name descname">make_bibtex_file</code><span class="sig-paren">(</span><em class="sig-param">pubs</em>, <em class="sig-param">pid</em>, <em class="sig-param">person_dir='.'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#make_bibtex_file"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.tools.make_bibtex_file" title="Permalink to this definition">¶</a></dt>
 <dd><p>Make a bibtex file given the publications</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -252,13 +297,13 @@ wrap, defaults to True</p></li>
 
 <dl class="function">
 <dt id="regolith.tools.month_and_year">
-<code class="descclassname">regolith.tools.</code><code class="descname">month_and_year</code><span class="sig-paren">(</span><em>m=None</em>, <em>y=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#month_and_year"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.tools.month_and_year" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">regolith.tools.</code><code class="sig-name descname">month_and_year</code><span class="sig-paren">(</span><em class="sig-param">m=None</em>, <em class="sig-param">y=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#month_and_year"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.tools.month_and_year" title="Permalink to this definition">¶</a></dt>
 <dd><p>Creates a string from month and year data, if available.</p>
 </dd></dl>
 
 <dl class="function">
 <dt id="regolith.tools.number_suffix">
-<code class="descclassname">regolith.tools.</code><code class="descname">number_suffix</code><span class="sig-paren">(</span><em>number</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#number_suffix"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.tools.number_suffix" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">regolith.tools.</code><code class="sig-name descname">number_suffix</code><span class="sig-paren">(</span><em class="sig-param">number</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#number_suffix"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.tools.number_suffix" title="Permalink to this definition">¶</a></dt>
 <dd><p>returns the suffix that adjectivises a number (st, nd, rd, th)</p>
 <dl class="simple">
 <dt>number: integer</dt><dd><p>The number.  If number is not an integer, returns an empty string</p>
@@ -276,8 +321,19 @@ wrap, defaults to True</p></li>
 
 <dl class="function">
 <dt id="regolith.tools.rfc822now">
-<code class="descclassname">regolith.tools.</code><code class="descname">rfc822now</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#rfc822now"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.tools.rfc822now" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">regolith.tools.</code><code class="sig-name descname">rfc822now</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#rfc822now"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.tools.rfc822now" title="Permalink to this definition">¶</a></dt>
 <dd><p>Creates a string of the current time according to RFC 822.</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="regolith.tools.string_types">
+<code class="sig-prename descclassname">regolith.tools.</code><code class="sig-name descname">string_types</code><em class="property"> = (&lt;class 'str'&gt;, &lt;class 'bytes'&gt;)</em><a class="headerlink" href="#regolith.tools.string_types" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="regolith.tools.unicode_type">
+<code class="sig-prename descclassname">regolith.tools.</code><code class="sig-name descname">unicode_type</code><a class="headerlink" href="#regolith.tools.unicode_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <code class="xref py py-class docutils literal notranslate"><span class="pre">builtins.str</span></code></p>
 </dd></dl>
 
 </div>
@@ -302,10 +358,10 @@ wrap, defaults to True</p></li>
                           title="Next page">&rarr; Date Tools (<code class="docutils literal notranslate"><span class="pre">regolith.dates</span></code>)</a></p>
   </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
+  <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" />
+      <input type="text" name="q" aria-labelledby="searchlabel" />
       <input type="submit" value="Go" />
     </form>
     </div>

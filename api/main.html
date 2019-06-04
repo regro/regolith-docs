@@ -51,14 +51,29 @@
   <div class="section" id="module-regolith.main">
 <span id="command-line-interface-regolith-main"></span><span id="regolith-main"></span><h1>Command Line Interface (<code class="docutils literal notranslate"><span class="pre">regolith.main</span></code>)<a class="headerlink" href="#module-regolith.main" title="Permalink to this headline">¶</a></h1>
 <p>The main CLI for regolith</p>
+<dl class="data">
+<dt id="regolith.main.CONNECTED_COMMANDS">
+<code class="sig-prename descclassname">regolith.main.</code><code class="sig-name descname">CONNECTED_COMMANDS</code><em class="property"> = {'add': &lt;function add_cmd&gt;, 'app': &lt;function app&gt;, 'build': &lt;function build&gt;, 'classlist': &lt;function classlist&gt;, 'email': &lt;function emailer&gt;, 'grade': &lt;function grade&gt;, 'ingest': &lt;function ingest&gt;, 'validate': &lt;function validate&gt;}</em><a class="headerlink" href="#regolith.main.CONNECTED_COMMANDS" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="data">
+<dt id="regolith.main.DISCONNECTED_COMMANDS">
+<code class="sig-prename descclassname">regolith.main.</code><code class="sig-name descname">DISCONNECTED_COMMANDS</code><em class="property"> = {'deploy': &lt;function deploy&gt;, 'json-to-yaml': &lt;function json_to_yaml&gt;, 'rc': &lt;function &lt;lambda&gt;&gt;, 'store': &lt;function main&gt;, 'yaml-to-json': &lt;function yaml_to_json&gt;}</em><a class="headerlink" href="#regolith.main.DISCONNECTED_COMMANDS" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="data">
+<dt id="regolith.main.NEED_RC">
+<code class="sig-prename descclassname">regolith.main.</code><code class="sig-name descname">NEED_RC</code><em class="property"> = {'add', 'app', 'build', 'classlist', 'deploy', 'email', 'grade', 'ingest', 'rc', 'store', 'validate'}</em><a class="headerlink" href="#regolith.main.NEED_RC" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
 <dl class="function">
 <dt id="regolith.main.create_parser">
-<code class="descclassname">regolith.main.</code><code class="descname">create_parser</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/main.html#create_parser"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.main.create_parser" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">regolith.main.</code><code class="sig-name descname">create_parser</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/main.html#create_parser"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.main.create_parser" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="function">
 <dt id="regolith.main.main">
-<code class="descclassname">regolith.main.</code><code class="descname">main</code><span class="sig-paren">(</span><em>args=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/main.html#main"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.main.main" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">regolith.main.</code><code class="sig-name descname">main</code><span class="sig-paren">(</span><em class="sig-param">args=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/main.html#main"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.main.main" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </div>
@@ -83,10 +98,10 @@
                           title="Next page">&rarr; Web Application (<code class="docutils literal notranslate"><span class="pre">regolith.app</span></code>)</a></p>
   </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
+  <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" />
+      <input type="text" name="q" aria-labelledby="searchlabel" />
       <input type="submit" value="Go" />
     </form>
     </div>

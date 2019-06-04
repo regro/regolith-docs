@@ -53,27 +53,32 @@
 <p>Helps deploy what we have built.</p>
 <dl class="function">
 <dt id="regolith.deploy.deploy">
-<code class="descclassname">regolith.deploy.</code><code class="descname">deploy</code><span class="sig-paren">(</span><em>rc</em>, <em>name</em>, <em>url</em>, <em>src='html'</em>, <em>dst=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/deploy.html#deploy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.deploy.deploy" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">regolith.deploy.</code><code class="sig-name descname">deploy</code><span class="sig-paren">(</span><em class="sig-param">rc</em>, <em class="sig-param">name</em>, <em class="sig-param">url</em>, <em class="sig-param">src='html'</em>, <em class="sig-param">dst=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/deploy.html#deploy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.deploy.deploy" title="Permalink to this definition">¶</a></dt>
 <dd><p>Deploys a target</p>
 </dd></dl>
 
 <dl class="function">
 <dt id="regolith.deploy.deploy_git">
-<code class="descclassname">regolith.deploy.</code><code class="descname">deploy_git</code><span class="sig-paren">(</span><em>rc</em>, <em>name</em>, <em>url</em>, <em>src='html'</em>, <em>dst=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/deploy.html#deploy_git"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.deploy.deploy_git" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">regolith.deploy.</code><code class="sig-name descname">deploy_git</code><span class="sig-paren">(</span><em class="sig-param">rc</em>, <em class="sig-param">name</em>, <em class="sig-param">url</em>, <em class="sig-param">src='html'</em>, <em class="sig-param">dst=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/deploy.html#deploy_git"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.deploy.deploy_git" title="Permalink to this definition">¶</a></dt>
 <dd><p>Loads a git database</p>
 </dd></dl>
 
 <dl class="function">
 <dt id="regolith.deploy.deploy_hg">
-<code class="descclassname">regolith.deploy.</code><code class="descname">deploy_hg</code><span class="sig-paren">(</span><em>rc</em>, <em>name</em>, <em>url</em>, <em>src='html'</em>, <em>dst=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/deploy.html#deploy_hg"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.deploy.deploy_hg" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">regolith.deploy.</code><code class="sig-name descname">deploy_hg</code><span class="sig-paren">(</span><em class="sig-param">rc</em>, <em class="sig-param">name</em>, <em class="sig-param">url</em>, <em class="sig-param">src='html'</em>, <em class="sig-param">dst=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/deploy.html#deploy_hg"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.deploy.deploy_hg" title="Permalink to this definition">¶</a></dt>
 <dd><p>Loads an hg database</p>
 </dd></dl>
 
 <dl class="function">
 <dt id="regolith.deploy.ensure_deploy_dir">
-<code class="descclassname">regolith.deploy.</code><code class="descname">ensure_deploy_dir</code><span class="sig-paren">(</span><em>rc</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/deploy.html#ensure_deploy_dir"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.deploy.ensure_deploy_dir" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">regolith.deploy.</code><code class="sig-name descname">ensure_deploy_dir</code><span class="sig-paren">(</span><em class="sig-param">rc</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/deploy.html#ensure_deploy_dir"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.deploy.ensure_deploy_dir" title="Permalink to this definition">¶</a></dt>
 <dd><p>Ensure deployment dir is on rc and physically exists.</p>
 </dd></dl>
+
+<dl class="data">
+<dt id="regolith.deploy.hglib">
+<code class="sig-prename descclassname">regolith.deploy.</code><code class="sig-name descname">hglib</code><em class="property"> = None</em><a class="headerlink" href="#regolith.deploy.hglib" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
 
 </div>
 
@@ -97,10 +102,10 @@
                           title="Next page">&rarr; Builder Base Class (<code class="docutils literal notranslate"><span class="pre">regolith.builders.basebuilder</span></code>)</a></p>
   </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
+  <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" />
+      <input type="text" name="q" aria-labelledby="searchlabel" />
       <input type="submit" value="Go" />
     </form>
     </div>
