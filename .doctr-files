@@ -1,6 +1,5 @@
 ./_modules/collections.html
 ./_modules/collections/abc.html
-./_modules/flask/app.html
 ./_modules/index.html
 ./_modules/regolith/app.html
 ./_modules/regolith/broker.html

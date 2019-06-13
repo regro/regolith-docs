@@ -51,51 +51,6 @@
   <div class="section" id="module-regolith.tools">
 <span id="tools-regolith-tools"></span><span id="regolith-tools"></span><h1>Tools (<code class="docutils literal notranslate"><span class="pre">regolith.tools</span></code>)<a class="headerlink" href="#module-regolith.tools" title="Permalink to this headline">¶</a></h1>
 <p>Misc. regolith tools.</p>
-<dl class="data">
-<dt id="regolith.tools.DEFAULT_ENCODING">
-<code class="sig-prename descclassname">regolith.tools.</code><code class="sig-name descname">DEFAULT_ENCODING</code><em class="property"> = 'utf-8'</em><a class="headerlink" href="#regolith.tools.DEFAULT_ENCODING" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="data">
-<dt id="regolith.tools.HAVE_BIBTEX_PARSER">
-<code class="sig-prename descclassname">regolith.tools.</code><code class="sig-name descname">HAVE_BIBTEX_PARSER</code><em class="property"> = True</em><a class="headerlink" href="#regolith.tools.HAVE_BIBTEX_PARSER" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="data">
-<dt id="regolith.tools.HTTP_RE">
-<code class="sig-prename descclassname">regolith.tools.</code><code class="sig-name descname">HTTP_RE</code><em class="property"> = re.compile('https?:\\/\\/(www\\.)?[-a-zA-Z0-9&#64;:%._\\+~#=]{2,256}\\.[a-z]{2,4}\\b([-a-zA-Z0-9&#64;:%_\\+.~#?&amp;//=]*)')</em><a class="headerlink" href="#regolith.tools.HTTP_RE" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="data">
-<dt id="regolith.tools.LATEX_OPTS">
-<code class="sig-prename descclassname">regolith.tools.</code><code class="sig-name descname">LATEX_OPTS</code><em class="property"> = ['-halt-on-error', '-file-line-error']</em><a class="headerlink" href="#regolith.tools.LATEX_OPTS" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="data">
-<dt id="regolith.tools.ON_LINUX">
-<code class="sig-prename descclassname">regolith.tools.</code><code class="sig-name descname">ON_LINUX</code><em class="property"> = True</em><a class="headerlink" href="#regolith.tools.ON_LINUX" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="data">
-<dt id="regolith.tools.ON_MAC">
-<code class="sig-prename descclassname">regolith.tools.</code><code class="sig-name descname">ON_MAC</code><em class="property"> = False</em><a class="headerlink" href="#regolith.tools.ON_MAC" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="data">
-<dt id="regolith.tools.ON_POSIX">
-<code class="sig-prename descclassname">regolith.tools.</code><code class="sig-name descname">ON_POSIX</code><em class="property"> = True</em><a class="headerlink" href="#regolith.tools.ON_POSIX" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="data">
-<dt id="regolith.tools.ON_WINDOWS">
-<code class="sig-prename descclassname">regolith.tools.</code><code class="sig-name descname">ON_WINDOWS</code><em class="property"> = False</em><a class="headerlink" href="#regolith.tools.ON_WINDOWS" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="data">
-<dt id="regolith.tools.SHORT_MONTH_NAMES">
-<code class="sig-prename descclassname">regolith.tools.</code><code class="sig-name descname">SHORT_MONTH_NAMES</code><em class="property"> = (None, 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec')</em><a class="headerlink" href="#regolith.tools.SHORT_MONTH_NAMES" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
 <dl class="function">
 <dt id="regolith.tools.all_docs_from_collection">
 <code class="sig-prename descclassname">regolith.tools.</code><code class="sig-name descname">all_docs_from_collection</code><span class="sig-paren">(</span><em class="sig-param">client</em>, <em class="sig-param">collname</em>, <em class="sig-param">copy=True</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#all_docs_from_collection"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.tools.all_docs_from_collection" title="Permalink to this definition">¶</a></dt>
@@ -323,17 +278,6 @@ wrap, defaults to True</p></li>
 <dt id="regolith.tools.rfc822now">
 <code class="sig-prename descclassname">regolith.tools.</code><code class="sig-name descname">rfc822now</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#rfc822now"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.tools.rfc822now" title="Permalink to this definition">¶</a></dt>
 <dd><p>Creates a string of the current time according to RFC 822.</p>
-</dd></dl>
-
-<dl class="data">
-<dt id="regolith.tools.string_types">
-<code class="sig-prename descclassname">regolith.tools.</code><code class="sig-name descname">string_types</code><em class="property"> = (&lt;class 'str'&gt;, &lt;class 'bytes'&gt;)</em><a class="headerlink" href="#regolith.tools.string_types" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="regolith.tools.unicode_type">
-<code class="sig-prename descclassname">regolith.tools.</code><code class="sig-name descname">unicode_type</code><a class="headerlink" href="#regolith.tools.unicode_type" title="Permalink to this definition">¶</a></dt>
-<dd><p>alias of <code class="xref py py-class docutils literal notranslate"><span class="pre">builtins.str</span></code></p>
 </dd></dl>
 
 </div>
