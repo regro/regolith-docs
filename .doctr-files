@@ -49,6 +49,7 @@
 ./_sources/collections/people.rst.txt
 ./_sources/collections/presentations.rst.txt
 ./_sources/collections/projects.rst.txt
+./_sources/collections/proposalReviews.rst.txt
 ./_sources/collections/proposals.rst.txt
 ./_sources/collections/refereeReports.rst.txt
 ./_sources/collections/students.rst.txt
@@ -134,6 +135,7 @@
 ./collections/people.html
 ./collections/presentations.html
 ./collections/projects.html
+./collections/proposalReviews.html
 ./collections/proposals.html
 ./collections/refereeReports.html
 ./collections/students.html
