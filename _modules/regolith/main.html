@@ -181,9 +181,38 @@
         <span class="n">action</span><span class="o">=</span><span class="s2">&quot;store_false&quot;</span><span class="p">,</span>
         <span class="n">default</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
     <span class="p">)</span>
+    <span class="n">bldp</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
+        <span class="s2">&quot;--from&quot;</span><span class="p">,</span>
+        <span class="n">dest</span><span class="o">=</span><span class="s2">&quot;from_date&quot;</span><span class="p">,</span>
+        <span class="n">help</span><span class="o">=</span><span class="s2">&quot;date in form YYYY-MM-DD.  Items will only be built&quot;</span>
+        <span class="s2">&quot;if their date or end_date is equal or after this date&quot;</span><span class="p">,</span>
+        <span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">bldp</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
+        <span class="s2">&quot;--to&quot;</span><span class="p">,</span>
+        <span class="n">dest</span><span class="o">=</span><span class="s2">&quot;to_date&quot;</span><span class="p">,</span>
+        <span class="n">help</span><span class="o">=</span><span class="s2">&quot;date in form YYYY-MM-DD.  Items will only be built&quot;</span>
+        <span class="s2">&quot;if their date or begin_date is equal or before this date&quot;</span><span class="p">,</span>
+        <span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">bldp</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
+        <span class="s2">&quot;--grants&quot;</span><span class="p">,</span>
+        <span class="n">dest</span><span class="o">=</span><span class="s2">&quot;grants&quot;</span><span class="p">,</span>
+        <span class="n">help</span><span class="o">=</span><span class="s2">&quot;specify a grant or a list of grants so items are built only &quot;</span>
+             <span class="s2">&quot;if associated with this(these) grant(s)&quot;</span><span class="p">,</span>
+        <span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">bldp</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
+        <span class="s2">&quot;--people&quot;</span><span class="p">,</span>
+        <span class="n">dest</span><span class="o">=</span><span class="s2">&quot;people&quot;</span><span class="p">,</span>
+        <span class="n">help</span><span class="o">=</span><span class="s2">&quot;specify a person or a list of people such that the build&quot;</span>
+             <span class="s2">&quot;will be for only those people&quot;</span><span class="p">,</span>
+        <span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="p">)</span>
 
     <span class="c1"># deploy subparser</span>
-    <span class="n">depp</span> <span class="o">=</span> <span class="n">subp</span><span class="o">.</span><span class="n">add_parser</span><span class="p">(</span><span class="s2">&quot;deploy&quot;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">&quot;deploys what was built by regolith&quot;</span><span class="p">)</span>
+    <span class="n">depp</span> <span class="o">=</span> <span class="n">subp</span><span class="o">.</span><span class="n">add_parser</span><span class="p">(</span>
+        <span class="s2">&quot;deploy&quot;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">&quot;deploys what was built by regolith&quot;</span><span class="p">)</span>
 
     <span class="c1"># email subparser</span>
     <span class="n">emlp</span> <span class="o">=</span> <span class="n">subp</span><span class="o">.</span><span class="n">add_parser</span><span class="p">(</span><span class="s2">&quot;email&quot;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">&quot;automates emailing&quot;</span><span class="p">)</span>

@@ -50,15 +50,21 @@
             
   <div class="section" id="build">
 <h1>build<a class="headerlink" href="#build" title="Permalink to this headline">¶</a></h1>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>usage: regolith build [-h] [--no-pdf] build_targets [build_targets ...]
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>usage: regolith build [-h] [--no-pdf] [--from FROM_DATE] [--to TO_DATE]
+                      [--grants GRANTS] [--people PEOPLE]
+                      build_targets [build_targets ...]
 
 positional arguments:
-  build_targets  targets to build. Currently valid targets are:
-                 [&#39;cv&#39;, &#39;html&#39;, &#39;publist&#39;, &#39;grade&#39;, &#39;grades&#39;, &#39;resume&#39;, &#39;current-pending&#39;, &#39;postdocad&#39;, &#39;review-man&#39;, &#39;review-prop&#39;, &#39;preslist&#39;, &#39;reimb&#39;, &#39;figure&#39;]
+  build_targets     targets to build. Currently valid targets are:
+                    [&#39;cv&#39;, &#39;html&#39;, &#39;publist&#39;, &#39;grade&#39;, &#39;grades&#39;, &#39;resume&#39;, &#39;current-pending&#39;, &#39;postdocad&#39;, &#39;review-man&#39;, &#39;review-prop&#39;, &#39;preslist&#39;, &#39;reimb&#39;, &#39;figure&#39;]
 
 optional arguments:
-  -h, --help     show this help message and exit
-  --no-pdf       don&#39;t produce PDFs during the build (for builds which produce PDFs)
+  -h, --help        show this help message and exit
+  --no-pdf          don&#39;t produce PDFs during the build (for builds which produce PDFs)
+  --from FROM_DATE  date in form YYYY-MM-DD.  Items will only be builtif their date or end_date is equal or after this date
+  --to TO_DATE      date in form YYYY-MM-DD.  Items will only be builtif their date or begin_date is equal or before this date
+  --grants GRANTS   specify a grant or a list of grants so items are built only if associated with this(these) grant(s)
+  --people PEOPLE   specify a person or a list of people such that the buildwill be for only those people
 </pre></div>
 </div>
 </div>
