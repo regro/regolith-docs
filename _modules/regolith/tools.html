@@ -48,7 +48,9 @@
 <span class="kn">import</span> <span class="nn">platform</span>
 <span class="kn">import</span> <span class="nn">re</span>
 <span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">import</span> <span class="nn">time</span>
 <span class="kn">from</span> <span class="nn">copy</span> <span class="k">import</span> <span class="n">deepcopy</span>
+<span class="kn">from</span> <span class="nn">calendar</span> <span class="k">import</span> <span class="n">monthrange</span>
 
 <span class="kn">from</span> <span class="nn">datetime</span> <span class="k">import</span> <span class="n">datetime</span>
 
@@ -157,6 +159,115 @@
         <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
     <span class="n">m</span> <span class="o">=</span> <span class="n">month_to_int</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
     <span class="k">return</span> <span class="s2">&quot;</span><span class="si">{0}</span><span class="s2"> </span><span class="si">{1}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">SHORT_MONTH_NAMES</span><span class="p">[</span><span class="n">m</span><span class="p">],</span> <span class="n">y</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="is_since"><a class="viewcode-back" href="../../api/tools.html#regolith.tools.is_since">[docs]</a><span class="k">def</span> <span class="nf">is_since</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">sy</span><span class="p">,</span> <span class="n">m</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">d</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">sm</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">sd</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    tests whether a date is on or since another date</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    y : int</span>
+<span class="sd">      the year to be tested</span>
+<span class="sd">    sy : int</span>
+<span class="sd">      the since year</span>
+<span class="sd">    m : int or str</span>
+<span class="sd">      the month to be tested. Optional, defaults to Jan</span>
+<span class="sd">    d : int</span>
+<span class="sd">      the day to be tested.  Defaults to 1</span>
+<span class="sd">    sm : int or str</span>
+<span class="sd">      the since month.  Optional, defaults to Jan</span>
+<span class="sd">    sd: int</span>
+<span class="sd">      the since day.  Optional, defaults to 1</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    True if the target date is the same as, or more recent than, the since date</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">s</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">{}</span><span class="s2">/</span><span class="si">{}</span><span class="s2">/</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">sd</span><span class="p">,</span> <span class="n">month_to_int</span><span class="p">(</span><span class="n">sm</span><span class="p">),</span> <span class="n">sy</span><span class="p">)</span>
+    <span class="n">d</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">{}</span><span class="s2">/</span><span class="si">{}</span><span class="s2">/</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">d</span><span class="p">,</span> <span class="n">month_to_int</span><span class="p">(</span><span class="n">m</span><span class="p">),</span> <span class="n">y</span><span class="p">)</span>
+    <span class="n">since</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">mktime</span><span class="p">(</span><span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="s2">&quot;</span><span class="si">%d</span><span class="s2">/%m/%Y&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">timetuple</span><span class="p">())</span>
+    <span class="n">date</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">mktime</span><span class="p">(</span><span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="n">d</span><span class="p">,</span> <span class="s2">&quot;</span><span class="si">%d</span><span class="s2">/%m/%Y&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">timetuple</span><span class="p">())</span>
+    <span class="k">return</span> <span class="n">since</span> <span class="o">&lt;=</span> <span class="n">date</span></div>
+
+
+<div class="viewcode-block" id="is_before"><a class="viewcode-back" href="../../api/tools.html#regolith.tools.is_before">[docs]</a><span class="k">def</span> <span class="nf">is_before</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">by</span><span class="p">,</span> <span class="n">m</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">d</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">bm</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">bd</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    tests whether a date is on or before another date</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    y : int</span>
+<span class="sd">      the year to be tested</span>
+<span class="sd">    by : int</span>
+<span class="sd">      the before year</span>
+<span class="sd">    m : int or str</span>
+<span class="sd">      the month to be tested. Optional, defaults to Dec</span>
+<span class="sd">    d : int</span>
+<span class="sd">      the day to be tested.  Defaults to 28</span>
+<span class="sd">    bm : int or str</span>
+<span class="sd">      the before month.  Optional, defaults to Dec</span>
+<span class="sd">    bd: int</span>
+<span class="sd">      the before day.  Optional, defaults to 28</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    True if the target date is the same as, or earlier than, the before date</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">d</span><span class="p">:</span>
+        <span class="n">d</span> <span class="o">=</span> <span class="n">monthrange</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">month_to_int</span><span class="p">(</span><span class="n">m</span><span class="p">))[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">bd</span><span class="p">:</span>
+        <span class="n">bd</span> <span class="o">=</span> <span class="n">monthrange</span><span class="p">(</span><span class="n">by</span><span class="p">,</span> <span class="n">month_to_int</span><span class="p">(</span><span class="n">bm</span><span class="p">))[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">b</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">{}</span><span class="s2">/</span><span class="si">{}</span><span class="s2">/</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">bd</span><span class="p">,</span> <span class="n">month_to_int</span><span class="p">(</span><span class="n">bm</span><span class="p">),</span> <span class="n">by</span><span class="p">)</span>
+    <span class="n">d</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">{}</span><span class="s2">/</span><span class="si">{}</span><span class="s2">/</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">d</span><span class="p">,</span> <span class="n">month_to_int</span><span class="p">(</span><span class="n">m</span><span class="p">),</span> <span class="n">y</span><span class="p">)</span>
+    <span class="n">before</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">mktime</span><span class="p">(</span><span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="s2">&quot;</span><span class="si">%d</span><span class="s2">/%m/%Y&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">timetuple</span><span class="p">())</span>
+    <span class="n">date</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">mktime</span><span class="p">(</span><span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="n">d</span><span class="p">,</span> <span class="s2">&quot;</span><span class="si">%d</span><span class="s2">/%m/%Y&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">timetuple</span><span class="p">())</span>
+    <span class="k">return</span> <span class="n">before</span> <span class="o">&gt;=</span> <span class="n">date</span></div>
+
+
+<div class="viewcode-block" id="is_between"><a class="viewcode-back" href="../../api/tools.html#regolith.tools.is_between">[docs]</a><span class="k">def</span> <span class="nf">is_between</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">sy</span><span class="p">,</span> <span class="n">by</span><span class="p">,</span> <span class="n">m</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">d</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">sm</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">sd</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">bm</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">bd</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    tests whether a date is on or between two other dates</span>
+
+<span class="sd">    returns true if the target date is between the since date and the before</span>
+<span class="sd">    date, inclusive.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    y : int</span>
+<span class="sd">      the year to be tested</span>
+<span class="sd">    sy : int</span>
+<span class="sd">      the since year</span>
+<span class="sd">    by : int</span>
+<span class="sd">      the before year</span>
+<span class="sd">    m : int or str</span>
+<span class="sd">      the month to be tested. Optional, defaults to Jan</span>
+<span class="sd">    d : int</span>
+<span class="sd">      the day to be tested.  Defaults to 1</span>
+<span class="sd">    sm : int or str</span>
+<span class="sd">      the since month.  Optional, defaults to Jan</span>
+<span class="sd">    bm : int or str</span>
+<span class="sd">      the before month.  Optional, defaults to Dec</span>
+<span class="sd">    sd: int</span>
+<span class="sd">      the since day.  Optional, defaults to 1</span>
+<span class="sd">    bd: int</span>
+<span class="sd">      the before day.  Optional, defaults to 28</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    True if the target date is between the since date and the before date,</span>
+<span class="sd">    inclusive (i.e., returns true if the target date is the same as either the</span>
+<span class="sd">    since date or the before date)</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">bd</span><span class="p">:</span>
+        <span class="n">bd</span> <span class="o">=</span> <span class="n">monthrange</span><span class="p">(</span><span class="n">by</span><span class="p">,</span> <span class="n">month_to_int</span><span class="p">(</span><span class="n">bm</span><span class="p">))[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">is_since</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">sy</span><span class="p">,</span> <span class="n">m</span><span class="o">=</span><span class="n">m</span><span class="p">,</span> <span class="n">d</span><span class="o">=</span><span class="n">d</span><span class="p">,</span> <span class="n">sm</span><span class="o">=</span><span class="n">sm</span><span class="p">,</span> <span class="n">sd</span><span class="o">=</span><span class="n">sd</span><span class="p">)</span> <span class="ow">and</span> <span class="n">is_before</span><span class="p">(</span>
+        <span class="n">y</span><span class="p">,</span> <span class="n">by</span><span class="p">,</span> <span class="n">m</span><span class="o">=</span><span class="n">m</span><span class="p">,</span> <span class="n">d</span><span class="o">=</span><span class="n">d</span><span class="p">,</span> <span class="n">bm</span><span class="o">=</span><span class="n">bm</span><span class="p">,</span> <span class="n">bd</span><span class="o">=</span><span class="n">bd</span>
+    <span class="p">)</span></div>
 
 
 <div class="viewcode-block" id="filter_publications"><a class="viewcode-back" href="../../api/tools.html#regolith.tools.filter_publications">[docs]</a><span class="k">def</span> <span class="nf">filter_publications</span><span class="p">(</span><span class="n">citations</span><span class="p">,</span> <span class="n">authors</span><span class="p">,</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">bold</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
@@ -498,7 +609,7 @@
 <span class="sd">    institutions : iterable of dicts</span>
 <span class="sd">        The institutions</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">inst</span> <span class="o">=</span> <span class="n">input_record</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;institution&quot;</span><span class="p">)</span> <span class="ow">or</span> <span class="n">input_record</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;organization&#39;</span><span class="p">)</span>
+    <span class="n">inst</span> <span class="o">=</span> <span class="n">input_record</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;institution&quot;</span><span class="p">)</span> <span class="ow">or</span> <span class="n">input_record</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;organization&quot;</span><span class="p">)</span>
     <span class="n">db_inst</span> <span class="o">=</span> <span class="n">fuzzy_retrieval</span><span class="p">(</span><span class="n">institutions</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">,</span> <span class="s2">&quot;_id&quot;</span><span class="p">,</span> <span class="s2">&quot;aka&quot;</span><span class="p">],</span> <span class="n">inst</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">db_inst</span><span class="p">:</span>
         <span class="n">input_record</span><span class="p">[</span><span class="s2">&quot;institution&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">db_inst</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span>
