@@ -11,6 +11,8 @@ The following lists key names mapped to its type and meaning for each entry.
 	Allowed values: 
 		* travel
 		* business
+:grant_percentages: list, the percentage of the reimbursement amount to put on each grant. This list must be the same length asthe grants list and the percentages placed in the order that the grants appear in that list, optional
+:grants: ['string', 'list'], the grants in a list, or a string if only one grant, required
 :itemized_expenses: list, optional
 
 	:type: dict, optional
@@ -34,6 +36,12 @@ YAML Example
 
 	test:
 	  expense_type: business
+	  grant_percentages:
+	    - '50'
+	    - '50'
+	  grants:
+	    - dmref15
+	    - SymPy-1.1
 	  itemized_expenses:
 	    - day: 1
 	      month: Jan
@@ -108,6 +116,14 @@ JSON/Mongo Example
 	{
 	    "_id": "test",
 	    "expense_type": "business",
+	    "grant_percentages": [
+	        "50",
+	        "50"
+	    ],
+	    "grants": [
+	        "dmref15",
+	        "SymPy-1.1"
+	    ],
 	    "itemized_expenses": [
 	        {
 	            "day": 1,

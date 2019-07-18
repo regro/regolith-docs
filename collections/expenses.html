@@ -65,6 +65,12 @@
 </dd>
 </dl>
 </dd>
+<dt class="field-even">grant_percentages</dt>
+<dd class="field-even"><p>list, the percentage of the reimbursement amount to put on each grant. This list must be the same length asthe grants list and the percentages placed in the order that the grants appear in that list, optional</p>
+</dd>
+<dt class="field-odd">grants</dt>
+<dd class="field-odd"><p>[‘string’, ‘list’], the grants in a list, or a string if only one grant, required</p>
+</dd>
 <dt class="field-even">itemized_expenses</dt>
 <dd class="field-even"><p>list, optional</p>
 <dl class="field-list simple">
@@ -111,6 +117,12 @@
 <h2>YAML Example<a class="headerlink" href="#yaml-example" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">test</span><span class="p">:</span>
   <span class="nt">expense_type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">business</span>
+  <span class="nt">grant_percentages</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="s">&#39;50&#39;</span>
+    <span class="p p-Indicator">-</span> <span class="s">&#39;50&#39;</span>
+  <span class="nt">grants</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">dmref15</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">SymPy-1.1</span>
   <span class="nt">itemized_expenses</span><span class="p">:</span>
     <span class="p p-Indicator">-</span> <span class="nt">day</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
       <span class="nt">month</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Jan</span>
@@ -183,6 +195,14 @@
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
     <span class="nt">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;test&quot;</span><span class="p">,</span>
     <span class="nt">&quot;expense_type&quot;</span><span class="p">:</span> <span class="s2">&quot;business&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;grant_percentages&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="s2">&quot;50&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;50&quot;</span>
+    <span class="p">],</span>
+    <span class="nt">&quot;grants&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="s2">&quot;dmref15&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;SymPy-1.1&quot;</span>
+    <span class="p">],</span>
     <span class="nt">&quot;itemized_expenses&quot;</span><span class="p">:</span> <span class="p">[</span>
         <span class="p">{</span>
             <span class="nt">&quot;day&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
