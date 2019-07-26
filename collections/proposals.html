@@ -64,47 +64,95 @@
 <dt class="field-odd">authors</dt>
 <dd class="field-odd"><p>[‘list’, ‘string’], other investigator names, required</p>
 </dd>
-<dt class="field-even">call_for_proposals</dt>
+<dt class="field-even">begin_day</dt>
+<dd class="field-even"><p>integer, start day of the proposed grant, optional</p>
+</dd>
+<dt class="field-odd">begin_month</dt>
+<dd class="field-odd"><p>[‘string’, ‘integer’], start month of the proposed grant, optional</p>
+</dd>
+<dt class="field-even">begin_year</dt>
+<dd class="field-even"><p>integer, start year of the proposed grant, optional</p>
+</dd>
+<dt class="field-odd">call_for_proposals</dt>
+<dd class="field-odd"><p>string, optional</p>
+</dd>
+<dt class="field-even">cpp_info</dt>
+<dd class="field-even"><p>dict, extra information needed for building current and pending form , optional</p>
+<dl class="field-list simple">
+<dt class="field-odd">cppflag</dt>
+<dd class="field-odd"><p>boolean, optional</p>
+</dd>
+<dt class="field-even">other_agencies_submitted</dt>
+<dd class="field-even"><p>[‘string’, ‘boolean’], optional</p>
+</dd>
+<dt class="field-odd">institution</dt>
+<dd class="field-odd"><p>string, place where the proposed grant will be located, optional</p>
+</dd>
+<dt class="field-even">person_months_academic</dt>
+<dd class="field-even"><p>[‘float’, ‘integer’], optional</p>
+</dd>
+<dt class="field-odd">person_months_summer</dt>
+<dd class="field-odd"><p>[‘float’, ‘integer’], optional</p>
+</dd>
+<dt class="field-even">project_scope</dt>
 <dd class="field-even"><p>string, optional</p>
+</dd>
+</dl>
 </dd>
 <dt class="field-odd">currency</dt>
 <dd class="field-odd"><p>string, typically ‘$’ or ‘USD’, required</p>
 </dd>
 <dt class="field-even">day</dt>
-<dd class="field-even"><p>integer, day that the proposal is due, required</p>
+<dd class="field-even"><p>integer, day that the proposal was submitted, required</p>
 </dd>
-<dt class="field-odd">duration</dt>
-<dd class="field-odd"><p>(‘integer’, ‘float’), number of years, required</p>
+<dt class="field-odd">due_date</dt>
+<dd class="field-odd"><p>string, day that the proposal is due, optional</p>
+</dd>
+<dt class="field-even">duration</dt>
+<dd class="field-even"><p>(‘integer’, ‘float’), number of years, required</p>
+</dd>
+<dt class="field-odd">end_day</dt>
+<dd class="field-odd"><p>(‘string’, ‘integer’), end day of the proposed grant, optional</p>
+</dd>
+<dt class="field-even">end_month</dt>
+<dd class="field-even"><p>[‘string’, ‘integer’], end month of the proposed grant, optional</p>
+</dd>
+<dt class="field-odd">end_year</dt>
+<dd class="field-odd"><p>integer, end year of the proposed grant, optional</p>
 </dd>
 <dt class="field-even">full</dt>
 <dd class="field-even"><p>dict, full body of the proposal, optional</p>
 </dd>
-<dt class="field-odd">month</dt>
-<dd class="field-odd"><p>string, month that the proposal is due, required</p>
+<dt class="field-odd">funder</dt>
+<dd class="field-odd"><p>string, who will fund the proposalas funder in grants, optional</p>
 </dd>
-<dt class="field-even">other_agencies_submitted</dt>
-<dd class="field-even"><p>[‘list’, ‘string’], Other agencies the proposal has been sent to, optional</p>
+<dt class="field-even">month</dt>
+<dd class="field-even"><p>[‘string’, ‘integer’], month that the proposal was submitted, required</p>
 </dd>
-<dt class="field-odd">pi</dt>
-<dd class="field-odd"><p>string, principal investigator name, required</p>
+<dt class="field-odd">notes</dt>
+<dd class="field-odd"><p>[‘string’, ‘list’], anything you want to note, optional</p>
 </dd>
-<dt class="field-even">pre</dt>
-<dd class="field-even"><p>dict, Information about the pre-proposal, optional</p>
+<dt class="field-even">pi</dt>
+<dd class="field-even"><p>string, principal investigator name, required</p>
 </dd>
-<dt class="field-odd">status</dt>
-<dd class="field-odd"><p>string, e.g. ‘pending’, ‘accepted’, ‘rejected’, required</p>
+<dt class="field-odd">pre</dt>
+<dd class="field-odd"><p>dict, Information about the pre-proposal, optional</p>
+</dd>
+<dt class="field-even">status</dt>
+<dd class="field-even"><p>string, e.g. ‘pending’, ‘accepted’, ‘rejected’, required</p>
 <dl class="simple">
 <dt>Allowed values:</dt><dd><ul class="simple">
 <li><p>pending</p></li>
 <li><p>declined</p></li>
 <li><p>accepted</p></li>
 <li><p>in-prep</p></li>
+<li><p>submitted</p></li>
 </ul>
 </dd>
 </dl>
 </dd>
-<dt class="field-even">team</dt>
-<dd class="field-even"><p>list, information about the team members participating in the grant., optional</p>
+<dt class="field-odd">team</dt>
+<dd class="field-odd"><p>list, information about the team members participating in the grant., optional</p>
 <dl class="field-list simple">
 <dt class="field-odd">type</dt>
 <dd class="field-odd"><p>dict, optional</p>
@@ -112,27 +160,33 @@
 <dt class="field-odd">cv</dt>
 <dd class="field-odd"><p>string, optional</p>
 </dd>
-<dt class="field-even">institution</dt>
+<dt class="field-even">email</dt>
 <dd class="field-even"><p>string, optional</p>
 </dd>
-<dt class="field-odd">name</dt>
+<dt class="field-odd">institution</dt>
 <dd class="field-odd"><p>string, optional</p>
 </dd>
-<dt class="field-even">position</dt>
+<dt class="field-even">name</dt>
 <dd class="field-even"><p>string, optional</p>
 </dd>
-<dt class="field-odd">subaward_amount</dt>
-<dd class="field-odd"><p>(‘integer’, ‘float’), optional</p>
+<dt class="field-odd">position</dt>
+<dd class="field-odd"><p>string, optional</p>
+</dd>
+<dt class="field-even">subaward_amount</dt>
+<dd class="field-even"><p>(‘integer’, ‘float’), optional</p>
 </dd>
 </dl>
 </dd>
 </dl>
 </dd>
-<dt class="field-even">title</dt>
-<dd class="field-even"><p>string, actual title of proposal, required</p>
+<dt class="field-odd">title</dt>
+<dd class="field-odd"><p>string, actual title of proposal, required</p>
+</dd>
+<dt class="field-even">title_short</dt>
+<dd class="field-even"><p>string, short title of proposal, optional</p>
 </dd>
 <dt class="field-odd">year</dt>
-<dd class="field-odd"><p>integer, Year that the proposal is due, required</p>
+<dd class="field-odd"><p>integer, Year that the proposal was submitted, required</p>
 </dd>
 </dl>
 </div>
@@ -144,14 +198,28 @@
     <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">qdu</span>
     <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">dhsu</span>
     <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">sbillinge</span>
+  <span class="nt">begin_day</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
+  <span class="nt">begin_month</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">May</span>
+  <span class="nt">begin_year</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">2018</span>
   <span class="nt">call_for_proposals</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">http://www.nsf.gov/pubs/2014/nsf14591/nsf14591.htm</span>
-  <span class="nt">currency</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">$</span>
+  <span class="nt">cpp_info</span><span class="p">:</span>
+    <span class="nt">cppflag</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+    <span class="nt">institution</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Columbia University</span>
+    <span class="nt">other_agencies_submitted</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="nt">person_months_academic</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">0</span>
+    <span class="nt">person_months_summer</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
+    <span class="nt">project_scope</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">lots to do but it doesn&#39;t overlap with any other of my grants</span>
+  <span class="nt">currency</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">USD</span>
   <span class="nt">day</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">2</span>
   <span class="nt">duration</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">3</span>
+  <span class="nt">end_day</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
+  <span class="nt">end_month</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">May</span>
+  <span class="nt">end_year</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">2019</span>
+  <span class="nt">funder</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">NSF</span>
   <span class="nt">month</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">february</span>
-  <span class="nt">other_agencies_submitted</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+  <span class="nt">notes</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Quite an idea</span>
   <span class="nt">pi</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Simon Billinge</span>
-  <span class="nt">status</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">approved</span>
+  <span class="nt">status</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">accepted</span>
   <span class="nt">team</span><span class="p">:</span>
     <span class="p p-Indicator">-</span> <span class="nt">institution</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Columbia Unviersity</span>
       <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">qdu</span>
@@ -165,15 +233,22 @@
       <span class="nt">subaward_amount</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">330000.0</span>
   <span class="nt">title</span><span class="p">:</span> <span class="s">&#39;DMREF:</span><span class="nv"> </span><span class="s">Novel,</span><span class="nv"> </span><span class="s">data</span><span class="nv"> </span><span class="s">validated,</span><span class="nv"> </span><span class="s">nanostructure</span><span class="nv"> </span><span class="s">determination</span><span class="nv"> </span><span class="s">methods</span><span class="nv"> </span><span class="s">for</span><span class="nv"> </span><span class="s">accelerating</span>
     <span class="s">materials</span><span class="nv"> </span><span class="s">discovery&#39;</span>
+  <span class="nt">title_short</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">DMREF nanostructure</span>
   <span class="nt">year</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">2015</span>
 <span class="nt">mypropsal</span><span class="p">:</span>
   <span class="nt">amount</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1000000.0</span>
   <span class="nt">authors</span><span class="p">:</span>
     <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Anthony Scopatz</span>
     <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Robert Flanagan</span>
+  <span class="nt">begin_day</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
+  <span class="nt">begin_month</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">May</span>
+  <span class="nt">begin_year</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">2030</span>
   <span class="nt">currency</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">USD</span>
   <span class="nt">day</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">18</span>
   <span class="nt">duration</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">3</span>
+  <span class="nt">end_day</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">31</span>
+  <span class="nt">end_month</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">December</span>
+  <span class="nt">end_year</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">2030</span>
   <span class="nt">full</span><span class="p">:</span>
     <span class="nt">benefit_of_collaboration</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">http://pdf.com/benefit_of_collaboration</span>
     <span class="nt">cv</span><span class="p">:</span>
@@ -181,6 +256,7 @@
       <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">http://pdf.com/flanagan-cv</span>
     <span class="nt">narrative</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">http://some.com/pdf</span>
   <span class="nt">month</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Aug</span>
+  <span class="nt">notes</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Quite an idea</span>
   <span class="nt">pi</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Anthony Scopatz</span>
   <span class="nt">pre</span><span class="p">:</span>
     <span class="nt">benefit_of_collaboration</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">http://pdf.com/benefit_of_collaboration</span>
@@ -207,14 +283,29 @@
         <span class="s2">&quot;dhsu&quot;</span><span class="p">,</span>
         <span class="s2">&quot;sbillinge&quot;</span>
     <span class="p">],</span>
+    <span class="nt">&quot;begin_day&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="nt">&quot;begin_month&quot;</span><span class="p">:</span> <span class="s2">&quot;May&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;begin_year&quot;</span><span class="p">:</span> <span class="mi">2018</span><span class="p">,</span>
     <span class="nt">&quot;call_for_proposals&quot;</span><span class="p">:</span> <span class="s2">&quot;http://www.nsf.gov/pubs/2014/nsf14591/nsf14591.htm&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;currency&quot;</span><span class="p">:</span> <span class="s2">&quot;$&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;cpp_info&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;cppflag&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+        <span class="nt">&quot;institution&quot;</span><span class="p">:</span> <span class="s2">&quot;Columbia University&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;other_agencies_submitted&quot;</span><span class="p">:</span> <span class="s2">&quot;None&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;person_months_academic&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="nt">&quot;person_months_summer&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="nt">&quot;project_scope&quot;</span><span class="p">:</span> <span class="s2">&quot;lots to do but it doesn&#39;t overlap with any other of my grants&quot;</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;currency&quot;</span><span class="p">:</span> <span class="s2">&quot;USD&quot;</span><span class="p">,</span>
     <span class="nt">&quot;day&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
     <span class="nt">&quot;duration&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+    <span class="nt">&quot;end_day&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="nt">&quot;end_month&quot;</span><span class="p">:</span> <span class="s2">&quot;May&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;end_year&quot;</span><span class="p">:</span> <span class="mi">2019</span><span class="p">,</span>
+    <span class="nt">&quot;funder&quot;</span><span class="p">:</span> <span class="s2">&quot;NSF&quot;</span><span class="p">,</span>
     <span class="nt">&quot;month&quot;</span><span class="p">:</span> <span class="s2">&quot;february&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;other_agencies_submitted&quot;</span><span class="p">:</span> <span class="s2">&quot;None&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;notes&quot;</span><span class="p">:</span> <span class="s2">&quot;Quite an idea&quot;</span><span class="p">,</span>
     <span class="nt">&quot;pi&quot;</span><span class="p">:</span> <span class="s2">&quot;Simon Billinge&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;approved&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;accepted&quot;</span><span class="p">,</span>
     <span class="nt">&quot;team&quot;</span><span class="p">:</span> <span class="p">[</span>
         <span class="p">{</span>
             <span class="nt">&quot;institution&quot;</span><span class="p">:</span> <span class="s2">&quot;Columbia Unviersity&quot;</span><span class="p">,</span>
@@ -234,6 +325,7 @@
         <span class="p">}</span>
     <span class="p">],</span>
     <span class="nt">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;DMREF: Novel, data validated, nanostructure determination methods for accelerating materials discovery&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;title_short&quot;</span><span class="p">:</span> <span class="s2">&quot;DMREF nanostructure&quot;</span><span class="p">,</span>
     <span class="nt">&quot;year&quot;</span><span class="p">:</span> <span class="mi">2015</span>
 <span class="p">}</span>
 <span class="p">{</span>
@@ -243,9 +335,15 @@
         <span class="s2">&quot;Anthony Scopatz&quot;</span><span class="p">,</span>
         <span class="s2">&quot;Robert Flanagan&quot;</span>
     <span class="p">],</span>
+    <span class="nt">&quot;begin_day&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="nt">&quot;begin_month&quot;</span><span class="p">:</span> <span class="s2">&quot;May&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;begin_year&quot;</span><span class="p">:</span> <span class="mi">2030</span><span class="p">,</span>
     <span class="nt">&quot;currency&quot;</span><span class="p">:</span> <span class="s2">&quot;USD&quot;</span><span class="p">,</span>
     <span class="nt">&quot;day&quot;</span><span class="p">:</span> <span class="mi">18</span><span class="p">,</span>
     <span class="nt">&quot;duration&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+    <span class="nt">&quot;end_day&quot;</span><span class="p">:</span> <span class="mi">31</span><span class="p">,</span>
+    <span class="nt">&quot;end_month&quot;</span><span class="p">:</span> <span class="s2">&quot;December&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;end_year&quot;</span><span class="p">:</span> <span class="mi">2030</span><span class="p">,</span>
     <span class="nt">&quot;full&quot;</span><span class="p">:</span> <span class="p">{</span>
         <span class="nt">&quot;benefit_of_collaboration&quot;</span><span class="p">:</span> <span class="s2">&quot;http://pdf.com/benefit_of_collaboration&quot;</span><span class="p">,</span>
         <span class="nt">&quot;cv&quot;</span><span class="p">:</span> <span class="p">[</span>
@@ -255,6 +353,7 @@
         <span class="nt">&quot;narrative&quot;</span><span class="p">:</span> <span class="s2">&quot;http://some.com/pdf&quot;</span>
     <span class="p">},</span>
     <span class="nt">&quot;month&quot;</span><span class="p">:</span> <span class="s2">&quot;Aug&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;notes&quot;</span><span class="p">:</span> <span class="s2">&quot;Quite an idea&quot;</span><span class="p">,</span>
     <span class="nt">&quot;pi&quot;</span><span class="p">:</span> <span class="s2">&quot;Anthony Scopatz&quot;</span><span class="p">,</span>
     <span class="nt">&quot;pre&quot;</span><span class="p">:</span> <span class="p">{</span>
         <span class="nt">&quot;benefit_of_collaboration&quot;</span><span class="p">:</span> <span class="s2">&quot;http://pdf.com/benefit_of_collaboration&quot;</span><span class="p">,</span>

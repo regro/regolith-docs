@@ -80,7 +80,7 @@ The following lists key names mapped to its type and meaning for each entry.
 		:website: string, optional
 :name: string, Full, canonical name for the person, required
 :orcid_id: string, The ORCID ID of the person, optional
-:position: string, such as professor, graduate student, or scientist, required
+:position: string, such as professor, graduate student, or scientist, optional
 
 	Allowed values: 
 		* ``''``
@@ -100,6 +100,8 @@ The following lists key names mapped to its type and meaning for each entry.
 		* assistant professor
 		* associate professor
 		* professor emeritus
+		* scientist
+		* engineer
 		* professor
 :service: list, Service that this group member has provided, optional
 

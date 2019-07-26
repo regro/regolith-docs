@@ -88,7 +88,7 @@ YAML Example
 	  nsf_pot_to_benefit_society: []
 	  requester: Lane Wilson
 	  reviewer: sbillinge
-	  status: invited,accepted,declined,downloaded,inprogress,submitted
+	  status: submitted
 	  summary: dynamite proposal
 	  title: A stunning new way to cure Malaria
 	  year: 2019
@@ -189,7 +189,7 @@ JSON/Mongo Example
 	    "nsf_pot_to_benefit_society": [],
 	    "requester": "Lane Wilson",
 	    "reviewer": "sbillinge",
-	    "status": "invited,accepted,declined,downloaded,inprogress,submitted",
+	    "status": "submitted",
 	    "summary": "dynamite proposal",
 	    "title": "A stunning new way to cure Malaria",
 	    "year": 2019

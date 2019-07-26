@@ -13,8 +13,9 @@ The following lists key names mapped to its type and meaning for each entry.
 :departments: dict, all the departments and centers andvarious units in the institution, optional
 :name: string, the canonical name of the institutions, required
 :schools: dict, this is more for universities, but it be used for larger divisions in big organizations, optional
-:state: string, the state where the institution is, required
-:zip: string, the zip or postal code of the institution, required
+:state: string, the state where the institution is, optional
+:street: string, the street where the institution is, optional
+:zip: ['integer', 'string'], the zip or postal code of the institution, optional
 
 
 YAML Example

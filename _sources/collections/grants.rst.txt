@@ -85,7 +85,7 @@ YAML Example
 	  funder: NSF
 	  grant_id: DMREF-1534910
 	  institution: Columbia University
-	  notes: ' Designing Materials to Revolutionize and Engineer our Future (DMREF)'
+	  notes: Designing Materials to Revolutionize and Engineer our Future (DMREF)
 	  person_months_academic: 0.0
 	  person_months_summer: 0.25
 	  program: DMREF
@@ -93,13 +93,13 @@ YAML Example
 	    nanostructure inverse problems using data analytic and machine learning based
 	    approaches. This does not overlap with any other grant.
 	  team:
-	    - institution: Columbia Unviersity
+	    - institution: Columbia University
 	      name: qdu
 	      position: Co-PI
-	    - institution: Columbia Unviersity
+	    - institution: Columbia University
 	      name: dhsu
 	      position: Co-PI
-	    - institution: Columbia Unviersity
+	    - institution: Columbia University
 	      name: Anthony Scopatz
 	      position: PI
 	      subaward_amount: 330000.0
@@ -153,24 +153,24 @@ JSON/Mongo Example
 	    "funder": "NSF",
 	    "grant_id": "DMREF-1534910",
 	    "institution": "Columbia University",
-	    "notes": " Designing Materials to Revolutionize and Engineer our Future (DMREF)",
+	    "notes": "Designing Materials to Revolutionize and Engineer our Future (DMREF)",
 	    "person_months_academic": 0.0,
 	    "person_months_summer": 0.25,
 	    "program": "DMREF",
 	    "scope": "This grant is to develop complex modeling methods for regularizing ill-posed nanostructure inverse problems using data analytic and machine learning based approaches. This does not overlap with any other grant.",
 	    "team": [
 	        {
-	            "institution": "Columbia Unviersity",
+	            "institution": "Columbia University",
 	            "name": "qdu",
 	            "position": "Co-PI"
 	        },
 	        {
-	            "institution": "Columbia Unviersity",
+	            "institution": "Columbia University",
 	            "name": "dhsu",
 	            "position": "Co-PI"
 	        },
 	        {
-	            "institution": "Columbia Unviersity",
+	            "institution": "Columbia University",
 	            "name": "Anthony Scopatz",
 	            "position": "PI",
 	            "subaward_amount": 330000.0
