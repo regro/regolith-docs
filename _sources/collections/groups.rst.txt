@@ -8,6 +8,7 @@ The following lists key names mapped to its type and meaning for each entry.
 
 :_id: string, Unique identifier for submission. This generally includes the author name and part of the title., required
 :aka: list, other names for the group, required
+:banner: string, name of image file with the group banner, optional
 :department: string, Name of host department, required
 :email: string, Contact email for the group, required
 :institution: string, Name of the host institution, required
