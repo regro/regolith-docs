@@ -16,12 +16,12 @@ The following lists key names mapped to its type and meaning for each entry.
 
 	:type: dict, optional
 
-		:begin_month: string, optional
+		:begin_month: ['string', 'integer'], optional
 		:begin_year: integer, optional
 		:degree: string, optional
 		:department: string, department withinthe institution, optional
 		:group: string, this employment is/was ina group in groups coll, optional
-		:end_month: string, optional
+		:end_month: ['string', 'integer'], optional
 		:end_year: integer, optional
 		:gpa: ('float', 'string'), optional
 		:institution: string, optional
@@ -32,25 +32,28 @@ The following lists key names mapped to its type and meaning for each entry.
 
 	:type: dict, optional
 
-		:begin_month: string, optional
+		:begin_month: ['string', 'integer'], optional
 		:begin_year: integer, optional
-		:end_month: string, optional
+		:department: string, optional
+		:end_month: ['string', 'integer'], optional
 		:end_year: integer, optional
 		:group: string, this employment is/was ina group in groups coll, optional
 		:location: string, optional
 		:organization: string, optional
 		:other: list, optional
 		:position: string, optional
+		:status: string, optional
 :funding: list, Funding and scholarship that the group member has individually obtained in the past. **WARNING:** this is not to be confused with the **grants** collection, optional
 
 	:type: dict, optional
 
 		:currency: string, optional
 		:duration: string, optional
-		:month: string, optional
+		:month: ['string', 'integer'], optional
 		:name: string, optional
 		:value: ('float', 'integer'), optional
 		:year: integer, optional
+:google_scholar_url: string, URL of your Google Scholar rofile, optional
 :home_address: dict, The person's home address, optional
 
 	:street: string, street address, optional
@@ -62,7 +65,7 @@ The following lists key names mapped to its type and meaning for each entry.
 	:type: dict, optional
 
 		:description: string, optional
-		:month: string, optional
+		:month: ['string', 'integer'], optional
 		:name: string, optional
 		:year: integer, optional
 :initials: string, The canonical initials for this group member, optional
@@ -70,10 +73,10 @@ The following lists key names mapped to its type and meaning for each entry.
 
 	:type: dict, optional
 
-		:begin_month: string, optional
+		:begin_month: ['string', 'integer'], optional
 		:begin_year: integer, optional
 		:description: string, optional
-		:end_month: string, optional
+		:end_month: ['string', 'integer'], optional
 		:end_year: integer, optional
 		:organization: string, optional
 		:position: string, optional
@@ -103,13 +106,20 @@ The following lists key names mapped to its type and meaning for each entry.
 		* scientist
 		* engineer
 		* professor
+:research_focus_areas: list, summary of research projects that are ongoing. Usedin Annual appraisal for example, optional
+
+	:type: dict, optional
+
+		:begin_year: integer, optional
+		:end_year: integer, optional
+		:description: string, optional
 :service: list, Service that this group member has provided, optional
 
 	:type: dict, optional
 
 		:description: string, optional
 		:duration: string, optional
-		:month: string, optional
+		:month: ['string', 'integer'], Use month and year if the servicedoesn't extend more than one year.Otherwise use begin_year and end_year, optional
 		:name: string, optional
 		:year: integer, optional
 		:begin_year: integer, optional
@@ -128,10 +138,10 @@ The following lists key names mapped to its type and meaning for each entry.
 
 		:course: string, optional
 		:description: string, optional
-		:end_month: string, optional
+		:end_month: ['string', 'integer'], optional
 		:end_year: integer, optional
 		:materials: string, optional
-		:month: string, optional
+		:month: ['string', 'integer'], optional
 		:organization: string, optional
 		:position: string, optional
 		:syllabus: string, optional
@@ -199,6 +209,7 @@ YAML Example
 	        - 'Website: http://www.ergs.sc.edu/'
 	      position: Assistant Professor, Mechanical Engineering Department
 	    - begin_year: 2013
+	      department: Physics
 	      end_year: 2015
 	      location: Madison, WI
 	      organization: CNERG, The University of Wisconsin-Madison
@@ -224,6 +235,7 @@ YAML Example
 	        - 'OpacPlot: HDF5-based equation of state and opacity file format.'
 	        - 'Website: http://flash.uchicago.edu/site/'
 	      position: Research Scientist, Postdoctoral Scholar
+	      status: PI
 	  funding:
 	    - name: Omega Laser User's Group Travel Award
 	      value: 1100
@@ -231,6 +243,7 @@ YAML Example
 	    - name: NIF User's Group Travel Award
 	      value: 1150
 	      year: 2013
+	  google_scholar_url: https://scholar.google.com/citations?user=dRm8f
 	  home_address:
 	    city: The big apple
 	    state: plasma
@@ -247,6 +260,9 @@ YAML Example
 	  name: Anthony Scopatz
 	  orcid_id: 0000-0002-9432-4248
 	  position: professor
+	  research_focus_areas:
+	    - begin_year: 2010
+	      description: software applied to nuclear engineering and life
 	  service:
 	    - name: 'Master of Ceremonies and Organizer Brown University "Chemistry: Believe
 	        it or Not" public chemistry demonstration'
@@ -356,6 +372,7 @@ JSON/Mongo Example
 	        },
 	        {
 	            "begin_year": 2013,
+	            "department": "Physics",
 	            "end_year": 2015,
 	            "location": "Madison, WI",
 	            "organization": "CNERG, The University of Wisconsin-Madison",
@@ -381,7 +398,8 @@ JSON/Mongo Example
 	                "OpacPlot: HDF5-based equation of state and opacity file format.",
 	                "Website: http://flash.uchicago.edu/site/"
 	            ],
-	            "position": "Research Scientist, Postdoctoral Scholar"
+	            "position": "Research Scientist, Postdoctoral Scholar",
+	            "status": "PI"
 	        }
 	    ],
 	    "funding": [
@@ -396,6 +414,7 @@ JSON/Mongo Example
 	            "year": 2013
 	        }
 	    ],
+	    "google_scholar_url": "https://scholar.google.com/citations?user=dRm8f",
 	    "home_address": {
 	        "city": "The big apple",
 	        "state": "plasma",
@@ -418,6 +437,12 @@ JSON/Mongo Example
 	    "name": "Anthony Scopatz",
 	    "orcid_id": "0000-0002-9432-4248",
 	    "position": "professor",
+	    "research_focus_areas": [
+	        {
+	            "begin_year": 2010,
+	            "description": "software applied to nuclear engineering and life"
+	        }
+	    ],
 	    "service": [
 	        {
 	            "name": "Master of Ceremonies and Organizer Brown University \"Chemistry: Believe it or Not\" public chemistry demonstration",

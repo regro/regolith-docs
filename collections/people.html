@@ -80,7 +80,7 @@
 <dd class="field-odd"><p>dict, optional</p>
 <dl class="field-list simple">
 <dt class="field-odd">begin_month</dt>
-<dd class="field-odd"><p>string, optional</p>
+<dd class="field-odd"><p>[‘string’, ‘integer’], optional</p>
 </dd>
 <dt class="field-even">begin_year</dt>
 <dd class="field-even"><p>integer, optional</p>
@@ -95,7 +95,7 @@
 <dd class="field-odd"><p>string, this employment is/was ina group in groups coll, optional</p>
 </dd>
 <dt class="field-even">end_month</dt>
-<dd class="field-even"><p>string, optional</p>
+<dd class="field-even"><p>[‘string’, ‘integer’], optional</p>
 </dd>
 <dt class="field-odd">end_year</dt>
 <dd class="field-odd"><p>integer, optional</p>
@@ -126,30 +126,36 @@
 <dd class="field-odd"><p>dict, optional</p>
 <dl class="field-list simple">
 <dt class="field-odd">begin_month</dt>
-<dd class="field-odd"><p>string, optional</p>
+<dd class="field-odd"><p>[‘string’, ‘integer’], optional</p>
 </dd>
 <dt class="field-even">begin_year</dt>
 <dd class="field-even"><p>integer, optional</p>
 </dd>
-<dt class="field-odd">end_month</dt>
+<dt class="field-odd">department</dt>
 <dd class="field-odd"><p>string, optional</p>
 </dd>
-<dt class="field-even">end_year</dt>
-<dd class="field-even"><p>integer, optional</p>
+<dt class="field-even">end_month</dt>
+<dd class="field-even"><p>[‘string’, ‘integer’], optional</p>
 </dd>
-<dt class="field-odd">group</dt>
-<dd class="field-odd"><p>string, this employment is/was ina group in groups coll, optional</p>
+<dt class="field-odd">end_year</dt>
+<dd class="field-odd"><p>integer, optional</p>
 </dd>
-<dt class="field-even">location</dt>
+<dt class="field-even">group</dt>
+<dd class="field-even"><p>string, this employment is/was ina group in groups coll, optional</p>
+</dd>
+<dt class="field-odd">location</dt>
+<dd class="field-odd"><p>string, optional</p>
+</dd>
+<dt class="field-even">organization</dt>
 <dd class="field-even"><p>string, optional</p>
 </dd>
-<dt class="field-odd">organization</dt>
-<dd class="field-odd"><p>string, optional</p>
+<dt class="field-odd">other</dt>
+<dd class="field-odd"><p>list, optional</p>
 </dd>
-<dt class="field-even">other</dt>
-<dd class="field-even"><p>list, optional</p>
+<dt class="field-even">position</dt>
+<dd class="field-even"><p>string, optional</p>
 </dd>
-<dt class="field-odd">position</dt>
+<dt class="field-odd">status</dt>
 <dd class="field-odd"><p>string, optional</p>
 </dd>
 </dl>
@@ -169,7 +175,7 @@
 <dd class="field-even"><p>string, optional</p>
 </dd>
 <dt class="field-odd">month</dt>
-<dd class="field-odd"><p>string, optional</p>
+<dd class="field-odd"><p>[‘string’, ‘integer’], optional</p>
 </dd>
 <dt class="field-even">name</dt>
 <dd class="field-even"><p>string, optional</p>
@@ -184,8 +190,11 @@
 </dd>
 </dl>
 </dd>
-<dt class="field-odd">home_address</dt>
-<dd class="field-odd"><p>dict, The person’s home address, optional</p>
+<dt class="field-odd">google_scholar_url</dt>
+<dd class="field-odd"><p>string, URL of your Google Scholar rofile, optional</p>
+</dd>
+<dt class="field-even">home_address</dt>
+<dd class="field-even"><p>dict, The person’s home address, optional</p>
 <dl class="field-list simple">
 <dt class="field-odd">street</dt>
 <dd class="field-odd"><p>string, street address, optional</p>
@@ -211,7 +220,7 @@
 <dd class="field-odd"><p>string, optional</p>
 </dd>
 <dt class="field-even">month</dt>
-<dd class="field-even"><p>string, optional</p>
+<dd class="field-even"><p>[‘string’, ‘integer’], optional</p>
 </dd>
 <dt class="field-odd">name</dt>
 <dd class="field-odd"><p>string, optional</p>
@@ -233,7 +242,7 @@
 <dd class="field-odd"><p>dict, optional</p>
 <dl class="field-list simple">
 <dt class="field-odd">begin_month</dt>
-<dd class="field-odd"><p>string, optional</p>
+<dd class="field-odd"><p>[‘string’, ‘integer’], optional</p>
 </dd>
 <dt class="field-even">begin_year</dt>
 <dd class="field-even"><p>integer, optional</p>
@@ -242,7 +251,7 @@
 <dd class="field-odd"><p>string, optional</p>
 </dd>
 <dt class="field-even">end_month</dt>
-<dd class="field-even"><p>string, optional</p>
+<dd class="field-even"><p>[‘string’, ‘integer’], optional</p>
 </dd>
 <dt class="field-odd">end_year</dt>
 <dd class="field-odd"><p>integer, optional</p>
@@ -294,6 +303,25 @@
 </dd>
 </dl>
 </dd>
+<dt class="field-even">research_focus_areas</dt>
+<dd class="field-even"><p>list, summary of research projects that are ongoing. Usedin Annual appraisal for example, optional</p>
+<dl class="field-list simple">
+<dt class="field-odd">type</dt>
+<dd class="field-odd"><p>dict, optional</p>
+<dl class="field-list simple">
+<dt class="field-odd">begin_year</dt>
+<dd class="field-odd"><p>integer, optional</p>
+</dd>
+<dt class="field-even">end_year</dt>
+<dd class="field-even"><p>integer, optional</p>
+</dd>
+<dt class="field-odd">description</dt>
+<dd class="field-odd"><p>string, optional</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
 <dt class="field-even">service</dt>
 <dd class="field-even"><p>list, Service that this group member has provided, optional</p>
 <dl class="field-list simple">
@@ -307,7 +335,7 @@
 <dd class="field-even"><p>string, optional</p>
 </dd>
 <dt class="field-odd">month</dt>
-<dd class="field-odd"><p>string, optional</p>
+<dd class="field-odd"><p>[‘string’, ‘integer’], Use month and year if the servicedoesn’t extend more than one year.Otherwise use begin_year and end_year, optional</p>
 </dd>
 <dt class="field-even">name</dt>
 <dd class="field-even"><p>string, optional</p>
@@ -360,7 +388,7 @@
 <dd class="field-even"><p>string, optional</p>
 </dd>
 <dt class="field-odd">end_month</dt>
-<dd class="field-odd"><p>string, optional</p>
+<dd class="field-odd"><p>[‘string’, ‘integer’], optional</p>
 </dd>
 <dt class="field-even">end_year</dt>
 <dd class="field-even"><p>integer, optional</p>
@@ -369,7 +397,7 @@
 <dd class="field-odd"><p>string, optional</p>
 </dd>
 <dt class="field-even">month</dt>
-<dd class="field-even"><p>string, optional</p>
+<dd class="field-even"><p>[‘string’, ‘integer’], optional</p>
 </dd>
 <dt class="field-odd">organization</dt>
 <dd class="field-odd"><p>string, optional</p>
@@ -453,6 +481,7 @@
         <span class="p p-Indicator">-</span> <span class="s">&#39;Website:</span><span class="nv"> </span><span class="s">http://www.ergs.sc.edu/&#39;</span>
       <span class="nt">position</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Assistant Professor, Mechanical Engineering Department</span>
     <span class="p p-Indicator">-</span> <span class="nt">begin_year</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">2013</span>
+      <span class="nt">department</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Physics</span>
       <span class="nt">end_year</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">2015</span>
       <span class="nt">location</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Madison, WI</span>
       <span class="nt">organization</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">CNERG, The University of Wisconsin-Madison</span>
@@ -478,6 +507,7 @@
         <span class="p p-Indicator">-</span> <span class="s">&#39;OpacPlot:</span><span class="nv"> </span><span class="s">HDF5-based</span><span class="nv"> </span><span class="s">equation</span><span class="nv"> </span><span class="s">of</span><span class="nv"> </span><span class="s">state</span><span class="nv"> </span><span class="s">and</span><span class="nv"> </span><span class="s">opacity</span><span class="nv"> </span><span class="s">file</span><span class="nv"> </span><span class="s">format.&#39;</span>
         <span class="p p-Indicator">-</span> <span class="s">&#39;Website:</span><span class="nv"> </span><span class="s">http://flash.uchicago.edu/site/&#39;</span>
       <span class="nt">position</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Research Scientist, Postdoctoral Scholar</span>
+      <span class="nt">status</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">PI</span>
   <span class="nt">funding</span><span class="p">:</span>
     <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Omega Laser User&#39;s Group Travel Award</span>
       <span class="nt">value</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1100</span>
@@ -485,6 +515,7 @@
     <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">NIF User&#39;s Group Travel Award</span>
       <span class="nt">value</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1150</span>
       <span class="nt">year</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">2013</span>
+  <span class="nt">google_scholar_url</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">https://scholar.google.com/citations?user=dRm8f</span>
   <span class="nt">home_address</span><span class="p">:</span>
     <span class="nt">city</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">The big apple</span>
     <span class="nt">state</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">plasma</span>
@@ -501,6 +532,9 @@
   <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Anthony Scopatz</span>
   <span class="nt">orcid_id</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">0000-0002-9432-4248</span>
   <span class="nt">position</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">professor</span>
+  <span class="nt">research_focus_areas</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="nt">begin_year</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">2010</span>
+      <span class="nt">description</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">software applied to nuclear engineering and life</span>
   <span class="nt">service</span><span class="p">:</span>
     <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="s">&#39;Master</span><span class="nv"> </span><span class="s">of</span><span class="nv"> </span><span class="s">Ceremonies</span><span class="nv"> </span><span class="s">and</span><span class="nv"> </span><span class="s">Organizer</span><span class="nv"> </span><span class="s">Brown</span><span class="nv"> </span><span class="s">University</span><span class="nv"> </span><span class="s">&quot;Chemistry:</span><span class="nv"> </span><span class="s">Believe</span>
         <span class="s">it</span><span class="nv"> </span><span class="s">or</span><span class="nv"> </span><span class="s">Not&quot;</span><span class="nv"> </span><span class="s">public</span><span class="nv"> </span><span class="s">chemistry</span><span class="nv"> </span><span class="s">demonstration&#39;</span>
@@ -608,6 +642,7 @@
         <span class="p">},</span>
         <span class="p">{</span>
             <span class="nt">&quot;begin_year&quot;</span><span class="p">:</span> <span class="mi">2013</span><span class="p">,</span>
+            <span class="nt">&quot;department&quot;</span><span class="p">:</span> <span class="s2">&quot;Physics&quot;</span><span class="p">,</span>
             <span class="nt">&quot;end_year&quot;</span><span class="p">:</span> <span class="mi">2015</span><span class="p">,</span>
             <span class="nt">&quot;location&quot;</span><span class="p">:</span> <span class="s2">&quot;Madison, WI&quot;</span><span class="p">,</span>
             <span class="nt">&quot;organization&quot;</span><span class="p">:</span> <span class="s2">&quot;CNERG, The University of Wisconsin-Madison&quot;</span><span class="p">,</span>
@@ -633,7 +668,8 @@
                 <span class="s2">&quot;OpacPlot: HDF5-based equation of state and opacity file format.&quot;</span><span class="p">,</span>
                 <span class="s2">&quot;Website: http://flash.uchicago.edu/site/&quot;</span>
             <span class="p">],</span>
-            <span class="nt">&quot;position&quot;</span><span class="p">:</span> <span class="s2">&quot;Research Scientist, Postdoctoral Scholar&quot;</span>
+            <span class="nt">&quot;position&quot;</span><span class="p">:</span> <span class="s2">&quot;Research Scientist, Postdoctoral Scholar&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;PI&quot;</span>
         <span class="p">}</span>
     <span class="p">],</span>
     <span class="nt">&quot;funding&quot;</span><span class="p">:</span> <span class="p">[</span>
@@ -648,6 +684,7 @@
             <span class="nt">&quot;year&quot;</span><span class="p">:</span> <span class="mi">2013</span>
         <span class="p">}</span>
     <span class="p">],</span>
+    <span class="nt">&quot;google_scholar_url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://scholar.google.com/citations?user=dRm8f&quot;</span><span class="p">,</span>
     <span class="nt">&quot;home_address&quot;</span><span class="p">:</span> <span class="p">{</span>
         <span class="nt">&quot;city&quot;</span><span class="p">:</span> <span class="s2">&quot;The big apple&quot;</span><span class="p">,</span>
         <span class="nt">&quot;state&quot;</span><span class="p">:</span> <span class="s2">&quot;plasma&quot;</span><span class="p">,</span>
@@ -670,6 +707,12 @@
     <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Anthony Scopatz&quot;</span><span class="p">,</span>
     <span class="nt">&quot;orcid_id&quot;</span><span class="p">:</span> <span class="s2">&quot;0000-0002-9432-4248&quot;</span><span class="p">,</span>
     <span class="nt">&quot;position&quot;</span><span class="p">:</span> <span class="s2">&quot;professor&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;research_focus_areas&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;begin_year&quot;</span><span class="p">:</span> <span class="mi">2010</span><span class="p">,</span>
+            <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;software applied to nuclear engineering and life&quot;</span>
+        <span class="p">}</span>
+    <span class="p">],</span>
     <span class="nt">&quot;service&quot;</span><span class="p">:</span> <span class="p">[</span>
         <span class="p">{</span>
             <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Master of Ceremonies and Organizer Brown University \&quot;Chemistry: Believe it or Not\&quot; public chemistry demonstration&quot;</span><span class="p">,</span>

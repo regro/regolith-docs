@@ -17,9 +17,9 @@ The following lists key names mapped to its type and meaning for each entry.
 
 	:type: dict, optional
 
-		:begin_month: string, optional
+		:begin_month: ['string', 'integer'], optional
 		:begin_year: integer, optional
-		:end_month: string, optional
+		:end_month: ['string', 'integer'], optional
 		:end_year: integer, optional
 		:name: string, optional
 		:position: string, optional

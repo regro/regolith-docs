@@ -11,13 +11,13 @@ The following lists key names mapped to its type and meaning for each entry.
 :admin: string, the group administering the grant, optional
 :amount: ('integer', 'float'), value of award, required
 :begin_day: integer, start day of the grant, optional
-:begin_month: string, start month of the grant, required
+:begin_month: ['string', 'integer'], start month of the grant, required
 :begin_year: integer, start year of the grant, required
 :benefit_of_collaboration: string, optional
 :call_for_proposals: string, optional
 :currency: string, typically '$' or 'USD', optional
 :end_day: ('string', 'integer'), end day of the grant, optional
-:end_month: string, end month of the grant, optional
+:end_month: ['string', 'integer'], end month of the grant, optional
 :end_year: integer, end year of the grant, required
 :funder: string, the agency funding the work, required
 :grant_id: string, the identifier for this work, optional

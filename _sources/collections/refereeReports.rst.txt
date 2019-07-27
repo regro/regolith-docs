@@ -26,7 +26,7 @@ The following lists key names mapped to its type and meaning for each entry.
 :first_author_last_name: string, Last name of first author will be referred to with et al., required
 :freewrite: string, Things that you want to add that don't fit into any category above, optional
 :journal: string, name of the journal, required
-:month: string, month when the review is being written, required
+:month: ['string', 'integer'], month when the review is being written, required
 :recommendation: string, Your publication recommendation, required
 
 	Allowed values: 
@@ -68,7 +68,7 @@ YAML Example
 	  first_author_last_name: Wingit
 	  freewrite: this comment didn't fit anywhere above
 	  journal: Nature
-	  month: '02'
+	  month: 2
 	  recommendation: reject
 	  reviewer: sbillinge
 	  status: submitted
@@ -102,7 +102,7 @@ JSON/Mongo Example
 	    "first_author_last_name": "Wingit",
 	    "freewrite": "this comment didn't fit anywhere above",
 	    "journal": "Nature",
-	    "month": "02",
+	    "month": 2,
 	    "recommendation": "reject",
 	    "reviewer": "sbillinge",
 	    "status": "submitted",

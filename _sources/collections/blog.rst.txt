@@ -9,7 +9,7 @@ The following lists key names mapped to its type and meaning for each entry.
 :_id: string, short representation, such as this-is-my-title, required
 :author: string, name or AKA of author, required
 :day: integer, Publication day, required
-:month: string, Publication month, required
+:month: ['string', 'integer'], Publication month, required
 :original: string, URL of original post, if this is a repost, optional
 :post: string, actual contents of the post, required
 :title: string, full human readable title, required
