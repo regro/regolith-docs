@@ -53,7 +53,7 @@ YAML Example
 	  authors:
 	    - scopatz
 	  begin_day: 22
-	  begin_month: 5
+	  begin_month: May
 	  begin_year: 2018
 	  department: physics
 	  end_day: 22
@@ -103,7 +103,7 @@ JSON/Mongo Example
 	        "scopatz"
 	    ],
 	    "begin_day": 22,
-	    "begin_month": 5,
+	    "begin_month": "May",
 	    "begin_year": 2018,
 	    "department": "physics",
 	    "end_day": 22,
