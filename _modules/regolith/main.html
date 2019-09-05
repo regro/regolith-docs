@@ -322,7 +322,10 @@
     <span class="k">if</span> <span class="n">rc</span><span class="o">.</span><span class="n">cmd</span> <span class="ow">in</span> <span class="n">DISCONNECTED_COMMANDS</span><span class="p">:</span>
         <span class="n">DISCONNECTED_COMMANDS</span><span class="p">[</span><span class="n">rc</span><span class="o">.</span><span class="n">cmd</span><span class="p">](</span><span class="n">rc</span><span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="k">with</span> <span class="n">connect</span><span class="p">(</span><span class="n">rc</span><span class="p">)</span> <span class="k">as</span> <span class="n">rc</span><span class="o">.</span><span class="n">client</span><span class="p">:</span>
+        <span class="n">dbs</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="k">if</span> <span class="n">rc</span><span class="o">.</span><span class="n">cmd</span> <span class="o">==</span> <span class="s1">&#39;build&#39;</span><span class="p">:</span>
+            <span class="n">dbs</span> <span class="o">=</span> <span class="n">commands</span><span class="o">.</span><span class="n">build_db_check</span><span class="p">(</span><span class="n">rc</span><span class="p">)</span>
+        <span class="k">with</span> <span class="n">connect</span><span class="p">(</span><span class="n">rc</span><span class="p">,</span> <span class="n">dbs</span><span class="o">=</span><span class="n">dbs</span><span class="p">)</span> <span class="k">as</span> <span class="n">rc</span><span class="o">.</span><span class="n">client</span><span class="p">:</span>
             <span class="n">CONNECTED_COMMANDS</span><span class="p">[</span><span class="n">rc</span><span class="o">.</span><span class="n">cmd</span><span class="p">](</span><span class="n">rc</span><span class="p">)</span></div>
 
 

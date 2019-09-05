@@ -53,7 +53,7 @@
 <p>Helps manage mongodb setup and connections.</p>
 <dl class="function">
 <dt id="regolith.database.connect">
-<code class="sig-prename descclassname">regolith.database.</code><code class="sig-name descname">connect</code><span class="sig-paren">(</span><em class="sig-param">rc</em><span class="sig-paren">)</span><a class="headerlink" href="#regolith.database.connect" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">regolith.database.</code><code class="sig-name descname">connect</code><span class="sig-paren">(</span><em class="sig-param">rc</em>, <em class="sig-param">dbs=None</em><span class="sig-paren">)</span><a class="headerlink" href="#regolith.database.connect" title="Permalink to this definition">¶</a></dt>
 <dd><p>Context manager for ensuring that database is properly setup and torn
 down</p>
 </dd></dl>
@@ -108,11 +108,14 @@ down</p>
 
 <dl class="function">
 <dt id="regolith.database.open_dbs">
-<code class="sig-prename descclassname">regolith.database.</code><code class="sig-name descname">open_dbs</code><span class="sig-paren">(</span><em class="sig-param">rc</em><span class="sig-paren">)</span><a class="headerlink" href="#regolith.database.open_dbs" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">regolith.database.</code><code class="sig-name descname">open_dbs</code><span class="sig-paren">(</span><em class="sig-param">rc</em>, <em class="sig-param">dbs=None</em><span class="sig-paren">)</span><a class="headerlink" href="#regolith.database.open_dbs" title="Permalink to this definition">¶</a></dt>
 <dd><p>Open the databases</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>rc</strong> (<em>RunControl instance</em>) – The rc which has links to the dbs</p>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>rc</strong> (<em>RunControl instance</em>) – The rc which has links to the dbs</p></li>
+<li><p><strong>dbs</strong> (<em>set or None, optional</em>) – The databases to load. If None load all, defaults to None</p></li>
+</ul>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p><strong>client</strong> – The database client</p>
