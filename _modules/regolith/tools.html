@@ -205,11 +205,11 @@
 <span class="sd">    m : int or str</span>
 <span class="sd">      the month to be tested. Optional, defaults to Dec</span>
 <span class="sd">    d : int</span>
-<span class="sd">      the day to be tested.  Defaults to 28</span>
+<span class="sd">      the day to be tested.  Defaults to last day of the month</span>
 <span class="sd">    bm : int or str</span>
 <span class="sd">      the before month.  Optional, defaults to Dec</span>
 <span class="sd">    bd: int</span>
-<span class="sd">      the before day.  Optional, defaults to 28</span>
+<span class="sd">      the before day.  Optional, defaults to last day of the month</span>
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
@@ -268,6 +268,91 @@
     <span class="k">return</span> <span class="n">is_since</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">sy</span><span class="p">,</span> <span class="n">m</span><span class="o">=</span><span class="n">m</span><span class="p">,</span> <span class="n">d</span><span class="o">=</span><span class="n">d</span><span class="p">,</span> <span class="n">sm</span><span class="o">=</span><span class="n">sm</span><span class="p">,</span> <span class="n">sd</span><span class="o">=</span><span class="n">sd</span><span class="p">)</span> <span class="ow">and</span> <span class="n">is_before</span><span class="p">(</span>
         <span class="n">y</span><span class="p">,</span> <span class="n">by</span><span class="p">,</span> <span class="n">m</span><span class="o">=</span><span class="n">m</span><span class="p">,</span> <span class="n">d</span><span class="o">=</span><span class="n">d</span><span class="p">,</span> <span class="n">bm</span><span class="o">=</span><span class="n">bm</span><span class="p">,</span> <span class="n">bd</span><span class="o">=</span><span class="n">bd</span>
     <span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="has_started"><a class="viewcode-back" href="../../api/tools.html#regolith.tools.has_started">[docs]</a><span class="k">def</span> <span class="nf">has_started</span><span class="p">(</span><span class="n">sy</span><span class="p">,</span> <span class="n">sm</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">sd</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    true if today is after the dates given, inclusive</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    sy : int</span>
+<span class="sd">       the year to check today against</span>
+<span class="sd">    sm : int or str.</span>
+<span class="sd">       the month to check today against. Should be integer or in regolith MONTHS.</span>
+<span class="sd">       default is 1</span>
+<span class="sd">    sd : int.</span>
+<span class="sd">       the day to check today against. Default is 1</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    bool</span>
+<span class="sd">    true if today is after dates given</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">sm</span><span class="p">:</span>
+        <span class="n">sm</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">sd</span><span class="p">:</span>
+        <span class="n">sd</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="n">s</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">{}</span><span class="s2">/</span><span class="si">{}</span><span class="s2">/</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">sd</span><span class="p">,</span> <span class="n">month_to_int</span><span class="p">(</span><span class="n">sm</span><span class="p">),</span> <span class="n">sy</span><span class="p">)</span>
+    <span class="n">start</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">mktime</span><span class="p">(</span><span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="s2">&quot;</span><span class="si">%d</span><span class="s2">/%m/%Y&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">timetuple</span><span class="p">())</span>
+    <span class="k">return</span> <span class="n">start</span> <span class="o">&lt;=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span></div>
+
+
+<div class="viewcode-block" id="has_finished"><a class="viewcode-back" href="../../api/tools.html#regolith.tools.has_finished">[docs]</a><span class="k">def</span> <span class="nf">has_finished</span><span class="p">(</span><span class="n">ey</span><span class="p">,</span> <span class="n">em</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">ed</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    true if today is before the dates given, inclusive</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    ey : int</span>
+<span class="sd">       end year, the year to check today against</span>
+<span class="sd">    em : int or str.</span>
+<span class="sd">       end month, the month to check today against. Should be integer or in regolith MONTHS.</span>
+<span class="sd">       default is 1</span>
+<span class="sd">    ed : int.</span>
+<span class="sd">       end-day, the day to check today against. Default is last day of the month</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    bool</span>
+<span class="sd">    true if today is before dates given</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">em</span><span class="p">:</span>
+        <span class="n">em</span> <span class="o">=</span> <span class="mi">12</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">ed</span><span class="p">:</span>
+        <span class="n">ed</span> <span class="o">=</span> <span class="n">monthrange</span><span class="p">(</span><span class="n">ey</span><span class="p">,</span> <span class="n">month_to_int</span><span class="p">(</span><span class="n">em</span><span class="p">))[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">e</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">{}</span><span class="s2">/</span><span class="si">{}</span><span class="s2">/</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">ed</span><span class="p">,</span> <span class="n">month_to_int</span><span class="p">(</span><span class="n">em</span><span class="p">),</span> <span class="n">ey</span><span class="p">)</span>
+    <span class="n">end</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">mktime</span><span class="p">(</span><span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="n">e</span><span class="p">,</span> <span class="s2">&quot;</span><span class="si">%d</span><span class="s2">/%m/%Y&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">timetuple</span><span class="p">())</span>
+    <span class="k">return</span> <span class="n">end</span> <span class="o">&lt;=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span></div>
+
+
+<div class="viewcode-block" id="is_current"><a class="viewcode-back" href="../../api/tools.html#regolith.tools.is_current">[docs]</a><span class="k">def</span> <span class="nf">is_current</span><span class="p">(</span><span class="n">sy</span><span class="p">,</span> <span class="n">ey</span><span class="p">,</span> <span class="n">sm</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">sd</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">em</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">ed</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    true if today is between the dates given, inclusive</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    sy : int</span>
+<span class="sd">       start year, the year to check today is after</span>
+<span class="sd">    ey : int</span>
+<span class="sd">       end year, the year to check today is before</span>
+<span class="sd">    sm : int or str</span>
+<span class="sd">       start month, the month to check today is after. Should be integer or in</span>
+<span class="sd">       regolith MONTHS. Default is 1</span>
+<span class="sd">    sd : int</span>
+<span class="sd">       start day, the day to check today after. Default is 1</span>
+<span class="sd">    em : int or str.</span>
+<span class="sd">       end month, the month to check today against. Should be integer or in</span>
+<span class="sd">       regolith MONTHS. Default is 12</span>
+<span class="sd">    ed : int.</span>
+<span class="sd">       end-day, the day to check today against. Default is last day of the month</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    bool</span>
+<span class="sd">    true if today is before dates given</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">has_started</span><span class="p">(</span><span class="n">sy</span><span class="p">,</span> <span class="n">sm</span><span class="p">,</span> <span class="n">sd</span><span class="p">)</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">has_finished</span><span class="p">(</span><span class="n">ey</span><span class="p">,</span> <span class="n">em</span><span class="p">,</span> <span class="n">ed</span><span class="p">)</span></div>
 
 
 <div class="viewcode-block" id="filter_publications"><a class="viewcode-back" href="../../api/tools.html#regolith.tools.filter_publications">[docs]</a><span class="k">def</span> <span class="nf">filter_publications</span><span class="p">(</span><span class="n">citations</span><span class="p">,</span> <span class="n">authors</span><span class="p">,</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">bold</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>

@@ -214,6 +214,52 @@ multiple potential sources</p>
 </dd></dl>
 
 <dl class="function">
+<dt id="regolith.tools.has_finished">
+<code class="sig-prename descclassname">regolith.tools.</code><code class="sig-name descname">has_finished</code><span class="sig-paren">(</span><em class="sig-param">ey</em>, <em class="sig-param">em=None</em>, <em class="sig-param">ed=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#has_finished"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.tools.has_finished" title="Permalink to this definition">¶</a></dt>
+<dd><p>true if today is before the dates given, inclusive</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ey</strong> (<em>int</em>) – end year, the year to check today against</p></li>
+<li><p><strong>em</strong> (<em>int or str.</em>) – end month, the month to check today against. Should be integer or in regolith MONTHS.
+default is 1</p></li>
+<li><p><strong>ed</strong> (<em>int.</em>) – end-day, the day to check today against. Default is last day of the month</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><em>bool</em></p></li>
+<li><p><em>true if today is before dates given</em></p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="regolith.tools.has_started">
+<code class="sig-prename descclassname">regolith.tools.</code><code class="sig-name descname">has_started</code><span class="sig-paren">(</span><em class="sig-param">sy</em>, <em class="sig-param">sm=None</em>, <em class="sig-param">sd=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#has_started"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.tools.has_started" title="Permalink to this definition">¶</a></dt>
+<dd><p>true if today is after the dates given, inclusive</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>sy</strong> (<em>int</em>) – the year to check today against</p></li>
+<li><p><strong>sm</strong> (<em>int or str.</em>) – the month to check today against. Should be integer or in regolith MONTHS.
+default is 1</p></li>
+<li><p><strong>sd</strong> (<em>int.</em>) – the day to check today against. Default is 1</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><em>bool</em></p></li>
+<li><p><em>true if today is after dates given</em></p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
 <dt id="regolith.tools.is_before">
 <code class="sig-prename descclassname">regolith.tools.</code><code class="sig-name descname">is_before</code><span class="sig-paren">(</span><em class="sig-param">y</em>, <em class="sig-param">by</em>, <em class="sig-param">m=12</em>, <em class="sig-param">d=None</em>, <em class="sig-param">bm=12</em>, <em class="sig-param">bd=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#is_before"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.tools.is_before" title="Permalink to this definition">¶</a></dt>
 <dd><p>tests whether a date is on or before another date</p>
@@ -223,9 +269,9 @@ multiple potential sources</p>
 <li><p><strong>y</strong> (<em>int</em>) – the year to be tested</p></li>
 <li><p><strong>by</strong> (<em>int</em>) – the before year</p></li>
 <li><p><strong>m</strong> (<em>int or str</em>) – the month to be tested. Optional, defaults to Dec</p></li>
-<li><p><strong>d</strong> (<em>int</em>) – the day to be tested.  Defaults to 28</p></li>
+<li><p><strong>d</strong> (<em>int</em>) – the day to be tested.  Defaults to last day of the month</p></li>
 <li><p><strong>bm</strong> (<em>int or str</em>) – the before month.  Optional, defaults to Dec</p></li>
-<li><p><strong>bd</strong> (<em>int</em>) – the before day.  Optional, defaults to 28</p></li>
+<li><p><strong>bd</strong> (<em>int</em>) – the before day.  Optional, defaults to last day of the month</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -262,6 +308,33 @@ date, inclusive.</p>
 <li><p><em>True if the target date is between the since date and the before date,</em></p></li>
 <li><p><em>inclusive (i.e., returns true if the target date is the same as either the</em></p></li>
 <li><p><em>since date or the before date)</em></p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="regolith.tools.is_current">
+<code class="sig-prename descclassname">regolith.tools.</code><code class="sig-name descname">is_current</code><span class="sig-paren">(</span><em class="sig-param">sy</em>, <em class="sig-param">ey</em>, <em class="sig-param">sm=None</em>, <em class="sig-param">sd=None</em>, <em class="sig-param">em=None</em>, <em class="sig-param">ed=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#is_current"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.tools.is_current" title="Permalink to this definition">¶</a></dt>
+<dd><p>true if today is between the dates given, inclusive</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>sy</strong> (<em>int</em>) – start year, the year to check today is after</p></li>
+<li><p><strong>ey</strong> (<em>int</em>) – end year, the year to check today is before</p></li>
+<li><p><strong>sm</strong> (<em>int or str</em>) – start month, the month to check today is after. Should be integer or in
+regolith MONTHS. Default is 1</p></li>
+<li><p><strong>sd</strong> (<em>int</em>) – start day, the day to check today after. Default is 1</p></li>
+<li><p><strong>em</strong> (<em>int or str.</em>) – end month, the month to check today against. Should be integer or in
+regolith MONTHS. Default is 12</p></li>
+<li><p><strong>ed</strong> (<em>int.</em>) – end-day, the day to check today against. Default is last day of the month</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><em>bool</em></p></li>
+<li><p><em>true if today is before dates given</em></p></li>
 </ul>
 </p>
 </dd>
