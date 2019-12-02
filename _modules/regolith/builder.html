@@ -10,14 +10,29 @@
     <link rel="stylesheet" href="../../_static/cloud.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Noticia+Text|Open+Sans|Droid+Sans+Mono" type="text/css" />
+    
     <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
     <script type="text/javascript" src="../../_static/jquery.js"></script>
     <script type="text/javascript" src="../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../_static/doctools.js"></script>
     <script type="text/javascript" src="../../_static/language_data.js"></script>
-    <script type="text/javascript" src="../../_static/jquery.cookie.js"></script>
-    <script type="text/javascript" src="../../_static/cloud.base.js"></script>
-    <script type="text/javascript" src="../../_static/cloud.js"></script>
+
+    
+    
+     
+        <script type="text/javascript" src="../../_static/jquery.cookie.js"></script>
+    
+
+    
+     
+        <script type="text/javascript" src="../../_static/cloud.base.js"></script>
+    
+
+    
+     
+        <script type="text/javascript" src="../../_static/cloud.js"></script>
+    
+
     <link rel="shortcut icon" href="../../_static/regolith-logo.ico"/>
     <link rel="search" title="Search" href="../../search.html" /> 
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -43,18 +58,18 @@
   <h1>Source code for regolith.builder</h1><div class="highlight"><pre>
 <span></span><span class="sd">&quot;&quot;&quot;Generic builder.&quot;&quot;&quot;</span>
 
-<span class="kn">from</span> <span class="nn">regolith.builders.cvbuilder</span> <span class="k">import</span> <span class="n">CVBuilder</span>
-<span class="kn">from</span> <span class="nn">regolith.builders.htmlbuilder</span> <span class="k">import</span> <span class="n">HtmlBuilder</span>
-<span class="kn">from</span> <span class="nn">regolith.builders.postdocadbuilder</span> <span class="k">import</span> <span class="n">PostdocadBuilder</span>
-<span class="kn">from</span> <span class="nn">regolith.builders.preslistbuilder</span> <span class="k">import</span> <span class="n">PresListBuilder</span>
-<span class="kn">from</span> <span class="nn">regolith.builders.publistbuilder</span> <span class="k">import</span> <span class="n">PubListBuilder</span>
-<span class="kn">from</span> <span class="nn">regolith.builders.gradebuilder</span> <span class="k">import</span> <span class="n">GradeReportBuilder</span>
-<span class="kn">from</span> <span class="nn">regolith.builders.manuscriptreviewbuilder</span> <span class="k">import</span> <span class="n">ManRevBuilder</span>
-<span class="kn">from</span> <span class="nn">regolith.builders.proposalreviewbuilder</span> <span class="k">import</span> <span class="n">PropRevBuilder</span>
-<span class="kn">from</span> <span class="nn">regolith.builders.reimbursementbuilder</span> <span class="k">import</span> <span class="n">ReimbursementBuilder</span>
-<span class="kn">from</span> <span class="nn">regolith.builders.resumebuilder</span> <span class="k">import</span> <span class="n">ResumeBuilder</span>
-<span class="kn">from</span> <span class="nn">regolith.builders.cpbuilder</span> <span class="k">import</span> <span class="n">CPBuilder</span>
-<span class="kn">from</span> <span class="nn">regolith.builders.figurebuilder</span> <span class="k">import</span> <span class="n">FigureBuilder</span>
+<span class="kn">from</span> <span class="nn">regolith.builders.cvbuilder</span> <span class="kn">import</span> <span class="n">CVBuilder</span>
+<span class="kn">from</span> <span class="nn">regolith.builders.htmlbuilder</span> <span class="kn">import</span> <span class="n">HtmlBuilder</span>
+<span class="kn">from</span> <span class="nn">regolith.builders.postdocadbuilder</span> <span class="kn">import</span> <span class="n">PostdocadBuilder</span>
+<span class="kn">from</span> <span class="nn">regolith.builders.preslistbuilder</span> <span class="kn">import</span> <span class="n">PresListBuilder</span>
+<span class="kn">from</span> <span class="nn">regolith.builders.publistbuilder</span> <span class="kn">import</span> <span class="n">PubListBuilder</span>
+<span class="kn">from</span> <span class="nn">regolith.builders.gradebuilder</span> <span class="kn">import</span> <span class="n">GradeReportBuilder</span>
+<span class="kn">from</span> <span class="nn">regolith.builders.manuscriptreviewbuilder</span> <span class="kn">import</span> <span class="n">ManRevBuilder</span>
+<span class="kn">from</span> <span class="nn">regolith.builders.proposalreviewbuilder</span> <span class="kn">import</span> <span class="n">PropRevBuilder</span>
+<span class="kn">from</span> <span class="nn">regolith.builders.reimbursementbuilder</span> <span class="kn">import</span> <span class="n">ReimbursementBuilder</span>
+<span class="kn">from</span> <span class="nn">regolith.builders.resumebuilder</span> <span class="kn">import</span> <span class="n">ResumeBuilder</span>
+<span class="kn">from</span> <span class="nn">regolith.builders.cpbuilder</span> <span class="kn">import</span> <span class="n">CPBuilder</span>
+<span class="kn">from</span> <span class="nn">regolith.builders.figurebuilder</span> <span class="kn">import</span> <span class="n">FigureBuilder</span>
 
 
 <span class="n">BUILDERS</span> <span class="o">=</span> <span class="p">{</span>

@@ -10,14 +10,29 @@
     <link rel="stylesheet" href="../../_static/cloud.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Noticia+Text|Open+Sans|Droid+Sans+Mono" type="text/css" />
+    
     <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
     <script type="text/javascript" src="../../_static/jquery.js"></script>
     <script type="text/javascript" src="../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../_static/doctools.js"></script>
     <script type="text/javascript" src="../../_static/language_data.js"></script>
-    <script type="text/javascript" src="../../_static/jquery.cookie.js"></script>
-    <script type="text/javascript" src="../../_static/cloud.base.js"></script>
-    <script type="text/javascript" src="../../_static/cloud.js"></script>
+
+    
+    
+     
+        <script type="text/javascript" src="../../_static/jquery.cookie.js"></script>
+    
+
+    
+     
+        <script type="text/javascript" src="../../_static/cloud.base.js"></script>
+    
+
+    
+     
+        <script type="text/javascript" src="../../_static/cloud.js"></script>
+    
+
     <link rel="shortcut icon" href="../../_static/regolith-logo.ico"/>
     <link rel="search" title="Search" href="../../search.html" /> 
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -92,6 +107,25 @@
     <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
         <span class="n">m</span> <span class="o">=</span> <span class="n">MONTHS</span><span class="p">[</span><span class="n">m</span><span class="o">.</span><span class="n">lower</span><span class="p">()]</span>
     <span class="k">return</span> <span class="n">m</span></div>
+
+
+<div class="viewcode-block" id="month_to_str_int"><a class="viewcode-back" href="../../api/dates.html#regolith.dates.month_to_str_int">[docs]</a><span class="k">def</span> <span class="nf">month_to_str_int</span><span class="p">(</span><span class="n">m</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Converts a month to an int form, str type, with a leading zero&quot;&quot;&quot;</span>
+    <span class="n">mi</span> <span class="o">=</span> <span class="n">month_to_int</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">mi</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">:</span>
+        <span class="n">ms</span> <span class="o">=</span> <span class="s2">&quot;0</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">mi</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">ms</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">mi</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">ms</span></div>
+
+
+<div class="viewcode-block" id="day_to_str_int"><a class="viewcode-back" href="../../api/dates.html#regolith.dates.day_to_str_int">[docs]</a><span class="k">def</span> <span class="nf">day_to_str_int</span><span class="p">(</span><span class="n">d</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Converts a day to an int form, str type, with a leading zero&quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">d</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">:</span>
+        <span class="n">ds</span> <span class="o">=</span> <span class="s2">&quot;0</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">ds</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">ds</span></div>
 
 
 <div class="viewcode-block" id="date_to_float"><a class="viewcode-back" href="../../api/dates.html#regolith.dates.date_to_float">[docs]</a><span class="k">def</span> <span class="nf">date_to_float</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">d</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>

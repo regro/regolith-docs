@@ -10,14 +10,29 @@
     <link rel="stylesheet" href="../../_static/cloud.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Noticia+Text|Open+Sans|Droid+Sans+Mono" type="text/css" />
+    
     <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
     <script type="text/javascript" src="../../_static/jquery.js"></script>
     <script type="text/javascript" src="../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../_static/doctools.js"></script>
     <script type="text/javascript" src="../../_static/language_data.js"></script>
-    <script type="text/javascript" src="../../_static/jquery.cookie.js"></script>
-    <script type="text/javascript" src="../../_static/cloud.base.js"></script>
-    <script type="text/javascript" src="../../_static/cloud.js"></script>
+
+    
+    
+     
+        <script type="text/javascript" src="../../_static/jquery.cookie.js"></script>
+    
+
+    
+     
+        <script type="text/javascript" src="../../_static/cloud.base.js"></script>
+    
+
+    
+     
+        <script type="text/javascript" src="../../_static/cloud.js"></script>
+    
+
     <link rel="shortcut icon" href="../../_static/regolith-logo.ico"/>
     <link rel="search" title="Search" href="../../search.html" /> 
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -42,9 +57,9 @@
             
   <h1>Source code for regolith.broker</h1><div class="highlight"><pre>
 <span></span><span class="sd">&quot;&quot;&quot;API for accessing the metadata and file storage&quot;&quot;&quot;</span>
-<span class="kn">from</span> <span class="nn">regolith.database</span> <span class="k">import</span> <span class="n">dump_database</span><span class="p">,</span> <span class="n">open_dbs</span>
-<span class="kn">from</span> <span class="nn">regolith.runcontrol</span> <span class="k">import</span> <span class="n">DEFAULT_RC</span><span class="p">,</span> <span class="n">load_rcfile</span><span class="p">,</span> <span class="n">filter_databases</span>
-<span class="kn">from</span> <span class="nn">regolith.storage</span> <span class="k">import</span> <span class="n">store_client</span><span class="p">,</span> <span class="n">push</span>
+<span class="kn">from</span> <span class="nn">regolith.database</span> <span class="kn">import</span> <span class="n">dump_database</span><span class="p">,</span> <span class="n">open_dbs</span>
+<span class="kn">from</span> <span class="nn">regolith.runcontrol</span> <span class="kn">import</span> <span class="n">DEFAULT_RC</span><span class="p">,</span> <span class="n">load_rcfile</span><span class="p">,</span> <span class="n">filter_databases</span>
+<span class="kn">from</span> <span class="nn">regolith.storage</span> <span class="kn">import</span> <span class="n">store_client</span><span class="p">,</span> <span class="n">push</span>
 
 
 <div class="viewcode-block" id="load_db"><a class="viewcode-back" href="../../api/broker.html#regolith.broker.load_db">[docs]</a><span class="k">def</span> <span class="nf">load_db</span><span class="p">(</span><span class="n">rc_file</span><span class="o">=</span><span class="s2">&quot;regolithrc.json&quot;</span><span class="p">):</span>
@@ -71,7 +86,7 @@
 <span class="sd">    &gt;&gt;&gt; path = db.get_file(ergs, &#39;myfile&#39;)</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">rc</span><span class="o">=</span><span class="n">DEFAULT_RC</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">rc</span><span class="o">=</span><span class="n">DEFAULT_RC</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">rc</span> <span class="o">=</span> <span class="n">rc</span>
         <span class="c1"># TODO: Lazy load these</span>
         <span class="k">with</span> <span class="n">store_client</span><span class="p">(</span><span class="n">rc</span><span class="p">)</span> <span class="k">as</span> <span class="n">sclient</span><span class="p">:</span>
@@ -128,7 +143,7 @@
         <span class="k">else</span><span class="p">:</span>
             <span class="k">return</span> <span class="kc">None</span></div>
 
-    <span class="k">def</span> <span class="nf">__getitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">item</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__getitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">item</span><span class="p">):</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">md</span><span class="p">[</span><span class="n">item</span><span class="p">]</span></div>
 </pre></div>
 
