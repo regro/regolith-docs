@@ -723,6 +723,33 @@
             <span class="n">input_record</span><span class="p">[</span><span class="s2">&quot;department&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">fuzzy_retrieval</span><span class="p">(</span>
                 <span class="p">[</span><span class="n">db_inst</span><span class="p">[</span><span class="s2">&quot;departments&quot;</span><span class="p">]],</span> <span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">,</span> <span class="s2">&quot;aka&quot;</span><span class="p">],</span> <span class="n">input_record</span><span class="p">[</span><span class="s2">&quot;department&quot;</span><span class="p">]</span>
             <span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="update_schemas"><a class="viewcode-back" href="../../api/tools.html#regolith.tools.update_schemas">[docs]</a><span class="k">def</span> <span class="nf">update_schemas</span><span class="p">(</span><span class="n">default_schema</span><span class="p">,</span> <span class="n">user_schema</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Merging the user schema into the default schema recursively and return the merged schema. The default schema and</span>
+<span class="sd">    user schema will not be modified during the merging.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    default_schema : dict</span>
+<span class="sd">        The default schema.</span>
+<span class="sd">    user_schema : dict</span>
+<span class="sd">        The user defined schema.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    updated_schema : dict</span>
+<span class="sd">        The merged schema.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">updated_schema</span> <span class="o">=</span> <span class="n">deepcopy</span><span class="p">(</span><span class="n">default_schema</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">user_schema</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">key</span> <span class="ow">in</span> <span class="n">updated_schema</span><span class="p">)</span> <span class="ow">and</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">updated_schema</span><span class="p">[</span><span class="n">key</span><span class="p">],</span> <span class="nb">dict</span><span class="p">)</span> <span class="ow">and</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">user_schema</span><span class="p">[</span><span class="n">key</span><span class="p">],</span> <span class="nb">dict</span><span class="p">):</span>
+            <span class="n">updated_schema</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">update_schemas</span><span class="p">(</span><span class="n">updated_schema</span><span class="p">[</span><span class="n">key</span><span class="p">],</span> <span class="n">user_schema</span><span class="p">[</span><span class="n">key</span><span class="p">])</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">updated_schema</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">user_schema</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
+
+    <span class="k">return</span> <span class="n">updated_schema</span></div>
 </pre></div>
 
           </div>

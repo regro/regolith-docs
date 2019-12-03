@@ -447,6 +447,27 @@ wrap, defaults to True</p></li>
 <dd><p>Creates a string of the current time according to RFC 822.</p>
 </dd></dl>
 
+<dl class="function">
+<dt id="regolith.tools.update_schemas">
+<code class="sig-prename descclassname">regolith.tools.</code><code class="sig-name descname">update_schemas</code><span class="sig-paren">(</span><em class="sig-param">default_schema</em>, <em class="sig-param">user_schema</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#update_schemas"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.tools.update_schemas" title="Permalink to this definition">¶</a></dt>
+<dd><p>Merging the user schema into the default schema recursively and return the merged schema. The default schema and
+user schema will not be modified during the merging.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>default_schema</strong> (<em>dict</em>) – The default schema.</p></li>
+<li><p><strong>user_schema</strong> (<em>dict</em>) – The user defined schema.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>updated_schema</strong> – The merged schema.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
 </div>
 
 
