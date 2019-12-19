@@ -71,7 +71,7 @@
 <em class="property">class </em><code class="sig-prename descclassname">regolith.broker.</code><code class="sig-name descname">Broker</code><span class="sig-paren">(</span><em class="sig-param">rc=RunControl(backend='filesystem'</em>, <em class="sig-param">builddir='_build'</em>, <em class="sig-param">force=False</em>, <em class="sig-param">local=False</em>, <em class="sig-param">mongodbpath=&lt;property object&gt;</em>, <em class="sig-param">user_config='/home/travis/.config/regolith/user.json')</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/broker.html#Broker"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.broker.Broker" title="Permalink to this definition">¶</a></dt>
 <dd><p>Interface to the database and file storage systems</p>
 <p class="rubric">Examples</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># Load the db</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># Load the db</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">db</span> <span class="o">=</span> <span class="n">Broker</span><span class="o">.</span><span class="n">from_rc</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="c1"># Get a docment from the broker</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">ergs</span> <span class="o">=</span><span class="n">db</span><span class="p">[</span><span class="s1">&#39;group&#39;</span><span class="p">][</span><span class="s1">&#39;ergs&#39;</span><span class="p">]</span>
