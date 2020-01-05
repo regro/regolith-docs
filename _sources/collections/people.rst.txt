@@ -32,9 +32,11 @@ The following lists key names mapped to its type and meaning for each entry.
 
 	:type: dict, optional
 
+		:begin_day: integer, optional
 		:begin_month: ['string', 'integer'], optional
 		:begin_year: integer, optional
 		:department: string, optional
+		:end_day: integer, optional
 		:end_month: ['string', 'integer'], optional
 		:end_year: integer, optional
 		:group: string, this employment is/was ina group in groups coll, optional
@@ -218,7 +220,8 @@ YAML Example
 	        - 'PyNE: The Nuclear Engineering Toolkit.'
 	        - 'Website: https://cnerg.github.io/'
 	      position: Associate Scientist, Engineering Physics Department
-	    - begin_month: Nov
+	    - begin_day: 1
+	      begin_month: Nov
 	      begin_year: 2011
 	      end_month: May
 	      end_year: 2013
@@ -384,6 +387,7 @@ JSON/Mongo Example
 	            "position": "Associate Scientist, Engineering Physics Department"
 	        },
 	        {
+	            "begin_day": 1,
 	            "begin_month": "Nov",
 	            "begin_year": 2011,
 	            "end_month": "May",

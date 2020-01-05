@@ -89,6 +89,24 @@ YAML Example
 	  title: 'ClusterMining: extracting core structures of metallic nanoparticles from
 	    the atomic pair distribution function'
 	  type: poster
+	18sb_this_and_that:
+	  abstract: We pulled apart graphite with tape
+	  authors:
+	    - scopatz
+	  begin_day: 22
+	  begin_month: 5
+	  begin_year: 2018
+	  department: apam
+	  institution: columbiau
+	  location: Upton NY
+	  meeting_name: Meeting to check flexibility on dates
+	  notes:
+	    - We hope the weather will be sunny
+	    - if the weather is nice we will go to the beach
+	  project: 18sob_clustermining
+	  status: accepted
+	  title: Graphitic Dephenestration
+	  type: award
 
 
 JSON/Mongo Example
@@ -142,4 +160,26 @@ JSON/Mongo Example
 	    "status": "accepted",
 	    "title": "ClusterMining: extracting core structures of metallic nanoparticles from the atomic pair distribution function",
 	    "type": "poster"
+	}
+	{
+	    "_id": "18sb_this_and_that",
+	    "abstract": "We pulled apart graphite with tape",
+	    "authors": [
+	        "scopatz"
+	    ],
+	    "begin_day": 22,
+	    "begin_month": 5,
+	    "begin_year": 2018,
+	    "department": "apam",
+	    "institution": "columbiau",
+	    "location": "Upton NY",
+	    "meeting_name": "Meeting to check flexibility on dates",
+	    "notes": [
+	        "We hope the weather will be sunny",
+	        "if the weather is nice we will go to the beach"
+	    ],
+	    "project": "18sob_clustermining",
+	    "status": "accepted",
+	    "title": "Graphitic Dephenestration",
+	    "type": "award"
 	}
