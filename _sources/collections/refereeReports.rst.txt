@@ -45,6 +45,9 @@ The following lists key names mapped to its type and meaning for each entry.
 		* inprogress
 		* submitted
 :title: string, title of the paper under review, required
+:validity_assessment: list, List of impressions of the validity of the claims, required
+
+	:type: string, required
 :year: string, year when the review is being done, required
 
 
@@ -73,6 +76,8 @@ YAML Example
 	  reviewer: sbillinge
 	  status: submitted
 	  title: a ruler approach to measuring gravity waves
+	  validity_assessment:
+	    - complete rubbish
 	  year: '2019'
 
 
@@ -107,5 +112,8 @@ JSON/Mongo Example
 	    "reviewer": "sbillinge",
 	    "status": "submitted",
 	    "title": "a ruler approach to measuring gravity waves",
+	    "validity_assessment": [
+	        "complete rubbish"
+	    ],
 	    "year": "2019"
 	}

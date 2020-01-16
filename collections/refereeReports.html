@@ -160,6 +160,14 @@
 <dt class="field-odd">title</dt>
 <dd class="field-odd"><p>string, title of the paper under review, required</p>
 </dd>
+<dt class="field-even">validity_assessment</dt>
+<dd class="field-even"><p>list, List of impressions of the validity of the claims, required</p>
+<dl class="field-list simple">
+<dt class="field-odd">type</dt>
+<dd class="field-odd"><p>string, required</p>
+</dd>
+</dl>
+</dd>
 <dt class="field-even">year</dt>
 <dd class="field-even"><p>string, year when the review is being done, required</p>
 </dd>
@@ -187,6 +195,8 @@
   <span class="nt">reviewer</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">sbillinge</span>
   <span class="nt">status</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">submitted</span>
   <span class="nt">title</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">a ruler approach to measuring gravity waves</span>
+  <span class="nt">validity_assessment</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">complete rubbish</span>
   <span class="nt">year</span><span class="p">:</span> <span class="s">&#39;2019&#39;</span>
 </pre></div>
 </div>
@@ -219,6 +229,9 @@
     <span class="nt">&quot;reviewer&quot;</span><span class="p">:</span> <span class="s2">&quot;sbillinge&quot;</span><span class="p">,</span>
     <span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;submitted&quot;</span><span class="p">,</span>
     <span class="nt">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;a ruler approach to measuring gravity waves&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;validity_assessment&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="s2">&quot;complete rubbish&quot;</span>
+    <span class="p">],</span>
     <span class="nt">&quot;year&quot;</span><span class="p">:</span> <span class="s2">&quot;2019&quot;</span>
 <span class="p">}</span>
 </pre></div>

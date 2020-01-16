@@ -89,6 +89,27 @@ control attributes dictionary (_dict).</p>
 </dd></dl>
 
 <dl class="function">
+<dt id="regolith.runcontrol.connect_db">
+<code class="sig-prename descclassname">regolith.runcontrol.</code><code class="sig-name descname">connect_db</code><span class="sig-paren">(</span><em class="sig-param">rc</em>, <em class="sig-param">colls=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/runcontrol.html#connect_db"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.runcontrol.connect_db" title="Permalink to this definition">¶</a></dt>
+<dd><p>Load up the db’s</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>rc</strong> – The runcontrol instance</p></li>
+<li><p><strong>colls</strong> – The list of collections that should be loaded</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><em>chained_db</em> – The chained databases in the form of a document</p></li>
+<li><p><em>dbs</em> – The databases in the form of a runcontrol client</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
 <dt id="regolith.runcontrol.ensuredirs">
 <code class="sig-prename descclassname">regolith.runcontrol.</code><code class="sig-name descname">ensuredirs</code><span class="sig-paren">(</span><em class="sig-param">f</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/runcontrol.html#ensuredirs"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.runcontrol.ensuredirs" title="Permalink to this definition">¶</a></dt>
 <dd><p>For a file path, ensure that its directory path exists.</p>
