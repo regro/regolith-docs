@@ -201,28 +201,30 @@
         <span class="s2">&quot;--from&quot;</span><span class="p">,</span>
         <span class="n">dest</span><span class="o">=</span><span class="s2">&quot;from_date&quot;</span><span class="p">,</span>
         <span class="n">help</span><span class="o">=</span><span class="s2">&quot;date in form YYYY-MM-DD.  Items will only be built&quot;</span>
-        <span class="s2">&quot;if their date or end_date is equal or after this date&quot;</span><span class="p">,</span>
+        <span class="s2">&quot; if their date or end_date is equal or after this date&quot;</span><span class="p">,</span>
         <span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
     <span class="p">)</span>
     <span class="n">bldp</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
         <span class="s2">&quot;--to&quot;</span><span class="p">,</span>
         <span class="n">dest</span><span class="o">=</span><span class="s2">&quot;to_date&quot;</span><span class="p">,</span>
         <span class="n">help</span><span class="o">=</span><span class="s2">&quot;date in form YYYY-MM-DD.  Items will only be built&quot;</span>
-        <span class="s2">&quot;if their date or begin_date is equal or before this date&quot;</span><span class="p">,</span>
+        <span class="s2">&quot; if their date or begin_date is equal or before this date&quot;</span><span class="p">,</span>
         <span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
     <span class="p">)</span>
     <span class="n">bldp</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
         <span class="s2">&quot;--grants&quot;</span><span class="p">,</span>
+        <span class="n">nargs</span><span class="o">=</span><span class="s1">&#39;+&#39;</span><span class="p">,</span>
         <span class="n">dest</span><span class="o">=</span><span class="s2">&quot;grants&quot;</span><span class="p">,</span>
-        <span class="n">help</span><span class="o">=</span><span class="s2">&quot;specify a grant or a list of grants so items are built only &quot;</span>
-             <span class="s2">&quot;if associated with this(these) grant(s)&quot;</span><span class="p">,</span>
+        <span class="n">help</span><span class="o">=</span><span class="s2">&quot;specify a grant or a space-separated list of grants so items are &quot;</span>
+             <span class="s2">&quot;built only if associated with this(these) grant(s)&quot;</span><span class="p">,</span>
         <span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
     <span class="p">)</span>
     <span class="n">bldp</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
         <span class="s2">&quot;--people&quot;</span><span class="p">,</span>
+        <span class="n">nargs</span><span class="o">=</span><span class="s1">&#39;+&#39;</span><span class="p">,</span>
         <span class="n">dest</span><span class="o">=</span><span class="s2">&quot;people&quot;</span><span class="p">,</span>
-        <span class="n">help</span><span class="o">=</span><span class="s2">&quot;specify a person or a list of people such that the build&quot;</span>
-             <span class="s2">&quot;will be for only those people&quot;</span><span class="p">,</span>
+        <span class="n">help</span><span class="o">=</span><span class="s2">&quot;specify a person or a space-separated list of people such that &quot;</span>
+             <span class="s2">&quot;the build will be for only those people&quot;</span><span class="p">,</span>
         <span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
     <span class="p">)</span>
 

@@ -170,7 +170,7 @@ cond is false.</p>
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>projects</strong> (<em>list of dict</em>) – The publication citations</p></li>
-<li><p><strong>authors</strong> (<em>set of str</em>) – The authors to be filtered against</p></li>
+<li><p><strong>authors</strong> (<em>set of list of str</em>) – The authors to be filtered against</p></li>
 <li><p><strong>reverse</strong> (<em>bool, optional</em>) – If True reverse the order, defaults to False</p></li>
 </ul>
 </dd>
@@ -418,6 +418,38 @@ wrap, defaults to True</p></li>
 </dd></dl>
 
 <dl class="function">
+<dt id="regolith.tools.merge_collections">
+<code class="sig-prename descclassname">regolith.tools.</code><code class="sig-name descname">merge_collections</code><span class="sig-paren">(</span><em class="sig-param">a</em>, <em class="sig-param">b</em>, <em class="sig-param">target_id</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#merge_collections"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.tools.merge_collections" title="Permalink to this definition">¶</a></dt>
+<dd><p>merge two collections into a single merged collection</p>
+<p>for keys that are in both collections, the value in b will be kept</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>a  the inferior collection (will lose values of shared keys)</strong></p></li>
+<li><p><strong>b  the superior collection (will keep values of shared keys)</strong></p></li>
+<li><p><strong>target_id  str  the name of the key used in b to dereference ids in a</strong></p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><em>the combined collection.  Note that it returns a collection only containing</em></p></li>
+<li><p><em>merged items from a and b that are dereferenced in b, i.e., the merged</em></p></li>
+<li><p><em>intercept.  If you want the union you can update the returned collection</em></p></li>
+<li><p><em>with a.</em></p></li>
+</ul>
+</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span> <span class="n">grants</span> <span class="o">=</span> <span class="n">merge_collections</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">gtx</span><span class="p">[</span><span class="s2">&quot;proposals&quot;</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">gtx</span><span class="p">[</span><span class="s2">&quot;grants&quot;</span><span class="p">],</span> <span class="s2">&quot;proposal_id&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This would merge all entries in the proposals collection with entries in the
+grants collection for which “_id” in proposals has the value of
+“proposal_id” in grants.</p>
+</dd></dl>
+
+<dl class="function">
 <dt id="regolith.tools.month_and_year">
 <code class="sig-prename descclassname">regolith.tools.</code><code class="sig-name descname">month_and_year</code><span class="sig-paren">(</span><em class="sig-param">m=None</em>, <em class="sig-param">y=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#month_and_year"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.tools.month_and_year" title="Permalink to this definition">¶</a></dt>
 <dd><p>Creates a string from month and year data, if available.</p>
@@ -450,8 +482,9 @@ wrap, defaults to True</p></li>
 <dl class="function">
 <dt id="regolith.tools.update_schemas">
 <code class="sig-prename descclassname">regolith.tools.</code><code class="sig-name descname">update_schemas</code><span class="sig-paren">(</span><em class="sig-param">default_schema</em>, <em class="sig-param">user_schema</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#update_schemas"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.tools.update_schemas" title="Permalink to this definition">¶</a></dt>
-<dd><p>Merging the user schema into the default schema recursively and return the merged schema. The default schema and
-user schema will not be modified during the merging.</p>
+<dd><p>Merging the user schema into the default schema recursively and return the
+merged schema. The default schema and user schema will not be modified
+during the merging.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">

@@ -71,6 +71,7 @@
 
 <span class="kn">from</span> <span class="nn">regolith.dates</span> <span class="kn">import</span> <span class="n">month_to_int</span><span class="p">,</span> <span class="n">date_to_float</span>
 <span class="kn">from</span> <span class="nn">regolith.sorters</span> <span class="kn">import</span> <span class="n">doc_date_key</span><span class="p">,</span> <span class="n">id_key</span><span class="p">,</span> <span class="n">ene_date_key</span>
+<span class="kn">from</span> <span class="nn">regolith.chained_db</span> <span class="kn">import</span> <span class="n">ChainDB</span>
 
 <span class="k">try</span><span class="p">:</span>
     <span class="kn">from</span> <span class="nn">bibtexparser.bwriter</span> <span class="kn">import</span> <span class="n">BibTexWriter</span>
@@ -415,7 +416,7 @@
 <span class="sd">    ----------</span>
 <span class="sd">    projects : list of dict</span>
 <span class="sd">        The publication citations</span>
-<span class="sd">    authors : set of str</span>
+<span class="sd">    authors : set of list of str</span>
 <span class="sd">        The authors to be filtered against</span>
 <span class="sd">    reverse : bool, optional</span>
 <span class="sd">        If True reverse the order, defaults to False</span>
@@ -425,8 +426,9 @@
         <span class="n">team_names</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">gets</span><span class="p">(</span><span class="n">proj</span><span class="p">[</span><span class="s2">&quot;team&quot;</span><span class="p">],</span> <span class="s2">&quot;name&quot;</span><span class="p">))</span>
         <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">team_names</span> <span class="o">&amp;</span> <span class="n">authors</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
             <span class="k">continue</span>
-        <span class="n">proj</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">proj</span><span class="p">)</span>
-        <span class="n">proj</span><span class="p">[</span><span class="s2">&quot;team&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">proj</span><span class="p">[</span><span class="s2">&quot;team&quot;</span><span class="p">]</span> <span class="k">if</span> <span class="n">x</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span> <span class="ow">in</span> <span class="n">authors</span><span class="p">]</span>
+        <span class="c1"># FIXME delete these lines if not required.  I think they are wrong (SJLB)</span>
+        <span class="c1"># proj = dict(proj)</span>
+        <span class="c1"># proj[&quot;team&quot;] = [x for x in proj[&quot;team&quot;] if x[&quot;name&quot;] in authors]</span>
         <span class="n">projs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">proj</span><span class="p">)</span>
     <span class="n">projs</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="n">id_key</span><span class="p">,</span> <span class="n">reverse</span><span class="o">=</span><span class="n">reverse</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">projs</span></div>
@@ -738,10 +740,55 @@
             <span class="n">input_record</span><span class="p">[</span><span class="s2">&quot;department&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">inst</span></div>
 
 
+<div class="viewcode-block" id="merge_collections"><a class="viewcode-back" href="../../api/tools.html#regolith.tools.merge_collections">[docs]</a><span class="k">def</span> <span class="nf">merge_collections</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">target_id</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    merge two collections into a single merged collection</span>
+
+<span class="sd">    for keys that are in both collections, the value in b will be kept</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    a  the inferior collection (will lose values of shared keys)</span>
+<span class="sd">    b  the superior collection (will keep values of shared keys)</span>
+<span class="sd">    target_id  str  the name of the key used in b to dereference ids in a</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    the combined collection.  Note that it returns a collection only containing</span>
+<span class="sd">    merged items from a and b that are dereferenced in b, i.e., the merged</span>
+<span class="sd">    intercept.  If you want the union you can update the returned collection</span>
+<span class="sd">    with a.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt;  grants = merge_collections(self.gtx[&quot;proposals&quot;], self.gtx[&quot;grants&quot;], &quot;proposal_id&quot;)</span>
+
+<span class="sd">    This would merge all entries in the proposals collection with entries in the</span>
+<span class="sd">    grants collection for which &quot;_id&quot; in proposals has the value of</span>
+<span class="sd">    &quot;proposal_id&quot; in grants.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">adict</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">a</span><span class="p">:</span>
+        <span class="n">adict</span><span class="p">[</span><span class="n">k</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;_id&quot;</span><span class="p">)]</span> <span class="o">=</span> <span class="n">k</span>
+    <span class="n">bdict</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">b</span><span class="p">:</span>
+        <span class="n">bdict</span><span class="p">[</span><span class="n">k</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;_id&quot;</span><span class="p">)]</span> <span class="o">=</span> <span class="n">k</span>
+    <span class="n">b_for_a</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">adict</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">kk</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">bdict</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="k">if</span> <span class="n">v</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">target_id</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="n">k</span><span class="p">:</span>
+                <span class="n">b_for_a</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">kk</span>
+    <span class="n">chained</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">b_for_a</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="n">chained</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">ChainDB</span><span class="p">(</span><span class="n">adict</span><span class="p">[</span><span class="n">k</span><span class="p">],</span> <span class="n">bdict</span><span class="p">[</span><span class="n">v</span><span class="p">])</span>
+    <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="n">chained</span><span class="o">.</span><span class="n">values</span><span class="p">())</span></div>
+
+
 <div class="viewcode-block" id="update_schemas"><a class="viewcode-back" href="../../api/tools.html#regolith.tools.update_schemas">[docs]</a><span class="k">def</span> <span class="nf">update_schemas</span><span class="p">(</span><span class="n">default_schema</span><span class="p">,</span> <span class="n">user_schema</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Merging the user schema into the default schema recursively and return the merged schema. The default schema and</span>
-<span class="sd">    user schema will not be modified during the merging.</span>
+<span class="sd">    Merging the user schema into the default schema recursively and return the</span>
+<span class="sd">    merged schema. The default schema and user schema will not be modified</span>
+<span class="sd">    during the merging.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -759,7 +806,7 @@
     <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">user_schema</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
         <span class="k">if</span> <span class="p">(</span><span class="n">key</span> <span class="ow">in</span> <span class="n">updated_schema</span><span class="p">)</span> <span class="ow">and</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">updated_schema</span><span class="p">[</span><span class="n">key</span><span class="p">],</span>
                                                   <span class="nb">dict</span><span class="p">)</span> <span class="ow">and</span> <span class="nb">isinstance</span><span class="p">(</span>
-            <span class="n">user_schema</span><span class="p">[</span><span class="n">key</span><span class="p">],</span> <span class="nb">dict</span><span class="p">):</span>
+              <span class="n">user_schema</span><span class="p">[</span><span class="n">key</span><span class="p">],</span> <span class="nb">dict</span><span class="p">):</span>
             <span class="n">updated_schema</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">update_schemas</span><span class="p">(</span><span class="n">updated_schema</span><span class="p">[</span><span class="n">key</span><span class="p">],</span>
                                                  <span class="n">user_schema</span><span class="p">[</span><span class="n">key</span><span class="p">])</span>
         <span class="k">else</span><span class="p">:</span>

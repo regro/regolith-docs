@@ -94,20 +94,26 @@
 <dt class="field-odd">type</dt>
 <dd class="field-odd"><p>dict, optional</p>
 <dl class="field-list simple">
-<dt class="field-odd">begin_month</dt>
-<dd class="field-odd"><p>[‘string’, ‘integer’], optional</p>
+<dt class="field-odd">begin_day</dt>
+<dd class="field-odd"><p>integer, optional</p>
 </dd>
-<dt class="field-even">begin_year</dt>
-<dd class="field-even"><p>integer, optional</p>
+<dt class="field-even">begin_month</dt>
+<dd class="field-even"><p>[‘string’, ‘integer’], optional</p>
 </dd>
-<dt class="field-odd">degree</dt>
-<dd class="field-odd"><p>string, optional</p>
+<dt class="field-odd">begin_year</dt>
+<dd class="field-odd"><p>integer, optional</p>
 </dd>
-<dt class="field-even">department</dt>
-<dd class="field-even"><p>string, department withinthe institution, optional</p>
+<dt class="field-even">degree</dt>
+<dd class="field-even"><p>string, optional</p>
 </dd>
-<dt class="field-odd">group</dt>
-<dd class="field-odd"><p>string, this employment is/was ina group in groups coll, optional</p>
+<dt class="field-odd">department</dt>
+<dd class="field-odd"><p>string, department withinthe institution, optional</p>
+</dd>
+<dt class="field-even">group</dt>
+<dd class="field-even"><p>string, this employment is/was ina group in groups coll, optional</p>
+</dd>
+<dt class="field-odd">end_day</dt>
+<dd class="field-odd"><p>integer, optional</p>
 </dd>
 <dt class="field-even">end_month</dt>
 <dd class="field-even"><p>[‘string’, ‘integer’], optional</p>
@@ -477,8 +483,12 @@
       <span class="nt">other</span><span class="p">:</span>
         <span class="p p-Indicator">-</span> <span class="s">&#39;Adviser:</span><span class="nv"> </span><span class="s">Erich</span><span class="nv"> </span><span class="s">A.</span><span class="nv"> </span><span class="s">Schneider&#39;</span>
         <span class="p p-Indicator">-</span> <span class="s">&#39;Thesis:</span><span class="nv"> </span><span class="s">Recyclable</span><span class="nv"> </span><span class="s">Uranium</span><span class="nv"> </span><span class="s">Options</span><span class="nv"> </span><span class="s">under</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">Global</span><span class="nv"> </span><span class="s">Nuclear</span><span class="nv"> </span><span class="s">Energy</span><span class="nv"> </span><span class="s">Partnership&#39;</span>
-    <span class="p p-Indicator">-</span> <span class="nt">begin_year</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">2002</span>
+    <span class="p p-Indicator">-</span> <span class="nt">begin_day</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
+      <span class="nt">begin_month</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Sep</span>
+      <span class="nt">begin_year</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">2002</span>
       <span class="nt">degree</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">B.S. Physics</span>
+      <span class="nt">end_day</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">20</span>
+      <span class="nt">end_month</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">5</span>
       <span class="nt">end_year</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">2006</span>
       <span class="nt">institution</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">University of California, Santa Barbara</span>
       <span class="nt">location</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Santa Barbara, CA</span>
@@ -501,8 +511,12 @@
         <span class="p p-Indicator">-</span> <span class="s">&#39;PyNE:</span><span class="nv"> </span><span class="s">The</span><span class="nv"> </span><span class="s">Nuclear</span><span class="nv"> </span><span class="s">Engineering</span><span class="nv"> </span><span class="s">Toolkit.&#39;</span>
         <span class="p p-Indicator">-</span> <span class="s">&#39;Website:</span><span class="nv"> </span><span class="s">http://www.ergs.sc.edu/&#39;</span>
       <span class="nt">position</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Assistant Professor, Mechanical Engineering Department</span>
-    <span class="p p-Indicator">-</span> <span class="nt">begin_year</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">2013</span>
+    <span class="p p-Indicator">-</span> <span class="nt">begin_day</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
+      <span class="nt">begin_month</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Jun</span>
+      <span class="nt">begin_year</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">2013</span>
       <span class="nt">department</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Physics</span>
+      <span class="nt">end_day</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">15</span>
+      <span class="nt">end_month</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">3</span>
       <span class="nt">end_year</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">2015</span>
       <span class="nt">location</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Madison, WI</span>
       <span class="nt">organization</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">CNERG, The University of Wisconsin-Madison</span>
@@ -630,8 +644,12 @@
             <span class="p">]</span>
         <span class="p">},</span>
         <span class="p">{</span>
+            <span class="nt">&quot;begin_day&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+            <span class="nt">&quot;begin_month&quot;</span><span class="p">:</span> <span class="s2">&quot;Sep&quot;</span><span class="p">,</span>
             <span class="nt">&quot;begin_year&quot;</span><span class="p">:</span> <span class="mi">2002</span><span class="p">,</span>
             <span class="nt">&quot;degree&quot;</span><span class="p">:</span> <span class="s2">&quot;B.S. Physics&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;end_day&quot;</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span>
+            <span class="nt">&quot;end_month&quot;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span>
             <span class="nt">&quot;end_year&quot;</span><span class="p">:</span> <span class="mi">2006</span><span class="p">,</span>
             <span class="nt">&quot;institution&quot;</span><span class="p">:</span> <span class="s2">&quot;University of California, Santa Barbara&quot;</span><span class="p">,</span>
             <span class="nt">&quot;location&quot;</span><span class="p">:</span> <span class="s2">&quot;Santa Barbara, CA&quot;</span><span class="p">,</span>
@@ -663,8 +681,12 @@
             <span class="nt">&quot;position&quot;</span><span class="p">:</span> <span class="s2">&quot;Assistant Professor, Mechanical Engineering Department&quot;</span>
         <span class="p">},</span>
         <span class="p">{</span>
+            <span class="nt">&quot;begin_day&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+            <span class="nt">&quot;begin_month&quot;</span><span class="p">:</span> <span class="s2">&quot;Jun&quot;</span><span class="p">,</span>
             <span class="nt">&quot;begin_year&quot;</span><span class="p">:</span> <span class="mi">2013</span><span class="p">,</span>
             <span class="nt">&quot;department&quot;</span><span class="p">:</span> <span class="s2">&quot;Physics&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;end_day&quot;</span><span class="p">:</span> <span class="mi">15</span><span class="p">,</span>
+            <span class="nt">&quot;end_month&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
             <span class="nt">&quot;end_year&quot;</span><span class="p">:</span> <span class="mi">2015</span><span class="p">,</span>
             <span class="nt">&quot;location&quot;</span><span class="p">:</span> <span class="s2">&quot;Madison, WI&quot;</span><span class="p">,</span>
             <span class="nt">&quot;organization&quot;</span><span class="p">:</span> <span class="s2">&quot;CNERG, The University of Wisconsin-Madison&quot;</span><span class="p">,</span>

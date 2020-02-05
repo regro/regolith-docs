@@ -16,11 +16,13 @@ The following lists key names mapped to its type and meaning for each entry.
 
 	:type: dict, optional
 
+		:begin_day: integer, optional
 		:begin_month: ['string', 'integer'], optional
 		:begin_year: integer, optional
 		:degree: string, optional
 		:department: string, department withinthe institution, optional
 		:group: string, this employment is/was ina group in groups coll, optional
+		:end_day: integer, optional
 		:end_month: ['string', 'integer'], optional
 		:end_year: integer, optional
 		:gpa: ('float', 'string'), optional
@@ -186,8 +188,12 @@ YAML Example
 	      other:
 	        - 'Adviser: Erich A. Schneider'
 	        - 'Thesis: Recyclable Uranium Options under the Global Nuclear Energy Partnership'
-	    - begin_year: 2002
+	    - begin_day: 1
+	      begin_month: Sep
+	      begin_year: 2002
 	      degree: B.S. Physics
+	      end_day: 20
+	      end_month: 5
 	      end_year: 2006
 	      institution: University of California, Santa Barbara
 	      location: Santa Barbara, CA
@@ -210,8 +216,12 @@ YAML Example
 	        - 'PyNE: The Nuclear Engineering Toolkit.'
 	        - 'Website: http://www.ergs.sc.edu/'
 	      position: Assistant Professor, Mechanical Engineering Department
-	    - begin_year: 2013
+	    - begin_day: 1
+	      begin_month: Jun
+	      begin_year: 2013
 	      department: Physics
+	      end_day: 15
+	      end_month: 3
 	      end_year: 2015
 	      location: Madison, WI
 	      organization: CNERG, The University of Wisconsin-Madison
@@ -341,8 +351,12 @@ JSON/Mongo Example
 	            ]
 	        },
 	        {
+	            "begin_day": 1,
+	            "begin_month": "Sep",
 	            "begin_year": 2002,
 	            "degree": "B.S. Physics",
+	            "end_day": 20,
+	            "end_month": 5,
 	            "end_year": 2006,
 	            "institution": "University of California, Santa Barbara",
 	            "location": "Santa Barbara, CA",
@@ -374,8 +388,12 @@ JSON/Mongo Example
 	            "position": "Assistant Professor, Mechanical Engineering Department"
 	        },
 	        {
+	            "begin_day": 1,
+	            "begin_month": "Jun",
 	            "begin_year": 2013,
 	            "department": "Physics",
+	            "end_day": 15,
+	            "end_month": 3,
 	            "end_year": 2015,
 	            "location": "Madison, WI",
 	            "organization": "CNERG, The University of Wisconsin-Madison",
