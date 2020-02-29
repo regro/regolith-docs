@@ -57,6 +57,7 @@
             
   <h1>Source code for regolith.dates</h1><div class="highlight"><pre>
 <span></span><span class="sd">&quot;&quot;&quot;Date based tools&quot;&quot;&quot;</span>
+<span class="kn">import</span> <span class="nn">datetime</span>
 
 <span class="n">MONTHS</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s2">&quot;jan&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
@@ -136,6 +137,44 @@
     <span class="n">m</span> <span class="o">=</span> <span class="n">month_to_int</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
     <span class="n">d</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">y</span> <span class="o">+</span> <span class="p">(</span><span class="n">m</span> <span class="o">/</span> <span class="mf">100.0</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="n">d</span> <span class="o">/</span> <span class="mf">100000.0</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="find_gaps_overlaps"><a class="viewcode-back" href="../../api/dates.html#regolith.dates.find_gaps_overlaps">[docs]</a><span class="k">def</span> <span class="nf">find_gaps_overlaps</span><span class="p">(</span><span class="n">dateslist</span><span class="p">,</span> <span class="n">overlaps_ok</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Find whether there is a gap or an overlap in a list of date-ranges</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    dateslist: list of tuples of datetime.date objects</span>
+<span class="sd">      The list of date-ranges.</span>
+<span class="sd">    overlaps_ok: bool</span>
+<span class="sd">      Returns false if there are gaps but true if there are overlaps but no gaps</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">      True if there are no gaps or overlaps else False</span>
+
+<span class="sd">    &#39;&#39;&#39;</span>
+
+    <span class="n">status</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="n">dateslist</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">dateslist</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">dateslist</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">dateslist</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">overlaps_ok</span><span class="p">:</span>
+            <span class="n">status</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="k">elif</span> <span class="p">(</span><span class="n">dateslist</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="n">dateslist</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">1</span><span class="p">])</span><span class="o">.</span><span class="n">days</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="n">status</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="k">return</span> <span class="n">status</span></div>
+
+<div class="viewcode-block" id="beg_end_dates"><a class="viewcode-back" href="../../api/dates.html#regolith.dates.beg_end_dates">[docs]</a><span class="k">def</span> <span class="nf">beg_end_dates</span><span class="p">(</span><span class="n">thing</span><span class="p">):</span>
+    <span class="n">bd</span> <span class="o">=</span> <span class="n">thing</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;begin_day&#39;</span><span class="p">)</span>
+    <span class="n">bm</span> <span class="o">=</span> <span class="n">thing</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;begin_month&#39;</span><span class="p">)</span>
+    <span class="n">by</span> <span class="o">=</span> <span class="n">thing</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;begin_year&#39;</span><span class="p">)</span>
+    <span class="n">ed</span> <span class="o">=</span> <span class="n">thing</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;end_day&#39;</span><span class="p">)</span>
+    <span class="n">em</span> <span class="o">=</span> <span class="n">thing</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;end_month&#39;</span><span class="p">)</span>
+    <span class="n">ey</span> <span class="o">=</span> <span class="n">thing</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;end_year&#39;</span><span class="p">)</span>
+    <span class="n">begin_date</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">date</span><span class="p">(</span><span class="n">by</span><span class="p">,</span> <span class="n">month_to_int</span><span class="p">(</span><span class="n">bm</span><span class="p">),</span> <span class="n">bd</span><span class="p">)</span>
+    <span class="n">end_date</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">date</span><span class="p">(</span><span class="n">ey</span><span class="p">,</span> <span class="n">month_to_int</span><span class="p">(</span><span class="n">em</span><span class="p">),</span> <span class="n">ed</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">begin_date</span><span class="p">,</span> <span class="n">end_date</span></div>
+
 </pre></div>
 
           </div>

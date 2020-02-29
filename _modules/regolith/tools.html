@@ -67,9 +67,9 @@
 <span class="kn">from</span> <span class="nn">copy</span> <span class="kn">import</span> <span class="n">deepcopy</span>
 <span class="kn">from</span> <span class="nn">calendar</span> <span class="kn">import</span> <span class="n">monthrange</span>
 
-<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
+<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span><span class="p">,</span> <span class="n">date</span><span class="p">,</span> <span class="n">timedelta</span>
 
-<span class="kn">from</span> <span class="nn">regolith.dates</span> <span class="kn">import</span> <span class="n">month_to_int</span><span class="p">,</span> <span class="n">date_to_float</span>
+<span class="kn">from</span> <span class="nn">regolith.dates</span> <span class="kn">import</span> <span class="n">month_to_int</span><span class="p">,</span> <span class="n">date_to_float</span><span class="p">,</span> <span class="n">beg_end_dates</span>
 <span class="kn">from</span> <span class="nn">regolith.sorters</span> <span class="kn">import</span> <span class="n">doc_date_key</span><span class="p">,</span> <span class="n">id_key</span><span class="p">,</span> <span class="n">ene_date_key</span>
 <span class="kn">from</span> <span class="nn">regolith.chained_db</span> <span class="kn">import</span> <span class="n">ChainDB</span>
 
@@ -807,13 +807,50 @@
     <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">user_schema</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
         <span class="k">if</span> <span class="p">(</span><span class="n">key</span> <span class="ow">in</span> <span class="n">updated_schema</span><span class="p">)</span> <span class="ow">and</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">updated_schema</span><span class="p">[</span><span class="n">key</span><span class="p">],</span>
                                                   <span class="nb">dict</span><span class="p">)</span> <span class="ow">and</span> <span class="nb">isinstance</span><span class="p">(</span>
-              <span class="n">user_schema</span><span class="p">[</span><span class="n">key</span><span class="p">],</span> <span class="nb">dict</span><span class="p">):</span>
+            <span class="n">user_schema</span><span class="p">[</span><span class="n">key</span><span class="p">],</span> <span class="nb">dict</span><span class="p">):</span>
             <span class="n">updated_schema</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">update_schemas</span><span class="p">(</span><span class="n">updated_schema</span><span class="p">[</span><span class="n">key</span><span class="p">],</span>
                                                  <span class="n">user_schema</span><span class="p">[</span><span class="n">key</span><span class="p">])</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="n">updated_schema</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">user_schema</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
 
     <span class="k">return</span> <span class="n">updated_schema</span></div>
+
+
+<div class="viewcode-block" id="is_fully_loaded"><a class="viewcode-back" href="../../api/tools.html#regolith.tools.is_fully_loaded">[docs]</a><span class="k">def</span> <span class="nf">is_fully_loaded</span><span class="p">(</span><span class="n">appts</span><span class="p">):</span>
+    <span class="n">status</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="n">earliest</span><span class="p">,</span> <span class="n">latest</span> <span class="o">=</span> <span class="n">date</span><span class="o">.</span><span class="n">today</span><span class="p">(),</span> <span class="n">date</span><span class="o">.</span><span class="n">today</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">appt</span> <span class="ow">in</span> <span class="n">appts</span><span class="p">:</span>
+        <span class="n">begin_date</span><span class="p">,</span> <span class="n">end_date</span> <span class="o">=</span> <span class="n">beg_end_dates</span><span class="p">(</span><span class="n">appt</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">latest</span> <span class="o">==</span> <span class="n">date</span><span class="o">.</span><span class="n">today</span><span class="p">():</span>
+            <span class="n">latest</span> <span class="o">=</span> <span class="n">end_date</span>
+        <span class="n">appt</span><span class="p">[</span><span class="s1">&#39;begin_date&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">begin_date</span>
+        <span class="n">appt</span><span class="p">[</span><span class="s1">&#39;end_date&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">end_date</span>
+        <span class="k">if</span> <span class="n">begin_date</span> <span class="o">&lt;</span> <span class="n">earliest</span><span class="p">:</span>
+            <span class="n">earliest</span> <span class="o">=</span> <span class="n">begin_date</span>
+        <span class="k">if</span> <span class="n">end_date</span> <span class="o">&gt;</span> <span class="n">latest</span><span class="p">:</span>
+            <span class="n">latest</span> <span class="o">=</span> <span class="n">end_date</span>
+    <span class="n">datearray</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">timespan</span> <span class="o">=</span> <span class="n">latest</span> <span class="o">-</span> <span class="n">earliest</span>
+    <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">timespan</span><span class="o">.</span><span class="n">days</span><span class="p">):</span>
+        <span class="n">datearray</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">earliest</span> <span class="o">+</span> <span class="n">timedelta</span><span class="p">(</span><span class="n">days</span><span class="o">=</span><span class="n">x</span><span class="p">))</span>
+
+    <span class="n">loading</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="nb">len</span><span class="p">(</span><span class="n">datearray</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">day</span> <span class="ow">in</span> <span class="n">datearray</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">appt</span> <span class="ow">in</span> <span class="n">appts</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">appt</span><span class="p">[</span><span class="s1">&#39;begin_date&#39;</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">day</span> <span class="o">&lt;=</span> <span class="n">appt</span><span class="p">[</span><span class="s2">&quot;end_date&quot;</span><span class="p">]:</span>
+                <span class="n">loading</span><span class="p">[</span><span class="n">datearray</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">day</span><span class="p">)]</span> <span class="o">=</span> <span class="n">loading</span><span class="p">[</span><span class="n">datearray</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">day</span><span class="p">)]</span> <span class="o">+</span> \
+                                                <span class="n">appt</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;loading&quot;</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="nb">max</span><span class="p">(</span><span class="n">loading</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mf">1.0</span><span class="p">:</span>
+        <span class="n">status</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;max </span><span class="si">{}</span><span class="s2"> at </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="n">loading</span><span class="p">),</span>
+                <span class="n">datearray</span><span class="p">[</span><span class="nb">list</span><span class="p">(</span><span class="n">loading</span><span class="p">)</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="n">loading</span><span class="p">))]))</span>
+    <span class="k">elif</span> <span class="nb">min</span><span class="p">(</span><span class="n">loading</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mf">1.0</span><span class="p">:</span>
+        <span class="n">status</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;min </span><span class="si">{}</span><span class="s2"> at </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="n">loading</span><span class="p">),</span>
+                                    <span class="n">datearray</span><span class="p">[</span><span class="nb">list</span><span class="p">(</span><span class="n">loading</span><span class="p">)</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="n">loading</span><span class="p">))]</span>
+                                    <span class="p">))</span>
+    <span class="k">return</span> <span class="n">status</span></div>
 </pre></div>
 
           </div>

@@ -67,6 +67,11 @@
 <span id="date-tools-regolith-dates"></span><span id="regolith-dates"></span><h1>Date Tools (<code class="docutils literal notranslate"><span class="pre">regolith.dates</span></code>)<a class="headerlink" href="#module-regolith.dates" title="Permalink to this headline">¶</a></h1>
 <p>Date based tools</p>
 <dl class="function">
+<dt id="regolith.dates.beg_end_dates">
+<code class="sig-prename descclassname">regolith.dates.</code><code class="sig-name descname">beg_end_dates</code><span class="sig-paren">(</span><em class="sig-param">thing</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/dates.html#beg_end_dates"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.dates.beg_end_dates" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
 <dt id="regolith.dates.date_to_float">
 <code class="sig-prename descclassname">regolith.dates.</code><code class="sig-name descname">date_to_float</code><span class="sig-paren">(</span><em class="sig-param">y</em>, <em class="sig-param">m</em>, <em class="sig-param">d=0</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/dates.html#date_to_float"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.dates.date_to_float" title="Permalink to this definition">¶</a></dt>
 <dd><p>Converts years / months / days to a float, eg 2015.0818 is August
@@ -77,6 +82,26 @@
 <dt id="regolith.dates.day_to_str_int">
 <code class="sig-prename descclassname">regolith.dates.</code><code class="sig-name descname">day_to_str_int</code><span class="sig-paren">(</span><em class="sig-param">d</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/dates.html#day_to_str_int"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.dates.day_to_str_int" title="Permalink to this definition">¶</a></dt>
 <dd><p>Converts a day to an int form, str type, with a leading zero</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="regolith.dates.find_gaps_overlaps">
+<code class="sig-prename descclassname">regolith.dates.</code><code class="sig-name descname">find_gaps_overlaps</code><span class="sig-paren">(</span><em class="sig-param">dateslist</em>, <em class="sig-param">overlaps_ok=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/dates.html#find_gaps_overlaps"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.dates.find_gaps_overlaps" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find whether there is a gap or an overlap in a list of date-ranges</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>dateslist</strong> (<em>list of tuples of datetime.date objects</em>) – The list of date-ranges.</p></li>
+<li><p><strong>overlaps_ok</strong> (<em>bool</em>) – Returns false if there are gaps but true if there are overlaps but no gaps</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>True if there are no gaps or overlaps else False</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="function">
