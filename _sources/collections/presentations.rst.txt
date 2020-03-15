@@ -41,6 +41,7 @@ The following lists key names mapped to its type and meaning for each entry.
 		* plenary
 		* poster
 		* seminar
+		* tutorial
 
 
 YAML Example
