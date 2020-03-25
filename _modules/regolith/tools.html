@@ -851,6 +851,41 @@
                                     <span class="n">datearray</span><span class="p">[</span><span class="nb">list</span><span class="p">(</span><span class="n">loading</span><span class="p">)</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="n">loading</span><span class="p">))]</span>
                                     <span class="p">))</span>
     <span class="k">return</span> <span class="n">status</span></div>
+
+<div class="viewcode-block" id="group_member_ids"><a class="viewcode-back" href="../../api/tools.html#regolith.tools.group_member_ids">[docs]</a><span class="k">def</span> <span class="nf">group_member_ids</span><span class="p">(</span><span class="n">ppl_coll</span><span class="p">,</span> <span class="n">grpname</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Get a list of all group member ids</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    ppl_coll: collection (list of dicts)</span>
+<span class="sd">        The people collection that should contain the group members</span>
+<span class="sd">    grp: string</span>
+<span class="sd">        The id of the group in groups.yml</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    set:</span>
+<span class="sd">        The set of ids of the people in the group</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    - Groups that are being tracked are listed in the groups.yml collection</span>
+<span class="sd">    with a name and an id.</span>
+<span class="sd">    - People are in a group during an educational or employment period.</span>
+<span class="sd">    - To assign a person to a tracked group during one such period, add</span>
+<span class="sd">    a &quot;group&quot; key to that education/employment item with a value</span>
+<span class="sd">    that is the group id.</span>
+<span class="sd">    - This function takes the group id that is passed and searches</span>
+<span class="sd">    the people collection for all people that have been</span>
+<span class="sd">    assigned to that group in some period of time and returns a list of</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">grpmembers</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">person</span> <span class="ow">in</span> <span class="n">ppl_coll</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;education&quot;</span><span class="p">,</span> <span class="s2">&quot;employment&quot;</span><span class="p">]:</span>
+            <span class="k">for</span> <span class="n">position</span> <span class="ow">in</span> <span class="n">person</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="p">{}):</span>
+                <span class="k">if</span> <span class="n">position</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;group&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span> <span class="o">==</span> <span class="n">grpname</span><span class="p">:</span>
+                    <span class="n">grpmembers</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">person</span><span class="p">[</span><span class="s2">&quot;_id&quot;</span><span class="p">])</span>
+    <span class="k">return</span> <span class="n">grpmembers</span></div>
 </pre></div>
 
           </div>
