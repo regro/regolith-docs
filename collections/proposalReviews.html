@@ -104,47 +104,50 @@
 <dt class="field-odd">does_what</dt>
 <dd class="field-odd"><p>string, What will the team do, required</p>
 </dd>
-<dt class="field-even">freewrite</dt>
-<dd class="field-even"><p>list, Anything and this will appear in the built documentright before the summary.  This section often used for extra review criteria for the particular proposal, optional</p>
+<dt class="field-even">due_date</dt>
+<dd class="field-even"><p>string, date the review is due in ISO format, required</p>
 </dd>
-<dt class="field-odd">goals</dt>
-<dd class="field-odd"><p>list, What are the main goals of the proposed research, required</p>
+<dt class="field-odd">freewrite</dt>
+<dd class="field-odd"><p>list, Anything and this will appear in the built documentright before the summary.  This section often used for extra review criteria for the particular proposal, optional</p>
 </dd>
-<dt class="field-even">importance</dt>
-<dd class="field-even"><p>list, The importance of the Research, required</p>
+<dt class="field-even">goals</dt>
+<dd class="field-even"><p>list, What are the main goals of the proposed research, required</p>
 </dd>
-<dt class="field-odd">institution</dt>
-<dd class="field-odd"><p>string, The institution of the lead PI, required</p>
+<dt class="field-odd">importance</dt>
+<dd class="field-odd"><p>list, The importance of the Research, required</p>
 </dd>
-<dt class="field-even">month</dt>
-<dd class="field-even"><p>[‘string’, ‘integer’], The month the review was submitted, required</p>
+<dt class="field-even">institutions</dt>
+<dd class="field-even"><p>[‘string’, ‘list’], The institutions of the authors in the same order, required</p>
 </dd>
-<dt class="field-odd">names</dt>
-<dd class="field-odd"><p>[‘list’, ‘string’], The names of the PIs, required</p>
+<dt class="field-odd">month</dt>
+<dd class="field-odd"><p>[‘string’, ‘integer’], The month the review was submitted, required</p>
 </dd>
-<dt class="field-even">nsf_broader_impacts</dt>
-<dd class="field-even"><p>list, The broader impacts of the research.  Only used if agency is nsf, optional</p>
+<dt class="field-even">names</dt>
+<dd class="field-even"><p>[‘list’, ‘string’], The names of the PIs, required</p>
 </dd>
-<dt class="field-odd">nsf_create_original_transformative</dt>
-<dd class="field-odd"><p>list, Answer to the question how the work is creative, original or transformative.  Only used if agency is nsf, optional</p>
+<dt class="field-odd">nsf_broader_impacts</dt>
+<dd class="field-odd"><p>list, The broader impacts of the research.  Only used if agency is nsf, optional</p>
 </dd>
-<dt class="field-even">nsf_plan_good</dt>
-<dd class="field-even"><p>list, Is the plan good? Only used if agency is nsf, optional</p>
+<dt class="field-even">nsf_create_original_transformative</dt>
+<dd class="field-even"><p>list, Answer to the question how the work is creative, original or transformative.  Only used if agency is nsf, optional</p>
 </dd>
-<dt class="field-odd">nsf_pot_to_Advance_knowledge</dt>
-<dd class="field-odd"><p>list, Answer to the question how the work will advanceknowledge.  Only used if agency is nsf, optional</p>
+<dt class="field-odd">nsf_plan_good</dt>
+<dd class="field-odd"><p>list, Is the plan good? Only used if agency is nsf, optional</p>
 </dd>
-<dt class="field-even">nsf_pot_to_benefit_society</dt>
-<dd class="field-even"><p>list, Answer to the question how the work has the potentialto benefit society.  Only used if agency is nsf, optional</p>
+<dt class="field-even">nsf_pot_to_advance_knowledge</dt>
+<dd class="field-even"><p>list, Answer to the question how the work will advanceknowledge.  Only used if agency is nsf, optional</p>
 </dd>
-<dt class="field-odd">requester</dt>
-<dd class="field-odd"><p>string, Name of the program officer who requested the review, required</p>
+<dt class="field-odd">nsf_pot_to_benefit_society</dt>
+<dd class="field-odd"><p>list, Answer to the question how the work has the potentialto benefit society.  Only used if agency is nsf, optional</p>
 </dd>
-<dt class="field-even">reviewer</dt>
-<dd class="field-even"><p>string, short name of the reviewer.  Will be used in the filename of the resulting text file, required</p>
+<dt class="field-even">requester</dt>
+<dd class="field-even"><p>string, Name of the program officer who requested the review, required</p>
 </dd>
-<dt class="field-odd">status</dt>
-<dd class="field-odd"><p>string, the status of the review, optional</p>
+<dt class="field-odd">reviewer</dt>
+<dd class="field-odd"><p>string, short name of the reviewer.  Will be used in the filename of the resulting text file, required</p>
+</dd>
+<dt class="field-even">status</dt>
+<dd class="field-even"><p>string, the status of the review, optional</p>
 <dl class="simple">
 <dt>Allowed values:</dt><dd><ul class="simple">
 <li><p>invited</p></li>
@@ -157,14 +160,14 @@
 </dd>
 </dl>
 </dd>
-<dt class="field-even">summary</dt>
-<dd class="field-even"><p>string, Summary statement, required</p>
+<dt class="field-odd">summary</dt>
+<dd class="field-odd"><p>string, Summary statement, required</p>
 </dd>
-<dt class="field-odd">title</dt>
-<dd class="field-odd"><p>string, The title of the proposal, required</p>
+<dt class="field-even">title</dt>
+<dd class="field-even"><p>string, The title of the proposal, required</p>
 </dd>
-<dt class="field-even">year</dt>
-<dd class="field-even"><p>integer, The year the review was submitted, required</p>
+<dt class="field-odd">year</dt>
+<dd class="field-odd"><p>integer, The year the review was submitted, required</p>
 </dd>
 </dl>
 </div>
@@ -186,6 +189,7 @@
     <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">they will find the cause of Malaria</span>
     <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">when they find it they will determine a cure</span>
   <span class="nt">does_what</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Find a cure for Malaria</span>
+  <span class="nt">due_date</span><span class="p">:</span> <span class="s">&#39;2020-04-10&#39;</span>
   <span class="nt">freewrite</span><span class="p">:</span>
     <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">I can put extra things here, such as special instructions from the</span>
     <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">program officer</span>
@@ -195,7 +199,7 @@
   <span class="nt">importance</span><span class="p">:</span>
     <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">save lives</span>
     <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">lift people from poverty</span>
-  <span class="nt">institution</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">columbiau</span>
+  <span class="nt">institutions</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">columbiau</span>
   <span class="nt">month</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">May</span>
   <span class="nt">names</span><span class="p">:</span>
     <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">B. Cause</span>
@@ -203,7 +207,7 @@
   <span class="nt">nsf_broader_impacts</span><span class="p">:</span> <span class="p p-Indicator">[]</span>
   <span class="nt">nsf_create_original_transformative</span><span class="p">:</span> <span class="p p-Indicator">[]</span>
   <span class="nt">nsf_plan_good</span><span class="p">:</span> <span class="p p-Indicator">[]</span>
-  <span class="nt">nsf_pot_to_Advance_knowledge</span><span class="p">:</span> <span class="p p-Indicator">[]</span>
+  <span class="nt">nsf_pot_to_advance_knowledge</span><span class="p">:</span> <span class="p p-Indicator">[]</span>
   <span class="nt">nsf_pot_to_benefit_society</span><span class="p">:</span> <span class="p p-Indicator">[]</span>
   <span class="nt">requester</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Lane Wilson</span>
   <span class="nt">reviewer</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">sbillinge</span>
@@ -224,6 +228,7 @@
     <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">they will find the cause of Poverty</span>
     <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">when they find it they will determine a cure</span>
   <span class="nt">does_what</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Find a cure for Poverty</span>
+  <span class="nt">due_date</span><span class="p">:</span> <span class="s">&#39;2020-04-10&#39;</span>
   <span class="nt">freewrite</span><span class="p">:</span>
     <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">I can put extra things here, such as special instructions from the</span>
     <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">program officer</span>
@@ -233,7 +238,7 @@
   <span class="nt">importance</span><span class="p">:</span>
     <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">save lives</span>
     <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">lift people from poverty</span>
-  <span class="nt">institution</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">upenn</span>
+  <span class="nt">institutions</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">upenn</span>
   <span class="nt">month</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">May</span>
   <span class="nt">names</span><span class="p">:</span>
     <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">A Genius</span>
@@ -244,7 +249,7 @@
   <span class="nt">nsf_plan_good</span><span class="p">:</span>
     <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">I don&#39;t see any issues with the plan</span>
     <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">it should be very straightforward</span>
-  <span class="nt">nsf_pot_to_Advance_knowledge</span><span class="p">:</span>
+  <span class="nt">nsf_pot_to_advance_knowledge</span><span class="p">:</span>
     <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">This won&#39;t advance knowledge at all</span>
   <span class="nt">nsf_pot_to_benefit_society</span><span class="p">:</span>
     <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Society will benefit by poor people being made unpoor if they want to be</span>
@@ -282,6 +287,7 @@
         <span class="s2">&quot;when they find it they will determine a cure&quot;</span>
     <span class="p">],</span>
     <span class="nt">&quot;does_what&quot;</span><span class="p">:</span> <span class="s2">&quot;Find a cure for Malaria&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;due_date&quot;</span><span class="p">:</span> <span class="s2">&quot;2020-04-10&quot;</span><span class="p">,</span>
     <span class="nt">&quot;freewrite&quot;</span><span class="p">:</span> <span class="p">[</span>
         <span class="s2">&quot;I can put extra things here, such as special instructions from the&quot;</span><span class="p">,</span>
         <span class="s2">&quot;program officer&quot;</span>
@@ -293,7 +299,7 @@
         <span class="s2">&quot;save lives&quot;</span><span class="p">,</span>
         <span class="s2">&quot;lift people from poverty&quot;</span>
     <span class="p">],</span>
-    <span class="nt">&quot;institution&quot;</span><span class="p">:</span> <span class="s2">&quot;columbiau&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;institutions&quot;</span><span class="p">:</span> <span class="s2">&quot;columbiau&quot;</span><span class="p">,</span>
     <span class="nt">&quot;month&quot;</span><span class="p">:</span> <span class="s2">&quot;May&quot;</span><span class="p">,</span>
     <span class="nt">&quot;names&quot;</span><span class="p">:</span> <span class="p">[</span>
         <span class="s2">&quot;B. Cause&quot;</span><span class="p">,</span>
@@ -302,7 +308,7 @@
     <span class="nt">&quot;nsf_broader_impacts&quot;</span><span class="p">:</span> <span class="p">[],</span>
     <span class="nt">&quot;nsf_create_original_transformative&quot;</span><span class="p">:</span> <span class="p">[],</span>
     <span class="nt">&quot;nsf_plan_good&quot;</span><span class="p">:</span> <span class="p">[],</span>
-    <span class="nt">&quot;nsf_pot_to_Advance_knowledge&quot;</span><span class="p">:</span> <span class="p">[],</span>
+    <span class="nt">&quot;nsf_pot_to_advance_knowledge&quot;</span><span class="p">:</span> <span class="p">[],</span>
     <span class="nt">&quot;nsf_pot_to_benefit_society&quot;</span><span class="p">:</span> <span class="p">[],</span>
     <span class="nt">&quot;requester&quot;</span><span class="p">:</span> <span class="s2">&quot;Lane Wilson&quot;</span><span class="p">,</span>
     <span class="nt">&quot;reviewer&quot;</span><span class="p">:</span> <span class="s2">&quot;sbillinge&quot;</span><span class="p">,</span>
@@ -328,6 +334,7 @@
         <span class="s2">&quot;when they find it they will determine a cure&quot;</span>
     <span class="p">],</span>
     <span class="nt">&quot;does_what&quot;</span><span class="p">:</span> <span class="s2">&quot;Find a cure for Poverty&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;due_date&quot;</span><span class="p">:</span> <span class="s2">&quot;2020-04-10&quot;</span><span class="p">,</span>
     <span class="nt">&quot;freewrite&quot;</span><span class="p">:</span> <span class="p">[</span>
         <span class="s2">&quot;I can put extra things here, such as special instructions from the&quot;</span><span class="p">,</span>
         <span class="s2">&quot;program officer&quot;</span>
@@ -339,7 +346,7 @@
         <span class="s2">&quot;save lives&quot;</span><span class="p">,</span>
         <span class="s2">&quot;lift people from poverty&quot;</span>
     <span class="p">],</span>
-    <span class="nt">&quot;institution&quot;</span><span class="p">:</span> <span class="s2">&quot;upenn&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;institutions&quot;</span><span class="p">:</span> <span class="s2">&quot;upenn&quot;</span><span class="p">,</span>
     <span class="nt">&quot;month&quot;</span><span class="p">:</span> <span class="s2">&quot;May&quot;</span><span class="p">,</span>
     <span class="nt">&quot;names&quot;</span><span class="p">:</span> <span class="p">[</span>
         <span class="s2">&quot;A Genius&quot;</span>
@@ -354,7 +361,7 @@
         <span class="s2">&quot;I don&#39;t see any issues with the plan&quot;</span><span class="p">,</span>
         <span class="s2">&quot;it should be very straightforward&quot;</span>
     <span class="p">],</span>
-    <span class="nt">&quot;nsf_pot_to_Advance_knowledge&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="nt">&quot;nsf_pot_to_advance_knowledge&quot;</span><span class="p">:</span> <span class="p">[</span>
         <span class="s2">&quot;This won&#39;t advance knowledge at all&quot;</span>
     <span class="p">],</span>
     <span class="nt">&quot;nsf_pot_to_benefit_society&quot;</span><span class="p">:</span> <span class="p">[</span>
