@@ -19,6 +19,7 @@ The following lists key names mapped to its type and meaning for each entry.
 :did_what: list, What the study was, required
 
 	:type: string, required
+:due_date: string, date the review is due in ISO format, required
 :editor_eyes_only: string, Comments you don't want passed to the author, optional
 :final_assessment: list, Summary of impressions of the study, required
 
@@ -39,16 +40,18 @@ The following lists key names mapped to its type and meaning for each entry.
 :status: string, Where you are with the review, required
 
 	Allowed values: 
+		* invited
 		* accepted
 		* declined
 		* downloaded
 		* inprogress
 		* submitted
+		* cancelled
 :title: string, title of the paper under review, required
 :validity_assessment: list, List of impressions of the validity of the claims, required
 
 	:type: string, required
-:year: string, year when the review is being done, required
+:year: ['string', 'integer'], year when the review is being done, required
 
 
 YAML Example
@@ -65,6 +68,7 @@ YAML Example
 	    - measured with a ruler
 	  did_what:
 	    - found a much cheaper way to measure gravity waves
+	  due_date: '2020-04-11'
 	  editor_eyes_only: to be honest, I don't believe a word of it
 	  final_assessment:
 	    - The authors should really start over
@@ -78,7 +82,7 @@ YAML Example
 	  title: a ruler approach to measuring gravity waves
 	  validity_assessment:
 	    - complete rubbish
-	  year: '2019'
+	  year: 2019
 
 
 JSON/Mongo Example
@@ -100,6 +104,7 @@ JSON/Mongo Example
 	    "did_what": [
 	        "found a much cheaper way to measure gravity waves"
 	    ],
+	    "due_date": "2020-04-11",
 	    "editor_eyes_only": "to be honest, I don't believe a word of it",
 	    "final_assessment": [
 	        "The authors should really start over"
@@ -115,5 +120,5 @@ JSON/Mongo Example
 	    "validity_assessment": [
 	        "complete rubbish"
 	    ],
-	    "year": "2019"
+	    "year": 2019
 	}

@@ -42,6 +42,7 @@ The following lists key names mapped to its type and meaning for each entry.
 		* downloaded
 		* inprogress
 		* submitted
+		* cancelled
 :summary: string, Summary statement, required
 :title: string, The title of the proposal, required
 :year: integer, The year the review was submitted, required

@@ -105,11 +105,14 @@
 </dd>
 </dl>
 </dd>
-<dt class="field-even">editor_eyes_only</dt>
-<dd class="field-even"><p>string, Comments you don’t want passed to the author, optional</p>
+<dt class="field-even">due_date</dt>
+<dd class="field-even"><p>string, date the review is due in ISO format, required</p>
 </dd>
-<dt class="field-odd">final_assessment</dt>
-<dd class="field-odd"><p>list, Summary of impressions of the study, required</p>
+<dt class="field-odd">editor_eyes_only</dt>
+<dd class="field-odd"><p>string, Comments you don’t want passed to the author, optional</p>
+</dd>
+<dt class="field-even">final_assessment</dt>
+<dd class="field-even"><p>list, Summary of impressions of the study, required</p>
 <dl class="field-list simple">
 <dt class="field-odd">type</dt>
 <dd class="field-odd"><p>string, required</p>
@@ -148,11 +151,13 @@
 <dd class="field-even"><p>string, Where you are with the review, required</p>
 <dl class="simple">
 <dt>Allowed values:</dt><dd><ul class="simple">
+<li><p>invited</p></li>
 <li><p>accepted</p></li>
 <li><p>declined</p></li>
 <li><p>downloaded</p></li>
 <li><p>inprogress</p></li>
 <li><p>submitted</p></li>
+<li><p>cancelled</p></li>
 </ul>
 </dd>
 </dl>
@@ -169,7 +174,7 @@
 </dl>
 </dd>
 <dt class="field-even">year</dt>
-<dd class="field-even"><p>string, year when the review is being done, required</p>
+<dd class="field-even"><p>[‘string’, ‘integer’], year when the review is being done, required</p>
 </dd>
 </dl>
 </div>
@@ -184,6 +189,7 @@
     <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">measured with a ruler</span>
   <span class="nt">did_what</span><span class="p">:</span>
     <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">found a much cheaper way to measure gravity waves</span>
+  <span class="nt">due_date</span><span class="p">:</span> <span class="s">&#39;2020-04-11&#39;</span>
   <span class="nt">editor_eyes_only</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">to be honest, I don&#39;t believe a word of it</span>
   <span class="nt">final_assessment</span><span class="p">:</span>
     <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">The authors should really start over</span>
@@ -197,7 +203,7 @@
   <span class="nt">title</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">a ruler approach to measuring gravity waves</span>
   <span class="nt">validity_assessment</span><span class="p">:</span>
     <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">complete rubbish</span>
-  <span class="nt">year</span><span class="p">:</span> <span class="s">&#39;2019&#39;</span>
+  <span class="nt">year</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">2019</span>
 </pre></div>
 </div>
 </div>
@@ -217,6 +223,7 @@
     <span class="nt">&quot;did_what&quot;</span><span class="p">:</span> <span class="p">[</span>
         <span class="s2">&quot;found a much cheaper way to measure gravity waves&quot;</span>
     <span class="p">],</span>
+    <span class="nt">&quot;due_date&quot;</span><span class="p">:</span> <span class="s2">&quot;2020-04-11&quot;</span><span class="p">,</span>
     <span class="nt">&quot;editor_eyes_only&quot;</span><span class="p">:</span> <span class="s2">&quot;to be honest, I don&#39;t believe a word of it&quot;</span><span class="p">,</span>
     <span class="nt">&quot;final_assessment&quot;</span><span class="p">:</span> <span class="p">[</span>
         <span class="s2">&quot;The authors should really start over&quot;</span>
@@ -232,7 +239,7 @@
     <span class="nt">&quot;validity_assessment&quot;</span><span class="p">:</span> <span class="p">[</span>
         <span class="s2">&quot;complete rubbish&quot;</span>
     <span class="p">],</span>
-    <span class="nt">&quot;year&quot;</span><span class="p">:</span> <span class="s2">&quot;2019&quot;</span>
+    <span class="nt">&quot;year&quot;</span><span class="p">:</span> <span class="mi">2019</span>
 <span class="p">}</span>
 </pre></div>
 </div>
