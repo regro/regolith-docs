@@ -61,6 +61,7 @@
 ./_sources/commands/deploy.rst.txt
 ./_sources/commands/email.rst.txt
 ./_sources/commands/grade.rst.txt
+./_sources/commands/helper.rst.txt
 ./_sources/commands/index.rst.txt
 ./_sources/commands/ingest.rst.txt
 ./_sources/commands/json-to-yaml.rst.txt
@@ -148,6 +149,7 @@
 ./commands/deploy.html
 ./commands/email.html
 ./commands/grade.html
+./commands/helper.html
 ./commands/index.html
 ./commands/ingest.html
 ./commands/json-to-yaml.html

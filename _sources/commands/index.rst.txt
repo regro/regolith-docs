@@ -8,14 +8,15 @@ Shell commands for regolith
 .. code-block:: bash
 
 	usage: regolith [-h]
-	                {rc,add,ingest,store,app,grade,build,deploy,email,classlist,json-to-yaml,yaml-to-json,validate}
+	                {helper,rc,add,ingest,store,app,grade,build,deploy,email,classlist,json-to-yaml,yaml-to-json,validate}
 	                ...
 
 	optional arguments:
 	  -h, --help            show this help message and exit
 
 	cmd:
-	  {rc,add,ingest,store,app,grade,build,deploy,email,classlist,json-to-yaml,yaml-to-json,validate}
+	  {helper,rc,add,ingest,store,app,grade,build,deploy,email,classlist,json-to-yaml,yaml-to-json,validate}
+	    helper              runs an available helper target
 	    rc                  prints run control
 	    add                 adds a record to a database and collection
 	    ingest              ingest many records from a foreign resource into a
@@ -45,6 +46,7 @@ Shell commands for regolith
     deploy
     email
     grade
+    helper
     ingest
     json-to-yaml
     rc

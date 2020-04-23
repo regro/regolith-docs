@@ -6,7 +6,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title>Regolith Commands &#8212; regolith - software group content managment system</title>
+    <title>helper &#8212; regolith - software group content managment system</title>
     <link rel="stylesheet" href="../_static/cloud.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Noticia+Text|Open+Sans|Droid+Sans+Mono" type="text/css" />
@@ -35,8 +35,8 @@
 
     <link rel="shortcut icon" href="../_static/regolith-logo.ico"/>
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="add" href="add.html" />
-    <link rel="prev" title="Interactive Sessions (regolith.interact)" href="../api/interactive.html" /> 
+    <link rel="next" title="ingest" href="ingest.html" />
+    <link rel="prev" title="grade" href="grade.html" /> 
         <meta name="viewport" content="width=device-width, initial-scale=1">
   </head><body>
     <div class="relbar-top">
@@ -45,13 +45,14 @@
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="add.html" title="add"
+          <a href="ingest.html" title="ingest"
              accesskey="N">next</a></li>
         <li class="right" >
-          <a href="../api/interactive.html" title="Interactive Sessions (regolith.interact)"
+          <a href="grade.html" title="grade"
              accesskey="P">previous</a> &nbsp; &nbsp;</li>
     <li><a href="../index.html">regolith</a> &#187;</li>
- 
+
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Regolith Commands</a> &#187;</li> 
       </ul>
     </div>
     </div>
@@ -62,54 +63,13 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="regolith-commands">
-<span id="commands"></span><h1>Regolith Commands<a class="headerlink" href="#regolith-commands" title="Permalink to this headline">¶</a></h1>
-<p>Shell commands for regolith</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>usage: regolith <span class="o">[</span>-h<span class="o">]</span>
-                <span class="o">{</span>helper,rc,add,ingest,store,app,grade,build,deploy,email,classlist,json-to-yaml,yaml-to-json,validate<span class="o">}</span>
-                ...
+  <div class="section" id="helper">
+<h1>helper<a class="headerlink" href="#helper" title="Permalink to this headline">¶</a></h1>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>usage: regolith helper <span class="o">[</span>-h<span class="o">]</span>
 
 optional arguments:
-  -h, --help            show this <span class="nb">help</span> message and <span class="nb">exit</span>
-
-cmd:
-  <span class="o">{</span>helper,rc,add,ingest,store,app,grade,build,deploy,email,classlist,json-to-yaml,yaml-to-json,validate<span class="o">}</span>
-    helper              runs an available helper target
-    rc                  prints run control
-    add                 adds a record to a database and collection
-    ingest              ingest many records from a foreign resource into a
-                        database
-    store               stores a file into the appropriate storage location.
-    app                 starts up a flask app <span class="k">for</span> inspecting and modifying
-                        regolith data.
-    grade               starts up a flask app <span class="k">for</span> adding grades to the
-                        database.
-    build               builds various available targets
-    deploy              deploys what was built by regolith
-    email               automates emailing
-    classlist           updates classlist information from file
-    json-to-yaml        Converts files from JSON to YAML
-    yaml-to-json        Converts files from YAML to JSON
-    validate            Validates db
+  -h, --help  show this <span class="nb">help</span> message and <span class="nb">exit</span>
 </pre></div>
-</div>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="add.html">add</a></li>
-<li class="toctree-l1"><a class="reference internal" href="app.html">app</a></li>
-<li class="toctree-l1"><a class="reference internal" href="build.html">build</a></li>
-<li class="toctree-l1"><a class="reference internal" href="classlist.html">classlist</a></li>
-<li class="toctree-l1"><a class="reference internal" href="deploy.html">deploy</a></li>
-<li class="toctree-l1"><a class="reference internal" href="email.html">email</a></li>
-<li class="toctree-l1"><a class="reference internal" href="grade.html">grade</a></li>
-<li class="toctree-l1"><a class="reference internal" href="helper.html">helper</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ingest.html">ingest</a></li>
-<li class="toctree-l1"><a class="reference internal" href="json-to-yaml.html">json-to-yaml</a></li>
-<li class="toctree-l1"><a class="reference internal" href="rc.html">rc</a></li>
-<li class="toctree-l1"><a class="reference internal" href="store.html">store</a></li>
-<li class="toctree-l1"><a class="reference internal" href="validate.html">validate</a></li>
-<li class="toctree-l1"><a class="reference internal" href="yaml-to-json.html">yaml-to-json</a></li>
-</ul>
 </div>
 </div>
 
@@ -124,13 +84,13 @@ cmd:
         </a></p>
   <div class="sphinxprev">
     <h4>Previous page</h4>
-    <p class="topless"><a href="../api/interactive.html"
-                          title="Previous page">&larr; Interactive Sessions (<code class="docutils literal notranslate"><span class="pre">regolith.interact</span></code>)</a></p>
+    <p class="topless"><a href="grade.html"
+                          title="Previous page">&larr; grade</a></p>
   </div>
   <div class="sphinxnext">
     <h4>Next page</h4>
-    <p class="topless"><a href="add.html"
-                          title="Next page">&rarr; add</a></p>
+    <p class="topless"><a href="ingest.html"
+                          title="Next page">&rarr; ingest</a></p>
   </div>
 <div id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
@@ -169,13 +129,14 @@ cmd:
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="add.html" title="add"
+          <a href="ingest.html" title="ingest"
              >next</a></li>
         <li class="right" >
-          <a href="../api/interactive.html" title="Interactive Sessions (regolith.interact)"
+          <a href="grade.html" title="grade"
              >previous</a> &nbsp; &nbsp;</li>
     <li><a href="../index.html">regolith</a> &#187;</li>
- 
+
+          <li class="nav-item nav-item-1"><a href="index.html" >Regolith Commands</a> &#187;</li> 
       </ul>
     </div>
     </div>

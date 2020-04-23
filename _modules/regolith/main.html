@@ -60,7 +60,7 @@
 <span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">print_function</span>
 <span class="kn">import</span> <span class="nn">copy</span>
 <span class="kn">import</span> <span class="nn">os</span>
-<span class="kn">from</span> <span class="nn">argparse</span> <span class="kn">import</span> <span class="n">ArgumentParser</span><span class="p">,</span> <span class="n">RawTextHelpFormatter</span>
+<span class="kn">from</span> <span class="nn">argparse</span> <span class="kn">import</span> <span class="n">ArgumentParser</span><span class="p">,</span> <span class="n">RawTextHelpFormatter</span><span class="p">,</span> <span class="n">Namespace</span>
 
 <span class="kn">from</span> <span class="nn">regolith.commands</span> <span class="kn">import</span> <span class="n">INGEST_COLL_LU</span>
 <span class="kn">from</span> <span class="nn">regolith.runcontrol</span> <span class="kn">import</span> <span class="n">DEFAULT_RC</span><span class="p">,</span> <span class="n">load_rcfile</span><span class="p">,</span> <span class="n">filter_databases</span>
@@ -68,6 +68,7 @@
 <span class="kn">from</span> <span class="nn">regolith</span> <span class="kn">import</span> <span class="n">commands</span>
 <span class="kn">from</span> <span class="nn">regolith</span> <span class="kn">import</span> <span class="n">storage</span>
 <span class="kn">from</span> <span class="nn">regolith.builder</span> <span class="kn">import</span> <span class="n">BUILDERS</span>
+<span class="kn">from</span> <span class="nn">regolith.helper</span> <span class="kn">import</span> <span class="n">HELPERS</span>
 <span class="kn">from</span> <span class="nn">regolith.schemas</span> <span class="kn">import</span> <span class="n">SCHEMAS</span>
 <span class="kn">from</span> <span class="nn">regolith.tools</span> <span class="kn">import</span> <span class="n">update_schemas</span>
 
@@ -88,6 +89,7 @@
     <span class="s2">&quot;email&quot;</span><span class="p">:</span> <span class="n">commands</span><span class="o">.</span><span class="n">email</span><span class="p">,</span>
     <span class="s2">&quot;classlist&quot;</span><span class="p">:</span> <span class="n">commands</span><span class="o">.</span><span class="n">classlist</span><span class="p">,</span>
     <span class="s2">&quot;validate&quot;</span><span class="p">:</span> <span class="n">commands</span><span class="o">.</span><span class="n">validate</span><span class="p">,</span>
+    <span class="s2">&quot;helper&quot;</span><span class="p">:</span> <span class="n">commands</span><span class="o">.</span><span class="n">helper</span><span class="p">,</span>
 <span class="p">}</span>
 
 <span class="n">NEED_RC</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">CONNECTED_COMMANDS</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
@@ -97,6 +99,13 @@
 <div class="viewcode-block" id="create_parser"><a class="viewcode-back" href="../../api/main.html#regolith.main.create_parser">[docs]</a><span class="k">def</span> <span class="nf">create_parser</span><span class="p">():</span>
     <span class="n">p</span> <span class="o">=</span> <span class="n">ArgumentParser</span><span class="p">()</span>
     <span class="n">subp</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">add_subparsers</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">&quot;cmd&quot;</span><span class="p">,</span> <span class="n">dest</span><span class="o">=</span><span class="s2">&quot;cmd&quot;</span><span class="p">)</span>
+
+    <span class="c1"># helper subparser</span>
+    <span class="n">hlprp</span> <span class="o">=</span> <span class="n">subp</span><span class="o">.</span><span class="n">add_parser</span><span class="p">(</span>
+        <span class="s2">&quot;helper&quot;</span><span class="p">,</span>
+        <span class="n">help</span><span class="o">=</span><span class="s2">&quot;runs an available helper target&quot;</span><span class="p">,</span>
+        <span class="n">formatter_class</span><span class="o">=</span><span class="n">RawTextHelpFormatter</span><span class="p">,</span>
+    <span class="p">)</span>
 
     <span class="c1"># rc subparser</span>
     <span class="n">rcp</span> <span class="o">=</span> <span class="n">subp</span><span class="o">.</span><span class="n">add_parser</span><span class="p">(</span><span class="s2">&quot;rc&quot;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">&quot;prints run control&quot;</span><span class="p">)</span>
@@ -120,14 +129,14 @@
     <span class="n">ingp</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
         <span class="s2">&quot;filename&quot;</span><span class="p">,</span>
         <span class="n">help</span><span class="o">=</span><span class="s2">&quot;file to ingest. Currently valid formats are: </span><span class="se">\n</span><span class="si">{}</span><span class="s2">&quot;</span>
-        <span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">([</span><span class="n">k</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">INGEST_COLL_LU</span><span class="p">]),</span>
+             <span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">([</span><span class="n">k</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">INGEST_COLL_LU</span><span class="p">]),</span>
     <span class="p">)</span>
     <span class="n">ingp</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
         <span class="s2">&quot;--coll&quot;</span><span class="p">,</span>
         <span class="n">dest</span><span class="o">=</span><span class="s2">&quot;coll&quot;</span><span class="p">,</span>
         <span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
         <span class="n">help</span><span class="o">=</span><span class="s2">&quot;collection name, if this is not given it is infered from the &quot;</span>
-        <span class="s2">&quot;file type or file name.&quot;</span><span class="p">,</span>
+             <span class="s2">&quot;file type or file name.&quot;</span><span class="p">,</span>
     <span class="p">)</span>
 
     <span class="c1"># store subparser</span>
@@ -153,7 +162,7 @@
     <span class="n">appp</span> <span class="o">=</span> <span class="n">subp</span><span class="o">.</span><span class="n">add_parser</span><span class="p">(</span>
         <span class="s2">&quot;app&quot;</span><span class="p">,</span>
         <span class="n">help</span><span class="o">=</span><span class="s2">&quot;starts up a flask app for inspecting and &quot;</span>
-        <span class="s2">&quot;modifying regolith data.&quot;</span><span class="p">,</span>
+             <span class="s2">&quot;modifying regolith data.&quot;</span><span class="p">,</span>
     <span class="p">)</span>
     <span class="n">appp</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
         <span class="s2">&quot;--debug&quot;</span><span class="p">,</span>
@@ -193,7 +202,7 @@
         <span class="s2">&quot;--no-pdf&quot;</span><span class="p">,</span>
         <span class="n">dest</span><span class="o">=</span><span class="s2">&quot;pdf&quot;</span><span class="p">,</span>
         <span class="n">help</span><span class="o">=</span><span class="s2">&quot;don&#39;t produce PDFs during the build &quot;</span>
-        <span class="s2">&quot;(for builds which produce PDFs)&quot;</span><span class="p">,</span>
+             <span class="s2">&quot;(for builds which produce PDFs)&quot;</span><span class="p">,</span>
         <span class="n">action</span><span class="o">=</span><span class="s2">&quot;store_false&quot;</span><span class="p">,</span>
         <span class="n">default</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
     <span class="p">)</span>
@@ -201,14 +210,14 @@
         <span class="s2">&quot;--from&quot;</span><span class="p">,</span>
         <span class="n">dest</span><span class="o">=</span><span class="s2">&quot;from_date&quot;</span><span class="p">,</span>
         <span class="n">help</span><span class="o">=</span><span class="s2">&quot;date in form YYYY-MM-DD.  Items will only be built&quot;</span>
-        <span class="s2">&quot; if their date or end_date is equal or after this date&quot;</span><span class="p">,</span>
+             <span class="s2">&quot; if their date or end_date is equal or after this date&quot;</span><span class="p">,</span>
         <span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
     <span class="p">)</span>
     <span class="n">bldp</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
         <span class="s2">&quot;--to&quot;</span><span class="p">,</span>
         <span class="n">dest</span><span class="o">=</span><span class="s2">&quot;to_date&quot;</span><span class="p">,</span>
         <span class="n">help</span><span class="o">=</span><span class="s2">&quot;date in form YYYY-MM-DD.  Items will only be built&quot;</span>
-        <span class="s2">&quot; if their date or begin_date is equal or before this date&quot;</span><span class="p">,</span>
+             <span class="s2">&quot; if their date or begin_date is equal or before this date&quot;</span><span class="p">,</span>
         <span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
     <span class="p">)</span>
     <span class="n">bldp</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
@@ -283,7 +292,7 @@
         <span class="n">dest</span><span class="o">=</span><span class="s2">&quot;format&quot;</span><span class="p">,</span>
         <span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
         <span class="n">help</span><span class="o">=</span><span class="s2">&quot;file / school format to read information from. Current values are &quot;</span>
-        <span class="s1">&#39;&quot;json&quot; and &quot;usc&quot;. Determined from extension if not available.&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;&quot;json&quot; and &quot;usc&quot;. Determined from extension if not available.&#39;</span><span class="p">,</span>
     <span class="p">)</span>
     <span class="n">clp</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
         <span class="s2">&quot;-d&quot;</span><span class="p">,</span>
@@ -321,7 +330,28 @@
 <div class="viewcode-block" id="main"><a class="viewcode-back" href="../../api/main.html#regolith.main.main">[docs]</a><span class="k">def</span> <span class="nf">main</span><span class="p">(</span><span class="n">args</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
     <span class="n">rc</span> <span class="o">=</span> <span class="n">DEFAULT_RC</span>
     <span class="n">parser</span> <span class="o">=</span> <span class="n">create_parser</span><span class="p">()</span>
-    <span class="n">ns</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">(</span><span class="n">args</span><span class="p">)</span>
+    <span class="n">args0</span> <span class="o">=</span> <span class="n">Namespace</span><span class="p">()</span>
+    <span class="n">args1</span><span class="p">,</span> <span class="n">rest</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_known_args</span><span class="p">(</span><span class="n">args</span><span class="p">,</span> <span class="n">namespace</span><span class="o">=</span><span class="n">args0</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">args1</span><span class="o">.</span><span class="n">cmd</span> <span class="o">==</span> <span class="s1">&#39;helper&#39;</span><span class="p">:</span>
+        <span class="n">p</span> <span class="o">=</span> <span class="n">ArgumentParser</span><span class="p">(</span><span class="n">prog</span><span class="o">=</span><span class="s1">&#39;regolith helper&#39;</span><span class="p">)</span>
+        <span class="n">p</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
+            <span class="s2">&quot;helper_target&quot;</span><span class="p">,</span>
+            <span class="n">help</span><span class="o">=</span><span class="s2">&quot;helper target to run. Currently valid targets are: </span><span class="se">\n</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                <span class="p">[</span><span class="n">k</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">HELPERS</span><span class="p">]</span>
+            <span class="p">),</span>
+        <span class="p">)</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">rest</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">p</span><span class="o">.</span><span class="n">print_help</span><span class="p">()</span>
+        <span class="n">args2</span><span class="p">,</span> <span class="n">rest2</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">parse_known_args</span><span class="p">(</span><span class="n">rest</span><span class="p">,</span> <span class="n">namespace</span><span class="o">=</span><span class="n">args0</span><span class="p">)</span>
+        <span class="c1"># it is not apparent from this but the following line calls the suparser in</span>
+        <span class="c1">#   in the helper module to get the rest of the args.</span>
+        <span class="n">HELPERS</span><span class="p">[</span><span class="n">args2</span><span class="o">.</span><span class="n">helper_target</span><span class="p">][</span><span class="mi">1</span><span class="p">](</span><span class="n">p</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">rest2</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">p</span><span class="o">.</span><span class="n">print_help</span><span class="p">()</span>
+        <span class="n">args3</span><span class="p">,</span> <span class="n">rest3</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">parse_known_args</span><span class="p">(</span><span class="n">rest</span><span class="p">,</span> <span class="n">namespace</span><span class="o">=</span><span class="n">args0</span><span class="p">)</span>
+        <span class="n">ns</span> <span class="o">=</span> <span class="n">args3</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">ns</span> <span class="o">=</span> <span class="n">args1</span>
     <span class="k">if</span> <span class="n">ns</span><span class="o">.</span><span class="n">cmd</span> <span class="ow">in</span> <span class="n">NEED_RC</span><span class="p">:</span>
         <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">rc</span><span class="o">.</span><span class="n">user_config</span><span class="p">):</span>
             <span class="n">rc</span><span class="o">.</span><span class="n">_update</span><span class="p">(</span><span class="n">load_rcfile</span><span class="p">(</span><span class="n">rc</span><span class="o">.</span><span class="n">user_config</span><span class="p">))</span>
@@ -341,6 +371,8 @@
         <span class="n">dbs</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="k">if</span> <span class="n">rc</span><span class="o">.</span><span class="n">cmd</span> <span class="o">==</span> <span class="s1">&#39;build&#39;</span><span class="p">:</span>
             <span class="n">dbs</span> <span class="o">=</span> <span class="n">commands</span><span class="o">.</span><span class="n">build_db_check</span><span class="p">(</span><span class="n">rc</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">rc</span><span class="o">.</span><span class="n">cmd</span> <span class="o">==</span> <span class="s1">&#39;helper&#39;</span><span class="p">:</span>
+            <span class="n">dbs</span> <span class="o">=</span> <span class="n">commands</span><span class="o">.</span><span class="n">helper_db_check</span><span class="p">(</span><span class="n">rc</span><span class="p">)</span>
         <span class="k">with</span> <span class="n">connect</span><span class="p">(</span><span class="n">rc</span><span class="p">,</span> <span class="n">dbs</span><span class="o">=</span><span class="n">dbs</span><span class="p">)</span> <span class="k">as</span> <span class="n">rc</span><span class="o">.</span><span class="n">client</span><span class="p">:</span>
             <span class="n">CONNECTED_COMMANDS</span><span class="p">[</span><span class="n">rc</span><span class="o">.</span><span class="n">cmd</span><span class="p">](</span><span class="n">rc</span><span class="p">)</span></div>
 
