@@ -10,7 +10,7 @@ build
 
 	positional arguments:
 	  build_targets         targets to build. Currently valid targets are: 
-	                        ['cv', 'html', 'publist', 'grade', 'grades', 'resume', 'current-pending', 'postdocad', 'review-man', 'review-prop', 'preslist', 'reimb', 'figure']
+	                        ['cv', 'html', 'publist', 'grade', 'grades', 'resume', 'current-pending', 'postdocad', 'review-man', 'review-prop', 'preslist', 'reimb', 'figure', 'beamplan']
 
 	optional arguments:
 	  -h, --help            show this help message and exit

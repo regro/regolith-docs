@@ -852,6 +852,44 @@
                                     <span class="p">))</span>
     <span class="k">return</span> <span class="n">status</span></div>
 
+
+<div class="viewcode-block" id="group"><a class="viewcode-back" href="../../api/tools.html#regolith.tools.group">[docs]</a><span class="k">def</span> <span class="nf">group</span><span class="p">(</span><span class="n">db</span><span class="p">,</span> <span class="n">by</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Group the document in the database according to the value of the doc[by] in db.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    db : iterable</span>
+<span class="sd">        The database of documents.</span>
+<span class="sd">    by : basestring</span>
+<span class="sd">        The key to group the documents.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    grouped: dict</span>
+<span class="sd">        A dictionary mapping the feature value of group to the list of docs. All docs in the same generator have</span>
+<span class="sd">        the same value of doc[by].</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    Here, we use a tuple of dict as an example of the database.</span>
+<span class="sd">    &gt;&gt;&gt; db = ({&quot;k&quot;: &quot;v0&quot;}, {&quot;k&quot;: &quot;v1&quot;}, {&quot;k&quot;: &quot;v0&quot;})</span>
+<span class="sd">    &gt;&gt;&gt; group(db)</span>
+<span class="sd">    This will return</span>
+<span class="sd">    &gt;&gt;&gt; {&quot;v0&quot;: [{&quot;k&quot;: &quot;v0&quot;}, {&quot;k&quot;: &quot;v0&quot;}], &quot;v1&quot;: [{&quot;k&quot;: &quot;v1&quot;}]}</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">grouped</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="n">doc</span><span class="p">:</span> <span class="nb">dict</span>
+    <span class="k">for</span> <span class="n">doc</span> <span class="ow">in</span> <span class="n">db</span><span class="p">:</span>
+        <span class="n">key</span> <span class="o">=</span> <span class="n">doc</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">by</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">key</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;There is no field </span><span class="si">{}</span><span class="s2"> in </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">by</span><span class="p">,</span> <span class="n">id_key</span><span class="p">(</span><span class="n">doc</span><span class="p">)))</span>
+        <span class="k">elif</span> <span class="n">key</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">grouped</span><span class="p">:</span>
+            <span class="n">grouped</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">doc</span><span class="p">]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">grouped</span><span class="p">[</span><span class="n">key</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">doc</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">grouped</span></div>
+
 <div class="viewcode-block" id="group_member_ids"><a class="viewcode-back" href="../../api/tools.html#regolith.tools.group_member_ids">[docs]</a><span class="k">def</span> <span class="nf">group_member_ids</span><span class="p">(</span><span class="n">ppl_coll</span><span class="p">,</span> <span class="n">grpname</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Get a list of all group member ids</span>
 

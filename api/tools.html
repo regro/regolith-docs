@@ -229,6 +229,33 @@ multiple potential sources</p>
 </dd></dl>
 
 <dl class="function">
+<dt id="regolith.tools.group">
+<code class="sig-prename descclassname">regolith.tools.</code><code class="sig-name descname">group</code><span class="sig-paren">(</span><em class="sig-param">db</em>, <em class="sig-param">by</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#group"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.tools.group" title="Permalink to this definition">¶</a></dt>
+<dd><p>Group the document in the database according to the value of the doc[by] in db.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>db</strong> (<em>iterable</em>) – The database of documents.</p></li>
+<li><p><strong>by</strong> (<em>basestring</em>) – The key to group the documents.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>grouped</strong> – A dictionary mapping the feature value of group to the list of docs. All docs in the same generator have
+the same value of doc[by].</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<p>Here, we use a tuple of dict as an example of the database.
+&gt;&gt;&gt; db = ({“k”: “v0”}, {“k”: “v1”}, {“k”: “v0”})
+&gt;&gt;&gt; group(db)
+This will return
+&gt;&gt;&gt; {“v0”: [{“k”: “v0”}, {“k”: “v0”}], “v1”: [{“k”: “v1”}]}</p>
+</dd></dl>
+
+<dl class="function">
 <dt id="regolith.tools.group_member_ids">
 <code class="sig-prename descclassname">regolith.tools.</code><code class="sig-name descname">group_member_ids</code><span class="sig-paren">(</span><em class="sig-param">ppl_coll</em>, <em class="sig-param">grpname</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#group_member_ids"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.tools.group_member_ids" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get a list of all group member ids</p>
