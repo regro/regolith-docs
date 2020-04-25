@@ -67,11 +67,6 @@
 <span id="date-tools-regolith-dates"></span><span id="regolith-dates"></span><h1>Date Tools (<code class="docutils literal notranslate"><span class="pre">regolith.dates</span></code>)<a class="headerlink" href="#module-regolith.dates" title="Permalink to this headline">¶</a></h1>
 <p>Date based tools</p>
 <dl class="function">
-<dt id="regolith.dates.beg_end_dates">
-<code class="sig-prename descclassname">regolith.dates.</code><code class="sig-name descname">beg_end_dates</code><span class="sig-paren">(</span><em class="sig-param">thing</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/dates.html#beg_end_dates"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.dates.beg_end_dates" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="function">
 <dt id="regolith.dates.date_to_float">
 <code class="sig-prename descclassname">regolith.dates.</code><code class="sig-name descname">date_to_float</code><span class="sig-paren">(</span><em class="sig-param">y</em>, <em class="sig-param">m</em>, <em class="sig-param">d=0</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/dates.html#date_to_float"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.dates.date_to_float" title="Permalink to this definition">¶</a></dt>
 <dd><p>Converts years / months / days to a float, eg 2015.0818 is August
@@ -100,6 +95,58 @@
 </dd>
 <dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p>True if there are no gaps or overlaps else False</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="regolith.dates.get_dates">
+<code class="sig-prename descclassname">regolith.dates.</code><code class="sig-name descname">get_dates</code><span class="sig-paren">(</span><em class="sig-param">thing</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/dates.html#get_dates"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.dates.get_dates" title="Permalink to this definition">¶</a></dt>
+<dd><p>given a dict like thing, return the items</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>thing</strong> (<em>dict</em>) – the dict that contains the dates</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>dict containing datetime.date objects for begin_date end_date and date</p>
+</dd>
+</dl>
+<p>If “begin_date”, “end_date” or “date” values are found, if these are are in
+an ISO format string they will be converted to datetime.date objects and
+returned in the dictionary under keys of the same name.  A specified date
+will override any date built from year/month/day data.</p>
+<p>If they are not found the function will look for begin_year, end_year and
+year.</p>
+<p>If “year”, “month” and “day” are found the function will return these in the
+“date” field and begin_date and end_date will be None</p>
+<p>If year is found but no month or day are found the function will return
+begin_date and end_date with the beginning and the end of the given year/month.
+The returned date will be None.</p>
+<p>If end_year is found, the end month and end day are missing they are set to
+12 and 31, respectively</p>
+<p>If begin_year is found, the begin month and begin day are missing they are set to
+1 and 1, respectively</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="regolith.dates.last_day">
+<code class="sig-prename descclassname">regolith.dates.</code><code class="sig-name descname">last_day</code><span class="sig-paren">(</span><em class="sig-param">year</em>, <em class="sig-param">month</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/dates.html#last_day"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.dates.last_day" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the last day of the month for the month given</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>year</strong> (<em>integer</em>) – the year that the month is in</p></li>
+<li><p><strong>month</strong> (<em>integer or string</em>) – the month.  if a string should be resolvable using regolith month_to_int</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>The last day of that month</p>
 </dd>
 </dl>
 </dd></dl>
