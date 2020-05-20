@@ -11,6 +11,7 @@ The following lists key names mapped to its type and meaning for each entry.
 :aka: ['string', 'list'], list of aliases (also-known-as), useful for identifying the group member in citations or elsewhere., required
 :avatar: string, URL to avatar, required
 :bio: string, short biographical text, required
+:bio_long: string, longer biographical text if needed, optional
 :collab: boolean, If the person is a collaborator, default False., optional
 :education: list, This contains the educational information for the group member., required
 
