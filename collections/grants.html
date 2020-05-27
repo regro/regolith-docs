@@ -79,65 +79,68 @@
 <dt class="field-odd">admin</dt>
 <dd class="field-odd"><p>string, the group administering the grant, optional</p>
 </dd>
-<dt class="field-even">amount</dt>
-<dd class="field-even"><p>(‘integer’, ‘float’), value of award, required</p>
+<dt class="field-even">alias</dt>
+<dd class="field-even"><p>string, the alias of the grant, optional</p>
 </dd>
-<dt class="field-odd">begin_day</dt>
-<dd class="field-odd"><p>integer, start day of the grant, optional</p>
+<dt class="field-odd">amount</dt>
+<dd class="field-odd"><p>(‘integer’, ‘float’), value of award, required</p>
 </dd>
-<dt class="field-even">begin_month</dt>
-<dd class="field-even"><p>[‘string’, ‘integer’], start month of the grant, required</p>
+<dt class="field-even">begin_day</dt>
+<dd class="field-even"><p>integer, start day of the grant, optional</p>
 </dd>
-<dt class="field-odd">begin_year</dt>
-<dd class="field-odd"><p>integer, start year of the grant, required</p>
+<dt class="field-odd">begin_month</dt>
+<dd class="field-odd"><p>[‘string’, ‘integer’], start month of the grant, required</p>
 </dd>
-<dt class="field-even">benefit_of_collaboration</dt>
+<dt class="field-even">begin_year</dt>
+<dd class="field-even"><p>integer, start year of the grant, required</p>
+</dd>
+<dt class="field-odd">benefit_of_collaboration</dt>
+<dd class="field-odd"><p>string, optional</p>
+</dd>
+<dt class="field-even">call_for_proposals</dt>
 <dd class="field-even"><p>string, optional</p>
 </dd>
-<dt class="field-odd">call_for_proposals</dt>
-<dd class="field-odd"><p>string, optional</p>
+<dt class="field-odd">currency</dt>
+<dd class="field-odd"><p>string, typically ‘$’ or ‘USD’, optional</p>
 </dd>
-<dt class="field-even">currency</dt>
-<dd class="field-even"><p>string, typically ‘$’ or ‘USD’, optional</p>
+<dt class="field-even">end_day</dt>
+<dd class="field-even"><p>(‘string’, ‘integer’), end day of the grant, optional</p>
 </dd>
-<dt class="field-odd">end_day</dt>
-<dd class="field-odd"><p>(‘string’, ‘integer’), end day of the grant, optional</p>
+<dt class="field-odd">end_month</dt>
+<dd class="field-odd"><p>[‘string’, ‘integer’], end month of the grant, optional</p>
 </dd>
-<dt class="field-even">end_month</dt>
-<dd class="field-even"><p>[‘string’, ‘integer’], end month of the grant, optional</p>
+<dt class="field-even">end_year</dt>
+<dd class="field-even"><p>integer, end year of the grant, required</p>
 </dd>
-<dt class="field-odd">end_year</dt>
-<dd class="field-odd"><p>integer, end year of the grant, required</p>
+<dt class="field-odd">funder</dt>
+<dd class="field-odd"><p>string, the agency funding the work, required</p>
 </dd>
-<dt class="field-even">funder</dt>
-<dd class="field-even"><p>string, the agency funding the work, required</p>
+<dt class="field-even">grant_id</dt>
+<dd class="field-even"><p>string, the identifier for this work, optional</p>
 </dd>
-<dt class="field-odd">grant_id</dt>
-<dd class="field-odd"><p>string, the identifier for this work, optional</p>
+<dt class="field-odd">institution</dt>
+<dd class="field-odd"><p>string, the host institution for the grant, optional</p>
 </dd>
-<dt class="field-even">institution</dt>
-<dd class="field-even"><p>string, the host institution for the grant, optional</p>
+<dt class="field-even">narrative</dt>
+<dd class="field-even"><p>string, optional</p>
 </dd>
-<dt class="field-odd">narrative</dt>
-<dd class="field-odd"><p>string, optional</p>
+<dt class="field-odd">notes</dt>
+<dd class="field-odd"><p>string, notes about the grant, optional</p>
 </dd>
-<dt class="field-even">notes</dt>
-<dd class="field-even"><p>string, notes about the grant, optional</p>
+<dt class="field-even">person_months_academic</dt>
+<dd class="field-even"><p>[‘integer’, ‘float’], Number of months of funding during the academicyear, optional</p>
 </dd>
-<dt class="field-odd">person_months_academic</dt>
-<dd class="field-odd"><p>[‘integer’, ‘float’], Number of months of funding during the academicyear, optional</p>
+<dt class="field-odd">person_months_summer</dt>
+<dd class="field-odd"><p>[‘integer’, ‘float’], Number of months of funding during the summer, optional</p>
 </dd>
-<dt class="field-even">person_months_summer</dt>
-<dd class="field-even"><p>[‘integer’, ‘float’], Number of months of funding during the summer, optional</p>
+<dt class="field-even">program</dt>
+<dd class="field-even"><p>string, the program the work was funded under, required</p>
 </dd>
-<dt class="field-odd">program</dt>
-<dd class="field-odd"><p>string, the program the work was funded under, required</p>
+<dt class="field-odd">scope</dt>
+<dd class="field-odd"><p>string, The scope of the grant, answers the prompt: “Describe Research Including Synergies and Delineation with Respect to this Proposal/Award:”, optional</p>
 </dd>
-<dt class="field-even">scope</dt>
-<dd class="field-even"><p>string, The scope of the grant, answers the prompt: “Describe Research Including Synergies and Delineation with Respect to this Proposal/Award:”, optional</p>
-</dd>
-<dt class="field-odd">status</dt>
-<dd class="field-odd"><p>string, status of the grant, optional</p>
+<dt class="field-even">status</dt>
+<dd class="field-even"><p>string, status of the grant, optional</p>
 <dl class="simple">
 <dt>Allowed values:</dt><dd><ul class="simple">
 <li><p>pending</p></li>
@@ -148,8 +151,8 @@
 </dd>
 </dl>
 </dd>
-<dt class="field-even">team</dt>
-<dd class="field-even"><p>list, information about the team members participating in the grant., required</p>
+<dt class="field-odd">team</dt>
+<dd class="field-odd"><p>list, information about the team members participating in the grant., required</p>
 <dl class="field-list simple">
 <dt class="field-odd">type</dt>
 <dd class="field-odd"><p>dict, optional</p>
@@ -181,10 +184,33 @@
 <div class="section" id="yaml-example">
 <h2>YAML Example<a class="headerlink" href="#yaml-example" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">SymPy-1.1</span><span class="p">:</span>
+  <span class="nt">alias</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">sym</span>
   <span class="nt">amount</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">3000.0</span>
   <span class="nt">begin_day</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
   <span class="nt">begin_month</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">May</span>
   <span class="nt">begin_year</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">2030</span>
+  <span class="nt">call_for_proposals</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">https://groups.google.com/d/msg/numfocus/wPjhdm8NJiA/S8JL1_NZDQAJ</span>
+  <span class="nt">end_day</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">31</span>
+  <span class="nt">end_month</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">December</span>
+  <span class="nt">end_year</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">2030</span>
+  <span class="nt">funder</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">NumFOCUS</span>
+  <span class="nt">narrative</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">https://docs.google.com/document/d/1nZxqoL-Ucni_aXLWmXtRDd3IWqW0mZBO65CEvDrsXZM/edit?usp=sharing</span>
+  <span class="nt">program</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Small Development Grants</span>
+  <span class="nt">status</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">pending</span>
+  <span class="nt">team</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="nt">institution</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">University of South Carolina</span>
+      <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Anthony Scopatz</span>
+      <span class="nt">position</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">PI</span>
+    <span class="p p-Indicator">-</span> <span class="nt">institution</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">University of South Carolina</span>
+      <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Aaron Meurer</span>
+      <span class="nt">position</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">researcher</span>
+  <span class="nt">title</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">SymPy 1.1 Release Support</span>
+<span class="nt">SymPy-2.0</span><span class="p">:</span>
+  <span class="nt">alias</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">sym2.0</span>
+  <span class="nt">amount</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">3000.0</span>
+  <span class="nt">begin_day</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
+  <span class="nt">begin_month</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">June</span>
+  <span class="nt">begin_year</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">2019</span>
   <span class="nt">call_for_proposals</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">https://groups.google.com/d/msg/numfocus/wPjhdm8NJiA/S8JL1_NZDQAJ</span>
   <span class="nt">end_day</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">31</span>
   <span class="nt">end_month</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">December</span>
@@ -240,10 +266,40 @@
 <h2>JSON/Mongo Example<a class="headerlink" href="#json-mongo-example" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
     <span class="nt">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;SymPy-1.1&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;alias&quot;</span><span class="p">:</span> <span class="s2">&quot;sym&quot;</span><span class="p">,</span>
     <span class="nt">&quot;amount&quot;</span><span class="p">:</span> <span class="mf">3000.0</span><span class="p">,</span>
     <span class="nt">&quot;begin_day&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
     <span class="nt">&quot;begin_month&quot;</span><span class="p">:</span> <span class="s2">&quot;May&quot;</span><span class="p">,</span>
     <span class="nt">&quot;begin_year&quot;</span><span class="p">:</span> <span class="mi">2030</span><span class="p">,</span>
+    <span class="nt">&quot;call_for_proposals&quot;</span><span class="p">:</span> <span class="s2">&quot;https://groups.google.com/d/msg/numfocus/wPjhdm8NJiA/S8JL1_NZDQAJ&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;end_day&quot;</span><span class="p">:</span> <span class="mi">31</span><span class="p">,</span>
+    <span class="nt">&quot;end_month&quot;</span><span class="p">:</span> <span class="s2">&quot;December&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;end_year&quot;</span><span class="p">:</span> <span class="mi">2030</span><span class="p">,</span>
+    <span class="nt">&quot;funder&quot;</span><span class="p">:</span> <span class="s2">&quot;NumFOCUS&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;narrative&quot;</span><span class="p">:</span> <span class="s2">&quot;https://docs.google.com/document/d/1nZxqoL-Ucni_aXLWmXtRDd3IWqW0mZBO65CEvDrsXZM/edit?usp=sharing&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;program&quot;</span><span class="p">:</span> <span class="s2">&quot;Small Development Grants&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;pending&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;team&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;institution&quot;</span><span class="p">:</span> <span class="s2">&quot;University of South Carolina&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Anthony Scopatz&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;position&quot;</span><span class="p">:</span> <span class="s2">&quot;PI&quot;</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;institution&quot;</span><span class="p">:</span> <span class="s2">&quot;University of South Carolina&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Aaron Meurer&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;position&quot;</span><span class="p">:</span> <span class="s2">&quot;researcher&quot;</span>
+        <span class="p">}</span>
+    <span class="p">],</span>
+    <span class="nt">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;SymPy 1.1 Release Support&quot;</span>
+<span class="p">}</span>
+<span class="p">{</span>
+    <span class="nt">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;SymPy-2.0&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;alias&quot;</span><span class="p">:</span> <span class="s2">&quot;sym2.0&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;amount&quot;</span><span class="p">:</span> <span class="mf">3000.0</span><span class="p">,</span>
+    <span class="nt">&quot;begin_day&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="nt">&quot;begin_month&quot;</span><span class="p">:</span> <span class="s2">&quot;June&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;begin_year&quot;</span><span class="p">:</span> <span class="mi">2019</span><span class="p">,</span>
     <span class="nt">&quot;call_for_proposals&quot;</span><span class="p">:</span> <span class="s2">&quot;https://groups.google.com/d/msg/numfocus/wPjhdm8NJiA/S8JL1_NZDQAJ&quot;</span><span class="p">,</span>
     <span class="nt">&quot;end_day&quot;</span><span class="p">:</span> <span class="mi">31</span><span class="p">,</span>
     <span class="nt">&quot;end_month&quot;</span><span class="p">:</span> <span class="s2">&quot;December&quot;</span><span class="p">,</span>

@@ -149,6 +149,28 @@ datetime.date object</p>
 </dd></dl>
 
 <dl class="function">
+<dt id="regolith.dates.is_current">
+<code class="sig-prename descclassname">regolith.dates.</code><code class="sig-name descname">is_current</code><span class="sig-paren">(</span><em class="sig-param">thing</em>, <em class="sig-param">now=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/dates.html#is_current"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.dates.is_current" title="Permalink to this definition">¶</a></dt>
+<dd><p>given a thing with dates, returns true if the thing is current
+looks for <a href="#id1"><span class="problematic" id="id2">begin_</span></a> and <a href="#id3"><span class="problematic" id="id4">end_</span></a> daty things (date, year, month, day), or just
+the daty things themselves. e.g., begin_date, end_month, month, and so on.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>thing</strong> (<em>dict</em>) – the thing that we want to know whether or not it is current</p></li>
+<li><p><strong>now</strong> (<em>datetime.date object</em>) – a date for now.  If it is None it uses the current date.  Default is None</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>True if the thing is current and false otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
 <dt id="regolith.dates.last_day">
 <code class="sig-prename descclassname">regolith.dates.</code><code class="sig-name descname">last_day</code><span class="sig-paren">(</span><em class="sig-param">year</em>, <em class="sig-param">month</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/dates.html#last_day"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.dates.last_day" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the last day of the month for the month given</p>
