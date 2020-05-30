@@ -58,6 +58,7 @@ The following lists key names mapped to its type and meaning for each entry.
 		:name: string, optional
 		:value: ('float', 'integer'), optional
 		:year: integer, optional
+:github_id: string, Your GitHub ID, optional
 :google_scholar_url: string, URL of your Google Scholar rofile, optional
 :home_address: dict, The person's home address, optional
 
@@ -257,6 +258,7 @@ YAML Example
 	    - name: NIF User's Group Travel Award
 	      value: 1150
 	      year: 2013
+	  github_id: ascopatz
 	  google_scholar_url: https://scholar.google.com/citations?user=dRm8f
 	  home_address:
 	    city: The big apple
@@ -437,6 +439,7 @@ JSON/Mongo Example
 	            "year": 2013
 	        }
 	    ],
+	    "github_id": "ascopatz",
 	    "google_scholar_url": "https://scholar.google.com/citations?user=dRm8f",
 	    "home_address": {
 	        "city": "The big apple",
