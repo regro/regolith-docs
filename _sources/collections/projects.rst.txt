@@ -7,8 +7,17 @@ Schema
 The following lists key names mapped to its type and meaning for each entry.
 
 :_id: string, Unique project identifier., required
+:active: ['string', 'boolean'], true if the project is active, optional
 :description: string, brief project description., required
 :grant: string, Grant id if there is a grant supporting this project, optional
+:group: string, id for the group in the groups collection whose project this is, optional
+:highlights: list, list of things to highlight in a report or website, such as releases for  for software or high profile publications, optional
+
+	:type: dict, optional
+
+		:year: integer, the year of the highlight, optional
+		:month: ['string', 'integer'], the month of the highlight, optional
+		:description: string, the highlight, optional
 :logo: string, URL to the project logo, optional
 :name: string, name of the project., required
 :other: ['list', 'string'], other information about the project, optional
@@ -23,7 +32,12 @@ The following lists key names mapped to its type and meaning for each entry.
 		:end_year: integer, optional
 		:name: string, optional
 		:position: string, optional
-:website: string, URL of the website., required
+:type: ['string'], The type of project, optional
+
+	Allowed values: 
+		* ossoftware
+		* funded
+:website: string, URL of the website., optional
 
 
 YAML Example
@@ -34,6 +48,11 @@ YAML Example
 	Cyclus:
 	  description: Agent-Based Nuclear Fuel Cycle Simulator
 	  grant: dmref15
+	  group: ergs
+	  highlights:
+	    - description: high profile pub in Nature
+	      month: 5
+	      year: 2020
 	  logo: http://fuelcycle.org/_static/big_c.png
 	  name: Cyclus
 	  other:
@@ -47,6 +66,7 @@ YAML Example
 	      end_year: 2015
 	      name: Anthony Scopatz
 	      position: Project Lead
+	  type: funded
 	  website: http://fuelcycle.org/
 
 
@@ -59,6 +79,14 @@ JSON/Mongo Example
 	    "_id": "Cyclus",
 	    "description": "Agent-Based Nuclear Fuel Cycle Simulator",
 	    "grant": "dmref15",
+	    "group": "ergs",
+	    "highlights": [
+	        {
+	            "description": "high profile pub in Nature",
+	            "month": 5,
+	            "year": 2020
+	        }
+	    ],
 	    "logo": "http://fuelcycle.org/_static/big_c.png",
 	    "name": "Cyclus",
 	    "other": [
@@ -76,5 +104,6 @@ JSON/Mongo Example
 	            "position": "Project Lead"
 	        }
 	    ],
+	    "type": "funded",
 	    "website": "http://fuelcycle.org/"
 	}

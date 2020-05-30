@@ -82,8 +82,14 @@
 <dt class="field-even">country</dt>
 <dd class="field-even"><p>string, The country where the institution is, required</p>
 </dd>
-<dt class="field-odd">departments</dt>
-<dd class="field-odd"><p>dict, all the departments and centers andvarious units in the institution, optional</p>
+<dt class="field-odd">day</dt>
+<dd class="field-odd"><p>integer, the day the entry was created, optional</p>
+</dd>
+<dt class="field-even">departments</dt>
+<dd class="field-even"><p>dict, all the departments and centers andvarious units in the institution, optional</p>
+</dd>
+<dt class="field-odd">month</dt>
+<dd class="field-odd"><p>[‘string’, ‘integer’], the month the entry was created, optional</p>
 </dd>
 <dt class="field-even">name</dt>
 <dd class="field-even"><p>string, the canonical name of the institutions, required</p>
@@ -97,8 +103,17 @@
 <dt class="field-odd">street</dt>
 <dd class="field-odd"><p>string, the street where the institution is, optional</p>
 </dd>
-<dt class="field-even">zip</dt>
-<dd class="field-even"><p>[‘integer’, ‘string’], the zip or postal code of the institution, optional</p>
+<dt class="field-even">updated</dt>
+<dd class="field-even"><p>[‘string’, ‘datetime’, ‘date’], a datetime when the entry was updated, optional</p>
+</dd>
+<dt class="field-odd">uuid</dt>
+<dd class="field-odd"><p>string, a uuid for the entry, optional</p>
+</dd>
+<dt class="field-even">year</dt>
+<dd class="field-even"><p>integer, the year the entry was created, optional</p>
+</dd>
+<dt class="field-odd">zip</dt>
+<dd class="field-odd"><p>[‘integer’, ‘string’], the zip or postal code of the institution, optional</p>
 </dd>
 </dl>
 </div>
@@ -110,6 +125,7 @@
     <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Columbia</span>
   <span class="nt">city</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">New York</span>
   <span class="nt">country</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">USA</span>
+  <span class="nt">day</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">30</span>
   <span class="nt">departments</span><span class="p">:</span>
     <span class="nt">apam</span><span class="p">:</span>
       <span class="nt">aka</span><span class="p">:</span>
@@ -125,6 +141,7 @@
         <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Dept. of Physics</span>
         <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Physics</span>
       <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Department of Physics</span>
+  <span class="nt">month</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">May</span>
   <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Columbia University</span>
   <span class="nt">schools</span><span class="p">:</span>
     <span class="nt">seas</span><span class="p">:</span>
@@ -135,6 +152,9 @@
       <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">School of Engineering and Applied Science</span>
   <span class="nt">state</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">NY</span>
   <span class="nt">street</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">500 W 120th St</span>
+  <span class="nt">updated</span><span class="p">:</span> <span class="s">&#39;2020-05-30&#39;</span>
+  <span class="nt">uuid</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">avacazdraca345rfsvwre</span>
+  <span class="nt">year</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">2020</span>
   <span class="nt">zip</span><span class="p">:</span> <span class="s">&#39;10027&#39;</span>
 </pre></div>
 </div>
@@ -149,6 +169,7 @@
     <span class="p">],</span>
     <span class="nt">&quot;city&quot;</span><span class="p">:</span> <span class="s2">&quot;New York&quot;</span><span class="p">,</span>
     <span class="nt">&quot;country&quot;</span><span class="p">:</span> <span class="s2">&quot;USA&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;day&quot;</span><span class="p">:</span> <span class="mi">30</span><span class="p">,</span>
     <span class="nt">&quot;departments&quot;</span><span class="p">:</span> <span class="p">{</span>
         <span class="nt">&quot;apam&quot;</span><span class="p">:</span> <span class="p">{</span>
             <span class="nt">&quot;aka&quot;</span><span class="p">:</span> <span class="p">[</span>
@@ -171,6 +192,7 @@
             <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Department of Physics&quot;</span>
         <span class="p">}</span>
     <span class="p">},</span>
+    <span class="nt">&quot;month&quot;</span><span class="p">:</span> <span class="s2">&quot;May&quot;</span><span class="p">,</span>
     <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Columbia University&quot;</span><span class="p">,</span>
     <span class="nt">&quot;schools&quot;</span><span class="p">:</span> <span class="p">{</span>
         <span class="nt">&quot;seas&quot;</span><span class="p">:</span> <span class="p">{</span>
@@ -184,6 +206,9 @@
     <span class="p">},</span>
     <span class="nt">&quot;state&quot;</span><span class="p">:</span> <span class="s2">&quot;NY&quot;</span><span class="p">,</span>
     <span class="nt">&quot;street&quot;</span><span class="p">:</span> <span class="s2">&quot;500 W 120th St&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;updated&quot;</span><span class="p">:</span> <span class="s2">&quot;2020-05-30&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;uuid&quot;</span><span class="p">:</span> <span class="s2">&quot;avacazdraca345rfsvwre&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;year&quot;</span><span class="p">:</span> <span class="mi">2020</span><span class="p">,</span>
     <span class="nt">&quot;zip&quot;</span><span class="p">:</span> <span class="s2">&quot;10027&quot;</span>
 <span class="p">}</span>
 </pre></div>
