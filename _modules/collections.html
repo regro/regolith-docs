@@ -753,6 +753,13 @@
     <span class="c1">#</span>
     <span class="c1"># To strip negative and zero counts, add-in an empty counter:</span>
     <span class="c1">#       c += Counter()</span>
+    <span class="c1">#</span>
+    <span class="c1"># Rich comparison operators for multiset subset and superset tests</span>
+    <span class="c1"># are deliberately omitted due to semantic conflicts with the</span>
+    <span class="c1"># existing inherited dict equality method.  Subset and superset</span>
+    <span class="c1"># semantics ignore zero counts and require that p≤q ∧ p≥q → p=q;</span>
+    <span class="c1"># however, that would not be the case for p=Counter(a=1, b=0)</span>
+    <span class="c1"># and q=Counter(a=1) where the dictionaries are not equal.</span>
 
     <span class="k">def</span> <span class="fm">__add__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
         <span class="sd">&#39;&#39;&#39;Add counts from two counters.</span>

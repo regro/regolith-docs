@@ -12,14 +12,14 @@ The following lists key names mapped to its type and meaning for each entry.
 :alias: string, the alias of the grant, optional
 :amount: ('integer', 'float'), value of award, required
 :begin_day: integer, start day of the grant, optional
-:begin_month: ['string', 'integer'], start month of the grant, required
-:begin_year: integer, start year of the grant, required
+:begin_month: ['string', 'integer'], start month of the grant, optional
+:begin_year: integer, start year of the grant, optional
 :benefit_of_collaboration: string, optional
 :call_for_proposals: string, optional
 :currency: string, typically '$' or 'USD', optional
 :end_day: ('string', 'integer'), end day of the grant, optional
 :end_month: ['string', 'integer'], end month of the grant, optional
-:end_year: integer, end year of the grant, required
+:end_year: integer, end year of the grant, optional
 :funder: string, the agency funding the work, required
 :grant_id: string, the identifier for this work, optional
 :institution: string, the host institution for the grant, optional
@@ -79,7 +79,7 @@ YAML Example
 	  alias: sym2.0
 	  amount: 3000.0
 	  begin_day: 1
-	  begin_month: June
+	  begin_month: 6
 	  begin_year: 2019
 	  call_for_proposals: https://groups.google.com/d/msg/numfocus/wPjhdm8NJiA/S8JL1_NZDQAJ
 	  end_day: 31
@@ -170,7 +170,7 @@ JSON/Mongo Example
 	    "alias": "sym2.0",
 	    "amount": 3000.0,
 	    "begin_day": 1,
-	    "begin_month": "June",
+	    "begin_month": 6,
 	    "begin_year": 2019,
 	    "call_for_proposals": "https://groups.google.com/d/msg/numfocus/wPjhdm8NJiA/S8JL1_NZDQAJ",
 	    "end_day": 31,

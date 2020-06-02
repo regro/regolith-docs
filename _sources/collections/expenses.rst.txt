@@ -103,7 +103,7 @@ YAML Example
 	      segregated_expense: 0
 	      unsegregated_expense: 100
 	      year: 2018
-	  overall_purpose: testing the database
+	  overall_purpose: testing the databallectionsse
 	  payee: scopatz
 	  project: Cyclus
 
@@ -206,7 +206,7 @@ JSON/Mongo Example
 	            "year": 2018
 	        }
 	    ],
-	    "overall_purpose": "testing the database",
+	    "overall_purpose": "testing the databallectionsse",
 	    "payee": "scopatz",
 	    "project": "Cyclus"
 	}
