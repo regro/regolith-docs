@@ -319,12 +319,153 @@
         <span class="n">now</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">date</span><span class="o">.</span><span class="n">today</span><span class="p">()</span>
     <span class="n">dates</span> <span class="o">=</span> <span class="n">get_dates</span><span class="p">(</span><span class="n">thing</span><span class="p">)</span>
     <span class="n">current</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">dates</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;end_date&quot;</span><span class="p">):</span>
+        <span class="n">dates</span><span class="p">[</span><span class="s2">&quot;end_date&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">date</span><span class="p">(</span><span class="mi">5000</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">31</span><span class="p">)</span>
     <span class="k">try</span><span class="p">:</span>
-        <span class="k">if</span> <span class="n">dates</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;begin_date&quot;</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="n">now</span> <span class="o">&lt;=</span> <span class="n">dates</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;end_date&quot;</span><span class="p">,</span> <span class="n">datetime</span><span class="o">.</span><span class="n">date</span><span class="p">(</span><span class="mi">5000</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">31</span><span class="p">)):</span>
+        <span class="k">if</span> <span class="n">dates</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;begin_date&quot;</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="n">now</span> <span class="o">&lt;=</span> <span class="n">dates</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;end_date&quot;</span><span class="p">):</span>
             <span class="n">current</span> <span class="o">=</span> <span class="kc">True</span>
     <span class="k">except</span><span class="p">:</span>
         <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Cannot find begin_date in document:</span><span class="se">\n</span><span class="s2"> </span><span class="si">{</span><span class="n">thing</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">current</span></div>
+
+
+<div class="viewcode-block" id="has_started"><a class="viewcode-back" href="../../api/dates.html#regolith.dates.has_started">[docs]</a><span class="k">def</span> <span class="nf">has_started</span><span class="p">(</span><span class="n">thing</span><span class="p">,</span> <span class="n">now</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    given a thing with dates, returns true if the thing has started</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    thing: dict</span>
+<span class="sd">      the thing that we want to know whether or not it is has started</span>
+<span class="sd">    now: datetime.date object</span>
+<span class="sd">      a date for now.  If it is None it uses the current date.  Default is None</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    True if the thing has started and false otherwise</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">now</span><span class="p">:</span>
+        <span class="n">now</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">date</span><span class="o">.</span><span class="n">today</span><span class="p">()</span>
+    <span class="n">dates</span> <span class="o">=</span> <span class="n">get_dates</span><span class="p">(</span><span class="n">thing</span><span class="p">)</span>
+    <span class="n">started</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">dates</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;begin_date&quot;</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="n">now</span><span class="p">:</span>
+            <span class="n">started</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Cannot find begin_date in document:</span><span class="se">\n</span><span class="s2"> </span><span class="si">{</span><span class="n">thing</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">started</span></div>
+
+
+<div class="viewcode-block" id="has_finished"><a class="viewcode-back" href="../../api/dates.html#regolith.dates.has_finished">[docs]</a><span class="k">def</span> <span class="nf">has_finished</span><span class="p">(</span><span class="n">thing</span><span class="p">,</span> <span class="n">now</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    given a thing with dates, returns true if the thing has finished</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    thing: dict</span>
+<span class="sd">      the thing that we want to know whether or not it has finished</span>
+<span class="sd">    now: datetime.date object</span>
+<span class="sd">      a date for now.  If it is None it uses the current date.  Default is None</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    True if the thing has finished and false otherwise</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">now</span><span class="p">:</span>
+        <span class="n">now</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">date</span><span class="o">.</span><span class="n">today</span><span class="p">()</span>
+    <span class="n">dates</span> <span class="o">=</span> <span class="n">get_dates</span><span class="p">(</span><span class="n">thing</span><span class="p">)</span>
+    <span class="n">finished</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">dates</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;end_date&quot;</span><span class="p">):</span>
+        <span class="n">dates</span><span class="p">[</span><span class="s2">&quot;end_date&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">date</span><span class="p">(</span><span class="mi">5000</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">31</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">dates</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;end_date&quot;</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">now</span><span class="p">:</span>
+        <span class="n">finished</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="k">return</span> <span class="n">finished</span></div>
+
+
+<div class="viewcode-block" id="is_before"><a class="viewcode-back" href="../../api/dates.html#regolith.dates.is_before">[docs]</a><span class="k">def</span> <span class="nf">is_before</span><span class="p">(</span><span class="n">thing</span><span class="p">,</span> <span class="n">now</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    given a thing with a date, returns true if the thing is before the input date</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    thing: dict</span>
+<span class="sd">      the thing that we want to know whether or not is before a date</span>
+<span class="sd">    now: datetime.date object</span>
+<span class="sd">      a date for now.  If it is None it uses the current date.  Default is None</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    True if the thing is before the date</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">now</span><span class="p">:</span>
+        <span class="n">now</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">date</span><span class="o">.</span><span class="n">today</span><span class="p">()</span>
+    <span class="n">dates</span> <span class="o">=</span> <span class="n">get_dates</span><span class="p">(</span><span class="n">thing</span><span class="p">)</span>
+    <span class="n">before</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">dates</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;date&quot;</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">now</span><span class="p">:</span>
+            <span class="n">before</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Cannot find date in document:</span><span class="se">\n</span><span class="s2"> </span><span class="si">{</span><span class="n">thing</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">before</span></div>
+
+
+<div class="viewcode-block" id="is_after"><a class="viewcode-back" href="../../api/dates.html#regolith.dates.is_after">[docs]</a><span class="k">def</span> <span class="nf">is_after</span><span class="p">(</span><span class="n">thing</span><span class="p">,</span> <span class="n">now</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    given a thing with a date, returns true if the thing is after the input date</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    thing: dict</span>
+<span class="sd">      the thing that we want to know whether or not is after a date</span>
+<span class="sd">    now: datetime.date object</span>
+<span class="sd">      a date for now.  If it is None it uses the current date.  Default is None</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    True if the thing is after the date</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">now</span><span class="p">:</span>
+        <span class="n">now</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">date</span><span class="o">.</span><span class="n">today</span><span class="p">()</span>
+    <span class="n">dates</span> <span class="o">=</span> <span class="n">get_dates</span><span class="p">(</span><span class="n">thing</span><span class="p">)</span>
+    <span class="n">after</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">now</span> <span class="o">&lt;</span> <span class="n">dates</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;date&#39;</span><span class="p">):</span>
+            <span class="n">after</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Cannot find date in document:</span><span class="se">\n</span><span class="s2"> </span><span class="si">{</span><span class="n">thing</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">after</span></div>
+
+
+<div class="viewcode-block" id="is_between"><a class="viewcode-back" href="../../api/dates.html#regolith.dates.is_between">[docs]</a><span class="k">def</span> <span class="nf">is_between</span><span class="p">(</span><span class="n">thing</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    given a thing with a date, returns true if the thing is between the start and end date</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    thing: dict</span>
+<span class="sd">      the thing that we want to know whether or not is after a date</span>
+<span class="sd">    start: datetime.date object</span>
+<span class="sd">      a date for the start.  If it is None it uses the current date.  Default is None</span>
+<span class="sd">    end: datetime.date object</span>
+<span class="sd">      a date for the end.  If it is None it uses the current date.  Default is None</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    True if the thing is between the start and end</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">start</span><span class="p">:</span>
+        <span class="n">start</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">date</span><span class="o">.</span><span class="n">today</span><span class="p">()</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">end</span><span class="p">:</span>
+        <span class="n">end</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">date</span><span class="o">.</span><span class="n">today</span><span class="p">()</span>
+    <span class="n">between</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="k">if</span> <span class="n">is_after</span><span class="p">(</span><span class="n">thing</span><span class="p">,</span> <span class="n">start</span><span class="p">)</span> <span class="ow">and</span> <span class="n">is_before</span><span class="p">(</span><span class="n">thing</span><span class="p">,</span> <span class="n">end</span><span class="p">):</span>
+        <span class="n">between</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="k">return</span> <span class="n">between</span></div>
 </pre></div>
 
           </div>

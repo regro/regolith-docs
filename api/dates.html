@@ -149,6 +149,107 @@ datetime.date object</p>
 </dd></dl>
 
 <dl class="function">
+<dt id="regolith.dates.has_finished">
+<code class="sig-prename descclassname">regolith.dates.</code><code class="sig-name descname">has_finished</code><span class="sig-paren">(</span><em class="sig-param">thing</em>, <em class="sig-param">now=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/dates.html#has_finished"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.dates.has_finished" title="Permalink to this definition">¶</a></dt>
+<dd><p>given a thing with dates, returns true if the thing has finished</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>thing</strong> (<em>dict</em>) – the thing that we want to know whether or not it has finished</p></li>
+<li><p><strong>now</strong> (<em>datetime.date object</em>) – a date for now.  If it is None it uses the current date.  Default is None</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>True if the thing has finished and false otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="regolith.dates.has_started">
+<code class="sig-prename descclassname">regolith.dates.</code><code class="sig-name descname">has_started</code><span class="sig-paren">(</span><em class="sig-param">thing</em>, <em class="sig-param">now=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/dates.html#has_started"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.dates.has_started" title="Permalink to this definition">¶</a></dt>
+<dd><p>given a thing with dates, returns true if the thing has started</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>thing</strong> (<em>dict</em>) – the thing that we want to know whether or not it is has started</p></li>
+<li><p><strong>now</strong> (<em>datetime.date object</em>) – a date for now.  If it is None it uses the current date.  Default is None</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>True if the thing has started and false otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="regolith.dates.is_after">
+<code class="sig-prename descclassname">regolith.dates.</code><code class="sig-name descname">is_after</code><span class="sig-paren">(</span><em class="sig-param">thing</em>, <em class="sig-param">now=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/dates.html#is_after"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.dates.is_after" title="Permalink to this definition">¶</a></dt>
+<dd><p>given a thing with a date, returns true if the thing is after the input date</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>thing</strong> (<em>dict</em>) – the thing that we want to know whether or not is after a date</p></li>
+<li><p><strong>now</strong> (<em>datetime.date object</em>) – a date for now.  If it is None it uses the current date.  Default is None</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>True if the thing is after the date</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="regolith.dates.is_before">
+<code class="sig-prename descclassname">regolith.dates.</code><code class="sig-name descname">is_before</code><span class="sig-paren">(</span><em class="sig-param">thing</em>, <em class="sig-param">now=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/dates.html#is_before"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.dates.is_before" title="Permalink to this definition">¶</a></dt>
+<dd><p>given a thing with a date, returns true if the thing is before the input date</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>thing</strong> (<em>dict</em>) – the thing that we want to know whether or not is before a date</p></li>
+<li><p><strong>now</strong> (<em>datetime.date object</em>) – a date for now.  If it is None it uses the current date.  Default is None</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>True if the thing is before the date</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="regolith.dates.is_between">
+<code class="sig-prename descclassname">regolith.dates.</code><code class="sig-name descname">is_between</code><span class="sig-paren">(</span><em class="sig-param">thing</em>, <em class="sig-param">start=None</em>, <em class="sig-param">end=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/dates.html#is_between"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.dates.is_between" title="Permalink to this definition">¶</a></dt>
+<dd><p>given a thing with a date, returns true if the thing is between the start and end date</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>thing</strong> (<em>dict</em>) – the thing that we want to know whether or not is after a date</p></li>
+<li><p><strong>start</strong> (<em>datetime.date object</em>) – a date for the start.  If it is None it uses the current date.  Default is None</p></li>
+<li><p><strong>end</strong> (<em>datetime.date object</em>) – a date for the end.  If it is None it uses the current date.  Default is None</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>True if the thing is between the start and end</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
 <dt id="regolith.dates.is_current">
 <code class="sig-prename descclassname">regolith.dates.</code><code class="sig-name descname">is_current</code><span class="sig-paren">(</span><em class="sig-param">thing</em>, <em class="sig-param">now=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/dates.html#is_current"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.dates.is_current" title="Permalink to this definition">¶</a></dt>
 <dd><p>given a thing with dates, returns true if the thing is current
