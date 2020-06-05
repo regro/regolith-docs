@@ -194,6 +194,35 @@ cond is false.</p>
 </dd></dl>
 
 <dl class="function">
+<dt id="regolith.tools.fragment_retrieval">
+<code class="sig-prename descclassname">regolith.tools.</code><code class="sig-name descname">fragment_retrieval</code><span class="sig-paren">(</span><em class="sig-param">coll</em>, <em class="sig-param">fields</em>, <em class="sig-param">fragment</em>, <em class="sig-param">case_sensitive=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#fragment_retrieval"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.tools.fragment_retrieval" title="Permalink to this definition">¶</a></dt>
+<dd><p>Retrieves a list of all documents from the collection where the fragment
+appears in any one of the given fields</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>coll</strong> (<em>generator</em>) – The collection containing the documents</p></li>
+<li><p><strong>fields</strong> (<em>iterable</em>) – The fields of each document to check for the fragment</p></li>
+<li><p><strong>fragment</strong> – The value to compare against to find the documents of interest</p></li>
+<li><p><strong>case_sensitive</strong> (<em>Bool</em>) – When true will match case (Default = False)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A list of documents (that are dicts)</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">fragment_retrieval</span><span class="p">(</span><span class="n">people</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;aka&#39;</span><span class="p">,</span> <span class="s1">&#39;name&#39;</span><span class="p">],</span> <span class="s1">&#39;pi_name&#39;</span><span class="p">,</span> <span class="n">case_sensitive</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This would get all people for which either the alias or the name included
+the substring <code class="docutils literal notranslate"><span class="pre">pi_name</span></code>.</p>
+</dd></dl>
+
+<dl class="function">
 <dt id="regolith.tools.fuzzy_retrieval">
 <code class="sig-prename descclassname">regolith.tools.</code><code class="sig-name descname">fuzzy_retrieval</code><span class="sig-paren">(</span><em class="sig-param">documents</em>, <em class="sig-param">sources</em>, <em class="sig-param">value</em>, <em class="sig-param">case_sensitive=True</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#fuzzy_retrieval"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.tools.fuzzy_retrieval" title="Permalink to this definition">¶</a></dt>
 <dd><p>Retrieve a document from the documents where value is compared against
