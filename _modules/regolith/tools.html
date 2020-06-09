@@ -64,14 +64,13 @@
 <span class="kn">import</span> <span class="nn">re</span>
 <span class="kn">import</span> <span class="nn">sys</span>
 <span class="kn">import</span> <span class="nn">time</span>
-<span class="kn">from</span> <span class="nn">copy</span> <span class="kn">import</span> <span class="n">deepcopy</span>
 <span class="kn">from</span> <span class="nn">calendar</span> <span class="kn">import</span> <span class="n">monthrange</span>
-
+<span class="kn">from</span> <span class="nn">copy</span> <span class="kn">import</span> <span class="n">deepcopy</span>
 <span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span><span class="p">,</span> <span class="n">date</span><span class="p">,</span> <span class="n">timedelta</span>
 
+<span class="kn">from</span> <span class="nn">regolith.chained_db</span> <span class="kn">import</span> <span class="n">ChainDB</span>
 <span class="kn">from</span> <span class="nn">regolith.dates</span> <span class="kn">import</span> <span class="n">month_to_int</span><span class="p">,</span> <span class="n">date_to_float</span><span class="p">,</span> <span class="n">get_dates</span>
 <span class="kn">from</span> <span class="nn">regolith.sorters</span> <span class="kn">import</span> <span class="n">doc_date_key</span><span class="p">,</span> <span class="n">id_key</span><span class="p">,</span> <span class="n">ene_date_key</span>
-<span class="kn">from</span> <span class="nn">regolith.chained_db</span> <span class="kn">import</span> <span class="n">ChainDB</span>
 
 <span class="k">try</span><span class="p">:</span>
     <span class="kn">from</span> <span class="nn">bibtexparser.bwriter</span> <span class="kn">import</span> <span class="n">BibTexWriter</span>
@@ -662,6 +661,28 @@
     <span class="k">return</span> <span class="n">status</span></div>
 
 
+<div class="viewcode-block" id="get_person"><a class="viewcode-back" href="../../api/tools.html#regolith.tools.get_person">[docs]</a><span class="k">def</span> <span class="nf">get_person</span><span class="p">(</span><span class="n">person_id</span><span class="p">,</span> <span class="n">rc</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Get the person&#39;s name.&quot;&quot;&quot;</span>
+    <span class="n">person_found</span> <span class="o">=</span> <span class="n">fuzzy_retrieval</span><span class="p">(</span>
+        <span class="n">all_docs_from_collection</span><span class="p">(</span><span class="n">rc</span><span class="o">.</span><span class="n">client</span><span class="p">,</span> <span class="s2">&quot;people&quot;</span><span class="p">),</span>
+        <span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">,</span> <span class="s2">&quot;aka&quot;</span><span class="p">,</span> <span class="s2">&quot;_id&quot;</span><span class="p">],</span>
+        <span class="n">person_id</span><span class="p">,</span>
+        <span class="n">case_sensitive</span><span class="o">=</span><span class="kc">False</span>
+    <span class="p">)</span>
+    <span class="k">if</span> <span class="n">person_found</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">person_found</span>
+    <span class="n">person_found</span> <span class="o">=</span> <span class="n">fuzzy_retrieval</span><span class="p">(</span>
+        <span class="n">all_docs_from_collection</span><span class="p">(</span><span class="n">rc</span><span class="o">.</span><span class="n">client</span><span class="p">,</span> <span class="s2">&quot;contacts&quot;</span><span class="p">),</span>
+        <span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">,</span> <span class="s2">&quot;aka&quot;</span><span class="p">,</span> <span class="s2">&quot;_id&quot;</span><span class="p">],</span>
+        <span class="n">person_id</span><span class="p">,</span>
+        <span class="n">case_sensitive</span><span class="o">=</span><span class="kc">False</span>
+    <span class="p">)</span>
+    <span class="k">if</span> <span class="n">person_found</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">person_found</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;WARNING: </span><span class="si">{}</span><span class="s2"> missing from people and contacts. Check aka.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">person_id</span><span class="p">))</span>
+    <span class="k">return</span> <span class="kc">None</span></div>
+
+
 <div class="viewcode-block" id="group"><a class="viewcode-back" href="../../api/tools.html#regolith.tools.group">[docs]</a><span class="k">def</span> <span class="nf">group</span><span class="p">(</span><span class="n">db</span><span class="p">,</span> <span class="n">by</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Group the document in the database according to the value of the doc[by] in db.</span>
@@ -782,11 +803,11 @@
 <span class="sd">    --------</span>
 <span class="sd">    &gt;&gt;&gt; fragment_retrieval(people, [&#39;aka&#39;, &#39;name&#39;], &#39;pi_name&#39;, case_sensitive = False)</span>
 
-<span class="sd">    This would get all people for which either the alias or the name included </span>
+<span class="sd">    This would get all people for which either the alias or the name included</span>
 <span class="sd">    the substring ``pi_name``.</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
-    
+
     <span class="n">ret_list</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="k">for</span> <span class="n">doc</span> <span class="ow">in</span> <span class="n">coll</span><span class="p">:</span>
         <span class="n">returns</span> <span class="o">=</span> <span class="p">[]</span>
