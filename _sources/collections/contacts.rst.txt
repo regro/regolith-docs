@@ -10,9 +10,11 @@ The following lists key names mapped to its type and meaning for each entry.
 :department: string, Department at the institution, optional
 :email: string, Contact email for the contact, optional
 :institution: string, the institution where they are located.  This isrequired for building a COI list of coauthors, butnot in general.  It can be institute id or anythingin the aka or name, optional
-:name: string, the person canonical name, required
+:month: integer, the month when the entry was created, optional
+:name: string, the person's canonical name, required
 :notes: ['list', 'string'], notes about the person, optional
 :title: string, how the person is addressed, optional
+:year: integer, the year when the entry was created, optional
 
 
 YAML Example
@@ -26,9 +28,11 @@ YAML Example
 	  department: physics
 	  email: friend@deed.com
 	  institution: columbiau
+	  month: 1
 	  name: Anthony B Friend
 	  notes: The guy I meet for coffee sometimes
 	  title: Mr.
+	  year: 2020
 
 
 JSON/Mongo Example
@@ -44,7 +48,9 @@ JSON/Mongo Example
 	    "department": "physics",
 	    "email": "friend@deed.com",
 	    "institution": "columbiau",
+	    "month": 1,
 	    "name": "Anthony B Friend",
 	    "notes": "The guy I meet for coffee sometimes",
-	    "title": "Mr."
+	    "title": "Mr.",
+	    "year": 2020
 	}
