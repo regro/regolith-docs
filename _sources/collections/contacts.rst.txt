@@ -10,7 +10,7 @@ The following lists key names mapped to its type and meaning for each entry.
 :department: string, Department at the institution, optional
 :email: string, Contact email for the contact, optional
 :institution: string, the institution where they are located.  This isrequired for building a COI list of coauthors, butnot in general.  It can be institute id or anythingin the aka or name, optional
-:month: integer, the month when the entry was created, optional
+:month: ['integer', 'string'], the month when the entry was created, optional
 :name: string, the person's canonical name, required
 :notes: ['list', 'string'], notes about the person, optional
 :title: string, how the person is addressed, optional
