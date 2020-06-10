@@ -1,0 +1,336 @@
+
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Beamplan &#8212; regolith - software group content managment system</title>
+    <link rel="stylesheet" href="../_static/cloud.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Noticia+Text|Open+Sans|Droid+Sans+Mono" type="text/css" />
+    
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+
+    
+    
+     
+        <script type="text/javascript" src="../_static/jquery.cookie.js"></script>
+    
+
+    
+     
+        <script type="text/javascript" src="../_static/cloud.base.js"></script>
+    
+
+    
+     
+        <script type="text/javascript" src="../_static/cloud.js"></script>
+    
+
+    <link rel="shortcut icon" href="../_static/regolith-logo.ico"/>
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Blog" href="blog.html" />
+    <link rel="prev" title="Assignments" href="assignments.html" /> 
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head><body>
+    <div class="relbar-top">
+        
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="blog.html" title="Blog"
+             accesskey="N">next</a></li>
+        <li class="right" >
+          <a href="assignments.html" title="Assignments"
+             accesskey="P">previous</a> &nbsp; &nbsp;</li>
+    <li><a href="../index.html">regolith</a> &#187;</li>
+
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Collections</a> &#187;</li> 
+      </ul>
+    </div>
+    </div>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="beamplan">
+<h1>Beamplan<a class="headerlink" href="#beamplan" title="Permalink to this headline">¶</a></h1>
+<p>Information about the experiment plan for the beamtime.</p>
+<div class="section" id="schema">
+<h2>Schema<a class="headerlink" href="#schema" title="Permalink to this headline">¶</a></h2>
+<p>The following lists key names mapped to its type and meaning for each entry.</p>
+<dl class="field-list simple">
+<dt class="field-odd">_id</dt>
+<dd class="field-odd"><p>string, Unique identifier for the experiment plan. It should have a format ‘{year:2d}{month:2d}{people_id:s}_{plan_name:s}’, required</p>
+</dd>
+<dt class="field-even">beamtime</dt>
+<dd class="field-even"><p>string, The id for the beamtime. Check the Airtable., required</p>
+</dd>
+<dt class="field-odd">begin_date</dt>
+<dd class="field-odd"><p>[‘string’, ‘datetime’, ‘date’], The begin date of the beam time., required</p>
+</dd>
+<dt class="field-even">container</dt>
+<dd class="field-even"><p>string, Sample container used during the measurement, e. g. 1mm OD glass tubes., required</p>
+</dd>
+<dt class="field-odd">devices</dt>
+<dd class="field-odd"><p>list, The dictionary of devices used in the measurement e. g. , required</p>
+<dl class="field-list simple">
+<dt class="field-odd">type</dt>
+<dd class="field-odd"><p>string, optional</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">end_date</dt>
+<dd class="field-even"><p>[‘string’, ‘datetime’, ‘date’], The end date of the beam time., required</p>
+</dd>
+<dt class="field-odd">exp_plan</dt>
+<dd class="field-odd"><p>list, Steps to carry out the experiments at BNL. Need details, required</p>
+<dl class="field-list simple">
+<dt class="field-odd">type</dt>
+<dd class="field-odd"><p>string, optional</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">holder</dt>
+<dd class="field-even"><p>string, Sample holder used during the measurement, e. g. 3 mm OD tubes holder., required</p>
+</dd>
+<dt class="field-odd">measurement</dt>
+<dd class="field-odd"><p>string, What data to be measured, e. g. PDF, XRD, SAXS. This will determine the setup., required</p>
+</dd>
+<dt class="field-even">notes</dt>
+<dd class="field-even"><p>[‘list’, ‘string’], Notes of the plan, e. g. the preferred time., optional</p>
+<dl class="field-list simple">
+<dt class="field-odd">type</dt>
+<dd class="field-odd"><p>string, optional</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">objective</dt>
+<dd class="field-even"><p>string, What to study in the experiments. What goal to achieve., required</p>
+</dd>
+<dt class="field-odd">pipeline</dt>
+<dd class="field-odd"><p>string, The analysis pipeline for the experiment. If no new pipeline is needed, use ‘usual’., required</p>
+</dd>
+<dt class="field-even">prep_plan</dt>
+<dd class="field-even"><p>list, Steps to prepare the samples. Do NOT need details., required</p>
+<dl class="field-list simple">
+<dt class="field-odd">type</dt>
+<dd class="field-odd"><p>string, optional</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">project</dt>
+<dd class="field-even"><p>string, The id for the project which the plan belongs to. It should be on airtable., required</p>
+</dd>
+<dt class="field-odd">project_lead</dt>
+<dd class="field-odd"><p>string, The id for person who put out this plan. It should be inside the people.yml., required</p>
+</dd>
+<dt class="field-even">samples</dt>
+<dd class="field-even"><p>list, The list of samples to be measured., required</p>
+<dl class="field-list simple">
+<dt class="field-odd">type</dt>
+<dd class="field-odd"><p>string, optional</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">scanplan</dt>
+<dd class="field-even"><p>string, The scanplan for the experiment, e. g. tseries, Tramp, ct., required</p>
+</dd>
+<dt class="field-odd">ship_plan</dt>
+<dd class="field-odd"><p>list, Steps to carry the samples from the producer to the BNL. Do NOT need details., required</p>
+<dl class="field-list simple">
+<dt class="field-odd">type</dt>
+<dd class="field-odd"><p>string, optional</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">time</dt>
+<dd class="field-even"><p>integer, The total time of executing the exp_plan. Unit: min., required</p>
+</dd>
+<dt class="field-odd">todo</dt>
+<dd class="field-odd"><p>list, The TODO list before the beamtime., required</p>
+<dl class="field-list simple">
+<dt class="field-odd">type</dt>
+<dd class="field-odd"><p>string, optional</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</div>
+<div class="section" id="yaml-example">
+<h2>YAML Example<a class="headerlink" href="#yaml-example" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">test</span><span class="p">:</span>
+  <span class="nt">beamtime</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">2020-1-XPD</span>
+  <span class="nt">begin_date</span><span class="p">:</span> <span class="s">&#39;2020-01-01&#39;</span>
+  <span class="nt">container</span><span class="p">:</span> <span class="s">&#39;&#39;</span>
+  <span class="nt">devices</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">cryostream</span>
+  <span class="nt">end_date</span><span class="p">:</span> <span class="s">&#39;2020-01-02&#39;</span>
+  <span class="nt">exp_plan</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">load samples on the holder</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">scan the holder to locate the samples</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">take room temperature measurement of sample and the subtrate</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">ramp down temperature to 100K</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">ramp up, measure PDF at temperature 100K ~ 300K, 10K stepsize, 1 min exposure</span>
+  <span class="nt">holder</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">film holder (1 cm * 1 cm * 1 mm)</span>
+  <span class="nt">measurement</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Tramp</span>
+  <span class="nt">objective</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">temperature ramping PDF of one WO3 film (100, 300K, 10K)</span>
+  <span class="nt">pipeline</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">usual</span>
+  <span class="nt">prep_plan</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">films will be made by kriti</span>
+  <span class="nt">project</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">20ks_wo3</span>
+  <span class="nt">project_lead</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">kseth</span>
+  <span class="nt">samples</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">WO3 film</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">glass subtrate</span>
+  <span class="nt">scanplan</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Tramp</span>
+  <span class="nt">ship_plan</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">seal and ship to CU</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">carry to the beamline</span>
+  <span class="nt">time</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">190</span>
+  <span class="nt">todo</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">todo something</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="json-mongo-example">
+<h2>JSON/Mongo Example<a class="headerlink" href="#json-mongo-example" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;test&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;beamtime&quot;</span><span class="p">:</span> <span class="s2">&quot;2020-1-XPD&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;begin_date&quot;</span><span class="p">:</span> <span class="s2">&quot;2020-01-01&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;container&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;devices&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="s2">&quot;cryostream&quot;</span>
+    <span class="p">],</span>
+    <span class="nt">&quot;end_date&quot;</span><span class="p">:</span> <span class="s2">&quot;2020-01-02&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;exp_plan&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="s2">&quot;load samples on the holder&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;scan the holder to locate the samples&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;take room temperature measurement of sample and the subtrate&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;ramp down temperature to 100K&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;ramp up, measure PDF at temperature 100K ~ 300K, 10K stepsize, 1 min exposure&quot;</span>
+    <span class="p">],</span>
+    <span class="nt">&quot;holder&quot;</span><span class="p">:</span> <span class="s2">&quot;film holder (1 cm * 1 cm * 1 mm)&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;measurement&quot;</span><span class="p">:</span> <span class="s2">&quot;Tramp&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;objective&quot;</span><span class="p">:</span> <span class="s2">&quot;temperature ramping PDF of one WO3 film (100, 300K, 10K)&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;pipeline&quot;</span><span class="p">:</span> <span class="s2">&quot;usual&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;prep_plan&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="s2">&quot;films will be made by kriti&quot;</span>
+    <span class="p">],</span>
+    <span class="nt">&quot;project&quot;</span><span class="p">:</span> <span class="s2">&quot;20ks_wo3&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;project_lead&quot;</span><span class="p">:</span> <span class="s2">&quot;kseth&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;samples&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="s2">&quot;WO3 film&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;glass subtrate&quot;</span>
+    <span class="p">],</span>
+    <span class="nt">&quot;scanplan&quot;</span><span class="p">:</span> <span class="s2">&quot;Tramp&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;ship_plan&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="s2">&quot;seal and ship to CU&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;carry to the beamline&quot;</span>
+    <span class="p">],</span>
+    <span class="nt">&quot;time&quot;</span><span class="p">:</span> <span class="mi">190</span><span class="p">,</span>
+    <span class="nt">&quot;todo&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="s2">&quot;todo something&quot;</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+        <p class="logo"><a href="../index.html" title="index">
+          <img class="logo" src="../_static/regolith-logo.svg" alt="Logo"/>
+        </a></p><div class="sphinx-toc sphinxlocaltoc">
+    <h3><a href="../index.html">Page contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">Beamplan</a><ul>
+<li><a class="reference internal" href="#schema">Schema</a></li>
+<li><a class="reference internal" href="#yaml-example">YAML Example</a></li>
+<li><a class="reference internal" href="#json-mongo-example">JSON/Mongo Example</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div class="sphinxprev">
+    <h4>Previous page</h4>
+    <p class="topless"><a href="assignments.html"
+                          title="Previous page">&larr; Assignments</a></p>
+  </div>
+  <div class="sphinxnext">
+    <h4>Next page</h4>
+    <p class="topless"><a href="blog.html"
+                          title="Next page">&rarr; Blog</a></p>
+  </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+    
+    
+        <div class="sidebar-toggle-group no-js">
+            
+            <button class="sidebar-toggle" id="sidebar-hide" title="Hide the sidebar menu">
+                 «
+                <span class="show-for-small">hide menu</span>
+                
+            </button>
+            <button class="sidebar-toggle" id="sidebar-show" title="Show the sidebar menu">
+                
+                <span class="show-for-small">menu</span>
+                <span class="hide-for-small">sidebar</span>
+                 »
+            </button>
+        </div>
+    
+      <div class="clearer"></div>
+    </div>
+    <div class="relbar-bottom">
+        
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="blog.html" title="Blog"
+             >next</a></li>
+        <li class="right" >
+          <a href="assignments.html" title="Assignments"
+             >previous</a> &nbsp; &nbsp;</li>
+    <li><a href="../index.html">regolith</a> &#187;</li>
+
+          <li class="nav-item nav-item-1"><a href="index.html" >Collections</a> &#187;</li> 
+      </ul>
+    </div>
+    </div>
+
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2015, Anthony Scopatz.
+    </div>
+    <!-- cloud_sptheme 1.4 -->
+  </body>
+</html>

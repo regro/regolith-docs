@@ -35,6 +35,7 @@
 ./_sources/broker.rst.txt
 ./_sources/collections/abstracts.rst.txt
 ./_sources/collections/assignments.rst.txt
+./_sources/collections/beamplan.rst.txt
 ./_sources/collections/blog.rst.txt
 ./_sources/collections/citations.rst.txt
 ./_sources/collections/contacts.rst.txt
@@ -123,6 +124,7 @@
 ./broker.html
 ./collections/abstracts.html
 ./collections/assignments.html
+./collections/beamplan.html
 ./collections/blog.html
 ./collections/citations.html
 ./collections/contacts.html
