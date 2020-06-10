@@ -7,6 +7,7 @@ Schema
 The following lists key names mapped to its type and meaning for each entry.
 
 :aka: list, other names for the person, optional
+:day: integer, the day (of the month) when the entry was created, optional
 :department: string, Department at the institution, optional
 :email: string, Contact email for the contact, optional
 :institution: string, the institution where they are located.  This isrequired for building a COI list of coauthors, butnot in general.  It can be institute id or anythingin the aka or name, optional
@@ -25,10 +26,11 @@ YAML Example
 	afriend:
 	  aka:
 	    - A. B. FriendAB FriendTony Friend
+	  day: 15
 	  department: physics
 	  email: friend@deed.com
 	  institution: columbiau
-	  month: 1
+	  month: January
 	  name: Anthony B Friend
 	  notes: The guy I meet for coffee sometimes
 	  title: Mr.
@@ -45,10 +47,11 @@ JSON/Mongo Example
 	    "aka": [
 	        "A. B. FriendAB FriendTony Friend"
 	    ],
+	    "day": 15,
 	    "department": "physics",
 	    "email": "friend@deed.com",
 	    "institution": "columbiau",
-	    "month": 1,
+	    "month": "January",
 	    "name": "Anthony B Friend",
 	    "notes": "The guy I meet for coffee sometimes",
 	    "title": "Mr.",
