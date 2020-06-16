@@ -64,13 +64,15 @@
 <span class="kn">import</span> <span class="nn">re</span>
 <span class="kn">import</span> <span class="nn">sys</span>
 <span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">from</span> <span class="nn">copy</span> <span class="kn">import</span> <span class="n">deepcopy</span><span class="p">,</span> <span class="n">copy</span>
 <span class="kn">from</span> <span class="nn">calendar</span> <span class="kn">import</span> <span class="n">monthrange</span>
 <span class="kn">from</span> <span class="nn">copy</span> <span class="kn">import</span> <span class="n">deepcopy</span>
 <span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span><span class="p">,</span> <span class="n">date</span><span class="p">,</span> <span class="n">timedelta</span>
 
 <span class="kn">from</span> <span class="nn">regolith.chained_db</span> <span class="kn">import</span> <span class="n">ChainDB</span>
-<span class="kn">from</span> <span class="nn">regolith.dates</span> <span class="kn">import</span> <span class="n">month_to_int</span><span class="p">,</span> <span class="n">date_to_float</span><span class="p">,</span> <span class="n">get_dates</span>
-<span class="kn">from</span> <span class="nn">regolith.sorters</span> <span class="kn">import</span> <span class="n">doc_date_key</span><span class="p">,</span> <span class="n">id_key</span><span class="p">,</span> <span class="n">ene_date_key</span>
+<span class="kn">from</span> <span class="nn">regolith.dates</span> <span class="kn">import</span> <span class="n">month_to_int</span><span class="p">,</span> <span class="n">date_to_float</span><span class="p">,</span> <span class="n">get_dates</span><span class="p">,</span> <span class="n">last_day</span>
+<span class="kn">from</span> <span class="nn">regolith.sorters</span> <span class="kn">import</span> <span class="n">doc_date_key</span><span class="p">,</span> <span class="n">id_key</span><span class="p">,</span> <span class="n">ene_date_key</span><span class="p">,</span> <span class="n">date_key</span>
+<span class="kn">from</span> <span class="nn">regolith.chained_db</span> <span class="kn">import</span> <span class="n">ChainDB</span>
 
 <span class="k">try</span><span class="p">:</span>
     <span class="kn">from</span> <span class="nn">bibtexparser.bwriter</span> <span class="kn">import</span> <span class="n">BibTexWriter</span>
@@ -175,8 +177,12 @@
     <span class="n">m</span> <span class="o">=</span> <span class="n">month_to_int</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
     <span class="k">return</span> <span class="s2">&quot;</span><span class="si">{0}</span><span class="s2"> </span><span class="si">{1}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">SHORT_MONTH_NAMES</span><span class="p">[</span><span class="n">m</span><span class="p">],</span> <span class="n">y</span><span class="p">)</span></div>
 
+<div class="viewcode-block" id="get_team_from_grant"><a class="viewcode-back" href="../../api/tools.html#regolith.tools.get_team_from_grant">[docs]</a><span class="k">def</span> <span class="nf">get_team_from_grant</span><span class="p">(</span><span class="n">grantcol</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">grant</span> <span class="ow">in</span> <span class="n">grantcol</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">gets</span><span class="p">(</span><span class="n">grant</span><span class="p">[</span><span class="s2">&quot;team&quot;</span><span class="p">],</span> <span class="s2">&quot;name&quot;</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="filter_publications"><a class="viewcode-back" href="../../api/tools.html#regolith.tools.filter_publications">[docs]</a><span class="k">def</span> <span class="nf">filter_publications</span><span class="p">(</span><span class="n">citations</span><span class="p">,</span> <span class="n">authors</span><span class="p">,</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">bold</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+<div class="viewcode-block" id="filter_publications"><a class="viewcode-back" href="../../api/tools.html#regolith.tools.filter_publications">[docs]</a><span class="k">def</span> <span class="nf">filter_publications</span><span class="p">(</span><span class="n">citations</span><span class="p">,</span> <span class="n">authors</span><span class="p">,</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">bold</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                        <span class="n">since</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">before</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Filter publications by the author(s)/editor(s)</span>
 
 <span class="sd">    Parameters</span>
@@ -189,6 +195,10 @@
 <span class="sd">        If True reverse the order, defaults to False</span>
 <span class="sd">    bold : bool, optional</span>
 <span class="sd">        If True put latex bold around the author(s) in question</span>
+<span class="sd">    since : date, optional</span>
+<span class="sd">        The date after which papers must have been published</span>
+<span class="sd">    before : date, optional</span>
+<span class="sd">        The date before which papers must have been published</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">pubs</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="k">for</span> <span class="n">pub</span> <span class="ow">in</span> <span class="n">citations</span><span class="p">:</span>
@@ -197,6 +207,9 @@
                     <span class="n">pub</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;editor&quot;</span><span class="p">,</span> <span class="p">[])))</span> <span class="o">&amp;</span> <span class="n">authors</span><span class="p">)</span>
                 <span class="o">==</span> <span class="mi">0</span>
         <span class="p">):</span>
+            <span class="k">continue</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">pub</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;month&quot;</span><span class="p">)</span> <span class="ow">or</span> <span class="n">pub</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;month&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="s2">&quot;tbd&quot;</span><span class="p">:</span>
+<span class="c1">#            print(&quot;WARNING: {} missing month will be ignored&quot;.format(pub.get(&quot;title&quot;)))</span>
             <span class="k">continue</span>
         <span class="n">pub</span> <span class="o">=</span> <span class="n">deepcopy</span><span class="p">(</span><span class="n">pub</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">bold</span><span class="p">:</span>
@@ -209,32 +222,68 @@
             <span class="n">pub</span><span class="p">[</span><span class="s2">&quot;author&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">bold_self</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="n">pub</span> <span class="o">=</span> <span class="n">deepcopy</span><span class="p">(</span><span class="n">pub</span><span class="p">)</span>
-        <span class="n">pubs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">pub</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">since</span><span class="p">:</span>
+            <span class="n">bibdate</span> <span class="o">=</span> <span class="n">date</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">pub</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;year&quot;</span><span class="p">)),</span>
+                           <span class="n">month_to_int</span><span class="p">(</span><span class="n">pub</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;month&quot;</span><span class="p">,</span> <span class="mi">12</span><span class="p">)),</span>
+                           <span class="nb">int</span><span class="p">(</span><span class="n">pub</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;day&quot;</span><span class="p">,</span> <span class="mi">28</span><span class="p">)))</span>
+            <span class="k">if</span> <span class="n">bibdate</span> <span class="o">&gt;</span> <span class="n">since</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">before</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="n">bibdate</span> <span class="o">&lt;</span> <span class="n">before</span><span class="p">:</span>
+                        <span class="n">pubs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">pub</span><span class="p">)</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">pubs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">pub</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">pubs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">pub</span><span class="p">)</span>
+
     <span class="n">pubs</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="n">doc_date_key</span><span class="p">,</span> <span class="n">reverse</span><span class="o">=</span><span class="n">reverse</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">pubs</span></div>
 
 
-<div class="viewcode-block" id="filter_projects"><a class="viewcode-back" href="../../api/tools.html#regolith.tools.filter_projects">[docs]</a><span class="k">def</span> <span class="nf">filter_projects</span><span class="p">(</span><span class="n">projects</span><span class="p">,</span> <span class="n">authors</span><span class="p">,</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<div class="viewcode-block" id="filter_projects"><a class="viewcode-back" href="../../api/tools.html#regolith.tools.filter_projects">[docs]</a><span class="k">def</span> <span class="nf">filter_projects</span><span class="p">(</span><span class="n">projects</span><span class="p">,</span> <span class="n">people</span><span class="p">,</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                    <span class="n">active_only</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">group</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">ptype</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Filter projects by the author(s)</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
 <span class="sd">    projects : list of dict</span>
 <span class="sd">        The publication citations</span>
-<span class="sd">    authors : set of list of str</span>
-<span class="sd">        The authors to be filtered against</span>
+<span class="sd">    people : set of list of str</span>
+<span class="sd">        The people to be filtered against</span>
 <span class="sd">    reverse : bool, optional</span>
 <span class="sd">        If True reverse the order, defaults to False</span>
+<span class="sd">    since : date, optional</span>
+<span class="sd">        The date after which a highlight must be for a project to be returned,</span>
+<span class="sd">        defaults to None</span>
+<span class="sd">    before : date, optional</span>
+<span class="sd">        The date before which a highlight must be for a project to be returned,</span>
+<span class="sd">        defaults to None</span>
+<span class="sd">    active_only : bool, optional</span>
+<span class="sd">        Only active projects will be returned if True,</span>
+<span class="sd">        defaults to False</span>
+<span class="sd">    group : str, optional</span>
+<span class="sd">        Only projects from this group will be returned if specified, otherwise</span>
+<span class="sd">        projects from all groups will be returned, defaults to None</span>
+<span class="sd">    ptype : str, optional</span>
+<span class="sd">        The type of the project to filter for, such as ossoftware for open source</span>
+<span class="sd">        software, defaults to None</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">projs</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="c1"># Fixme dereference team from grant collection if provided</span>
     <span class="k">for</span> <span class="n">proj</span> <span class="ow">in</span> <span class="n">projects</span><span class="p">:</span>
         <span class="n">team_names</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">gets</span><span class="p">(</span><span class="n">proj</span><span class="p">[</span><span class="s2">&quot;team&quot;</span><span class="p">],</span> <span class="s2">&quot;name&quot;</span><span class="p">))</span>
-        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">team_names</span> <span class="o">&amp;</span> <span class="n">authors</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">team_names</span> <span class="o">&amp;</span> <span class="n">people</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
             <span class="k">continue</span>
-        <span class="c1"># FIXME delete these lines if not required.  I think they are wrong (SJLB)</span>
-        <span class="c1"># proj = dict(proj)</span>
-        <span class="c1"># proj[&quot;team&quot;] = [x for x in proj[&quot;team&quot;] if x[&quot;name&quot;] in authors]</span>
+        <span class="k">if</span> <span class="n">active_only</span><span class="p">:</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">proj</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;active&quot;</span><span class="p">):</span>
+                <span class="k">continue</span>
+        <span class="k">if</span> <span class="n">group</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">proj</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;group&quot;</span><span class="p">)</span> <span class="o">!=</span> <span class="n">group</span><span class="p">:</span>
+                <span class="k">continue</span>
+        <span class="k">if</span> <span class="n">ptype</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">proj</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;type&quot;</span><span class="p">)</span> <span class="o">!=</span> <span class="n">ptype</span><span class="p">:</span>
+                <span class="k">continue</span>
         <span class="n">projs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">proj</span><span class="p">)</span>
+
     <span class="n">projs</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="n">id_key</span><span class="p">,</span> <span class="n">reverse</span><span class="o">=</span><span class="n">reverse</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">projs</span></div>
 
@@ -288,6 +337,425 @@
     <span class="k">return</span> <span class="n">grants</span><span class="p">,</span> <span class="n">total_amount</span><span class="p">,</span> <span class="n">subaward_amount</span></div>
 
 
+<div class="viewcode-block" id="filter_employment_for_advisees"><a class="viewcode-back" href="../../api/tools.html#regolith.tools.filter_employment_for_advisees">[docs]</a><span class="k">def</span> <span class="nf">filter_employment_for_advisees</span><span class="p">(</span><span class="n">people</span><span class="p">,</span> <span class="n">begin_period</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">active</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="n">advisees</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">people</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">p</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;employment&quot;</span><span class="p">,</span> <span class="p">[]):</span>
+            <span class="k">if</span> <span class="n">i</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;status&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="n">status</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">i</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;end_year&quot;</span><span class="p">):</span>
+                    <span class="n">end_date</span> <span class="o">=</span> <span class="n">date</span><span class="p">(</span><span class="n">i</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;end_year&quot;</span><span class="p">),</span>
+                                    <span class="n">month_to_int</span><span class="p">(</span><span class="n">i</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;end_month&quot;</span><span class="p">,</span> <span class="mi">12</span><span class="p">)),</span>
+                                    <span class="n">i</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;end_day&quot;</span><span class="p">,</span> <span class="mi">28</span><span class="p">))</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">end_date</span> <span class="o">=</span> <span class="n">date</span><span class="o">.</span><span class="n">today</span><span class="p">()</span>
+                    <span class="n">i</span><span class="p">[</span><span class="s2">&quot;end_year&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">end_date</span><span class="o">.</span><span class="n">year</span>
+                <span class="k">if</span> <span class="n">end_date</span> <span class="o">&gt;=</span> <span class="n">begin_period</span><span class="p">:</span>
+                    <span class="n">p</span><span class="p">[</span><span class="s1">&#39;role&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">i</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;position&quot;</span><span class="p">)</span>
+                    <span class="n">p</span><span class="p">[</span><span class="s1">&#39;status&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">status</span>
+                    <span class="n">p</span><span class="p">[</span><span class="s1">&#39;end_year&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">i</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;end_year&quot;</span><span class="p">,</span> <span class="s2">&quot;n/a&quot;</span><span class="p">)</span>
+                    <span class="n">p</span><span class="p">[</span><span class="s1">&#39;position&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">i</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;position&quot;</span><span class="p">)</span>
+                    <span class="n">advisees</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+                    <span class="n">advisees</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="s1">&#39;end_year&#39;</span><span class="p">],</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">advisees</span></div>
+
+
+<div class="viewcode-block" id="filter_service"><a class="viewcode-back" href="../../api/tools.html#regolith.tools.filter_service">[docs]</a><span class="k">def</span> <span class="nf">filter_service</span><span class="p">(</span><span class="n">ppl</span><span class="p">,</span> <span class="n">begin_period</span><span class="p">,</span> <span class="nb">type</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="n">service</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">people</span> <span class="o">=</span> <span class="n">copy</span><span class="p">(</span><span class="n">ppl</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">people</span><span class="p">:</span>
+        <span class="n">myservice</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">svc</span> <span class="o">=</span> <span class="n">copy</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;service&quot;</span><span class="p">,</span> <span class="p">[]))</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">svc</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">i</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;type&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="nb">type</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">i</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;year&#39;</span><span class="p">):</span>
+                    <span class="n">end_year</span> <span class="o">=</span> <span class="n">i</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;year&#39;</span><span class="p">)</span>
+                    <span class="k">if</span> <span class="n">verbose</span><span class="p">:</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;end_year from </span><span class="si">{}</span><span class="s2"> = </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;name&quot;</span><span class="p">[:</span><span class="mi">10</span><span class="p">]),</span><span class="n">end_year</span><span class="p">))</span>
+                <span class="k">elif</span> <span class="n">i</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;end_year&#39;</span><span class="p">):</span>
+                    <span class="n">end_year</span> <span class="o">=</span> <span class="n">i</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;end_year&#39;</span><span class="p">)</span>
+                    <span class="k">if</span> <span class="n">verbose</span><span class="p">:</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;end_year from </span><span class="si">{}</span><span class="s2"> = </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;name&quot;</span><span class="p">[:</span><span class="mi">10</span><span class="p">]),</span><span class="n">end_year</span><span class="p">))</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">end_year</span> <span class="o">=</span> <span class="n">date</span><span class="o">.</span><span class="n">today</span><span class="p">()</span><span class="o">.</span><span class="n">year</span>
+                    <span class="k">if</span> <span class="n">verbose</span><span class="p">:</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;no end_year, using today = </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">end_year</span><span class="p">))</span>
+                <span class="n">end_date</span> <span class="o">=</span> <span class="n">date</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">end_year</span><span class="p">),</span>
+                                <span class="n">month_to_int</span><span class="p">(</span><span class="n">i</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;end_month&quot;</span><span class="p">,</span> <span class="mi">12</span><span class="p">)),</span>
+                                <span class="n">i</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;end_day&quot;</span><span class="p">,</span> <span class="mi">28</span><span class="p">))</span>
+                <span class="k">if</span> <span class="n">end_date</span> <span class="o">&gt;=</span> <span class="n">begin_period</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="ow">not</span> <span class="n">i</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;month&#39;</span><span class="p">):</span>
+                        <span class="n">month</span> <span class="o">=</span> <span class="n">i</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;begin_month&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+                        <span class="n">i</span><span class="p">[</span><span class="s1">&#39;month&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">SHORT_MONTH_NAMES</span><span class="p">[</span><span class="n">month_to_int</span><span class="p">(</span><span class="n">month</span><span class="p">)]</span>
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="n">i</span><span class="p">[</span><span class="s1">&#39;month&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">SHORT_MONTH_NAMES</span><span class="p">[</span><span class="n">month_to_int</span><span class="p">(</span><span class="n">i</span><span class="p">[</span><span class="s1">&#39;month&#39;</span><span class="p">])]</span>
+                    <span class="n">myservice</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+        <span class="n">p</span><span class="p">[</span><span class="s1">&#39;service&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">myservice</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">p</span><span class="p">[</span><span class="s1">&#39;service&#39;</span><span class="p">])</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">service</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">service</span></div>
+
+
+<div class="viewcode-block" id="filter_facilities"><a class="viewcode-back" href="../../api/tools.html#regolith.tools.filter_facilities">[docs]</a><span class="k">def</span> <span class="nf">filter_facilities</span><span class="p">(</span><span class="n">people</span><span class="p">,</span> <span class="n">begin_period</span><span class="p">,</span> <span class="nb">type</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="n">facilities</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">people</span><span class="p">:</span>
+        <span class="n">myfacility</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">svc</span> <span class="o">=</span> <span class="n">copy</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;facilities&quot;</span><span class="p">,</span> <span class="p">[]))</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">svc</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">i</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;type&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="nb">type</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">i</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;year&#39;</span><span class="p">):</span>
+                    <span class="n">end_year</span> <span class="o">=</span> <span class="n">i</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;year&#39;</span><span class="p">)</span>
+                <span class="k">elif</span> <span class="n">i</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;end_year&#39;</span><span class="p">):</span>
+                    <span class="n">end_year</span> <span class="o">=</span> <span class="n">i</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;end_year&#39;</span><span class="p">)</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">end_year</span> <span class="o">=</span> <span class="n">date</span><span class="o">.</span><span class="n">today</span><span class="p">()</span><span class="o">.</span><span class="n">year</span>
+                <span class="n">end_date</span> <span class="o">=</span> <span class="n">date</span><span class="p">(</span><span class="n">end_year</span><span class="p">,</span>
+                                <span class="n">i</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;end_month&quot;</span><span class="p">,</span> <span class="mi">12</span><span class="p">),</span>
+                                <span class="n">i</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;end_day&quot;</span><span class="p">,</span> <span class="mi">28</span><span class="p">))</span>
+                <span class="k">if</span> <span class="n">end_date</span> <span class="o">&gt;=</span> <span class="n">begin_period</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="ow">not</span> <span class="n">i</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;month&#39;</span><span class="p">):</span>
+                        <span class="n">month</span> <span class="o">=</span> <span class="n">i</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;begin_month&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+                        <span class="n">i</span><span class="p">[</span><span class="s1">&#39;month&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">SHORT_MONTH_NAMES</span><span class="p">[</span><span class="n">month_to_int</span><span class="p">(</span><span class="n">month</span><span class="p">)]</span>
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="n">i</span><span class="p">[</span><span class="s1">&#39;month&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">SHORT_MONTH_NAMES</span><span class="p">[</span><span class="n">month_to_int</span><span class="p">(</span><span class="n">i</span><span class="p">[</span><span class="s1">&#39;month&#39;</span><span class="p">])]</span>
+                    <span class="n">myfacility</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">verbose</span><span class="p">:</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;p[&#39;facilities&#39;] = </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">myfacility</span><span class="p">))</span>
+        <span class="n">p</span><span class="p">[</span><span class="s1">&#39;facilities&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">myfacility</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">p</span><span class="p">[</span><span class="s1">&#39;facilities&#39;</span><span class="p">])</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">facilities</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">facilities</span></div>
+
+
+<div class="viewcode-block" id="filter_patents"><a class="viewcode-back" href="../../api/tools.html#regolith.tools.filter_patents">[docs]</a><span class="k">def</span> <span class="nf">filter_patents</span><span class="p">(</span><span class="n">patentscoll</span><span class="p">,</span> <span class="n">people</span><span class="p">,</span> <span class="n">target</span><span class="p">,</span> <span class="n">since</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">before</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="n">patents</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">allowed_statuses</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;active&quot;</span><span class="p">,</span> <span class="s2">&quot;pending&quot;</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">patentscoll</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">i</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;status&quot;</span><span class="p">)</span> <span class="ow">in</span> <span class="n">allowed_statuses</span> <span class="ow">and</span> <span class="n">i</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;type&quot;</span><span class="p">)</span> <span class="ow">in</span> <span class="s2">&quot;patent&quot;</span><span class="p">:</span>
+            <span class="n">inventors</span> <span class="o">=</span> <span class="p">[</span>
+                <span class="n">fuzzy_retrieval</span><span class="p">(</span>
+                    <span class="n">people</span><span class="p">,</span>
+                    <span class="p">[</span><span class="s2">&quot;aka&quot;</span><span class="p">,</span> <span class="s2">&quot;name&quot;</span><span class="p">,</span> <span class="s2">&quot;_id&quot;</span><span class="p">],</span>
+                    <span class="n">inv</span><span class="p">,</span>
+                    <span class="n">case_sensitive</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                <span class="p">)</span>
+                <span class="k">for</span> <span class="n">inv</span> <span class="ow">in</span> <span class="n">i</span><span class="p">[</span><span class="s1">&#39;inventors&#39;</span><span class="p">]</span>
+            <span class="p">]</span>
+            <span class="n">person</span> <span class="o">=</span> <span class="n">fuzzy_retrieval</span><span class="p">(</span>
+                <span class="n">people</span><span class="p">,</span>
+                <span class="p">[</span><span class="s2">&quot;aka&quot;</span><span class="p">,</span> <span class="s2">&quot;name&quot;</span><span class="p">,</span> <span class="s2">&quot;_id&quot;</span><span class="p">],</span>
+                <span class="n">target</span><span class="p">,</span>
+                <span class="n">case_sensitive</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+            <span class="p">)</span>
+            <span class="k">if</span> <span class="n">person</span> <span class="ow">in</span> <span class="n">inventors</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">i</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;end_year&#39;</span><span class="p">):</span>
+                    <span class="n">end_year</span> <span class="o">=</span> <span class="n">i</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;end_year&#39;</span><span class="p">)</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">end_year</span> <span class="o">=</span> <span class="n">date</span><span class="o">.</span><span class="n">today</span><span class="p">()</span><span class="o">.</span><span class="n">year</span>
+                <span class="n">end_date</span> <span class="o">=</span> <span class="n">date</span><span class="p">(</span><span class="n">end_year</span><span class="p">,</span>
+                                <span class="n">i</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;end_month&quot;</span><span class="p">,</span> <span class="mi">12</span><span class="p">),</span>
+                                <span class="n">i</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;end_day&quot;</span><span class="p">,</span> <span class="mi">28</span><span class="p">))</span>
+                <span class="k">if</span> <span class="n">since</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="n">end_date</span> <span class="o">&gt;=</span> <span class="n">since</span><span class="p">:</span>
+                        <span class="k">if</span> <span class="ow">not</span> <span class="n">i</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;month&#39;</span><span class="p">):</span>
+                            <span class="n">month</span> <span class="o">=</span> <span class="n">i</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;begin_month&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+                            <span class="n">i</span><span class="p">[</span><span class="s1">&#39;month&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">SHORT_MONTH_NAMES</span><span class="p">[</span><span class="n">month_to_int</span><span class="p">(</span><span class="n">month</span><span class="p">)]</span>
+                        <span class="k">else</span><span class="p">:</span>
+                            <span class="n">i</span><span class="p">[</span><span class="s1">&#39;month&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">SHORT_MONTH_NAMES</span><span class="p">[</span>
+                                <span class="n">month_to_int</span><span class="p">(</span><span class="n">i</span><span class="p">[</span><span class="s1">&#39;month&#39;</span><span class="p">])]</span>
+
+                        <span class="n">events</span> <span class="o">=</span> <span class="p">[</span><span class="n">event</span> <span class="k">for</span> <span class="n">event</span> <span class="ow">in</span> <span class="n">i</span><span class="p">[</span><span class="s2">&quot;events&quot;</span><span class="p">]</span> <span class="k">if</span>
+                                  <span class="n">date</span><span class="p">(</span><span class="n">event</span><span class="p">[</span><span class="s2">&quot;year&quot;</span><span class="p">],</span> <span class="n">event</span><span class="p">[</span><span class="s2">&quot;month&quot;</span><span class="p">],</span>
+                                       <span class="n">event</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;day&quot;</span><span class="p">,</span> <span class="mi">28</span><span class="p">))</span> <span class="o">&gt;</span> <span class="n">since</span><span class="p">]</span>
+                        <span class="n">events</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">events</span><span class="p">,</span>
+                                        <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">event</span><span class="p">:</span> <span class="n">date</span><span class="p">(</span>
+                                            <span class="n">event</span><span class="p">[</span><span class="s2">&quot;year&quot;</span><span class="p">],</span>
+                                            <span class="n">event</span><span class="p">[</span><span class="s2">&quot;month&quot;</span><span class="p">],</span>
+                                            <span class="n">event</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;day&quot;</span><span class="p">,</span> <span class="mi">28</span><span class="p">)))</span>
+                        <span class="n">i</span><span class="p">[</span><span class="s2">&quot;events&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">events</span>
+                        <span class="n">patents</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">events</span> <span class="o">=</span> <span class="p">[</span><span class="n">event</span> <span class="k">for</span> <span class="n">event</span> <span class="ow">in</span> <span class="n">i</span><span class="p">[</span><span class="s2">&quot;events&quot;</span><span class="p">]]</span>
+                    <span class="n">events</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">events</span><span class="p">,</span>
+                                    <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">event</span><span class="p">:</span> <span class="n">date</span><span class="p">(</span><span class="n">event</span><span class="p">[</span><span class="s2">&quot;year&quot;</span><span class="p">],</span>
+                                                           <span class="n">event</span><span class="p">[</span><span class="s2">&quot;month&quot;</span><span class="p">],</span>
+                                                           <span class="mi">28</span><span class="p">))</span>
+                    <span class="n">i</span><span class="p">[</span><span class="s2">&quot;events&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">events</span>
+                    <span class="n">patents</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">patents</span></div>
+
+
+<div class="viewcode-block" id="filter_licenses"><a class="viewcode-back" href="../../api/tools.html#regolith.tools.filter_licenses">[docs]</a><span class="k">def</span> <span class="nf">filter_licenses</span><span class="p">(</span><span class="n">patentscoll</span><span class="p">,</span> <span class="n">people</span><span class="p">,</span> <span class="n">target</span><span class="p">,</span> <span class="n">since</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">before</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="n">licenses</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">allowed_statuses</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;active&quot;</span><span class="p">,</span> <span class="s2">&quot;pending&quot;</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">patentscoll</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">i</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;status&quot;</span><span class="p">)</span> <span class="ow">in</span> <span class="n">allowed_statuses</span> <span class="ow">and</span> <span class="n">i</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;type&quot;</span><span class="p">)</span> <span class="ow">in</span> <span class="s2">&quot;license&quot;</span><span class="p">:</span>
+            <span class="n">inventors</span> <span class="o">=</span> <span class="p">[</span>
+                <span class="n">fuzzy_retrieval</span><span class="p">(</span>
+                    <span class="n">people</span><span class="p">,</span>
+                    <span class="p">[</span><span class="s2">&quot;aka&quot;</span><span class="p">,</span> <span class="s2">&quot;name&quot;</span><span class="p">,</span> <span class="s2">&quot;_id&quot;</span><span class="p">],</span>
+                    <span class="n">inv</span><span class="p">,</span>
+                    <span class="n">case_sensitive</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                <span class="p">)</span>
+                <span class="k">for</span> <span class="n">inv</span> <span class="ow">in</span> <span class="n">i</span><span class="p">[</span><span class="s1">&#39;inventors&#39;</span><span class="p">]</span>
+            <span class="p">]</span>
+            <span class="n">person</span> <span class="o">=</span> <span class="n">fuzzy_retrieval</span><span class="p">(</span>
+                <span class="n">people</span><span class="p">,</span>
+                <span class="p">[</span><span class="s2">&quot;aka&quot;</span><span class="p">,</span> <span class="s2">&quot;name&quot;</span><span class="p">,</span> <span class="s2">&quot;_id&quot;</span><span class="p">],</span>
+                <span class="n">target</span><span class="p">,</span>
+                <span class="n">case_sensitive</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+            <span class="p">)</span>
+            <span class="k">if</span> <span class="n">person</span> <span class="ow">in</span> <span class="n">inventors</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">i</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;end_year&#39;</span><span class="p">):</span>
+                    <span class="n">end_year</span> <span class="o">=</span> <span class="n">i</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;end_year&#39;</span><span class="p">)</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">end_year</span> <span class="o">=</span> <span class="n">date</span><span class="o">.</span><span class="n">today</span><span class="p">()</span><span class="o">.</span><span class="n">year</span>
+                <span class="n">end_date</span> <span class="o">=</span> <span class="n">date</span><span class="p">(</span><span class="n">end_year</span><span class="p">,</span>
+                                <span class="n">i</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;end_month&quot;</span><span class="p">,</span> <span class="mi">12</span><span class="p">),</span>
+                                <span class="n">i</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;end_day&quot;</span><span class="p">,</span> <span class="mi">28</span><span class="p">))</span>
+                <span class="k">if</span> <span class="n">since</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="n">end_date</span> <span class="o">&gt;=</span> <span class="n">since</span><span class="p">:</span>
+                        <span class="k">if</span> <span class="ow">not</span> <span class="n">i</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;month&#39;</span><span class="p">):</span>
+                            <span class="n">month</span> <span class="o">=</span> <span class="n">i</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;begin_month&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+                            <span class="n">i</span><span class="p">[</span><span class="s1">&#39;month&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">SHORT_MONTH_NAMES</span><span class="p">[</span><span class="n">month_to_int</span><span class="p">(</span><span class="n">month</span><span class="p">)]</span>
+                        <span class="k">else</span><span class="p">:</span>
+                            <span class="n">i</span><span class="p">[</span><span class="s1">&#39;month&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">SHORT_MONTH_NAMES</span><span class="p">[</span>
+                                <span class="n">month_to_int</span><span class="p">(</span><span class="n">i</span><span class="p">[</span><span class="s1">&#39;month&#39;</span><span class="p">])]</span>
+                        <span class="n">total</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">([</span><span class="n">event</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;amount&quot;</span><span class="p">)</span> <span class="k">for</span> <span class="n">event</span> <span class="ow">in</span> <span class="n">i</span><span class="p">[</span><span class="s2">&quot;events&quot;</span><span class="p">]])</span>
+                        <span class="n">i</span><span class="p">[</span><span class="s2">&quot;total_amount&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">total</span>
+                        <span class="n">events</span> <span class="o">=</span> <span class="p">[</span><span class="n">event</span> <span class="k">for</span> <span class="n">event</span> <span class="ow">in</span> <span class="n">i</span><span class="p">[</span><span class="s2">&quot;events&quot;</span><span class="p">]</span> <span class="k">if</span>
+                                  <span class="n">date</span><span class="p">(</span><span class="n">event</span><span class="p">[</span><span class="s2">&quot;year&quot;</span><span class="p">],</span> <span class="n">event</span><span class="p">[</span><span class="s2">&quot;month&quot;</span><span class="p">],</span>
+                                       <span class="n">event</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;day&quot;</span><span class="p">,</span> <span class="mi">28</span><span class="p">))</span> <span class="o">&gt;</span> <span class="n">since</span><span class="p">]</span>
+                        <span class="n">events</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">events</span><span class="p">,</span>
+                                        <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">event</span><span class="p">:</span> <span class="n">date</span><span class="p">(</span><span class="n">event</span><span class="p">[</span><span class="s2">&quot;year&quot;</span><span class="p">],</span>
+                                                               <span class="n">event</span><span class="p">[</span><span class="s2">&quot;month&quot;</span><span class="p">],</span>
+                                                               <span class="n">event</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;day&quot;</span><span class="p">,</span> <span class="mi">28</span><span class="p">)))</span>
+                        <span class="n">i</span><span class="p">[</span><span class="s2">&quot;events&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">events</span>
+                        <span class="n">licenses</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">total</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">([</span><span class="n">event</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;amount&quot;</span><span class="p">)</span> <span class="k">for</span> <span class="n">event</span> <span class="ow">in</span> <span class="n">events</span><span class="p">])</span>
+                    <span class="n">i</span><span class="p">[</span><span class="s2">&quot;total_amount&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">total</span>
+                    <span class="n">events</span> <span class="o">=</span> <span class="p">[</span><span class="n">event</span> <span class="k">for</span> <span class="n">event</span> <span class="ow">in</span> <span class="n">i</span><span class="p">[</span><span class="s2">&quot;events&quot;</span><span class="p">]]</span>
+                    <span class="n">events</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">events</span><span class="p">,</span>
+                                    <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">event</span><span class="p">:</span> <span class="n">date</span><span class="p">(</span><span class="n">event</span><span class="p">[</span><span class="s2">&quot;year&quot;</span><span class="p">],</span>
+                                                           <span class="n">event</span><span class="p">[</span><span class="s2">&quot;month&quot;</span><span class="p">],</span>
+                                                           <span class="mi">28</span><span class="p">))</span>
+                    <span class="n">i</span><span class="p">[</span><span class="s2">&quot;events&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">events</span>
+                    <span class="n">licenses</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">licenses</span></div>
+
+
+<div class="viewcode-block" id="filter_activities"><a class="viewcode-back" href="../../api/tools.html#regolith.tools.filter_activities">[docs]</a><span class="k">def</span> <span class="nf">filter_activities</span><span class="p">(</span><span class="n">people</span><span class="p">,</span> <span class="n">begin_period</span><span class="p">,</span> <span class="nb">type</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="n">activities</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">people</span><span class="p">:</span>
+        <span class="n">myactivity</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">svc</span> <span class="o">=</span> <span class="n">copy</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;activities&quot;</span><span class="p">,</span> <span class="p">[]))</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">svc</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">i</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;type&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="nb">type</span><span class="p">:</span>
+                <span class="c1"># if i.get(&#39;year&#39;):</span>
+                <span class="c1">#     end_year = i.get(&#39;year&#39;)</span>
+                <span class="c1">#     if verbose: print(&quot;end_year from &#39;year&#39; = {}&quot;.format(end_year))</span>
+                <span class="c1"># elif i.get(&#39;end_year&#39;):</span>
+                <span class="c1">#     end_year = i.get(&#39;end_year&#39;)</span>
+                <span class="c1">#     if verbose: print(&quot;end_year from &#39;end_year&#39; = {}&quot;.format(end_year))</span>
+                <span class="c1"># else:</span>
+                <span class="c1">#     end_year = date.today().year</span>
+                <span class="c1">#     if verbose: print(&quot;no end_year, using today = {}&quot;.format(end_year))                                i.get(&quot;end_month&quot;, 12),</span>
+                <span class="c1">#                 i.get(&quot;end_day&quot;, last_day(end_year,  i.get(&quot;end_month&quot;)))</span>
+                <span class="c1"># if verbose: print(&quot;end_date = {} and begin_period = {}&quot;.format(end_date,begin_period))</span>
+                <span class="c1"># if verbose: print(&quot;condition end_date &gt;= begin_period will be used&quot;)</span>
+                <span class="n">idates</span> <span class="o">=</span> <span class="n">get_dates</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">idates</span><span class="p">[</span><span class="s2">&quot;end_date&quot;</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="n">begin_period</span><span class="p">:</span>
+                    <span class="n">usedate</span> <span class="o">=</span> <span class="n">idates</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;begin_date&#39;</span><span class="p">,</span> <span class="n">idates</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;date&#39;</span><span class="p">))</span>
+                    <span class="n">i</span><span class="p">[</span><span class="s1">&#39;year&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">usedate</span><span class="o">.</span><span class="n">year</span>
+                    <span class="n">i</span><span class="p">[</span><span class="s1">&#39;month&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">SHORT_MONTH_NAMES</span><span class="p">[</span><span class="n">month_to_int</span><span class="p">(</span><span class="n">usedate</span><span class="o">.</span><span class="n">month</span><span class="p">)]</span>
+                    <span class="n">myactivity</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+        <span class="n">p</span><span class="p">[</span><span class="s1">&#39;activities&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">myactivity</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">p</span><span class="p">[</span><span class="s1">&#39;activities&#39;</span><span class="p">])</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">activities</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">activities</span></div>
+
+
+<div class="viewcode-block" id="filter_presentations"><a class="viewcode-back" href="../../api/tools.html#regolith.tools.filter_presentations">[docs]</a><span class="k">def</span> <span class="nf">filter_presentations</span><span class="p">(</span><span class="n">people</span><span class="p">,</span> <span class="n">presentations</span><span class="p">,</span> <span class="n">institutions</span><span class="p">,</span> <span class="n">target</span><span class="p">,</span> <span class="n">types</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;all&quot;</span><span class="p">],</span>
+                         <span class="n">since</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">before</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">statuses</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;accepted&quot;</span><span class="p">]):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    filters presentations for different types and date ranges</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    people: iterable of dicts</span>
+<span class="sd">      The people collection</span>
+<span class="sd">    presentations: iterable of dicts</span>
+<span class="sd">      The presentations collection</span>
+<span class="sd">    institutions: iterable of dicts</span>
+<span class="sd">      The institutions collection</span>
+<span class="sd">    target: str</span>
+<span class="sd">      The id of the person you will build the list for</span>
+<span class="sd">    types: list of strings.  Optional, default = all</span>
+<span class="sd">      The types to filter for.  Allowed types are</span>
+<span class="sd">        &quot;all&quot;,</span>
+<span class="sd">        &quot;award&quot;</span>
+<span class="sd">        &quot;plenary&quot;</span>
+<span class="sd">        &quot;keynote&quot;</span>
+<span class="sd">        &quot;invited&quot;</span>
+<span class="sd">        &quot;colloquium&quot;</span>
+<span class="sd">        &quot;seminar&quot;</span>
+<span class="sd">        &quot;tutorial&quot;</span>
+<span class="sd">        &quot;contributed-oral&quot;</span>
+<span class="sd">        &quot;poster&quot;</span>
+<span class="sd">    since: date.  Optional, default is None</span>
+<span class="sd">        The begin date to filter from</span>
+<span class="sd">    before: date. Optional, default is None</span>
+<span class="sd">        The end date to filter for.  None does not apply this filter</span>
+<span class="sd">    statuses: list of str.  Optional. Default is accepted</span>
+<span class="sd">      The list of statuses to filter for.  Allowed statuses are</span>
+<span class="sd">        &quot;all&quot;</span>
+<span class="sd">        &quot;accepted&quot;</span>
+<span class="sd">        &quot;declined&quot;</span>
+<span class="sd">        &quot;cancelled&quot;</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    list of presentation documents</span>
+
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="n">presentations</span> <span class="o">=</span> <span class="n">deepcopy</span><span class="p">(</span><span class="n">presentations</span><span class="p">)</span>
+
+    <span class="n">firstclean</span> <span class="o">=</span> <span class="nb">list</span><span class="p">()</span>
+    <span class="n">secondclean</span> <span class="o">=</span> <span class="nb">list</span><span class="p">()</span>
+    <span class="n">thirdclean</span> <span class="o">=</span> <span class="nb">list</span><span class="p">()</span>
+    <span class="n">fourthclean</span> <span class="o">=</span> <span class="nb">list</span><span class="p">()</span>
+    <span class="n">presclean</span> <span class="o">=</span> <span class="nb">list</span><span class="p">()</span>
+
+    <span class="c1"># build the filtered collection</span>
+    <span class="c1"># only list the talk if the group member is an author</span>
+    <span class="k">for</span> <span class="n">pres</span> <span class="ow">in</span> <span class="n">presentations</span><span class="p">:</span>
+        <span class="n">pauthors</span> <span class="o">=</span> <span class="n">pres</span><span class="p">[</span><span class="s2">&quot;authors&quot;</span><span class="p">]</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">pauthors</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+            <span class="n">pauthors</span> <span class="o">=</span> <span class="p">[</span><span class="n">pauthors</span><span class="p">]</span>
+        <span class="n">authors</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="n">fuzzy_retrieval</span><span class="p">(</span>
+                <span class="n">people</span><span class="p">,</span>
+                <span class="p">[</span><span class="s2">&quot;aka&quot;</span><span class="p">,</span> <span class="s2">&quot;name&quot;</span><span class="p">,</span> <span class="s2">&quot;_id&quot;</span><span class="p">],</span>
+                <span class="n">author</span><span class="p">,</span>
+                <span class="n">case_sensitive</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+            <span class="p">)</span>
+            <span class="k">for</span> <span class="n">author</span> <span class="ow">in</span> <span class="n">pauthors</span>
+        <span class="p">]</span>
+        <span class="n">authorids</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="n">author</span><span class="p">[</span><span class="s2">&quot;_id&quot;</span><span class="p">]</span>
+            <span class="k">for</span> <span class="n">author</span> <span class="ow">in</span> <span class="n">authors</span>
+            <span class="k">if</span> <span class="n">author</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
+        <span class="p">]</span>
+        <span class="k">if</span> <span class="n">target</span> <span class="ow">in</span> <span class="n">authorids</span><span class="p">:</span>
+            <span class="n">firstclean</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">pres</span><span class="p">)</span>
+    <span class="c1"># only list the presentation if it has status in statuses</span>
+    <span class="k">for</span> <span class="n">pres</span> <span class="ow">in</span> <span class="n">firstclean</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">pres</span><span class="p">[</span><span class="s2">&quot;status&quot;</span><span class="p">]</span> <span class="ow">in</span> <span class="n">statuses</span> <span class="ow">or</span> <span class="s2">&quot;all&quot;</span> <span class="ow">in</span> <span class="n">statuses</span><span class="p">:</span>
+            <span class="n">secondclean</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">pres</span><span class="p">)</span>
+    <span class="c1"># only list the presentation if it has type in types</span>
+    <span class="k">for</span> <span class="n">pres</span> <span class="ow">in</span> <span class="n">secondclean</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">pres</span><span class="p">[</span><span class="s2">&quot;type&quot;</span><span class="p">]</span> <span class="ow">in</span> <span class="n">types</span> <span class="ow">or</span> <span class="s2">&quot;all&quot;</span> <span class="ow">in</span> <span class="n">types</span><span class="p">:</span>
+            <span class="n">thirdclean</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">pres</span><span class="p">)</span>
+    <span class="c1"># if specified, only list presentations in specified date ranges</span>
+    <span class="k">if</span> <span class="n">since</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">pres</span> <span class="ow">in</span> <span class="n">thirdclean</span><span class="p">:</span>
+            <span class="n">presdate</span> <span class="o">=</span> <span class="n">date</span><span class="p">((</span><span class="n">pres</span><span class="p">[</span><span class="s2">&quot;begin_year&quot;</span><span class="p">]),</span>
+                            <span class="n">month_to_int</span><span class="p">(</span><span class="n">pres</span><span class="p">[</span><span class="s2">&quot;begin_month&quot;</span><span class="p">]),</span>
+                            <span class="nb">int</span><span class="p">(</span><span class="n">pres</span><span class="p">[</span><span class="s2">&quot;begin_day&quot;</span><span class="p">]))</span>
+            <span class="k">if</span> <span class="n">presdate</span> <span class="o">&gt;</span> <span class="n">since</span><span class="p">:</span>
+                <span class="n">fourthclean</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">pres</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">fourthclean</span> <span class="o">=</span> <span class="n">thirdclean</span>
+    <span class="k">if</span> <span class="n">before</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">pres</span> <span class="ow">in</span> <span class="n">fourthclean</span><span class="p">:</span>
+            <span class="n">presdate</span> <span class="o">=</span> <span class="n">date</span><span class="p">((</span><span class="n">pres</span><span class="p">[</span><span class="s2">&quot;begin_year&quot;</span><span class="p">]),</span>
+                            <span class="n">month_to_int</span><span class="p">(</span><span class="n">pres</span><span class="p">[</span><span class="s2">&quot;begin_month&quot;</span><span class="p">]),</span>
+                            <span class="nb">int</span><span class="p">(</span><span class="n">pres</span><span class="p">[</span><span class="s2">&quot;begin_day&quot;</span><span class="p">]))</span>
+            <span class="k">if</span> <span class="n">presdate</span> <span class="o">&lt;</span> <span class="n">before</span><span class="p">:</span>
+                <span class="n">presclean</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">pres</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">presclean</span> <span class="o">=</span> <span class="n">fourthclean</span>
+
+    <span class="c1"># build author list</span>
+    <span class="k">for</span> <span class="n">pres</span> <span class="ow">in</span> <span class="n">presclean</span><span class="p">:</span>
+        <span class="n">pauthors</span> <span class="o">=</span> <span class="n">pres</span><span class="p">[</span><span class="s2">&quot;authors&quot;</span><span class="p">]</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">pauthors</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+            <span class="n">pauthors</span> <span class="o">=</span> <span class="p">[</span><span class="n">pauthors</span><span class="p">]</span>
+        <span class="n">pres</span><span class="p">[</span><span class="s2">&quot;authors&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="n">author</span>
+            <span class="k">if</span> <span class="n">fuzzy_retrieval</span><span class="p">(</span>
+                <span class="n">people</span><span class="p">,</span>
+                <span class="p">[</span><span class="s2">&quot;aka&quot;</span><span class="p">,</span> <span class="s2">&quot;name&quot;</span><span class="p">,</span> <span class="s2">&quot;_id&quot;</span><span class="p">],</span>
+                <span class="n">author</span><span class="p">,</span>
+                <span class="n">case_sensitive</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+            <span class="p">)</span>
+               <span class="ow">is</span> <span class="kc">None</span>
+            <span class="k">else</span> <span class="n">fuzzy_retrieval</span><span class="p">(</span>
+                <span class="n">people</span><span class="p">,</span>
+                <span class="p">[</span><span class="s2">&quot;aka&quot;</span><span class="p">,</span> <span class="s2">&quot;name&quot;</span><span class="p">,</span> <span class="s2">&quot;_id&quot;</span><span class="p">],</span>
+                <span class="n">author</span><span class="p">,</span>
+                <span class="n">case_sensitive</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+            <span class="p">)[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span>
+            <span class="k">for</span> <span class="n">author</span> <span class="ow">in</span> <span class="n">pauthors</span>
+        <span class="p">]</span>
+        <span class="n">authorlist</span> <span class="o">=</span> <span class="s2">&quot;, &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">pres</span><span class="p">[</span><span class="s2">&quot;authors&quot;</span><span class="p">])</span>
+        <span class="n">pres</span><span class="p">[</span><span class="s2">&quot;authors&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">authorlist</span>
+        <span class="n">pres</span><span class="p">[</span><span class="s2">&quot;begin_month&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">month_to_int</span><span class="p">(</span><span class="n">pres</span><span class="p">[</span><span class="s2">&quot;begin_month&quot;</span><span class="p">])</span>
+        <span class="n">pres</span><span class="p">[</span><span class="s2">&quot;date&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">date</span><span class="p">(</span>
+            <span class="n">pres</span><span class="p">[</span><span class="s2">&quot;begin_year&quot;</span><span class="p">],</span>
+            <span class="n">pres</span><span class="p">[</span><span class="s2">&quot;begin_month&quot;</span><span class="p">],</span>
+            <span class="n">pres</span><span class="p">[</span><span class="s2">&quot;begin_day&quot;</span><span class="p">],</span>
+        <span class="p">)</span>
+        <span class="k">for</span> <span class="n">day</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;begin_day&quot;</span><span class="p">,</span> <span class="s2">&quot;end_day&quot;</span><span class="p">]:</span>
+            <span class="n">pres</span><span class="p">[</span><span class="s2">&quot;</span><span class="si">{}</span><span class="s2">_suffix&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">day</span><span class="p">)]</span> <span class="o">=</span> <span class="n">number_suffix</span><span class="p">(</span>
+                <span class="n">pres</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">day</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+            <span class="p">)</span>
+        <span class="k">if</span> <span class="s2">&quot;institution&quot;</span> <span class="ow">in</span> <span class="n">pres</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">pres</span><span class="p">[</span><span class="s2">&quot;institution&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">fuzzy_retrieval</span><span class="p">(</span>
+                    <span class="n">institutions</span><span class="p">,</span>
+                    <span class="p">[</span><span class="s2">&quot;aka&quot;</span><span class="p">,</span> <span class="s2">&quot;name&quot;</span><span class="p">,</span> <span class="s2">&quot;_id&quot;</span><span class="p">],</span>
+                    <span class="n">pres</span><span class="p">[</span><span class="s2">&quot;institution&quot;</span><span class="p">],</span>
+                    <span class="n">case_sensitive</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                <span class="p">)</span>
+                <span class="k">if</span> <span class="n">pres</span><span class="p">[</span><span class="s2">&quot;institution&quot;</span><span class="p">]</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                    <span class="nb">print</span><span class="p">(</span>
+                        <span class="s2">&quot;WARNING: department </span><span class="si">{}</span><span class="s2"> not found in&quot;</span>
+                        <span class="s2">&quot; </span><span class="si">{}</span><span class="s2"> in institutions.yml.  Pres list will&quot;</span>
+                        <span class="s2">&quot; build but please check this entry carefully and &quot;</span>
+                            <span class="s2">&quot;rerun to remove &quot;</span>
+                        <span class="s2">&quot;errors&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">pres</span><span class="p">[</span><span class="s2">&quot;institution&quot;</span><span class="p">],</span><span class="n">pres</span><span class="p">[</span><span class="s2">&quot;_id&quot;</span><span class="p">])</span>
+                    <span class="p">)</span>
+            <span class="k">except</span><span class="p">:</span>
+                <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span>
+                    <span class="s2">&quot;ERROR: institution </span><span class="si">{}</span><span class="s2"> not found in &quot;</span>
+                    <span class="s2">&quot;institutions.yml.  Please add and &quot;</span>
+                    <span class="s2">&quot;rerun&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">pres</span><span class="p">[</span><span class="s2">&quot;institution&quot;</span><span class="p">])</span>
+                <span class="p">)</span>
+            <span class="k">if</span> <span class="s2">&quot;department&quot;</span> <span class="ow">in</span> <span class="n">pres</span><span class="p">:</span>
+                <span class="k">try</span><span class="p">:</span>
+                    <span class="n">pres</span><span class="p">[</span><span class="s2">&quot;department&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pres</span><span class="p">[</span><span class="s2">&quot;institution&quot;</span><span class="p">][</span>
+                        <span class="s2">&quot;departments&quot;</span>
+                    <span class="p">][</span><span class="n">pres</span><span class="p">[</span><span class="s2">&quot;department&quot;</span><span class="p">]]</span>
+                <span class="k">except</span><span class="p">:</span>
+                    <span class="nb">print</span><span class="p">(</span>
+                        <span class="s2">&quot;WARNING: department </span><span class="si">{}</span><span class="s2"> not found in&quot;</span>
+                        <span class="s2">&quot; </span><span class="si">{}</span><span class="s2"> in institutions.yml.  Pres list will&quot;</span>
+                        <span class="s2">&quot; build but please check this entry carefully and&quot;</span>
+                        <span class="s2">&quot; please add the dept to the institution!&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                            <span class="n">pres</span><span class="p">[</span><span class="s2">&quot;department&quot;</span><span class="p">],</span>
+                            <span class="n">pres</span><span class="p">[</span><span class="s2">&quot;institution&quot;</span><span class="p">],</span>
+                        <span class="p">)</span>
+                    <span class="p">)</span>
+                    <span class="n">pres</span><span class="p">[</span><span class="s2">&quot;department&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+                        <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="n">pres</span><span class="p">[</span><span class="s2">&quot;department&quot;</span><span class="p">]</span>
+                    <span class="p">}</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">presclean</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">presclean</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span>
+            <span class="n">presclean</span><span class="p">,</span>
+            <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">k</span><span class="p">:</span> <span class="n">k</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;date&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
+            <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+        <span class="p">)</span>
+    <span class="k">return</span> <span class="n">presclean</span></div>
+
+
 <div class="viewcode-block" id="awards_grants_honors"><a class="viewcode-back" href="../../api/tools.html#regolith.tools.awards_grants_honors">[docs]</a><span class="k">def</span> <span class="nf">awards_grants_honors</span><span class="p">(</span><span class="n">p</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Make sorted awards grants and honors list.</span>
 
@@ -297,17 +765,18 @@
 <span class="sd">        The person entry</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">aghs</span> <span class="o">=</span> <span class="p">[]</span>
-    <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">p</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;funding&quot;</span><span class="p">,</span> <span class="p">()):</span>
-        <span class="n">d</span> <span class="o">=</span> <span class="p">{</span>
-            <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;</span><span class="si">{0}</span><span class="s2"> (</span><span class="si">{1}{2:,}</span><span class="s2">)&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
-                <span class="n">latex_safe</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]),</span>
-                <span class="n">x</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;currency&quot;</span><span class="p">,</span> <span class="s2">&quot;$&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;$&quot;</span><span class="p">,</span> <span class="s2">&quot;\$&quot;</span><span class="p">),</span>
-                <span class="n">x</span><span class="p">[</span><span class="s2">&quot;value&quot;</span><span class="p">],</span>
-            <span class="p">),</span>
-            <span class="s2">&quot;year&quot;</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="s2">&quot;year&quot;</span><span class="p">],</span>
-            <span class="s2">&quot;_key&quot;</span><span class="p">:</span> <span class="n">date_to_float</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="s2">&quot;year&quot;</span><span class="p">],</span> <span class="n">x</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;month&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)),</span>
-        <span class="p">}</span>
-        <span class="n">aghs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">p</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;funding&quot;</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">p</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;funding&quot;</span><span class="p">,</span> <span class="p">()):</span>
+            <span class="n">d</span> <span class="o">=</span> <span class="p">{</span>
+                <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;</span><span class="si">{0}</span><span class="s2"> (</span><span class="si">{1}{2:,}</span><span class="s2">)&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                    <span class="n">latex_safe</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]),</span>
+                    <span class="n">x</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;currency&quot;</span><span class="p">,</span> <span class="s2">&quot;$&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;$&quot;</span><span class="p">,</span> <span class="s2">&quot;\$&quot;</span><span class="p">),</span>
+                    <span class="n">x</span><span class="p">[</span><span class="s2">&quot;value&quot;</span><span class="p">],</span>
+                <span class="p">),</span>
+                <span class="s2">&quot;year&quot;</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="s2">&quot;year&quot;</span><span class="p">],</span>
+                <span class="s2">&quot;_key&quot;</span><span class="p">:</span> <span class="n">date_to_float</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="s2">&quot;year&quot;</span><span class="p">],</span> <span class="n">x</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;month&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)),</span>
+            <span class="p">}</span>
+            <span class="n">aghs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
     <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">p</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;service&quot;</span><span class="p">,</span> <span class="p">[])</span> <span class="o">+</span> <span class="n">p</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;honors&quot;</span><span class="p">,</span> <span class="p">[]):</span>
         <span class="n">d</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="n">latex_safe</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">])}</span>
         <span class="k">if</span> <span class="s2">&quot;year&quot;</span> <span class="ow">in</span> <span class="n">x</span><span class="p">:</span>
@@ -332,6 +801,44 @@
         <span class="n">aghs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
     <span class="n">aghs</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;_key&quot;</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)),</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">aghs</span></div>
+
+<div class="viewcode-block" id="awards"><a class="viewcode-back" href="../../api/tools.html#regolith.tools.awards">[docs]</a><span class="k">def</span> <span class="nf">awards</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">since</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">before</span><span class="o">=</span><span class="kc">None</span><span class="p">,):</span>
+    <span class="sd">&quot;&quot;&quot;Make sorted awards and honors</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    p : dict</span>
+<span class="sd">        The person entry</span>
+<span class="sd">    since : date.  Optional, default is None</span>
+<span class="sd">        The begin date to filter from</span>
+<span class="sd">    before : date. Optional, default is None</span>
+<span class="sd">        The end date to filter for.  None does not apply this filter</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">since</span><span class="p">:</span> <span class="n">since</span> <span class="o">=</span> <span class="n">date</span><span class="p">(</span><span class="mi">1500</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">p</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;honors&quot;</span><span class="p">,</span> <span class="p">[]):</span>
+        <span class="k">if</span> <span class="s2">&quot;year&quot;</span> <span class="ow">in</span> <span class="n">x</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">date</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;year&quot;</span><span class="p">),</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">31</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">since</span><span class="p">:</span>
+                <span class="n">d</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="n">latex_safe</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]),</span> <span class="s2">&quot;year&quot;</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="s2">&quot;year&quot;</span><span class="p">],</span>
+                     <span class="s2">&quot;_key&quot;</span><span class="p">:</span> <span class="n">date_to_float</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="s2">&quot;year&quot;</span><span class="p">],</span> <span class="n">x</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;month&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">))}</span>
+                <span class="n">a</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="s2">&quot;begin_year&quot;</span> <span class="ow">in</span> <span class="n">x</span> <span class="ow">and</span> <span class="s2">&quot;end_year&quot;</span> <span class="ow">in</span> <span class="n">x</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">date</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;begin_year&quot;</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">31</span><span class="p">))</span> <span class="o">&gt;</span> <span class="n">since</span><span class="p">:</span>
+                <span class="n">d</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="n">latex_safe</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]),</span>
+                     <span class="s2">&quot;year&quot;</span><span class="p">:</span> <span class="s2">&quot;</span><span class="si">{}</span><span class="s2">-</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="s2">&quot;begin_year&quot;</span><span class="p">],</span> <span class="n">x</span><span class="p">[</span><span class="s2">&quot;end_year&quot;</span><span class="p">]),</span>
+                     <span class="s2">&quot;_key&quot;</span><span class="p">:</span> <span class="n">date_to_float</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="s2">&quot;begin_year&quot;</span><span class="p">],</span> <span class="n">x</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;month&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)),</span>
+                     <span class="p">}</span>
+                <span class="n">a</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="s2">&quot;begin_year&quot;</span> <span class="ow">in</span> <span class="n">x</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">date</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;begin_year&quot;</span><span class="p">),</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">31</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">since</span><span class="p">:</span>
+                <span class="n">d</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="n">latex_safe</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]),</span>
+                     <span class="s2">&quot;year&quot;</span><span class="p">:</span> <span class="s2">&quot;</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="s2">&quot;begin_year&quot;</span><span class="p">]),</span>
+                     <span class="s2">&quot;_key&quot;</span><span class="p">:</span> <span class="n">date_to_float</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="s2">&quot;begin_year&quot;</span><span class="p">],</span> <span class="n">x</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;month&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)),</span>
+                     <span class="p">}</span>
+                <span class="n">a</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
+    <span class="n">a</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;_key&quot;</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)),</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">a</span></div>
 
 
 <span class="n">HTTP_RE</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span>
@@ -405,7 +912,9 @@
         <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">ent</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
             <span class="k">if</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">skip_keys</span><span class="p">:</span>
                 <span class="k">continue</span>
-            <span class="n">ent</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">latex_safe</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">ent</span><span class="p">[</span><span class="n">key</span><span class="p">]))</span>
+            <span class="c1"># don&#39;t think I want the bibfile entries to be latex safe</span>
+            <span class="c1"># ent[key] = latex_safe(ent[key])</span>
+            <span class="n">ent</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">ent</span><span class="p">[</span><span class="n">key</span><span class="p">])</span>
         <span class="n">ents</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ent</span><span class="p">)</span>
     <span class="n">fname</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">person_dir</span><span class="p">,</span> <span class="n">pid</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;.bib&quot;</span>
     <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
@@ -830,6 +1339,13 @@
                     <span class="n">ret_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">doc</span><span class="p">)</span>
                     <span class="k">break</span>
     <span class="k">return</span> <span class="n">ret_list</span></div>
+
+<div class="viewcode-block" id="get_id_from_name"><a class="viewcode-back" href="../../api/tools.html#regolith.tools.get_id_from_name">[docs]</a><span class="k">def</span> <span class="nf">get_id_from_name</span><span class="p">(</span><span class="n">coll</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+    <span class="n">person</span> <span class="o">=</span> <span class="n">fuzzy_retrieval</span><span class="p">(</span><span class="n">coll</span><span class="p">,[</span><span class="s2">&quot;name&quot;</span><span class="p">,</span> <span class="s2">&quot;aka&quot;</span><span class="p">,</span> <span class="s2">&quot;_id&quot;</span><span class="p">],</span> <span class="n">name</span><span class="p">,</span>
+                             <span class="n">case_sensitive</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">person</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">person</span><span class="p">[</span><span class="s2">&quot;_id&quot;</span><span class="p">]</span>
+    <span class="k">else</span><span class="p">:</span> <span class="k">return</span> <span class="kc">None</span></div>
 </pre></div>
 
           </div>

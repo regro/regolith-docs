@@ -74,6 +74,21 @@ database.</p>
 </dd></dl>
 
 <dl class="function">
+<dt id="regolith.tools.awards">
+<code class="sig-prename descclassname">regolith.tools.</code><code class="sig-name descname">awards</code><span class="sig-paren">(</span><em class="sig-param">p</em>, <em class="sig-param">since=None</em>, <em class="sig-param">before=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#awards"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.tools.awards" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make sorted awards and honors</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p</strong> (<em>dict</em>) – The person entry</p></li>
+<li><p><strong>since</strong> (<em>date.  Optional, default is None</em>) – The begin date to filter from</p></li>
+<li><p><strong>before</strong> (<em>date. Optional, default is None</em>) – The end date to filter for.  None does not apply this filter</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
 <dt id="regolith.tools.awards_grants_honors">
 <code class="sig-prename descclassname">regolith.tools.</code><code class="sig-name descname">awards_grants_honors</code><span class="sig-paren">(</span><em class="sig-param">p</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#awards_grants_honors"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.tools.awards_grants_honors" title="Permalink to this definition">¶</a></dt>
 <dd><p>Make sorted awards grants and honors list.</p>
@@ -146,6 +161,21 @@ cond is false.</p>
 </dd></dl>
 
 <dl class="function">
+<dt id="regolith.tools.filter_activities">
+<code class="sig-prename descclassname">regolith.tools.</code><code class="sig-name descname">filter_activities</code><span class="sig-paren">(</span><em class="sig-param">people</em>, <em class="sig-param">begin_period</em>, <em class="sig-param">type</em>, <em class="sig-param">verbose=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#filter_activities"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.tools.filter_activities" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="regolith.tools.filter_employment_for_advisees">
+<code class="sig-prename descclassname">regolith.tools.</code><code class="sig-name descname">filter_employment_for_advisees</code><span class="sig-paren">(</span><em class="sig-param">people</em>, <em class="sig-param">begin_period</em>, <em class="sig-param">status</em>, <em class="sig-param">active=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#filter_employment_for_advisees"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.tools.filter_employment_for_advisees" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="regolith.tools.filter_facilities">
+<code class="sig-prename descclassname">regolith.tools.</code><code class="sig-name descname">filter_facilities</code><span class="sig-paren">(</span><em class="sig-param">people</em>, <em class="sig-param">begin_period</em>, <em class="sig-param">type</em>, <em class="sig-param">verbose=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#filter_facilities"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.tools.filter_facilities" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
 <dt id="regolith.tools.filter_grants">
 <code class="sig-prename descclassname">regolith.tools.</code><code class="sig-name descname">filter_grants</code><span class="sig-paren">(</span><em class="sig-param">input_grants</em>, <em class="sig-param">names</em>, <em class="sig-param">pi=True</em>, <em class="sig-param">reverse=True</em>, <em class="sig-param">multi_pi=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#filter_grants"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.tools.filter_grants" title="Permalink to this definition">¶</a></dt>
 <dd><p>Filter grants by those involved</p>
@@ -163,15 +193,83 @@ cond is false.</p>
 </dd></dl>
 
 <dl class="function">
+<dt id="regolith.tools.filter_licenses">
+<code class="sig-prename descclassname">regolith.tools.</code><code class="sig-name descname">filter_licenses</code><span class="sig-paren">(</span><em class="sig-param">patentscoll</em>, <em class="sig-param">people</em>, <em class="sig-param">target</em>, <em class="sig-param">since=None</em>, <em class="sig-param">before=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#filter_licenses"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.tools.filter_licenses" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="regolith.tools.filter_patents">
+<code class="sig-prename descclassname">regolith.tools.</code><code class="sig-name descname">filter_patents</code><span class="sig-paren">(</span><em class="sig-param">patentscoll</em>, <em class="sig-param">people</em>, <em class="sig-param">target</em>, <em class="sig-param">since=None</em>, <em class="sig-param">before=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#filter_patents"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.tools.filter_patents" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="regolith.tools.filter_presentations">
+<code class="sig-prename descclassname">regolith.tools.</code><code class="sig-name descname">filter_presentations</code><span class="sig-paren">(</span><em class="sig-param">people, presentations, institutions, target, types=['all'], since=None, before=None, statuses=['accepted']</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#filter_presentations"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.tools.filter_presentations" title="Permalink to this definition">¶</a></dt>
+<dd><p>filters presentations for different types and date ranges</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul>
+<li><p><strong>people</strong> (<em>iterable of dicts</em>) – The people collection</p></li>
+<li><p><strong>presentations</strong> (<em>iterable of dicts</em>) – The presentations collection</p></li>
+<li><p><strong>institutions</strong> (<em>iterable of dicts</em>) – The institutions collection</p></li>
+<li><p><strong>target</strong> (<em>str</em>) – The id of the person you will build the list for</p></li>
+<li><p><strong>types</strong> (<em>list of strings.  Optional, default = all</em>) –</p>
+<dl class="simple">
+<dt>The types to filter for.  Allowed types are</dt><dd><p>“all”,
+“award”
+“plenary”
+“keynote”
+“invited”
+“colloquium”
+“seminar”
+“tutorial”
+“contributed-oral”
+“poster”</p>
+</dd>
+</dl>
+</li>
+<li><p><strong>since</strong> (<em>date.  Optional, default is None</em>) – The begin date to filter from</p></li>
+<li><p><strong>before</strong> (<em>date. Optional, default is None</em>) – The end date to filter for.  None does not apply this filter</p></li>
+<li><p><strong>statuses</strong> (<em>list of str.  Optional. Default is accepted</em>) –</p>
+<dl class="simple">
+<dt>The list of statuses to filter for.  Allowed statuses are</dt><dd><p>“all”
+“accepted”
+“declined”
+“cancelled”</p>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>list of presentation documents</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
 <dt id="regolith.tools.filter_projects">
-<code class="sig-prename descclassname">regolith.tools.</code><code class="sig-name descname">filter_projects</code><span class="sig-paren">(</span><em class="sig-param">projects</em>, <em class="sig-param">authors</em>, <em class="sig-param">reverse=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#filter_projects"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.tools.filter_projects" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">regolith.tools.</code><code class="sig-name descname">filter_projects</code><span class="sig-paren">(</span><em class="sig-param">projects</em>, <em class="sig-param">people</em>, <em class="sig-param">reverse=False</em>, <em class="sig-param">active_only=False</em>, <em class="sig-param">group=None</em>, <em class="sig-param">ptype=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#filter_projects"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.tools.filter_projects" title="Permalink to this definition">¶</a></dt>
 <dd><p>Filter projects by the author(s)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>projects</strong> (<em>list of dict</em>) – The publication citations</p></li>
-<li><p><strong>authors</strong> (<em>set of list of str</em>) – The authors to be filtered against</p></li>
+<li><p><strong>people</strong> (<em>set of list of str</em>) – The people to be filtered against</p></li>
 <li><p><strong>reverse</strong> (<em>bool, optional</em>) – If True reverse the order, defaults to False</p></li>
+<li><p><strong>since</strong> (<em>date, optional</em>) – The date after which a highlight must be for a project to be returned,
+defaults to None</p></li>
+<li><p><strong>before</strong> (<em>date, optional</em>) – The date before which a highlight must be for a project to be returned,
+defaults to None</p></li>
+<li><p><strong>active_only</strong> (<em>bool, optional</em>) – Only active projects will be returned if True,
+defaults to False</p></li>
+<li><p><strong>group</strong> (<em>str, optional</em>) – Only projects from this group will be returned if specified, otherwise
+projects from all groups will be returned, defaults to None</p></li>
+<li><p><strong>ptype</strong> (<em>str, optional</em>) – The type of the project to filter for, such as ossoftware for open source
+software, defaults to None</p></li>
 </ul>
 </dd>
 </dl>
@@ -179,7 +277,7 @@ cond is false.</p>
 
 <dl class="function">
 <dt id="regolith.tools.filter_publications">
-<code class="sig-prename descclassname">regolith.tools.</code><code class="sig-name descname">filter_publications</code><span class="sig-paren">(</span><em class="sig-param">citations</em>, <em class="sig-param">authors</em>, <em class="sig-param">reverse=False</em>, <em class="sig-param">bold=True</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#filter_publications"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.tools.filter_publications" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">regolith.tools.</code><code class="sig-name descname">filter_publications</code><span class="sig-paren">(</span><em class="sig-param">citations</em>, <em class="sig-param">authors</em>, <em class="sig-param">reverse=False</em>, <em class="sig-param">bold=True</em>, <em class="sig-param">since=None</em>, <em class="sig-param">before=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#filter_publications"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.tools.filter_publications" title="Permalink to this definition">¶</a></dt>
 <dd><p>Filter publications by the author(s)/editor(s)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -188,10 +286,17 @@ cond is false.</p>
 <li><p><strong>authors</strong> (<em>set of str</em>) – The authors to be filtered against</p></li>
 <li><p><strong>reverse</strong> (<em>bool, optional</em>) – If True reverse the order, defaults to False</p></li>
 <li><p><strong>bold</strong> (<em>bool, optional</em>) – If True put latex bold around the author(s) in question</p></li>
+<li><p><strong>since</strong> (<em>date, optional</em>) – The date after which papers must have been published</p></li>
+<li><p><strong>before</strong> (<em>date, optional</em>) – The date before which papers must have been published</p></li>
 </ul>
 </dd>
 </dl>
 </dd></dl>
+
+<dl class="function">
+<dt id="regolith.tools.filter_service">
+<code class="sig-prename descclassname">regolith.tools.</code><code class="sig-name descname">filter_service</code><span class="sig-paren">(</span><em class="sig-param">ppl</em>, <em class="sig-param">begin_period</em>, <em class="sig-param">type</em>, <em class="sig-param">verbose=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#filter_service"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.tools.filter_service" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
 
 <dl class="function">
 <dt id="regolith.tools.fragment_retrieval">
@@ -252,6 +357,11 @@ multiple potential sources</p>
 </dd></dl>
 
 <dl class="function">
+<dt id="regolith.tools.get_id_from_name">
+<code class="sig-prename descclassname">regolith.tools.</code><code class="sig-name descname">get_id_from_name</code><span class="sig-paren">(</span><em class="sig-param">coll</em>, <em class="sig-param">name</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#get_id_from_name"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.tools.get_id_from_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
 <dt id="regolith.tools.get_person">
 <code class="sig-prename descclassname">regolith.tools.</code><code class="sig-name descname">get_person</code><span class="sig-paren">(</span><em class="sig-param">person_id</em>, <em class="sig-param">rc</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#get_person"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.tools.get_person" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get the person’s name.</p>
@@ -274,6 +384,11 @@ collections in the needed databases</p>
 </dd>
 </dl>
 </dd></dl>
+
+<dl class="function">
+<dt id="regolith.tools.get_team_from_grant">
+<code class="sig-prename descclassname">regolith.tools.</code><code class="sig-name descname">get_team_from_grant</code><span class="sig-paren">(</span><em class="sig-param">grantcol</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#get_team_from_grant"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.tools.get_team_from_grant" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
 
 <dl class="function">
 <dt id="regolith.tools.gets">

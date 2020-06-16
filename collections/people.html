@@ -76,20 +76,113 @@
 <dt class="field-even">active</dt>
 <dd class="field-even"><p>boolean, If the person is an active member, default True., optional</p>
 </dd>
+<dt class="field-odd">activities</dt>
+<dd class="field-odd"><p>list, activities may be teaching or research things, optional</p>
+<dl class="field-list">
+<dt class="field-odd">type</dt>
+<dd class="field-odd"><p>dict, optional</p>
+<dl class="field-list">
+<dt class="field-odd">day</dt>
+<dd class="field-odd"><p>integer, the day the activity took place, optional</p>
+</dd>
+<dt class="field-even">type</dt>
+<dd class="field-even"><p>string, the type of the acitivity, optional</p>
+<dl class="simple">
+<dt>Allowed values:</dt><dd><ul class="simple">
+<li><p>teaching</p></li>
+<li><p>research</p></li>
+</ul>
+</dd>
+</dl>
+</dd>
+<dt class="field-odd">month</dt>
+<dd class="field-odd"><p>[‘integer’, ‘string’], the month the activity took place, optional</p>
+</dd>
+<dt class="field-even">name</dt>
+<dd class="field-even"><p>string, brief statement of the activity, optional</p>
+</dd>
+<dt class="field-odd">other</dt>
+<dd class="field-odd"><p>string, longer statement of the activity, optional</p>
+</dd>
+<dt class="field-even">year</dt>
+<dd class="field-even"><p>integer, the year the activity took place, optional</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
 <dt class="field-odd">aka</dt>
 <dd class="field-odd"><p>[‘string’, ‘list’], list of aliases (also-known-as), useful for identifying the group member in citations or elsewhere., required</p>
 </dd>
-<dt class="field-even">avatar</dt>
-<dd class="field-even"><p>string, URL to avatar, required</p>
+<dt class="field-even">appointments</dt>
+<dd class="field-even"><p>dict, begin and end date, grant loading status and notes about appointments, optional</p>
 </dd>
-<dt class="field-odd">bio</dt>
-<dd class="field-odd"><p>string, short biographical text, required</p>
+<dt class="field-odd">avatar</dt>
+<dd class="field-odd"><p>string, URL to avatar, required</p>
 </dd>
-<dt class="field-even">bio_long</dt>
-<dd class="field-even"><p>string, longer biographical text if needed, optional</p>
+<dt class="field-even">bio</dt>
+<dd class="field-even"><p>string, short biographical text, required</p>
 </dd>
-<dt class="field-odd">collab</dt>
-<dd class="field-odd"><p>boolean, If the person is a collaborator, default False., optional</p>
+<dt class="field-odd">bios</dt>
+<dd class="field-odd"><p>[‘string’, ‘list’], longer biographical text if needed, optional</p>
+</dd>
+<dt class="field-even">collab</dt>
+<dd class="field-even"><p>boolean, If the person is a collaborator, default False., optional</p>
+</dd>
+<dt class="field-odd">committees</dt>
+<dd class="field-odd"><p>list, Committees that are served on, optional</p>
+<dl class="field-list">
+<dt class="field-odd">type</dt>
+<dd class="field-odd"><p>dict, optional</p>
+<dl class="field-list">
+<dt class="field-odd">name</dt>
+<dd class="field-odd"><p>string, name of committee, or person if it is a phd committee, optional</p>
+</dd>
+<dt class="field-even">day</dt>
+<dd class="field-even"><p>integer, optional</p>
+</dd>
+<dt class="field-odd">month</dt>
+<dd class="field-odd"><p>[‘string’, ‘integer’], optional</p>
+</dd>
+<dt class="field-even">notes</dt>
+<dd class="field-even"><p>[‘string’, ‘list’], extra things you want to record about the thing, optional</p>
+</dd>
+<dt class="field-odd">year</dt>
+<dd class="field-odd"><p>integer, optional</p>
+</dd>
+<dt class="field-even">unit</dt>
+<dd class="field-even"><p>string, name of department or school etc., optional</p>
+</dd>
+<dt class="field-odd">type</dt>
+<dd class="field-odd"><p>string, type of committee, department, school, university, external, optional</p>
+<dl class="simple">
+<dt>Allowed values:</dt><dd><ul class="simple">
+<li><p>phdoral</p></li>
+<li><p>phddefense</p></li>
+<li><p>phdproposal</p></li>
+<li><p>promotion</p></li>
+</ul>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">level</dt>
+<dd class="field-even"><p>string, department or school or university, or external, optional</p>
+<dl class="simple">
+<dt>Allowed values:</dt><dd><ul class="simple">
+<li><p>department</p></li>
+<li><p>school</p></li>
+<li><p>university</p></li>
+<li><p>external</p></li>
+</ul>
+</dd>
+</dl>
+</dd>
+<dt class="field-odd">group</dt>
+<dd class="field-odd"><p>string, this employment is/was ina group in groups coll, optional</p>
+</dd>
+</dl>
+</dd>
+</dl>
 </dd>
 <dt class="field-even">education</dt>
 <dd class="field-even"><p>list, This contains the educational information for the group member., required</p>
@@ -97,66 +190,75 @@
 <dt class="field-odd">type</dt>
 <dd class="field-odd"><p>dict, optional</p>
 <dl class="field-list simple">
-<dt class="field-odd">begin_day</dt>
-<dd class="field-odd"><p>integer, optional</p>
-</dd>
-<dt class="field-even">begin_month</dt>
-<dd class="field-even"><p>[‘string’, ‘integer’], optional</p>
-</dd>
-<dt class="field-odd">begin_year</dt>
-<dd class="field-odd"><p>integer, optional</p>
-</dd>
-<dt class="field-even">degree</dt>
-<dd class="field-even"><p>string, optional</p>
-</dd>
-<dt class="field-odd">department</dt>
-<dd class="field-odd"><p>string, department withinthe institution, optional</p>
-</dd>
-<dt class="field-even">group</dt>
-<dd class="field-even"><p>string, this employment is/was ina group in groups coll, optional</p>
-</dd>
-<dt class="field-odd">end_day</dt>
-<dd class="field-odd"><p>integer, optional</p>
-</dd>
-<dt class="field-even">end_month</dt>
-<dd class="field-even"><p>[‘string’, ‘integer’], optional</p>
-</dd>
-<dt class="field-odd">end_year</dt>
-<dd class="field-odd"><p>integer, optional</p>
-</dd>
-<dt class="field-even">gpa</dt>
-<dd class="field-even"><p>(‘float’, ‘string’), optional</p>
-</dd>
-<dt class="field-odd">institution</dt>
+<dt class="field-odd">advisor</dt>
 <dd class="field-odd"><p>string, optional</p>
 </dd>
-<dt class="field-even">location</dt>
+<dt class="field-even">begin_day</dt>
+<dd class="field-even"><p>integer, optional</p>
+</dd>
+<dt class="field-odd">begin_month</dt>
+<dd class="field-odd"><p>[‘string’, ‘integer’], optional</p>
+</dd>
+<dt class="field-even">begin_year</dt>
+<dd class="field-even"><p>integer, optional</p>
+</dd>
+<dt class="field-odd">degree</dt>
+<dd class="field-odd"><p>string, optional</p>
+</dd>
+<dt class="field-even">department</dt>
+<dd class="field-even"><p>string, department withinthe institution, optional</p>
+</dd>
+<dt class="field-odd">group</dt>
+<dd class="field-odd"><p>string, this employment is/was ina group in groups coll, optional</p>
+</dd>
+<dt class="field-even">end_day</dt>
+<dd class="field-even"><p>integer, optional</p>
+</dd>
+<dt class="field-odd">end_month</dt>
+<dd class="field-odd"><p>[‘string’, ‘integer’], optional</p>
+</dd>
+<dt class="field-even">end_year</dt>
+<dd class="field-even"><p>integer, optional</p>
+</dd>
+<dt class="field-odd">gpa</dt>
+<dd class="field-odd"><p>(‘float’, ‘string’), optional</p>
+</dd>
+<dt class="field-even">institution</dt>
 <dd class="field-even"><p>string, optional</p>
 </dd>
-<dt class="field-odd">other</dt>
-<dd class="field-odd"><p>list, optional</p>
+<dt class="field-odd">location</dt>
+<dd class="field-odd"><p>string, optional</p>
+</dd>
+<dt class="field-even">other</dt>
+<dd class="field-even"><p>list, optional</p>
 </dd>
 </dl>
 </dd>
 </dl>
 </dd>
-<dt class="field-even">email</dt>
-<dd class="field-even"><p>string, email address of the group member, optional</p>
+<dt class="field-odd">email</dt>
+<dd class="field-odd"><p>string, email address of the group member, optional</p>
 </dd>
-<dt class="field-odd">employment</dt>
-<dd class="field-odd"><p>list, Employment information, similar to educational information., optional</p>
-<dl class="field-list simple">
+<dt class="field-even">employment</dt>
+<dd class="field-even"><p>list, Employment information, similar to educational information., optional</p>
+<dl class="field-list">
 <dt class="field-odd">type</dt>
 <dd class="field-odd"><p>dict, optional</p>
-<dl class="field-list simple">
-<dt class="field-odd">begin_day</dt>
-<dd class="field-odd"><p>integer, optional</p>
+<dl class="field-list">
+<dt class="field-odd">advisor</dt>
+<dd class="field-odd"><p>string, optional</p>
 </dd>
-<dt class="field-even">begin_month</dt>
-<dd class="field-even"><p>[‘string’, ‘integer’], optional</p>
+<dt class="field-even">begin_day</dt>
+<dd class="field-even"><p>integer, optional</p>
 </dd>
-<dt class="field-odd">begin_year</dt>
-<dd class="field-odd"><p>integer, optional</p>
+<dt class="field-odd">begin_month</dt>
+<dd class="field-odd"><p>[‘string’, ‘integer’], optional</p>
+</dd>
+<dt class="field-even">begin_year</dt>
+<dd class="field-even"><p>integer, optional</p>
+</dd>
+<dt class="field-odd">coworkers</dt>
+<dd class="field-odd"><p>list, list of coworkers.  Ifposition is editor, these are assumed to be coeditors inconflict of interest builder, optional</p>
 </dd>
 <dt class="field-even">department</dt>
 <dd class="field-even"><p>string, optional</p>
@@ -184,9 +286,121 @@
 </dd>
 <dt class="field-even">position</dt>
 <dd class="field-even"><p>string, optional</p>
+<dl class="simple">
+<dt>Allowed values:</dt><dd><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">''</span></code></p></li>
+<li><p>editor</p></li>
+<li><p>unknown</p></li>
+<li><p>undergraduate research assistant</p></li>
+<li><p>intern</p></li>
+<li><p>masters research assistant</p></li>
+<li><p>visiting student</p></li>
+<li><p>graduate research assistant</p></li>
+<li><p>teaching assistant</p></li>
+<li><p>research assistant</p></li>
+<li><p>post-doctoral scholar</p></li>
+<li><p>research fellow</p></li>
+<li><p>assistant scientist</p></li>
+<li><p>assistant lecturer</p></li>
+<li><p>research assistant professor</p></li>
+<li><p>research scientist</p></li>
+<li><p>lecturer</p></li>
+<li><p>associate scientist</p></li>
+<li><p>adjunct scientist</p></li>
+<li><p>senior assistant lecturer</p></li>
+<li><p>research associate</p></li>
+<li><p>reader</p></li>
+<li><p>ajunct professor</p></li>
+<li><p>adjunct professor</p></li>
+<li><p>consultant</p></li>
+<li><p>programer</p></li>
+<li><p>programmer</p></li>
+<li><p>visiting scientist</p></li>
+<li><p>assistant professor</p></li>
+<li><p>assistant physicist</p></li>
+<li><p>associate professor</p></li>
+<li><p>associate physicist</p></li>
+<li><p>professor emeritus</p></li>
+<li><p>visiting professor</p></li>
+<li><p>manager</p></li>
+<li><p>director</p></li>
+<li><p>scientist</p></li>
+<li><p>engineer</p></li>
+<li><p>physicist</p></li>
+<li><p>professor</p></li>
+<li><p>president</p></li>
+<li><p>distinguished professor</p></li>
+</ul>
 </dd>
-<dt class="field-odd">status</dt>
-<dd class="field-odd"><p>string, optional</p>
+</dl>
+</dd>
+<dt class="field-odd">position_full</dt>
+<dd class="field-odd"><p>string, The full on title of the position.  This will be typeset if it is here, or if not Position will be used.  Position will be used for sorting and must come from a fixed list of positions, optional</p>
+</dd>
+<dt class="field-even">status</dt>
+<dd class="field-even"><p>string, optional</p>
+<dl class="simple">
+<dt>Allowed values:</dt><dd><ul class="simple">
+<li><p>pi</p></li>
+<li><p>adjunct</p></li>
+<li><p>high-school</p></li>
+<li><p>undergrad</p></li>
+<li><p>ms</p></li>
+<li><p>phd</p></li>
+<li><p>postdoc</p></li>
+<li><p>visitor-supported</p></li>
+<li><p>visitor-unsupported</p></li>
+</ul>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+<dt class="field-odd">facilities</dt>
+<dd class="field-odd"><p>list, facilities may be teaching or research things, optional</p>
+<dl class="field-list">
+<dt class="field-odd">type</dt>
+<dd class="field-odd"><p>dict, optional</p>
+<dl class="field-list">
+<dt class="field-odd">begin_day</dt>
+<dd class="field-odd"><p>integer, the day facility, or the wish for the facility, started, optional</p>
+</dd>
+<dt class="field-even">end_day</dt>
+<dd class="field-even"><p>integer, the day facility started, optional</p>
+</dd>
+<dt class="field-odd">type</dt>
+<dd class="field-odd"><p>string, the type of the facility. Columbia asksfor wished-for facilities, so there are teaching-wish and research-wish fields., optional</p>
+<dl class="simple">
+<dt>Allowed values:</dt><dd><ul class="simple">
+<li><p>teaching</p></li>
+<li><p>research</p></li>
+<li><p>shared</p></li>
+<li><p>other</p></li>
+<li><p>teaching_wish</p></li>
+<li><p>research_wish</p></li>
+</ul>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">begin_month</dt>
+<dd class="field-even"><p>[‘integer’, ‘string’], the month the facility (or wish) started, optional</p>
+</dd>
+<dt class="field-odd">end_month</dt>
+<dd class="field-odd"><p>[‘integer’, ‘string’], the month the faclity went away, optional</p>
+</dd>
+<dt class="field-even">name</dt>
+<dd class="field-even"><p>string, description of the facility, optional</p>
+</dd>
+<dt class="field-odd">notes</dt>
+<dd class="field-odd"><p>[‘string’, ‘list’], anything else you want to jot down, optional</p>
+</dd>
+<dt class="field-even">begin_year</dt>
+<dd class="field-even"><p>integer, the year the facility (or wish) started, optional</p>
+</dd>
+<dt class="field-odd">end_year</dt>
+<dd class="field-odd"><p>integer, the year the facility (or wish) went away, optional</p>
 </dd>
 </dl>
 </dd>
@@ -226,8 +440,45 @@
 <dt class="field-even">google_scholar_url</dt>
 <dd class="field-even"><p>string, URL of your Google Scholar rofile, optional</p>
 </dd>
-<dt class="field-odd">home_address</dt>
-<dd class="field-odd"><p>dict, The person’s home address, optional</p>
+<dt class="field-odd">hindex</dt>
+<dd class="field-odd"><p>list, details of hindex pulled on a certain date, optional</p>
+<dl class="field-list simple">
+<dt class="field-odd">type</dt>
+<dd class="field-odd"><p>dict, optional</p>
+<dl class="field-list simple">
+<dt class="field-odd">h</dt>
+<dd class="field-odd"><p>integer, the value of the h index, optional</p>
+</dd>
+<dt class="field-even">h_last_five</dt>
+<dd class="field-even"><p>integer, h index over past 5 years, optional</p>
+</dd>
+<dt class="field-odd">citations</dt>
+<dd class="field-odd"><p>integer, total number of citations, optional</p>
+</dd>
+<dt class="field-even">citations_last_five</dt>
+<dd class="field-even"><p>integer, number of citationsin the past 5 years, optional</p>
+</dd>
+<dt class="field-odd">origin</dt>
+<dd class="field-odd"><p>string, where the numbers came from, optional</p>
+</dd>
+<dt class="field-even">since</dt>
+<dd class="field-even"><p>integer, year of first citation, optional</p>
+</dd>
+<dt class="field-odd">year</dt>
+<dd class="field-odd"><p>integer, year when the data were pulled, optional</p>
+</dd>
+<dt class="field-even">month</dt>
+<dd class="field-even"><p>[‘string’, ‘integer’], month when the data were pulled, optional</p>
+</dd>
+<dt class="field-odd">day</dt>
+<dd class="field-odd"><p>integer, day when the data were pulled, optional</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">home_address</dt>
+<dd class="field-even"><p>dict, The person’s home address, optional</p>
 <dl class="field-list simple">
 <dt class="field-odd">street</dt>
 <dd class="field-odd"><p>string, street address, optional</p>
@@ -302,8 +553,19 @@
 </dd>
 </dl>
 </dd>
-<dt class="field-odd">name</dt>
-<dd class="field-odd"><p>string, Full, canonical name for the person, required</p>
+<dt class="field-odd">miscellaneous</dt>
+<dd class="field-odd"><p>dict, Place to put weird things needed for special reporta, optional</p>
+<dl class="field-list simple">
+<dt class="field-odd">metrics_for_success</dt>
+<dd class="field-odd"><p>list, How do I want to be judged, optional</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">name</dt>
+<dd class="field-even"><p>string, Full, canonical name for the person, required</p>
+</dd>
+<dt class="field-odd">office</dt>
+<dd class="field-odd"><p>string, The person’s office, optional</p>
 </dd>
 <dt class="field-even">orcid_id</dt>
 <dd class="field-even"><p>string, The ORCID ID of the person, optional</p>
@@ -313,31 +575,103 @@
 <dl class="simple">
 <dt>Allowed values:</dt><dd><ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">''</span></code></p></li>
+<li><p>editor</p></li>
+<li><p>unknown</p></li>
 <li><p>undergraduate research assistant</p></li>
+<li><p>intern</p></li>
+<li><p>masters research assistant</p></li>
+<li><p>visiting student</p></li>
 <li><p>graduate research assistant</p></li>
+<li><p>teaching assistant</p></li>
 <li><p>research assistant</p></li>
 <li><p>post-doctoral scholar</p></li>
+<li><p>research fellow</p></li>
 <li><p>assistant scientist</p></li>
+<li><p>assistant lecturer</p></li>
+<li><p>research assistant professor</p></li>
 <li><p>research scientist</p></li>
+<li><p>lecturer</p></li>
 <li><p>associate scientist</p></li>
+<li><p>adjunct scientist</p></li>
+<li><p>senior assistant lecturer</p></li>
 <li><p>research associate</p></li>
+<li><p>reader</p></li>
 <li><p>ajunct professor</p></li>
+<li><p>adjunct professor</p></li>
+<li><p>consultant</p></li>
 <li><p>programer</p></li>
 <li><p>programmer</p></li>
 <li><p>visiting scientist</p></li>
-<li><p>research assistant professor</p></li>
 <li><p>assistant professor</p></li>
+<li><p>assistant physicist</p></li>
 <li><p>associate professor</p></li>
+<li><p>associate physicist</p></li>
 <li><p>professor emeritus</p></li>
+<li><p>visiting professor</p></li>
+<li><p>manager</p></li>
+<li><p>director</p></li>
 <li><p>scientist</p></li>
 <li><p>engineer</p></li>
+<li><p>physicist</p></li>
 <li><p>professor</p></li>
+<li><p>president</p></li>
+<li><p>distinguished professor</p></li>
 </ul>
 </dd>
 </dl>
 </dd>
-<dt class="field-even">research_focus_areas</dt>
-<dd class="field-even"><p>list, summary of research projects that are ongoing. Usedin Annual appraisal for example, optional</p>
+<dt class="field-even">position_full</dt>
+<dd class="field-even"><p>string, The full on title of the position.  This will be typeset if it is here, or if not Position will be used.  Position will be used for sorting and must come from a fixed list of positions, optional</p>
+</dd>
+<dt class="field-odd">publicity</dt>
+<dd class="field-odd"><p>list, summary of publicity that person has received, optional</p>
+<dl class="field-list">
+<dt class="field-odd">type</dt>
+<dd class="field-odd"><p>dict, optional</p>
+<dl class="field-list">
+<dt class="field-odd">type</dt>
+<dd class="field-odd"><p>string, optional</p>
+<dl class="simple">
+<dt>Allowed values:</dt><dd><ul class="simple">
+<li><p>online</p></li>
+<li><p>article</p></li>
+</ul>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">topic</dt>
+<dd class="field-even"><p>string, short blurb about what it was, optional</p>
+</dd>
+<dt class="field-odd">title</dt>
+<dd class="field-odd"><p>string, optional</p>
+</dd>
+<dt class="field-even">day</dt>
+<dd class="field-even"><p>integer, optional</p>
+</dd>
+<dt class="field-odd">month</dt>
+<dd class="field-odd"><p>[‘string’, ‘integer’], optional</p>
+</dd>
+<dt class="field-even">publication</dt>
+<dd class="field-even"><p>string, optional</p>
+</dd>
+<dt class="field-odd">text</dt>
+<dd class="field-odd"><p>string, optional</p>
+</dd>
+<dt class="field-even">url</dt>
+<dd class="field-even"><p>string, optional</p>
+</dd>
+<dt class="field-odd">year</dt>
+<dd class="field-odd"><p>integer, optional</p>
+</dd>
+<dt class="field-even">grant</dt>
+<dd class="field-even"><p>string, optional</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+<dt class="field-odd">research_focus_areas</dt>
+<dd class="field-odd"><p>list, summary of research projects that are ongoing. Usedin Annual appraisal for example, optional</p>
 <dl class="field-list simple">
 <dt class="field-odd">type</dt>
 <dd class="field-odd"><p>dict, optional</p>
@@ -355,12 +689,15 @@
 </dd>
 </dl>
 </dd>
-<dt class="field-even">service</dt>
-<dd class="field-even"><p>list, Service that this group member has provided, optional</p>
-<dl class="field-list simple">
+<dt class="field-even">research_summary</dt>
+<dd class="field-even"><p>string, Brief summary of overarching research goals, optional</p>
+</dd>
+<dt class="field-odd">service</dt>
+<dd class="field-odd"><p>list, Service that this group member has provided, optional</p>
+<dl class="field-list">
 <dt class="field-odd">type</dt>
 <dd class="field-odd"><p>dict, optional</p>
-<dl class="field-list simple">
+<dl class="field-list">
 <dt class="field-odd">description</dt>
 <dd class="field-odd"><p>string, optional</p>
 </dd>
@@ -373,24 +710,54 @@
 <dt class="field-even">name</dt>
 <dd class="field-even"><p>string, optional</p>
 </dd>
+<dt class="field-odd">role</dt>
+<dd class="field-odd"><p>string, the role played in the activity, e.g., co-chair, optional</p>
+</dd>
+<dt class="field-even">notes</dt>
+<dd class="field-even"><p>[‘string’, ‘list’], optional</p>
+</dd>
 <dt class="field-odd">year</dt>
 <dd class="field-odd"><p>integer, optional</p>
 </dd>
 <dt class="field-even">begin_year</dt>
 <dd class="field-even"><p>integer, optional</p>
 </dd>
+<dt class="field-odd">begin_day</dt>
+<dd class="field-odd"><p>integer, optional</p>
+</dd>
+<dt class="field-even">begin_month</dt>
+<dd class="field-even"><p>[‘string’, ‘integer’], Use month and year if the servicedoesn’t extend more than one year.Otherwise use begin_year/month and end_year/month, optional</p>
+</dd>
 <dt class="field-odd">end_year</dt>
+<dd class="field-odd"><p>integer, optional</p>
+</dd>
+<dt class="field-even">end_month</dt>
+<dd class="field-even"><p>[‘string’, ‘integer’], Use month and year if the servicedoesn’t extend more than one year.Otherwise use begin_year and end_year, optional</p>
+</dd>
+<dt class="field-odd">end_day</dt>
 <dd class="field-odd"><p>integer, optional</p>
 </dd>
 <dt class="field-even">other</dt>
 <dd class="field-even"><p>[‘string’, ‘list’], optional</p>
 </dd>
+<dt class="field-odd">type</dt>
+<dd class="field-odd"><p>string, profession, department, school, university, optional</p>
+<dl class="simple">
+<dt>Allowed values:</dt><dd><ul class="simple">
+<li><p>profession</p></li>
+<li><p>university</p></li>
+<li><p>school</p></li>
+<li><p>department</p></li>
+</ul>
+</dd>
+</dl>
+</dd>
 </dl>
 </dd>
 </dl>
 </dd>
-<dt class="field-odd">skills</dt>
-<dd class="field-odd"><p>list, Skill the group member has, optional</p>
+<dt class="field-even">skills</dt>
+<dd class="field-even"><p>list, Skill the group member has, optional</p>
 <dl class="field-list simple">
 <dt class="field-odd">type</dt>
 <dd class="field-odd"><p>dict, optional</p>
@@ -417,14 +784,55 @@
 <dt class="field-odd">course</dt>
 <dd class="field-odd"><p>string, optional</p>
 </dd>
-<dt class="field-even">description</dt>
+<dt class="field-even">courseid</dt>
 <dd class="field-even"><p>string, optional</p>
 </dd>
-<dt class="field-odd">end_month</dt>
-<dd class="field-odd"><p>[‘string’, ‘integer’], optional</p>
+<dt class="field-odd">description</dt>
+<dd class="field-odd"><p>string, optional</p>
 </dd>
-<dt class="field-even">end_year</dt>
-<dd class="field-even"><p>integer, optional</p>
+<dt class="field-even">end_month</dt>
+<dd class="field-even"><p>[‘string’, ‘integer’], optional</p>
+</dd>
+<dt class="field-odd">end_year</dt>
+<dd class="field-odd"><p>integer, optional</p>
+</dd>
+<dt class="field-even">enrollment</dt>
+<dd class="field-even"><p>[‘integer’, ‘string’], optional</p>
+</dd>
+<dt class="field-odd">evaluation</dt>
+<dd class="field-odd"><p>dict, optional</p>
+<dl class="field-list simple">
+<dt class="field-odd">response_rate</dt>
+<dd class="field-odd"><p>number, optional</p>
+</dd>
+<dt class="field-even">amount_learned</dt>
+<dd class="field-even"><p>number, optional</p>
+</dd>
+<dt class="field-odd">appropriateness_workload</dt>
+<dd class="field-odd"><p>number, optional</p>
+</dd>
+<dt class="field-even">course_overall</dt>
+<dd class="field-even"><p>number, optional</p>
+</dd>
+<dt class="field-odd">fairness_grading</dt>
+<dd class="field-odd"><p>number, optional</p>
+</dd>
+<dt class="field-even">organization</dt>
+<dd class="field-even"><p>number, optional</p>
+</dd>
+<dt class="field-odd">classroom_delivery</dt>
+<dd class="field-odd"><p>number, optional</p>
+</dd>
+<dt class="field-even">approachability</dt>
+<dd class="field-even"><p>number, optional</p>
+</dd>
+<dt class="field-odd">instructor_overall</dt>
+<dd class="field-odd"><p>number, optional</p>
+</dd>
+<dt class="field-even">comments</dt>
+<dd class="field-even"><p>list, student comments, optional</p>
+</dd>
+</dl>
 </dd>
 <dt class="field-odd">materials</dt>
 <dd class="field-odd"><p>string, optional</p>
@@ -438,40 +846,357 @@
 <dt class="field-even">position</dt>
 <dd class="field-even"><p>string, optional</p>
 </dd>
-<dt class="field-odd">syllabus</dt>
+<dt class="field-odd">semester</dt>
 <dd class="field-odd"><p>string, optional</p>
 </dd>
-<dt class="field-even">video</dt>
+<dt class="field-even">syllabus</dt>
 <dd class="field-even"><p>string, optional</p>
 </dd>
-<dt class="field-odd">website</dt>
+<dt class="field-odd">video</dt>
 <dd class="field-odd"><p>string, optional</p>
 </dd>
-<dt class="field-even">year</dt>
-<dd class="field-even"><p>integer, optional</p>
+<dt class="field-even">website</dt>
+<dd class="field-even"><p>string, optional</p>
+</dd>
+<dt class="field-odd">year</dt>
+<dd class="field-odd"><p>integer, optional</p>
 </dd>
 </dl>
 </dd>
 </dl>
 </dd>
-<dt class="field-odd">title</dt>
-<dd class="field-odd"><p>string, for example, Dr., etc., optional</p>
+<dt class="field-even">title</dt>
+<dd class="field-even"><p>string, for example, Dr., etc., optional</p>
 </dd>
 </dl>
 </div>
 <div class="section" id="yaml-example">
 <h2>YAML Example<a class="headerlink" href="#yaml-example" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">scopatz</span><span class="p">:</span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">sbillinge</span><span class="p">:</span>
+  <span class="nt">activities</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">course development</span>
+      <span class="nt">other</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Developed a new course for Materials Science</span>
+      <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">teaching</span>
+      <span class="nt">year</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">2018</span>
+  <span class="nt">aka</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Billinge</span>
+  <span class="nt">avatar</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">https://avatars1.githubusercontent.com/u/320553?v=3&amp;s=200</span>
+  <span class="nt">bio</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Simon teaches and does research</span>
+  <span class="nt">committees</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="nt">level</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">department</span>
+      <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Same Old</span>
+      <span class="nt">notes</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">something</span>
+      <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">phddefense</span>
+      <span class="nt">unit</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Materials Science</span>
+      <span class="nt">year</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">2018</span>
+  <span class="nt">education</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="nt">begin_year</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">2008</span>
+      <span class="nt">degree</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Ph.D. Mechanical Engineering, Nuclear and Radiation Engineering Program</span>
+      <span class="nt">department</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">apam</span>
+      <span class="nt">end_year</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">2011</span>
+      <span class="nt">group</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ergs</span>
+      <span class="nt">institution</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">The University of Texas at Austin</span>
+      <span class="nt">location</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Austin, TX</span>
+      <span class="nt">other</span><span class="p">:</span>
+        <span class="p p-Indicator">-</span> <span class="s">&#39;Adviser:</span><span class="nv"> </span><span class="s">Erich</span><span class="nv"> </span><span class="s">A.</span><span class="nv"> </span><span class="s">Schneider&#39;</span>
+        <span class="p p-Indicator">-</span> <span class="s">&#39;Dissertation:</span><span class="nv"> </span><span class="s">Essential</span><span class="nv"> </span><span class="s">Physics</span><span class="nv"> </span><span class="s">for</span><span class="nv"> </span><span class="s">Fuel</span><span class="nv"> </span><span class="s">Cycle</span><span class="nv"> </span><span class="s">Modeling</span><span class="nv"> </span><span class="s">&amp;</span><span class="nv"> </span><span class="s">Analysis&#39;</span>
+  <span class="nt">email</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">sb2896@columbia.edu</span>
+  <span class="nt">employment</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="nt">begin_year</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">2015</span>
+      <span class="nt">group</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ergs</span>
+      <span class="nt">location</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Columbia, SC</span>
+      <span class="nt">organization</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">The University of South Carolina</span>
+      <span class="nt">other</span><span class="p">:</span>
+        <span class="p p-Indicator">-</span> <span class="s">&#39;Cyclus:</span><span class="nv"> </span><span class="s">An</span><span class="nv"> </span><span class="s">agent-based,</span><span class="nv"> </span><span class="s">discrete</span><span class="nv"> </span><span class="s">time</span><span class="nv"> </span><span class="s">nuclear</span><span class="nv"> </span><span class="s">fuel</span><span class="nv"> </span><span class="s">cycle</span><span class="nv"> </span><span class="s">simulator.&#39;</span>
+        <span class="p p-Indicator">-</span> <span class="s">&#39;PyNE:</span><span class="nv"> </span><span class="s">The</span><span class="nv"> </span><span class="s">Nuclear</span><span class="nv"> </span><span class="s">Engineering</span><span class="nv"> </span><span class="s">Toolkit.&#39;</span>
+        <span class="p p-Indicator">-</span> <span class="s">&#39;Website:</span><span class="nv"> </span><span class="s">http://www.ergs.sc.edu/&#39;</span>
+      <span class="nt">position</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">assistant professor</span>
+  <span class="nt">facilities</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="nt">begin_year</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">2015</span>
+      <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Shared {Habanero} compute cluster</span>
+      <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">other</span>
+    <span class="p p-Indicator">-</span> <span class="nt">begin_year</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">2015</span>
+      <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Shared access to wet lab</span>
+      <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">research_wish</span>
+    <span class="p p-Indicator">-</span> <span class="nt">begin_year</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">2017</span>
+      <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Courseworks2</span>
+      <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">teaching</span>
+    <span class="p p-Indicator">-</span> <span class="nt">begin_year</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">2019</span>
+      <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">nothing right now</span>
+      <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">teaching_wish</span>
+    <span class="p p-Indicator">-</span> <span class="nt">begin_year</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">2008</span>
+      <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">I don&#39;t have one</span>
+      <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">research</span>
+  <span class="nt">funding</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Omega Laser User&#39;s Group Travel Award</span>
+      <span class="nt">value</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1100</span>
+      <span class="nt">year</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">2013</span>
+    <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">NIF User&#39;s Group Travel Award</span>
+      <span class="nt">value</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1150</span>
+      <span class="nt">year</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">2013</span>
+  <span class="nt">google_scholar_url</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">https://scholar.google.com/citations?user=dRm8f</span>
+  <span class="nt">hindex</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="nt">citations</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">17890</span>
+      <span class="nt">citations_last_five</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">8817</span>
+      <span class="nt">day</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">12</span>
+      <span class="nt">h</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">65</span>
+      <span class="nt">h_last_five</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">43</span>
+      <span class="nt">month</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">May</span>
+      <span class="nt">origin</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Google Scholar</span>
+      <span class="nt">since</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1991</span>
+      <span class="nt">year</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">2019</span>
+  <span class="nt">home_address</span><span class="p">:</span>
+    <span class="nt">city</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">The big apple</span>
+    <span class="nt">state</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">plasma</span>
+    <span class="nt">street</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">123 Wallabe Ln</span>
+    <span class="nt">zip</span><span class="p">:</span> <span class="s">&#39;007&#39;</span>
+  <span class="nt">initials</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">SJLB</span>
+  <span class="nt">membership</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="nt">begin_year</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">2006</span>
+      <span class="nt">organization</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">American Nuclear Society</span>
+      <span class="nt">position</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Member</span>
+  <span class="nt">miscellaneous</span><span class="p">:</span>
+    <span class="nt">metrics_for_success</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">publications(quality, quantity)</span>
+      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">invite talks</span>
+      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">funding</span>
+      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">citations</span>
+  <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Simon J. L. Billinge</span>
+  <span class="nt">office</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1105 Seely W. Mudd Building (inner office)</span>
+  <span class="nt">orcid_id</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">0000-0002-9432-4248</span>
+  <span class="nt">position</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">professor</span>
+  <span class="nt">publicity</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="nt">day</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">24</span>
+      <span class="nt">grant</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">bnlldrd18</span>
+      <span class="nt">month</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Jul</span>
+      <span class="nt">publication</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Brookhaven National Laboratory Web Story</span>
+      <span class="nt">title</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">An awesome project and well worth the money</span>
+      <span class="nt">topic</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">LDRD Provenance project</span>
+      <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">online</span>
+      <span class="nt">url</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">http://www.google.com</span>
+      <span class="nt">year</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">2019</span>
+  <span class="nt">research_focus_areas</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="nt">begin_year</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">2010</span>
+      <span class="nt">description</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">software applied to materials engineering and life</span>
+  <span class="nt">service</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="nt">month</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">August</span>
+      <span class="nt">name</span><span class="p">:</span> <span class="s">&#39;Master</span><span class="nv"> </span><span class="s">of</span><span class="nv"> </span><span class="s">Ceremonies</span><span class="nv"> </span><span class="s">and</span><span class="nv"> </span><span class="s">Organizer</span><span class="nv"> </span><span class="s">Brown</span><span class="nv"> </span><span class="s">University</span><span class="nv"> </span><span class="s">&quot;Chemistry:</span><span class="nv"> </span><span class="s">Believe</span>
+        <span class="s">it</span><span class="nv"> </span><span class="s">or</span><span class="nv"> </span><span class="s">Not&quot;</span><span class="nv"> </span><span class="s">public</span><span class="nv"> </span><span class="s">chemistry</span><span class="nv"> </span><span class="s">demonstration&#39;</span>
+      <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">profession</span>
+      <span class="nt">year</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">2017</span>
+    <span class="p p-Indicator">-</span> <span class="nt">month</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
+      <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Applied Physics program committee</span>
+      <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">department</span>
+      <span class="nt">year</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">2018</span>
+    <span class="p p-Indicator">-</span> <span class="nt">month</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">6</span>
+      <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Ad hoc tenure committee</span>
+      <span class="nt">notes</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Albert Einstein</span>
+      <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">school</span>
+      <span class="nt">year</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">2017</span>
+    <span class="p p-Indicator">-</span> <span class="nt">month</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">12</span>
+      <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Co-organizer JUAMI</span>
+      <span class="nt">other</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">great way to meet people</span>
+      <span class="nt">role</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">co-organizer</span>
+      <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">profession</span>
+      <span class="nt">year</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">2017</span>
+  <span class="nt">skills</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="nt">category</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Programming Languages</span>
+      <span class="nt">level</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">expert</span>
+      <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Python</span>
+  <span class="nt">teaching</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="nt">course</span><span class="p">:</span> <span class="s">&#39;MSAE-3010:</span><span class="nv"> </span><span class="s">Introduction</span><span class="nv"> </span><span class="s">to</span><span class="nv"> </span><span class="s">Materials</span><span class="nv"> </span><span class="s">Science&#39;</span>
+      <span class="nt">courseid</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">f17-3010</span>
+      <span class="nt">description</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">This course is an introduction to nuclear physics.</span>
+      <span class="nt">enrollment</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">18</span>
+      <span class="nt">evaluation</span><span class="p">:</span>
+        <span class="nt">amount_learned</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">4.57</span>
+        <span class="nt">approachability</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">4.86</span>
+        <span class="nt">appropriateness_workload</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">4.29</span>
+        <span class="nt">classroom_delivery</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">4.29</span>
+        <span class="nt">comments</span><span class="p">:</span>
+          <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Great teacher but disorganized</span>
+          <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Wears pink pants.  Why?</span>
+        <span class="nt">course_overall</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">4.43</span>
+        <span class="nt">fairness_grading</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">4.57</span>
+        <span class="nt">instructor_overall</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">4.43</span>
+        <span class="nt">organization</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">4.0</span>
+        <span class="nt">response_rate</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">58.33</span>
+      <span class="nt">month</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">August</span>
+      <span class="nt">organization</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Columbia University</span>
+      <span class="nt">position</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">professor</span>
+      <span class="nt">semester</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Fall</span>
+      <span class="nt">syllabus</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">https://drive.google.com/open?id=0BxUpd34yizZreDBCMEJNY2FUbnc</span>
+      <span class="nt">year</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">2016</span>
+    <span class="p p-Indicator">-</span> <span class="nt">course</span><span class="p">:</span> <span class="s">&#39;MSAE-3010:</span><span class="nv"> </span><span class="s">Introduction</span><span class="nv"> </span><span class="s">to</span><span class="nv"> </span><span class="s">Materials</span><span class="nv"> </span><span class="s">Science&#39;</span>
+      <span class="nt">courseid</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">f17-3010</span>
+      <span class="nt">description</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">This course is an introduction to nuclear physics.</span>
+      <span class="nt">enrollment</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">18</span>
+      <span class="nt">evaluation</span><span class="p">:</span>
+        <span class="nt">amount_learned</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">4.57</span>
+        <span class="nt">approachability</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">4.86</span>
+        <span class="nt">appropriateness_workload</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">4.29</span>
+        <span class="nt">classroom_delivery</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">4.29</span>
+        <span class="nt">comments</span><span class="p">:</span>
+          <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Great teacher but disorganized</span>
+          <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Wears pink pants.  Why?</span>
+        <span class="nt">course_overall</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">4.43</span>
+        <span class="nt">fairness_grading</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">4.57</span>
+        <span class="nt">instructor_overall</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">4.43</span>
+        <span class="nt">organization</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">4.0</span>
+        <span class="nt">response_rate</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">58.33</span>
+      <span class="nt">month</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">August</span>
+      <span class="nt">organization</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Columbia University</span>
+      <span class="nt">position</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">professor</span>
+      <span class="nt">semester</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Fall</span>
+      <span class="nt">syllabus</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">https://drive.google.com/open?id=0BxUpd34yizZreDBCMEJNY2FUbnc</span>
+      <span class="nt">year</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">2017</span>
+    <span class="p p-Indicator">-</span> <span class="nt">course</span><span class="p">:</span> <span class="s">&#39;MSAE-3010:</span><span class="nv"> </span><span class="s">Introduction</span><span class="nv"> </span><span class="s">to</span><span class="nv"> </span><span class="s">Materials</span><span class="nv"> </span><span class="s">Science&#39;</span>
+      <span class="nt">courseid</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">s17-3010</span>
+      <span class="nt">description</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">This course is an introduction to nuclear physics.</span>
+      <span class="nt">enrollment</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">18</span>
+      <span class="nt">evaluation</span><span class="p">:</span>
+        <span class="nt">amount_learned</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">4.57</span>
+        <span class="nt">approachability</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">4.86</span>
+        <span class="nt">appropriateness_workload</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">4.29</span>
+        <span class="nt">classroom_delivery</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">4.29</span>
+        <span class="nt">comments</span><span class="p">:</span>
+          <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Great teacher but disorganized</span>
+          <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Wears pink pants.  Why?</span>
+        <span class="nt">course_overall</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">4.43</span>
+        <span class="nt">fairness_grading</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">4.57</span>
+        <span class="nt">instructor_overall</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">4.43</span>
+        <span class="nt">organization</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">4.0</span>
+        <span class="nt">response_rate</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">58.33</span>
+      <span class="nt">month</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Jan</span>
+      <span class="nt">organization</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Columbia University</span>
+      <span class="nt">position</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">professor</span>
+      <span class="nt">semester</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Spring</span>
+      <span class="nt">syllabus</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">https://drive.google.com/open?id=0BxUpd34yizZreDBCMEJNY2FUbnc</span>
+      <span class="nt">year</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">2018</span>
+    <span class="p p-Indicator">-</span> <span class="nt">course</span><span class="p">:</span> <span class="s">&#39;MSAE-3010:</span><span class="nv"> </span><span class="s">Introduction</span><span class="nv"> </span><span class="s">to</span><span class="nv"> </span><span class="s">Materials</span><span class="nv"> </span><span class="s">Science&#39;</span>
+      <span class="nt">courseid</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">s17-3010</span>
+      <span class="nt">description</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">This course is an introduction to nuclear physics.</span>
+      <span class="nt">enrollment</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">18</span>
+      <span class="nt">evaluation</span><span class="p">:</span>
+        <span class="nt">amount_learned</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">4.57</span>
+        <span class="nt">approachability</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">4.86</span>
+        <span class="nt">appropriateness_workload</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">4.29</span>
+        <span class="nt">classroom_delivery</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">4.29</span>
+        <span class="nt">comments</span><span class="p">:</span>
+          <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Great teacher but disorganized</span>
+          <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Wears pink pants.  Why?</span>
+        <span class="nt">course_overall</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">4.43</span>
+        <span class="nt">fairness_grading</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">4.57</span>
+        <span class="nt">instructor_overall</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">4.43</span>
+        <span class="nt">organization</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">4.0</span>
+        <span class="nt">response_rate</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">58.33</span>
+      <span class="nt">month</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Jan</span>
+      <span class="nt">organization</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Columbia University</span>
+      <span class="nt">position</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">professor</span>
+      <span class="nt">semester</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Spring</span>
+      <span class="nt">syllabus</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">https://drive.google.com/open?id=0BxUpd34yizZreDBCMEJNY2FUbnc</span>
+      <span class="nt">year</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">2017</span>
+    <span class="p p-Indicator">-</span> <span class="nt">course</span><span class="p">:</span> <span class="s">&#39;MSAE-3010:</span><span class="nv"> </span><span class="s">Introduction</span><span class="nv"> </span><span class="s">to</span><span class="nv"> </span><span class="s">Materials</span><span class="nv"> </span><span class="s">Science&#39;</span>
+      <span class="nt">courseid</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">s17-3010</span>
+      <span class="nt">description</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">This course is an introduction to nuclear physics.</span>
+      <span class="nt">enrollment</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">18</span>
+      <span class="nt">month</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Jan</span>
+      <span class="nt">organization</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Columbia University</span>
+      <span class="nt">position</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">professor</span>
+      <span class="nt">semester</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Spring</span>
+      <span class="nt">syllabus</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">https://drive.google.com/open?id=0BxUpd34yizZreDBCMEJNY2FUbnc</span>
+      <span class="nt">year</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">2019</span>
+    <span class="p p-Indicator">-</span> <span class="nt">course</span><span class="p">:</span> <span class="s">&#39;MSAE-3010:</span><span class="nv"> </span><span class="s">Introduction</span><span class="nv"> </span><span class="s">to</span><span class="nv"> </span><span class="s">Materials</span><span class="nv"> </span><span class="s">Science&#39;</span>
+      <span class="nt">courseid</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">f18-3010</span>
+      <span class="nt">description</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">This course is an introduction to nuclear physics.</span>
+      <span class="nt">enrollment</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">18</span>
+      <span class="nt">evaluation</span><span class="p">:</span>
+        <span class="nt">amount_learned</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">4.57</span>
+        <span class="nt">approachability</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">4.86</span>
+        <span class="nt">appropriateness_workload</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">4.29</span>
+        <span class="nt">classroom_delivery</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">4.29</span>
+        <span class="nt">comments</span><span class="p">:</span>
+          <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Great teacher but disorganized</span>
+          <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Wears pink pants.  Why?</span>
+        <span class="nt">course_overall</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">4.43</span>
+        <span class="nt">fairness_grading</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">4.57</span>
+        <span class="nt">instructor_overall</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">4.43</span>
+        <span class="nt">organization</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">4.0</span>
+        <span class="nt">response_rate</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">58.33</span>
+      <span class="nt">month</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">August</span>
+      <span class="nt">organization</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Columbia University</span>
+      <span class="nt">position</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">professor</span>
+      <span class="nt">semester</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Fall</span>
+      <span class="nt">syllabus</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">https://drive.google.com/open?id=0BxUpd34yizZreDBCMEJNY2FUbnc</span>
+      <span class="nt">year</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">2018</span>
+    <span class="p p-Indicator">-</span> <span class="nt">course</span><span class="p">:</span> <span class="s">&#39;MSAE-3010:</span><span class="nv"> </span><span class="s">Introduction</span><span class="nv"> </span><span class="s">to</span><span class="nv"> </span><span class="s">Materials</span><span class="nv"> </span><span class="s">Science&#39;</span>
+      <span class="nt">courseid</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">f19-3010</span>
+      <span class="nt">description</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">This course is an introduction to nuclear physics.</span>
+      <span class="nt">month</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">August</span>
+      <span class="nt">organization</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Columbia University</span>
+      <span class="nt">position</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">professor</span>
+      <span class="nt">semester</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Fall</span>
+      <span class="nt">syllabus</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">https://drive.google.com/open?id=0BxUpd34yizZreDBCMEJNY2FUbnc</span>
+      <span class="nt">year</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">2019</span>
+  <span class="nt">title</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Dr.</span>
+<span class="nt">scopatz</span><span class="p">:</span>
   <span class="nt">aka</span><span class="p">:</span>
     <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Scopatz</span>
     <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Scopatz, A</span>
     <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Scopatz, A.</span>
     <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Scopatz, A M</span>
     <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Anthony Michael Scopatz</span>
+  <span class="nt">appointments</span><span class="p">:</span>
+    <span class="nt">f19</span><span class="p">:</span>
+      <span class="nt">begin_day</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
+      <span class="nt">begin_month</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">9</span>
+      <span class="nt">begin_year</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">2019</span>
+      <span class="nt">end_day</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">31</span>
+      <span class="nt">end_month</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10</span>
+      <span class="nt">end_year</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">2019</span>
+      <span class="nt">grant</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">mrsec14</span>
+      <span class="nt">loading</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">0.75</span>
+      <span class="nt">notes</span><span class="p">:</span>
+        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">forgetmenot</span>
+      <span class="nt">status</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">finalized</span>
   <span class="nt">avatar</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">https://avatars1.githubusercontent.com/u/320553?v=3&amp;s=200</span>
   <span class="nt">bio</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Anthony Scopatz is currently an Assistant Professor</span>
+  <span class="nt">bios</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Anthony Scopatz is currently an Assistant Professor but will go on to do great</span>
+      <span class="l l-Scalar l-Scalar-Plain">things</span>
+  <span class="nt">committees</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="nt">day</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
+      <span class="nt">level</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">department</span>
+      <span class="nt">month</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">3</span>
+      <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Heather Stanford</span>
+      <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">phdoral</span>
+      <span class="nt">unit</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">apam</span>
+      <span class="nt">year</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">2020</span>
+    <span class="p p-Indicator">-</span> <span class="nt">day</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
+      <span class="nt">level</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">school</span>
+      <span class="nt">month</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">3</span>
+      <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Heather Stanford</span>
+      <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">promotion</span>
+      <span class="nt">unit</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">seas</span>
+      <span class="nt">year</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">2020</span>
+    <span class="p p-Indicator">-</span> <span class="nt">day</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
+      <span class="nt">level</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">external</span>
+      <span class="nt">month</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">3</span>
+      <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Heather Stanford</span>
+      <span class="nt">notes</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">something else to remember about it, not published</span>
+      <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">phddefense</span>
+      <span class="nt">unit</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">U Denmark</span>
+      <span class="nt">year</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">2020</span>
+    <span class="p p-Indicator">-</span> <span class="nt">day</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
+      <span class="nt">level</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">university</span>
+      <span class="nt">month</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">3</span>
+      <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Heather Stanford</span>
+      <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">promotion</span>
+      <span class="nt">unit</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">columbiau</span>
+      <span class="nt">year</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">2020</span>
   <span class="nt">education</span><span class="p">:</span>
-    <span class="p p-Indicator">-</span> <span class="nt">begin_year</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">2008</span>
+    <span class="p p-Indicator">-</span> <span class="nt">advisor</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ascopatz</span>
+      <span class="nt">begin_year</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">2008</span>
       <span class="nt">degree</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Ph.D. Mechanical Engineering, Nuclear and Radiation Engineering Program</span>
       <span class="nt">department</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">apam</span>
       <span class="nt">end_year</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">2011</span>
@@ -508,7 +1233,10 @@
       <span class="nt">location</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">land, mostly</span>
   <span class="nt">email</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">scopatz@cec.sc.edu</span>
   <span class="nt">employment</span><span class="p">:</span>
-    <span class="p p-Indicator">-</span> <span class="nt">begin_year</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">2015</span>
+    <span class="p p-Indicator">-</span> <span class="nt">advisor</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ascopatz</span>
+      <span class="nt">begin_year</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">2015</span>
+      <span class="nt">coworkers</span><span class="p">:</span>
+        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">afriend</span>
       <span class="nt">group</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ergs</span>
       <span class="nt">location</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Columbia, SC</span>
       <span class="nt">organization</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">The University of South Carolina</span>
@@ -516,7 +1244,8 @@
         <span class="p p-Indicator">-</span> <span class="s">&#39;Cyclus:</span><span class="nv"> </span><span class="s">An</span><span class="nv"> </span><span class="s">agent-based,</span><span class="nv"> </span><span class="s">discrete</span><span class="nv"> </span><span class="s">time</span><span class="nv"> </span><span class="s">nuclear</span><span class="nv"> </span><span class="s">fuel</span><span class="nv"> </span><span class="s">cycle</span><span class="nv"> </span><span class="s">simulator.&#39;</span>
         <span class="p p-Indicator">-</span> <span class="s">&#39;PyNE:</span><span class="nv"> </span><span class="s">The</span><span class="nv"> </span><span class="s">Nuclear</span><span class="nv"> </span><span class="s">Engineering</span><span class="nv"> </span><span class="s">Toolkit.&#39;</span>
         <span class="p p-Indicator">-</span> <span class="s">&#39;Website:</span><span class="nv"> </span><span class="s">http://www.ergs.sc.edu/&#39;</span>
-      <span class="nt">position</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Assistant Professor, Mechanical Engineering Department</span>
+      <span class="nt">position</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">assistant professor</span>
+      <span class="nt">position_full</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Assistant Professor, Mechanical Engineering Department</span>
     <span class="p p-Indicator">-</span> <span class="nt">begin_day</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
       <span class="nt">begin_month</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Jun</span>
       <span class="nt">begin_year</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">2013</span>
@@ -530,7 +1259,8 @@
         <span class="p p-Indicator">-</span> <span class="s">&#39;Cyclus:</span><span class="nv"> </span><span class="s">An</span><span class="nv"> </span><span class="s">agent-based,</span><span class="nv"> </span><span class="s">discrete</span><span class="nv"> </span><span class="s">time</span><span class="nv"> </span><span class="s">nuclear</span><span class="nv"> </span><span class="s">fuel</span><span class="nv"> </span><span class="s">cycle</span><span class="nv"> </span><span class="s">simulator.&#39;</span>
         <span class="p p-Indicator">-</span> <span class="s">&#39;PyNE:</span><span class="nv"> </span><span class="s">The</span><span class="nv"> </span><span class="s">Nuclear</span><span class="nv"> </span><span class="s">Engineering</span><span class="nv"> </span><span class="s">Toolkit.&#39;</span>
         <span class="p p-Indicator">-</span> <span class="s">&#39;Website:</span><span class="nv"> </span><span class="s">https://cnerg.github.io/&#39;</span>
-      <span class="nt">position</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Associate Scientist, Engineering Physics Department</span>
+      <span class="nt">position</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">associate scientist</span>
+      <span class="nt">position_full</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Associate Scientist, Engineering Physics Department</span>
     <span class="p p-Indicator">-</span> <span class="nt">begin_day</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
       <span class="nt">begin_month</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Nov</span>
       <span class="nt">begin_year</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">2011</span>
@@ -548,8 +1278,9 @@
           <span class="s">FLASH.&#39;</span>
         <span class="p p-Indicator">-</span> <span class="s">&#39;OpacPlot:</span><span class="nv"> </span><span class="s">HDF5-based</span><span class="nv"> </span><span class="s">equation</span><span class="nv"> </span><span class="s">of</span><span class="nv"> </span><span class="s">state</span><span class="nv"> </span><span class="s">and</span><span class="nv"> </span><span class="s">opacity</span><span class="nv"> </span><span class="s">file</span><span class="nv"> </span><span class="s">format.&#39;</span>
         <span class="p p-Indicator">-</span> <span class="s">&#39;Website:</span><span class="nv"> </span><span class="s">http://flash.uchicago.edu/site/&#39;</span>
-      <span class="nt">position</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Research Scientist, Postdoctoral Scholar</span>
-      <span class="nt">status</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">PI</span>
+      <span class="nt">position</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">post-doctoral scholar</span>
+      <span class="nt">position_full</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Research Scientist, Postdoctoral Scholar</span>
+      <span class="nt">status</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">pi</span>
   <span class="nt">funding</span><span class="p">:</span>
     <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Omega Laser User&#39;s Group Travel Award</span>
       <span class="nt">value</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1100</span>
@@ -559,6 +1290,16 @@
       <span class="nt">year</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">2013</span>
   <span class="nt">github_id</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ascopatz</span>
   <span class="nt">google_scholar_url</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">https://scholar.google.com/citations?user=dRm8f</span>
+  <span class="nt">hindex</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="nt">citations</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">19837</span>
+      <span class="nt">citations_last_five</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">9419</span>
+      <span class="nt">day</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">19</span>
+      <span class="nt">h</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">25</span>
+      <span class="nt">h_last_five</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">46</span>
+      <span class="nt">month</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">2</span>
+      <span class="nt">origin</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Google Scholar</span>
+      <span class="nt">since</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1991</span>
+      <span class="nt">year</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">2020</span>
   <span class="nt">home_address</span><span class="p">:</span>
     <span class="nt">city</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">The big apple</span>
     <span class="nt">state</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">plasma</span>
@@ -579,13 +1320,18 @@
     <span class="p p-Indicator">-</span> <span class="nt">begin_year</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">2010</span>
       <span class="nt">description</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">software applied to nuclear engineering and life</span>
   <span class="nt">service</span><span class="p">:</span>
-    <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="s">&#39;Master</span><span class="nv"> </span><span class="s">of</span><span class="nv"> </span><span class="s">Ceremonies</span><span class="nv"> </span><span class="s">and</span><span class="nv"> </span><span class="s">Organizer</span><span class="nv"> </span><span class="s">Brown</span><span class="nv"> </span><span class="s">University</span><span class="nv"> </span><span class="s">&quot;Chemistry:</span><span class="nv"> </span><span class="s">Believe</span>
-        <span class="s">it</span><span class="nv"> </span><span class="s">or</span><span class="nv"> </span><span class="s">Not&quot;</span><span class="nv"> </span><span class="s">public</span><span class="nv"> </span><span class="s">chemistry</span><span class="nv"> </span><span class="s">demonstration&#39;</span>
-      <span class="nt">year</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">2013</span>
-    <span class="p p-Indicator">-</span> <span class="nt">begin_year</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">2012</span>
-      <span class="nt">end_year</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">2014</span>
-      <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Renewable Energy Presenter and Facility Tour Guide at the NSLS &quot;Science</span>
-        <span class="l l-Scalar l-Scalar-Plain">Sunday&quot; laboratory open house at Brookhaven National Laboratory</span>
+    <span class="p p-Indicator">-</span> <span class="nt">month</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">3</span>
+      <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">International Steering Committee</span>
+      <span class="nt">notes</span><span class="p">:</span>
+        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">something</span>
+      <span class="nt">role</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">chair</span>
+      <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">profession</span>
+      <span class="nt">year</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">2020</span>
+    <span class="p p-Indicator">-</span> <span class="nt">begin_year</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">2018</span>
+      <span class="nt">end_year</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">2021</span>
+      <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">National Steering Committee</span>
+      <span class="nt">notes</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">something</span>
+      <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">profession</span>
   <span class="nt">skills</span><span class="p">:</span>
     <span class="p p-Indicator">-</span> <span class="nt">category</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Programming Languages</span>
       <span class="nt">level</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">expert</span>
@@ -595,17 +1341,35 @@
       <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Cython</span>
   <span class="nt">teaching</span><span class="p">:</span>
     <span class="p p-Indicator">-</span> <span class="nt">course</span><span class="p">:</span> <span class="s">&#39;EMCH</span><span class="nv"> </span><span class="s">552:</span><span class="nv"> </span><span class="s">Intro</span><span class="nv"> </span><span class="s">to</span><span class="nv"> </span><span class="s">Nuclear</span><span class="nv"> </span><span class="s">Engineering&#39;</span>
+      <span class="nt">courseid</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">EMCH 552</span>
       <span class="nt">description</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">This course is an introduction to nuclear physics.</span>
+      <span class="nt">enrollment</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">tbd</span>
       <span class="nt">month</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">August</span>
       <span class="nt">organization</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">University of South Carolina</span>
-      <span class="nt">position</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Professor</span>
+      <span class="nt">position</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">professor</span>
+      <span class="nt">semester</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Spring</span>
       <span class="nt">syllabus</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">https://drive.google.com/open?id=0BxUpd34yizZreDBCMEJNY2FUbnc</span>
       <span class="nt">year</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">2017</span>
     <span class="p p-Indicator">-</span> <span class="nt">course</span><span class="p">:</span> <span class="s">&#39;EMCH</span><span class="nv"> </span><span class="s">558/758:</span><span class="nv"> </span><span class="s">Reactor</span><span class="nv"> </span><span class="s">Power</span><span class="nv"> </span><span class="s">Systems&#39;</span>
+      <span class="nt">courseid</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">EMCH 558</span>
       <span class="nt">description</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">This course covers conventional reactors.</span>
+      <span class="nt">enrollment</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">28</span>
+      <span class="nt">evaluation</span><span class="p">:</span>
+        <span class="nt">amount_learned</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">3.5</span>
+        <span class="nt">approachability</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">4.3</span>
+        <span class="nt">appropriateness_workload</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">3.15</span>
+        <span class="nt">classroom_delivery</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">4</span>
+        <span class="nt">comments</span><span class="p">:</span>
+          <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">super duper</span>
+          <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">dandy</span>
+        <span class="nt">course_overall</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">3.67</span>
+        <span class="nt">fairness_grading</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">3.54</span>
+        <span class="nt">instructor_overall</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">3.5</span>
+        <span class="nt">organization</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">3.25</span>
+        <span class="nt">response_rate</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">66.76</span>
       <span class="nt">month</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">January</span>
       <span class="nt">organization</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">University of South Carolina</span>
-      <span class="nt">position</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Professor</span>
+      <span class="nt">position</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">professor</span>
       <span class="nt">syllabus</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">https://docs.google.com/document/d/1uMAx_KFZK9ugYyF6wWtLLWgITVhaTBkAf8-PxiboYdM/edit?usp=sharing</span>
       <span class="nt">year</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">2017</span>
   <span class="nt">title</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Dr.</span>
@@ -615,6 +1379,357 @@
 <div class="section" id="json-mongo-example">
 <h2>JSON/Mongo Example<a class="headerlink" href="#json-mongo-example" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;sbillinge&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;activities&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;course development&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;other&quot;</span><span class="p">:</span> <span class="s2">&quot;Developed a new course for Materials Science&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;teaching&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;year&quot;</span><span class="p">:</span> <span class="mi">2018</span>
+        <span class="p">}</span>
+    <span class="p">],</span>
+    <span class="nt">&quot;aka&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="s2">&quot;Billinge&quot;</span>
+    <span class="p">],</span>
+    <span class="nt">&quot;avatar&quot;</span><span class="p">:</span> <span class="s2">&quot;https://avatars1.githubusercontent.com/u/320553?v=3&amp;s=200&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;bio&quot;</span><span class="p">:</span> <span class="s2">&quot;Simon teaches and does research&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;committees&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;level&quot;</span><span class="p">:</span> <span class="s2">&quot;department&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Same Old&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;notes&quot;</span><span class="p">:</span> <span class="s2">&quot;something&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;phddefense&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;unit&quot;</span><span class="p">:</span> <span class="s2">&quot;Materials Science&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;year&quot;</span><span class="p">:</span> <span class="mi">2018</span>
+        <span class="p">}</span>
+    <span class="p">],</span>
+    <span class="nt">&quot;education&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;begin_year&quot;</span><span class="p">:</span> <span class="mi">2008</span><span class="p">,</span>
+            <span class="nt">&quot;degree&quot;</span><span class="p">:</span> <span class="s2">&quot;Ph.D. Mechanical Engineering, Nuclear and Radiation Engineering Program&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;department&quot;</span><span class="p">:</span> <span class="s2">&quot;apam&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;end_year&quot;</span><span class="p">:</span> <span class="mi">2011</span><span class="p">,</span>
+            <span class="nt">&quot;group&quot;</span><span class="p">:</span> <span class="s2">&quot;ergs&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;institution&quot;</span><span class="p">:</span> <span class="s2">&quot;The University of Texas at Austin&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;location&quot;</span><span class="p">:</span> <span class="s2">&quot;Austin, TX&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;other&quot;</span><span class="p">:</span> <span class="p">[</span>
+                <span class="s2">&quot;Adviser: Erich A. Schneider&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;Dissertation: Essential Physics for Fuel Cycle Modeling &amp; Analysis&quot;</span>
+            <span class="p">]</span>
+        <span class="p">}</span>
+    <span class="p">],</span>
+    <span class="nt">&quot;email&quot;</span><span class="p">:</span> <span class="s2">&quot;sb2896@columbia.edu&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;employment&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;begin_year&quot;</span><span class="p">:</span> <span class="mi">2015</span><span class="p">,</span>
+            <span class="nt">&quot;group&quot;</span><span class="p">:</span> <span class="s2">&quot;ergs&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;location&quot;</span><span class="p">:</span> <span class="s2">&quot;Columbia, SC&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;organization&quot;</span><span class="p">:</span> <span class="s2">&quot;The University of South Carolina&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;other&quot;</span><span class="p">:</span> <span class="p">[</span>
+                <span class="s2">&quot;Cyclus: An agent-based, discrete time nuclear fuel cycle simulator.&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;PyNE: The Nuclear Engineering Toolkit.&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;Website: http://www.ergs.sc.edu/&quot;</span>
+            <span class="p">],</span>
+            <span class="nt">&quot;position&quot;</span><span class="p">:</span> <span class="s2">&quot;assistant professor&quot;</span>
+        <span class="p">}</span>
+    <span class="p">],</span>
+    <span class="nt">&quot;facilities&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;begin_year&quot;</span><span class="p">:</span> <span class="mi">2015</span><span class="p">,</span>
+            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Shared {Habanero} compute cluster&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;other&quot;</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;begin_year&quot;</span><span class="p">:</span> <span class="mi">2015</span><span class="p">,</span>
+            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Shared access to wet lab&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;research_wish&quot;</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;begin_year&quot;</span><span class="p">:</span> <span class="mi">2017</span><span class="p">,</span>
+            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Courseworks2&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;teaching&quot;</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;begin_year&quot;</span><span class="p">:</span> <span class="mi">2019</span><span class="p">,</span>
+            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;nothing right now&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;teaching_wish&quot;</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;begin_year&quot;</span><span class="p">:</span> <span class="mi">2008</span><span class="p">,</span>
+            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;I don&#39;t have one&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;research&quot;</span>
+        <span class="p">}</span>
+    <span class="p">],</span>
+    <span class="nt">&quot;funding&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Omega Laser User&#39;s Group Travel Award&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="mi">1100</span><span class="p">,</span>
+            <span class="nt">&quot;year&quot;</span><span class="p">:</span> <span class="mi">2013</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;NIF User&#39;s Group Travel Award&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="mi">1150</span><span class="p">,</span>
+            <span class="nt">&quot;year&quot;</span><span class="p">:</span> <span class="mi">2013</span>
+        <span class="p">}</span>
+    <span class="p">],</span>
+    <span class="nt">&quot;google_scholar_url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://scholar.google.com/citations?user=dRm8f&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;hindex&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;citations&quot;</span><span class="p">:</span> <span class="mi">17890</span><span class="p">,</span>
+            <span class="nt">&quot;citations_last_five&quot;</span><span class="p">:</span> <span class="mi">8817</span><span class="p">,</span>
+            <span class="nt">&quot;day&quot;</span><span class="p">:</span> <span class="mi">12</span><span class="p">,</span>
+            <span class="nt">&quot;h&quot;</span><span class="p">:</span> <span class="mi">65</span><span class="p">,</span>
+            <span class="nt">&quot;h_last_five&quot;</span><span class="p">:</span> <span class="mi">43</span><span class="p">,</span>
+            <span class="nt">&quot;month&quot;</span><span class="p">:</span> <span class="s2">&quot;May&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;origin&quot;</span><span class="p">:</span> <span class="s2">&quot;Google Scholar&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;since&quot;</span><span class="p">:</span> <span class="mi">1991</span><span class="p">,</span>
+            <span class="nt">&quot;year&quot;</span><span class="p">:</span> <span class="mi">2019</span>
+        <span class="p">}</span>
+    <span class="p">],</span>
+    <span class="nt">&quot;home_address&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;city&quot;</span><span class="p">:</span> <span class="s2">&quot;The big apple&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;state&quot;</span><span class="p">:</span> <span class="s2">&quot;plasma&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;street&quot;</span><span class="p">:</span> <span class="s2">&quot;123 Wallabe Ln&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;zip&quot;</span><span class="p">:</span> <span class="s2">&quot;007&quot;</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;initials&quot;</span><span class="p">:</span> <span class="s2">&quot;SJLB&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;membership&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;begin_year&quot;</span><span class="p">:</span> <span class="mi">2006</span><span class="p">,</span>
+            <span class="nt">&quot;organization&quot;</span><span class="p">:</span> <span class="s2">&quot;American Nuclear Society&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;position&quot;</span><span class="p">:</span> <span class="s2">&quot;Member&quot;</span>
+        <span class="p">}</span>
+    <span class="p">],</span>
+    <span class="nt">&quot;miscellaneous&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;metrics_for_success&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="s2">&quot;publications(quality, quantity)&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;invite talks&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;funding&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;citations&quot;</span>
+        <span class="p">]</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Simon J. L. Billinge&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;office&quot;</span><span class="p">:</span> <span class="s2">&quot;1105 Seely W. Mudd Building (inner office)&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;orcid_id&quot;</span><span class="p">:</span> <span class="s2">&quot;0000-0002-9432-4248&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;position&quot;</span><span class="p">:</span> <span class="s2">&quot;professor&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;publicity&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;day&quot;</span><span class="p">:</span> <span class="mi">24</span><span class="p">,</span>
+            <span class="nt">&quot;grant&quot;</span><span class="p">:</span> <span class="s2">&quot;bnlldrd18&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;month&quot;</span><span class="p">:</span> <span class="s2">&quot;Jul&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;publication&quot;</span><span class="p">:</span> <span class="s2">&quot;Brookhaven National Laboratory Web Story&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;An awesome project and well worth the money&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;topic&quot;</span><span class="p">:</span> <span class="s2">&quot;LDRD Provenance project&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;online&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;http://www.google.com&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;year&quot;</span><span class="p">:</span> <span class="mi">2019</span>
+        <span class="p">}</span>
+    <span class="p">],</span>
+    <span class="nt">&quot;research_focus_areas&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;begin_year&quot;</span><span class="p">:</span> <span class="mi">2010</span><span class="p">,</span>
+            <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;software applied to materials engineering and life&quot;</span>
+        <span class="p">}</span>
+    <span class="p">],</span>
+    <span class="nt">&quot;service&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;month&quot;</span><span class="p">:</span> <span class="s2">&quot;August&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Master of Ceremonies and Organizer Brown University \&quot;Chemistry: Believe it or Not\&quot; public chemistry demonstration&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;profession&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;year&quot;</span><span class="p">:</span> <span class="mi">2017</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;month&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Applied Physics program committee&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;department&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;year&quot;</span><span class="p">:</span> <span class="mi">2018</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;month&quot;</span><span class="p">:</span> <span class="mi">6</span><span class="p">,</span>
+            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Ad hoc tenure committee&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;notes&quot;</span><span class="p">:</span> <span class="s2">&quot;Albert Einstein&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;school&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;year&quot;</span><span class="p">:</span> <span class="mi">2017</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;month&quot;</span><span class="p">:</span> <span class="mi">12</span><span class="p">,</span>
+            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Co-organizer JUAMI&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;other&quot;</span><span class="p">:</span> <span class="s2">&quot;great way to meet people&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;co-organizer&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;profession&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;year&quot;</span><span class="p">:</span> <span class="mi">2017</span>
+        <span class="p">}</span>
+    <span class="p">],</span>
+    <span class="nt">&quot;skills&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;category&quot;</span><span class="p">:</span> <span class="s2">&quot;Programming Languages&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;level&quot;</span><span class="p">:</span> <span class="s2">&quot;expert&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Python&quot;</span>
+        <span class="p">}</span>
+    <span class="p">],</span>
+    <span class="nt">&quot;teaching&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;course&quot;</span><span class="p">:</span> <span class="s2">&quot;MSAE-3010: Introduction to Materials Science&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;courseid&quot;</span><span class="p">:</span> <span class="s2">&quot;f17-3010&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;This course is an introduction to nuclear physics.&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;enrollment&quot;</span><span class="p">:</span> <span class="mi">18</span><span class="p">,</span>
+            <span class="nt">&quot;evaluation&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="nt">&quot;amount_learned&quot;</span><span class="p">:</span> <span class="mf">4.57</span><span class="p">,</span>
+                <span class="nt">&quot;approachability&quot;</span><span class="p">:</span> <span class="mf">4.86</span><span class="p">,</span>
+                <span class="nt">&quot;appropriateness_workload&quot;</span><span class="p">:</span> <span class="mf">4.29</span><span class="p">,</span>
+                <span class="nt">&quot;classroom_delivery&quot;</span><span class="p">:</span> <span class="mf">4.29</span><span class="p">,</span>
+                <span class="nt">&quot;comments&quot;</span><span class="p">:</span> <span class="p">[</span>
+                    <span class="s2">&quot;Great teacher but disorganized&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;Wears pink pants.  Why?&quot;</span>
+                <span class="p">],</span>
+                <span class="nt">&quot;course_overall&quot;</span><span class="p">:</span> <span class="mf">4.43</span><span class="p">,</span>
+                <span class="nt">&quot;fairness_grading&quot;</span><span class="p">:</span> <span class="mf">4.57</span><span class="p">,</span>
+                <span class="nt">&quot;instructor_overall&quot;</span><span class="p">:</span> <span class="mf">4.43</span><span class="p">,</span>
+                <span class="nt">&quot;organization&quot;</span><span class="p">:</span> <span class="mf">4.0</span><span class="p">,</span>
+                <span class="nt">&quot;response_rate&quot;</span><span class="p">:</span> <span class="mf">58.33</span>
+            <span class="p">},</span>
+            <span class="nt">&quot;month&quot;</span><span class="p">:</span> <span class="s2">&quot;August&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;organization&quot;</span><span class="p">:</span> <span class="s2">&quot;Columbia University&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;position&quot;</span><span class="p">:</span> <span class="s2">&quot;professor&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;semester&quot;</span><span class="p">:</span> <span class="s2">&quot;Fall&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;syllabus&quot;</span><span class="p">:</span> <span class="s2">&quot;https://drive.google.com/open?id=0BxUpd34yizZreDBCMEJNY2FUbnc&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;year&quot;</span><span class="p">:</span> <span class="mi">2016</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;course&quot;</span><span class="p">:</span> <span class="s2">&quot;MSAE-3010: Introduction to Materials Science&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;courseid&quot;</span><span class="p">:</span> <span class="s2">&quot;f17-3010&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;This course is an introduction to nuclear physics.&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;enrollment&quot;</span><span class="p">:</span> <span class="mi">18</span><span class="p">,</span>
+            <span class="nt">&quot;evaluation&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="nt">&quot;amount_learned&quot;</span><span class="p">:</span> <span class="mf">4.57</span><span class="p">,</span>
+                <span class="nt">&quot;approachability&quot;</span><span class="p">:</span> <span class="mf">4.86</span><span class="p">,</span>
+                <span class="nt">&quot;appropriateness_workload&quot;</span><span class="p">:</span> <span class="mf">4.29</span><span class="p">,</span>
+                <span class="nt">&quot;classroom_delivery&quot;</span><span class="p">:</span> <span class="mf">4.29</span><span class="p">,</span>
+                <span class="nt">&quot;comments&quot;</span><span class="p">:</span> <span class="p">[</span>
+                    <span class="s2">&quot;Great teacher but disorganized&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;Wears pink pants.  Why?&quot;</span>
+                <span class="p">],</span>
+                <span class="nt">&quot;course_overall&quot;</span><span class="p">:</span> <span class="mf">4.43</span><span class="p">,</span>
+                <span class="nt">&quot;fairness_grading&quot;</span><span class="p">:</span> <span class="mf">4.57</span><span class="p">,</span>
+                <span class="nt">&quot;instructor_overall&quot;</span><span class="p">:</span> <span class="mf">4.43</span><span class="p">,</span>
+                <span class="nt">&quot;organization&quot;</span><span class="p">:</span> <span class="mf">4.0</span><span class="p">,</span>
+                <span class="nt">&quot;response_rate&quot;</span><span class="p">:</span> <span class="mf">58.33</span>
+            <span class="p">},</span>
+            <span class="nt">&quot;month&quot;</span><span class="p">:</span> <span class="s2">&quot;August&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;organization&quot;</span><span class="p">:</span> <span class="s2">&quot;Columbia University&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;position&quot;</span><span class="p">:</span> <span class="s2">&quot;professor&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;semester&quot;</span><span class="p">:</span> <span class="s2">&quot;Fall&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;syllabus&quot;</span><span class="p">:</span> <span class="s2">&quot;https://drive.google.com/open?id=0BxUpd34yizZreDBCMEJNY2FUbnc&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;year&quot;</span><span class="p">:</span> <span class="mi">2017</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;course&quot;</span><span class="p">:</span> <span class="s2">&quot;MSAE-3010: Introduction to Materials Science&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;courseid&quot;</span><span class="p">:</span> <span class="s2">&quot;s17-3010&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;This course is an introduction to nuclear physics.&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;enrollment&quot;</span><span class="p">:</span> <span class="mi">18</span><span class="p">,</span>
+            <span class="nt">&quot;evaluation&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="nt">&quot;amount_learned&quot;</span><span class="p">:</span> <span class="mf">4.57</span><span class="p">,</span>
+                <span class="nt">&quot;approachability&quot;</span><span class="p">:</span> <span class="mf">4.86</span><span class="p">,</span>
+                <span class="nt">&quot;appropriateness_workload&quot;</span><span class="p">:</span> <span class="mf">4.29</span><span class="p">,</span>
+                <span class="nt">&quot;classroom_delivery&quot;</span><span class="p">:</span> <span class="mf">4.29</span><span class="p">,</span>
+                <span class="nt">&quot;comments&quot;</span><span class="p">:</span> <span class="p">[</span>
+                    <span class="s2">&quot;Great teacher but disorganized&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;Wears pink pants.  Why?&quot;</span>
+                <span class="p">],</span>
+                <span class="nt">&quot;course_overall&quot;</span><span class="p">:</span> <span class="mf">4.43</span><span class="p">,</span>
+                <span class="nt">&quot;fairness_grading&quot;</span><span class="p">:</span> <span class="mf">4.57</span><span class="p">,</span>
+                <span class="nt">&quot;instructor_overall&quot;</span><span class="p">:</span> <span class="mf">4.43</span><span class="p">,</span>
+                <span class="nt">&quot;organization&quot;</span><span class="p">:</span> <span class="mf">4.0</span><span class="p">,</span>
+                <span class="nt">&quot;response_rate&quot;</span><span class="p">:</span> <span class="mf">58.33</span>
+            <span class="p">},</span>
+            <span class="nt">&quot;month&quot;</span><span class="p">:</span> <span class="s2">&quot;Jan&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;organization&quot;</span><span class="p">:</span> <span class="s2">&quot;Columbia University&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;position&quot;</span><span class="p">:</span> <span class="s2">&quot;professor&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;semester&quot;</span><span class="p">:</span> <span class="s2">&quot;Spring&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;syllabus&quot;</span><span class="p">:</span> <span class="s2">&quot;https://drive.google.com/open?id=0BxUpd34yizZreDBCMEJNY2FUbnc&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;year&quot;</span><span class="p">:</span> <span class="mi">2018</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;course&quot;</span><span class="p">:</span> <span class="s2">&quot;MSAE-3010: Introduction to Materials Science&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;courseid&quot;</span><span class="p">:</span> <span class="s2">&quot;s17-3010&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;This course is an introduction to nuclear physics.&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;enrollment&quot;</span><span class="p">:</span> <span class="mi">18</span><span class="p">,</span>
+            <span class="nt">&quot;evaluation&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="nt">&quot;amount_learned&quot;</span><span class="p">:</span> <span class="mf">4.57</span><span class="p">,</span>
+                <span class="nt">&quot;approachability&quot;</span><span class="p">:</span> <span class="mf">4.86</span><span class="p">,</span>
+                <span class="nt">&quot;appropriateness_workload&quot;</span><span class="p">:</span> <span class="mf">4.29</span><span class="p">,</span>
+                <span class="nt">&quot;classroom_delivery&quot;</span><span class="p">:</span> <span class="mf">4.29</span><span class="p">,</span>
+                <span class="nt">&quot;comments&quot;</span><span class="p">:</span> <span class="p">[</span>
+                    <span class="s2">&quot;Great teacher but disorganized&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;Wears pink pants.  Why?&quot;</span>
+                <span class="p">],</span>
+                <span class="nt">&quot;course_overall&quot;</span><span class="p">:</span> <span class="mf">4.43</span><span class="p">,</span>
+                <span class="nt">&quot;fairness_grading&quot;</span><span class="p">:</span> <span class="mf">4.57</span><span class="p">,</span>
+                <span class="nt">&quot;instructor_overall&quot;</span><span class="p">:</span> <span class="mf">4.43</span><span class="p">,</span>
+                <span class="nt">&quot;organization&quot;</span><span class="p">:</span> <span class="mf">4.0</span><span class="p">,</span>
+                <span class="nt">&quot;response_rate&quot;</span><span class="p">:</span> <span class="mf">58.33</span>
+            <span class="p">},</span>
+            <span class="nt">&quot;month&quot;</span><span class="p">:</span> <span class="s2">&quot;Jan&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;organization&quot;</span><span class="p">:</span> <span class="s2">&quot;Columbia University&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;position&quot;</span><span class="p">:</span> <span class="s2">&quot;professor&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;semester&quot;</span><span class="p">:</span> <span class="s2">&quot;Spring&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;syllabus&quot;</span><span class="p">:</span> <span class="s2">&quot;https://drive.google.com/open?id=0BxUpd34yizZreDBCMEJNY2FUbnc&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;year&quot;</span><span class="p">:</span> <span class="mi">2017</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;course&quot;</span><span class="p">:</span> <span class="s2">&quot;MSAE-3010: Introduction to Materials Science&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;courseid&quot;</span><span class="p">:</span> <span class="s2">&quot;s17-3010&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;This course is an introduction to nuclear physics.&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;enrollment&quot;</span><span class="p">:</span> <span class="mi">18</span><span class="p">,</span>
+            <span class="nt">&quot;month&quot;</span><span class="p">:</span> <span class="s2">&quot;Jan&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;organization&quot;</span><span class="p">:</span> <span class="s2">&quot;Columbia University&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;position&quot;</span><span class="p">:</span> <span class="s2">&quot;professor&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;semester&quot;</span><span class="p">:</span> <span class="s2">&quot;Spring&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;syllabus&quot;</span><span class="p">:</span> <span class="s2">&quot;https://drive.google.com/open?id=0BxUpd34yizZreDBCMEJNY2FUbnc&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;year&quot;</span><span class="p">:</span> <span class="mi">2019</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;course&quot;</span><span class="p">:</span> <span class="s2">&quot;MSAE-3010: Introduction to Materials Science&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;courseid&quot;</span><span class="p">:</span> <span class="s2">&quot;f18-3010&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;This course is an introduction to nuclear physics.&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;enrollment&quot;</span><span class="p">:</span> <span class="mi">18</span><span class="p">,</span>
+            <span class="nt">&quot;evaluation&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="nt">&quot;amount_learned&quot;</span><span class="p">:</span> <span class="mf">4.57</span><span class="p">,</span>
+                <span class="nt">&quot;approachability&quot;</span><span class="p">:</span> <span class="mf">4.86</span><span class="p">,</span>
+                <span class="nt">&quot;appropriateness_workload&quot;</span><span class="p">:</span> <span class="mf">4.29</span><span class="p">,</span>
+                <span class="nt">&quot;classroom_delivery&quot;</span><span class="p">:</span> <span class="mf">4.29</span><span class="p">,</span>
+                <span class="nt">&quot;comments&quot;</span><span class="p">:</span> <span class="p">[</span>
+                    <span class="s2">&quot;Great teacher but disorganized&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;Wears pink pants.  Why?&quot;</span>
+                <span class="p">],</span>
+                <span class="nt">&quot;course_overall&quot;</span><span class="p">:</span> <span class="mf">4.43</span><span class="p">,</span>
+                <span class="nt">&quot;fairness_grading&quot;</span><span class="p">:</span> <span class="mf">4.57</span><span class="p">,</span>
+                <span class="nt">&quot;instructor_overall&quot;</span><span class="p">:</span> <span class="mf">4.43</span><span class="p">,</span>
+                <span class="nt">&quot;organization&quot;</span><span class="p">:</span> <span class="mf">4.0</span><span class="p">,</span>
+                <span class="nt">&quot;response_rate&quot;</span><span class="p">:</span> <span class="mf">58.33</span>
+            <span class="p">},</span>
+            <span class="nt">&quot;month&quot;</span><span class="p">:</span> <span class="s2">&quot;August&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;organization&quot;</span><span class="p">:</span> <span class="s2">&quot;Columbia University&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;position&quot;</span><span class="p">:</span> <span class="s2">&quot;professor&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;semester&quot;</span><span class="p">:</span> <span class="s2">&quot;Fall&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;syllabus&quot;</span><span class="p">:</span> <span class="s2">&quot;https://drive.google.com/open?id=0BxUpd34yizZreDBCMEJNY2FUbnc&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;year&quot;</span><span class="p">:</span> <span class="mi">2018</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;course&quot;</span><span class="p">:</span> <span class="s2">&quot;MSAE-3010: Introduction to Materials Science&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;courseid&quot;</span><span class="p">:</span> <span class="s2">&quot;f19-3010&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;This course is an introduction to nuclear physics.&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;month&quot;</span><span class="p">:</span> <span class="s2">&quot;August&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;organization&quot;</span><span class="p">:</span> <span class="s2">&quot;Columbia University&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;position&quot;</span><span class="p">:</span> <span class="s2">&quot;professor&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;semester&quot;</span><span class="p">:</span> <span class="s2">&quot;Fall&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;syllabus&quot;</span><span class="p">:</span> <span class="s2">&quot;https://drive.google.com/open?id=0BxUpd34yizZreDBCMEJNY2FUbnc&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;year&quot;</span><span class="p">:</span> <span class="mi">2019</span>
+        <span class="p">}</span>
+    <span class="p">],</span>
+    <span class="nt">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;Dr.&quot;</span>
+<span class="p">}</span>
+<span class="p">{</span>
     <span class="nt">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;scopatz&quot;</span><span class="p">,</span>
     <span class="nt">&quot;aka&quot;</span><span class="p">:</span> <span class="p">[</span>
         <span class="s2">&quot;Scopatz&quot;</span><span class="p">,</span>
@@ -623,10 +1738,69 @@
         <span class="s2">&quot;Scopatz, A M&quot;</span><span class="p">,</span>
         <span class="s2">&quot;Anthony Michael Scopatz&quot;</span>
     <span class="p">],</span>
+    <span class="nt">&quot;appointments&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;f19&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;begin_day&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+            <span class="nt">&quot;begin_month&quot;</span><span class="p">:</span> <span class="mi">9</span><span class="p">,</span>
+            <span class="nt">&quot;begin_year&quot;</span><span class="p">:</span> <span class="mi">2019</span><span class="p">,</span>
+            <span class="nt">&quot;end_day&quot;</span><span class="p">:</span> <span class="mi">31</span><span class="p">,</span>
+            <span class="nt">&quot;end_month&quot;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
+            <span class="nt">&quot;end_year&quot;</span><span class="p">:</span> <span class="mi">2019</span><span class="p">,</span>
+            <span class="nt">&quot;grant&quot;</span><span class="p">:</span> <span class="s2">&quot;mrsec14&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;loading&quot;</span><span class="p">:</span> <span class="mf">0.75</span><span class="p">,</span>
+            <span class="nt">&quot;notes&quot;</span><span class="p">:</span> <span class="p">[</span>
+                <span class="s2">&quot;forgetmenot&quot;</span>
+            <span class="p">],</span>
+            <span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;finalized&quot;</span>
+        <span class="p">}</span>
+    <span class="p">},</span>
     <span class="nt">&quot;avatar&quot;</span><span class="p">:</span> <span class="s2">&quot;https://avatars1.githubusercontent.com/u/320553?v=3&amp;s=200&quot;</span><span class="p">,</span>
     <span class="nt">&quot;bio&quot;</span><span class="p">:</span> <span class="s2">&quot;Anthony Scopatz is currently an Assistant Professor&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;bios&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="s2">&quot;Anthony Scopatz is currently an Assistant Professor but will go on to do great things&quot;</span>
+    <span class="p">],</span>
+    <span class="nt">&quot;committees&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;day&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+            <span class="nt">&quot;level&quot;</span><span class="p">:</span> <span class="s2">&quot;department&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;month&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Heather Stanford&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;phdoral&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;unit&quot;</span><span class="p">:</span> <span class="s2">&quot;apam&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;year&quot;</span><span class="p">:</span> <span class="mi">2020</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;day&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+            <span class="nt">&quot;level&quot;</span><span class="p">:</span> <span class="s2">&quot;school&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;month&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Heather Stanford&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;promotion&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;unit&quot;</span><span class="p">:</span> <span class="s2">&quot;seas&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;year&quot;</span><span class="p">:</span> <span class="mi">2020</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;day&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+            <span class="nt">&quot;level&quot;</span><span class="p">:</span> <span class="s2">&quot;external&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;month&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Heather Stanford&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;notes&quot;</span><span class="p">:</span> <span class="s2">&quot;something else to remember about it, not published&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;phddefense&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;unit&quot;</span><span class="p">:</span> <span class="s2">&quot;U Denmark&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;year&quot;</span><span class="p">:</span> <span class="mi">2020</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;day&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+            <span class="nt">&quot;level&quot;</span><span class="p">:</span> <span class="s2">&quot;university&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;month&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Heather Stanford&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;promotion&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;unit&quot;</span><span class="p">:</span> <span class="s2">&quot;columbiau&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;year&quot;</span><span class="p">:</span> <span class="mi">2020</span>
+        <span class="p">}</span>
+    <span class="p">],</span>
     <span class="nt">&quot;education&quot;</span><span class="p">:</span> <span class="p">[</span>
         <span class="p">{</span>
+            <span class="nt">&quot;advisor&quot;</span><span class="p">:</span> <span class="s2">&quot;ascopatz&quot;</span><span class="p">,</span>
             <span class="nt">&quot;begin_year&quot;</span><span class="p">:</span> <span class="mi">2008</span><span class="p">,</span>
             <span class="nt">&quot;degree&quot;</span><span class="p">:</span> <span class="s2">&quot;Ph.D. Mechanical Engineering, Nuclear and Radiation Engineering Program&quot;</span><span class="p">,</span>
             <span class="nt">&quot;department&quot;</span><span class="p">:</span> <span class="s2">&quot;apam&quot;</span><span class="p">,</span>
@@ -676,7 +1850,11 @@
     <span class="nt">&quot;email&quot;</span><span class="p">:</span> <span class="s2">&quot;scopatz@cec.sc.edu&quot;</span><span class="p">,</span>
     <span class="nt">&quot;employment&quot;</span><span class="p">:</span> <span class="p">[</span>
         <span class="p">{</span>
+            <span class="nt">&quot;advisor&quot;</span><span class="p">:</span> <span class="s2">&quot;ascopatz&quot;</span><span class="p">,</span>
             <span class="nt">&quot;begin_year&quot;</span><span class="p">:</span> <span class="mi">2015</span><span class="p">,</span>
+            <span class="nt">&quot;coworkers&quot;</span><span class="p">:</span> <span class="p">[</span>
+                <span class="s2">&quot;afriend&quot;</span>
+            <span class="p">],</span>
             <span class="nt">&quot;group&quot;</span><span class="p">:</span> <span class="s2">&quot;ergs&quot;</span><span class="p">,</span>
             <span class="nt">&quot;location&quot;</span><span class="p">:</span> <span class="s2">&quot;Columbia, SC&quot;</span><span class="p">,</span>
             <span class="nt">&quot;organization&quot;</span><span class="p">:</span> <span class="s2">&quot;The University of South Carolina&quot;</span><span class="p">,</span>
@@ -685,7 +1863,8 @@
                 <span class="s2">&quot;PyNE: The Nuclear Engineering Toolkit.&quot;</span><span class="p">,</span>
                 <span class="s2">&quot;Website: http://www.ergs.sc.edu/&quot;</span>
             <span class="p">],</span>
-            <span class="nt">&quot;position&quot;</span><span class="p">:</span> <span class="s2">&quot;Assistant Professor, Mechanical Engineering Department&quot;</span>
+            <span class="nt">&quot;position&quot;</span><span class="p">:</span> <span class="s2">&quot;assistant professor&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;position_full&quot;</span><span class="p">:</span> <span class="s2">&quot;Assistant Professor, Mechanical Engineering Department&quot;</span>
         <span class="p">},</span>
         <span class="p">{</span>
             <span class="nt">&quot;begin_day&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
@@ -702,7 +1881,8 @@
                 <span class="s2">&quot;PyNE: The Nuclear Engineering Toolkit.&quot;</span><span class="p">,</span>
                 <span class="s2">&quot;Website: https://cnerg.github.io/&quot;</span>
             <span class="p">],</span>
-            <span class="nt">&quot;position&quot;</span><span class="p">:</span> <span class="s2">&quot;Associate Scientist, Engineering Physics Department&quot;</span>
+            <span class="nt">&quot;position&quot;</span><span class="p">:</span> <span class="s2">&quot;associate scientist&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;position_full&quot;</span><span class="p">:</span> <span class="s2">&quot;Associate Scientist, Engineering Physics Department&quot;</span>
         <span class="p">},</span>
         <span class="p">{</span>
             <span class="nt">&quot;begin_day&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
@@ -720,8 +1900,9 @@
                 <span class="s2">&quot;OpacPlot: HDF5-based equation of state and opacity file format.&quot;</span><span class="p">,</span>
                 <span class="s2">&quot;Website: http://flash.uchicago.edu/site/&quot;</span>
             <span class="p">],</span>
-            <span class="nt">&quot;position&quot;</span><span class="p">:</span> <span class="s2">&quot;Research Scientist, Postdoctoral Scholar&quot;</span><span class="p">,</span>
-            <span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;PI&quot;</span>
+            <span class="nt">&quot;position&quot;</span><span class="p">:</span> <span class="s2">&quot;post-doctoral scholar&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;position_full&quot;</span><span class="p">:</span> <span class="s2">&quot;Research Scientist, Postdoctoral Scholar&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;pi&quot;</span>
         <span class="p">}</span>
     <span class="p">],</span>
     <span class="nt">&quot;funding&quot;</span><span class="p">:</span> <span class="p">[</span>
@@ -738,6 +1919,19 @@
     <span class="p">],</span>
     <span class="nt">&quot;github_id&quot;</span><span class="p">:</span> <span class="s2">&quot;ascopatz&quot;</span><span class="p">,</span>
     <span class="nt">&quot;google_scholar_url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://scholar.google.com/citations?user=dRm8f&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;hindex&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;citations&quot;</span><span class="p">:</span> <span class="mi">19837</span><span class="p">,</span>
+            <span class="nt">&quot;citations_last_five&quot;</span><span class="p">:</span> <span class="mi">9419</span><span class="p">,</span>
+            <span class="nt">&quot;day&quot;</span><span class="p">:</span> <span class="mi">19</span><span class="p">,</span>
+            <span class="nt">&quot;h&quot;</span><span class="p">:</span> <span class="mi">25</span><span class="p">,</span>
+            <span class="nt">&quot;h_last_five&quot;</span><span class="p">:</span> <span class="mi">46</span><span class="p">,</span>
+            <span class="nt">&quot;month&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+            <span class="nt">&quot;origin&quot;</span><span class="p">:</span> <span class="s2">&quot;Google Scholar&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;since&quot;</span><span class="p">:</span> <span class="mi">1991</span><span class="p">,</span>
+            <span class="nt">&quot;year&quot;</span><span class="p">:</span> <span class="mi">2020</span>
+        <span class="p">}</span>
+    <span class="p">],</span>
     <span class="nt">&quot;home_address&quot;</span><span class="p">:</span> <span class="p">{</span>
         <span class="nt">&quot;city&quot;</span><span class="p">:</span> <span class="s2">&quot;The big apple&quot;</span><span class="p">,</span>
         <span class="nt">&quot;state&quot;</span><span class="p">:</span> <span class="s2">&quot;plasma&quot;</span><span class="p">,</span>
@@ -768,13 +1962,21 @@
     <span class="p">],</span>
     <span class="nt">&quot;service&quot;</span><span class="p">:</span> <span class="p">[</span>
         <span class="p">{</span>
-            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Master of Ceremonies and Organizer Brown University \&quot;Chemistry: Believe it or Not\&quot; public chemistry demonstration&quot;</span><span class="p">,</span>
-            <span class="nt">&quot;year&quot;</span><span class="p">:</span> <span class="mi">2013</span>
+            <span class="nt">&quot;month&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;International Steering Committee&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;notes&quot;</span><span class="p">:</span> <span class="p">[</span>
+                <span class="s2">&quot;something&quot;</span>
+            <span class="p">],</span>
+            <span class="nt">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;chair&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;profession&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;year&quot;</span><span class="p">:</span> <span class="mi">2020</span>
         <span class="p">},</span>
         <span class="p">{</span>
-            <span class="nt">&quot;begin_year&quot;</span><span class="p">:</span> <span class="mi">2012</span><span class="p">,</span>
-            <span class="nt">&quot;end_year&quot;</span><span class="p">:</span> <span class="mi">2014</span><span class="p">,</span>
-            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Renewable Energy Presenter and Facility Tour Guide at the NSLS \&quot;Science Sunday\&quot; laboratory open house at Brookhaven National Laboratory&quot;</span>
+            <span class="nt">&quot;begin_year&quot;</span><span class="p">:</span> <span class="mi">2018</span><span class="p">,</span>
+            <span class="nt">&quot;end_year&quot;</span><span class="p">:</span> <span class="mi">2021</span><span class="p">,</span>
+            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;National Steering Committee&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;notes&quot;</span><span class="p">:</span> <span class="s2">&quot;something&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;profession&quot;</span>
         <span class="p">}</span>
     <span class="p">],</span>
     <span class="nt">&quot;skills&quot;</span><span class="p">:</span> <span class="p">[</span>
@@ -792,19 +1994,39 @@
     <span class="nt">&quot;teaching&quot;</span><span class="p">:</span> <span class="p">[</span>
         <span class="p">{</span>
             <span class="nt">&quot;course&quot;</span><span class="p">:</span> <span class="s2">&quot;EMCH 552: Intro to Nuclear Engineering&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;courseid&quot;</span><span class="p">:</span> <span class="s2">&quot;EMCH 552&quot;</span><span class="p">,</span>
             <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;This course is an introduction to nuclear physics.&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;enrollment&quot;</span><span class="p">:</span> <span class="s2">&quot;tbd&quot;</span><span class="p">,</span>
             <span class="nt">&quot;month&quot;</span><span class="p">:</span> <span class="s2">&quot;August&quot;</span><span class="p">,</span>
             <span class="nt">&quot;organization&quot;</span><span class="p">:</span> <span class="s2">&quot;University of South Carolina&quot;</span><span class="p">,</span>
-            <span class="nt">&quot;position&quot;</span><span class="p">:</span> <span class="s2">&quot;Professor&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;position&quot;</span><span class="p">:</span> <span class="s2">&quot;professor&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;semester&quot;</span><span class="p">:</span> <span class="s2">&quot;Spring&quot;</span><span class="p">,</span>
             <span class="nt">&quot;syllabus&quot;</span><span class="p">:</span> <span class="s2">&quot;https://drive.google.com/open?id=0BxUpd34yizZreDBCMEJNY2FUbnc&quot;</span><span class="p">,</span>
             <span class="nt">&quot;year&quot;</span><span class="p">:</span> <span class="mi">2017</span>
         <span class="p">},</span>
         <span class="p">{</span>
             <span class="nt">&quot;course&quot;</span><span class="p">:</span> <span class="s2">&quot;EMCH 558/758: Reactor Power Systems&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;courseid&quot;</span><span class="p">:</span> <span class="s2">&quot;EMCH 558&quot;</span><span class="p">,</span>
             <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;This course covers conventional reactors.&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;enrollment&quot;</span><span class="p">:</span> <span class="mi">28</span><span class="p">,</span>
+            <span class="nt">&quot;evaluation&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="nt">&quot;amount_learned&quot;</span><span class="p">:</span> <span class="mf">3.5</span><span class="p">,</span>
+                <span class="nt">&quot;approachability&quot;</span><span class="p">:</span> <span class="mf">4.3</span><span class="p">,</span>
+                <span class="nt">&quot;appropriateness_workload&quot;</span><span class="p">:</span> <span class="mf">3.15</span><span class="p">,</span>
+                <span class="nt">&quot;classroom_delivery&quot;</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span>
+                <span class="nt">&quot;comments&quot;</span><span class="p">:</span> <span class="p">[</span>
+                    <span class="s2">&quot;super duper&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;dandy&quot;</span>
+                <span class="p">],</span>
+                <span class="nt">&quot;course_overall&quot;</span><span class="p">:</span> <span class="mf">3.67</span><span class="p">,</span>
+                <span class="nt">&quot;fairness_grading&quot;</span><span class="p">:</span> <span class="mf">3.54</span><span class="p">,</span>
+                <span class="nt">&quot;instructor_overall&quot;</span><span class="p">:</span> <span class="mf">3.5</span><span class="p">,</span>
+                <span class="nt">&quot;organization&quot;</span><span class="p">:</span> <span class="mf">3.25</span><span class="p">,</span>
+                <span class="nt">&quot;response_rate&quot;</span><span class="p">:</span> <span class="mf">66.76</span>
+            <span class="p">},</span>
             <span class="nt">&quot;month&quot;</span><span class="p">:</span> <span class="s2">&quot;January&quot;</span><span class="p">,</span>
             <span class="nt">&quot;organization&quot;</span><span class="p">:</span> <span class="s2">&quot;University of South Carolina&quot;</span><span class="p">,</span>
-            <span class="nt">&quot;position&quot;</span><span class="p">:</span> <span class="s2">&quot;Professor&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;position&quot;</span><span class="p">:</span> <span class="s2">&quot;professor&quot;</span><span class="p">,</span>
             <span class="nt">&quot;syllabus&quot;</span><span class="p">:</span> <span class="s2">&quot;https://docs.google.com/document/d/1uMAx_KFZK9ugYyF6wWtLLWgITVhaTBkAf8-PxiboYdM/edit?usp=sharing&quot;</span><span class="p">,</span>
             <span class="nt">&quot;year&quot;</span><span class="p">:</span> <span class="mi">2017</span>
         <span class="p">}</span>

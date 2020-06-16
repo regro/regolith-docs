@@ -70,7 +70,7 @@ YAML Example
 	  team:
 	    - institution: University of South Carolina
 	      name: Anthony Scopatz
-	      position: PI
+	      position: pi
 	    - institution: University of South Carolina
 	      name: Aaron Meurer
 	      position: researcher
@@ -92,7 +92,7 @@ YAML Example
 	  team:
 	    - institution: University of South Carolina
 	      name: Anthony Scopatz
-	      position: PI
+	      position: pi
 	    - institution: University of South Carolina
 	      name: Aaron Meurer
 	      position: researcher
@@ -119,13 +119,13 @@ YAML Example
 	  team:
 	    - institution: Columbia University
 	      name: qdu
-	      position: Co-PI
+	      position: co-pi
 	    - institution: Columbia University
 	      name: dhsu
-	      position: Co-PI
+	      position: co-pi
 	    - institution: Columbia University
 	      name: Anthony Scopatz
-	      position: PI
+	      position: pi
 	      subaward_amount: 330000.0
 	  title: 'DMREF: Novel, data validated, nanostructure determination methods for accelerating
 	    materials discovery'
@@ -155,7 +155,7 @@ JSON/Mongo Example
 	        {
 	            "institution": "University of South Carolina",
 	            "name": "Anthony Scopatz",
-	            "position": "PI"
+	            "position": "pi"
 	        },
 	        {
 	            "institution": "University of South Carolina",
@@ -184,7 +184,7 @@ JSON/Mongo Example
 	        {
 	            "institution": "University of South Carolina",
 	            "name": "Anthony Scopatz",
-	            "position": "PI"
+	            "position": "pi"
 	        },
 	        {
 	            "institution": "University of South Carolina",
@@ -216,17 +216,17 @@ JSON/Mongo Example
 	        {
 	            "institution": "Columbia University",
 	            "name": "qdu",
-	            "position": "Co-PI"
+	            "position": "co-pi"
 	        },
 	        {
 	            "institution": "Columbia University",
 	            "name": "dhsu",
-	            "position": "Co-PI"
+	            "position": "co-pi"
 	        },
 	        {
 	            "institution": "Columbia University",
 	            "name": "Anthony Scopatz",
-	            "position": "PI",
+	            "position": "pi",
 	            "subaward_amount": 330000.0
 	        }
 	    ],

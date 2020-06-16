@@ -72,24 +72,26 @@
 <span class="kn">from</span> <span class="nn">regolith.builders.figurebuilder</span> <span class="kn">import</span> <span class="n">FigureBuilder</span>
 <span class="kn">from</span> <span class="nn">regolith.builders.coabuilder</span> <span class="kn">import</span> <span class="n">RecentCollaboratorsBuilder</span>
 <span class="kn">from</span> <span class="nn">regolith.builders.beamplanbuilder</span> <span class="kn">import</span> <span class="n">BeamPlanBuilder</span>
+<span class="kn">from</span> <span class="nn">regolith.builders.activitylogbuilder</span> <span class="kn">import</span> <span class="n">ActivitylogBuilder</span>
 
 
 <span class="n">BUILDERS</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;annual-activity&quot;</span><span class="p">:</span> <span class="n">ActivitylogBuilder</span><span class="p">,</span>
+    <span class="s2">&quot;beamplan&quot;</span><span class="p">:</span> <span class="n">BeamPlanBuilder</span><span class="p">,</span>
+    <span class="s2">&quot;current-pending&quot;</span><span class="p">:</span> <span class="n">CPBuilder</span><span class="p">,</span>
     <span class="s2">&quot;cv&quot;</span><span class="p">:</span> <span class="n">CVBuilder</span><span class="p">,</span>
-    <span class="s2">&quot;html&quot;</span><span class="p">:</span> <span class="n">HtmlBuilder</span><span class="p">,</span>
-    <span class="s2">&quot;publist&quot;</span><span class="p">:</span> <span class="n">PubListBuilder</span><span class="p">,</span>
+    <span class="s2">&quot;figure&quot;</span><span class="p">:</span> <span class="n">FigureBuilder</span><span class="p">,</span>
     <span class="s2">&quot;grade&quot;</span><span class="p">:</span> <span class="n">GradeReportBuilder</span><span class="p">,</span>
     <span class="s2">&quot;grades&quot;</span><span class="p">:</span> <span class="n">GradeReportBuilder</span><span class="p">,</span>
-    <span class="s2">&quot;resume&quot;</span><span class="p">:</span> <span class="n">ResumeBuilder</span><span class="p">,</span>
-    <span class="s2">&quot;current-pending&quot;</span><span class="p">:</span> <span class="n">CPBuilder</span><span class="p">,</span>
+    <span class="s2">&quot;html&quot;</span><span class="p">:</span> <span class="n">HtmlBuilder</span><span class="p">,</span>
     <span class="s2">&quot;postdocad&quot;</span><span class="p">:</span> <span class="n">PostdocadBuilder</span><span class="p">,</span>
+    <span class="s2">&quot;preslist&quot;</span><span class="p">:</span> <span class="n">PresListBuilder</span><span class="p">,</span>
+    <span class="s2">&quot;publist&quot;</span><span class="p">:</span> <span class="n">PubListBuilder</span><span class="p">,</span>
+    <span class="s2">&quot;reimb&quot;</span><span class="p">:</span> <span class="n">ReimbursementBuilder</span><span class="p">,</span>
+    <span class="s2">&quot;recent-collabs&quot;</span><span class="p">:</span> <span class="n">RecentCollaboratorsBuilder</span><span class="p">,</span>
+    <span class="s2">&quot;resume&quot;</span><span class="p">:</span> <span class="n">ResumeBuilder</span><span class="p">,</span>
     <span class="s2">&quot;review-man&quot;</span><span class="p">:</span> <span class="n">ManRevBuilder</span><span class="p">,</span>
     <span class="s2">&quot;review-prop&quot;</span><span class="p">:</span> <span class="n">PropRevBuilder</span><span class="p">,</span>
-    <span class="s2">&quot;preslist&quot;</span><span class="p">:</span> <span class="n">PresListBuilder</span><span class="p">,</span>
-    <span class="s2">&quot;reimb&quot;</span><span class="p">:</span> <span class="n">ReimbursementBuilder</span><span class="p">,</span>
-    <span class="s2">&quot;figure&quot;</span><span class="p">:</span> <span class="n">FigureBuilder</span><span class="p">,</span>
-    <span class="s2">&quot;recent-collabs&quot;</span><span class="p">:</span> <span class="n">RecentCollaboratorsBuilder</span><span class="p">,</span>
-    <span class="s2">&quot;beamplan&quot;</span><span class="p">:</span> <span class="n">BeamPlanBuilder</span>
 <span class="p">}</span>
 
 

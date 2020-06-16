@@ -135,7 +135,7 @@ YAML Example
 	    - Society will benefit by poor people being made unpoor if they want to be
 	  requester: Tessemer Guebre
 	  reviewer: sbillinge
-	  status: invited,accepted,declined,downloaded,inprogress,submitted
+	  status: submitted
 	  summary: dynamite proposal
 	  title: A stunning new way to cure Poverty
 	  year: 2019
@@ -251,7 +251,7 @@ JSON/Mongo Example
 	    ],
 	    "requester": "Tessemer Guebre",
 	    "reviewer": "sbillinge",
-	    "status": "invited,accepted,declined,downloaded,inprogress,submitted",
+	    "status": "submitted",
 	    "summary": "dynamite proposal",
 	    "title": "A stunning new way to cure Poverty",
 	    "year": 2019
