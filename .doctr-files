@@ -61,6 +61,7 @@
 ./_sources/commands/classlist.rst.txt
 ./_sources/commands/deploy.rst.txt
 ./_sources/commands/email.rst.txt
+./_sources/commands/fs-to-mongo.rst.txt
 ./_sources/commands/grade.rst.txt
 ./_sources/commands/helper.rst.txt
 ./_sources/commands/index.rst.txt
@@ -150,6 +151,7 @@
 ./commands/classlist.html
 ./commands/deploy.html
 ./commands/email.html
+./commands/fs-to-mongo.html
 ./commands/grade.html
 ./commands/helper.html
 ./commands/index.html

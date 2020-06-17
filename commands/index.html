@@ -66,14 +66,14 @@
 <span id="commands"></span><h1>Regolith Commands<a class="headerlink" href="#regolith-commands" title="Permalink to this headline">¶</a></h1>
 <p>Shell commands for regolith</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>usage: regolith <span class="o">[</span>-h<span class="o">]</span>
-                <span class="o">{</span>helper,rc,add,ingest,store,app,grade,build,deploy,email,classlist,json-to-yaml,yaml-to-json,validate<span class="o">}</span>
+                <span class="o">{</span>helper,rc,add,ingest,store,app,grade,build,deploy,email,classlist,json-to-yaml,yaml-to-json,fs-to-mongo,validate<span class="o">}</span>
                 ...
 
 optional arguments:
   -h, --help            show this <span class="nb">help</span> message and <span class="nb">exit</span>
 
 cmd:
-  <span class="o">{</span>helper,rc,add,ingest,store,app,grade,build,deploy,email,classlist,json-to-yaml,yaml-to-json,validate<span class="o">}</span>
+  <span class="o">{</span>helper,rc,add,ingest,store,app,grade,build,deploy,email,classlist,json-to-yaml,yaml-to-json,fs-to-mongo,validate<span class="o">}</span>
     helper              runs an available helper target
     rc                  prints run control
     add                 adds a record to a database and collection
@@ -90,6 +90,8 @@ cmd:
     classlist           updates classlist information from file
     json-to-yaml        Converts files from JSON to YAML
     yaml-to-json        Converts files from YAML to JSON
+    fs-to-mongo         Import database from filesystem to mongodb. Optional
+                        <span class="s1">&#39;mongohost&#39;</span> in configuration json file.
     validate            Validates db
 </pre></div>
 </div>
@@ -101,6 +103,7 @@ cmd:
 <li class="toctree-l1"><a class="reference internal" href="classlist.html">classlist</a></li>
 <li class="toctree-l1"><a class="reference internal" href="deploy.html">deploy</a></li>
 <li class="toctree-l1"><a class="reference internal" href="email.html">email</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fs-to-mongo.html">fs-to-mongo</a></li>
 <li class="toctree-l1"><a class="reference internal" href="grade.html">grade</a></li>
 <li class="toctree-l1"><a class="reference internal" href="helper.html">helper</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ingest.html">ingest</a></li>

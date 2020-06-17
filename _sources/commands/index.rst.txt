@@ -8,14 +8,14 @@ Shell commands for regolith
 .. code-block:: bash
 
 	usage: regolith [-h]
-	                {helper,rc,add,ingest,store,app,grade,build,deploy,email,classlist,json-to-yaml,yaml-to-json,validate}
+	                {helper,rc,add,ingest,store,app,grade,build,deploy,email,classlist,json-to-yaml,yaml-to-json,fs-to-mongo,validate}
 	                ...
 
 	optional arguments:
 	  -h, --help            show this help message and exit
 
 	cmd:
-	  {helper,rc,add,ingest,store,app,grade,build,deploy,email,classlist,json-to-yaml,yaml-to-json,validate}
+	  {helper,rc,add,ingest,store,app,grade,build,deploy,email,classlist,json-to-yaml,yaml-to-json,fs-to-mongo,validate}
 	    helper              runs an available helper target
 	    rc                  prints run control
 	    add                 adds a record to a database and collection
@@ -32,6 +32,8 @@ Shell commands for regolith
 	    classlist           updates classlist information from file
 	    json-to-yaml        Converts files from JSON to YAML
 	    yaml-to-json        Converts files from YAML to JSON
+	    fs-to-mongo         Import database from filesystem to mongodb. Optional
+	                        'mongohost' in configuration json file.
 	    validate            Validates db
 
 
@@ -45,6 +47,7 @@ Shell commands for regolith
     classlist
     deploy
     email
+    fs-to-mongo
     grade
     helper
     ingest

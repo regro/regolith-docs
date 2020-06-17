@@ -57,20 +57,23 @@
             
   <h1>Source code for regolith.commands</h1><div class="highlight"><pre>
 <span></span><span class="sd">&quot;&quot;&quot;Implementation of commands for command line.&quot;&quot;&quot;</span>
-<span class="kn">import</span> <span class="nn">os</span>
-<span class="kn">from</span> <span class="nn">pprint</span> <span class="kn">import</span> <span class="n">pprint</span>
-<span class="kn">import</span> <span class="nn">re</span>
 <span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">re</span>
 <span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">from</span> <span class="nn">pprint</span> <span class="kn">import</span> <span class="n">pprint</span>
 
-<span class="kn">from</span> <span class="nn">regolith.tools</span> <span class="kn">import</span> <span class="n">string_types</span>
 <span class="kn">from</span> <span class="nn">regolith.builder</span> <span class="kn">import</span> <span class="n">builder</span><span class="p">,</span> <span class="n">BUILDERS</span>
-<span class="kn">from</span> <span class="nn">regolith.helper</span> <span class="kn">import</span> <span class="n">HELPERS</span><span class="p">,</span> <span class="n">helpr</span>
-<span class="kn">from</span> <span class="nn">regolith.emailer</span> <span class="kn">import</span> <span class="n">emailer</span> <span class="k">as</span> <span class="n">email</span>
 <span class="kn">from</span> <span class="nn">regolith.deploy</span> <span class="kn">import</span> <span class="n">deploy</span> <span class="k">as</span> <span class="n">dploy</span>
+<span class="kn">from</span> <span class="nn">regolith.emailer</span> <span class="kn">import</span> <span class="n">emailer</span>
+<span class="kn">from</span> <span class="nn">regolith.helper</span> <span class="kn">import</span> <span class="n">HELPERS</span><span class="p">,</span> <span class="n">helpr</span>
+<span class="kn">from</span> <span class="nn">regolith.runcontrol</span> <span class="kn">import</span> <span class="n">RunControl</span>
+<span class="kn">from</span> <span class="nn">regolith.tools</span> <span class="kn">import</span> <span class="n">string_types</span>
 
-<span class="n">RE_AND</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s2">&quot;\s+and\s+&quot;</span><span class="p">)</span>
-<span class="n">RE_SPACE</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s2">&quot;\s+&quot;</span><span class="p">)</span>
+<span class="n">email</span> <span class="o">=</span> <span class="n">emailer</span>
+
+<span class="n">RE_AND</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;\s+and\s+&quot;</span><span class="p">)</span>
+<span class="n">RE_SPACE</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;\s+&quot;</span><span class="p">)</span>
 
 <span class="n">INGEST_COLL_LU</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;.bib&quot;</span><span class="p">:</span> <span class="s2">&quot;citations&quot;</span><span class="p">}</span>
 
@@ -198,10 +201,12 @@
         <span class="n">bldr</span> <span class="o">=</span> <span class="n">builder</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">rc</span><span class="p">)</span>
         <span class="n">bldr</span><span class="o">.</span><span class="n">build</span><span class="p">()</span></div>
 
+
 <div class="viewcode-block" id="helper"><a class="viewcode-back" href="../../api/commands.html#regolith.commands.helper">[docs]</a><span class="k">def</span> <span class="nf">helper</span><span class="p">(</span><span class="n">rc</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Runs the helper targets&quot;&quot;&quot;</span>
     <span class="n">hlpr</span> <span class="o">=</span> <span class="n">helpr</span><span class="p">(</span><span class="n">rc</span><span class="o">.</span><span class="n">helper_target</span><span class="p">,</span> <span class="n">rc</span><span class="p">)</span>
     <span class="n">hlpr</span><span class="o">.</span><span class="n">hlp</span><span class="p">()</span></div>
+
 
 <div class="viewcode-block" id="deploy"><a class="viewcode-back" href="../../api/commands.html#regolith.commands.deploy">[docs]</a><span class="k">def</span> <span class="nf">deploy</span><span class="p">(</span><span class="n">rc</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Deploys all of the deployment targets.&quot;&quot;&quot;</span>
@@ -236,6 +241,23 @@
         <span class="n">base</span><span class="p">,</span> <span class="n">ext</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">splitext</span><span class="p">(</span><span class="n">inp</span><span class="p">)</span>
         <span class="n">out</span> <span class="o">=</span> <span class="n">base</span> <span class="o">+</span> <span class="s2">&quot;.json&quot;</span>
         <span class="n">fsclient</span><span class="o">.</span><span class="n">yaml_to_json</span><span class="p">(</span><span class="n">inp</span><span class="p">,</span> <span class="n">out</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="fs_to_mongo"><a class="viewcode-back" href="../../api/commands.html#regolith.commands.fs_to_mongo">[docs]</a><span class="k">def</span> <span class="nf">fs_to_mongo</span><span class="p">(</span><span class="n">rc</span><span class="p">:</span> <span class="n">RunControl</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;Convert database collection from filesystem to mongo db.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    rc : RunControl</span>
+<span class="sd">        The RunControl. The mongo client will be created according to &#39;mongodbpath&#39; in it. The databases will</span>
+<span class="sd">        be loaded according to the &#39;databases&#39; in it.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="kn">from</span> <span class="nn">regolith.mongoclient</span> <span class="kn">import</span> <span class="n">MongoClient</span>
+    <span class="n">client</span> <span class="o">=</span> <span class="n">MongoClient</span><span class="p">(</span><span class="n">rc</span><span class="p">)</span>
+    <span class="n">dbs</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">rc</span><span class="p">,</span> <span class="s1">&#39;databases&#39;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">db</span> <span class="ow">in</span> <span class="n">dbs</span><span class="p">:</span>
+        <span class="n">client</span><span class="o">.</span><span class="n">load_database</span><span class="p">(</span><span class="n">db</span><span class="p">)</span>
+    <span class="k">return</span></div>
 
 
 <div class="viewcode-block" id="validate"><a class="viewcode-back" href="../../api/commands.html#regolith.commands.validate">[docs]</a><span class="k">def</span> <span class="nf">validate</span><span class="p">(</span><span class="n">rc</span><span class="p">):</span>

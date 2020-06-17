@@ -58,17 +58,19 @@
   <h1>Source code for regolith.main</h1><div class="highlight"><pre>
 <span></span><span class="sd">&quot;&quot;&quot;The main CLI for regolith&quot;&quot;&quot;</span>
 <span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">print_function</span>
+
 <span class="kn">import</span> <span class="nn">copy</span>
 <span class="kn">import</span> <span class="nn">os</span>
 <span class="kn">from</span> <span class="nn">argparse</span> <span class="kn">import</span> <span class="n">ArgumentParser</span><span class="p">,</span> <span class="n">RawTextHelpFormatter</span><span class="p">,</span> <span class="n">Namespace</span>
 
-<span class="kn">from</span> <span class="nn">regolith.commands</span> <span class="kn">import</span> <span class="n">INGEST_COLL_LU</span>
-<span class="kn">from</span> <span class="nn">regolith.runcontrol</span> <span class="kn">import</span> <span class="n">DEFAULT_RC</span><span class="p">,</span> <span class="n">load_rcfile</span><span class="p">,</span> <span class="n">filter_databases</span>
 <span class="kn">from</span> <span class="nn">regolith.database</span> <span class="kn">import</span> <span class="n">connect</span>
+
 <span class="kn">from</span> <span class="nn">regolith</span> <span class="kn">import</span> <span class="n">commands</span>
 <span class="kn">from</span> <span class="nn">regolith</span> <span class="kn">import</span> <span class="n">storage</span>
 <span class="kn">from</span> <span class="nn">regolith.builder</span> <span class="kn">import</span> <span class="n">BUILDERS</span>
+<span class="kn">from</span> <span class="nn">regolith.commands</span> <span class="kn">import</span> <span class="n">INGEST_COLL_LU</span>
 <span class="kn">from</span> <span class="nn">regolith.helper</span> <span class="kn">import</span> <span class="n">HELPERS</span>
+<span class="kn">from</span> <span class="nn">regolith.runcontrol</span> <span class="kn">import</span> <span class="n">DEFAULT_RC</span><span class="p">,</span> <span class="n">load_rcfile</span><span class="p">,</span> <span class="n">filter_databases</span>
 <span class="kn">from</span> <span class="nn">regolith.schemas</span> <span class="kn">import</span> <span class="n">SCHEMAS</span>
 <span class="kn">from</span> <span class="nn">regolith.tools</span> <span class="kn">import</span> <span class="n">update_schemas</span>
 
@@ -90,6 +92,7 @@
     <span class="s2">&quot;classlist&quot;</span><span class="p">:</span> <span class="n">commands</span><span class="o">.</span><span class="n">classlist</span><span class="p">,</span>
     <span class="s2">&quot;validate&quot;</span><span class="p">:</span> <span class="n">commands</span><span class="o">.</span><span class="n">validate</span><span class="p">,</span>
     <span class="s2">&quot;helper&quot;</span><span class="p">:</span> <span class="n">commands</span><span class="o">.</span><span class="n">helper</span><span class="p">,</span>
+    <span class="s2">&quot;fs-to-mongo&quot;</span><span class="p">:</span> <span class="n">commands</span><span class="o">.</span><span class="n">fs_to_mongo</span>
 <span class="p">}</span>
 
 <span class="n">NEED_RC</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">CONNECTED_COMMANDS</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
@@ -101,14 +104,14 @@
     <span class="n">subp</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">add_subparsers</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">&quot;cmd&quot;</span><span class="p">,</span> <span class="n">dest</span><span class="o">=</span><span class="s2">&quot;cmd&quot;</span><span class="p">)</span>
 
     <span class="c1"># helper subparser</span>
-    <span class="n">hlprp</span> <span class="o">=</span> <span class="n">subp</span><span class="o">.</span><span class="n">add_parser</span><span class="p">(</span>
+    <span class="n">subp</span><span class="o">.</span><span class="n">add_parser</span><span class="p">(</span>
         <span class="s2">&quot;helper&quot;</span><span class="p">,</span>
         <span class="n">help</span><span class="o">=</span><span class="s2">&quot;runs an available helper target&quot;</span><span class="p">,</span>
         <span class="n">formatter_class</span><span class="o">=</span><span class="n">RawTextHelpFormatter</span><span class="p">,</span>
     <span class="p">)</span>
 
     <span class="c1"># rc subparser</span>
-    <span class="n">rcp</span> <span class="o">=</span> <span class="n">subp</span><span class="o">.</span><span class="n">add_parser</span><span class="p">(</span><span class="s2">&quot;rc&quot;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">&quot;prints run control&quot;</span><span class="p">)</span>
+    <span class="n">subp</span><span class="o">.</span><span class="n">add_parser</span><span class="p">(</span><span class="s2">&quot;rc&quot;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">&quot;prints run control&quot;</span><span class="p">)</span>
 
     <span class="c1"># add subparser</span>
     <span class="n">addp</span> <span class="o">=</span> <span class="n">subp</span><span class="o">.</span><span class="n">add_parser</span><span class="p">(</span>
@@ -315,6 +318,21 @@
         <span class="s2">&quot;yaml-to-json&quot;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">&quot;Converts files from YAML to JSON&quot;</span>
     <span class="p">)</span>
     <span class="n">ytj</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;files&quot;</span><span class="p">,</span> <span class="n">nargs</span><span class="o">=</span><span class="s2">&quot;+&quot;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">&quot;file names to convert&quot;</span><span class="p">)</span>
+
+    <span class="c1"># fs-to-mongo subparser</span>
+    <span class="n">ftm</span> <span class="o">=</span> <span class="n">subp</span><span class="o">.</span><span class="n">add_parser</span><span class="p">(</span>
+        <span class="s2">&quot;fs-to-mongo&quot;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">&quot;Import database from filesystem to mongodb. Optional &#39;mongohost&#39; in configuration &quot;</span>
+                            <span class="s2">&quot;json file.&quot;</span>
+    <span class="p">)</span>
+    <span class="n">ftm</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;--host&quot;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">&quot;Specifies a resolvable hostname for the mongod to which to connect. By &quot;</span>
+                                    <span class="s2">&quot;default, the mongoimport attempts to connect to a MongoDB instance running &quot;</span>
+                                    <span class="s2">&quot;on the localhost on port number 27017.&quot;</span><span class="p">,</span>
+                     <span class="n">dest</span><span class="o">=</span><span class="s2">&quot;host&quot;</span><span class="p">,</span>
+                     <span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+    <span class="n">ftm</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;--uri&quot;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">&quot;Specify a resolvable URI connection string (enclose in quotes) &quot;</span>
+                                   <span class="s2">&quot;to connect to the MongoDB deployment.&quot;</span><span class="p">,</span>
+                     <span class="n">dest</span><span class="o">=</span><span class="s2">&quot;uri&quot;</span><span class="p">,</span>
+                     <span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
 
     <span class="c1"># Validator</span>
     <span class="n">val</span> <span class="o">=</span> <span class="n">subp</span><span class="o">.</span><span class="n">add_parser</span><span class="p">(</span><span class="s2">&quot;validate&quot;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">&quot;Validates db&quot;</span><span class="p">)</span>

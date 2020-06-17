@@ -103,6 +103,18 @@
 </dd></dl>
 
 <dl class="function">
+<dt id="regolith.commands.fs_to_mongo">
+<code class="sig-prename descclassname">regolith.commands.</code><code class="sig-name descname">fs_to_mongo</code><span class="sig-paren">(</span><em class="sig-param">rc: regolith.runcontrol.RunControl</em><span class="sig-paren">)</span> &#x2192; None<a class="reference internal" href="../_modules/regolith/commands.html#fs_to_mongo"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.commands.fs_to_mongo" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert database collection from filesystem to mongo db.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>rc</strong> (<em>RunControl</em>) – The RunControl. The mongo client will be created according to ‘mongodbpath’ in it. The databases will
+be loaded according to the ‘databases’ in it.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
 <dt id="regolith.commands.grade">
 <code class="sig-prename descclassname">regolith.commands.</code><code class="sig-name descname">grade</code><span class="sig-paren">(</span><em class="sig-param">rc</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/commands.html#grade"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.commands.grade" title="Permalink to this definition">¶</a></dt>
 <dd><p>Runs flask grading app</p>
