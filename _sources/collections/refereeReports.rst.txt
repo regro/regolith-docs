@@ -19,7 +19,7 @@ The following lists key names mapped to its type and meaning for each entry.
 :did_what: list, What the study was, required
 
 	:type: string, required
-:due_date: string, date the review is due in ISO format, required
+:due_date: ['string', 'date'], date the review is due in ISO format, required
 :editor_eyes_only: string, Comments you don't want passed to the author, optional
 :final_assessment: list, Summary of impressions of the study, required
 

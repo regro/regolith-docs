@@ -8,7 +8,8 @@ The following lists key names mapped to its type and meaning for each entry.
 
 :_id: ('string', 'integer', 'float'), short representation, such as this-is-my-name, required
 :amount: ('integer', 'float'), value of award, required
-:authors: ['list', 'string'], other investigator names, required
+:authors: ['list', 'string'], other investigator names, optional
+:begin_date: ['string', 'date'], start date of the proposed grant in format YYYY-MM-DD, optional
 :begin_day: integer, start day of the proposed grant, optional
 :begin_month: ['string', 'integer'], start month of the proposed grant, optional
 :begin_year: integer, start year of the proposed grant, optional
@@ -22,15 +23,16 @@ The following lists key names mapped to its type and meaning for each entry.
 	:person_months_summer: ['float', 'integer'], optional
 	:project_scope: string, optional
 :currency: string, typically '$' or 'USD', required
-:day: integer, day that the proposal was submitted, required
-:due_date: string, day that the proposal is due, optional
-:duration: ('integer', 'float'), number of years, required
+:day: integer, day that the proposal was submitted, optional
+:due_date: ['string', 'date'], day that the proposal is due, optional
+:duration: ('integer', 'float'), number of years, optional
+:end_date: ['string', 'date'], end date of the proposed grant in format YYYY-MM-DD, optional
 :end_day: ('string', 'integer'), end day of the proposed grant, optional
 :end_month: ['string', 'integer'], end month of the proposed grant, optional
 :end_year: integer, end year of the proposed grant, optional
 :full: dict, full body of the proposal, optional
 :funder: string, who will fund the proposalas funder in grants, optional
-:month: ['string', 'integer'], month that the proposal was submitted, required
+:month: ['string', 'integer'], month that the proposal was submitted, optional
 :notes: ['string', 'list'], anything you want to note, optional
 :pi: string, principal investigator name, required
 :pre: dict, Information about the pre-proposal, optional
@@ -40,7 +42,7 @@ The following lists key names mapped to its type and meaning for each entry.
 		* pending
 		* declined
 		* accepted
-		* in-prep
+		* inprep
 		* submitted
 :team: list, information about the team members participating in the grant., optional
 
@@ -54,7 +56,7 @@ The following lists key names mapped to its type and meaning for each entry.
 		:subaward_amount: ('integer', 'float'), optional
 :title: string, actual title of proposal, required
 :title_short: string, short title of proposal, optional
-:year: integer, Year that the proposal was submitted, required
+:year: integer, Year that the proposal was submitted, optional
 
 
 YAML Example
@@ -91,7 +93,7 @@ YAML Example
 	  pi: Simon Billinge
 	  status: accepted
 	  team:
-	    - institution: Columbia Unviersity
+	    - institution: Columbia University
 	      name: qdu
 	      position: co-pi
 	    - institution: Columbia University
@@ -180,7 +182,7 @@ JSON/Mongo Example
 	    "status": "accepted",
 	    "team": [
 	        {
-	            "institution": "Columbia Unviersity",
+	            "institution": "Columbia University",
 	            "name": "qdu",
 	            "position": "co-pi"
 	        },

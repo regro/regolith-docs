@@ -19,7 +19,7 @@ The following lists key names mapped to its type and meaning for each entry.
 :doe_relevance_to_program_mission: list, Relevance to program mission. only used if agency is doe., optional
 :does_how: list, How will the research be done, required
 :does_what: string, What will the team do, required
-:due_date: string, date the review is due in ISO format, required
+:due_date: ['string', 'date'], date the review is due in ISO format, required
 :freewrite: list, Anything and this will appear in the built documentright before the summary.  This section often used for extra review criteria for the particular proposal, optional
 :goals: list, What are the main goals of the proposed research, required
 :importance: list, The importance of the Research, required

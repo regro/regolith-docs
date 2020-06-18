@@ -77,22 +77,25 @@
 <dd class="field-even"><p>(‘integer’, ‘float’), value of award, required</p>
 </dd>
 <dt class="field-odd">authors</dt>
-<dd class="field-odd"><p>[‘list’, ‘string’], other investigator names, required</p>
+<dd class="field-odd"><p>[‘list’, ‘string’], other investigator names, optional</p>
 </dd>
-<dt class="field-even">begin_day</dt>
-<dd class="field-even"><p>integer, start day of the proposed grant, optional</p>
+<dt class="field-even">begin_date</dt>
+<dd class="field-even"><p>[‘string’, ‘date’], start date of the proposed grant in format YYYY-MM-DD, optional</p>
 </dd>
-<dt class="field-odd">begin_month</dt>
-<dd class="field-odd"><p>[‘string’, ‘integer’], start month of the proposed grant, optional</p>
+<dt class="field-odd">begin_day</dt>
+<dd class="field-odd"><p>integer, start day of the proposed grant, optional</p>
 </dd>
-<dt class="field-even">begin_year</dt>
-<dd class="field-even"><p>integer, start year of the proposed grant, optional</p>
+<dt class="field-even">begin_month</dt>
+<dd class="field-even"><p>[‘string’, ‘integer’], start month of the proposed grant, optional</p>
 </dd>
-<dt class="field-odd">call_for_proposals</dt>
-<dd class="field-odd"><p>string, optional</p>
+<dt class="field-odd">begin_year</dt>
+<dd class="field-odd"><p>integer, start year of the proposed grant, optional</p>
 </dd>
-<dt class="field-even">cpp_info</dt>
-<dd class="field-even"><p>dict, extra information needed for building current and pending form , optional</p>
+<dt class="field-even">call_for_proposals</dt>
+<dd class="field-even"><p>string, optional</p>
+</dd>
+<dt class="field-odd">cpp_info</dt>
+<dd class="field-odd"><p>dict, extra information needed for building current and pending form , optional</p>
 <dl class="field-list simple">
 <dt class="field-odd">cppflag</dt>
 <dd class="field-odd"><p>boolean, optional</p>
@@ -118,56 +121,59 @@
 <dd class="field-odd"><p>string, typically ‘$’ or ‘USD’, required</p>
 </dd>
 <dt class="field-even">day</dt>
-<dd class="field-even"><p>integer, day that the proposal was submitted, required</p>
+<dd class="field-even"><p>integer, day that the proposal was submitted, optional</p>
 </dd>
 <dt class="field-odd">due_date</dt>
-<dd class="field-odd"><p>string, day that the proposal is due, optional</p>
+<dd class="field-odd"><p>[‘string’, ‘date’], day that the proposal is due, optional</p>
 </dd>
 <dt class="field-even">duration</dt>
-<dd class="field-even"><p>(‘integer’, ‘float’), number of years, required</p>
+<dd class="field-even"><p>(‘integer’, ‘float’), number of years, optional</p>
 </dd>
-<dt class="field-odd">end_day</dt>
-<dd class="field-odd"><p>(‘string’, ‘integer’), end day of the proposed grant, optional</p>
+<dt class="field-odd">end_date</dt>
+<dd class="field-odd"><p>[‘string’, ‘date’], end date of the proposed grant in format YYYY-MM-DD, optional</p>
 </dd>
-<dt class="field-even">end_month</dt>
-<dd class="field-even"><p>[‘string’, ‘integer’], end month of the proposed grant, optional</p>
+<dt class="field-even">end_day</dt>
+<dd class="field-even"><p>(‘string’, ‘integer’), end day of the proposed grant, optional</p>
 </dd>
-<dt class="field-odd">end_year</dt>
-<dd class="field-odd"><p>integer, end year of the proposed grant, optional</p>
+<dt class="field-odd">end_month</dt>
+<dd class="field-odd"><p>[‘string’, ‘integer’], end month of the proposed grant, optional</p>
 </dd>
-<dt class="field-even">full</dt>
-<dd class="field-even"><p>dict, full body of the proposal, optional</p>
+<dt class="field-even">end_year</dt>
+<dd class="field-even"><p>integer, end year of the proposed grant, optional</p>
 </dd>
-<dt class="field-odd">funder</dt>
-<dd class="field-odd"><p>string, who will fund the proposalas funder in grants, optional</p>
+<dt class="field-odd">full</dt>
+<dd class="field-odd"><p>dict, full body of the proposal, optional</p>
 </dd>
-<dt class="field-even">month</dt>
-<dd class="field-even"><p>[‘string’, ‘integer’], month that the proposal was submitted, required</p>
+<dt class="field-even">funder</dt>
+<dd class="field-even"><p>string, who will fund the proposalas funder in grants, optional</p>
 </dd>
-<dt class="field-odd">notes</dt>
-<dd class="field-odd"><p>[‘string’, ‘list’], anything you want to note, optional</p>
+<dt class="field-odd">month</dt>
+<dd class="field-odd"><p>[‘string’, ‘integer’], month that the proposal was submitted, optional</p>
 </dd>
-<dt class="field-even">pi</dt>
-<dd class="field-even"><p>string, principal investigator name, required</p>
+<dt class="field-even">notes</dt>
+<dd class="field-even"><p>[‘string’, ‘list’], anything you want to note, optional</p>
 </dd>
-<dt class="field-odd">pre</dt>
-<dd class="field-odd"><p>dict, Information about the pre-proposal, optional</p>
+<dt class="field-odd">pi</dt>
+<dd class="field-odd"><p>string, principal investigator name, required</p>
 </dd>
-<dt class="field-even">status</dt>
-<dd class="field-even"><p>string, e.g. ‘pending’, ‘accepted’, ‘rejected’, required</p>
+<dt class="field-even">pre</dt>
+<dd class="field-even"><p>dict, Information about the pre-proposal, optional</p>
+</dd>
+<dt class="field-odd">status</dt>
+<dd class="field-odd"><p>string, e.g. ‘pending’, ‘accepted’, ‘rejected’, required</p>
 <dl class="simple">
 <dt>Allowed values:</dt><dd><ul class="simple">
 <li><p>pending</p></li>
 <li><p>declined</p></li>
 <li><p>accepted</p></li>
-<li><p>in-prep</p></li>
+<li><p>inprep</p></li>
 <li><p>submitted</p></li>
 </ul>
 </dd>
 </dl>
 </dd>
-<dt class="field-odd">team</dt>
-<dd class="field-odd"><p>list, information about the team members participating in the grant., optional</p>
+<dt class="field-even">team</dt>
+<dd class="field-even"><p>list, information about the team members participating in the grant., optional</p>
 <dl class="field-list simple">
 <dt class="field-odd">type</dt>
 <dd class="field-odd"><p>dict, optional</p>
@@ -201,7 +207,7 @@
 <dd class="field-even"><p>string, short title of proposal, optional</p>
 </dd>
 <dt class="field-odd">year</dt>
-<dd class="field-odd"><p>integer, Year that the proposal was submitted, required</p>
+<dd class="field-odd"><p>integer, Year that the proposal was submitted, optional</p>
 </dd>
 </dl>
 </div>
@@ -236,7 +242,7 @@
   <span class="nt">pi</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Simon Billinge</span>
   <span class="nt">status</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">accepted</span>
   <span class="nt">team</span><span class="p">:</span>
-    <span class="p p-Indicator">-</span> <span class="nt">institution</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Columbia Unviersity</span>
+    <span class="p p-Indicator">-</span> <span class="nt">institution</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Columbia University</span>
       <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">qdu</span>
       <span class="nt">position</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">co-pi</span>
     <span class="p p-Indicator">-</span> <span class="nt">institution</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Columbia University</span>
@@ -323,7 +329,7 @@
     <span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;accepted&quot;</span><span class="p">,</span>
     <span class="nt">&quot;team&quot;</span><span class="p">:</span> <span class="p">[</span>
         <span class="p">{</span>
-            <span class="nt">&quot;institution&quot;</span><span class="p">:</span> <span class="s2">&quot;Columbia Unviersity&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;institution&quot;</span><span class="p">:</span> <span class="s2">&quot;Columbia University&quot;</span><span class="p">,</span>
             <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;qdu&quot;</span><span class="p">,</span>
             <span class="nt">&quot;position&quot;</span><span class="p">:</span> <span class="s2">&quot;co-pi&quot;</span>
         <span class="p">},</span>
