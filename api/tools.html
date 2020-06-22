@@ -456,9 +456,34 @@ assigned to that group in some period of time and returns a list of</p>
 </dd></dl>
 
 <dl class="function">
-<dt id="regolith.tools.is_fully_loaded">
-<code class="sig-prename descclassname">regolith.tools.</code><code class="sig-name descname">is_fully_loaded</code><span class="sig-paren">(</span><em class="sig-param">appts</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#is_fully_loaded"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.tools.is_fully_loaded" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dt id="regolith.tools.is_fully_appointed">
+<code class="sig-prename descclassname">regolith.tools.</code><code class="sig-name descname">is_fully_appointed</code><span class="sig-paren">(</span><em class="sig-param">person</em>, <em class="sig-param">begin_date</em>, <em class="sig-param">end_date</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#is_fully_appointed"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.tools.is_fully_appointed" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks if a collection of appointments for a person is valid and fully loaded
+for a given interval of time</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>person</strong> (<em>dict</em>) – The person whose appointments need to be checked</p></li>
+<li><p><strong>begin_date</strong> (<em>datetime, string, optional</em>) – The start date of the interval of time to check appointments for</p></li>
+<li><p><strong>end_date</strong> (<em>datetime, string, optional</em>) – The end date of the interval of time to check appointments for</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>True if the person is fully appointed and False if not</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">appts</span> <span class="o">=</span> <span class="p">[{</span><span class="s2">&quot;begin_year&quot;</span><span class="p">:</span> <span class="mi">2017</span><span class="p">,</span> <span class="s2">&quot;begin_month&quot;</span><span class="p">:</span> <span class="mi">6</span><span class="p">,</span> <span class="s2">&quot;begin_day&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;end_year&quot;</span><span class="p">:</span> <span class="mi">2017</span><span class="p">,</span> <span class="s2">&quot;end_month&quot;</span><span class="p">:</span> <span class="mi">6</span><span class="p">,</span>         <span class="s2">&quot;end_day&quot;</span><span class="p">:</span> <span class="mi">15</span><span class="p">,</span> <span class="s2">&quot;grant&quot;</span><span class="p">:</span> <span class="s2">&quot;grant1&quot;</span><span class="p">,</span> <span class="s2">&quot;loading&quot;</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">,</span> <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;pd&quot;</span><span class="p">,</span> <span class="p">},</span> <span class="p">{</span><span class="s2">&quot;begin_year&quot;</span><span class="p">:</span> <span class="mi">2017</span><span class="p">,</span> <span class="s2">&quot;begin_month&quot;</span><span class="p">:</span> <span class="mi">6</span><span class="p">,</span>          <span class="s2">&quot;begin_day&quot;</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span>  <span class="s2">&quot;end_year&quot;</span><span class="p">:</span> <span class="mi">2017</span><span class="p">,</span>  <span class="s2">&quot;end_month&quot;</span><span class="p">:</span> <span class="mi">6</span><span class="p">,</span> <span class="s2">&quot;end_day&quot;</span><span class="p">:</span> <span class="mi">30</span><span class="p">,</span> <span class="s2">&quot;grant&quot;</span><span class="p">:</span> <span class="s2">&quot;grant2&quot;</span><span class="p">,</span> <span class="s2">&quot;loading&quot;</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">,</span>          <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;pd&quot;</span><span class="p">,}</span> <span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">aejaz</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Adiba Ejaz&quot;</span><span class="p">,</span> <span class="s2">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;aejaz&quot;</span><span class="p">,</span> <span class="s2">&quot;appointments&quot;</span><span class="p">:</span> <span class="n">appts</span><span class="p">}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">is_fully_appointed</span><span class="p">(</span><span class="n">aejaz</span><span class="p">,</span> <span class="s2">&quot;2017-06-01&quot;</span><span class="p">,</span> <span class="s2">&quot;2017-06-30&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>In this case, we have an invalid loading from 2017-06-16 to 2017-06-19 hence it would return False and
+print “appointment gap for aejaz from 2017-06-16 to 2017-06-19”.</p>
+</dd></dl>
 
 <dl class="function">
 <dt id="regolith.tools.latex_safe">

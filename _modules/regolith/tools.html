@@ -68,9 +68,11 @@
 <span class="kn">from</span> <span class="nn">calendar</span> <span class="kn">import</span> <span class="n">monthrange</span>
 <span class="kn">from</span> <span class="nn">copy</span> <span class="kn">import</span> <span class="n">deepcopy</span>
 <span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span><span class="p">,</span> <span class="n">date</span><span class="p">,</span> <span class="n">timedelta</span>
+<span class="kn">from</span> <span class="nn">dateutil</span> <span class="kn">import</span> <span class="n">parser</span> <span class="k">as</span> <span class="n">date_parser</span>
+<span class="kn">from</span> <span class="nn">dateutil.relativedelta</span> <span class="kn">import</span> <span class="n">relativedelta</span>
 
 <span class="kn">from</span> <span class="nn">regolith.chained_db</span> <span class="kn">import</span> <span class="n">ChainDB</span>
-<span class="kn">from</span> <span class="nn">regolith.dates</span> <span class="kn">import</span> <span class="n">month_to_int</span><span class="p">,</span> <span class="n">date_to_float</span><span class="p">,</span> <span class="n">get_dates</span><span class="p">,</span> <span class="n">last_day</span>
+<span class="kn">from</span> <span class="nn">regolith.dates</span> <span class="kn">import</span> <span class="n">month_to_int</span><span class="p">,</span> <span class="n">date_to_float</span><span class="p">,</span> <span class="n">get_dates</span><span class="p">,</span> <span class="n">last_day</span><span class="p">,</span> <span class="n">is_current</span>
 <span class="kn">from</span> <span class="nn">regolith.sorters</span> <span class="kn">import</span> <span class="n">doc_date_key</span><span class="p">,</span> <span class="n">id_key</span><span class="p">,</span> <span class="n">ene_date_key</span><span class="p">,</span> <span class="n">date_key</span>
 <span class="kn">from</span> <span class="nn">regolith.chained_db</span> <span class="kn">import</span> <span class="n">ChainDB</span>
 
@@ -1130,46 +1132,6 @@
     <span class="k">return</span> <span class="n">updated_schema</span></div>
 
 
-<div class="viewcode-block" id="is_fully_loaded"><a class="viewcode-back" href="../../api/tools.html#regolith.tools.is_fully_loaded">[docs]</a><span class="k">def</span> <span class="nf">is_fully_loaded</span><span class="p">(</span><span class="n">appts</span><span class="p">):</span>
-    <span class="n">status</span> <span class="o">=</span> <span class="kc">True</span>
-    <span class="n">earliest</span><span class="p">,</span> <span class="n">latest</span> <span class="o">=</span> <span class="n">date</span><span class="o">.</span><span class="n">today</span><span class="p">(),</span> <span class="n">date</span><span class="o">.</span><span class="n">today</span><span class="p">()</span>
-    <span class="k">for</span> <span class="n">appt</span> <span class="ow">in</span> <span class="n">appts</span><span class="p">:</span>
-        <span class="n">dates</span> <span class="o">=</span> <span class="n">get_dates</span><span class="p">(</span><span class="n">appt</span><span class="p">)</span>
-        <span class="n">begin_date</span> <span class="o">=</span> <span class="n">dates</span><span class="p">[</span><span class="s1">&#39;begin_date&#39;</span><span class="p">]</span>
-        <span class="n">end_date</span> <span class="o">=</span> <span class="n">dates</span><span class="p">[</span><span class="s1">&#39;end_date&#39;</span><span class="p">]</span>
-        <span class="k">if</span> <span class="n">latest</span> <span class="o">==</span> <span class="n">date</span><span class="o">.</span><span class="n">today</span><span class="p">():</span>
-            <span class="n">latest</span> <span class="o">=</span> <span class="n">end_date</span>
-        <span class="n">appt</span><span class="p">[</span><span class="s1">&#39;begin_date&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">begin_date</span>
-        <span class="n">appt</span><span class="p">[</span><span class="s1">&#39;end_date&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">end_date</span>
-        <span class="k">if</span> <span class="n">begin_date</span> <span class="o">&lt;</span> <span class="n">earliest</span><span class="p">:</span>
-            <span class="n">earliest</span> <span class="o">=</span> <span class="n">begin_date</span>
-        <span class="k">if</span> <span class="n">end_date</span> <span class="o">&gt;</span> <span class="n">latest</span><span class="p">:</span>
-            <span class="n">latest</span> <span class="o">=</span> <span class="n">end_date</span>
-    <span class="n">datearray</span> <span class="o">=</span> <span class="p">[]</span>
-    <span class="n">timespan</span> <span class="o">=</span> <span class="n">latest</span> <span class="o">-</span> <span class="n">earliest</span>
-    <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">timespan</span><span class="o">.</span><span class="n">days</span><span class="p">):</span>
-        <span class="n">datearray</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">earliest</span> <span class="o">+</span> <span class="n">timedelta</span><span class="p">(</span><span class="n">days</span><span class="o">=</span><span class="n">x</span><span class="p">))</span>
-
-    <span class="n">loading</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">datearray</span><span class="p">)</span>
-    <span class="k">for</span> <span class="n">day</span> <span class="ow">in</span> <span class="n">datearray</span><span class="p">:</span>
-        <span class="k">for</span> <span class="n">appt</span> <span class="ow">in</span> <span class="n">appts</span><span class="p">:</span>
-            <span class="k">if</span> <span class="n">appt</span><span class="p">[</span><span class="s1">&#39;begin_date&#39;</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">day</span> <span class="o">&lt;=</span> <span class="n">appt</span><span class="p">[</span><span class="s2">&quot;end_date&quot;</span><span class="p">]:</span>
-                <span class="n">loading</span><span class="p">[</span><span class="n">datearray</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">day</span><span class="p">)]</span> <span class="o">=</span> <span class="n">loading</span><span class="p">[</span><span class="n">datearray</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">day</span><span class="p">)]</span> <span class="o">+</span> \
-                                                <span class="n">appt</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;loading&quot;</span><span class="p">)</span>
-
-    <span class="k">if</span> <span class="nb">max</span><span class="p">(</span><span class="n">loading</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mf">1.0</span><span class="p">:</span>
-        <span class="n">status</span> <span class="o">=</span> <span class="kc">False</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;max </span><span class="si">{}</span><span class="s2"> at </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="n">loading</span><span class="p">),</span>
-                                    <span class="n">datearray</span><span class="p">[</span>
-                                        <span class="nb">list</span><span class="p">(</span><span class="n">loading</span><span class="p">)</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="n">loading</span><span class="p">))]))</span>
-    <span class="k">elif</span> <span class="nb">min</span><span class="p">(</span><span class="n">loading</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mf">1.0</span><span class="p">:</span>
-        <span class="n">status</span> <span class="o">=</span> <span class="kc">False</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;min </span><span class="si">{}</span><span class="s2"> at </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="n">loading</span><span class="p">),</span>
-                                    <span class="n">datearray</span><span class="p">[</span><span class="nb">list</span><span class="p">(</span><span class="n">loading</span><span class="p">)</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="n">loading</span><span class="p">))]</span>
-                                    <span class="p">))</span>
-    <span class="k">return</span> <span class="n">status</span></div>
-
-
 <div class="viewcode-block" id="get_person"><a class="viewcode-back" href="../../api/tools.html#regolith.tools.get_person">[docs]</a><span class="k">def</span> <span class="nf">get_person</span><span class="p">(</span><span class="n">person_id</span><span class="p">,</span> <span class="n">rc</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Get the person&#39;s name.&quot;&quot;&quot;</span>
     <span class="n">person_found</span> <span class="o">=</span> <span class="n">fuzzy_retrieval</span><span class="p">(</span>
@@ -1288,6 +1250,7 @@
                     <span class="n">grpmembers</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">person</span><span class="p">[</span><span class="s2">&quot;_id&quot;</span><span class="p">])</span>
     <span class="k">return</span> <span class="n">grpmembers</span></div>
 
+
 <div class="viewcode-block" id="fragment_retrieval"><a class="viewcode-back" href="../../api/tools.html#regolith.tools.fragment_retrieval">[docs]</a><span class="k">def</span> <span class="nf">fragment_retrieval</span><span class="p">(</span><span class="n">coll</span><span class="p">,</span> <span class="n">fields</span><span class="p">,</span> <span class="n">fragment</span><span class="p">,</span> <span class="n">case_sensitive</span> <span class="o">=</span> <span class="kc">False</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Retrieves a list of all documents from the collection where the fragment</span>
 <span class="sd">    appears in any one of the given fields</span>
@@ -1340,12 +1303,83 @@
                     <span class="k">break</span>
     <span class="k">return</span> <span class="n">ret_list</span></div>
 
+
 <div class="viewcode-block" id="get_id_from_name"><a class="viewcode-back" href="../../api/tools.html#regolith.tools.get_id_from_name">[docs]</a><span class="k">def</span> <span class="nf">get_id_from_name</span><span class="p">(</span><span class="n">coll</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
     <span class="n">person</span> <span class="o">=</span> <span class="n">fuzzy_retrieval</span><span class="p">(</span><span class="n">coll</span><span class="p">,[</span><span class="s2">&quot;name&quot;</span><span class="p">,</span> <span class="s2">&quot;aka&quot;</span><span class="p">,</span> <span class="s2">&quot;_id&quot;</span><span class="p">],</span> <span class="n">name</span><span class="p">,</span>
                              <span class="n">case_sensitive</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">person</span><span class="p">:</span>
         <span class="k">return</span> <span class="n">person</span><span class="p">[</span><span class="s2">&quot;_id&quot;</span><span class="p">]</span>
     <span class="k">else</span><span class="p">:</span> <span class="k">return</span> <span class="kc">None</span></div>
+
+
+<div class="viewcode-block" id="is_fully_appointed"><a class="viewcode-back" href="../../api/tools.html#regolith.tools.is_fully_appointed">[docs]</a><span class="k">def</span> <span class="nf">is_fully_appointed</span><span class="p">(</span><span class="n">person</span><span class="p">,</span> <span class="n">begin_date</span><span class="p">,</span> <span class="n">end_date</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Checks if a collection of appointments for a person is valid and fully loaded</span>
+<span class="sd">        for a given interval of time</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        person: dict</span>
+<span class="sd">            The person whose appointments need to be checked</span>
+<span class="sd">        begin_date: datetime, string, optional</span>
+<span class="sd">            The start date of the interval of time to check appointments for</span>
+<span class="sd">        end_date: datetime, string, optional</span>
+<span class="sd">            The end date of the interval of time to check appointments for</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        bool:</span>
+<span class="sd">            True if the person is fully appointed and False if not</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        &gt;&gt;&gt; appts = [{&quot;begin_year&quot;: 2017, &quot;begin_month&quot;: 6, &quot;begin_day&quot;: 1, &quot;end_year&quot;: 2017, &quot;end_month&quot;: 6,\</span>
+<span class="sd">         &quot;end_day&quot;: 15, &quot;grant&quot;: &quot;grant1&quot;, &quot;loading&quot;: 1.0, &quot;type&quot;: &quot;pd&quot;, }, {&quot;begin_year&quot;: 2017, &quot;begin_month&quot;: 6, \</span>
+<span class="sd">         &quot;begin_day&quot;: 20,  &quot;end_year&quot;: 2017,  &quot;end_month&quot;: 6, &quot;end_day&quot;: 30, &quot;grant&quot;: &quot;grant2&quot;, &quot;loading&quot;: 1.0, \</span>
+<span class="sd">         &quot;type&quot;: &quot;pd&quot;,} ]</span>
+<span class="sd">        &gt;&gt;&gt; aejaz = {&quot;name&quot;: &quot;Adiba Ejaz&quot;, &quot;_id&quot;: &quot;aejaz&quot;, &quot;appointments&quot;: appts}</span>
+<span class="sd">        &gt;&gt;&gt; is_fully_appointed(aejaz, &quot;2017-06-01&quot;, &quot;2017-06-30&quot;)</span>
+
+<span class="sd">        In this case, we have an invalid loading from 2017-06-16 to 2017-06-19 hence it would return False and</span>
+<span class="sd">        print &quot;appointment gap for aejaz from 2017-06-16 to 2017-06-19&quot;.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">person</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;appointments&#39;</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;No appointments defined for this person&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="kc">False</span>
+    <span class="n">status</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="n">messages</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">appts</span> <span class="o">=</span> <span class="n">person</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;appointments&#39;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">begin_date</span> <span class="o">&gt;</span> <span class="n">end_date</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;invalid begin and end dates&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">begin_date</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="n">begin_date</span> <span class="o">=</span> <span class="n">date_parser</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">begin_date</span><span class="p">)</span><span class="o">.</span><span class="n">date</span><span class="p">()</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">end_date</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="n">end_date</span> <span class="o">=</span> <span class="n">date_parser</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">end_date</span><span class="p">)</span><span class="o">.</span><span class="n">date</span><span class="p">()</span>
+    <span class="n">timespan</span> <span class="o">=</span> <span class="n">end_date</span> <span class="o">-</span> <span class="n">begin_date</span>
+    <span class="n">good_period</span><span class="p">,</span> <span class="n">start_gap</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">None</span>
+    <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">timespan</span><span class="o">.</span><span class="n">days</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="n">day_loading</span> <span class="o">=</span> <span class="mf">0.0</span>
+        <span class="n">day</span> <span class="o">=</span> <span class="n">begin_date</span> <span class="o">+</span> <span class="n">relativedelta</span><span class="p">(</span><span class="n">days</span><span class="o">=</span><span class="n">x</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">appt</span> <span class="ow">in</span> <span class="n">appts</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">is_current</span><span class="p">(</span><span class="n">appt</span><span class="p">,</span> <span class="n">now</span><span class="o">=</span><span class="n">day</span><span class="p">):</span>
+                <span class="n">day_loading</span> <span class="o">+=</span> <span class="n">appt</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;loading&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">day_loading</span> <span class="o">&gt;</span> <span class="mf">1.0</span> <span class="ow">or</span> <span class="n">day_loading</span> <span class="o">&lt;</span> <span class="mf">1.0</span><span class="p">:</span>
+            <span class="n">status</span> <span class="o">=</span> <span class="kc">False</span>
+            <span class="k">if</span> <span class="n">good_period</span><span class="p">:</span>
+                <span class="n">start_gap</span> <span class="o">=</span> <span class="n">day</span>
+                <span class="n">good_period</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">good_period</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;appointment gap for </span><span class="si">{}</span><span class="s2"> from </span><span class="si">{}</span><span class="s2"> to </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">person</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;_id&#39;</span><span class="p">),</span>
+                                                                     <span class="nb">str</span><span class="p">(</span><span class="n">start_gap</span><span class="p">),</span> <span class="nb">str</span><span class="p">(</span><span class="n">day</span> <span class="o">-</span> <span class="n">relativedelta</span><span class="p">(</span><span class="n">days</span><span class="o">=</span><span class="mi">1</span><span class="p">))))</span>
+            <span class="n">good_period</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="k">if</span> <span class="n">x</span> <span class="o">==</span> <span class="n">timespan</span><span class="o">.</span><span class="n">days</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">good_period</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">day</span> <span class="o">!=</span> <span class="n">start_gap</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;appointment gap for </span><span class="si">{}</span><span class="s2"> from </span><span class="si">{}</span><span class="s2"> to </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">person</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;_id&#39;</span><span class="p">),</span>
+                                                                     <span class="nb">str</span><span class="p">(</span><span class="n">start_gap</span><span class="p">),</span> <span class="nb">str</span><span class="p">(</span><span class="n">day</span> <span class="o">-</span> <span class="n">relativedelta</span><span class="p">(</span><span class="n">days</span><span class="o">=</span><span class="mi">1</span><span class="p">))))</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;appointment gap for </span><span class="si">{}</span><span class="s2"> on </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">person</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;_id&#39;</span><span class="p">),</span> <span class="nb">str</span><span class="p">(</span><span class="n">day</span><span class="p">)))</span>
+    <span class="k">return</span> <span class="n">status</span></div>
 </pre></div>
 
           </div>
