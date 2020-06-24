@@ -100,6 +100,27 @@ database.</p>
 </dd></dl>
 
 <dl class="function">
+<dt id="regolith.tools.collection_str">
+<code class="sig-prename descclassname">regolith.tools.</code><code class="sig-name descname">collection_str</code><span class="sig-paren">(</span><em class="sig-param">collection</em>, <em class="sig-param">keys=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#collection_str"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.tools.collection_str" title="Permalink to this definition">¶</a></dt>
+<dd><p>Retrieves a list of all documents from the collection where the fragment
+appears in any one of the given fields</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>collection</strong> (<em>generator</em>) – The collection containing the documents</p></li>
+<li><p><strong>keys</strong> (<em>list, optional</em>) – The name of the fields to return from the search. Defaults to none in which case only the id is returned</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A str of all the values</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
 <dt id="regolith.tools.date_to_rfc822">
 <code class="sig-prename descclassname">regolith.tools.</code><code class="sig-name descname">date_to_rfc822</code><span class="sig-paren">(</span><em class="sig-param">y</em>, <em class="sig-param">m</em>, <em class="sig-param">d=1</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#date_to_rfc822"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.tools.date_to_rfc822" title="Permalink to this definition">¶</a></dt>
 <dd><p>Converts a date to an RFC 822 formatted string.</p>
@@ -486,6 +507,33 @@ print “appointment gap for aejaz from 2017-06-16 to 2017-06-19”.</p>
 </dd></dl>
 
 <dl class="function">
+<dt id="regolith.tools.key_value_pair_filter">
+<code class="sig-prename descclassname">regolith.tools.</code><code class="sig-name descname">key_value_pair_filter</code><span class="sig-paren">(</span><em class="sig-param">collection</em>, <em class="sig-param">arguments</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#key_value_pair_filter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.tools.key_value_pair_filter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Retrieves a list of all documents from the collection where the fragment
+appears in any one of the given fields</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>collection</strong> (<em>generator</em>) – The collection containing the documents</p></li>
+<li><p><strong>arguments</strong> (<em>list</em>) – The name of the fields to look for and their accompanying substring</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The collection containing the elements that satisfy the search criteria</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>generator</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">key_value_pair_filter</span><span class="p">(</span><span class="n">people</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;ab&#39;</span><span class="p">,</span> <span class="s1">&#39;position&#39;</span><span class="p">,</span> <span class="s1">&#39;professor&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>This would get all people for which their name contains the string ‘ab’
+and whose position is professor and return them</p>
+</dd></dl>
+
+<dl class="function">
 <dt id="regolith.tools.latex_safe">
 <code class="sig-prename descclassname">regolith.tools.</code><code class="sig-name descname">latex_safe</code><span class="sig-paren">(</span><em class="sig-param">s</em>, <em class="sig-param">url_check=True</em>, <em class="sig-param">wrapper='url'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#latex_safe"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.tools.latex_safe" title="Permalink to this definition">¶</a></dt>
 <dd><p>Make string latex safe</p>
@@ -582,6 +630,35 @@ grants collection for which “_id” in proposals has the value of
 <dt id="regolith.tools.rfc822now">
 <code class="sig-prename descclassname">regolith.tools.</code><code class="sig-name descname">rfc822now</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#rfc822now"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.tools.rfc822now" title="Permalink to this definition">¶</a></dt>
 <dd><p>Creates a string of the current time according to RFC 822.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="regolith.tools.search_collection">
+<code class="sig-prename descclassname">regolith.tools.</code><code class="sig-name descname">search_collection</code><span class="sig-paren">(</span><em class="sig-param">collection</em>, <em class="sig-param">arguments</em>, <em class="sig-param">keys=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#search_collection"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.tools.search_collection" title="Permalink to this definition">¶</a></dt>
+<dd><p>Retrieves a list of all documents from the collection where the fragment
+appears in any one of the given fields</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>collection</strong> (<em>generator</em>) – The collection containing the documents</p></li>
+<li><p><strong>arguments</strong> (<em>list</em>) – The name of the fields to look for and their accompanying substring</p></li>
+<li><p><strong>keys</strong> (<em>list, optional</em>) – The name of the fields to return from the search. Defaults to none in which case only the id is returned</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The collection containing the elements that satisfy the search criteria</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>generator</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">search_collection</span><span class="p">(</span><span class="n">people</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;ab&#39;</span><span class="p">,</span> <span class="s1">&#39;position&#39;</span><span class="p">,</span> <span class="s1">&#39;professor&#39;</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;_id&#39;</span><span class="p">,</span> <span class="s1">&#39;name&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>This would get all people for which their name contains the string ‘ab’
+and whose position is professor. It would return the name and id of the
+valid entries</p>
 </dd></dl>
 
 <dl class="function">
