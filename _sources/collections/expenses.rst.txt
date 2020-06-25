@@ -7,6 +7,8 @@ Schema
 The following lists key names mapped to its type and meaning for each entry.
 
 :_id: string, short representation, such as this-is-my-name, required
+:begin_date: ['string', 'date'], begin date in YYYY-MM-DD, optional
+:end_date: ['string', 'date'], end date in YYYY-MM-DD, optional
 
 	Allowed values: 
 		* travel
@@ -18,15 +20,31 @@ The following lists key names mapped to its type and meaning for each entry.
 	:type: dict, optional
 
 		:day: integer, Expense day, optional
+		:date: ['string', 'date'], Expense date, optional
 		:month: ['string', 'integer'], Expense month, optional
 		:year: integer, Expense year, optional
 		:purpose: string, reason for expense, optional
 		:unsegregated_expense: float, The allowed expenses, optional
 		:segregated_expense: float, The unallowed expenses, optional
 		:original_currency: float, The currency the payment was made in, optional
+:notes: list, Notes about the expense, optional
 :overall_purpose: string, The reason for the expenses, required
 :payee: string, The name or id of the payee filing the expense, required
-:project: ['string', 'list'], project or list of projects that this presentation is associated with.  Should be discoverable in projects collection, required
+:project: ['string', 'list'], project or list of projects that this presentation is associated with.  Should be discoverable in projects collection, optional
+:reimbursements: list, Reimbursements for the expense, optional
+
+	:type: dict, optional
+
+		:amount: integer, amount for reimbursements, optional
+		:date: ['string', 'date'], date of reimbursement, optional
+		:submission_date: ['string', 'date'], date of submission, optional
+		:where: string, where the reimbursement has been sent, optional
+:status: string, The status of the expense, optional
+
+	Allowed values: 
+		* reimbursed
+		* submitted
+		* unsubmitted
 
 
 YAML Example

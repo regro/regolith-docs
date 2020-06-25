@@ -72,6 +72,12 @@
 <dl class="field-list">
 <dt class="field-odd">_id</dt>
 <dd class="field-odd"><p>string, short representation, such as this-is-my-name, required</p>
+</dd>
+<dt class="field-even">begin_date</dt>
+<dd class="field-even"><p>[‘string’, ‘date’], begin date in YYYY-MM-DD, optional</p>
+</dd>
+<dt class="field-odd">end_date</dt>
+<dd class="field-odd"><p>[‘string’, ‘date’], end date in YYYY-MM-DD, optional</p>
 <dl class="simple">
 <dt>Allowed values:</dt><dd><ul class="simple">
 <li><p>travel</p></li>
@@ -95,27 +101,33 @@
 <dt class="field-odd">day</dt>
 <dd class="field-odd"><p>integer, Expense day, optional</p>
 </dd>
-<dt class="field-even">month</dt>
-<dd class="field-even"><p>[‘string’, ‘integer’], Expense month, optional</p>
+<dt class="field-even">date</dt>
+<dd class="field-even"><p>[‘string’, ‘date’], Expense date, optional</p>
 </dd>
-<dt class="field-odd">year</dt>
-<dd class="field-odd"><p>integer, Expense year, optional</p>
+<dt class="field-odd">month</dt>
+<dd class="field-odd"><p>[‘string’, ‘integer’], Expense month, optional</p>
 </dd>
-<dt class="field-even">purpose</dt>
-<dd class="field-even"><p>string, reason for expense, optional</p>
+<dt class="field-even">year</dt>
+<dd class="field-even"><p>integer, Expense year, optional</p>
 </dd>
-<dt class="field-odd">unsegregated_expense</dt>
-<dd class="field-odd"><p>float, The allowed expenses, optional</p>
+<dt class="field-odd">purpose</dt>
+<dd class="field-odd"><p>string, reason for expense, optional</p>
 </dd>
-<dt class="field-even">segregated_expense</dt>
-<dd class="field-even"><p>float, The unallowed expenses, optional</p>
+<dt class="field-even">unsegregated_expense</dt>
+<dd class="field-even"><p>float, The allowed expenses, optional</p>
 </dd>
-<dt class="field-odd">original_currency</dt>
-<dd class="field-odd"><p>float, The currency the payment was made in, optional</p>
+<dt class="field-odd">segregated_expense</dt>
+<dd class="field-odd"><p>float, The unallowed expenses, optional</p>
+</dd>
+<dt class="field-even">original_currency</dt>
+<dd class="field-even"><p>float, The currency the payment was made in, optional</p>
 </dd>
 </dl>
 </dd>
 </dl>
+</dd>
+<dt class="field-odd">notes</dt>
+<dd class="field-odd"><p>list, Notes about the expense, optional</p>
 </dd>
 <dt class="field-even">overall_purpose</dt>
 <dd class="field-even"><p>string, The reason for the expenses, required</p>
@@ -124,7 +136,40 @@
 <dd class="field-odd"><p>string, The name or id of the payee filing the expense, required</p>
 </dd>
 <dt class="field-even">project</dt>
-<dd class="field-even"><p>[‘string’, ‘list’], project or list of projects that this presentation is associated with.  Should be discoverable in projects collection, required</p>
+<dd class="field-even"><p>[‘string’, ‘list’], project or list of projects that this presentation is associated with.  Should be discoverable in projects collection, optional</p>
+</dd>
+<dt class="field-odd">reimbursements</dt>
+<dd class="field-odd"><p>list, Reimbursements for the expense, optional</p>
+<dl class="field-list simple">
+<dt class="field-odd">type</dt>
+<dd class="field-odd"><p>dict, optional</p>
+<dl class="field-list simple">
+<dt class="field-odd">amount</dt>
+<dd class="field-odd"><p>integer, amount for reimbursements, optional</p>
+</dd>
+<dt class="field-even">date</dt>
+<dd class="field-even"><p>[‘string’, ‘date’], date of reimbursement, optional</p>
+</dd>
+<dt class="field-odd">submission_date</dt>
+<dd class="field-odd"><p>[‘string’, ‘date’], date of submission, optional</p>
+</dd>
+<dt class="field-even">where</dt>
+<dd class="field-even"><p>string, where the reimbursement has been sent, optional</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+<dt class="field-odd">status</dt>
+<dd class="field-odd"><p>string, The status of the expense, optional</p>
+<dl class="simple">
+<dt>Allowed values:</dt><dd><ul class="simple">
+<li><p>reimbursed</p></li>
+<li><p>submitted</p></li>
+<li><p>unsubmitted</p></li>
+</ul>
+</dd>
+</dl>
 </dd>
 </dl>
 </div>
