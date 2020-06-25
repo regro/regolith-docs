@@ -83,7 +83,7 @@
 <span class="sd">    &gt;&gt;&gt; # Store a file</span>
 <span class="sd">    &gt;&gt;&gt; db.add_file(ergs, &#39;myfile&#39;, &#39;/path/to/file/hello.txt&#39;)</span>
 <span class="sd">    &gt;&gt;&gt; # Get a file from the store</span>
-<span class="sd">    &gt;&gt;&gt; path = db.get_file(ergs, &#39;myfile&#39;)</span>
+<span class="sd">    &gt;&gt;&gt; path = db.get_file_path(ergs, &#39;myfile&#39;)</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">rc</span><span class="o">=</span><span class="n">DEFAULT_RC</span><span class="p">):</span>
@@ -121,7 +121,7 @@
         <span class="sd">&quot;&quot;&quot;Return a Broker instance&quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="n">load_db</span><span class="p">(</span><span class="n">rc_file</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="Broker.get_file"><a class="viewcode-back" href="../../api/broker.html#regolith.broker.Broker.get_file">[docs]</a>    <span class="k">def</span> <span class="nf">get_file</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">document</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+<div class="viewcode-block" id="Broker.get_file_path"><a class="viewcode-back" href="../../api/broker.html#regolith.broker.Broker.get_file_path">[docs]</a>    <span class="k">def</span> <span class="nf">get_file_path</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">document</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot; Get a file from the file storage associated with the document and</span>
 <span class="sd">        name</span>
 

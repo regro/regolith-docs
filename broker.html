@@ -69,25 +69,34 @@
 <p>Sharing figures (and other files) among various group members can be
 difficult, as everyone has slightly different file systems.
 Regolith has a system to help with this by providing file storage which can
-be addressed to various documents in the database.</p>
+be addressed to various documents in the database. In order to do so, the user
+must clone the regolith-storage github directory into their dbs folder, and run
+python in a terminal in that (regolith-storage) directory with their
+regolith_env conda environment activated.</p>
 <div class="section" id="loading-the-broker">
 <h3>Loading the broker<a class="headerlink" href="#loading-the-broker" title="Permalink to this headline">¶</a></h3>
-<p>To load the broker you need a <code class="docutils literal notranslate"><span class="pre">regolithrc.json</span></code> file.
-With that you can use either the class based or function interface</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">regolith.broker</span> <span class="kn">import</span> <span class="n">load_db</span><span class="p">,</span> <span class="n">Broker</span>
-<span class="n">db</span> <span class="o">=</span> <span class="n">load_db</span><span class="p">(</span><span class="s1">&#39;/path/to/regolithrc.json&#39;</span><span class="p">)</span>
-<span class="c1"># or</span>
-<span class="n">db</span> <span class="o">=</span> <span class="n">Broker</span><span class="o">.</span><span class="n">from_rc</span><span class="p">(</span><span class="s1">&#39;/path/to/regolithrc.json&#39;</span><span class="p">)</span>
+<p>To load the broker you need a <code class="docutils literal notranslate"><span class="pre">regolithrc.json</span></code> file. This file should
+be present in the regolith-storage directory that the user has cloned. The following
+block of code should be run in the user’s python terminal, in the cloned storage
+directory, with the regolith_env conda environment activated. If you intend to
+add a file to the heap, do not put the file in the cloned directory before loading the
+database as follows.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">regolith.broker</span> <span class="kn">import</span> <span class="n">Broker</span>
+<span class="n">db</span> <span class="o">=</span> <span class="n">Broker</span><span class="o">.</span><span class="n">from_rc</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="inserting-files-into-the-store">
 <h3>Inserting files into the store<a class="headerlink" href="#inserting-files-into-the-store" title="Permalink to this headline">¶</a></h3>
-<p>To insert documents into the broker you can use the <code class="docutils literal notranslate"><span class="pre">add_file</span></code> interface</p>
+<p>To insert documents into the broker you can use the <code class="docutils literal notranslate"><span class="pre">add_file</span></code> interface.
+Due to the fact that the metadata is utilizing a local url and filesystem client,
+the user must add, commit, push to origin and PR the effected local databases after
+the addition of the file edits their metadata. See below for an example of how to
+both create and store a file in the regro document of the projects collection.</p>
+<p>Note: Now is the time to take files to be added and paste them into the cloned storage
+directory. Do not paste them into the _build folder, but rather the base directory.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">from</span> <span class="nn">regolith.broker</span> <span class="kn">import</span> <span class="n">Broker</span>
 
-<span class="n">db</span> <span class="o">=</span> <span class="n">Broker</span><span class="o">.</span><span class="n">from_rc</span><span class="p">()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">),</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;hello_world.png&#39;</span><span class="p">)</span>
 <span class="n">doc</span> <span class="o">=</span> <span class="n">db</span><span class="p">[</span><span class="s1">&#39;projects&#39;</span><span class="p">][</span><span class="s1">&#39;regro&#39;</span><span class="p">]</span>
@@ -107,12 +116,13 @@ With that you can use either the class based or function interface</p>
 </div>
 <div class="section" id="retrieving-files-from-the-store">
 <h3>Retrieving files from the store<a class="headerlink" href="#retrieving-files-from-the-store" title="Permalink to this headline">¶</a></h3>
-<p>To retrive files from the store you can use the <code class="docutils literal notranslate"><span class="pre">get_file</span></code> interface</p>
+<p>To retrieve files from the store you can use the <code class="docutils literal notranslate"><span class="pre">get_file_path</span></code> interface.
+Importantly, this will only retrieve the path to the file.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">regolith.broker</span> <span class="kn">import</span> <span class="n">Broker</span>
 
 <span class="n">db</span> <span class="o">=</span> <span class="n">Broker</span><span class="o">.</span><span class="n">from_rc</span><span class="p">()</span>
 <span class="n">doc</span> <span class="o">=</span> <span class="n">db</span><span class="p">[</span><span class="s1">&#39;projects&#39;</span><span class="p">][</span><span class="s1">&#39;regro&#39;</span><span class="p">]</span>
-<span class="n">path</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">get_file</span><span class="p">(</span><span class="n">doc</span><span class="p">,</span> <span class="s1">&#39;hw_file&#39;</span><span class="p">)</span>
+<span class="n">path</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">get_file_path</span><span class="p">(</span><span class="n">doc</span><span class="p">,</span> <span class="s1">&#39;hw_file&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>This can be used inside tex documents via the <code class="docutils literal notranslate"><span class="pre">FigureBuilder</span></code> class/CLI</p>
@@ -125,20 +135,20 @@ With that you can use either the class based or function interface</p>
 <span class="k">\affiliation</span><span class="nb">{</span>Department of Applied Physics
 and Applied Mathematics, Columbia University, New York, NY 10027<span class="nb">}</span>
 
-<span class="k">\includegraphics</span><span class="nb">{</span> <span class="nb">{{</span>-get<span class="nb">_</span>file(db[&#39;projects&#39;][&#39;regro&#39;], &#39;hw<span class="nb">_</span>file&#39;)-<span class="nb">}}</span> <span class="nb">}</span>
+<span class="k">\includegraphics</span><span class="nb">{</span> <span class="nb">{{</span>-get<span class="nb">_</span>file<span class="nb">_</span>path(db[&#39;projects&#39;][&#39;regro&#39;], &#39;hw<span class="nb">_</span>file&#39;)-<span class="nb">}}</span> <span class="nb">}</span>
 <span class="k">\end</span><span class="nb">{</span>document<span class="nb">}</span>
 </pre></div>
 </div>
 <p>After running <code class="docutils literal notranslate"><span class="pre">regolith</span> <span class="pre">build</span> <span class="pre">figure</span></code> in the directory
-<code class="docutils literal notranslate"><span class="pre">{{-get_file(db['projects']['regro'],</span> <span class="pre">'hw_file')-}}</span></code> will be replaced with
+<code class="docutils literal notranslate"><span class="pre">{{-get_file_path(db['projects']['regro'],</span> <span class="pre">'hw_file')-}}</span></code> will be replaced with
 the path to the file in the store.
 This way the figure can be accessed across machines in a uniform way.</p>
 <p>Note that this isn’t limited to figures, any file can be stored in the store,
-so if there were boilerplate or short chuncks which could be re-used then
-they could be stored centraly and retrieved as needed.</p>
+so if there were boilerplate or short chunks which could be re-used then
+they could be stored centrally and retrieved as needed.</p>
 <p>Also note that we could have also used the builder to replace other pieces of
 the document, eg <code class="docutils literal notranslate"><span class="pre">\author{</span> <span class="pre">{{-db['people']['cwright']['name']-}}</span> <span class="pre">}</span></code> would
-have been replaced with the full name of the auther.</p>
+have been replaced with the full name of the author.</p>
 </div>
 </div>
 </div>

@@ -78,7 +78,7 @@
 <span class="gp">&gt;&gt;&gt; </span><span class="c1"># Store a file</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">db</span><span class="o">.</span><span class="n">add_file</span><span class="p">(</span><span class="n">ergs</span><span class="p">,</span> <span class="s1">&#39;myfile&#39;</span><span class="p">,</span> <span class="s1">&#39;/path/to/file/hello.txt&#39;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="c1"># Get a file from the store</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">path</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">get_file</span><span class="p">(</span><span class="n">ergs</span><span class="p">,</span> <span class="s1">&#39;myfile&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">path</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">get_file_path</span><span class="p">(</span><span class="n">ergs</span><span class="p">,</span> <span class="s1">&#39;myfile&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 <dl class="method">
@@ -103,8 +103,8 @@
 </dd></dl>
 
 <dl class="method">
-<dt id="regolith.broker.Broker.get_file">
-<code class="sig-name descname">get_file</code><span class="sig-paren">(</span><em class="sig-param">document</em>, <em class="sig-param">name</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/broker.html#Broker.get_file"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.broker.Broker.get_file" title="Permalink to this definition">¶</a></dt>
+<dt id="regolith.broker.Broker.get_file_path">
+<code class="sig-name descname">get_file_path</code><span class="sig-paren">(</span><em class="sig-param">document</em>, <em class="sig-param">name</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/broker.html#Broker.get_file_path"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.broker.Broker.get_file_path" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get a file from the file storage associated with the document and
 name</p>
 <dl class="field-list simple">
