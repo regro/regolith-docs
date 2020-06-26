@@ -135,12 +135,12 @@ Importantly, this will only retrieve the path to the file.</p>
 <span class="k">\affiliation</span><span class="nb">{</span>Department of Applied Physics
 and Applied Mathematics, Columbia University, New York, NY 10027<span class="nb">}</span>
 
-<span class="k">\includegraphics</span><span class="nb">{</span> <span class="nb">{{</span>-get<span class="nb">_</span>file<span class="nb">_</span>path(db[&#39;projects&#39;][&#39;regro&#39;], &#39;hw<span class="nb">_</span>file&#39;)-<span class="nb">}}</span> <span class="nb">}</span>
+<span class="k">\includegraphics</span><span class="nb">{</span> <span class="nb">{{</span>-get<span class="nb">_</span>file<span class="nb">_</span>path(db[&#39;projects&#39;][&#39;regro&#39;], &#39;hw<span class="nb">_</span>file&#39;).replace(&#39;<span class="k">\\</span>&#39;, &#39;/&#39;)-<span class="nb">}}</span> <span class="nb">}</span>
 <span class="k">\end</span><span class="nb">{</span>document<span class="nb">}</span>
 </pre></div>
 </div>
 <p>After running <code class="docutils literal notranslate"><span class="pre">regolith</span> <span class="pre">build</span> <span class="pre">figure</span></code> in the directory
-<code class="docutils literal notranslate"><span class="pre">{{-get_file_path(db['projects']['regro'],</span> <span class="pre">'hw_file')-}}</span></code> will be replaced with
+<code class="docutils literal notranslate"><span class="pre">{{-get_file_path(db['projects']['regro'],</span> <span class="pre">'hw_file').replace('\\',</span> <span class="pre">'/')-}}</span></code> will be replaced with
 the path to the file in the store.
 This way the figure can be accessed across machines in a uniform way.</p>
 <p>Note that this isn’t limited to figures, any file can be stored in the store,
