@@ -100,6 +100,38 @@ database.</p>
 </dd></dl>
 
 <dl class="function">
+<dt id="regolith.tools.collect_appts">
+<code class="sig-prename descclassname">regolith.tools.</code><code class="sig-name descname">collect_appts</code><span class="sig-paren">(</span><em class="sig-param">ppl_coll</em>, <em class="sig-param">filter_key=None</em>, <em class="sig-param">filter_value=None</em>, <em class="sig-param">begin_date=None</em>, <em class="sig-param">end_date=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#collect_appts"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.tools.collect_appts" title="Permalink to this definition">¶</a></dt>
+<dd><p>Retrieves a list of all the appointments on the given grant(s) in the given interval of time for each person in the
+given people collection.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ppl_coll</strong> (<em>collection (list of dicts)</em>) – The people collection containing persons with appointments</p></li>
+<li><p><strong>filter_key</strong> (<em>string, list, optional</em>) – The key we want to filter appointments by</p></li>
+<li><p><strong>filter_value</strong> (<em>string, int, float, list, optional</em>) – The values for each key that we want to filter appointments by</p></li>
+<li><p><strong>begin_date</strong> (<em>string, datetime, optional</em>) – The start date for the interval in which we want to collect appointments</p></li>
+<li><p><strong>end_date</strong> (<em>string, datetime, optional</em>) – The start date for the interval in which we want to collect appointments</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>a list of all appointments in the people collection that satisfy the provided conditions (if any)</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">collect_appts</span><span class="p">(</span><span class="n">people</span><span class="p">,</span><span class="n">filter_key</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;grant&#39;</span><span class="p">,</span> <span class="s1">&#39;status&#39;</span><span class="p">],</span> <span class="n">filter_value</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;mrsec14&#39;</span><span class="p">,</span> <span class="s1">&#39;finalized&#39;</span><span class="p">],</span>     <span class="n">begin_date</span><span class="o">=</span> <span class="s1">&#39;2020-09-01&#39;</span><span class="p">,</span> <span class="n">end_date</span><span class="o">=</span><span class="s1">&#39;2020-12-31&#39;</span><span class="p">)</span>
+<span class="go">This would return all appointments on the grant &#39;mrsec14&#39; with status &#39;finalized&#39; that are valid on/during any</span>
+<span class="go">dates from 2020-09-01 to 2020-12-31</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">collect_appts</span><span class="p">(</span><span class="n">people</span><span class="p">,</span> <span class="n">filter_key</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;grant&#39;</span><span class="p">,</span> <span class="s1">&#39;grant&#39;</span><span class="p">],</span> <span class="n">filter_value</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;mrsec14&#39;</span><span class="p">,</span> <span class="s1">&#39;dmref19&#39;</span><span class="p">])</span>
+<span class="go">This would return all appointments on the grants &#39;mrsec14&#39; and &#39;dmref19&#39; irrespective of their dates.</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
 <dt id="regolith.tools.collection_str">
 <code class="sig-prename descclassname">regolith.tools.</code><code class="sig-name descname">collection_str</code><span class="sig-paren">(</span><em class="sig-param">collection</em>, <em class="sig-param">keys=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#collection_str"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.tools.collection_str" title="Permalink to this definition">¶</a></dt>
 <dd><p>Retrieves a list of all documents from the collection where the fragment
