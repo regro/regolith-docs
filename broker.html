@@ -72,7 +72,8 @@ Regolith has a system to help with this by providing file storage which can
 be addressed to various documents in the database. In order to do so, the user
 must clone the regolith-storage github directory into their dbs folder, and run
 python in a terminal in that (regolith-storage) directory with their
-regolith_env conda environment activated.</p>
+regolith_env conda environment activated. The user must also have push rights to the
+regolith-storage git directory, and an SSH connection established.</p>
 <div class="section" id="loading-the-broker">
 <h3>Loading the broker<a class="headerlink" href="#loading-the-broker" title="Permalink to this headline">¶</a></h3>
 <p>To load the broker you need a <code class="docutils literal notranslate"><span class="pre">regolithrc.json</span></code> file. This file should
@@ -125,7 +126,8 @@ Importantly, this will only retrieve the path to the file.</p>
 <span class="n">path</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">get_file_path</span><span class="p">(</span><span class="n">doc</span><span class="p">,</span> <span class="s1">&#39;hw_file&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>This can be used inside tex documents via the <code class="docutils literal notranslate"><span class="pre">FigureBuilder</span></code> class/CLI</p>
+<p>This can be used inside tex documents via the <code class="docutils literal notranslate"><span class="pre">FigureBuilder</span></code> class/CLI. In order to do so,
+the user must have latex installed on their local machine.</p>
 <p>Here is an example tex document</p>
 <div class="highlight-tex notranslate"><div class="highlight"><pre><span></span><span class="k">\documentclass</span><span class="na">[prb,twocolumn,showpacs,amsmath,amssymb,floatfix]</span><span class="nb">{</span>revtex4-1<span class="nb">}</span>
 <span class="k">\usepackage</span><span class="nb">{</span>graphicx<span class="nb">}</span>
