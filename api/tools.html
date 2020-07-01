@@ -450,6 +450,32 @@ collections in the needed databases</p>
 </dd></dl>
 
 <dl class="function">
+<dt id="regolith.tools.grant_burn">
+<code class="sig-prename descclassname">regolith.tools.</code><code class="sig-name descname">grant_burn</code><span class="sig-paren">(</span><em class="sig-param">grant</em>, <em class="sig-param">appts</em>, <em class="sig-param">begin_date=None</em>, <em class="sig-param">end_date=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#grant_burn"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.tools.grant_burn" title="Permalink to this definition">¶</a></dt>
+<dd><p>Retrieves the total burn of a grant over an interval of time by integrating over all appointments
+made on the grant.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>grant</strong> (<em>dict</em>) – The grant object whose burn needs to be retrieved</p></li>
+<li><p><strong>appts</strong> (<em>collection (list of dicts)</em>) – The collection of appointments made on assorted grants</p></li>
+<li><p><strong>begin_date</strong> (<em>datetime, string, optional</em>) – The start date of the interval of time to retrieve the grant burn for, either a date object or a string
+in YYYY-MM-DD format. Defaults to the begin_date of the grant.</p></li>
+<li><p><strong>end_date</strong> (<em>datetime, string, optional</em>) – The end date of the interval of time to retrieve the grant burn for, either a date object or a string
+in YYYY-MM-DD format. Defaults to the end_date of the grant.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A list of dictionaries, each containing the date and the corresponding student_months, postdoc_months and
+ss_months on that date</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
 <dt id="regolith.tools.group">
 <code class="sig-prename descclassname">regolith.tools.</code><code class="sig-name descname">group</code><span class="sig-paren">(</span><em class="sig-param">db</em>, <em class="sig-param">by</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#group"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.tools.group" title="Permalink to this definition">¶</a></dt>
 <dd><p>Group the document in the database according to the value of the doc[by] in db.</p>
