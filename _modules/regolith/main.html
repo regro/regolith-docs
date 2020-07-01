@@ -321,17 +321,16 @@
 
     <span class="c1"># fs-to-mongo subparser</span>
     <span class="n">ftm</span> <span class="o">=</span> <span class="n">subp</span><span class="o">.</span><span class="n">add_parser</span><span class="p">(</span>
-        <span class="s2">&quot;fs-to-mongo&quot;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">&quot;Import database from filesystem to mongodb. Optional &#39;mongohost&#39; in configuration &quot;</span>
-                            <span class="s2">&quot;json file.&quot;</span>
+        <span class="s2">&quot;fs-to-mongo&quot;</span><span class="p">,</span>
+        <span class="n">help</span><span class="o">=</span><span class="s2">&quot;Import database from filesystem to mongodb. By default, the database will be import to the local &quot;</span>
+             <span class="s2">&quot;mongodb. If the &#39;dst_url&#39; key is specified in the database in &#39;databases&#39; part in &quot;</span>
+             <span class="s2">&quot;&#39;regolithrc.json&#39;. The database will be import to the destination specified by &#39;dst_url&#39;.&quot;</span>
     <span class="p">)</span>
+
     <span class="n">ftm</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;--host&quot;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">&quot;Specifies a resolvable hostname for the mongod to which to connect. By &quot;</span>
                                     <span class="s2">&quot;default, the mongoimport attempts to connect to a MongoDB instance running &quot;</span>
                                     <span class="s2">&quot;on the localhost on port number 27017.&quot;</span><span class="p">,</span>
                      <span class="n">dest</span><span class="o">=</span><span class="s2">&quot;host&quot;</span><span class="p">,</span>
-                     <span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
-    <span class="n">ftm</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;--uri&quot;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">&quot;Specify a resolvable URI connection string (enclose in quotes) &quot;</span>
-                                   <span class="s2">&quot;to connect to the MongoDB deployment.&quot;</span><span class="p">,</span>
-                     <span class="n">dest</span><span class="o">=</span><span class="s2">&quot;uri&quot;</span><span class="p">,</span>
                      <span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
 
     <span class="c1"># Validator</span>

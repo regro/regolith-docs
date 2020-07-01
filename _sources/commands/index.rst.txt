@@ -32,8 +32,12 @@ Shell commands for regolith
 	    classlist           updates classlist information from file
 	    json-to-yaml        Converts files from JSON to YAML
 	    yaml-to-json        Converts files from YAML to JSON
-	    fs-to-mongo         Import database from filesystem to mongodb. Optional
-	                        'mongohost' in configuration json file.
+	    fs-to-mongo         Import database from filesystem to mongodb. By
+	                        default, the database will be import to the local
+	                        mongodb. If the 'dst_url' key is specified in the
+	                        database in 'databases' part in 'regolithrc.json'. The
+	                        database will be import to the destination specified
+	                        by 'dst_url'.
 	    validate            Validates db
 
 
