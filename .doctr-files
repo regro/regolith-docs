@@ -55,7 +55,6 @@
 ./_sources/collections/proposals.rst.txt
 ./_sources/collections/refereeReports.rst.txt
 ./_sources/collections/students.rst.txt
-./_sources/collections/todolist.rst.txt
 ./_sources/commands/add.rst.txt
 ./_sources/commands/app.rst.txt
 ./_sources/commands/build.rst.txt
@@ -146,7 +145,6 @@
 ./collections/proposals.html
 ./collections/refereeReports.html
 ./collections/students.html
-./collections/todolist.html
 ./commands/add.html
 ./commands/app.html
 ./commands/build.html
