@@ -367,9 +367,9 @@ The following lists key names mapped to its type and meaning for each entry.
 	:type: dict, optional
 
 		:description: string, the description of the to-do task, optional
-		:due_date: string, the due date, optional
-		:begin_date: string, the begin date, optional
-		:end_date: string, the end date, optional
+		:due_date: ['string', 'date'], the due date, optional
+		:begin_date: ['string', 'date'], the begin date, optional
+		:end_date: ['string', 'date'], the end date, optional
 		:duration: float, the size of the task/ the estimated duration it will take to finish the task. Unit: miniutes., optional
 		:importance: integer, the importance, from 0 to 2, optional
 		:status: string, the status: proposed/started/finished, optional
