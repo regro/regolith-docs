@@ -39,7 +39,7 @@ YAML Example
 	    apam:
 	      aka:
 	        - APAM
-	      name: Department of Applied Physicsand Applied Mathematics
+	      name: Department of Applied Physics and Applied Mathematics
 	    chemistry:
 	      aka:
 	        - Chemistry
@@ -86,7 +86,7 @@ JSON/Mongo Example
 	            "aka": [
 	                "APAM"
 	            ],
-	            "name": "Department of Applied Physicsand Applied Mathematics"
+	            "name": "Department of Applied Physics and Applied Mathematics"
 	        },
 	        "chemistry": {
 	            "aka": [
