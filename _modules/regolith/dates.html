@@ -189,7 +189,7 @@
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="n">calendar</span><span class="o">.</span><span class="n">monthrange</span><span class="p">(</span><span class="n">year</span><span class="p">,</span> <span class="n">month_to_int</span><span class="p">(</span><span class="n">month</span><span class="p">))[</span><span class="mi">1</span><span class="p">]</span></div>
 
-<div class="viewcode-block" id="get_dates"><a class="viewcode-back" href="../../api/dates.html#regolith.dates.get_dates">[docs]</a><span class="k">def</span> <span class="nf">get_dates</span><span class="p">(</span><span class="n">thing</span><span class="p">):</span>
+<div class="viewcode-block" id="get_dates"><a class="viewcode-back" href="../../api/dates.html#regolith.dates.get_dates">[docs]</a><span class="k">def</span> <span class="nf">get_dates</span><span class="p">(</span><span class="n">thing</span><span class="p">,</span> <span class="n">date_field_prefix</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
     <span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">    given a dict like thing, return the items</span>
 
@@ -197,10 +197,14 @@
 <span class="sd">    ----------</span>
 <span class="sd">    thing: dict</span>
 <span class="sd">      the dict that contains the dates</span>
+<span class="sd">    date_field_prefix: string (optional)</span>
+<span class="sd">      the prefix to look for before the date parameter. For example given &quot;submission&quot;</span>
+<span class="sd">      the function will search for submission_day, submission_year, etc.</span>
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
-<span class="sd">       dict containing datetime.date objects for begin_date end_date and date</span>
+<span class="sd">       dict containing datetime.date objects for begin_date end_date and date, and</span>
+<span class="sd">       prefix_date if a prefix string was passed</span>
 
 <span class="sd">    Description</span>
 <span class="sd">    -----------</span>
@@ -213,7 +217,9 @@
 <span class="sd">    year.</span>
 
 <span class="sd">    If &quot;year&quot;, &quot;month&quot; and &quot;day&quot; are found the function will return these in the</span>
-<span class="sd">    &quot;date&quot; field and begin_date and end_date will be None</span>
+<span class="sd">    &quot;date&quot; field and begin_date and end_date will match the &quot;date&quot; field. If only</span>
+<span class="sd">    a &quot;year&quot; is found, then the date attribute will be none but the begin and end</span>
+<span class="sd">    dates will be the first and last day of that respective year. </span>
 
 <span class="sd">    If year is found but no month or day are found the function will return</span>
 <span class="sd">    begin_date and end_date with the beginning and the end of the given year/month.</span>
@@ -224,49 +230,82 @@
 
 <span class="sd">    If begin_year is found, the begin month and begin day are missing they are set to</span>
 <span class="sd">    1 and 1, respectively</span>
+
+<span class="sd">    If a date field prefix is passed in this function will search for prefix_year as</span>
+<span class="sd">    well as prefix_month, prefix_day, and prefix_date. For example, if the prefix string</span>
+<span class="sd">    passed in is &quot;submitted&quot; then this function will look for submitted_date instead of</span>
+<span class="sd">    just date.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; get_dates({&#39;submission_day&#39;: 10, &#39;submission_year&#39;: 2020, &#39;submission_month&#39;: &#39;Feb&#39;}, &quot;submission&quot;)</span>
+
+<span class="sd">    This would return a dictionary consisting of the begin date, end, date, and date for the given input.</span>
+<span class="sd">    Instead of searching for &quot;day&quot; in the thing, it would search for &quot;submission_day&quot; since a prefix was</span>
+<span class="sd">    given. The following dictionary is returned (note that a submission_date and a date key are in the</span>
+<span class="sd">    dictionary):</span>
+<span class="sd">    {&#39;begin_date&#39;: datetime.date(2020, 2, 10),</span>
+<span class="sd">     &#39;end_date&#39;: datetime.date(2020, 2, 10),</span>
+<span class="sd">     &#39;submission_date&#39;: datetime.date(2020, 2, 10),</span>
+<span class="sd">     &#39;date&#39;: datetime.date(2020, 2, 10)</span>
+<span class="sd">    }</span>
+
+<span class="sd">    &gt;&gt;&gt; get_dates({&#39;begin_year&#39;: 2019, &#39;end_year&#39;: 2020, &#39;end_month&#39;: &#39;Feb&#39;})</span>
+
+<span class="sd">    This will return a dictionary consisting of the begin date, end date, and date for the given input.</span>
+<span class="sd">    Because no prefix string was passed in, the function will search for &quot;date&quot; in the input instead of</span>
+<span class="sd">    prefix_input. The following dictionary is returned:</span>
+<span class="sd">    {&#39;begin_date&#39;: datetime.date(2019, 1, 1),</span>
+<span class="sd">     &#39;end_date&#39;: datetime.date(2020, 2, 29),</span>
+<span class="sd">     &#39;date&#39;: None</span>
+<span class="sd">    }</span>
 <span class="sd">    &#39;&#39;&#39;</span>
+
+    <span class="n">datenames</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;day&quot;</span><span class="p">,</span> <span class="s2">&quot;month&quot;</span><span class="p">,</span> <span class="s2">&quot;year&quot;</span><span class="p">,</span> <span class="s2">&quot;date&quot;</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">date_field_prefix</span><span class="p">:</span>
+        <span class="n">datenames</span> <span class="o">=</span> <span class="p">[</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">date_field_prefix</span><span class="si">}</span><span class="s2">_</span><span class="si">{</span><span class="n">datename</span><span class="si">}</span><span class="s2">&quot;</span> <span class="k">for</span> <span class="n">datename</span> <span class="ow">in</span> <span class="n">datenames</span><span class="p">]</span>
 
     <span class="k">if</span> <span class="n">thing</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;end_year&quot;</span><span class="p">)</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">thing</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;begin_year&quot;</span><span class="p">):</span>
         <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;WARNING: end_year specified without begin_year&#39;</span><span class="p">)</span>
     <span class="n">begin_date</span><span class="p">,</span> <span class="n">end_date</span><span class="p">,</span> <span class="n">date</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span>
-    <span class="k">if</span> <span class="n">thing</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;begin_year&#39;</span><span class="p">):</span>
-        <span class="k">if</span> <span class="ow">not</span> <span class="n">thing</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;begin_month&#39;</span><span class="p">):</span>
-            <span class="n">thing</span><span class="p">[</span><span class="s1">&#39;begin_month&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
-        <span class="k">if</span> <span class="ow">not</span> <span class="n">thing</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;begin_day&#39;</span><span class="p">):</span>
-            <span class="n">thing</span><span class="p">[</span><span class="s1">&#39;begin_day&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
-        <span class="n">begin_date</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">date</span><span class="p">(</span><span class="n">thing</span><span class="p">[</span><span class="s1">&#39;begin_year&#39;</span><span class="p">],</span><span class="n">month_to_int</span><span class="p">(</span><span class="n">thing</span><span class="p">[</span><span class="s1">&#39;begin_month&#39;</span><span class="p">]),</span>
-                                   <span class="n">thing</span><span class="p">[</span><span class="s1">&#39;begin_day&#39;</span><span class="p">])</span>
-    <span class="k">if</span> <span class="n">thing</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;end_year&#39;</span><span class="p">):</span>
-        <span class="k">if</span> <span class="ow">not</span> <span class="n">thing</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;end_month&#39;</span><span class="p">):</span>
-            <span class="n">thing</span><span class="p">[</span><span class="s1">&#39;end_month&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">12</span>
-        <span class="k">if</span> <span class="ow">not</span> <span class="n">thing</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;end_day&#39;</span><span class="p">):</span>
-            <span class="n">thing</span><span class="p">[</span><span class="s1">&#39;end_day&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">last_day</span><span class="p">(</span><span class="n">thing</span><span class="p">[</span><span class="s1">&#39;end_year&#39;</span><span class="p">],</span> <span class="n">thing</span><span class="p">[</span><span class="s1">&#39;end_month&#39;</span><span class="p">])</span>
-        <span class="n">end_date</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">date</span><span class="p">(</span><span class="n">thing</span><span class="p">[</span><span class="s1">&#39;end_year&#39;</span><span class="p">],</span><span class="n">month_to_int</span><span class="p">(</span><span class="n">thing</span><span class="p">[</span><span class="s1">&#39;end_month&#39;</span><span class="p">]),</span>
-                                   <span class="n">thing</span><span class="p">[</span><span class="s1">&#39;end_day&#39;</span><span class="p">])</span>
-    <span class="k">if</span> <span class="n">thing</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;year&#39;</span><span class="p">):</span>
-        <span class="k">if</span> <span class="ow">not</span> <span class="n">thing</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;month&#39;</span><span class="p">):</span>
-            <span class="k">if</span> <span class="n">thing</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;begin_year&#39;</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">thing</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;begin_year&quot;</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">thing</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;begin_month&quot;</span><span class="p">):</span>
+            <span class="n">thing</span><span class="p">[</span><span class="s2">&quot;begin_month&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">thing</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;begin_day&quot;</span><span class="p">):</span>
+            <span class="n">thing</span><span class="p">[</span><span class="s2">&quot;begin_day&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+        <span class="n">begin_date</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">date</span><span class="p">(</span><span class="n">thing</span><span class="p">[</span><span class="s2">&quot;begin_year&quot;</span><span class="p">],</span><span class="n">month_to_int</span><span class="p">(</span><span class="n">thing</span><span class="p">[</span><span class="s2">&quot;begin_month&quot;</span><span class="p">]),</span>
+                                   <span class="n">thing</span><span class="p">[</span><span class="s2">&quot;begin_day&quot;</span><span class="p">])</span>
+    <span class="k">if</span> <span class="n">thing</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;end_year&quot;</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">thing</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;end_month&quot;</span><span class="p">):</span>
+            <span class="n">thing</span><span class="p">[</span><span class="s2">&quot;end_month&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">12</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">thing</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;end_day&quot;</span><span class="p">):</span>
+            <span class="n">thing</span><span class="p">[</span><span class="s2">&quot;end_day&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">last_day</span><span class="p">(</span><span class="n">thing</span><span class="p">[</span><span class="s2">&quot;end_year&quot;</span><span class="p">],</span> <span class="n">thing</span><span class="p">[</span><span class="s2">&quot;end_month&quot;</span><span class="p">])</span>
+        <span class="n">end_date</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">date</span><span class="p">(</span><span class="n">thing</span><span class="p">[</span><span class="s2">&quot;end_year&quot;</span><span class="p">],</span><span class="n">month_to_int</span><span class="p">(</span><span class="n">thing</span><span class="p">[</span><span class="s2">&quot;end_month&quot;</span><span class="p">]),</span>
+                                   <span class="n">thing</span><span class="p">[</span><span class="s2">&quot;end_day&quot;</span><span class="p">])</span>
+    <span class="k">if</span> <span class="n">thing</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">datenames</span><span class="p">[</span><span class="mi">2</span><span class="p">]):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">thing</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">datenames</span><span class="p">[</span><span class="mi">1</span><span class="p">]):</span>
+            <span class="k">if</span> <span class="n">thing</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;begin_year&quot;</span><span class="p">):</span>
                 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;WARNING: both year and begin_year specified.  Year info will be used&quot;</span><span class="p">)</span>
-            <span class="n">begin_date</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">date</span><span class="p">(</span><span class="n">thing</span><span class="p">[</span><span class="s1">&#39;year&#39;</span><span class="p">],</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
-            <span class="n">end_date</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">date</span><span class="p">(</span><span class="n">thing</span><span class="p">[</span><span class="s1">&#39;year&#39;</span><span class="p">],</span><span class="mi">12</span><span class="p">,</span><span class="mi">31</span><span class="p">)</span>
-        <span class="k">elif</span> <span class="ow">not</span> <span class="n">thing</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;day&#39;</span><span class="p">):</span>
-            <span class="k">if</span> <span class="n">thing</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;begin_year&#39;</span><span class="p">):</span>
+            <span class="n">begin_date</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">date</span><span class="p">(</span><span class="n">thing</span><span class="p">[</span><span class="n">datenames</span><span class="p">[</span><span class="mi">2</span><span class="p">]],</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+            <span class="n">end_date</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">date</span><span class="p">(</span><span class="n">thing</span><span class="p">[</span><span class="n">datenames</span><span class="p">[</span><span class="mi">2</span><span class="p">]],</span><span class="mi">12</span><span class="p">,</span><span class="mi">31</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="ow">not</span> <span class="n">thing</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">datenames</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
+            <span class="k">if</span> <span class="n">thing</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;begin_year&quot;</span><span class="p">):</span>
                 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;WARNING: both year and begin_year specified.  Year info will be used&quot;</span><span class="p">)</span>
-            <span class="n">begin_date</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">date</span><span class="p">(</span><span class="n">thing</span><span class="p">[</span><span class="s1">&#39;year&#39;</span><span class="p">],</span><span class="n">month_to_int</span><span class="p">(</span><span class="n">thing</span><span class="p">[</span><span class="s1">&#39;month&#39;</span><span class="p">]),</span>
+            <span class="n">begin_date</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">date</span><span class="p">(</span><span class="n">thing</span><span class="p">[</span><span class="n">datenames</span><span class="p">[</span><span class="mi">2</span><span class="p">]],</span><span class="n">month_to_int</span><span class="p">(</span><span class="n">thing</span><span class="p">[</span><span class="n">datenames</span><span class="p">[</span><span class="mi">1</span><span class="p">]]),</span>
                                    <span class="mi">1</span><span class="p">)</span>
-            <span class="n">end_date</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">date</span><span class="p">(</span><span class="n">thing</span><span class="p">[</span><span class="s1">&#39;year&#39;</span><span class="p">],</span>
-                                       <span class="n">month_to_int</span><span class="p">(</span><span class="n">thing</span><span class="p">[</span><span class="s1">&#39;month&#39;</span><span class="p">]),</span>
-                                       <span class="n">last_day</span><span class="p">(</span><span class="n">thing</span><span class="p">[</span><span class="s1">&#39;year&#39;</span><span class="p">],</span> <span class="n">thing</span><span class="p">[</span><span class="s1">&#39;month&#39;</span><span class="p">]))</span>
+            <span class="n">end_date</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">date</span><span class="p">(</span><span class="n">thing</span><span class="p">[</span><span class="n">datenames</span><span class="p">[</span><span class="mi">2</span><span class="p">]],</span>
+                                       <span class="n">month_to_int</span><span class="p">(</span><span class="n">thing</span><span class="p">[</span><span class="n">datenames</span><span class="p">[</span><span class="mi">1</span><span class="p">]]),</span>
+                                       <span class="n">last_day</span><span class="p">(</span><span class="n">thing</span><span class="p">[</span><span class="n">datenames</span><span class="p">[</span><span class="mi">2</span><span class="p">]],</span> <span class="n">thing</span><span class="p">[</span><span class="n">datenames</span><span class="p">[</span><span class="mi">1</span><span class="p">]]))</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="n">date</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">date</span><span class="p">(</span><span class="n">thing</span><span class="p">[</span><span class="s1">&#39;year&#39;</span><span class="p">],</span>
-                                       <span class="n">month_to_int</span><span class="p">(</span><span class="n">thing</span><span class="p">[</span><span class="s1">&#39;month&#39;</span><span class="p">]),</span>
-                                       <span class="n">thing</span><span class="p">[</span><span class="s1">&#39;day&#39;</span><span class="p">])</span>
-            <span class="n">begin_date</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">date</span><span class="p">(</span><span class="n">thing</span><span class="p">[</span><span class="s1">&#39;year&#39;</span><span class="p">],</span>
-                                       <span class="n">month_to_int</span><span class="p">(</span><span class="n">thing</span><span class="p">[</span><span class="s1">&#39;month&#39;</span><span class="p">]),</span>
-                                       <span class="n">thing</span><span class="p">[</span><span class="s1">&#39;day&#39;</span><span class="p">])</span>
-            <span class="n">end_date</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">date</span><span class="p">(</span><span class="n">thing</span><span class="p">[</span><span class="s1">&#39;year&#39;</span><span class="p">],</span>
-                                       <span class="n">month_to_int</span><span class="p">(</span><span class="n">thing</span><span class="p">[</span><span class="s1">&#39;month&#39;</span><span class="p">]),</span>
-                                       <span class="n">thing</span><span class="p">[</span><span class="s1">&#39;day&#39;</span><span class="p">])</span>
+            <span class="n">date</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">date</span><span class="p">(</span><span class="n">thing</span><span class="p">[</span><span class="n">datenames</span><span class="p">[</span><span class="mi">2</span><span class="p">]],</span>
+                                       <span class="n">month_to_int</span><span class="p">(</span><span class="n">thing</span><span class="p">[</span><span class="n">datenames</span><span class="p">[</span><span class="mi">1</span><span class="p">]]),</span>
+                                       <span class="n">thing</span><span class="p">[</span><span class="n">datenames</span><span class="p">[</span><span class="mi">0</span><span class="p">]])</span>
+            <span class="n">begin_date</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">date</span><span class="p">(</span><span class="n">thing</span><span class="p">[</span><span class="n">datenames</span><span class="p">[</span><span class="mi">2</span><span class="p">]],</span>
+                                       <span class="n">month_to_int</span><span class="p">(</span><span class="n">thing</span><span class="p">[</span><span class="n">datenames</span><span class="p">[</span><span class="mi">1</span><span class="p">]]),</span>
+                                       <span class="n">thing</span><span class="p">[</span><span class="n">datenames</span><span class="p">[</span><span class="mi">0</span><span class="p">]])</span>
+            <span class="n">end_date</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">date</span><span class="p">(</span><span class="n">thing</span><span class="p">[</span><span class="n">datenames</span><span class="p">[</span><span class="mi">2</span><span class="p">]],</span>
+                                       <span class="n">month_to_int</span><span class="p">(</span><span class="n">thing</span><span class="p">[</span><span class="n">datenames</span><span class="p">[</span><span class="mi">1</span><span class="p">]]),</span>
+                                       <span class="n">thing</span><span class="p">[</span><span class="n">datenames</span><span class="p">[</span><span class="mi">0</span><span class="p">]])</span>
     <span class="k">if</span> <span class="n">thing</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;begin_date&#39;</span><span class="p">):</span>
         <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">thing</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;begin_date&#39;</span><span class="p">),</span> <span class="nb">str</span><span class="p">):</span>
             <span class="n">begin_date</span> <span class="o">=</span> <span class="n">date_parser</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">thing</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;begin_date&#39;</span><span class="p">))</span><span class="o">.</span><span class="n">date</span><span class="p">()</span>
@@ -277,12 +316,16 @@
             <span class="n">end_date</span> <span class="o">=</span> <span class="n">date_parser</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">thing</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;end_date&#39;</span><span class="p">))</span><span class="o">.</span><span class="n">date</span><span class="p">()</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="n">end_date</span> <span class="o">=</span> <span class="n">thing</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;end_date&#39;</span><span class="p">)</span>
-    <span class="k">if</span> <span class="n">thing</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;date&#39;</span><span class="p">):</span>
-        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">thing</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;date&#39;</span><span class="p">),</span> <span class="nb">str</span><span class="p">):</span>
-            <span class="n">date</span> <span class="o">=</span> <span class="n">date_parser</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">thing</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;date&#39;</span><span class="p">))</span><span class="o">.</span><span class="n">date</span><span class="p">()</span>
+    <span class="k">if</span> <span class="n">thing</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">datenames</span><span class="p">[</span><span class="mi">3</span><span class="p">]):</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">thing</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">datenames</span><span class="p">[</span><span class="mi">3</span><span class="p">]),</span> <span class="nb">str</span><span class="p">):</span>
+            <span class="n">date</span> <span class="o">=</span> <span class="n">date_parser</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">thing</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">datenames</span><span class="p">[</span><span class="mi">3</span><span class="p">]))</span><span class="o">.</span><span class="n">date</span><span class="p">()</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="n">date</span> <span class="o">=</span> <span class="n">thing</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;date&#39;</span><span class="p">)</span>
-    <span class="n">dates</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;begin_date&#39;</span><span class="p">:</span> <span class="n">begin_date</span><span class="p">,</span> <span class="s1">&#39;end_date&#39;</span><span class="p">:</span> <span class="n">end_date</span><span class="p">,</span> <span class="s1">&#39;date&#39;</span><span class="p">:</span> <span class="n">date</span><span class="p">}</span>
+            <span class="n">date</span> <span class="o">=</span> <span class="n">thing</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">datenames</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span>
+
+    <span class="k">if</span> <span class="n">date_field_prefix</span><span class="p">:</span>
+        <span class="n">dates</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;begin_date&#39;</span><span class="p">:</span> <span class="n">begin_date</span><span class="p">,</span> <span class="s1">&#39;end_date&#39;</span><span class="p">:</span> <span class="n">end_date</span><span class="p">,</span> <span class="n">datenames</span><span class="p">[</span><span class="mi">3</span><span class="p">]:</span> <span class="n">date</span><span class="p">,</span> <span class="s1">&#39;date&#39;</span><span class="p">:</span> <span class="n">date</span><span class="p">}</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">dates</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;begin_date&#39;</span><span class="p">:</span> <span class="n">begin_date</span><span class="p">,</span> <span class="s1">&#39;end_date&#39;</span><span class="p">:</span> <span class="n">end_date</span><span class="p">,</span> <span class="s1">&#39;date&#39;</span><span class="p">:</span> <span class="n">date</span><span class="p">}</span>
     <span class="k">return</span> <span class="n">dates</span></div>
 
 

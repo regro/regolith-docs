@@ -101,17 +101,22 @@
 
 <dl class="function">
 <dt id="regolith.dates.get_dates">
-<code class="sig-prename descclassname">regolith.dates.</code><code class="sig-name descname">get_dates</code><span class="sig-paren">(</span><em class="sig-param">thing</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/dates.html#get_dates"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.dates.get_dates" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">regolith.dates.</code><code class="sig-name descname">get_dates</code><span class="sig-paren">(</span><em class="sig-param">thing</em>, <em class="sig-param">date_field_prefix=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/dates.html#get_dates"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.dates.get_dates" title="Permalink to this definition">¶</a></dt>
 <dd><p>given a dict like thing, return the items</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>thing</strong> (<em>dict</em>) – the dict that contains the dates</p>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>thing</strong> (<em>dict</em>) – the dict that contains the dates</p></li>
+<li><p><strong>date_field_prefix</strong> (<em>string (optional)</em>) – the prefix to look for before the date parameter. For example given “submission”
+the function will search for submission_day, submission_year, etc.</p></li>
+</ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p></p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>dict containing datetime.date objects for begin_date end_date and date</p>
+<dd class="field-even"><p><ul class="simple">
+<li><p><em>dict containing datetime.date objects for begin_date end_date and date, and</em></p></li>
+<li><p><em>prefix_date if a prefix string was passed</em></p></li>
+</ul>
+</p>
 </dd>
 </dl>
 <p>If “begin_date”, “end_date” or “date” values are found, if these are are in
@@ -121,7 +126,9 @@ will override any date built from year/month/day data.</p>
 <p>If they are not found the function will look for begin_year, end_year and
 year.</p>
 <p>If “year”, “month” and “day” are found the function will return these in the
-“date” field and begin_date and end_date will be None</p>
+“date” field and begin_date and end_date will match the “date” field. If only
+a “year” is found, then the date attribute will be none but the begin and end
+dates will be the first and last day of that respective year.</p>
 <p>If year is found but no month or day are found the function will return
 begin_date and end_date with the beginning and the end of the given year/month.
 The returned date will be None.</p>
@@ -129,6 +136,37 @@ The returned date will be None.</p>
 12 and 31, respectively</p>
 <p>If begin_year is found, the begin month and begin day are missing they are set to
 1 and 1, respectively</p>
+<p>If a date field prefix is passed in this function will search for prefix_year as
+well as prefix_month, prefix_day, and prefix_date. For example, if the prefix string
+passed in is “submitted” then this function will look for submitted_date instead of
+just date.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">get_dates</span><span class="p">({</span><span class="s1">&#39;submission_day&#39;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span> <span class="s1">&#39;submission_year&#39;</span><span class="p">:</span> <span class="mi">2020</span><span class="p">,</span> <span class="s1">&#39;submission_month&#39;</span><span class="p">:</span> <span class="s1">&#39;Feb&#39;</span><span class="p">},</span> <span class="s2">&quot;submission&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This would return a dictionary consisting of the begin date, end, date, and date for the given input.
+Instead of searching for “day” in the thing, it would search for “submission_day” since a prefix was
+given. The following dictionary is returned (note that a submission_date and a date key are in the
+dictionary):
+{‘begin_date’: datetime.date(2020, 2, 10),</p>
+<blockquote>
+<div><p>‘end_date’: datetime.date(2020, 2, 10),
+‘submission_date’: datetime.date(2020, 2, 10),
+‘date’: datetime.date(2020, 2, 10)</p>
+</div></blockquote>
+<p>}</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">get_dates</span><span class="p">({</span><span class="s1">&#39;begin_year&#39;</span><span class="p">:</span> <span class="mi">2019</span><span class="p">,</span> <span class="s1">&#39;end_year&#39;</span><span class="p">:</span> <span class="mi">2020</span><span class="p">,</span> <span class="s1">&#39;end_month&#39;</span><span class="p">:</span> <span class="s1">&#39;Feb&#39;</span><span class="p">})</span>
+</pre></div>
+</div>
+<p>This will return a dictionary consisting of the begin date, end date, and date for the given input.
+Because no prefix string was passed in, the function will search for “date” in the input instead of
+prefix_input. The following dictionary is returned:
+{‘begin_date’: datetime.date(2019, 1, 1),</p>
+<blockquote>
+<div><p>‘end_date’: datetime.date(2020, 2, 29),
+‘date’: None</p>
+</div></blockquote>
+<p>}</p>
 </dd></dl>
 
 <dl class="function">
