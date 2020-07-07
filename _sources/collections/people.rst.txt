@@ -681,11 +681,30 @@ YAML Example
 	      end_day: 31
 	      end_month: 10
 	      end_year: 2019
-	      grant: mrsec14
+	      grant: dmref15
 	      loading: 0.75
 	      notes:
 	        - forgetmenot
 	      status: finalized
+	      type: pd
+	    s20:
+	      begin_date: '2020-01-01'
+	      end_date: '2020-05-15'
+	      grant: SymPy-1.1
+	      loading: 1.0
+	      notes:
+	        - fully appointed
+	        - outdated grant
+	      status: finalized
+	      type: pd
+	    ss20:
+	      begin_date: '2020-06-01'
+	      end_date: '2020-08-31'
+	      grant: abc42
+	      loading: 0.8
+	      notes: []
+	      status: proposed
+	      type: ss
 	  avatar: https://avatars1.githubusercontent.com/u/320553?v=3&s=200
 	  bio: Anthony Scopatz is currently an Assistant Professor
 	  bios:
@@ -1297,12 +1316,34 @@ JSON/Mongo Example
 	            "end_day": 31,
 	            "end_month": 10,
 	            "end_year": 2019,
-	            "grant": "mrsec14",
+	            "grant": "dmref15",
 	            "loading": 0.75,
 	            "notes": [
 	                "forgetmenot"
 	            ],
-	            "status": "finalized"
+	            "status": "finalized",
+	            "type": "pd"
+	        },
+	        "s20": {
+	            "begin_date": "2020-01-01",
+	            "end_date": "2020-05-15",
+	            "grant": "SymPy-1.1",
+	            "loading": 1.0,
+	            "notes": [
+	                "fully appointed",
+	                "outdated grant"
+	            ],
+	            "status": "finalized",
+	            "type": "pd"
+	        },
+	        "ss20": {
+	            "begin_date": "2020-06-01",
+	            "end_date": "2020-08-31",
+	            "grant": "abc42",
+	            "loading": 0.8,
+	            "notes": [],
+	            "status": "proposed",
+	            "type": "ss"
 	        }
 	    },
 	    "avatar": "https://avatars1.githubusercontent.com/u/320553?v=3&s=200",
