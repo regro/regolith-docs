@@ -27,6 +27,7 @@ The following lists key names mapped to its type and meaning for each entry.
 :first_author_last_name: string, Last name of first author will be referred to with et al., required
 :freewrite: string, Things that you want to add that don't fit into any category above, optional
 :journal: string, name of the journal, required
+:month: ['string', 'integer'], the month the entry was created, optional
 :recommendation: string, Your publication recommendation, required
 
 	Allowed values: 
