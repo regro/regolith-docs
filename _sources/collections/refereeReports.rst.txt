@@ -27,7 +27,6 @@ The following lists key names mapped to its type and meaning for each entry.
 :first_author_last_name: string, Last name of first author will be referred to with et al., required
 :freewrite: string, Things that you want to add that don't fit into any category above, optional
 :journal: string, name of the journal, required
-:month: ['string', 'integer'], month when the review is being written, required
 :recommendation: string, Your publication recommendation, required
 
 	Allowed values: 
@@ -36,6 +35,7 @@ The following lists key names mapped to its type and meaning for each entry.
 		* smalledits
 		* diffjournal
 		* majoredits
+:requester: string, Name of the program officer who requested the review, required
 :reviewer: string, name of person reviewing the paper, required
 :status: string, Where you are with the review, required
 
@@ -47,6 +47,7 @@ The following lists key names mapped to its type and meaning for each entry.
 		* inprogress
 		* submitted
 		* cancelled
+:submitted_date: string, submitted date in ISO YYYY-MM-DD format in quotes, required
 :title: string, title of the paper under review, required
 :validity_assessment: list, List of impressions of the validity of the claims, required
 
@@ -75,10 +76,11 @@ YAML Example
 	  first_author_last_name: Wingit
 	  freewrite: this comment didn't fit anywhere above
 	  journal: Nature
-	  month: 2
 	  recommendation: reject
+	  requester: Max Planck
 	  reviewer: sbillinge
 	  status: submitted
+	  submitted_date: '2019-01-01'
 	  title: a ruler approach to measuring gravity waves
 	  validity_assessment:
 	    - complete rubbish
@@ -112,10 +114,11 @@ JSON/Mongo Example
 	    "first_author_last_name": "Wingit",
 	    "freewrite": "this comment didn't fit anywhere above",
 	    "journal": "Nature",
-	    "month": 2,
 	    "recommendation": "reject",
+	    "requester": "Max Planck",
 	    "reviewer": "sbillinge",
 	    "status": "submitted",
+	    "submitted_date": "2019-01-01",
 	    "title": "a ruler approach to measuring gravity waves",
 	    "validity_assessment": [
 	        "complete rubbish"
