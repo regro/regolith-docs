@@ -42,6 +42,7 @@ The following lists key names mapped to its type and meaning for each entry.
 		* poster
 		* seminar
 		* tutorial
+:webinar: boolean, true if a webinar. Default to False, optional
 
 
 YAML Example
@@ -68,6 +69,7 @@ YAML Example
 	  title: Nanostructure challenges and successes from 16th Century warships to 21st
 	    Century energy
 	  type: colloquium
+	  webinar: true
 	18sb_nslsii:
 	  abstract: We pulled apart graphite with tape
 	  authors:
@@ -108,6 +110,7 @@ YAML Example
 	  status: accepted
 	  title: Graphitic Dephenestration
 	  type: award
+	  webinar: false
 
 
 JSON/Mongo Example
@@ -135,7 +138,8 @@ JSON/Mongo Example
 	    "project": "18kj_conservation",
 	    "status": "accepted",
 	    "title": "Nanostructure challenges and successes from 16th Century warships to 21st Century energy",
-	    "type": "colloquium"
+	    "type": "colloquium",
+	    "webinar": true
 	}
 	{
 	    "_id": "18sb_nslsii",
@@ -182,5 +186,6 @@ JSON/Mongo Example
 	    "project": "18sob_clustermining",
 	    "status": "accepted",
 	    "title": "Graphitic Dephenestration",
-	    "type": "award"
+	    "type": "award",
+	    "webinar": false
 	}
