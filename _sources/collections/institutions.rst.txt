@@ -10,6 +10,7 @@ The following lists key names mapped to its type and meaning for each entry.
 :aka: list, list of all the different names this the institution is known by, optional
 :city: string, the city where the institution is, required
 :country: string, The country where the institution is, required
+:date: ['string', 'date'], Expense date, optional
 :day: integer, the day the entry was created, optional
 :departments: dict, all the departments and centers andvarious units in the institution, optional
 :month: ['string', 'integer'], the month the entry was created, optional

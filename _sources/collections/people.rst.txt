@@ -57,7 +57,7 @@ The following lists key names mapped to its type and meaning for each entry.
 
 	:type: dict, optional
 
-		:advisor: string, optional
+		:advisor: string, name or id of advisor for this degree, optional
 		:begin_day: integer, optional
 		:begin_month: ['string', 'integer'], optional
 		:begin_year: integer, optional
@@ -76,7 +76,7 @@ The following lists key names mapped to its type and meaning for each entry.
 
 	:type: dict, optional
 
-		:advisor: string, optional
+		:advisor: string, name or id of advisor/mentor/manager, optional
 		:begin_day: integer, optional
 		:begin_month: ['string', 'integer'], optional
 		:begin_year: integer, optional
@@ -281,15 +281,15 @@ The following lists key names mapped to its type and meaning for each entry.
 			Allowed values: 
 				* online
 				* article
-		:topic: string, short blurb about what it was, optional
-		:title: string, optional
-		:day: integer, optional
-		:month: ['string', 'integer'], optional
-		:publication: string, optional
-		:text: string, optional
-		:url: string, optional
-		:year: integer, optional
-		:grant: string, optional
+		:topic: string, The short sentence of what the publicity was about, optional
+		:title: string, The title of the piece, optional
+		:day: integer, The day the piece appeared, optional
+		:month: ['string', 'integer'], The month the piece appeared, optional
+		:publication: string, The place where the publicity was placed, optional
+		:text: string, The text of the publicity, optional
+		:url: string, The URL where the piece may be found, optional
+		:year: integer, The year the piece appeared, optional
+		:grant: string, The identifier of the grant associated with the piece, optional
 :research_focus_areas: list, summary of research projects that are ongoing. Usedin Annual appraisal for example, optional
 
 	:type: dict, optional
