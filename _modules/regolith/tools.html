@@ -1625,6 +1625,28 @@
                    <span class="s2">&quot;ss_days&quot;</span><span class="p">:</span> <span class="nb">round</span><span class="p">(</span><span class="n">ss_val</span><span class="p">,</span> <span class="mi">2</span><span class="p">)}</span>
             <span class="n">grant_amounts</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">gvals</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">grant_amounts</span></div>
+
+<div class="viewcode-block" id="validate_meeting"><a class="viewcode-back" href="../../api/tools.html#regolith.tools.validate_meeting">[docs]</a><span class="k">def</span> <span class="nf">validate_meeting</span><span class="p">(</span><span class="n">meeting</span><span class="p">,</span> <span class="n">date</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Validates a meeting by checking is it has a journal club doi, a presentation link, and a presentation</span>
+<span class="sd">    title. This function will return nothing is the meeting is valid, otherwise it will raise a ValueError. </span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    meeting: dict</span>
+<span class="sd">        The meeting object that needs to be validated</span>
+<span class="sd">    date: datetime object</span>
+<span class="sd">        The date we want to use to see if a meeting has happened or not</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">meeting_date</span> <span class="o">=</span> <span class="n">date_parser</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">meeting</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;_id&#39;</span><span class="p">)[</span><span class="mi">3</span><span class="p">:])</span><span class="o">.</span><span class="n">date</span><span class="p">()</span>
+    <span class="k">if</span> <span class="n">meeting</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;journal_club&#39;</span><span class="p">)</span> <span class="ow">and</span> <span class="n">meeting_date</span> <span class="o">&lt;</span> <span class="n">date</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">meeting</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;journal_club&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;doi&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s1">&#39;tbd&#39;</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">meeting</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;_id&quot;</span><span class="p">)</span><span class="si">}</span><span class="s1"> does not have a journal club doi&#39;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">meeting_date</span> <span class="o">&lt;</span> <span class="n">date</span> <span class="ow">and</span> <span class="n">meeting</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;presentation&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;link&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s1">&#39;tbd&#39;</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">meeting</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;_id&quot;</span><span class="p">)</span><span class="si">}</span><span class="s1"> does not have a presentation link&#39;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">meeting_date</span> <span class="o">&lt;</span> <span class="n">date</span> <span class="ow">and</span> <span class="n">meeting</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;presentation&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;title&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s1">&#39;tbd&#39;</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">meeting</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;_id&quot;</span><span class="p">)</span><span class="si">}</span><span class="s1"> does not have a presentation title&#39;</span><span class="p">)</span></div>
 </pre></div>
 
           </div>
