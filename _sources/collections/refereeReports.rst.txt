@@ -48,7 +48,7 @@ The following lists key names mapped to its type and meaning for each entry.
 		* inprogress
 		* submitted
 		* cancelled
-:submitted_date: string, submitted date in ISO YYYY-MM-DD format in quotes, required
+:submitted_date: ['string', 'date'], submitted date in ISO YYYY-MM-DD format, required
 :title: string, title of the paper under review, required
 :validity_assessment: list, List of impressions of the validity of the claims, required
 

@@ -20,8 +20,8 @@ The following lists key names mapped to its type and meaning for each entry.
 
 	:type: dict, optional
 
-		:begin_date: string, start date of the budget period in format YYYY-MM-DD, optional
-		:end_date: string, end date of the budget period in format YYYY-MM-DD, optional
+		:begin_date: ['string', 'date'], start date of the budget period in format YYYY-MM-DD, optional
+		:end_date: ['string', 'date'], end date of the budget period in format YYYY-MM-DD, optional
 		:student_months: ['float', 'integer'], number of months of funding for student members during the academic year, optional
 		:postdoc_months: ['float', 'integer'], number of months of funding for postdoc members during the academic year, optional
 		:ss_months: ['float', 'integer'], number of months of funding for the summer, optional
