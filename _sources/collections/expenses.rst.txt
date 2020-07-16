@@ -35,7 +35,7 @@ The following lists key names mapped to its type and meaning for each entry.
 
 	:type: dict, optional
 
-		:amount: integer, amount for reimbursements, optional
+		:amount: float, amount for reimbursements, optional
 		:date: ['string', 'date'], date of reimbursement, optional
 		:submission_date: ['string', 'date'], date of submission, optional
 		:where: string, where the reimbursement has been sent, optional
