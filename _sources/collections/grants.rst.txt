@@ -145,6 +145,7 @@ YAML Example
 	      position: researcher
 	  title: SymPy 1.1 Release Support
 	abc42:
+	  alias: abc42
 	  amount: 42000.0
 	  begin_date: '2020-06-01'
 	  budget:
@@ -168,6 +169,7 @@ YAML Example
 	  title: The answer to life, the universe, and everything
 	dmref15:
 	  account: GG012345
+	  alias: dmref15
 	  amount: 982785.0
 	  begin_day: 1
 	  begin_month: october
@@ -352,6 +354,7 @@ JSON/Mongo Example
 	}
 	{
 	    "_id": "abc42",
+	    "alias": "abc42",
 	    "amount": 42000.0,
 	    "begin_date": "2020-06-01",
 	    "budget": [
@@ -385,6 +388,7 @@ JSON/Mongo Example
 	{
 	    "_id": "dmref15",
 	    "account": "GG012345",
+	    "alias": "dmref15",
 	    "amount": 982785.0,
 	    "begin_day": 1,
 	    "begin_month": "october",
