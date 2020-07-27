@@ -372,10 +372,11 @@ The following lists key names mapped to its type and meaning for each entry.
 		:end_date: ['string', 'date'], the end date, optional
 		:duration: float, the size of the task/ the estimated duration it will take to finish the task. Unit: miniutes., optional
 		:importance: integer, the importance, from 0 to 2, optional
-		:status: string, the status: proposed/started/finished, optional
+		:status: string, the status: started/finished/cancelled, optional
 		:notes: list, additional notes for this task, optional
 
 			:type: string, optional
+		:running_index: integer, Index of a certain task used to update that task in the enumerated todo list., optional
 
 
 YAML Example
@@ -656,6 +657,7 @@ YAML Example
 	      due_date: '2020-07-19'
 	      duration: 60.0
 	      importance: 2
+	      running_index: 1
 	      status: started
 	    - begin_date: '2020-06-22'
 	      description: prepare the presentation
@@ -665,6 +667,7 @@ YAML Example
 	      notes:
 	        - about 10 minutes
 	        - don't forget to upload to the website
+	      running_index: 2
 	      status: started
 	scopatz:
 	  aka:
@@ -1283,6 +1286,7 @@ JSON/Mongo Example
 	            "due_date": "2020-07-19",
 	            "duration": 60.0,
 	            "importance": 2,
+	            "running_index": 1,
 	            "status": "started"
 	        },
 	        {
@@ -1295,6 +1299,7 @@ JSON/Mongo Example
 	                "about 10 minutes",
 	                "don't forget to upload to the website"
 	            ],
+	            "running_index": 2,
 	            "status": "started"
 	        }
 	    ]
