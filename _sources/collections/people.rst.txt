@@ -377,6 +377,7 @@ The following lists key names mapped to its type and meaning for each entry.
 
 			:type: string, optional
 		:running_index: integer, Index of a certain task used to update that task in the enumerated todo list., optional
+		:assigned_by: string, ID of the member that assigns the task, optional
 
 
 YAML Example
@@ -652,14 +653,16 @@ YAML Example
 	      year: 2019
 	  title: Dr.
 	  todos:
-	    - begin_date: '2020-06-15'
+	    - assigned_by: scopatz
+	      begin_date: '2020-06-15'
 	      description: read paper
 	      due_date: '2020-07-19'
 	      duration: 60.0
 	      importance: 2
 	      running_index: 1
 	      status: started
-	    - begin_date: '2020-06-22'
+	    - assigned_by: sbillinge
+	      begin_date: '2020-06-22'
 	      description: prepare the presentation
 	      due_date: '2020-07-29'
 	      duration: 30.0
@@ -1281,6 +1284,7 @@ JSON/Mongo Example
 	    "title": "Dr.",
 	    "todos": [
 	        {
+	            "assigned_by": "scopatz",
 	            "begin_date": "2020-06-15",
 	            "description": "read paper",
 	            "due_date": "2020-07-19",
@@ -1290,6 +1294,7 @@ JSON/Mongo Example
 	            "status": "started"
 	        },
 	        {
+	            "assigned_by": "sbillinge",
 	            "begin_date": "2020-06-22",
 	            "description": "prepare the presentation",
 	            "due_date": "2020-07-29",

@@ -906,6 +906,9 @@
 <dt class="field-even">running_index</dt>
 <dd class="field-even"><p>integer, Index of a certain task used to update that task in the enumerated todo list., optional</p>
 </dd>
+<dt class="field-odd">assigned_by</dt>
+<dd class="field-odd"><p>string, ID of the member that assigns the task, optional</p>
+</dd>
 </dl>
 </dd>
 </dl>
@@ -1182,14 +1185,16 @@
       <span class="nt">year</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">2019</span>
   <span class="nt">title</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Dr.</span>
   <span class="nt">todos</span><span class="p">:</span>
-    <span class="p p-Indicator">-</span> <span class="nt">begin_date</span><span class="p">:</span> <span class="s">&#39;2020-06-15&#39;</span>
+    <span class="p p-Indicator">-</span> <span class="nt">assigned_by</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">scopatz</span>
+      <span class="nt">begin_date</span><span class="p">:</span> <span class="s">&#39;2020-06-15&#39;</span>
       <span class="nt">description</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">read paper</span>
       <span class="nt">due_date</span><span class="p">:</span> <span class="s">&#39;2020-07-19&#39;</span>
       <span class="nt">duration</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">60.0</span>
       <span class="nt">importance</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">2</span>
       <span class="nt">running_index</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
       <span class="nt">status</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">started</span>
-    <span class="p p-Indicator">-</span> <span class="nt">begin_date</span><span class="p">:</span> <span class="s">&#39;2020-06-22&#39;</span>
+    <span class="p p-Indicator">-</span> <span class="nt">assigned_by</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">sbillinge</span>
+      <span class="nt">begin_date</span><span class="p">:</span> <span class="s">&#39;2020-06-22&#39;</span>
       <span class="nt">description</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">prepare the presentation</span>
       <span class="nt">due_date</span><span class="p">:</span> <span class="s">&#39;2020-07-29&#39;</span>
       <span class="nt">duration</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">30.0</span>
@@ -1809,6 +1814,7 @@
     <span class="nt">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;Dr.&quot;</span><span class="p">,</span>
     <span class="nt">&quot;todos&quot;</span><span class="p">:</span> <span class="p">[</span>
         <span class="p">{</span>
+            <span class="nt">&quot;assigned_by&quot;</span><span class="p">:</span> <span class="s2">&quot;scopatz&quot;</span><span class="p">,</span>
             <span class="nt">&quot;begin_date&quot;</span><span class="p">:</span> <span class="s2">&quot;2020-06-15&quot;</span><span class="p">,</span>
             <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;read paper&quot;</span><span class="p">,</span>
             <span class="nt">&quot;due_date&quot;</span><span class="p">:</span> <span class="s2">&quot;2020-07-19&quot;</span><span class="p">,</span>
@@ -1818,6 +1824,7 @@
             <span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;started&quot;</span>
         <span class="p">},</span>
         <span class="p">{</span>
+            <span class="nt">&quot;assigned_by&quot;</span><span class="p">:</span> <span class="s2">&quot;sbillinge&quot;</span><span class="p">,</span>
             <span class="nt">&quot;begin_date&quot;</span><span class="p">:</span> <span class="s2">&quot;2020-06-22&quot;</span><span class="p">,</span>
             <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;prepare the presentation&quot;</span><span class="p">,</span>
             <span class="nt">&quot;due_date&quot;</span><span class="p">:</span> <span class="s2">&quot;2020-07-29&quot;</span><span class="p">,</span>
