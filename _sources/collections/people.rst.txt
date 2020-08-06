@@ -386,6 +386,7 @@ YAML Example
 .. code-block:: yaml
 
 	sbillinge:
+	  active: true
 	  activities:
 	    - name: course development
 	      other: Developed a new course for Materials Science
@@ -934,6 +935,7 @@ JSON/Mongo Example
 
 	{
 	    "_id": "sbillinge",
+	    "active": true,
 	    "activities": [
 	        {
 	            "name": "course development",
