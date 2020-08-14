@@ -451,7 +451,7 @@ collections in the needed databases</p>
 
 <dl class="function">
 <dt id="regolith.tools.grant_burn">
-<code class="sig-prename descclassname">regolith.tools.</code><code class="sig-name descname">grant_burn</code><span class="sig-paren">(</span><em class="sig-param">grant</em>, <em class="sig-param">appts</em>, <em class="sig-param">grant_begin</em>, <em class="sig-param">grant_end</em>, <em class="sig-param">begin_date=None</em>, <em class="sig-param">end_date=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#grant_burn"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.tools.grant_burn" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">regolith.tools.</code><code class="sig-name descname">grant_burn</code><span class="sig-paren">(</span><em class="sig-param">grant</em>, <em class="sig-param">appts</em>, <em class="sig-param">begin_date=None</em>, <em class="sig-param">end_date=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#grant_burn"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.tools.grant_burn" title="Permalink to this definition">¶</a></dt>
 <dd><p>Retrieves the total burn of a grant over an interval of time by integrating over all appointments
 made on the grant.</p>
 <dl class="field-list simple">
@@ -500,6 +500,26 @@ the same value of doc[by].</p>
 &gt;&gt;&gt; group(db)
 This will return
 &gt;&gt;&gt; {“v0”: [{“k”: “v0”}, {“k”: “v0”}], “v1”: [{“k”: “v1”}]}</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="regolith.tools.group_member_employment_start_end">
+<code class="sig-prename descclassname">regolith.tools.</code><code class="sig-name descname">group_member_employment_start_end</code><span class="sig-paren">(</span><em class="sig-param">person</em>, <em class="sig-param">grpname</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#group_member_employment_start_end"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.tools.group_member_employment_start_end" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get start and end dates of group member employment</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>person dict</strong> – The person whose dates we want</p></li>
+<li><p><strong>grpname</strong> – The code for the group we want the dates of employment from</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The employment periods, with person id, begin and end dates</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>list of dicts</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="function">

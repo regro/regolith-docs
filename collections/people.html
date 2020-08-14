@@ -257,35 +257,38 @@
 <dt class="field-even">begin_year</dt>
 <dd class="field-even"><p>integer, optional</p>
 </dd>
-<dt class="field-odd">coworkers</dt>
-<dd class="field-odd"><p>list, list of coworkers.  Ifposition is editor, these are assumed to be coeditors inconflict of interest builder, optional</p>
+<dt class="field-odd">begin_date</dt>
+<dd class="field-odd"><p>[‘string’, ‘date’, ‘datetime’], begin date of employment in format YYYY-MM-DD, optional</p>
 </dd>
-<dt class="field-even">department</dt>
-<dd class="field-even"><p>string, optional</p>
+<dt class="field-even">coworkers</dt>
+<dd class="field-even"><p>list, list of coworkers.  Ifposition is editor, these are assumed to be coeditors inconflict of interest builder, optional</p>
 </dd>
-<dt class="field-odd">end_day</dt>
-<dd class="field-odd"><p>integer, optional</p>
+<dt class="field-odd">department</dt>
+<dd class="field-odd"><p>string, optional</p>
 </dd>
-<dt class="field-even">end_month</dt>
-<dd class="field-even"><p>[‘string’, ‘integer’], optional</p>
+<dt class="field-even">end_day</dt>
+<dd class="field-even"><p>integer, optional</p>
 </dd>
 <dt class="field-odd">end_year</dt>
 <dd class="field-odd"><p>integer, optional</p>
 </dd>
-<dt class="field-even">group</dt>
-<dd class="field-even"><p>string, this employment is/was ina group in groups coll, optional</p>
+<dt class="field-even">end_date</dt>
+<dd class="field-even"><p>[‘string’, ‘date’, ‘datetime’], end date of employment in format YYYY-MM-DD, optional</p>
 </dd>
-<dt class="field-odd">location</dt>
+<dt class="field-odd">group</dt>
+<dd class="field-odd"><p>string, this employment is/was ina group in groups coll, optional</p>
+</dd>
+<dt class="field-even">location</dt>
+<dd class="field-even"><p>string, optional</p>
+</dd>
+<dt class="field-odd">organization</dt>
 <dd class="field-odd"><p>string, optional</p>
 </dd>
-<dt class="field-even">organization</dt>
-<dd class="field-even"><p>string, optional</p>
+<dt class="field-even">other</dt>
+<dd class="field-even"><p>list, optional</p>
 </dd>
-<dt class="field-odd">other</dt>
-<dd class="field-odd"><p>list, optional</p>
-</dd>
-<dt class="field-even">position</dt>
-<dd class="field-even"><p>string, optional</p>
+<dt class="field-odd">position</dt>
+<dd class="field-odd"><p>string, optional</p>
 <dl class="simple">
 <dt>Allowed values:</dt><dd><ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">''</span></code></p></li>
@@ -334,11 +337,11 @@
 </dd>
 </dl>
 </dd>
-<dt class="field-odd">position_full</dt>
-<dd class="field-odd"><p>string, The full on title of the position.  This will be typeset if it is here, or if not Position will be used.  Position will be used for sorting and must come from a fixed list of positions, optional</p>
+<dt class="field-even">position_full</dt>
+<dd class="field-even"><p>string, The full on title of the position.  This will be typeset if it is here, or if not Position will be used.  Position will be used for sorting and must come from a fixed list of positions, optional</p>
 </dd>
-<dt class="field-even">status</dt>
-<dd class="field-even"><p>string, optional</p>
+<dt class="field-odd">status</dt>
+<dd class="field-odd"><p>string, optional</p>
 <dl class="simple">
 <dt>Allowed values:</dt><dd><ul class="simple">
 <li><p>pi</p></li>
@@ -358,8 +361,8 @@
 </dd>
 </dl>
 </dd>
-<dt class="field-odd">facilities</dt>
-<dd class="field-odd"><p>list, facilities may be teaching or research things, optional</p>
+<dt class="field-even">facilities</dt>
+<dd class="field-even"><p>list, facilities may be teaching or research things, optional</p>
 <dl class="field-list">
 <dt class="field-odd">type</dt>
 <dd class="field-odd"><p>dict, optional</p>
@@ -917,7 +920,42 @@
 </div>
 <div class="section" id="yaml-example">
 <h2>YAML Example<a class="headerlink" href="#yaml-example" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">sbillinge</span><span class="p">:</span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">abeing</span><span class="p">:</span>
+  <span class="nt">active</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
+  <span class="nt">aka</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">being</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">human</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">person</span>
+  <span class="nt">avatar</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">https://xkcd.com/1221/</span>
+  <span class="nt">bio</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Abstract Being is an exemplar human existence</span>
+  <span class="nt">education</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="nt">begin_year</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">2010</span>
+      <span class="nt">degree</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">bachelors</span>
+      <span class="nt">institution</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">University of Laughs</span>
+  <span class="nt">employment</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="nt">begin_date</span><span class="p">:</span> <span class="s">&#39;2015-06-01&#39;</span>
+      <span class="nt">end_date</span><span class="p">:</span> <span class="s">&#39;2015-08-31&#39;</span>
+      <span class="nt">group</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">bg</span>
+      <span class="nt">organization</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">columbiau</span>
+      <span class="nt">position</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">intern</span>
+    <span class="p p-Indicator">-</span> <span class="nt">begin_date</span><span class="p">:</span> <span class="s">&#39;2020-01-01&#39;</span>
+      <span class="nt">end_date</span><span class="p">:</span> <span class="s">&#39;2030-12-31&#39;</span>
+      <span class="nt">group</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">agroup</span>
+      <span class="nt">organization</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">usouthcarolina</span>
+      <span class="nt">position</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">intern</span>
+    <span class="p p-Indicator">-</span> <span class="nt">begin_date</span><span class="p">:</span> <span class="s">&#39;2010-06-01&#39;</span>
+      <span class="nt">end_date</span><span class="p">:</span> <span class="s">&#39;2012-08-31&#39;</span>
+      <span class="nt">group</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">bg</span>
+      <span class="nt">organization</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">columbiau</span>
+      <span class="nt">position</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">intern</span>
+    <span class="p p-Indicator">-</span> <span class="nt">begin_date</span><span class="p">:</span> <span class="s">&#39;2017-06-01&#39;</span>
+      <span class="nt">end_date</span><span class="p">:</span> <span class="s">&#39;2019-08-31&#39;</span>
+      <span class="nt">group</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">bg</span>
+      <span class="nt">organization</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">columbiau</span>
+      <span class="nt">position</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">intern</span>
+  <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Abstract Being</span>
+  <span class="nt">position</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">intern</span>
+<span class="nt">sbillinge</span><span class="p">:</span>
   <span class="nt">active</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
   <span class="nt">activities</span><span class="p">:</span>
     <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">course development</span>
@@ -1464,6 +1502,56 @@
 <div class="section" id="json-mongo-example">
 <h2>JSON/Mongo Example<a class="headerlink" href="#json-mongo-example" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;abeing&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;active&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+    <span class="nt">&quot;aka&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="s2">&quot;being&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;human&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;person&quot;</span>
+    <span class="p">],</span>
+    <span class="nt">&quot;avatar&quot;</span><span class="p">:</span> <span class="s2">&quot;https://xkcd.com/1221/&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;bio&quot;</span><span class="p">:</span> <span class="s2">&quot;Abstract Being is an exemplar human existence&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;education&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;begin_year&quot;</span><span class="p">:</span> <span class="mi">2010</span><span class="p">,</span>
+            <span class="nt">&quot;degree&quot;</span><span class="p">:</span> <span class="s2">&quot;bachelors&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;institution&quot;</span><span class="p">:</span> <span class="s2">&quot;University of Laughs&quot;</span>
+        <span class="p">}</span>
+    <span class="p">],</span>
+    <span class="nt">&quot;employment&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;begin_date&quot;</span><span class="p">:</span> <span class="s2">&quot;2015-06-01&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;end_date&quot;</span><span class="p">:</span> <span class="s2">&quot;2015-08-31&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;group&quot;</span><span class="p">:</span> <span class="s2">&quot;bg&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;organization&quot;</span><span class="p">:</span> <span class="s2">&quot;columbiau&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;position&quot;</span><span class="p">:</span> <span class="s2">&quot;intern&quot;</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;begin_date&quot;</span><span class="p">:</span> <span class="s2">&quot;2020-01-01&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;end_date&quot;</span><span class="p">:</span> <span class="s2">&quot;2030-12-31&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;group&quot;</span><span class="p">:</span> <span class="s2">&quot;agroup&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;organization&quot;</span><span class="p">:</span> <span class="s2">&quot;usouthcarolina&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;position&quot;</span><span class="p">:</span> <span class="s2">&quot;intern&quot;</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;begin_date&quot;</span><span class="p">:</span> <span class="s2">&quot;2010-06-01&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;end_date&quot;</span><span class="p">:</span> <span class="s2">&quot;2012-08-31&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;group&quot;</span><span class="p">:</span> <span class="s2">&quot;bg&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;organization&quot;</span><span class="p">:</span> <span class="s2">&quot;columbiau&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;position&quot;</span><span class="p">:</span> <span class="s2">&quot;intern&quot;</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;begin_date&quot;</span><span class="p">:</span> <span class="s2">&quot;2017-06-01&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;end_date&quot;</span><span class="p">:</span> <span class="s2">&quot;2019-08-31&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;group&quot;</span><span class="p">:</span> <span class="s2">&quot;bg&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;organization&quot;</span><span class="p">:</span> <span class="s2">&quot;columbiau&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;position&quot;</span><span class="p">:</span> <span class="s2">&quot;intern&quot;</span>
+        <span class="p">}</span>
+    <span class="p">],</span>
+    <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Abstract Being&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;position&quot;</span><span class="p">:</span> <span class="s2">&quot;intern&quot;</span>
+<span class="p">}</span>
+<span class="p">{</span>
     <span class="nt">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;sbillinge&quot;</span><span class="p">,</span>
     <span class="nt">&quot;active&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
     <span class="nt">&quot;activities&quot;</span><span class="p">:</span> <span class="p">[</span>

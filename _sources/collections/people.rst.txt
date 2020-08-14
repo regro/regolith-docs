@@ -80,11 +80,12 @@ The following lists key names mapped to its type and meaning for each entry.
 		:begin_day: integer, optional
 		:begin_month: ['string', 'integer'], optional
 		:begin_year: integer, optional
+		:begin_date: ['string', 'date', 'datetime'], begin date of employment in format YYYY-MM-DD, optional
 		:coworkers: list, list of coworkers.  Ifposition is editor, these are assumed to be coeditors inconflict of interest builder, optional
 		:department: string, optional
 		:end_day: integer, optional
-		:end_month: ['string', 'integer'], optional
 		:end_year: integer, optional
+		:end_date: ['string', 'date', 'datetime'], end date of employment in format YYYY-MM-DD, optional
 		:group: string, this employment is/was ina group in groups coll, optional
 		:location: string, optional
 		:organization: string, optional
@@ -385,6 +386,41 @@ YAML Example
 
 .. code-block:: yaml
 
+	abeing:
+	  active: false
+	  aka:
+	    - being
+	    - human
+	    - person
+	  avatar: https://xkcd.com/1221/
+	  bio: Abstract Being is an exemplar human existence
+	  education:
+	    - begin_year: 2010
+	      degree: bachelors
+	      institution: University of Laughs
+	  employment:
+	    - begin_date: '2015-06-01'
+	      end_date: '2015-08-31'
+	      group: bg
+	      organization: columbiau
+	      position: intern
+	    - begin_date: '2020-01-01'
+	      end_date: '2030-12-31'
+	      group: agroup
+	      organization: usouthcarolina
+	      position: intern
+	    - begin_date: '2010-06-01'
+	      end_date: '2012-08-31'
+	      group: bg
+	      organization: columbiau
+	      position: intern
+	    - begin_date: '2017-06-01'
+	      end_date: '2019-08-31'
+	      group: bg
+	      organization: columbiau
+	      position: intern
+	  name: Abstract Being
+	  position: intern
 	sbillinge:
 	  active: true
 	  activities:
@@ -933,6 +969,56 @@ JSON/Mongo Example
 
 .. code-block:: json
 
+	{
+	    "_id": "abeing",
+	    "active": false,
+	    "aka": [
+	        "being",
+	        "human",
+	        "person"
+	    ],
+	    "avatar": "https://xkcd.com/1221/",
+	    "bio": "Abstract Being is an exemplar human existence",
+	    "education": [
+	        {
+	            "begin_year": 2010,
+	            "degree": "bachelors",
+	            "institution": "University of Laughs"
+	        }
+	    ],
+	    "employment": [
+	        {
+	            "begin_date": "2015-06-01",
+	            "end_date": "2015-08-31",
+	            "group": "bg",
+	            "organization": "columbiau",
+	            "position": "intern"
+	        },
+	        {
+	            "begin_date": "2020-01-01",
+	            "end_date": "2030-12-31",
+	            "group": "agroup",
+	            "organization": "usouthcarolina",
+	            "position": "intern"
+	        },
+	        {
+	            "begin_date": "2010-06-01",
+	            "end_date": "2012-08-31",
+	            "group": "bg",
+	            "organization": "columbiau",
+	            "position": "intern"
+	        },
+	        {
+	            "begin_date": "2017-06-01",
+	            "end_date": "2019-08-31",
+	            "group": "bg",
+	            "organization": "columbiau",
+	            "position": "intern"
+	        }
+	    ],
+	    "name": "Abstract Being",
+	    "position": "intern"
+	}
 	{
 	    "_id": "sbillinge",
 	    "active": true,

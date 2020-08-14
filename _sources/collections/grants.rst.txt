@@ -151,7 +151,7 @@ YAML Example
 	  budget:
 	    - amount: 42000.0
 	      begin_date: '2020-06-01'
-	      end_date: '2020-08-30'
+	      end_date: '2020-12-31'
 	      postdoc_months: 0.0
 	      ss_months: 1.0
 	      student_months: 0.0
@@ -361,7 +361,7 @@ JSON/Mongo Example
 	        {
 	            "amount": 42000.0,
 	            "begin_date": "2020-06-01",
-	            "end_date": "2020-08-30",
+	            "end_date": "2020-12-31",
 	            "postdoc_months": 0.0,
 	            "ss_months": 1.0,
 	            "student_months": 0.0
