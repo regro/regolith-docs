@@ -1608,9 +1608,17 @@
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
-<span class="sd">    list:</span>
-<span class="sd">        A list of dictionaries, each containing the date and the corresponding student_days, postdoc_days and</span>
-<span class="sd">        ss_days on that date</span>
+<span class="sd">    dict:</span>
+<span class="sd">        A dictionaries whose keys are the dates and values are a dict containing the corresponding grant amounts</span>
+<span class="sd">        on that date</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; grant_burn(mygrant, myappts, begin_date=&quot;2020-09-01&quot;, end_date=&quot;2020-09-03&quot;)</span>
+<span class="sd">    returns</span>
+<span class="sd">    &gt;&gt;&gt; {datetime.date(2020, 9, 1): {&#39;student_days&#39;: 5.0, &#39;postdoc_days&#39;: 12.0, &#39;ss_days&#39;: 20.0}, \</span>
+<span class="sd">         datetime.date(2020, 9, 2): {&#39;student_days&#39;: 4.0, &#39;postdoc_days&#39;: 11.5, &#39;ss_days&#39;: 15.0}, \</span>
+<span class="sd">         datetime.date(2020, 9, 3): {&#39;student_days&#39;: 3.0, &#39;postdoc_days&#39;: 11.0, &#39;ss_days&#39;: 10.0}}</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">if</span> <span class="ow">not</span> <span class="n">grant</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;budget&#39;</span><span class="p">):</span>
@@ -1622,7 +1630,7 @@
     <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">appts</span><span class="p">,</span> <span class="nb">dict</span><span class="p">):</span>
         <span class="n">appts</span> <span class="o">=</span> <span class="n">collect_appts</span><span class="p">([{</span><span class="s2">&quot;appointments&quot;</span><span class="p">:</span> <span class="n">appts</span><span class="p">}])</span>
     <span class="n">grad_val</span><span class="p">,</span> <span class="n">pd_val</span><span class="p">,</span> <span class="n">ss_val</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span>
-    <span class="n">grant_amounts</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">grant_amounts</span> <span class="o">=</span> <span class="p">{}</span>
     <span class="n">budget_dates</span> <span class="o">=</span> <span class="n">get_dates</span><span class="p">(</span><span class="n">grant</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;budget&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">])</span>
     <span class="n">budget_begin</span><span class="p">,</span> <span class="n">budget_end</span> <span class="o">=</span> <span class="n">budget_dates</span><span class="p">[</span><span class="s1">&#39;begin_date&#39;</span><span class="p">],</span> <span class="n">budget_dates</span><span class="p">[</span><span class="s1">&#39;end_date&#39;</span><span class="p">]</span>
     <span class="k">for</span> <span class="n">period</span> <span class="ow">in</span> <span class="n">grant</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;budget&#39;</span><span class="p">):</span>
@@ -1646,9 +1654,8 @@
                     <span class="k">elif</span> <span class="n">a</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;type&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="s1">&#39;ss&#39;</span><span class="p">:</span>
                         <span class="n">ss_val</span> <span class="o">-=</span> <span class="n">a</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;loading&#39;</span><span class="p">)</span> <span class="o">*</span> <span class="mi">1</span>
             <span class="k">if</span> <span class="p">(</span><span class="ow">not</span> <span class="n">begin_date</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="n">begin_date</span> <span class="o">&lt;=</span> <span class="n">day</span> <span class="o">&lt;=</span> <span class="n">end_date</span><span class="p">):</span>
-                <span class="n">gvals</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;date&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">(</span><span class="n">day</span><span class="p">),</span> <span class="s2">&quot;student_days&quot;</span><span class="p">:</span> <span class="nb">round</span><span class="p">(</span><span class="n">grad_val</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="s2">&quot;postdoc_days&quot;</span><span class="p">:</span> <span class="nb">round</span><span class="p">(</span><span class="n">pd_val</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span>
-                         <span class="s2">&quot;ss_days&quot;</span><span class="p">:</span> <span class="nb">round</span><span class="p">(</span><span class="n">ss_val</span><span class="p">,</span> <span class="mi">2</span><span class="p">)}</span>
-                <span class="n">grant_amounts</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">gvals</span><span class="p">)</span>
+                <span class="n">gvals</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;student_days&quot;</span><span class="p">:</span> <span class="nb">round</span><span class="p">(</span><span class="n">grad_val</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="s2">&quot;postdoc_days&quot;</span><span class="p">:</span> <span class="nb">round</span><span class="p">(</span><span class="n">pd_val</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="s2">&quot;ss_days&quot;</span><span class="p">:</span> <span class="nb">round</span><span class="p">(</span><span class="n">ss_val</span><span class="p">,</span> <span class="mi">2</span><span class="p">)}</span>
+                <span class="n">grant_amounts</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="n">day</span><span class="p">:</span> <span class="n">gvals</span><span class="p">})</span>
     <span class="k">return</span> <span class="n">grant_amounts</span></div>
 
 
