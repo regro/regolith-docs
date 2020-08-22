@@ -38,6 +38,12 @@ The following lists key names mapped to its type and meaning for each entry.
 		:amount: float, amount for reimbursements, optional
 		:date: ['string', 'date'], date of reimbursement, optional
 		:submission_date: ['string', 'date'], date of submission, optional
+		:submission_day: integer, day of submission. deprecated but here for backwards compatibility, optional
+		:submission_month: ['integer', 'string'], month of submission. deprecated but here for backwards compatibility, optional
+		:submission_year: integer, year of submission. deprecated but here for backwards compatibility, optional
+		:day: integer, day of reimbursement. deprecated but here for backwards compatibility, optional
+		:month: ['string', 'integer'], month of reimbursement. deprecated but here for backwards compatibility, optional
+		:year: integer, year of reimbursement. deprecated but here for backwards compatibility, optional
 		:where: string, where the reimbursement has been sent, optional
 :status: string, The status of the expense, optional
 
