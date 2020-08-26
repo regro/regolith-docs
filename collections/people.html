@@ -287,8 +287,11 @@
 <dt class="field-even">other</dt>
 <dd class="field-even"><p>list, optional</p>
 </dd>
-<dt class="field-odd">position</dt>
-<dd class="field-odd"><p>string, optional</p>
+<dt class="field-odd">permanent</dt>
+<dd class="field-odd"><p>boolean, true if the position is open ended and has no fixed end-date, optional</p>
+</dd>
+<dt class="field-even">position</dt>
+<dd class="field-even"><p>string, optional</p>
 <dl class="simple">
 <dt>Allowed values:</dt><dd><ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">''</span></code></p></li>
@@ -296,11 +299,11 @@
 <li><p>unknown</p></li>
 <li><p>undergraduate research assistant</p></li>
 <li><p>intern</p></li>
-<li><p>masters research assistant</p></li>
 <li><p>visiting student</p></li>
+<li><p>masters research assistant</p></li>
+<li><p>research assistant</p></li>
 <li><p>graduate research assistant</p></li>
 <li><p>teaching assistant</p></li>
-<li><p>research assistant</p></li>
 <li><p>post-doctoral scholar</p></li>
 <li><p>research fellow</p></li>
 <li><p>assistant scientist</p></li>
@@ -330,18 +333,18 @@
 <li><p>scientist</p></li>
 <li><p>engineer</p></li>
 <li><p>physicist</p></li>
-<li><p>professor</p></li>
 <li><p>president</p></li>
+<li><p>professor</p></li>
 <li><p>distinguished professor</p></li>
 </ul>
 </dd>
 </dl>
 </dd>
-<dt class="field-even">position_full</dt>
-<dd class="field-even"><p>string, The full on title of the position.  This will be typeset if it is here, or if not Position will be used.  Position will be used for sorting and must come from a fixed list of positions, optional</p>
+<dt class="field-odd">position_full</dt>
+<dd class="field-odd"><p>string, The full on title of the position.  This will be typeset if it is here, or if not Position will be used.  Position will be used for sorting and must come from a fixed list of positions, optional</p>
 </dd>
-<dt class="field-odd">status</dt>
-<dd class="field-odd"><p>string, optional</p>
+<dt class="field-even">status</dt>
+<dd class="field-even"><p>string, optional</p>
 <dl class="simple">
 <dt>Allowed values:</dt><dd><ul class="simple">
 <li><p>pi</p></li>
@@ -361,8 +364,8 @@
 </dd>
 </dl>
 </dd>
-<dt class="field-even">facilities</dt>
-<dd class="field-even"><p>list, facilities may be teaching or research things, optional</p>
+<dt class="field-odd">facilities</dt>
+<dd class="field-odd"><p>list, facilities may be teaching or research things, optional</p>
 <dl class="field-list">
 <dt class="field-odd">type</dt>
 <dd class="field-odd"><p>dict, optional</p>
@@ -582,11 +585,11 @@
 <li><p>unknown</p></li>
 <li><p>undergraduate research assistant</p></li>
 <li><p>intern</p></li>
-<li><p>masters research assistant</p></li>
 <li><p>visiting student</p></li>
+<li><p>masters research assistant</p></li>
+<li><p>research assistant</p></li>
 <li><p>graduate research assistant</p></li>
 <li><p>teaching assistant</p></li>
-<li><p>research assistant</p></li>
 <li><p>post-doctoral scholar</p></li>
 <li><p>research fellow</p></li>
 <li><p>assistant scientist</p></li>
@@ -616,8 +619,8 @@
 <li><p>scientist</p></li>
 <li><p>engineer</p></li>
 <li><p>physicist</p></li>
-<li><p>professor</p></li>
 <li><p>president</p></li>
+<li><p>professor</p></li>
 <li><p>distinguished professor</p></li>
 </ul>
 </dd>
@@ -1367,6 +1370,7 @@
         <span class="p p-Indicator">-</span> <span class="s">&#39;Cyclus:</span><span class="nv"> </span><span class="s">An</span><span class="nv"> </span><span class="s">agent-based,</span><span class="nv"> </span><span class="s">discrete</span><span class="nv"> </span><span class="s">time</span><span class="nv"> </span><span class="s">nuclear</span><span class="nv"> </span><span class="s">fuel</span><span class="nv"> </span><span class="s">cycle</span><span class="nv"> </span><span class="s">simulator.&#39;</span>
         <span class="p p-Indicator">-</span> <span class="s">&#39;PyNE:</span><span class="nv"> </span><span class="s">The</span><span class="nv"> </span><span class="s">Nuclear</span><span class="nv"> </span><span class="s">Engineering</span><span class="nv"> </span><span class="s">Toolkit.&#39;</span>
         <span class="p p-Indicator">-</span> <span class="s">&#39;Website:</span><span class="nv"> </span><span class="s">http://www.ergs.sc.edu/&#39;</span>
+      <span class="nt">permanent</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
       <span class="nt">position</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">assistant professor</span>
       <span class="nt">position_full</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Assistant Professor, Mechanical Engineering Department</span>
     <span class="p p-Indicator">-</span> <span class="nt">begin_day</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
@@ -2085,6 +2089,7 @@
                 <span class="s2">&quot;PyNE: The Nuclear Engineering Toolkit.&quot;</span><span class="p">,</span>
                 <span class="s2">&quot;Website: http://www.ergs.sc.edu/&quot;</span>
             <span class="p">],</span>
+            <span class="nt">&quot;permanent&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
             <span class="nt">&quot;position&quot;</span><span class="p">:</span> <span class="s2">&quot;assistant professor&quot;</span><span class="p">,</span>
             <span class="nt">&quot;position_full&quot;</span><span class="p">:</span> <span class="s2">&quot;Assistant Professor, Mechanical Engineering Department&quot;</span>
         <span class="p">},</span>

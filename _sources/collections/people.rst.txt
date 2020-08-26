@@ -90,6 +90,7 @@ The following lists key names mapped to its type and meaning for each entry.
 		:location: string, optional
 		:organization: string, optional
 		:other: list, optional
+		:permanent: boolean, true if the position is open ended and has no fixed end-date, optional
 		:position: string, optional
 
 			Allowed values: 
@@ -98,11 +99,11 @@ The following lists key names mapped to its type and meaning for each entry.
 				* unknown
 				* undergraduate research assistant
 				* intern
-				* masters research assistant
 				* visiting student
+				* masters research assistant
+				* research assistant
 				* graduate research assistant
 				* teaching assistant
-				* research assistant
 				* post-doctoral scholar
 				* research fellow
 				* assistant scientist
@@ -132,8 +133,8 @@ The following lists key names mapped to its type and meaning for each entry.
 				* scientist
 				* engineer
 				* physicist
-				* professor
 				* president
+				* professor
 				* distinguished professor
 		:position_full: string, The full on title of the position.  This will be typeset if it is here, or if not Position will be used.  Position will be used for sorting and must come from a fixed list of positions, optional
 		:status: string, optional
@@ -235,11 +236,11 @@ The following lists key names mapped to its type and meaning for each entry.
 		* unknown
 		* undergraduate research assistant
 		* intern
-		* masters research assistant
 		* visiting student
+		* masters research assistant
+		* research assistant
 		* graduate research assistant
 		* teaching assistant
-		* research assistant
 		* post-doctoral scholar
 		* research fellow
 		* assistant scientist
@@ -269,8 +270,8 @@ The following lists key names mapped to its type and meaning for each entry.
 		* scientist
 		* engineer
 		* physicist
-		* professor
 		* president
+		* professor
 		* distinguished professor
 :position_full: string, The full on title of the position.  This will be typeset if it is here, or if not Position will be used.  Position will be used for sorting and must come from a fixed list of positions, optional
 :publicity: list, summary of publicity that person has received, optional
@@ -833,6 +834,7 @@ YAML Example
 	        - 'Cyclus: An agent-based, discrete time nuclear fuel cycle simulator.'
 	        - 'PyNE: The Nuclear Engineering Toolkit.'
 	        - 'Website: http://www.ergs.sc.edu/'
+	      permanent: true
 	      position: assistant professor
 	      position_full: Assistant Professor, Mechanical Engineering Department
 	    - begin_day: 1
@@ -1553,6 +1555,7 @@ JSON/Mongo Example
 	                "PyNE: The Nuclear Engineering Toolkit.",
 	                "Website: http://www.ergs.sc.edu/"
 	            ],
+	            "permanent": true,
 	            "position": "assistant professor",
 	            "position_full": "Assistant Professor, Mechanical Engineering Department"
 	        },
