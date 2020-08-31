@@ -9,7 +9,6 @@ The following lists key names mapped to its type and meaning for each entry.
 :_id: string, Unique identifier for the experiment plan. It should have a format '{year:2d}{month:2d}{people_id:s}_{plan_name:s}', required
 :beamtime: string, The id for the beamtime. Check the Airtable., required
 :begin_date: ['string', 'datetime', 'date'], The begin date of the beam time., required
-:container: string, Sample container used during the measurement, e. g. 1mm OD glass tubes., required
 :devices: list, The dictionary of devices used in the measurement e. g. , required
 
 	:type: string, optional
@@ -32,7 +31,9 @@ The following lists key names mapped to its type and meaning for each entry.
 :samples: list, The list of samples to be measured., required
 
 	:type: string, optional
-:scanplan: string, The scanplan for the experiment, e. g. tseries, Tramp, ct., required
+:scanplan: list, The scanplan for the experiment, e. g. tseries, Tramp, ct., required
+
+	:type: string, optional
 :ship_plan: list, Steps to carry the samples from the producer to the BNL. Do NOT need details., required
 
 	:type: string, optional
@@ -50,7 +51,6 @@ YAML Example
 	test:
 	  beamtime: 2020-1-XPD
 	  begin_date: '2020-01-01'
-	  container: ''
 	  devices:
 	    - cryostream
 	  end_date: '2020-01-02'
@@ -71,7 +71,8 @@ YAML Example
 	  samples:
 	    - WO3 film
 	    - glass subtrate
-	  scanplan: Tramp
+	  scanplan:
+	    - Scanplan(bt, Tramp, 30, 80, 500, 10)
 	  ship_plan:
 	    - seal and ship to CU
 	    - carry to the beamline
@@ -89,7 +90,6 @@ JSON/Mongo Example
 	    "_id": "test",
 	    "beamtime": "2020-1-XPD",
 	    "begin_date": "2020-01-01",
-	    "container": "",
 	    "devices": [
 	        "cryostream"
 	    ],
@@ -114,7 +114,9 @@ JSON/Mongo Example
 	        "WO3 film",
 	        "glass subtrate"
 	    ],
-	    "scanplan": "Tramp",
+	    "scanplan": [
+	        "Scanplan(bt, Tramp, 30, 80, 500, 10)"
+	    ],
 	    "ship_plan": [
 	        "seal and ship to CU",
 	        "carry to the beamline"

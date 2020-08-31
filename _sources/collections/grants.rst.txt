@@ -171,31 +171,25 @@ YAML Example
 	  account: GG012345
 	  alias: dmref15
 	  amount: 982785.0
-	  begin_day: 1
-	  begin_month: october
-	  begin_year: 2015
 	  budget:
 	    - amount: 327595.0
-	      begin_date: '2015-10-01'
+	      begin_date: '2018-05-01'
 	      end_date: '2018-09-30'
 	      postdoc_months: 0.0
 	      ss_months: 6.0
 	      student_months: 12.0
 	    - amount: 327595.0
 	      begin_date: '2018-10-01'
-	      end_date: '2020-09-30'
+	      end_date: '2019-01-30'
 	      postdoc_months: 0.0
 	      ss_months: 12.0
 	      student_months: 8.0
 	    - amount: 327595.0
-	      begin_date: '2020-10-01'
-	      end_date: '2025-09-30'
+	      begin_date: '2019-02-01'
+	      end_date: '2019-05-01'
 	      postdoc_months: 0.0
 	      ss_months: 6.0
 	      student_months: 12.0
-	  end_day: 30
-	  end_month: september
-	  end_year: 2025
 	  funder: NSF
 	  grant_id: DMREF-1534910
 	  institution: Columbia University
@@ -390,13 +384,10 @@ JSON/Mongo Example
 	    "account": "GG012345",
 	    "alias": "dmref15",
 	    "amount": 982785.0,
-	    "begin_day": 1,
-	    "begin_month": "october",
-	    "begin_year": 2015,
 	    "budget": [
 	        {
 	            "amount": 327595.0,
-	            "begin_date": "2015-10-01",
+	            "begin_date": "2018-05-01",
 	            "end_date": "2018-09-30",
 	            "postdoc_months": 0.0,
 	            "ss_months": 6.0,
@@ -405,23 +396,20 @@ JSON/Mongo Example
 	        {
 	            "amount": 327595.0,
 	            "begin_date": "2018-10-01",
-	            "end_date": "2020-09-30",
+	            "end_date": "2019-01-30",
 	            "postdoc_months": 0.0,
 	            "ss_months": 12.0,
 	            "student_months": 8.0
 	        },
 	        {
 	            "amount": 327595.0,
-	            "begin_date": "2020-10-01",
-	            "end_date": "2025-09-30",
+	            "begin_date": "2019-02-01",
+	            "end_date": "2019-05-01",
 	            "postdoc_months": 0.0,
 	            "ss_months": 6.0,
 	            "student_months": 12.0
 	        }
 	    ],
-	    "end_day": 30,
-	    "end_month": "september",
-	    "end_year": 2025,
 	    "funder": "NSF",
 	    "grant_id": "DMREF-1534910",
 	    "institution": "Columbia University",

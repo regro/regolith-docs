@@ -79,11 +79,8 @@
 <dt class="field-odd">begin_date</dt>
 <dd class="field-odd"><p>[‘string’, ‘datetime’, ‘date’], The begin date of the beam time., required</p>
 </dd>
-<dt class="field-even">container</dt>
-<dd class="field-even"><p>string, Sample container used during the measurement, e. g. 1mm OD glass tubes., required</p>
-</dd>
-<dt class="field-odd">devices</dt>
-<dd class="field-odd"><p>list, The dictionary of devices used in the measurement e. g. , required</p>
+<dt class="field-even">devices</dt>
+<dd class="field-even"><p>list, The dictionary of devices used in the measurement e. g. , required</p>
 <dl class="field-list simple">
 <dt class="field-odd">type</dt>
 <dd class="field-odd"><p>string, optional</p>
@@ -144,10 +141,15 @@
 </dl>
 </dd>
 <dt class="field-even">scanplan</dt>
-<dd class="field-even"><p>string, The scanplan for the experiment, e. g. tseries, Tramp, ct., required</p>
+<dd class="field-even"><p>list, The scanplan for the experiment, e. g. tseries, Tramp, ct., required</p>
+<dl class="field-list simple">
+<dt class="field-odd">type</dt>
+<dd class="field-odd"><p>string, optional</p>
 </dd>
-<dt class="field-odd">ship_plan</dt>
-<dd class="field-odd"><p>list, Steps to carry the samples from the producer to the BNL. Do NOT need details., required</p>
+</dl>
+</dd>
+<dt class="field-even">ship_plan</dt>
+<dd class="field-even"><p>list, Steps to carry the samples from the producer to the BNL. Do NOT need details., required</p>
 <dl class="field-list simple">
 <dt class="field-odd">type</dt>
 <dd class="field-odd"><p>string, optional</p>
@@ -172,7 +174,6 @@
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">test</span><span class="p">:</span>
   <span class="nt">beamtime</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">2020-1-XPD</span>
   <span class="nt">begin_date</span><span class="p">:</span> <span class="s">&#39;2020-01-01&#39;</span>
-  <span class="nt">container</span><span class="p">:</span> <span class="s">&#39;&#39;</span>
   <span class="nt">devices</span><span class="p">:</span>
     <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">cryostream</span>
   <span class="nt">end_date</span><span class="p">:</span> <span class="s">&#39;2020-01-02&#39;</span>
@@ -193,7 +194,8 @@
   <span class="nt">samples</span><span class="p">:</span>
     <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">WO3 film</span>
     <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">glass subtrate</span>
-  <span class="nt">scanplan</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Tramp</span>
+  <span class="nt">scanplan</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Scanplan(bt, Tramp, 30, 80, 500, 10)</span>
   <span class="nt">ship_plan</span><span class="p">:</span>
     <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">seal and ship to CU</span>
     <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">carry to the beamline</span>
@@ -209,7 +211,6 @@
     <span class="nt">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;test&quot;</span><span class="p">,</span>
     <span class="nt">&quot;beamtime&quot;</span><span class="p">:</span> <span class="s2">&quot;2020-1-XPD&quot;</span><span class="p">,</span>
     <span class="nt">&quot;begin_date&quot;</span><span class="p">:</span> <span class="s2">&quot;2020-01-01&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;container&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
     <span class="nt">&quot;devices&quot;</span><span class="p">:</span> <span class="p">[</span>
         <span class="s2">&quot;cryostream&quot;</span>
     <span class="p">],</span>
@@ -234,7 +235,9 @@
         <span class="s2">&quot;WO3 film&quot;</span><span class="p">,</span>
         <span class="s2">&quot;glass subtrate&quot;</span>
     <span class="p">],</span>
-    <span class="nt">&quot;scanplan&quot;</span><span class="p">:</span> <span class="s2">&quot;Tramp&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;scanplan&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="s2">&quot;Scanplan(bt, Tramp, 30, 80, 500, 10)&quot;</span>
+    <span class="p">],</span>
     <span class="nt">&quot;ship_plan&quot;</span><span class="p">:</span> <span class="p">[</span>
         <span class="s2">&quot;seal and ship to CU&quot;</span><span class="p">,</span>
         <span class="s2">&quot;carry to the beamline&quot;</span>
