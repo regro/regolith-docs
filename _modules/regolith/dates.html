@@ -191,7 +191,7 @@
 
 <div class="viewcode-block" id="get_dates"><a class="viewcode-back" href="../../api/dates.html#regolith.dates.get_dates">[docs]</a><span class="k">def</span> <span class="nf">get_dates</span><span class="p">(</span><span class="n">thing</span><span class="p">,</span> <span class="n">date_field_prefix</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
     <span class="sd">&#39;&#39;&#39;</span>
-<span class="sd">    given a dict like thing, return the items</span>
+<span class="sd">    given a dict like thing, return the date items</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -204,7 +204,8 @@
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
 <span class="sd">       dict containing datetime.date objects for begin_date end_date and date, and</span>
-<span class="sd">       prefix_date if a prefix string was passed</span>
+<span class="sd">       prefix_date if a prefix string was passed.  Missing and empty dates and</span>
+<span class="sd">       date items that contain the string &#39;tbd&#39; return None.</span>
 
 <span class="sd">    Description</span>
 <span class="sd">    -----------</span>
@@ -273,6 +274,10 @@
         <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;WARNING: cannot find any dates&quot;</span><span class="p">)</span>
         <span class="n">dates</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;begin_date&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span> <span class="s1">&#39;end_date&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span> <span class="s1">&#39;date&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">}</span>
         <span class="k">return</span> <span class="n">dates</span>
+    <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">thing</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">value</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="o">==</span> <span class="s1">&#39;tbd&#39;</span><span class="p">:</span>
+                <span class="n">thing</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
     <span class="k">if</span> <span class="n">thing</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;end_year&quot;</span><span class="p">)</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">thing</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;begin_year&quot;</span><span class="p">):</span>
         <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;WARNING: end_year specified without begin_year&#39;</span><span class="p">)</span>
     <span class="n">begin_date</span><span class="p">,</span> <span class="n">end_date</span><span class="p">,</span> <span class="n">date</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span>

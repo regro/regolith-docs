@@ -102,7 +102,7 @@
 <dl class="function">
 <dt id="regolith.dates.get_dates">
 <code class="sig-prename descclassname">regolith.dates.</code><code class="sig-name descname">get_dates</code><span class="sig-paren">(</span><em class="sig-param">thing</em>, <em class="sig-param">date_field_prefix=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/dates.html#get_dates"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.dates.get_dates" title="Permalink to this definition">¶</a></dt>
-<dd><p>given a dict like thing, return the items</p>
+<dd><p>given a dict like thing, return the date items</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -114,7 +114,8 @@ the function will search for submission_day, submission_year, etc.</p></li>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p><ul class="simple">
 <li><p><em>dict containing datetime.date objects for begin_date end_date and date, and</em></p></li>
-<li><p><em>prefix_date if a prefix string was passed</em></p></li>
+<li><p><em>prefix_date if a prefix string was passed.  Missing and empty dates and</em></p></li>
+<li><p><em>date items that contain the string ‘tbd’ return None.</em></p></li>
 </ul>
 </p>
 </dd>
