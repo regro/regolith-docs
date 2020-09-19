@@ -182,6 +182,7 @@ The following lists key names mapped to its type and meaning for each entry.
 		:year: integer, optional
 :github_id: string, Your GitHub ID, optional
 :google_scholar_url: string, URL of your Google Scholar rofile, optional
+:grp_mtg_active: boolean, Whether to schedule tasks at group meeting or not, optional
 :hindex: list, details of hindex pulled on a certain date, optional
 
 	:type: dict, optional
@@ -486,6 +487,7 @@ YAML Example
 	      value: 1150
 	      year: 2013
 	  google_scholar_url: https://scholar.google.com/citations?user=dRm8f
+	  grp_mtg_active: true
 	  hindex:
 	    - citations: 17890
 	      citations_last_five: 8817
@@ -1117,6 +1119,7 @@ JSON/Mongo Example
 	        }
 	    ],
 	    "google_scholar_url": "https://scholar.google.com/citations?user=dRm8f",
+	    "grp_mtg_active": true,
 	    "hindex": [
 	        {
 	            "citations": 17890,
