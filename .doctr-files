@@ -47,6 +47,7 @@
 ./_sources/collections/index.rst.txt
 ./_sources/collections/institutions.rst.txt
 ./_sources/collections/jobs.rst.txt
+./_sources/collections/meetings.rst.txt
 ./_sources/collections/news.rst.txt
 ./_sources/collections/people.rst.txt
 ./_sources/collections/presentations.rst.txt
@@ -137,6 +138,7 @@
 ./collections/index.html
 ./collections/institutions.html
 ./collections/jobs.html
+./collections/meetings.html
 ./collections/news.html
 ./collections/people.html
 ./collections/presentations.html
