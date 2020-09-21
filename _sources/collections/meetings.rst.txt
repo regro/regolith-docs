@@ -18,7 +18,7 @@ The following lists key names mapped to its type and meaning for each entry.
 :place: string, location where the meeting is taking place on campus, optional
 :presentation: dict, indicating the title of the presentation along with the link and the presenter , optional
 :scribe: string, person who will be taking notes and updating minutes accordingly, optional
-:time: string, person who will be taking notes and updating minutes accordingly, optional
+:time: ['string', 'integer'], person who will be taking notes and updating minutes accordinglyIf an integer is minutes past midnight, so 13:30 is 810 forexample., optional
 :updated: ['string', 'datetime', 'date'], person who will be taking notes and updating minutes accordingly, optional
 :uuid: string, person who will be taking notes and updating minutes accordingly, optional
 :year: integer, person who will be taking notes and updating minutes accordingly, optional
