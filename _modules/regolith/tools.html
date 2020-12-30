@@ -1058,7 +1058,7 @@
             <span class="n">input_record</span><span class="p">[</span><span class="s2">&quot;department&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">inst</span></div>
 
 
-<div class="viewcode-block" id="merge_collections"><a class="viewcode-back" href="../../api/tools.html#regolith.tools.merge_collections">[docs]</a><span class="k">def</span> <span class="nf">merge_collections</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">target_id</span><span class="p">):</span>
+<div class="viewcode-block" id="merge_collections_all"><a class="viewcode-back" href="../../api/tools.html#regolith.tools.merge_collections_all">[docs]</a><span class="k">def</span> <span class="nf">merge_collections_all</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">target_id</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    merge two collections into a single merged collection</span>
 
@@ -1072,35 +1072,103 @@
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
-<span class="sd">    the combined collection.  Note that it returns a collection only containing</span>
-<span class="sd">    merged items from a and b that are dereferenced in b, i.e., the merged</span>
-<span class="sd">    intercept.  If you want the union you can update the returned collection</span>
-<span class="sd">    with a.</span>
+<span class="sd">    the combined collection.  Note that it returns a collection containing</span>
+<span class="sd">    all items from a and b with the items dereferenced in b merged with the</span>
+<span class="sd">    dereferenced items in a.</span>
+
+<span class="sd">    see also merge_intersection that returns collection that is just referenced</span>
+<span class="sd">    in both</span>
 
 <span class="sd">    Examples</span>
 <span class="sd">    --------</span>
-<span class="sd">    &gt;&gt;&gt;  grants = merge_collections(self.gtx[&quot;proposals&quot;], self.gtx[&quot;grants&quot;], &quot;proposal_id&quot;)</span>
+<span class="sd">    &gt;&gt;&gt;  grants = merge_collections_all(self.gtx[&quot;proposals&quot;], self.gtx[&quot;grants&quot;], &quot;proposal_id&quot;)</span>
 
 <span class="sd">    This would merge all entries in the proposals collection with entries in the</span>
 <span class="sd">    grants collection for which &quot;_id&quot; in proposals has the value of</span>
-<span class="sd">    &quot;proposal_id&quot; in grants.</span>
+<span class="sd">    &quot;proposal_id&quot; in grants, returning also unchanged any other entries that are</span>
+<span class="sd">    not linked.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">adict</span> <span class="o">=</span> <span class="p">{}</span>
-    <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">a</span><span class="p">:</span>
-        <span class="n">adict</span><span class="p">[</span><span class="n">k</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;_id&quot;</span><span class="p">)]</span> <span class="o">=</span> <span class="n">k</span>
-    <span class="n">bdict</span> <span class="o">=</span> <span class="p">{}</span>
-    <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">b</span><span class="p">:</span>
-        <span class="n">bdict</span><span class="p">[</span><span class="n">k</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;_id&quot;</span><span class="p">)]</span> <span class="o">=</span> <span class="n">k</span>
-    <span class="n">b_for_a</span> <span class="o">=</span> <span class="p">{}</span>
-    <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">adict</span><span class="p">:</span>
-        <span class="k">for</span> <span class="n">kk</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">bdict</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
-            <span class="k">if</span> <span class="n">v</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">target_id</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="n">k</span><span class="p">:</span>
-                <span class="n">b_for_a</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">kk</span>
-    <span class="n">chained</span> <span class="o">=</span> <span class="p">{}</span>
-    <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">b_for_a</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
-        <span class="n">chained</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">ChainDB</span><span class="p">(</span><span class="n">adict</span><span class="p">[</span><span class="n">k</span><span class="p">],</span> <span class="n">bdict</span><span class="p">[</span><span class="n">v</span><span class="p">])</span>
-    <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="n">chained</span><span class="o">.</span><span class="n">values</span><span class="p">())</span></div>
+    <span class="n">intersect</span> <span class="o">=</span> <span class="n">merge_collections_intersect</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">target_id</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">intersect</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">b</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">i</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;_id&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="n">j</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;_id&quot;</span><span class="p">):</span>
+                <span class="n">b</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">intersect</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">a</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">i</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;_id&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="n">j</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">target_id</span><span class="p">):</span>
+                <span class="n">a</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+    <span class="n">bdis</span><span class="p">,</span> <span class="n">adis</span> <span class="o">=</span> <span class="n">b</span><span class="p">,</span> <span class="n">a</span>
+    <span class="k">return</span> <span class="n">adis</span> <span class="o">+</span> <span class="n">intersect</span> <span class="o">+</span> <span class="n">bdis</span></div>
 
+<div class="viewcode-block" id="merge_collections_superior"><a class="viewcode-back" href="../../api/tools.html#regolith.tools.merge_collections_superior">[docs]</a><span class="k">def</span> <span class="nf">merge_collections_superior</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">target_id</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    merge two collections into a single merged collection</span>
+
+<span class="sd">    for keys that are in both collections, the value in b will be kept</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    a  the inferior collection (will lose values of shared keys)</span>
+<span class="sd">    b  the superior collection (will keep values of shared keys)</span>
+<span class="sd">    target_id  str  the name of the key used in b to dereference ids in a</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    the combined collection.  Note that it returns a collection containing</span>
+<span class="sd">    all items from a and b with the items dereferenced in b merged with the</span>
+<span class="sd">    dereferenced items in a.</span>
+
+<span class="sd">    see also merge_intersection that returns collection that is just referenced</span>
+<span class="sd">    in both</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt;  grants = merge_collections_all(self.gtx[&quot;proposals&quot;], self.gtx[&quot;grants&quot;], &quot;proposal_id&quot;)</span>
+
+<span class="sd">    This would merge all entries in the proposals collection with entries in the</span>
+<span class="sd">    grants collection for which &quot;_id&quot; in proposals has the value of</span>
+<span class="sd">    &quot;proposal_id&quot; in grants, returning also unchanged any other entries that are</span>
+<span class="sd">    not linked.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">intersect</span> <span class="o">=</span> <span class="n">merge_collections_intersect</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">target_id</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">intersect</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">b</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">i</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;_id&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="n">j</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;_id&quot;</span><span class="p">):</span>
+                <span class="n">b</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+    <span class="n">bdis</span> <span class="o">=</span> <span class="n">b</span>
+    <span class="k">return</span> <span class="n">intersect</span> <span class="o">+</span> <span class="n">bdis</span></div>
+
+<div class="viewcode-block" id="merge_collections_intersect"><a class="viewcode-back" href="../../api/tools.html#regolith.tools.merge_collections_intersect">[docs]</a><span class="k">def</span> <span class="nf">merge_collections_intersect</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">target_id</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    merge two collections such thta just the intersection is returned</span>
+
+<span class="sd">    for shared keys that are in both collections, the value in b will be kept</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    a  the inferior collection (will lose values of shared keys)</span>
+<span class="sd">    b  the superior collection (will keep values of shared keys)</span>
+<span class="sd">    target_id  str  the name of the key used in b to dereference ids in a</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    the combined collection.  Note that it returns a collection only containing</span>
+<span class="sd">    merged items from a and b that are dereferenced in b, i.e., the merged</span>
+<span class="sd">    intercept.</span>
+
+<span class="sd">    see also merge_collections_all that returns all items in a, b and the intersect</span>
+<span class="sd">    and merge_collections_superior that returns all items in b and the intercept</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt;  grants = merge_collections_intesect(self.gtx[&quot;proposals&quot;], self.gtx[&quot;grants&quot;], &quot;proposal_id&quot;)</span>
+
+<span class="sd">    This would merge all entries in the proposals collection with entries in the</span>
+<span class="sd">    grants collection for which &quot;_id&quot; in proposals has the value of</span>
+<span class="sd">    &quot;proposal_id&quot; in grants, returning just those items that have the dereference</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">intersect</span> <span class="o">=</span> <span class="p">[{</span><span class="o">**</span><span class="n">j</span><span class="p">,</span> <span class="o">**</span><span class="n">i</span><span class="p">}</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">a</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">b</span> <span class="k">if</span> <span class="n">j</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;_id&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="n">i</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">target_id</span><span class="p">)]</span>
+    <span class="k">return</span> <span class="n">intersect</span></div>
 
 <div class="viewcode-block" id="update_schemas"><a class="viewcode-back" href="../../api/tools.html#regolith.tools.update_schemas">[docs]</a><span class="k">def</span> <span class="nf">update_schemas</span><span class="p">(</span><span class="n">default_schema</span><span class="p">,</span> <span class="n">user_schema</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>

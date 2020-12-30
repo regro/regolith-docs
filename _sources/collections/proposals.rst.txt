@@ -36,7 +36,7 @@ The following lists key names mapped to its type and meaning for each entry.
 :notes: ['string', 'list'], anything you want to note, optional
 :pi: string, principal investigator name, required
 :pre: dict, Information about the pre-proposal, optional
-:status: string, e.g. 'pending', 'accepted', 'rejected', required
+:status: string, e.g. 'pending', 'accepted', 'declined', required
 
 	Allowed values: 
 		* pending

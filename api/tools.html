@@ -655,8 +655,8 @@ wrap, defaults to True</p></li>
 </dd></dl>
 
 <dl class="function">
-<dt id="regolith.tools.merge_collections">
-<code class="sig-prename descclassname">regolith.tools.</code><code class="sig-name descname">merge_collections</code><span class="sig-paren">(</span><em class="sig-param">a</em>, <em class="sig-param">b</em>, <em class="sig-param">target_id</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#merge_collections"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.tools.merge_collections" title="Permalink to this definition">¶</a></dt>
+<dt id="regolith.tools.merge_collections_all">
+<code class="sig-prename descclassname">regolith.tools.</code><code class="sig-name descname">merge_collections_all</code><span class="sig-paren">(</span><em class="sig-param">a</em>, <em class="sig-param">b</em>, <em class="sig-param">target_id</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#merge_collections_all"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.tools.merge_collections_all" title="Permalink to this definition">¶</a></dt>
 <dd><p>merge two collections into a single merged collection</p>
 <p>for keys that are in both collections, the value in b will be kept</p>
 <dl class="field-list simple">
@@ -669,21 +669,90 @@ wrap, defaults to True</p></li>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p><ul class="simple">
-<li><p><em>the combined collection.  Note that it returns a collection only containing</em></p></li>
-<li><p><em>merged items from a and b that are dereferenced in b, i.e., the merged</em></p></li>
-<li><p><em>intercept.  If you want the union you can update the returned collection</em></p></li>
-<li><p><em>with a.</em></p></li>
+<li><p><em>the combined collection.  Note that it returns a collection containing</em></p></li>
+<li><p><em>all items from a and b with the items dereferenced in b merged with the</em></p></li>
+<li><p><em>dereferenced items in a.</em></p></li>
+<li><p><em>see also merge_intersection that returns collection that is just referenced</em></p></li>
+<li><p><em>in both</em></p></li>
 </ul>
 </p>
 </dd>
 </dl>
 <p class="rubric">Examples</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span> <span class="n">grants</span> <span class="o">=</span> <span class="n">merge_collections</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">gtx</span><span class="p">[</span><span class="s2">&quot;proposals&quot;</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">gtx</span><span class="p">[</span><span class="s2">&quot;grants&quot;</span><span class="p">],</span> <span class="s2">&quot;proposal_id&quot;</span><span class="p">)</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span> <span class="n">grants</span> <span class="o">=</span> <span class="n">merge_collections_all</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">gtx</span><span class="p">[</span><span class="s2">&quot;proposals&quot;</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">gtx</span><span class="p">[</span><span class="s2">&quot;grants&quot;</span><span class="p">],</span> <span class="s2">&quot;proposal_id&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>This would merge all entries in the proposals collection with entries in the
 grants collection for which “_id” in proposals has the value of
-“proposal_id” in grants.</p>
+“proposal_id” in grants, returning also unchanged any other entries that are
+not linked.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="regolith.tools.merge_collections_intersect">
+<code class="sig-prename descclassname">regolith.tools.</code><code class="sig-name descname">merge_collections_intersect</code><span class="sig-paren">(</span><em class="sig-param">a</em>, <em class="sig-param">b</em>, <em class="sig-param">target_id</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#merge_collections_intersect"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.tools.merge_collections_intersect" title="Permalink to this definition">¶</a></dt>
+<dd><p>merge two collections such thta just the intersection is returned</p>
+<p>for shared keys that are in both collections, the value in b will be kept</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>a  the inferior collection (will lose values of shared keys)</strong></p></li>
+<li><p><strong>b  the superior collection (will keep values of shared keys)</strong></p></li>
+<li><p><strong>target_id  str  the name of the key used in b to dereference ids in a</strong></p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><em>the combined collection.  Note that it returns a collection only containing</em></p></li>
+<li><p><em>merged items from a and b that are dereferenced in b, i.e., the merged</em></p></li>
+<li><p><em>intercept.</em></p></li>
+<li><p><em>see also merge_collections_all that returns all items in a, b and the intersect</em></p></li>
+<li><p><em>and merge_collections_superior that returns all items in b and the intercept</em></p></li>
+</ul>
+</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span> <span class="n">grants</span> <span class="o">=</span> <span class="n">merge_collections_intesect</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">gtx</span><span class="p">[</span><span class="s2">&quot;proposals&quot;</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">gtx</span><span class="p">[</span><span class="s2">&quot;grants&quot;</span><span class="p">],</span> <span class="s2">&quot;proposal_id&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This would merge all entries in the proposals collection with entries in the
+grants collection for which “_id” in proposals has the value of
+“proposal_id” in grants, returning just those items that have the dereference</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="regolith.tools.merge_collections_superior">
+<code class="sig-prename descclassname">regolith.tools.</code><code class="sig-name descname">merge_collections_superior</code><span class="sig-paren">(</span><em class="sig-param">a</em>, <em class="sig-param">b</em>, <em class="sig-param">target_id</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#merge_collections_superior"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.tools.merge_collections_superior" title="Permalink to this definition">¶</a></dt>
+<dd><p>merge two collections into a single merged collection</p>
+<p>for keys that are in both collections, the value in b will be kept</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>a  the inferior collection (will lose values of shared keys)</strong></p></li>
+<li><p><strong>b  the superior collection (will keep values of shared keys)</strong></p></li>
+<li><p><strong>target_id  str  the name of the key used in b to dereference ids in a</strong></p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><em>the combined collection.  Note that it returns a collection containing</em></p></li>
+<li><p><em>all items from a and b with the items dereferenced in b merged with the</em></p></li>
+<li><p><em>dereferenced items in a.</em></p></li>
+<li><p><em>see also merge_intersection that returns collection that is just referenced</em></p></li>
+<li><p><em>in both</em></p></li>
+</ul>
+</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span> <span class="n">grants</span> <span class="o">=</span> <span class="n">merge_collections_all</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">gtx</span><span class="p">[</span><span class="s2">&quot;proposals&quot;</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">gtx</span><span class="p">[</span><span class="s2">&quot;grants&quot;</span><span class="p">],</span> <span class="s2">&quot;proposal_id&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This would merge all entries in the proposals collection with entries in the
+grants collection for which “_id” in proposals has the value of
+“proposal_id” in grants, returning also unchanged any other entries that are
+not linked.</p>
 </dd></dl>
 
 <dl class="function">
