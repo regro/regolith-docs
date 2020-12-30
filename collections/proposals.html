@@ -115,13 +115,13 @@
 <dt class="field-even">project_scope</dt>
 <dd class="field-even"><p>string, optional</p>
 </dd>
+<dt class="field-odd">single_pi</dt>
+<dd class="field-odd"><p>boolean, set to true if there are no co-pi’s, optional</p>
+</dd>
 </dl>
 </dd>
-<dt class="field-odd">currency</dt>
-<dd class="field-odd"><p>string, typically ‘$’ or ‘USD’, required</p>
-</dd>
-<dt class="field-even">day</dt>
-<dd class="field-even"><p>integer, day that the proposal was submitted, optional</p>
+<dt class="field-even">currency</dt>
+<dd class="field-even"><p>string, typically ‘$’ or ‘USD’, required</p>
 </dd>
 <dt class="field-odd">due_date</dt>
 <dd class="field-odd"><p>[‘string’, ‘date’], day that the proposal is due, optional</p>
@@ -147,20 +147,17 @@
 <dt class="field-even">funder</dt>
 <dd class="field-even"><p>string, who will fund the proposalas funder in grants, optional</p>
 </dd>
-<dt class="field-odd">month</dt>
-<dd class="field-odd"><p>[‘string’, ‘integer’], month that the proposal was submitted, optional</p>
+<dt class="field-odd">notes</dt>
+<dd class="field-odd"><p>[‘string’, ‘list’], anything you want to note, optional</p>
 </dd>
-<dt class="field-even">notes</dt>
-<dd class="field-even"><p>[‘string’, ‘list’], anything you want to note, optional</p>
+<dt class="field-even">pi</dt>
+<dd class="field-even"><p>string, principal investigator name, required</p>
 </dd>
-<dt class="field-odd">pi</dt>
-<dd class="field-odd"><p>string, principal investigator name, required</p>
+<dt class="field-odd">pre</dt>
+<dd class="field-odd"><p>dict, Information about the pre-proposal, optional</p>
 </dd>
-<dt class="field-even">pre</dt>
-<dd class="field-even"><p>dict, Information about the pre-proposal, optional</p>
-</dd>
-<dt class="field-odd">status</dt>
-<dd class="field-odd"><p>string, e.g. ‘pending’, ‘accepted’, ‘declined’, required</p>
+<dt class="field-even">status</dt>
+<dd class="field-even"><p>string, e.g. ‘pending’, ‘accepted’, ‘declined’, required</p>
 <dl class="simple">
 <dt>Allowed values:</dt><dd><ul class="simple">
 <li><p>pending</p></li>
@@ -172,8 +169,20 @@
 </dd>
 </dl>
 </dd>
-<dt class="field-even">team</dt>
-<dd class="field-even"><p>list, information about the team members participating in the grant., optional</p>
+<dt class="field-odd">submitted_date</dt>
+<dd class="field-odd"><p>[‘string’, ‘date’], date that the proposal was submitted, optional</p>
+</dd>
+<dt class="field-even">submitted_day</dt>
+<dd class="field-even"><p>integer, day that the proposal was submitted, optional</p>
+</dd>
+<dt class="field-odd">submitted_month</dt>
+<dd class="field-odd"><p>[‘string’, ‘integer’], month that the proposal was submitted, optional</p>
+</dd>
+<dt class="field-even">submitted_year</dt>
+<dd class="field-even"><p>integer, Year that the proposal was submitted, optional</p>
+</dd>
+<dt class="field-odd">team</dt>
+<dd class="field-odd"><p>list, information about the team members participating in the grant., optional</p>
 <dl class="field-list simple">
 <dt class="field-odd">type</dt>
 <dd class="field-odd"><p>dict, optional</p>
@@ -205,9 +214,6 @@
 </dd>
 <dt class="field-even">title_short</dt>
 <dd class="field-even"><p>string, short title of proposal, optional</p>
-</dd>
-<dt class="field-odd">year</dt>
-<dd class="field-odd"><p>integer, Year that the proposal was submitted, optional</p>
 </dd>
 </dl>
 </div>
@@ -275,17 +281,17 @@
     <span class="nt">person_months_academic</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">0</span>
     <span class="nt">person_months_summer</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
     <span class="nt">project_scope</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">lots to do but it doesn&#39;t overlap with any other of my grants</span>
+    <span class="nt">single_pi</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
   <span class="nt">currency</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">USD</span>
-  <span class="nt">day</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">2</span>
   <span class="nt">duration</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">3</span>
   <span class="nt">end_day</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
   <span class="nt">end_month</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">May</span>
   <span class="nt">end_year</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">2019</span>
   <span class="nt">funder</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">NSF</span>
-  <span class="nt">month</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">february</span>
   <span class="nt">notes</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Quite an idea</span>
   <span class="nt">pi</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Simon Billinge</span>
   <span class="nt">status</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">accepted</span>
+  <span class="nt">submitted_date</span><span class="p">:</span> <span class="s">&#39;2015-02-02&#39;</span>
   <span class="nt">team</span><span class="p">:</span>
     <span class="p p-Indicator">-</span> <span class="nt">institution</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Columbia University</span>
       <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">qdu</span>
@@ -300,7 +306,6 @@
   <span class="nt">title</span><span class="p">:</span> <span class="s">&#39;DMREF:</span><span class="nv"> </span><span class="s">Novel,</span><span class="nv"> </span><span class="s">data</span><span class="nv"> </span><span class="s">validated,</span><span class="nv"> </span><span class="s">nanostructure</span><span class="nv"> </span><span class="s">determination</span><span class="nv"> </span><span class="s">methods</span><span class="nv"> </span><span class="s">for</span><span class="nv"> </span><span class="s">accelerating</span>
     <span class="s">materials</span><span class="nv"> </span><span class="s">discovery&#39;</span>
   <span class="nt">title_short</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">DMREF nanostructure</span>
-  <span class="nt">year</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">2015</span>
 <span class="nt">mypropsal</span><span class="p">:</span>
   <span class="nt">amount</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1000000.0</span>
   <span class="nt">authors</span><span class="p">:</span>
@@ -310,7 +315,6 @@
   <span class="nt">begin_month</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">May</span>
   <span class="nt">begin_year</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">2030</span>
   <span class="nt">currency</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">USD</span>
-  <span class="nt">day</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">18</span>
   <span class="nt">duration</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">3</span>
   <span class="nt">end_day</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">31</span>
   <span class="nt">end_month</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">December</span>
@@ -321,7 +325,6 @@
       <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">http://pdf.com/scopatz-cv</span>
       <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">http://pdf.com/flanagan-cv</span>
     <span class="nt">narrative</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">http://some.com/pdf</span>
-  <span class="nt">month</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Aug</span>
   <span class="nt">notes</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Quite an idea</span>
   <span class="nt">pi</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Anthony Scopatz</span>
   <span class="nt">pre</span><span class="p">:</span>
@@ -334,8 +337,10 @@
     <span class="nt">narrative</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">http://some.com/pdf</span>
     <span class="nt">year</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1998</span>
   <span class="nt">status</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">submitted</span>
+  <span class="nt">submitted_day</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">18</span>
+  <span class="nt">submitted_month</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Aug</span>
+  <span class="nt">submitted_year</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1999</span>
   <span class="nt">title</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">A very fine proposal indeed</span>
-  <span class="nt">year</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1999</span>
 </pre></div>
 </div>
 </div>
@@ -413,19 +418,19 @@
         <span class="nt">&quot;other_agencies_submitted&quot;</span><span class="p">:</span> <span class="s2">&quot;None&quot;</span><span class="p">,</span>
         <span class="nt">&quot;person_months_academic&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
         <span class="nt">&quot;person_months_summer&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
-        <span class="nt">&quot;project_scope&quot;</span><span class="p">:</span> <span class="s2">&quot;lots to do but it doesn&#39;t overlap with any other of my grants&quot;</span>
+        <span class="nt">&quot;project_scope&quot;</span><span class="p">:</span> <span class="s2">&quot;lots to do but it doesn&#39;t overlap with any other of my grants&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;single_pi&quot;</span><span class="p">:</span> <span class="kc">true</span>
     <span class="p">},</span>
     <span class="nt">&quot;currency&quot;</span><span class="p">:</span> <span class="s2">&quot;USD&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;day&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
     <span class="nt">&quot;duration&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
     <span class="nt">&quot;end_day&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
     <span class="nt">&quot;end_month&quot;</span><span class="p">:</span> <span class="s2">&quot;May&quot;</span><span class="p">,</span>
     <span class="nt">&quot;end_year&quot;</span><span class="p">:</span> <span class="mi">2019</span><span class="p">,</span>
     <span class="nt">&quot;funder&quot;</span><span class="p">:</span> <span class="s2">&quot;NSF&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;month&quot;</span><span class="p">:</span> <span class="s2">&quot;february&quot;</span><span class="p">,</span>
     <span class="nt">&quot;notes&quot;</span><span class="p">:</span> <span class="s2">&quot;Quite an idea&quot;</span><span class="p">,</span>
     <span class="nt">&quot;pi&quot;</span><span class="p">:</span> <span class="s2">&quot;Simon Billinge&quot;</span><span class="p">,</span>
     <span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;accepted&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;submitted_date&quot;</span><span class="p">:</span> <span class="s2">&quot;2015-02-02&quot;</span><span class="p">,</span>
     <span class="nt">&quot;team&quot;</span><span class="p">:</span> <span class="p">[</span>
         <span class="p">{</span>
             <span class="nt">&quot;institution&quot;</span><span class="p">:</span> <span class="s2">&quot;Columbia University&quot;</span><span class="p">,</span>
@@ -445,8 +450,7 @@
         <span class="p">}</span>
     <span class="p">],</span>
     <span class="nt">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;DMREF: Novel, data validated, nanostructure determination methods for accelerating materials discovery&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;title_short&quot;</span><span class="p">:</span> <span class="s2">&quot;DMREF nanostructure&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;year&quot;</span><span class="p">:</span> <span class="mi">2015</span>
+    <span class="nt">&quot;title_short&quot;</span><span class="p">:</span> <span class="s2">&quot;DMREF nanostructure&quot;</span>
 <span class="p">}</span>
 <span class="p">{</span>
     <span class="nt">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;mypropsal&quot;</span><span class="p">,</span>
@@ -459,7 +463,6 @@
     <span class="nt">&quot;begin_month&quot;</span><span class="p">:</span> <span class="s2">&quot;May&quot;</span><span class="p">,</span>
     <span class="nt">&quot;begin_year&quot;</span><span class="p">:</span> <span class="mi">2030</span><span class="p">,</span>
     <span class="nt">&quot;currency&quot;</span><span class="p">:</span> <span class="s2">&quot;USD&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;day&quot;</span><span class="p">:</span> <span class="mi">18</span><span class="p">,</span>
     <span class="nt">&quot;duration&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
     <span class="nt">&quot;end_day&quot;</span><span class="p">:</span> <span class="mi">31</span><span class="p">,</span>
     <span class="nt">&quot;end_month&quot;</span><span class="p">:</span> <span class="s2">&quot;December&quot;</span><span class="p">,</span>
@@ -472,7 +475,6 @@
         <span class="p">],</span>
         <span class="nt">&quot;narrative&quot;</span><span class="p">:</span> <span class="s2">&quot;http://some.com/pdf&quot;</span>
     <span class="p">},</span>
-    <span class="nt">&quot;month&quot;</span><span class="p">:</span> <span class="s2">&quot;Aug&quot;</span><span class="p">,</span>
     <span class="nt">&quot;notes&quot;</span><span class="p">:</span> <span class="s2">&quot;Quite an idea&quot;</span><span class="p">,</span>
     <span class="nt">&quot;pi&quot;</span><span class="p">:</span> <span class="s2">&quot;Anthony Scopatz&quot;</span><span class="p">,</span>
     <span class="nt">&quot;pre&quot;</span><span class="p">:</span> <span class="p">{</span>
@@ -487,8 +489,10 @@
         <span class="nt">&quot;year&quot;</span><span class="p">:</span> <span class="mi">1998</span>
     <span class="p">},</span>
     <span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;submitted&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;A very fine proposal indeed&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;year&quot;</span><span class="p">:</span> <span class="mi">1999</span>
+    <span class="nt">&quot;submitted_day&quot;</span><span class="p">:</span> <span class="mi">18</span><span class="p">,</span>
+    <span class="nt">&quot;submitted_month&quot;</span><span class="p">:</span> <span class="s2">&quot;Aug&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;submitted_year&quot;</span><span class="p">:</span> <span class="mi">1999</span><span class="p">,</span>
+    <span class="nt">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;A very fine proposal indeed&quot;</span>
 <span class="p">}</span>
 </pre></div>
 </div>

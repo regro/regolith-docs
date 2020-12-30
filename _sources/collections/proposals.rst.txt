@@ -22,8 +22,8 @@ The following lists key names mapped to its type and meaning for each entry.
 	:person_months_academic: ['float', 'integer'], optional
 	:person_months_summer: ['float', 'integer'], optional
 	:project_scope: string, optional
+	:single_pi: boolean, set to true if there are no co-pi's, optional
 :currency: string, typically '$' or 'USD', required
-:day: integer, day that the proposal was submitted, optional
 :due_date: ['string', 'date'], day that the proposal is due, optional
 :duration: ('integer', 'float'), number of years, optional
 :end_date: ['string', 'date'], end date of the proposed grant in format YYYY-MM-DD, optional
@@ -32,7 +32,6 @@ The following lists key names mapped to its type and meaning for each entry.
 :end_year: integer, end year of the proposed grant, optional
 :full: dict, full body of the proposal, optional
 :funder: string, who will fund the proposalas funder in grants, optional
-:month: ['string', 'integer'], month that the proposal was submitted, optional
 :notes: ['string', 'list'], anything you want to note, optional
 :pi: string, principal investigator name, required
 :pre: dict, Information about the pre-proposal, optional
@@ -44,6 +43,10 @@ The following lists key names mapped to its type and meaning for each entry.
 		* accepted
 		* inprep
 		* submitted
+:submitted_date: ['string', 'date'], date that the proposal was submitted, optional
+:submitted_day: integer, day that the proposal was submitted, optional
+:submitted_month: ['string', 'integer'], month that the proposal was submitted, optional
+:submitted_year: integer, Year that the proposal was submitted, optional
 :team: list, information about the team members participating in the grant., optional
 
 	:type: dict, optional
@@ -56,7 +59,6 @@ The following lists key names mapped to its type and meaning for each entry.
 		:subaward_amount: ('integer', 'float'), optional
 :title: string, actual title of proposal, required
 :title_short: string, short title of proposal, optional
-:year: integer, Year that the proposal was submitted, optional
 
 
 YAML Example
@@ -126,17 +128,17 @@ YAML Example
 	    person_months_academic: 0
 	    person_months_summer: 1
 	    project_scope: lots to do but it doesn't overlap with any other of my grants
+	    single_pi: true
 	  currency: USD
-	  day: 2
 	  duration: 3
 	  end_day: 1
 	  end_month: May
 	  end_year: 2019
 	  funder: NSF
-	  month: february
 	  notes: Quite an idea
 	  pi: Simon Billinge
 	  status: accepted
+	  submitted_date: '2015-02-02'
 	  team:
 	    - institution: Columbia University
 	      name: qdu
@@ -151,7 +153,6 @@ YAML Example
 	  title: 'DMREF: Novel, data validated, nanostructure determination methods for accelerating
 	    materials discovery'
 	  title_short: DMREF nanostructure
-	  year: 2015
 	mypropsal:
 	  amount: 1000000.0
 	  authors:
@@ -161,7 +162,6 @@ YAML Example
 	  begin_month: May
 	  begin_year: 2030
 	  currency: USD
-	  day: 18
 	  duration: 3
 	  end_day: 31
 	  end_month: December
@@ -172,7 +172,6 @@ YAML Example
 	      - http://pdf.com/scopatz-cv
 	      - http://pdf.com/flanagan-cv
 	    narrative: http://some.com/pdf
-	  month: Aug
 	  notes: Quite an idea
 	  pi: Anthony Scopatz
 	  pre:
@@ -185,8 +184,10 @@ YAML Example
 	    narrative: http://some.com/pdf
 	    year: 1998
 	  status: submitted
+	  submitted_day: 18
+	  submitted_month: Aug
+	  submitted_year: 1999
 	  title: A very fine proposal indeed
-	  year: 1999
 
 
 JSON/Mongo Example
@@ -266,19 +267,19 @@ JSON/Mongo Example
 	        "other_agencies_submitted": "None",
 	        "person_months_academic": 0,
 	        "person_months_summer": 1,
-	        "project_scope": "lots to do but it doesn't overlap with any other of my grants"
+	        "project_scope": "lots to do but it doesn't overlap with any other of my grants",
+	        "single_pi": true
 	    },
 	    "currency": "USD",
-	    "day": 2,
 	    "duration": 3,
 	    "end_day": 1,
 	    "end_month": "May",
 	    "end_year": 2019,
 	    "funder": "NSF",
-	    "month": "february",
 	    "notes": "Quite an idea",
 	    "pi": "Simon Billinge",
 	    "status": "accepted",
+	    "submitted_date": "2015-02-02",
 	    "team": [
 	        {
 	            "institution": "Columbia University",
@@ -298,8 +299,7 @@ JSON/Mongo Example
 	        }
 	    ],
 	    "title": "DMREF: Novel, data validated, nanostructure determination methods for accelerating materials discovery",
-	    "title_short": "DMREF nanostructure",
-	    "year": 2015
+	    "title_short": "DMREF nanostructure"
 	}
 	{
 	    "_id": "mypropsal",
@@ -312,7 +312,6 @@ JSON/Mongo Example
 	    "begin_month": "May",
 	    "begin_year": 2030,
 	    "currency": "USD",
-	    "day": 18,
 	    "duration": 3,
 	    "end_day": 31,
 	    "end_month": "December",
@@ -325,7 +324,6 @@ JSON/Mongo Example
 	        ],
 	        "narrative": "http://some.com/pdf"
 	    },
-	    "month": "Aug",
 	    "notes": "Quite an idea",
 	    "pi": "Anthony Scopatz",
 	    "pre": {
@@ -340,6 +338,8 @@ JSON/Mongo Example
 	        "year": 1998
 	    },
 	    "status": "submitted",
-	    "title": "A very fine proposal indeed",
-	    "year": 1999
+	    "submitted_day": 18,
+	    "submitted_month": "Aug",
+	    "submitted_year": 1999,
+	    "title": "A very fine proposal indeed"
 	}
