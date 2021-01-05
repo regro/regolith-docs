@@ -48,9 +48,9 @@ The following lists key names mapped to its type and meaning for each entry.
 :status: string, The status of the expense, optional
 
 	Allowed values: 
-		* reimbursed
-		* submitted
 		* unsubmitted
+		* submitted
+		* reimbursed
 
 
 YAML Example
