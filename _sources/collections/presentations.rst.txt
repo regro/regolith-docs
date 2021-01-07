@@ -31,6 +31,7 @@ The following lists key names mapped to its type and meaning for each entry.
 		* accepted
 		* declined
 		* cancelled
+		* postponed
 :title: string, title of the presentation, required
 :type: string, type of presentation, required
 
@@ -98,6 +99,7 @@ YAML Example
 	  abstract: We pulled apart graphite with tape
 	  authors:
 	    - scopatz
+	    - afriend
 	  begin_day: 22
 	  begin_month: 5
 	  begin_year: 2018
@@ -172,7 +174,8 @@ JSON/Mongo Example
 	    "_id": "18sb_this_and_that",
 	    "abstract": "We pulled apart graphite with tape",
 	    "authors": [
-	        "scopatz"
+	        "scopatz",
+	        "afriend"
 	    ],
 	    "begin_day": 22,
 	    "begin_month": 5,

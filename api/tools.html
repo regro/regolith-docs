@@ -421,6 +421,30 @@ multiple potential sources</p>
 </dd></dl>
 
 <dl class="function">
+<dt id="regolith.tools.get_person_contact">
+<code class="sig-prename descclassname">regolith.tools.</code><code class="sig-name descname">get_person_contact</code><span class="sig-paren">(</span><em class="sig-param">name</em>, <em class="sig-param">people_coll</em>, <em class="sig-param">contacts_coll</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#get_person_contact"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.tools.get_person_contact" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a person document if found in either people or contacts collections</p>
+<p>If the person is found in the people collection this person is returned.  If
+not found in people but found in contacts, the person found in contacts is
+returned.  If the person is not found in either collection, None is returned</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> (<em>str</em>) – The name or id of the person to look for</p></li>
+<li><p><strong>people_coll</strong> (<em>collection (list of dicts)</em>) – The people collection</p></li>
+<li><p><strong>contacts_coll</strong> (<em>collection (list of dicts)</em>) – The contacts collection</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>person</strong> – The found person document</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
 <dt id="regolith.tools.get_pi_id">
 <code class="sig-prename descclassname">regolith.tools.</code><code class="sig-name descname">get_pi_id</code><span class="sig-paren">(</span><em class="sig-param">rc</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#get_pi_id"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.tools.get_pi_id" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets the database id of the group PI</p>
