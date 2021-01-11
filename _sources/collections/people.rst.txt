@@ -211,6 +211,7 @@ The following lists key names mapped to its type and meaning for each entry.
 		:name: string, optional
 		:year: integer, optional
 :initials: string, The canonical initials for this group member, optional
+:linkedin_url: string, The URL of this person's LinkedIn account, optional
 :membership: list, Professional organizations this member is a part of, optional
 
 	:type: dict, optional
@@ -504,6 +505,7 @@ YAML Example
 	    street: 123 Wallabe Ln
 	    zip: '007'
 	  initials: SJLB
+	  linkedin_url: https://scholar.google.com/citations?hl=en&user=PAJ
 	  membership:
 	    - begin_year: 2006
 	      organization: American Nuclear Society
@@ -1140,6 +1142,7 @@ JSON/Mongo Example
 	        "zip": "007"
 	    },
 	    "initials": "SJLB",
+	    "linkedin_url": "https://scholar.google.com/citations?hl=en&user=PAJ",
 	    "membership": [
 	        {
 	            "begin_year": 2006,
