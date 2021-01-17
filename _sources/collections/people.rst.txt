@@ -370,11 +370,10 @@ The following lists key names mapped to its type and meaning for each entry.
 
 	:type: dict, optional
 
-		:assigned_by: string, ID of the member that assigns the task, optional
-		:begin_date: ['string', 'date'], the begin date, optional
-		:end_date: ['string', 'date'], the end date, optional
 		:description: string, the description of the to-do task, optional
 		:due_date: ['string', 'date'], the due date, optional
+		:begin_date: ['string', 'date'], the begin date, optional
+		:end_date: ['string', 'date'], the end date, optional
 		:duration: float, the size of the task/ the estimated duration it will take to finish the task. Unit: miniutes., optional
 		:importance: integer, the importance, from 0 to 2, optional
 		:status: string, the status: started/finished/cancelled, optional
@@ -382,7 +381,7 @@ The following lists key names mapped to its type and meaning for each entry.
 
 			:type: string, optional
 		:running_index: integer, Index of a certain task used to update that task in the enumerated todo list., optional
-		:tags: list, user-defined tags that can be used to filter tasks, optional
+		:assigned_by: string, ID of the member that assigns the task, optional
 
 
 YAML Example
@@ -704,9 +703,6 @@ YAML Example
 	      importance: 2
 	      running_index: 1
 	      status: started
-	      tags:
-	        - reading
-	        - downtime
 	    - assigned_by: sbillinge
 	      begin_date: '2020-06-22'
 	      description: prepare the presentation
@@ -718,8 +714,6 @@ YAML Example
 	        - don't forget to upload to the website
 	      running_index: 2
 	      status: started
-	      tags:
-	        - downtime
 	scopatz:
 	  aka:
 	    - Scopatz
@@ -1393,11 +1387,7 @@ JSON/Mongo Example
 	            "duration": 60.0,
 	            "importance": 2,
 	            "running_index": 1,
-	            "status": "started",
-	            "tags": [
-	                "reading",
-	                "downtime"
-	            ]
+	            "status": "started"
 	        },
 	        {
 	            "assigned_by": "sbillinge",
@@ -1411,10 +1401,7 @@ JSON/Mongo Example
 	                "don't forget to upload to the website"
 	            ],
 	            "running_index": 2,
-	            "status": "started",
-	            "tags": [
-	                "downtime"
-	            ]
+	            "status": "started"
 	        }
 	    ]
 	}

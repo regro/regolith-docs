@@ -886,32 +886,29 @@
 <dt class="field-odd">type</dt>
 <dd class="field-odd"><p>dict, optional</p>
 <dl class="field-list simple">
-<dt class="field-odd">assigned_by</dt>
-<dd class="field-odd"><p>string, ID of the member that assigns the task, optional</p>
+<dt class="field-odd">description</dt>
+<dd class="field-odd"><p>string, the description of the to-do task, optional</p>
 </dd>
-<dt class="field-even">begin_date</dt>
-<dd class="field-even"><p>[‘string’, ‘date’], the begin date, optional</p>
+<dt class="field-even">due_date</dt>
+<dd class="field-even"><p>[‘string’, ‘date’], the due date, optional</p>
 </dd>
-<dt class="field-odd">end_date</dt>
-<dd class="field-odd"><p>[‘string’, ‘date’], the end date, optional</p>
+<dt class="field-odd">begin_date</dt>
+<dd class="field-odd"><p>[‘string’, ‘date’], the begin date, optional</p>
 </dd>
-<dt class="field-even">description</dt>
-<dd class="field-even"><p>string, the description of the to-do task, optional</p>
+<dt class="field-even">end_date</dt>
+<dd class="field-even"><p>[‘string’, ‘date’], the end date, optional</p>
 </dd>
-<dt class="field-odd">due_date</dt>
-<dd class="field-odd"><p>[‘string’, ‘date’], the due date, optional</p>
+<dt class="field-odd">duration</dt>
+<dd class="field-odd"><p>float, the size of the task/ the estimated duration it will take to finish the task. Unit: miniutes., optional</p>
 </dd>
-<dt class="field-even">duration</dt>
-<dd class="field-even"><p>float, the size of the task/ the estimated duration it will take to finish the task. Unit: miniutes., optional</p>
+<dt class="field-even">importance</dt>
+<dd class="field-even"><p>integer, the importance, from 0 to 2, optional</p>
 </dd>
-<dt class="field-odd">importance</dt>
-<dd class="field-odd"><p>integer, the importance, from 0 to 2, optional</p>
+<dt class="field-odd">status</dt>
+<dd class="field-odd"><p>string, the status: started/finished/cancelled, optional</p>
 </dd>
-<dt class="field-even">status</dt>
-<dd class="field-even"><p>string, the status: started/finished/cancelled, optional</p>
-</dd>
-<dt class="field-odd">notes</dt>
-<dd class="field-odd"><p>list, additional notes for this task, optional</p>
+<dt class="field-even">notes</dt>
+<dd class="field-even"><p>list, additional notes for this task, optional</p>
 <dl class="field-list simple">
 <dt class="field-odd">type</dt>
 <dd class="field-odd"><p>string, optional</p>
@@ -921,8 +918,8 @@
 <dt class="field-even">running_index</dt>
 <dd class="field-even"><p>integer, Index of a certain task used to update that task in the enumerated todo list., optional</p>
 </dd>
-<dt class="field-odd">tags</dt>
-<dd class="field-odd"><p>list, user-defined tags that can be used to filter tasks, optional</p>
+<dt class="field-odd">assigned_by</dt>
+<dd class="field-odd"><p>string, ID of the member that assigns the task, optional</p>
 </dd>
 </dl>
 </dd>
@@ -1246,9 +1243,6 @@
       <span class="nt">importance</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">2</span>
       <span class="nt">running_index</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
       <span class="nt">status</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">started</span>
-      <span class="nt">tags</span><span class="p">:</span>
-        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">reading</span>
-        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">downtime</span>
     <span class="p p-Indicator">-</span> <span class="nt">assigned_by</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">sbillinge</span>
       <span class="nt">begin_date</span><span class="p">:</span> <span class="s">&#39;2020-06-22&#39;</span>
       <span class="nt">description</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">prepare the presentation</span>
@@ -1260,8 +1254,6 @@
         <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">don&#39;t forget to upload to the website</span>
       <span class="nt">running_index</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">2</span>
       <span class="nt">status</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">started</span>
-      <span class="nt">tags</span><span class="p">:</span>
-        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">downtime</span>
 <span class="nt">scopatz</span><span class="p">:</span>
   <span class="nt">aka</span><span class="p">:</span>
     <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Scopatz</span>
@@ -1933,11 +1925,7 @@
             <span class="nt">&quot;duration&quot;</span><span class="p">:</span> <span class="mf">60.0</span><span class="p">,</span>
             <span class="nt">&quot;importance&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
             <span class="nt">&quot;running_index&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
-            <span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;started&quot;</span><span class="p">,</span>
-            <span class="nt">&quot;tags&quot;</span><span class="p">:</span> <span class="p">[</span>
-                <span class="s2">&quot;reading&quot;</span><span class="p">,</span>
-                <span class="s2">&quot;downtime&quot;</span>
-            <span class="p">]</span>
+            <span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;started&quot;</span>
         <span class="p">},</span>
         <span class="p">{</span>
             <span class="nt">&quot;assigned_by&quot;</span><span class="p">:</span> <span class="s2">&quot;sbillinge&quot;</span><span class="p">,</span>
@@ -1951,10 +1939,7 @@
                 <span class="s2">&quot;don&#39;t forget to upload to the website&quot;</span>
             <span class="p">],</span>
             <span class="nt">&quot;running_index&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
-            <span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;started&quot;</span><span class="p">,</span>
-            <span class="nt">&quot;tags&quot;</span><span class="p">:</span> <span class="p">[</span>
-                <span class="s2">&quot;downtime&quot;</span>
-            <span class="p">]</span>
+            <span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;started&quot;</span>
         <span class="p">}</span>
     <span class="p">]</span>
 <span class="p">}</span>
