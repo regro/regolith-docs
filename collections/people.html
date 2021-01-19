@@ -882,10 +882,10 @@
 </dd>
 <dt class="field-odd">todos</dt>
 <dd class="field-odd"><p>list, a list of the todo tasks, optional</p>
-<dl class="field-list simple">
+<dl class="field-list">
 <dt class="field-odd">type</dt>
 <dd class="field-odd"><p>dict, optional</p>
-<dl class="field-list simple">
+<dl class="field-list">
 <dt class="field-odd">assigned_by</dt>
 <dd class="field-odd"><p>string, ID of the member that assigns the task, optional</p>
 </dd>
@@ -895,23 +895,35 @@
 <dt class="field-odd">end_date</dt>
 <dd class="field-odd"><p>[‘string’, ‘date’], the end date, optional</p>
 </dd>
-<dt class="field-even">description</dt>
-<dd class="field-even"><p>string, the description of the to-do task, optional</p>
+<dt class="field-even">deadline</dt>
+<dd class="field-even"><p>boolean, true if the due date is a hard deadline, optional</p>
 </dd>
-<dt class="field-odd">due_date</dt>
-<dd class="field-odd"><p>[‘string’, ‘date’], the due date, optional</p>
+<dt class="field-odd">description</dt>
+<dd class="field-odd"><p>string, the description of the to-do task, optional</p>
 </dd>
-<dt class="field-even">duration</dt>
-<dd class="field-even"><p>float, the size of the task/ the estimated duration it will take to finish the task. Unit: miniutes., optional</p>
+<dt class="field-even">due_date</dt>
+<dd class="field-even"><p>[‘string’, ‘date’], the due date, optional</p>
 </dd>
-<dt class="field-odd">importance</dt>
-<dd class="field-odd"><p>integer, the importance, from 0 to 2, optional</p>
+<dt class="field-odd">duration</dt>
+<dd class="field-odd"><p>float, the size of the task/ the estimated duration it will take to finish the task. Unit: miniutes., optional</p>
 </dd>
-<dt class="field-even">status</dt>
-<dd class="field-even"><p>string, the status: started/finished/cancelled, optional</p>
+<dt class="field-even">importance</dt>
+<dd class="field-even"><p>integer, the importance, from 0 to 3, optional</p>
 </dd>
-<dt class="field-odd">notes</dt>
-<dd class="field-odd"><p>list, additional notes for this task, optional</p>
+<dt class="field-odd">status</dt>
+<dd class="field-odd"><p>string, the status: started/finished/cancelled, optional</p>
+<dl class="simple">
+<dt>Allowed values:</dt><dd><ul class="simple">
+<li><p>started</p></li>
+<li><p>finished</p></li>
+<li><p>cancelled</p></li>
+<li><p>paused</p></li>
+</ul>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">notes</dt>
+<dd class="field-even"><p>list, additional notes for this task, optional</p>
 <dl class="field-list simple">
 <dt class="field-odd">type</dt>
 <dd class="field-odd"><p>string, optional</p>
@@ -1240,6 +1252,7 @@
   <span class="nt">todos</span><span class="p">:</span>
     <span class="p p-Indicator">-</span> <span class="nt">assigned_by</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">scopatz</span>
       <span class="nt">begin_date</span><span class="p">:</span> <span class="s">&#39;2020-06-15&#39;</span>
+      <span class="nt">deadline</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
       <span class="nt">description</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">read paper</span>
       <span class="nt">due_date</span><span class="p">:</span> <span class="s">&#39;2020-07-19&#39;</span>
       <span class="nt">duration</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">60.0</span>
@@ -1928,6 +1941,7 @@
         <span class="p">{</span>
             <span class="nt">&quot;assigned_by&quot;</span><span class="p">:</span> <span class="s2">&quot;scopatz&quot;</span><span class="p">,</span>
             <span class="nt">&quot;begin_date&quot;</span><span class="p">:</span> <span class="s2">&quot;2020-06-15&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;deadline&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
             <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;read paper&quot;</span><span class="p">,</span>
             <span class="nt">&quot;due_date&quot;</span><span class="p">:</span> <span class="s2">&quot;2020-07-19&quot;</span><span class="p">,</span>
             <span class="nt">&quot;duration&quot;</span><span class="p">:</span> <span class="mf">60.0</span><span class="p">,</span>

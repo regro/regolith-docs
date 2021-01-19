@@ -373,11 +373,18 @@ The following lists key names mapped to its type and meaning for each entry.
 		:assigned_by: string, ID of the member that assigns the task, optional
 		:begin_date: ['string', 'date'], the begin date, optional
 		:end_date: ['string', 'date'], the end date, optional
+		:deadline: boolean, true if the due date is a hard deadline, optional
 		:description: string, the description of the to-do task, optional
 		:due_date: ['string', 'date'], the due date, optional
 		:duration: float, the size of the task/ the estimated duration it will take to finish the task. Unit: miniutes., optional
-		:importance: integer, the importance, from 0 to 2, optional
+		:importance: integer, the importance, from 0 to 3, optional
 		:status: string, the status: started/finished/cancelled, optional
+
+			Allowed values: 
+				* started
+				* finished
+				* cancelled
+				* paused
 		:notes: list, additional notes for this task, optional
 
 			:type: string, optional
@@ -698,6 +705,7 @@ YAML Example
 	  todos:
 	    - assigned_by: scopatz
 	      begin_date: '2020-06-15'
+	      deadline: true
 	      description: read paper
 	      due_date: '2020-07-19'
 	      duration: 60.0
@@ -1388,6 +1396,7 @@ JSON/Mongo Example
 	        {
 	            "assigned_by": "scopatz",
 	            "begin_date": "2020-06-15",
+	            "deadline": true,
 	            "description": "read paper",
 	            "due_date": "2020-07-19",
 	            "duration": 60.0,
