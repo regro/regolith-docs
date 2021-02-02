@@ -51,6 +51,7 @@
 ./_sources/collections/news.rst.txt
 ./_sources/collections/people.rst.txt
 ./_sources/collections/presentations.rst.txt
+./_sources/collections/projecta.rst.txt
 ./_sources/collections/projects.rst.txt
 ./_sources/collections/proposalReviews.rst.txt
 ./_sources/collections/proposals.rst.txt
@@ -142,6 +143,7 @@
 ./collections/news.html
 ./collections/people.html
 ./collections/presentations.html
+./collections/projecta.html
 ./collections/projects.html
 ./collections/proposalReviews.html
 ./collections/proposals.html

@@ -1,0 +1,282 @@
+Projecta
+========
+This collection describes a single deliverable of a larger project.
+
+Schema
+------
+The following lists key names mapped to its type and meaning for each entry.
+
+:_id: string, Unique projectum identifier, required
+:begin_date: ['string', 'date'], projectum start date, yyyy-mm-dd, optional
+:collaborators: list, list of collaborators ids. These are non-group members. These will be dereferenced from the contacts collection., optional
+:deliverable: dict, outline of the deliverable for this projectum, optional
+
+	:audience: list, the target audience for this deliverable, optional
+	:due_date: ['date', 'string'], due date of deliverable, yyyy-mm-dd, optional
+	:success_def: string, definition of a successful deliverable, optional
+	:scope: list, a list of items that define the scope of the deliverable.If this is a software release it might be a list of Use Cases that will be satisfied.If it is a paper it defines what will, and what won't, be described in the paper., optional
+	:platform: string, description of how and where the audience will access the deliverable.e.g. Journal if it is a paper. For software releases, this may be the computer operating systems that will be supported, or if it will be a web service, etc., optional
+	:roll_out: list, steps that the audience will take to access and interact with the deliverable, not needed for paper submissions, optional
+	:notes: list, any notes about the deliverable that we want to keep track of, optional
+	:status: string, current state of deliverable Allowed values are proposed, started, converged, finished, cancelled, paused, optional
+
+		Allowed values: 
+			* proposed
+			* started
+			* converged
+			* finished
+			* cancelled
+			* paused
+:description: string, explanation of projectum, optional
+:end_date: ['date', 'string'], projectum end date, yyyy-mm-dd., optional
+:grants: ['string', 'list'], grant id funding the project, optional
+:group_members: list, list of group member id's working on this project,These will be dereferenced from the people collection., optional
+:kickoff: dict, details the projectum kickoff meeting, optional
+
+	:date: ['date', 'string'], kickoff meeting date, yyyy-mm-dd., optional
+	:due_date: ['date', 'string'], kickoff meeting by date, yyyy-mm-dd., optional
+	:name: string, name of meeting, optional
+	:objective: string, goal of the meeting, optional
+	:audience: list, list of people attending the meeting.Normally this list is group_members, collaborators, and pi, or some subset of these. if people are invited who are not alreadyin these groups their names or id's can be added explicitly to the list, optional
+	:notes: list, any notes about the kickoff, optional
+	:status: string, status of the kickoff. Allowed values are proposed, started, converged, finished, cancelled, paused, optional
+
+		Allowed values: 
+			* proposed
+			* started
+			* converged
+			* finished
+			* cancelled
+			* paused
+:lead: string, the id of the lead student or person for the projectum. Person details will be dereferenced from the people collection., optional
+:log_url: string, link to an online document (e.g., Google doc) that is a log of notes and meeting minutes for the projectum, optional
+:milestones: list, smaller deliverables done by a certain date a series of milestones ends with the projectum deliverable, optional
+
+	:type: dict, optional
+
+		:due_date: ['date', 'string'], due date of milestone, yyyy-mm-dd, optional
+		:name: string, what is the deliverable of milestone, optional
+		:notes: list, any notes about the milestone and/or small, non-deliverable to-dos to reach the milestone, optional
+		:progress: list, update on the milestone, optional
+
+			:type: dict, optional
+
+				:text: string, text description of progress and observations, optional
+				:figure: string, token that dereferences a figure or image in group local storage db, optional
+				:slides_url: string, url to slides describing the development, e.g., Google slides url, optional
+		:objective: string, explains goal of the milestone, optional
+		:audience: list, list of people attending the meeting.Normally this list is group_members, collaborators, and pi, or some subset of these. if people are invited who are not alreadyin these groups their names or id's can be added explicitly to the list, optional
+		:status: string, status of the milestone. Allowed values are proposed, started, converged, finished, cancelled, paused, optional
+
+			Allowed values: 
+				* proposed
+				* started
+				* converged
+				* finished
+				* cancelled
+				* paused
+		:type: string, type of milestone deliverable. Allowed values are pr, meeting, other, paper, release, email, handin, approval, presentation, report, submission, decision, demo, skel, optional
+
+			Allowed values: 
+				* pr
+				* meeting
+				* other
+				* paper
+				* release
+				* email
+				* handin
+				* approval
+				* presentation
+				* report
+				* submission
+				* decision
+				* demo
+				* skel
+:name: string, name of the projectum, optional
+:pi_id: string, id of the PI, optional
+:status: string, status of the projectum. Allowed values are proposed, started, converged, finished, cancelled, paused, optional
+
+	Allowed values: 
+		* proposed
+		* started
+		* converged
+		* finished
+		* cancelled
+		* paused
+
+
+YAML Example
+------------
+
+.. code-block:: yaml
+
+	sb_firstprojectum:
+	  begin_date: '2020-04-28'
+	  collaborators:
+	    - aeinstein
+	    - pdirac
+	  deliverable:
+	    audience:
+	      - beginning grad in chemistry
+	    due_date: '2021-05-05'
+	    notes:
+	      - deliverable note
+	    platform: description of how and where the audience will access the deliverable.  Journal
+	      if it is a paper
+	    roll_out:
+	      - steps that the audience will take to access and interact with the deliverable
+	      - not needed for paper submissions
+	    scope:
+	      - UCs that are supported or some other scope description if it is software
+	      - sketch of science story if it is paper
+	    status: proposed
+	    success_def: audience is happy
+	  description: My first projectum
+	  end_date: '2020-06-05'
+	  grants: SymPy-1.1
+	  group_members:
+	    - ascopatz
+	  kickoff:
+	    audience:
+	      - lead
+	      - pi
+	      - group_members
+	    date: '2020-05-05'
+	    due_date: '2020-05-06'
+	    name: Kick off meeting
+	    notes:
+	      - kickoff note
+	    objective: introduce project to the lead
+	    status: finished
+	  lead: ascopatz
+	  log_url: https://docs.google.com/document/d/1YC_wtW5Q
+	  milestones:
+	    - audience:
+	        - lead
+	        - pi
+	        - group_members
+	      due_date: '2020-05-20'
+	      name: Project lead presentation
+	      notes:
+	        - do background reading
+	        - understand math
+	      objective: lead presents background reading and initial project plan
+	      progress:
+	        - figure: token that dereferences a figure or image in group local storage
+	            db
+	          slides_url: url to slides describing the development, e.g. Google slides
+	            url
+	          text: The samples have been synthesized and places in the sample cupboard.
+	            They turned out well and are blue as expected
+	      status: proposed
+	      type: meeting
+	    - audience:
+	        - lead
+	        - pi
+	        - group_members
+	      due_date: '2020-05-27'
+	      name: planning meeting
+	      objective: develop a detailed plan with dates
+	      status: proposed
+	      type: pr
+	  name: First Projectum
+	  pi_id: scopatz
+	  status: started
+
+
+JSON/Mongo Example
+------------------
+
+.. code-block:: json
+
+	{
+	    "_id": "sb_firstprojectum",
+	    "begin_date": "2020-04-28",
+	    "collaborators": [
+	        "aeinstein",
+	        "pdirac"
+	    ],
+	    "deliverable": {
+	        "audience": [
+	            "beginning grad in chemistry"
+	        ],
+	        "due_date": "2021-05-05",
+	        "notes": [
+	            "deliverable note"
+	        ],
+	        "platform": "description of how and where the audience will access the deliverable.  Journal if it is a paper",
+	        "roll_out": [
+	            "steps that the audience will take to access and interact with the deliverable",
+	            "not needed for paper submissions"
+	        ],
+	        "scope": [
+	            "UCs that are supported or some other scope description if it is software",
+	            "sketch of science story if it is paper"
+	        ],
+	        "status": "proposed",
+	        "success_def": "audience is happy"
+	    },
+	    "description": "My first projectum",
+	    "end_date": "2020-06-05",
+	    "grants": "SymPy-1.1",
+	    "group_members": [
+	        "ascopatz"
+	    ],
+	    "kickoff": {
+	        "audience": [
+	            "lead",
+	            "pi",
+	            "group_members"
+	        ],
+	        "date": "2020-05-05",
+	        "due_date": "2020-05-06",
+	        "name": "Kick off meeting",
+	        "notes": [
+	            "kickoff note"
+	        ],
+	        "objective": "introduce project to the lead",
+	        "status": "finished"
+	    },
+	    "lead": "ascopatz",
+	    "log_url": "https://docs.google.com/document/d/1YC_wtW5Q",
+	    "milestones": [
+	        {
+	            "audience": [
+	                "lead",
+	                "pi",
+	                "group_members"
+	            ],
+	            "due_date": "2020-05-20",
+	            "name": "Project lead presentation",
+	            "notes": [
+	                "do background reading",
+	                "understand math"
+	            ],
+	            "objective": "lead presents background reading and initial project plan",
+	            "progress": [
+	                {
+	                    "figure": "token that dereferences a figure or image in group local storage db",
+	                    "slides_url": "url to slides describing the development, e.g. Google slides url",
+	                    "text": "The samples have been synthesized and places in the sample cupboard. They turned out well and are blue as expected"
+	                }
+	            ],
+	            "status": "proposed",
+	            "type": "meeting"
+	        },
+	        {
+	            "audience": [
+	                "lead",
+	                "pi",
+	                "group_members"
+	            ],
+	            "due_date": "2020-05-27",
+	            "name": "planning meeting",
+	            "objective": "develop a detailed plan with dates",
+	            "status": "proposed",
+	            "type": "pr"
+	        }
+	    ],
+	    "name": "First Projectum",
+	    "pi_id": "scopatz",
+	    "status": "started"
+	}
