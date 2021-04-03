@@ -410,9 +410,22 @@ multiple potential sources</p>
 </dd></dl>
 
 <dl class="function">
-<dt id="regolith.tools.get_crossref_reference">
-<code class="sig-prename descclassname">regolith.tools.</code><code class="sig-name descname">get_crossref_reference</code><span class="sig-paren">(</span><em class="sig-param">doi</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#get_crossref_reference"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.tools.get_crossref_reference" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dt id="regolith.tools.get_formatted_crossref_reference">
+<code class="sig-prename descclassname">regolith.tools.</code><code class="sig-name descname">get_formatted_crossref_reference</code><span class="sig-paren">(</span><em class="sig-param">doi</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#get_formatted_crossref_reference"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.tools.get_formatted_crossref_reference" title="Permalink to this definition">¶</a></dt>
+<dd><p>given a doi, return the full reference and the date of the reference from Crossref REST-API</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>doi str</strong> – the doi of the digital object to pull from Crossref</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><em>ref str</em> – the nicely formatted reference including title</p></li>
+<li><p><em>ref_date datetime.date</em> – the date of the reference</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="function">
 <dt id="regolith.tools.get_id_from_name">
