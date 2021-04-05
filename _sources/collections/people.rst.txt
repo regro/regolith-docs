@@ -717,6 +717,14 @@ YAML Example
 	      notes: []
 	      status: proposed
 	      type: ss
+	    ss21:
+	      begin_date: '2020-09-01'
+	      end_date: '2021-08-31'
+	      grant: future_grant
+	      loading: 1.0
+	      notes: []
+	      status: proposed
+	      type: ss
 	  avatar: https://avatars1.githubusercontent.com/u/320553?v=3&s=200
 	  bio: Anthony Scopatz is currently an Assistant Professor
 	  bios:
@@ -1385,6 +1393,15 @@ JSON/Mongo Example
 	            "end_date": "2020-08-31",
 	            "grant": "abc42",
 	            "loading": 0.8,
+	            "notes": [],
+	            "status": "proposed",
+	            "type": "ss"
+	        },
+	        "ss21": {
+	            "begin_date": "2020-09-01",
+	            "end_date": "2021-08-31",
+	            "grant": "future_grant",
+	            "loading": 1.0,
 	            "notes": [],
 	            "status": "proposed",
 	            "type": "ss"
