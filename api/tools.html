@@ -331,7 +331,7 @@ software, defaults to None</p></li>
 
 <dl class="function">
 <dt id="regolith.tools.filter_publications">
-<code class="sig-prename descclassname">regolith.tools.</code><code class="sig-name descname">filter_publications</code><span class="sig-paren">(</span><em class="sig-param">citations</em>, <em class="sig-param">authors</em>, <em class="sig-param">reverse=False</em>, <em class="sig-param">bold=True</em>, <em class="sig-param">since=None</em>, <em class="sig-param">before=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#filter_publications"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.tools.filter_publications" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">regolith.tools.</code><code class="sig-name descname">filter_publications</code><span class="sig-paren">(</span><em class="sig-param">citations</em>, <em class="sig-param">authors</em>, <em class="sig-param">reverse=False</em>, <em class="sig-param">bold=True</em>, <em class="sig-param">since=None</em>, <em class="sig-param">before=None</em>, <em class="sig-param">ackno=False</em>, <em class="sig-param">grants=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#filter_publications"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.tools.filter_publications" title="Permalink to this definition">¶</a></dt>
 <dd><p>Filter publications by the author(s)/editor(s)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -342,6 +342,9 @@ software, defaults to None</p></li>
 <li><p><strong>bold</strong> (<em>bool, optional</em>) – If True put latex bold around the author(s) in question</p></li>
 <li><p><strong>since</strong> (<em>date, optional</em>) – The date after which papers must have been published</p></li>
 <li><p><strong>before</strong> (<em>date, optional</em>) – The date before which papers must have been published</p></li>
+<li><p><strong>ackno</strong> (<em>bool</em>) – Move the acknowledgement statement to note so that it is displayed in the
+publication list</p></li>
+<li><p><strong>grants</strong> (<em>string or list of strings, optional</em>) – The grant or grants to filter over</p></li>
 </ul>
 </dd>
 </dl>
