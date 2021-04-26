@@ -8,11 +8,12 @@ The following lists key names mapped to its type and meaning for each entry.
 
 :_id: ('string', 'integer', 'float'), ID, e.g. 1906_doe_example, required
 :adequacy_of_resources: list, Are the resources of the PI adequate, required
-:agency: string, currently nsf or doe, optional
+:agency: string, currently nsf, doe or other, optional
 
 	Allowed values: 
 		* nsf
 		* doe
+		* other
 :competency_of_team: list, Is the team competent, required
 :doe_appropriateness_of_approach: list, Appropriateness of Research. only used if agency is doe., optional
 :doe_reasonableness_of_budget: list, Reasonableness of budget. only used if agency is doe., optional
@@ -20,7 +21,7 @@ The following lists key names mapped to its type and meaning for each entry.
 :does_how: list, How will the research be done, required
 :does_what: string, What will the team do, required
 :due_date: ['string', 'date'], date the review is due in ISO format, required
-:freewrite: list, Anything and this will appear in the built documentright before the summary.  This section often used for extra review criteria for the particular proposal, optional
+:freewrite: ['string', 'list'], Anything and this will appear in the built documentright before the summary.  This section often used for extra review criteria for the particular proposal, optional
 :goals: list, What are the main goals of the proposed research, required
 :importance: list, The importance of the Research, required
 :institutions: ['string', 'list'], The institutions of the authors in the same order, required
@@ -109,9 +110,7 @@ YAML Example
 	    - when they find it they will determine a cure
 	  does_what: Find a cure for Poverty
 	  due_date: '2020-04-10'
-	  freewrite:
-	    - I can put extra things here, such as special instructions from the
-	    - program officer
+	  freewrite: I can put extra things here, such as special instructions from the
 	  goals:
 	    - The goals of the proposal are to put together a team to find a curefor Poverty,
 	      and then to find it
@@ -217,10 +216,7 @@ JSON/Mongo Example
 	    ],
 	    "does_what": "Find a cure for Poverty",
 	    "due_date": "2020-04-10",
-	    "freewrite": [
-	        "I can put extra things here, such as special instructions from the",
-	        "program officer"
-	    ],
+	    "freewrite": "I can put extra things here, such as special instructions from the",
 	    "goals": [
 	        "The goals of the proposal are to put together a team to find a curefor Poverty, and then to find it"
 	    ],

@@ -78,11 +78,12 @@
 <dd class="field-even"><p>list, Are the resources of the PI adequate, required</p>
 </dd>
 <dt class="field-odd">agency</dt>
-<dd class="field-odd"><p>string, currently nsf or doe, optional</p>
+<dd class="field-odd"><p>string, currently nsf, doe or other, optional</p>
 <dl class="simple">
 <dt>Allowed values:</dt><dd><ul class="simple">
 <li><p>nsf</p></li>
 <li><p>doe</p></li>
+<li><p>other</p></li>
 </ul>
 </dd>
 </dl>
@@ -109,7 +110,7 @@
 <dd class="field-even"><p>[‘string’, ‘date’], date the review is due in ISO format, required</p>
 </dd>
 <dt class="field-odd">freewrite</dt>
-<dd class="field-odd"><p>list, Anything and this will appear in the built documentright before the summary.  This section often used for extra review criteria for the particular proposal, optional</p>
+<dd class="field-odd"><p>[‘string’, ‘list’], Anything and this will appear in the built documentright before the summary.  This section often used for extra review criteria for the particular proposal, optional</p>
 </dd>
 <dt class="field-even">goals</dt>
 <dd class="field-even"><p>list, What are the main goals of the proposed research, required</p>
@@ -231,9 +232,7 @@
     <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">when they find it they will determine a cure</span>
   <span class="nt">does_what</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Find a cure for Poverty</span>
   <span class="nt">due_date</span><span class="p">:</span> <span class="s">&#39;2020-04-10&#39;</span>
-  <span class="nt">freewrite</span><span class="p">:</span>
-    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">I can put extra things here, such as special instructions from the</span>
-    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">program officer</span>
+  <span class="nt">freewrite</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">I can put extra things here, such as special instructions from the</span>
   <span class="nt">goals</span><span class="p">:</span>
     <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">The goals of the proposal are to put together a team to find a curefor Poverty,</span>
       <span class="l l-Scalar l-Scalar-Plain">and then to find it</span>
@@ -337,10 +336,7 @@
     <span class="p">],</span>
     <span class="nt">&quot;does_what&quot;</span><span class="p">:</span> <span class="s2">&quot;Find a cure for Poverty&quot;</span><span class="p">,</span>
     <span class="nt">&quot;due_date&quot;</span><span class="p">:</span> <span class="s2">&quot;2020-04-10&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;freewrite&quot;</span><span class="p">:</span> <span class="p">[</span>
-        <span class="s2">&quot;I can put extra things here, such as special instructions from the&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;program officer&quot;</span>
-    <span class="p">],</span>
+    <span class="nt">&quot;freewrite&quot;</span><span class="p">:</span> <span class="s2">&quot;I can put extra things here, such as special instructions from the&quot;</span><span class="p">,</span>
     <span class="nt">&quot;goals&quot;</span><span class="p">:</span> <span class="p">[</span>
         <span class="s2">&quot;The goals of the proposal are to put together a team to find a curefor Poverty, and then to find it&quot;</span>
     <span class="p">],</span>
