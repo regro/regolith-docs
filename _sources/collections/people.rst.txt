@@ -98,20 +98,20 @@ The following lists key names mapped to its type and meaning for each entry.
 				* editor
 				* unknown
 				* undergraduate research assistant
+				* undergraduate researcher
 				* intern
 				* visiting student
-				* masters research assistant
 				* research assistant
+				* masters research assistant
+				* masters researcher
 				* graduate research assistant
 				* teaching assistant
 				* post-doctoral scholar
 				* research fellow
 				* assistant scientist
 				* assistant lecturer
-				* research assistant professor
 				* research scientist
 				* lecturer
-				* associate scientist
 				* adjunct scientist
 				* senior assistant lecturer
 				* research associate
@@ -122,6 +122,8 @@ The following lists key names mapped to its type and meaning for each entry.
 				* programer
 				* programmer
 				* visiting scientist
+				* research assistant professor
+				* associate scientist
 				* assistant professor
 				* assistant physicist
 				* associate professor
@@ -237,20 +239,20 @@ The following lists key names mapped to its type and meaning for each entry.
 		* editor
 		* unknown
 		* undergraduate research assistant
+		* undergraduate researcher
 		* intern
 		* visiting student
-		* masters research assistant
 		* research assistant
+		* masters research assistant
+		* masters researcher
 		* graduate research assistant
 		* teaching assistant
 		* post-doctoral scholar
 		* research fellow
 		* assistant scientist
 		* assistant lecturer
-		* research assistant professor
 		* research scientist
 		* lecturer
-		* associate scientist
 		* adjunct scientist
 		* senior assistant lecturer
 		* research associate
@@ -261,6 +263,8 @@ The following lists key names mapped to its type and meaning for each entry.
 		* programer
 		* programmer
 		* visiting scientist
+		* research assistant professor
+		* associate scientist
 		* assistant professor
 		* assistant physicist
 		* associate professor
@@ -398,7 +402,7 @@ YAML Example
 	      position: intern
 	    - begin_date: '2010-06-01'
 	      end_date: '2012-08-31'
-	      group: bg
+	      group: ergs
 	      organization: columbiau
 	      position: intern
 	    - begin_date: '2017-06-01'
@@ -982,7 +986,7 @@ JSON/Mongo Example
 	        {
 	            "begin_date": "2010-06-01",
 	            "end_date": "2012-08-31",
-	            "group": "bg",
+	            "group": "ergs",
 	            "organization": "columbiau",
 	            "position": "intern"
 	        },
