@@ -37,6 +37,7 @@ The following lists key names mapped to its type and meaning for each entry.
 	Allowed values: 
 		* ossoftware
 		* funded
+		* outreach
 :website: string, URL of the website., optional
 
 
