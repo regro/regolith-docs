@@ -1436,6 +1436,61 @@
     <span class="k">return</span> <span class="n">grpmember</span></div>
 
 
+<div class="viewcode-block" id="compound_dict"><a class="viewcode-back" href="../../api/tools.html#regolith.tools.compound_dict">[docs]</a><span class="k">def</span> <span class="nf">compound_dict</span><span class="p">(</span><span class="n">doc</span><span class="p">,</span> <span class="n">li</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Recursive function that collects all the strings from a document that is a dictionary</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    doc dict</span>
+<span class="sd">      The specific document we are traversing</span>
+<span class="sd">    li</span>
+<span class="sd">      The recursive list that holds all the strings</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    list of strings</span>
+<span class="sd">       The strings that make up the nested attributes of this object</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">doc</span><span class="p">:</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="n">doc</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">res</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+            <span class="n">li</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">res</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
+            <span class="n">li</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">compound_list</span><span class="p">(</span><span class="n">res</span><span class="p">,</span> <span class="p">[]))</span>
+        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">res</span><span class="p">,</span> <span class="nb">dict</span><span class="p">):</span>
+            <span class="n">li</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">compound_dict</span><span class="p">(</span><span class="n">res</span><span class="p">,</span> <span class="p">[]))</span>
+    <span class="k">return</span> <span class="n">li</span></div>
+
+
+<div class="viewcode-block" id="compound_list"><a class="viewcode-back" href="../../api/tools.html#regolith.tools.compound_list">[docs]</a><span class="k">def</span> <span class="nf">compound_list</span><span class="p">(</span><span class="n">doc</span><span class="p">,</span> <span class="n">li</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Recursive function that collects all the strings from a document that is a list</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    doc list</span>
+<span class="sd">      The specific document we are traversing</span>
+<span class="sd">    li</span>
+<span class="sd">      The recursive list that holds all the strings</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    list of strings</span>
+<span class="sd">       The strings that make up the nested attributes of this list</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">doc</span><span class="p">:</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="nb">dict</span><span class="p">):</span>
+            <span class="n">li</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">compound_dict</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="p">[]))</span>
+        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+            <span class="n">li</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
+            <span class="n">li</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">compound_list</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="p">[]))</span>
+    <span class="k">return</span> <span class="n">li</span></div>
+
+
 <div class="viewcode-block" id="fragment_retrieval"><a class="viewcode-back" href="../../api/tools.html#regolith.tools.fragment_retrieval">[docs]</a><span class="k">def</span> <span class="nf">fragment_retrieval</span><span class="p">(</span><span class="n">coll</span><span class="p">,</span> <span class="n">fields</span><span class="p">,</span> <span class="n">fragment</span><span class="p">,</span> <span class="n">case_sensitive</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Retrieves a list of all documents from the collection where the fragment</span>
 <span class="sd">    appears in any one of the given fields</span>
@@ -1469,9 +1524,17 @@
     <span class="k">for</span> <span class="n">doc</span> <span class="ow">in</span> <span class="n">coll</span><span class="p">:</span>
         <span class="n">returns</span> <span class="o">=</span> <span class="p">[]</span>
         <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">fields</span><span class="p">:</span>
-            <span class="n">ret</span> <span class="o">=</span> <span class="n">doc</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="p">[])</span>
-            <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">ret</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
-                <span class="n">ret</span> <span class="o">=</span> <span class="p">[</span><span class="n">ret</span><span class="p">]</span>
+            <span class="n">ret</span> <span class="o">=</span> <span class="n">doc</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">ret</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">ret</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
+                    <span class="n">ret</span> <span class="o">=</span> <span class="n">compound_list</span><span class="p">(</span><span class="n">ret</span><span class="p">,</span> <span class="p">[])</span>
+                <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">ret</span><span class="p">,</span> <span class="nb">dict</span><span class="p">):</span>
+                    <span class="n">ret</span> <span class="o">=</span> <span class="n">compound_dict</span><span class="p">(</span><span class="n">ret</span><span class="p">,</span> <span class="p">[])</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">ret</span> <span class="o">=</span> <span class="p">[</span><span class="n">ret</span><span class="p">]</span>
+
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">ret</span> <span class="o">=</span> <span class="p">[]</span>
             <span class="n">returns</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">ret</span><span class="p">)</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="n">case_sensitive</span><span class="p">:</span>
             <span class="n">returns</span> <span class="o">=</span> <span class="p">[</span><span class="n">reti</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="k">for</span> <span class="n">reti</span> <span class="ow">in</span> <span class="n">returns</span> <span class="k">if</span>

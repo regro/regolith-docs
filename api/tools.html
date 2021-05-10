@@ -154,6 +154,46 @@ appears in any one of the given fields</p>
 </dd></dl>
 
 <dl class="function">
+<dt id="regolith.tools.compound_dict">
+<code class="sig-prename descclassname">regolith.tools.</code><code class="sig-name descname">compound_dict</code><span class="sig-paren">(</span><em class="sig-param">doc</em>, <em class="sig-param">li</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#compound_dict"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.tools.compound_dict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Recursive function that collects all the strings from a document that is a dictionary</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>doc dict</strong> – The specific document we are traversing</p></li>
+<li><p><strong>li</strong> – The recursive list that holds all the strings</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The strings that make up the nested attributes of this object</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>list of strings</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="regolith.tools.compound_list">
+<code class="sig-prename descclassname">regolith.tools.</code><code class="sig-name descname">compound_list</code><span class="sig-paren">(</span><em class="sig-param">doc</em>, <em class="sig-param">li</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#compound_list"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.tools.compound_list" title="Permalink to this definition">¶</a></dt>
+<dd><p>Recursive function that collects all the strings from a document that is a list</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>doc list</strong> – The specific document we are traversing</p></li>
+<li><p><strong>li</strong> – The recursive list that holds all the strings</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The strings that make up the nested attributes of this list</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>list of strings</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
 <dt id="regolith.tools.date_to_rfc822">
 <code class="sig-prename descclassname">regolith.tools.</code><code class="sig-name descname">date_to_rfc822</code><span class="sig-paren">(</span><em class="sig-param">y</em>, <em class="sig-param">m</em>, <em class="sig-param">d=1</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#date_to_rfc822"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.tools.date_to_rfc822" title="Permalink to this definition">¶</a></dt>
 <dd><p>Converts a date to an RFC 822 formatted string.</p>
