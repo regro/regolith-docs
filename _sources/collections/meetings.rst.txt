@@ -7,21 +7,29 @@ Schema
 The following lists key names mapped to its type and meaning for each entry.
 
 :_id: string, unique identifier for the date of the group meeting, required
-:actions: list, action items expected from the group members for that particular meeting week, optional
-:agenda: list, schedule of the current meeting, optional
-:buddies: list, list of pairs of group members that are selected for the buddy round robin, optional
-:day: integer, day of the group meeting, optional
+:actions: list, action items expected from the group members for that particular meeting week, required
+:agenda: list, schedule of the current meeting, required
+:buddies: list, list of pairs of group members that are selected for the buddy round robin, required
+:date: ['string', 'datetime', 'date'], date of meeting in format YYYY-MM-DD, optional
+:day: integer, day of the group meeting, or the day the entry was edited, optional
 :journal_club: dict, indicating the doi of the journal and the presenting group member as the presenter, optional
-:lead: string, person who will be leading the meeting of the current week, optional
-:minutes: list, meeting notes in a chronological order according to comments made by the group members, optional
-:month: ['string', 'integer'], month in which the meeting is taking place, optional
+
+	:doi: string, The doi of the journal club presentation target paper.  tbd if it is not known yet, optional
+	:presenter: string, The name or _id of the group member presenting, optional
+:lead: string, person who will be leading the meeting of the current week, required
+:minutes: list, meeting notes in a chronological order according to comments made by the group members, required
+:month: ['string', 'integer'], month in which the meeting is taking place, required
 :place: string, location where the meeting is taking place on campus, optional
 :presentation: dict, indicating the title of the presentation along with the link and the presenter , optional
-:scribe: string, person who will be taking notes and updating minutes accordingly, optional
-:time: ['string', 'integer'], person who will be taking notes and updating minutes accordinglyIf an integer is minutes past midnight, so 13:30 is 810 forexample., optional
-:updated: ['string', 'datetime', 'date'], person who will be taking notes and updating minutes accordingly, optional
-:uuid: string, person who will be taking notes and updating minutes accordingly, optional
-:year: integer, person who will be taking notes and updating minutes accordingly, optional
+
+	:title: string, The title of the presentation.  tbd if it is not known yet, optional
+	:link: string, the url to the repo, google slide location, or other web location where the presentation can be found, optional
+	:presenter: string, The name or _id of the group member presenting, optional
+:scribe: string, person who will be taking notes and updating minutes accordingly, required
+:time: ['string', 'integer', 'datetime'], the time of the meetingIf an integer is minutes past midnight, so 13:30 is 810 forexample., optional
+:updated: ['string', 'datetime', 'date'], The datetime.date object of the most recent update, optional
+:uuid: string, A uuid for the entry, optional
+:year: integer, year the meeting took place, required
 
 
 YAML Example

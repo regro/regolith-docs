@@ -77,8 +77,26 @@
 <dt class="field-even">begin_date</dt>
 <dd class="field-even"><p>[‘string’, ‘date’], begin date in YYYY-MM-DD, optional</p>
 </dd>
-<dt class="field-odd">end_date</dt>
-<dd class="field-odd"><p>[‘string’, ‘date’], end date in YYYY-MM-DD, optional</p>
+<dt class="field-odd">begin_day</dt>
+<dd class="field-odd"><p>integer, The day when the travel/business started, optional</p>
+</dd>
+<dt class="field-even">begin_month</dt>
+<dd class="field-even"><p>[‘string’, ‘integer’], The month when the travel/business started, optional</p>
+</dd>
+<dt class="field-odd">begin_year</dt>
+<dd class="field-odd"><p>integer, The year when the travel/business started, optional</p>
+</dd>
+<dt class="field-even">end_date</dt>
+<dd class="field-even"><p>[‘string’, ‘date’], end date in YYYY-MM-DD, optional</p>
+</dd>
+<dt class="field-odd">end_day</dt>
+<dd class="field-odd"><p>integer, The day when the travel/business end, optional</p>
+</dd>
+<dt class="field-even">end_month</dt>
+<dd class="field-even"><p>[‘string’, ‘integer’], The month when the travel/business end, optional</p>
+</dd>
+<dt class="field-odd">end_year</dt>
+<dd class="field-odd"><p>integer, The year when the travel/business end, optional</p>
 <dl class="simple">
 <dt>Allowed values:</dt><dd><ul class="simple">
 <li><p>travel</p></li>
@@ -123,24 +141,27 @@
 <dt class="field-even">original_currency</dt>
 <dd class="field-even"><p>float, The currency the payment was made in, optional</p>
 </dd>
-</dl>
+<dt class="field-odd">prepaid_expense</dt>
+<dd class="field-odd"><p>float, The amount of prepaid expense in USD, optional</p>
 </dd>
 </dl>
 </dd>
-<dt class="field-odd">notes</dt>
-<dd class="field-odd"><p>list, Notes about the expense, optional</p>
+</dl>
 </dd>
-<dt class="field-even">overall_purpose</dt>
-<dd class="field-even"><p>string, The reason for the expenses, required</p>
+<dt class="field-even">notes</dt>
+<dd class="field-even"><p>[‘list’, ‘string’], Description of the expenses. It will not be included in the reimbursement form, optional</p>
 </dd>
-<dt class="field-odd">payee</dt>
-<dd class="field-odd"><p>string, The name or id of the payee filing the expense, required</p>
+<dt class="field-odd">overall_purpose</dt>
+<dd class="field-odd"><p>string, The reason for the expenses, required</p>
 </dd>
-<dt class="field-even">project</dt>
-<dd class="field-even"><p>[‘string’, ‘list’], project or list of projects that this presentation is associated with.  Should be discoverable in projects collection, optional</p>
+<dt class="field-even">payee</dt>
+<dd class="field-even"><p>string, The name or id of the payee filing the expense, required</p>
 </dd>
-<dt class="field-odd">reimbursements</dt>
-<dd class="field-odd"><p>list, Reimbursements for the expense, optional</p>
+<dt class="field-odd">project</dt>
+<dd class="field-odd"><p>[‘string’, ‘list’], project or list of projects that this presentation is associated with.  Should be discoverable in projects collection, optional</p>
+</dd>
+<dt class="field-even">reimbursements</dt>
+<dd class="field-even"><p>list, Reimbursements for the expense, optional</p>
 <dl class="field-list simple">
 <dt class="field-odd">type</dt>
 <dd class="field-odd"><p>dict, optional</p>
@@ -195,6 +216,8 @@
 <section id="yaml-example">
 <h2>YAML Example<a class="headerlink" href="#yaml-example" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">test</span><span class="p">:</span>
+  <span class="nt">begin_date</span><span class="p">:</span> <span class="s">&#39;2018-01-01&#39;</span>
+  <span class="nt">end_date</span><span class="p">:</span> <span class="s">&#39;2018-01-10&#39;</span>
   <span class="nt">expense_type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">business</span>
   <span class="nt">grant_percentages</span><span class="p">:</span>
     <span class="p p-Indicator">-</span> <span class="s">&#39;50&#39;</span>
@@ -205,67 +228,79 @@
   <span class="nt">itemized_expenses</span><span class="p">:</span>
     <span class="p p-Indicator">-</span> <span class="nt">day</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
       <span class="nt">month</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Jan</span>
+      <span class="nt">prepaid_expense</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10.3</span>
       <span class="nt">purpose</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">test</span>
       <span class="nt">segregated_expense</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">0</span>
       <span class="nt">unsegregated_expense</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10</span>
       <span class="nt">year</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">2018</span>
     <span class="p p-Indicator">-</span> <span class="nt">day</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">2</span>
       <span class="nt">month</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Jan</span>
+      <span class="nt">prepaid_expense</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10.3</span>
       <span class="nt">purpose</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">test</span>
       <span class="nt">segregated_expense</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">0</span>
       <span class="nt">unsegregated_expense</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">20</span>
       <span class="nt">year</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">2018</span>
     <span class="p p-Indicator">-</span> <span class="nt">day</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">3</span>
       <span class="nt">month</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Jan</span>
+      <span class="nt">prepaid_expense</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10.3</span>
       <span class="nt">purpose</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">test</span>
       <span class="nt">segregated_expense</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">0</span>
       <span class="nt">unsegregated_expense</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">30</span>
       <span class="nt">year</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">2018</span>
     <span class="p p-Indicator">-</span> <span class="nt">day</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">4</span>
       <span class="nt">month</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Jan</span>
+      <span class="nt">prepaid_expense</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10.3</span>
       <span class="nt">purpose</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">test</span>
       <span class="nt">segregated_expense</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">0</span>
       <span class="nt">unsegregated_expense</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">40</span>
       <span class="nt">year</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">2018</span>
     <span class="p p-Indicator">-</span> <span class="nt">day</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">5</span>
       <span class="nt">month</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Jan</span>
+      <span class="nt">prepaid_expense</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10.3</span>
       <span class="nt">purpose</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">test</span>
       <span class="nt">segregated_expense</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">0</span>
       <span class="nt">unsegregated_expense</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">50</span>
       <span class="nt">year</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">2018</span>
     <span class="p p-Indicator">-</span> <span class="nt">day</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">6</span>
       <span class="nt">month</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Jan</span>
+      <span class="nt">prepaid_expense</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10.3</span>
       <span class="nt">purpose</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">test</span>
       <span class="nt">segregated_expense</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">0</span>
       <span class="nt">unsegregated_expense</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">60</span>
       <span class="nt">year</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">2018</span>
     <span class="p p-Indicator">-</span> <span class="nt">day</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">7</span>
       <span class="nt">month</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Jan</span>
+      <span class="nt">prepaid_expense</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10.3</span>
       <span class="nt">purpose</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">test</span>
       <span class="nt">segregated_expense</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">0</span>
       <span class="nt">unsegregated_expense</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">70</span>
       <span class="nt">year</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">2018</span>
     <span class="p p-Indicator">-</span> <span class="nt">day</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">8</span>
       <span class="nt">month</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Jan</span>
+      <span class="nt">prepaid_expense</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10.3</span>
       <span class="nt">purpose</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">test</span>
       <span class="nt">segregated_expense</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">0</span>
       <span class="nt">unsegregated_expense</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">80</span>
       <span class="nt">year</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">2018</span>
     <span class="p p-Indicator">-</span> <span class="nt">day</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">9</span>
       <span class="nt">month</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Jan</span>
+      <span class="nt">prepaid_expense</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10.3</span>
       <span class="nt">purpose</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">test</span>
       <span class="nt">segregated_expense</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">0</span>
       <span class="nt">unsegregated_expense</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">90</span>
       <span class="nt">year</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">2018</span>
     <span class="p p-Indicator">-</span> <span class="nt">day</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10</span>
       <span class="nt">month</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Jan</span>
+      <span class="nt">prepaid_expense</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10.3</span>
       <span class="nt">purpose</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">test</span>
       <span class="nt">segregated_expense</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">0</span>
       <span class="nt">unsegregated_expense</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">100</span>
       <span class="nt">year</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">2018</span>
+  <span class="nt">notes</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">this expense was used to get the work done</span>
   <span class="nt">overall_purpose</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">testing the databallectionsse</span>
   <span class="nt">payee</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">scopatz</span>
   <span class="nt">project</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Cyclus</span>
+  <span class="nt">status</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">submitted</span>
 </pre></div>
 </div>
 </section>
@@ -273,6 +308,8 @@
 <h2>JSON/Mongo Example<a class="headerlink" href="#json-mongo-example" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
     <span class="nt">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;test&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;begin_date&quot;</span><span class="p">:</span> <span class="s2">&quot;2018-01-01&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;end_date&quot;</span><span class="p">:</span> <span class="s2">&quot;2018-01-10&quot;</span><span class="p">,</span>
     <span class="nt">&quot;expense_type&quot;</span><span class="p">:</span> <span class="s2">&quot;business&quot;</span><span class="p">,</span>
     <span class="nt">&quot;grant_percentages&quot;</span><span class="p">:</span> <span class="p">[</span>
         <span class="s2">&quot;50&quot;</span><span class="p">,</span>
@@ -286,6 +323,7 @@
         <span class="p">{</span>
             <span class="nt">&quot;day&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
             <span class="nt">&quot;month&quot;</span><span class="p">:</span> <span class="s2">&quot;Jan&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;prepaid_expense&quot;</span><span class="p">:</span> <span class="mf">10.3</span><span class="p">,</span>
             <span class="nt">&quot;purpose&quot;</span><span class="p">:</span> <span class="s2">&quot;test&quot;</span><span class="p">,</span>
             <span class="nt">&quot;segregated_expense&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
             <span class="nt">&quot;unsegregated_expense&quot;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
@@ -294,6 +332,7 @@
         <span class="p">{</span>
             <span class="nt">&quot;day&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
             <span class="nt">&quot;month&quot;</span><span class="p">:</span> <span class="s2">&quot;Jan&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;prepaid_expense&quot;</span><span class="p">:</span> <span class="mf">10.3</span><span class="p">,</span>
             <span class="nt">&quot;purpose&quot;</span><span class="p">:</span> <span class="s2">&quot;test&quot;</span><span class="p">,</span>
             <span class="nt">&quot;segregated_expense&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
             <span class="nt">&quot;unsegregated_expense&quot;</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span>
@@ -302,6 +341,7 @@
         <span class="p">{</span>
             <span class="nt">&quot;day&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
             <span class="nt">&quot;month&quot;</span><span class="p">:</span> <span class="s2">&quot;Jan&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;prepaid_expense&quot;</span><span class="p">:</span> <span class="mf">10.3</span><span class="p">,</span>
             <span class="nt">&quot;purpose&quot;</span><span class="p">:</span> <span class="s2">&quot;test&quot;</span><span class="p">,</span>
             <span class="nt">&quot;segregated_expense&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
             <span class="nt">&quot;unsegregated_expense&quot;</span><span class="p">:</span> <span class="mi">30</span><span class="p">,</span>
@@ -310,6 +350,7 @@
         <span class="p">{</span>
             <span class="nt">&quot;day&quot;</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span>
             <span class="nt">&quot;month&quot;</span><span class="p">:</span> <span class="s2">&quot;Jan&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;prepaid_expense&quot;</span><span class="p">:</span> <span class="mf">10.3</span><span class="p">,</span>
             <span class="nt">&quot;purpose&quot;</span><span class="p">:</span> <span class="s2">&quot;test&quot;</span><span class="p">,</span>
             <span class="nt">&quot;segregated_expense&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
             <span class="nt">&quot;unsegregated_expense&quot;</span><span class="p">:</span> <span class="mi">40</span><span class="p">,</span>
@@ -318,6 +359,7 @@
         <span class="p">{</span>
             <span class="nt">&quot;day&quot;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span>
             <span class="nt">&quot;month&quot;</span><span class="p">:</span> <span class="s2">&quot;Jan&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;prepaid_expense&quot;</span><span class="p">:</span> <span class="mf">10.3</span><span class="p">,</span>
             <span class="nt">&quot;purpose&quot;</span><span class="p">:</span> <span class="s2">&quot;test&quot;</span><span class="p">,</span>
             <span class="nt">&quot;segregated_expense&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
             <span class="nt">&quot;unsegregated_expense&quot;</span><span class="p">:</span> <span class="mi">50</span><span class="p">,</span>
@@ -326,6 +368,7 @@
         <span class="p">{</span>
             <span class="nt">&quot;day&quot;</span><span class="p">:</span> <span class="mi">6</span><span class="p">,</span>
             <span class="nt">&quot;month&quot;</span><span class="p">:</span> <span class="s2">&quot;Jan&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;prepaid_expense&quot;</span><span class="p">:</span> <span class="mf">10.3</span><span class="p">,</span>
             <span class="nt">&quot;purpose&quot;</span><span class="p">:</span> <span class="s2">&quot;test&quot;</span><span class="p">,</span>
             <span class="nt">&quot;segregated_expense&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
             <span class="nt">&quot;unsegregated_expense&quot;</span><span class="p">:</span> <span class="mi">60</span><span class="p">,</span>
@@ -334,6 +377,7 @@
         <span class="p">{</span>
             <span class="nt">&quot;day&quot;</span><span class="p">:</span> <span class="mi">7</span><span class="p">,</span>
             <span class="nt">&quot;month&quot;</span><span class="p">:</span> <span class="s2">&quot;Jan&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;prepaid_expense&quot;</span><span class="p">:</span> <span class="mf">10.3</span><span class="p">,</span>
             <span class="nt">&quot;purpose&quot;</span><span class="p">:</span> <span class="s2">&quot;test&quot;</span><span class="p">,</span>
             <span class="nt">&quot;segregated_expense&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
             <span class="nt">&quot;unsegregated_expense&quot;</span><span class="p">:</span> <span class="mi">70</span><span class="p">,</span>
@@ -342,6 +386,7 @@
         <span class="p">{</span>
             <span class="nt">&quot;day&quot;</span><span class="p">:</span> <span class="mi">8</span><span class="p">,</span>
             <span class="nt">&quot;month&quot;</span><span class="p">:</span> <span class="s2">&quot;Jan&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;prepaid_expense&quot;</span><span class="p">:</span> <span class="mf">10.3</span><span class="p">,</span>
             <span class="nt">&quot;purpose&quot;</span><span class="p">:</span> <span class="s2">&quot;test&quot;</span><span class="p">,</span>
             <span class="nt">&quot;segregated_expense&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
             <span class="nt">&quot;unsegregated_expense&quot;</span><span class="p">:</span> <span class="mi">80</span><span class="p">,</span>
@@ -350,6 +395,7 @@
         <span class="p">{</span>
             <span class="nt">&quot;day&quot;</span><span class="p">:</span> <span class="mi">9</span><span class="p">,</span>
             <span class="nt">&quot;month&quot;</span><span class="p">:</span> <span class="s2">&quot;Jan&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;prepaid_expense&quot;</span><span class="p">:</span> <span class="mf">10.3</span><span class="p">,</span>
             <span class="nt">&quot;purpose&quot;</span><span class="p">:</span> <span class="s2">&quot;test&quot;</span><span class="p">,</span>
             <span class="nt">&quot;segregated_expense&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
             <span class="nt">&quot;unsegregated_expense&quot;</span><span class="p">:</span> <span class="mi">90</span><span class="p">,</span>
@@ -358,15 +404,18 @@
         <span class="p">{</span>
             <span class="nt">&quot;day&quot;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
             <span class="nt">&quot;month&quot;</span><span class="p">:</span> <span class="s2">&quot;Jan&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;prepaid_expense&quot;</span><span class="p">:</span> <span class="mf">10.3</span><span class="p">,</span>
             <span class="nt">&quot;purpose&quot;</span><span class="p">:</span> <span class="s2">&quot;test&quot;</span><span class="p">,</span>
             <span class="nt">&quot;segregated_expense&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
             <span class="nt">&quot;unsegregated_expense&quot;</span><span class="p">:</span> <span class="mi">100</span><span class="p">,</span>
             <span class="nt">&quot;year&quot;</span><span class="p">:</span> <span class="mi">2018</span>
         <span class="p">}</span>
     <span class="p">],</span>
+    <span class="nt">&quot;notes&quot;</span><span class="p">:</span> <span class="s2">&quot;this expense was used to get the work done&quot;</span><span class="p">,</span>
     <span class="nt">&quot;overall_purpose&quot;</span><span class="p">:</span> <span class="s2">&quot;testing the databallectionsse&quot;</span><span class="p">,</span>
     <span class="nt">&quot;payee&quot;</span><span class="p">:</span> <span class="s2">&quot;scopatz&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;project&quot;</span><span class="p">:</span> <span class="s2">&quot;Cyclus&quot;</span>
+    <span class="nt">&quot;project&quot;</span><span class="p">:</span> <span class="s2">&quot;Cyclus&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;submitted&quot;</span>
 <span class="p">}</span>
 </pre></div>
 </div>

@@ -18,7 +18,7 @@ The following lists key names mapped to its type and meaning for each entry.
 	:platform: string, description of how and where the audience will access the deliverable.e.g. Journal if it is a paper. For software releases, this may be the computer operating systems that will be supported, or if it will be a web service, etc., optional
 	:roll_out: list, steps that the audience will take to access and interact with the deliverable, not needed for paper submissions, optional
 	:notes: list, any notes about the deliverable that we want to keep track of, optional
-	:status: string, current state of deliverable Allowed values are proposed, started, converged, finished, cancelled, paused, optional
+	:status: string, status of the deliverable. Allowed values are proposed, started, converged, finished, cancelled, paused, optional
 
 		Allowed values: 
 			* proposed
@@ -27,6 +27,7 @@ The following lists key names mapped to its type and meaning for each entry.
 			* finished
 			* cancelled
 			* paused
+	:type: string, type of deliverable, optional
 :description: string, explanation of projectum, optional
 :end_date: ['date', 'string'], projectum end date, yyyy-mm-dd., optional
 :grants: ['string', 'list'], grant id funding the project, optional
@@ -92,8 +93,13 @@ The following lists key names mapped to its type and meaning for each entry.
 				* decision
 				* demo
 				* skel
+		:end_date: ['date', 'string'], end date of milestone, yyyy-mm-dd, optional
+		:identifier: string, label of milestone, optional
 :name: string, name of the projectum, optional
+:notes: list, notes about the projectum, optional
+:other_urls: list, link to remote repository. e.g. analysis or data repositories, optional
 :pi_id: string, id of the PI, optional
+:product_url: string, url for manuscript or code repository, optional
 :status: string, status of the projectum. Allowed values are proposed, started, converged, finished, cancelled, paused, optional
 
 	Allowed values: 
@@ -180,7 +186,10 @@ YAML Example
 	      status: proposed
 	      type: pr
 	  name: First Projectum
+	  other_urls:
+	    - https://docs.google.com/document/d/analysis
 	  pi_id: scopatz
+	  product_url: https://docs.google.com/document/d/manuscript
 	  status: started
 
 
@@ -277,6 +286,10 @@ JSON/Mongo Example
 	        }
 	    ],
 	    "name": "First Projectum",
+	    "other_urls": [
+	        "https://docs.google.com/document/d/analysis"
+	    ],
 	    "pi_id": "scopatz",
+	    "product_url": "https://docs.google.com/document/d/manuscript",
 	    "status": "started"
 	}

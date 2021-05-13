@@ -8,7 +8,13 @@ The following lists key names mapped to its type and meaning for each entry.
 
 :_id: string, short representation, such as this-is-my-name, required
 :begin_date: ['string', 'date'], begin date in YYYY-MM-DD, optional
+:begin_day: integer, The day when the travel/business started, optional
+:begin_month: ['string', 'integer'], The month when the travel/business started, optional
+:begin_year: integer, The year when the travel/business started, optional
 :end_date: ['string', 'date'], end date in YYYY-MM-DD, optional
+:end_day: integer, The day when the travel/business end, optional
+:end_month: ['string', 'integer'], The month when the travel/business end, optional
+:end_year: integer, The year when the travel/business end, optional
 
 	Allowed values: 
 		* travel
@@ -27,7 +33,8 @@ The following lists key names mapped to its type and meaning for each entry.
 		:unsegregated_expense: float, The allowed expenses, optional
 		:segregated_expense: float, The unallowed expenses, optional
 		:original_currency: float, The currency the payment was made in, optional
-:notes: list, Notes about the expense, optional
+		:prepaid_expense: float, The amount of prepaid expense in USD, optional
+:notes: ['list', 'string'], Description of the expenses. It will not be included in the reimbursement form, optional
 :overall_purpose: string, The reason for the expenses, required
 :payee: string, The name or id of the payee filing the expense, required
 :project: ['string', 'list'], project or list of projects that this presentation is associated with.  Should be discoverable in projects collection, optional
@@ -59,6 +66,8 @@ YAML Example
 .. code-block:: yaml
 
 	test:
+	  begin_date: '2018-01-01'
+	  end_date: '2018-01-10'
 	  expense_type: business
 	  grant_percentages:
 	    - '50'
@@ -69,67 +78,79 @@ YAML Example
 	  itemized_expenses:
 	    - day: 1
 	      month: Jan
+	      prepaid_expense: 10.3
 	      purpose: test
 	      segregated_expense: 0
 	      unsegregated_expense: 10
 	      year: 2018
 	    - day: 2
 	      month: Jan
+	      prepaid_expense: 10.3
 	      purpose: test
 	      segregated_expense: 0
 	      unsegregated_expense: 20
 	      year: 2018
 	    - day: 3
 	      month: Jan
+	      prepaid_expense: 10.3
 	      purpose: test
 	      segregated_expense: 0
 	      unsegregated_expense: 30
 	      year: 2018
 	    - day: 4
 	      month: Jan
+	      prepaid_expense: 10.3
 	      purpose: test
 	      segregated_expense: 0
 	      unsegregated_expense: 40
 	      year: 2018
 	    - day: 5
 	      month: Jan
+	      prepaid_expense: 10.3
 	      purpose: test
 	      segregated_expense: 0
 	      unsegregated_expense: 50
 	      year: 2018
 	    - day: 6
 	      month: Jan
+	      prepaid_expense: 10.3
 	      purpose: test
 	      segregated_expense: 0
 	      unsegregated_expense: 60
 	      year: 2018
 	    - day: 7
 	      month: Jan
+	      prepaid_expense: 10.3
 	      purpose: test
 	      segregated_expense: 0
 	      unsegregated_expense: 70
 	      year: 2018
 	    - day: 8
 	      month: Jan
+	      prepaid_expense: 10.3
 	      purpose: test
 	      segregated_expense: 0
 	      unsegregated_expense: 80
 	      year: 2018
 	    - day: 9
 	      month: Jan
+	      prepaid_expense: 10.3
 	      purpose: test
 	      segregated_expense: 0
 	      unsegregated_expense: 90
 	      year: 2018
 	    - day: 10
 	      month: Jan
+	      prepaid_expense: 10.3
 	      purpose: test
 	      segregated_expense: 0
 	      unsegregated_expense: 100
 	      year: 2018
+	  notes: this expense was used to get the work done
 	  overall_purpose: testing the databallectionsse
 	  payee: scopatz
 	  project: Cyclus
+	  status: submitted
 
 
 JSON/Mongo Example
@@ -139,6 +160,8 @@ JSON/Mongo Example
 
 	{
 	    "_id": "test",
+	    "begin_date": "2018-01-01",
+	    "end_date": "2018-01-10",
 	    "expense_type": "business",
 	    "grant_percentages": [
 	        "50",
@@ -152,6 +175,7 @@ JSON/Mongo Example
 	        {
 	            "day": 1,
 	            "month": "Jan",
+	            "prepaid_expense": 10.3,
 	            "purpose": "test",
 	            "segregated_expense": 0,
 	            "unsegregated_expense": 10,
@@ -160,6 +184,7 @@ JSON/Mongo Example
 	        {
 	            "day": 2,
 	            "month": "Jan",
+	            "prepaid_expense": 10.3,
 	            "purpose": "test",
 	            "segregated_expense": 0,
 	            "unsegregated_expense": 20,
@@ -168,6 +193,7 @@ JSON/Mongo Example
 	        {
 	            "day": 3,
 	            "month": "Jan",
+	            "prepaid_expense": 10.3,
 	            "purpose": "test",
 	            "segregated_expense": 0,
 	            "unsegregated_expense": 30,
@@ -176,6 +202,7 @@ JSON/Mongo Example
 	        {
 	            "day": 4,
 	            "month": "Jan",
+	            "prepaid_expense": 10.3,
 	            "purpose": "test",
 	            "segregated_expense": 0,
 	            "unsegregated_expense": 40,
@@ -184,6 +211,7 @@ JSON/Mongo Example
 	        {
 	            "day": 5,
 	            "month": "Jan",
+	            "prepaid_expense": 10.3,
 	            "purpose": "test",
 	            "segregated_expense": 0,
 	            "unsegregated_expense": 50,
@@ -192,6 +220,7 @@ JSON/Mongo Example
 	        {
 	            "day": 6,
 	            "month": "Jan",
+	            "prepaid_expense": 10.3,
 	            "purpose": "test",
 	            "segregated_expense": 0,
 	            "unsegregated_expense": 60,
@@ -200,6 +229,7 @@ JSON/Mongo Example
 	        {
 	            "day": 7,
 	            "month": "Jan",
+	            "prepaid_expense": 10.3,
 	            "purpose": "test",
 	            "segregated_expense": 0,
 	            "unsegregated_expense": 70,
@@ -208,6 +238,7 @@ JSON/Mongo Example
 	        {
 	            "day": 8,
 	            "month": "Jan",
+	            "prepaid_expense": 10.3,
 	            "purpose": "test",
 	            "segregated_expense": 0,
 	            "unsegregated_expense": 80,
@@ -216,6 +247,7 @@ JSON/Mongo Example
 	        {
 	            "day": 9,
 	            "month": "Jan",
+	            "prepaid_expense": 10.3,
 	            "purpose": "test",
 	            "segregated_expense": 0,
 	            "unsegregated_expense": 90,
@@ -224,13 +256,16 @@ JSON/Mongo Example
 	        {
 	            "day": 10,
 	            "month": "Jan",
+	            "prepaid_expense": 10.3,
 	            "purpose": "test",
 	            "segregated_expense": 0,
 	            "unsegregated_expense": 100,
 	            "year": 2018
 	        }
 	    ],
+	    "notes": "this expense was used to get the work done",
 	    "overall_purpose": "testing the databallectionsse",
 	    "payee": "scopatz",
-	    "project": "Cyclus"
+	    "project": "Cyclus",
+	    "status": "submitted"
 	}
