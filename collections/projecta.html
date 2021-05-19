@@ -173,7 +173,7 @@
 </dl>
 </dd>
 <dt class="field-even">lead</dt>
-<dd class="field-even"><p>string, the id of the lead student or person for the projectum. Person details will be dereferenced from the people collection., optional</p>
+<dd class="field-even"><p>string, the id of the lead student or person for the projectum. Person details will be dereferenced from the people collection., required</p>
 </dd>
 <dt class="field-odd">log_url</dt>
 <dd class="field-odd"><p>string, link to an online document (e.g., Google doc) that is a log of notes and meeting minutes for the projectum, optional</p>
@@ -280,7 +280,7 @@
 <dd class="field-even"><p>string, url for manuscript or code repository, optional</p>
 </dd>
 <dt class="field-odd">status</dt>
-<dd class="field-odd"><p>string, status of the projectum. Allowed values are proposed, started, converged, finished, cancelled, paused, optional</p>
+<dd class="field-odd"><p>string, status of the projectum. Allowed values are proposed, started, converged, finished, cancelled, paused, required</p>
 <dl class="simple">
 <dt>Allowed values:</dt><dd><ul class="simple">
 <li><p>proposed</p></li>
@@ -297,7 +297,18 @@
 </section>
 <section id="yaml-example">
 <h2>YAML Example<a class="headerlink" href="#yaml-example" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">sb_firstprojectum</span><span class="p">:</span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">ab_inactive</span><span class="p">:</span>
+  <span class="nt">deliverable</span><span class="p">:</span>
+    <span class="nt">due_date</span><span class="p">:</span> <span class="s">&#39;2021-05-03&#39;</span>
+  <span class="nt">kickoff</span><span class="p">:</span>
+    <span class="nt">due_date</span><span class="p">:</span> <span class="s">&#39;2021-05-03&#39;</span>
+    <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Kickoff</span>
+  <span class="nt">lead</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">abeing</span>
+  <span class="nt">milestones</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="nt">due_date</span><span class="p">:</span> <span class="s">&#39;2021-05-03&#39;</span>
+      <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Milestone</span>
+  <span class="nt">status</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">started</span>
+<span class="nt">sb_firstprojectum</span><span class="p">:</span>
   <span class="nt">begin_date</span><span class="p">:</span> <span class="s">&#39;2020-04-28&#39;</span>
   <span class="nt">collaborators</span><span class="p">:</span>
     <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">aeinstein</span>
@@ -378,6 +389,24 @@
 <section id="json-mongo-example">
 <h2>JSON/Mongo Example<a class="headerlink" href="#json-mongo-example" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;ab_inactive&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;deliverable&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;due_date&quot;</span><span class="p">:</span> <span class="s2">&quot;2021-05-03&quot;</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;kickoff&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;due_date&quot;</span><span class="p">:</span> <span class="s2">&quot;2021-05-03&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Kickoff&quot;</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;lead&quot;</span><span class="p">:</span> <span class="s2">&quot;abeing&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;milestones&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;due_date&quot;</span><span class="p">:</span> <span class="s2">&quot;2021-05-03&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Milestone&quot;</span>
+        <span class="p">}</span>
+    <span class="p">],</span>
+    <span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;started&quot;</span>
+<span class="p">}</span>
+<span class="p">{</span>
     <span class="nt">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;sb_firstprojectum&quot;</span><span class="p">,</span>
     <span class="nt">&quot;begin_date&quot;</span><span class="p">:</span> <span class="s2">&quot;2020-04-28&quot;</span><span class="p">,</span>
     <span class="nt">&quot;collaborators&quot;</span><span class="p">:</span> <span class="p">[</span>

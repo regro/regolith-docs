@@ -49,7 +49,7 @@ The following lists key names mapped to its type and meaning for each entry.
 			* finished
 			* cancelled
 			* paused
-:lead: string, the id of the lead student or person for the projectum. Person details will be dereferenced from the people collection., optional
+:lead: string, the id of the lead student or person for the projectum. Person details will be dereferenced from the people collection., required
 :log_url: string, link to an online document (e.g., Google doc) that is a log of notes and meeting minutes for the projectum, optional
 :milestones: list, smaller deliverables done by a certain date a series of milestones ends with the projectum deliverable, optional
 
@@ -100,7 +100,7 @@ The following lists key names mapped to its type and meaning for each entry.
 :other_urls: list, link to remote repository. e.g. analysis or data repositories, optional
 :pi_id: string, id of the PI, optional
 :product_url: string, url for manuscript or code repository, optional
-:status: string, status of the projectum. Allowed values are proposed, started, converged, finished, cancelled, paused, optional
+:status: string, status of the projectum. Allowed values are proposed, started, converged, finished, cancelled, paused, required
 
 	Allowed values: 
 		* proposed
@@ -116,6 +116,17 @@ YAML Example
 
 .. code-block:: yaml
 
+	ab_inactive:
+	  deliverable:
+	    due_date: '2021-05-03'
+	  kickoff:
+	    due_date: '2021-05-03'
+	    name: Kickoff
+	  lead: abeing
+	  milestones:
+	    - due_date: '2021-05-03'
+	      name: Milestone
+	  status: started
 	sb_firstprojectum:
 	  begin_date: '2020-04-28'
 	  collaborators:
@@ -198,6 +209,24 @@ JSON/Mongo Example
 
 .. code-block:: json
 
+	{
+	    "_id": "ab_inactive",
+	    "deliverable": {
+	        "due_date": "2021-05-03"
+	    },
+	    "kickoff": {
+	        "due_date": "2021-05-03",
+	        "name": "Kickoff"
+	    },
+	    "lead": "abeing",
+	    "milestones": [
+	        {
+	            "due_date": "2021-05-03",
+	            "name": "Milestone"
+	        }
+	    ],
+	    "status": "started"
+	}
 	{
 	    "_id": "sb_firstprojectum",
 	    "begin_date": "2020-04-28",
