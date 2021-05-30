@@ -86,23 +86,26 @@
 <dt class="field-odd">amount</dt>
 <dd class="field-odd"><p>(‘integer’, ‘float’), value of award, required</p>
 </dd>
-<dt class="field-even">begin_date</dt>
-<dd class="field-even"><p>[‘string’, ‘date’], start date of the grant (if string, in format YYYY-MM-DD), optional</p>
+<dt class="field-even">awardnr</dt>
+<dd class="field-even"><p>string, the number of the award from the agency, optional</p>
 </dd>
-<dt class="field-odd">begin_day</dt>
-<dd class="field-odd"><p>integer, start day of the grant, optional</p>
+<dt class="field-odd">begin_date</dt>
+<dd class="field-odd"><p>[‘string’, ‘date’], start date of the grant (if string, in format YYYY-MM-DD), optional</p>
 </dd>
-<dt class="field-even">begin_month</dt>
-<dd class="field-even"><p>[‘string’, ‘integer’], start month of the grant, optional</p>
+<dt class="field-even">begin_day</dt>
+<dd class="field-even"><p>integer, start day of the grant, optional</p>
 </dd>
-<dt class="field-odd">begin_year</dt>
-<dd class="field-odd"><p>integer, start year of the grant, optional</p>
+<dt class="field-odd">begin_month</dt>
+<dd class="field-odd"><p>[‘string’, ‘integer’], start month of the grant, optional</p>
 </dd>
-<dt class="field-even">benefit_of_collaboration</dt>
-<dd class="field-even"><p>string, optional</p>
+<dt class="field-even">begin_year</dt>
+<dd class="field-even"><p>integer, start year of the grant, optional</p>
 </dd>
-<dt class="field-odd">budget</dt>
-<dd class="field-odd"><p>list, budget periods of grant, optional</p>
+<dt class="field-odd">benefit_of_collaboration</dt>
+<dd class="field-odd"><p>string, optional</p>
+</dd>
+<dt class="field-even">budget</dt>
+<dd class="field-even"><p>list, budget periods of grant, optional</p>
 <dl class="field-list simple">
 <dt class="field-odd">type</dt>
 <dd class="field-odd"><p>dict, optional</p>
@@ -169,7 +172,7 @@
 <dd class="field-odd"><p>[‘integer’, ‘float’], Number of months of funding during the summer, optional</p>
 </dd>
 <dt class="field-even">program</dt>
-<dd class="field-even"><p>string, the program the work was funded under, required</p>
+<dd class="field-even"><p>string, the program the work was funded under, optional</p>
 </dd>
 <dt class="field-odd">proposal_id</dt>
 <dd class="field-odd"><p>string, initial proposal made for grant, optional</p>
@@ -195,27 +198,30 @@
 <dt class="field-odd">type</dt>
 <dd class="field-odd"><p>dict, optional</p>
 <dl class="field-list simple">
-<dt class="field-odd">cv</dt>
-<dd class="field-odd"><p>string, optional</p>
+<dt class="field-odd">admin_people</dt>
+<dd class="field-odd"><p>list, optional</p>
 </dd>
-<dt class="field-even">institution</dt>
+<dt class="field-even">cv</dt>
 <dd class="field-even"><p>string, optional</p>
 </dd>
-<dt class="field-odd">name</dt>
+<dt class="field-odd">institution</dt>
 <dd class="field-odd"><p>string, optional</p>
 </dd>
-<dt class="field-even">position</dt>
+<dt class="field-even">name</dt>
 <dd class="field-even"><p>string, optional</p>
 </dd>
-<dt class="field-odd">subaward_amount</dt>
-<dd class="field-odd"><p>(‘integer’, ‘float’), optional</p>
+<dt class="field-odd">position</dt>
+<dd class="field-odd"><p>string, optional</p>
+</dd>
+<dt class="field-even">subaward_amount</dt>
+<dd class="field-even"><p>(‘integer’, ‘float’), optional</p>
 </dd>
 </dl>
 </dd>
 </dl>
 </dd>
-<dt class="field-even">title</dt>
-<dd class="field-even"><p>string, actual title of proposal / grant, required</p>
+<dt class="field-odd">title</dt>
+<dd class="field-odd"><p>string, actual title of proposal / grant, required</p>
 </dd>
 </dl>
 </section>
@@ -259,7 +265,9 @@
     <span class="p p-Indicator">-</span> <span class="nt">institution</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">University of South Carolina</span>
       <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Anthony Scopatz</span>
       <span class="nt">position</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">pi</span>
-    <span class="p p-Indicator">-</span> <span class="nt">institution</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">University of South Carolina</span>
+    <span class="p p-Indicator">-</span> <span class="nt">admin_people</span><span class="p">:</span>
+        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">A. D. Ministrator</span>
+      <span class="nt">institution</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">University of South Carolina</span>
       <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Aaron Meurer</span>
       <span class="nt">position</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">researcher</span>
   <span class="nt">title</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">SymPy 1.1 Release Support</span>
@@ -326,6 +334,7 @@
   <span class="nt">account</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">GG012345</span>
   <span class="nt">alias</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">dmref15</span>
   <span class="nt">amount</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">982785.0</span>
+  <span class="nt">awardnr</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">DMR-0785462</span>
   <span class="nt">budget</span><span class="p">:</span>
     <span class="p p-Indicator">-</span> <span class="nt">amount</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">327595.0</span>
       <span class="nt">begin_date</span><span class="p">:</span> <span class="s">&#39;2018-05-01&#39;</span>
@@ -444,6 +453,9 @@
             <span class="nt">&quot;position&quot;</span><span class="p">:</span> <span class="s2">&quot;pi&quot;</span>
         <span class="p">},</span>
         <span class="p">{</span>
+            <span class="nt">&quot;admin_people&quot;</span><span class="p">:</span> <span class="p">[</span>
+                <span class="s2">&quot;A. D. Ministrator&quot;</span>
+            <span class="p">],</span>
             <span class="nt">&quot;institution&quot;</span><span class="p">:</span> <span class="s2">&quot;University of South Carolina&quot;</span><span class="p">,</span>
             <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Aaron Meurer&quot;</span><span class="p">,</span>
             <span class="nt">&quot;position&quot;</span><span class="p">:</span> <span class="s2">&quot;researcher&quot;</span>
@@ -537,6 +549,7 @@
     <span class="nt">&quot;account&quot;</span><span class="p">:</span> <span class="s2">&quot;GG012345&quot;</span><span class="p">,</span>
     <span class="nt">&quot;alias&quot;</span><span class="p">:</span> <span class="s2">&quot;dmref15&quot;</span><span class="p">,</span>
     <span class="nt">&quot;amount&quot;</span><span class="p">:</span> <span class="mf">982785.0</span><span class="p">,</span>
+    <span class="nt">&quot;awardnr&quot;</span><span class="p">:</span> <span class="s2">&quot;DMR-0785462&quot;</span><span class="p">,</span>
     <span class="nt">&quot;budget&quot;</span><span class="p">:</span> <span class="p">[</span>
         <span class="p">{</span>
             <span class="nt">&quot;amount&quot;</span><span class="p">:</span> <span class="mf">327595.0</span><span class="p">,</span>

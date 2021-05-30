@@ -11,6 +11,7 @@ The following lists key names mapped to its type and meaning for each entry.
 :admin: string, the group administering the grant, optional
 :alias: string, the alias of the grant, optional
 :amount: ('integer', 'float'), value of award, required
+:awardnr: string, the number of the award from the agency, optional
 :begin_date: ['string', 'date'], start date of the grant (if string, in format YYYY-MM-DD), optional
 :begin_day: integer, start day of the grant, optional
 :begin_month: ['string', 'integer'], start month of the grant, optional
@@ -39,7 +40,7 @@ The following lists key names mapped to its type and meaning for each entry.
 :notes: string, notes about the grant, optional
 :person_months_academic: ['integer', 'float'], Number of months of funding during the academicyear, optional
 :person_months_summer: ['integer', 'float'], Number of months of funding during the summer, optional
-:program: string, the program the work was funded under, required
+:program: string, the program the work was funded under, optional
 :proposal_id: string, initial proposal made for grant, optional
 :scope: string, The scope of the grant, answers the prompt: "Describe Research Including Synergies and Delineation with Respect to this Proposal/Award:", optional
 :status: string, status of the grant, optional
@@ -53,6 +54,7 @@ The following lists key names mapped to its type and meaning for each entry.
 
 	:type: dict, optional
 
+		:admin_people: list, optional
 		:cv: string, optional
 		:institution: string, optional
 		:name: string, optional
@@ -104,7 +106,9 @@ YAML Example
 	    - institution: University of South Carolina
 	      name: Anthony Scopatz
 	      position: pi
-	    - institution: University of South Carolina
+	    - admin_people:
+	        - A. D. Ministrator
+	      institution: University of South Carolina
 	      name: Aaron Meurer
 	      position: researcher
 	  title: SymPy 1.1 Release Support
@@ -171,6 +175,7 @@ YAML Example
 	  account: GG012345
 	  alias: dmref15
 	  amount: 982785.0
+	  awardnr: DMR-0785462
 	  budget:
 	    - amount: 327595.0
 	      begin_date: '2018-05-01'
@@ -291,6 +296,9 @@ JSON/Mongo Example
 	            "position": "pi"
 	        },
 	        {
+	            "admin_people": [
+	                "A. D. Ministrator"
+	            ],
 	            "institution": "University of South Carolina",
 	            "name": "Aaron Meurer",
 	            "position": "researcher"
@@ -384,6 +392,7 @@ JSON/Mongo Example
 	    "account": "GG012345",
 	    "alias": "dmref15",
 	    "amount": 982785.0,
+	    "awardnr": "DMR-0785462",
 	    "budget": [
 	        {
 	            "amount": 327595.0,

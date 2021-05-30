@@ -310,6 +310,9 @@ The following lists key names mapped to its type and meaning for each entry.
 
 	:type: dict, optional
 
+		:date: ['string', 'date'], the date of the service, optional
+		:begin_date: ['string', 'date'], the begin date, optional
+		:end_date: ['string', 'date'], the end date, optional
 		:description: string, optional
 		:duration: string, optional
 		:month: ['string', 'integer'], Use month and year if the servicedoesn't extend more than one year.Otherwise use begin_year and end_year, optional
@@ -527,18 +530,18 @@ YAML Example
 	        it or Not" public chemistry demonstration'
 	      type: profession
 	      year: 2017
-	    - month: 1
+	    - begin_date: '2018-01-01'
+	      end_date: '2018-01-01'
 	      name: Applied Physics program committee
 	      type: department
-	      year: 2018
-	    - month: 6
+	    - date: '2017-06-01'
 	      name: Ad hoc tenure committee
 	      notes: Albert Einstein
 	      type: school
-	      year: 2017
 	    - month: 12
 	      name: Co-organizer JUAMI
-	      other: great way to meet people
+	      other:
+	        - great way to meet people
 	      role: co-organizer
 	      type: profession
 	      year: 2017
@@ -1165,22 +1168,23 @@ JSON/Mongo Example
 	            "year": 2017
 	        },
 	        {
-	            "month": 1,
+	            "begin_date": "2018-01-01",
+	            "end_date": "2018-01-01",
 	            "name": "Applied Physics program committee",
-	            "type": "department",
-	            "year": 2018
+	            "type": "department"
 	        },
 	        {
-	            "month": 6,
+	            "date": "2017-06-01",
 	            "name": "Ad hoc tenure committee",
 	            "notes": "Albert Einstein",
-	            "type": "school",
-	            "year": 2017
+	            "type": "school"
 	        },
 	        {
 	            "month": 12,
 	            "name": "Co-organizer JUAMI",
-	            "other": "great way to meet people",
+	            "other": [
+	                "great way to meet people"
+	            ],
 	            "role": "co-organizer",
 	            "type": "profession",
 	            "year": 2017

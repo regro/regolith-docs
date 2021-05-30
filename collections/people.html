@@ -715,50 +715,59 @@
 <dt class="field-odd">type</dt>
 <dd class="field-odd"><p>dict, optional</p>
 <dl class="field-list">
-<dt class="field-odd">description</dt>
+<dt class="field-odd">date</dt>
+<dd class="field-odd"><p>[‘string’, ‘date’], the date of the service, optional</p>
+</dd>
+<dt class="field-even">begin_date</dt>
+<dd class="field-even"><p>[‘string’, ‘date’], the begin date, optional</p>
+</dd>
+<dt class="field-odd">end_date</dt>
+<dd class="field-odd"><p>[‘string’, ‘date’], the end date, optional</p>
+</dd>
+<dt class="field-even">description</dt>
+<dd class="field-even"><p>string, optional</p>
+</dd>
+<dt class="field-odd">duration</dt>
 <dd class="field-odd"><p>string, optional</p>
 </dd>
-<dt class="field-even">duration</dt>
-<dd class="field-even"><p>string, optional</p>
-</dd>
-<dt class="field-odd">month</dt>
-<dd class="field-odd"><p>[‘string’, ‘integer’], Use month and year if the servicedoesn’t extend more than one year.Otherwise use begin_year and end_year, optional</p>
-</dd>
-<dt class="field-even">name</dt>
-<dd class="field-even"><p>string, optional</p>
-</dd>
-<dt class="field-odd">role</dt>
-<dd class="field-odd"><p>string, the role played in the activity, e.g., co-chair, optional</p>
-</dd>
-<dt class="field-even">notes</dt>
-<dd class="field-even"><p>[‘string’, ‘list’], optional</p>
-</dd>
-<dt class="field-odd">year</dt>
-<dd class="field-odd"><p>integer, optional</p>
-</dd>
-<dt class="field-even">begin_year</dt>
-<dd class="field-even"><p>integer, optional</p>
-</dd>
-<dt class="field-odd">begin_day</dt>
-<dd class="field-odd"><p>integer, optional</p>
-</dd>
-<dt class="field-even">begin_month</dt>
-<dd class="field-even"><p>[‘string’, ‘integer’], Use month and year if the servicedoesn’t extend more than one year.Otherwise use begin_year/month and end_year/month, optional</p>
-</dd>
-<dt class="field-odd">end_year</dt>
-<dd class="field-odd"><p>integer, optional</p>
-</dd>
-<dt class="field-even">end_month</dt>
+<dt class="field-even">month</dt>
 <dd class="field-even"><p>[‘string’, ‘integer’], Use month and year if the servicedoesn’t extend more than one year.Otherwise use begin_year and end_year, optional</p>
 </dd>
-<dt class="field-odd">end_day</dt>
+<dt class="field-odd">name</dt>
+<dd class="field-odd"><p>string, optional</p>
+</dd>
+<dt class="field-even">role</dt>
+<dd class="field-even"><p>string, the role played in the activity, e.g., co-chair, optional</p>
+</dd>
+<dt class="field-odd">notes</dt>
+<dd class="field-odd"><p>[‘string’, ‘list’], optional</p>
+</dd>
+<dt class="field-even">year</dt>
+<dd class="field-even"><p>integer, optional</p>
+</dd>
+<dt class="field-odd">begin_year</dt>
 <dd class="field-odd"><p>integer, optional</p>
 </dd>
-<dt class="field-even">other</dt>
-<dd class="field-even"><p>[‘string’, ‘list’], optional</p>
+<dt class="field-even">begin_day</dt>
+<dd class="field-even"><p>integer, optional</p>
 </dd>
-<dt class="field-odd">type</dt>
-<dd class="field-odd"><p>string, profession, department, school, university, optional</p>
+<dt class="field-odd">begin_month</dt>
+<dd class="field-odd"><p>[‘string’, ‘integer’], Use month and year if the servicedoesn’t extend more than one year.Otherwise use begin_year/month and end_year/month, optional</p>
+</dd>
+<dt class="field-even">end_year</dt>
+<dd class="field-even"><p>integer, optional</p>
+</dd>
+<dt class="field-odd">end_month</dt>
+<dd class="field-odd"><p>[‘string’, ‘integer’], Use month and year if the servicedoesn’t extend more than one year.Otherwise use begin_year and end_year, optional</p>
+</dd>
+<dt class="field-even">end_day</dt>
+<dd class="field-even"><p>integer, optional</p>
+</dd>
+<dt class="field-odd">other</dt>
+<dd class="field-odd"><p>[‘string’, ‘list’], optional</p>
+</dd>
+<dt class="field-even">type</dt>
+<dd class="field-even"><p>string, profession, department, school, university, optional</p>
 <dl class="simple">
 <dt>Allowed values:</dt><dd><ul class="simple">
 <li><p>profession</p></li>
@@ -773,8 +782,8 @@
 </dd>
 </dl>
 </dd>
-<dt class="field-even">skills</dt>
-<dd class="field-even"><p>list, Skill the group member has, optional</p>
+<dt class="field-odd">skills</dt>
+<dd class="field-odd"><p>list, Skill the group member has, optional</p>
 <dl class="field-list simple">
 <dt class="field-odd">type</dt>
 <dd class="field-odd"><p>dict, optional</p>
@@ -1039,18 +1048,18 @@
         <span class="s">it</span><span class="nv"> </span><span class="s">or</span><span class="nv"> </span><span class="s">Not&quot;</span><span class="nv"> </span><span class="s">public</span><span class="nv"> </span><span class="s">chemistry</span><span class="nv"> </span><span class="s">demonstration&#39;</span>
       <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">profession</span>
       <span class="nt">year</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">2017</span>
-    <span class="p p-Indicator">-</span> <span class="nt">month</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
+    <span class="p p-Indicator">-</span> <span class="nt">begin_date</span><span class="p">:</span> <span class="s">&#39;2018-01-01&#39;</span>
+      <span class="nt">end_date</span><span class="p">:</span> <span class="s">&#39;2018-01-01&#39;</span>
       <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Applied Physics program committee</span>
       <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">department</span>
-      <span class="nt">year</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">2018</span>
-    <span class="p p-Indicator">-</span> <span class="nt">month</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">6</span>
+    <span class="p p-Indicator">-</span> <span class="nt">date</span><span class="p">:</span> <span class="s">&#39;2017-06-01&#39;</span>
       <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Ad hoc tenure committee</span>
       <span class="nt">notes</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Albert Einstein</span>
       <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">school</span>
-      <span class="nt">year</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">2017</span>
     <span class="p p-Indicator">-</span> <span class="nt">month</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">12</span>
       <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Co-organizer JUAMI</span>
-      <span class="nt">other</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">great way to meet people</span>
+      <span class="nt">other</span><span class="p">:</span>
+        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">great way to meet people</span>
       <span class="nt">role</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">co-organizer</span>
       <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">profession</span>
       <span class="nt">year</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">2017</span>
@@ -1675,22 +1684,23 @@
             <span class="nt">&quot;year&quot;</span><span class="p">:</span> <span class="mi">2017</span>
         <span class="p">},</span>
         <span class="p">{</span>
-            <span class="nt">&quot;month&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+            <span class="nt">&quot;begin_date&quot;</span><span class="p">:</span> <span class="s2">&quot;2018-01-01&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;end_date&quot;</span><span class="p">:</span> <span class="s2">&quot;2018-01-01&quot;</span><span class="p">,</span>
             <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Applied Physics program committee&quot;</span><span class="p">,</span>
-            <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;department&quot;</span><span class="p">,</span>
-            <span class="nt">&quot;year&quot;</span><span class="p">:</span> <span class="mi">2018</span>
+            <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;department&quot;</span>
         <span class="p">},</span>
         <span class="p">{</span>
-            <span class="nt">&quot;month&quot;</span><span class="p">:</span> <span class="mi">6</span><span class="p">,</span>
+            <span class="nt">&quot;date&quot;</span><span class="p">:</span> <span class="s2">&quot;2017-06-01&quot;</span><span class="p">,</span>
             <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Ad hoc tenure committee&quot;</span><span class="p">,</span>
             <span class="nt">&quot;notes&quot;</span><span class="p">:</span> <span class="s2">&quot;Albert Einstein&quot;</span><span class="p">,</span>
-            <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;school&quot;</span><span class="p">,</span>
-            <span class="nt">&quot;year&quot;</span><span class="p">:</span> <span class="mi">2017</span>
+            <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;school&quot;</span>
         <span class="p">},</span>
         <span class="p">{</span>
             <span class="nt">&quot;month&quot;</span><span class="p">:</span> <span class="mi">12</span><span class="p">,</span>
             <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Co-organizer JUAMI&quot;</span><span class="p">,</span>
-            <span class="nt">&quot;other&quot;</span><span class="p">:</span> <span class="s2">&quot;great way to meet people&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;other&quot;</span><span class="p">:</span> <span class="p">[</span>
+                <span class="s2">&quot;great way to meet people&quot;</span>
+            <span class="p">],</span>
             <span class="nt">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;co-organizer&quot;</span><span class="p">,</span>
             <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;profession&quot;</span><span class="p">,</span>
             <span class="nt">&quot;year&quot;</span><span class="p">:</span> <span class="mi">2017</span>

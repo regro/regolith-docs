@@ -1055,7 +1055,7 @@
     <span class="k">return</span> <span class="n">suffix</span></div>
 
 
-<div class="viewcode-block" id="dereference_institution"><a class="viewcode-back" href="../../api/tools.html#regolith.tools.dereference_institution">[docs]</a><span class="k">def</span> <span class="nf">dereference_institution</span><span class="p">(</span><span class="n">input_record</span><span class="p">,</span> <span class="n">institutions</span><span class="p">):</span>
+<div class="viewcode-block" id="dereference_institution"><a class="viewcode-back" href="../../api/tools.html#regolith.tools.dereference_institution">[docs]</a><span class="k">def</span> <span class="nf">dereference_institution</span><span class="p">(</span><span class="n">input_record</span><span class="p">,</span> <span class="n">institutions</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Tool for replacing placeholders for institutions with the actual</span>
 <span class="sd">    institution data. Note that the replacement is done inplace</span>
 
@@ -1067,10 +1067,11 @@
 <span class="sd">        The institutions</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">inst</span> <span class="o">=</span> <span class="n">input_record</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;institution&quot;</span><span class="p">)</span> <span class="ow">or</span> <span class="n">input_record</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;organization&quot;</span><span class="p">)</span>
-    <span class="k">if</span> <span class="ow">not</span> <span class="n">inst</span><span class="p">:</span>
-        <span class="n">error</span> <span class="o">=</span> <span class="n">input_record</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;position&quot;</span><span class="p">)</span> <span class="ow">or</span> <span class="n">input_record</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;degree&quot;</span><span class="p">)</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;WARNING: no institution or organization but found </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
-            <span class="n">error</span><span class="p">))</span>
+    <span class="k">if</span> <span class="n">verbose</span><span class="p">:</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">inst</span><span class="p">:</span>
+            <span class="n">error</span> <span class="o">=</span> <span class="n">input_record</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;position&quot;</span><span class="p">)</span> <span class="ow">or</span> <span class="n">input_record</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;degree&quot;</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;WARNING: no institution or organization but found </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                <span class="n">error</span><span class="p">))</span>
     <span class="n">db_inst</span> <span class="o">=</span> <span class="n">fuzzy_retrieval</span><span class="p">(</span><span class="n">institutions</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">,</span> <span class="s2">&quot;_id&quot;</span><span class="p">,</span> <span class="s2">&quot;aka&quot;</span><span class="p">],</span> <span class="n">inst</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">db_inst</span><span class="p">:</span>
         <span class="n">input_record</span><span class="p">[</span><span class="s2">&quot;institution&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">db_inst</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span>
@@ -1081,9 +1082,10 @@
             <span class="n">state_country</span> <span class="o">=</span> <span class="n">db_inst</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;country&quot;</span><span class="p">)</span>
         <span class="n">input_record</span><span class="p">[</span><span class="s2">&quot;location&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">{}</span><span class="s2">, </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">db_inst</span><span class="p">[</span><span class="s2">&quot;city&quot;</span><span class="p">],</span>
                                                    <span class="n">state_country</span><span class="p">)</span>
-        <span class="c1"># if not db_inst.get(&quot;departments&quot;):</span>
-        <span class="c1">#     print(&quot;WARNING: no departments in {}. {} sought&quot;.format(</span>
-        <span class="c1">#         db_inst.get(&quot;_id&quot;), inst))</span>
+        <span class="k">if</span> <span class="n">verbose</span><span class="p">:</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">db_inst</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;departments&quot;</span><span class="p">):</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;WARNING: no departments in </span><span class="si">{}</span><span class="s2">. </span><span class="si">{}</span><span class="s2"> sought&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                    <span class="n">db_inst</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;_id&quot;</span><span class="p">),</span> <span class="n">inst</span><span class="p">))</span>
         <span class="k">if</span> <span class="s2">&quot;department&quot;</span> <span class="ow">in</span> <span class="n">input_record</span> <span class="ow">and</span> <span class="n">db_inst</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;departments&quot;</span><span class="p">):</span>
             <span class="n">input_record</span><span class="p">[</span><span class="s2">&quot;department&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">fuzzy_retrieval</span><span class="p">(</span>
                 <span class="p">[</span><span class="n">db_inst</span><span class="p">[</span><span class="s2">&quot;departments&quot;</span><span class="p">]],</span> <span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">,</span> <span class="s2">&quot;aka&quot;</span><span class="p">],</span>
