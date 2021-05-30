@@ -117,7 +117,7 @@ YAML Example
 	  importance:
 	    - save lives
 	    - lift people from poverty
-	  institutions: upenn
+	  institutions: []
 	  month: May
 	  names:
 	    - A Genius
@@ -224,7 +224,7 @@ JSON/Mongo Example
 	        "save lives",
 	        "lift people from poverty"
 	    ],
-	    "institutions": "upenn",
+	    "institutions": [],
 	    "month": "May",
 	    "names": [
 	        "A Genius"
