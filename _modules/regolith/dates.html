@@ -203,9 +203,10 @@
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
-<span class="sd">       dict containing datetime.date objects for begin_date end_date and date, and</span>
+<span class="sd">       dict containing datetime.date objects for valid begin_date end_date and date, and</span>
 <span class="sd">       prefix_date if a prefix string was passed.  Missing and empty dates and</span>
-<span class="sd">       date items that contain the string &#39;tbd&#39; return None.</span>
+<span class="sd">       date items that contain the string &#39;tbd&#39; are not returned.  If no valid</span>
+<span class="sd">       date items are found, an empty dict is returned</span>
 
 <span class="sd">    Description</span>
 <span class="sd">    -----------</span>
@@ -258,7 +259,6 @@
 <span class="sd">    prefix_input. The following dictionary is returned:</span>
 <span class="sd">    {&#39;begin_date&#39;: datetime.date(2019, 1, 1),</span>
 <span class="sd">     &#39;end_date&#39;: datetime.date(2020, 2, 29),</span>
-<span class="sd">     &#39;date&#39;: None</span>
 <span class="sd">    }</span>
 <span class="sd">    &#39;&#39;&#39;</span>
 
@@ -272,7 +272,7 @@
         <span class="k">else</span> <span class="nb">list</span><span class="p">(</span><span class="nb">set</span><span class="p">([</span><span class="n">thing</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">minimal_set</span><span class="p">]))</span>
     <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">minimal_things</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">minimal_things</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span>
         <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;WARNING: cannot find any dates&quot;</span><span class="p">)</span>
-        <span class="n">dates</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;begin_date&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span> <span class="s1">&#39;end_date&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span> <span class="s1">&#39;date&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">}</span>
+        <span class="n">dates</span> <span class="o">=</span> <span class="p">{}</span>
         <span class="k">return</span> <span class="n">dates</span>
     <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">thing</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
         <span class="k">if</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">minimal_set</span> <span class="ow">or</span> <span class="n">key</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;month&#39;</span><span class="p">,</span> <span class="s1">&#39;day&#39;</span><span class="p">,</span> <span class="s1">&#39;begin_day&#39;</span><span class="p">,</span> <span class="s1">&#39;begin_month&#39;</span><span class="p">]:</span>
@@ -345,7 +345,8 @@
         <span class="n">dates</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;begin_date&#39;</span><span class="p">:</span> <span class="n">begin_date</span><span class="p">,</span> <span class="s1">&#39;end_date&#39;</span><span class="p">:</span> <span class="n">end_date</span><span class="p">,</span> <span class="n">datenames</span><span class="p">[</span><span class="mi">3</span><span class="p">]:</span> <span class="n">date</span><span class="p">,</span> <span class="s1">&#39;date&#39;</span><span class="p">:</span> <span class="n">date</span><span class="p">}</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="n">dates</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;begin_date&#39;</span><span class="p">:</span> <span class="n">begin_date</span><span class="p">,</span> <span class="s1">&#39;end_date&#39;</span><span class="p">:</span> <span class="n">end_date</span><span class="p">,</span> <span class="s1">&#39;date&#39;</span><span class="p">:</span> <span class="n">date</span><span class="p">}</span>
-    <span class="k">return</span> <span class="n">dates</span></div>
+    <span class="n">dates_no_nones</span> <span class="o">=</span> <span class="p">{</span><span class="n">k</span><span class="p">:</span> <span class="n">v</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">dates</span><span class="o">.</span><span class="n">items</span><span class="p">()</span> <span class="k">if</span> <span class="n">v</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">}</span>
+    <span class="k">return</span> <span class="n">dates_no_nones</span></div>
 
 
 <div class="viewcode-block" id="get_due_date"><a class="viewcode-back" href="../../api/dates.html#regolith.dates.get_due_date">[docs]</a><span class="k">def</span> <span class="nf">get_due_date</span><span class="p">(</span><span class="n">thing</span><span class="p">):</span>

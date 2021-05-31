@@ -114,9 +114,10 @@ the function will search for submission_day, submission_year, etc.</p></li>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p><ul class="simple">
-<li><p><em>dict containing datetime.date objects for begin_date end_date and date, and</em></p></li>
+<li><p><em>dict containing datetime.date objects for valid begin_date end_date and date, and</em></p></li>
 <li><p><em>prefix_date if a prefix string was passed.  Missing and empty dates and</em></p></li>
-<li><p><em>date items that contain the string ‘tbd’ return None.</em></p></li>
+<li><p><em>date items that contain the string ‘tbd’ are not returned.  If no valid</em></p></li>
+<li><p><em>date items are found, an empty dict is returned</em></p></li>
 </ul>
 </p>
 </dd>
@@ -165,8 +166,7 @@ Because no prefix string was passed in, the function will search for “date” 
 prefix_input. The following dictionary is returned:
 {‘begin_date’: datetime.date(2019, 1, 1),</p>
 <blockquote>
-<div><p>‘end_date’: datetime.date(2020, 2, 29),
-‘date’: None</p>
+<div><p>‘end_date’: datetime.date(2020, 2, 29),</p>
 </div></blockquote>
 <p>}</p>
 </dd></dl>
