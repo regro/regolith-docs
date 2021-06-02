@@ -79,8 +79,86 @@ able to:</p>
 <p>Databases may be file-based (JSON and YAML) or MongoDB-based.</p>
 <p>Regolith is developed as a <a class="reference external" href="https://regro.github.io/">regro project</a></p>
 </section>
+<section id="example-sites">
+<h1>Example Sites<a class="headerlink" href="#example-sites" title="Permalink to this headline">¶</a></h1>
+<p>The following are some sample websites that are powered by regolith, even though
+building
+websites is just one of the many facets of this tool:</p>
+<ol class="arabic simple">
+<li><p><a class="reference external" href="http://www.ergs.sc.edu">ERGS Home Page</a></p></li>
+<li><p><a class="reference external" href="http://twofcs.ergs.sc.edu">Technical WorkShop on Fuel Cycle Simulation</a></p></li>
+</ol>
+</section>
 <section id="installation">
 <h1>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h1>
+<section id="make-your-first-database">
+<h2>1. Make your first database<a class="headerlink" href="#make-your-first-database" title="Permalink to this headline">¶</a></h2>
+<p>The quickest way to get started is to set up your first minimal database using a
+handy cookie cutter.  These instructions use the command line and assume you know
+how to use the terminal/cmd prompt</p>
+<p>First install cookiecutter</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ conda install cookiecutter
+</pre></div>
+</div>
+<p>or</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ conda install cookiecutter
+</pre></div>
+</div>
+<p>Next, clone the template repo from GitHub.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ git clone git@github.com/sbillinge/regolithdb-cookiecutter
+</pre></div>
+</div>
+<p>Make a note of the path to the resulting <code class="code bash docutils literal notranslate"><span class="pre">regolithdb-cookiecutter</span></code> directory.</p>
+<p>Next, move the directory where you want to install your very own database.  It
+recommended to create a directory off your home directory called <code class="code bash docutils literal notranslate"><span class="pre">dbs</span></code></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">cd</span> ~        <span class="c1"># takes you to your home directory</span>
+$ mkdir dbs   <span class="c1"># creates the dbs directory if it is not already there</span>
+$ <span class="nb">cd</span> dbs      <span class="c1"># change dir to the new dbs directory</span>
+</pre></div>
+</div>
+<p>Now by running cookiecutter your starting db will be built from the template</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ cookiecutter &lt;path&gt;/&lt;to&gt;/regolithdb-cookiecutter
+</pre></div>
+</div>
+<p>The program will ask a series of questions and you can type responses.  Take your
+time and answer the questions as accurately as possible, because you are already
+entering data into your database!</p>
+<p>The questions look like</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ cookiecutter ../dev/regolithdb-cookiecutter/
+database_name <span class="o">[</span>my-cv-db<span class="o">]</span>:
+my_first_name <span class="o">[</span>Albert<span class="o">]</span>: Simon
+my_last_name <span class="o">[</span>Einstein<span class="o">]</span>: Billinge
+id_for_me <span class="o">[</span>aeinstein<span class="o">]</span>: sbillinge
+my_group_name <span class="o">[</span>Einstein Group<span class="o">]</span>: Billinge Group
+</pre></div>
+</div>
+<p>and so on.  If you make a mistake just type CTL^C and try again.</p>
+<p>Type</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ ls
+</pre></div>
+</div>
+<p>and you should see a directory called <code class="code bash docutils literal notranslate"><span class="pre">my-cv-db</span></code> or whatever you chose to
+call you database.</p>
+<p>It is not too late to change answers to questions.  You can remove the
+database entirely (<code class="code bash docutils literal notranslate"><span class="pre">$</span> <span class="pre">rm</span> <span class="pre">my-cv-db</span></code>) and do it over.</p>
+<p>OK, let’s go and look at our database.  change directory into it and do a directory
+listing,</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">cd</span> my-cv-db
+$ ls
+</pre></div>
+</div>
+<p>or open a file
+browser such as windows explorer and check out what is in there.</p>
+<p>You will see a direcotry called <code class="code bash docutils literal notranslate"><span class="pre">db</span></code> and a file called <code class="code bash docutils literal notranslate"><span class="pre">regolithrc.json</span></code>.
+All of the collections in your database are in the <code class="code bash docutils literal notranslate"><span class="pre">db</span></code> directory.  The
+<code class="code bash docutils literal notranslate"><span class="pre">regolithrc.json</span></code> contains a bunch of information that Regolith needs to run and do its business.</p>
+<p>You can use the Regolith program to do many things with, and to, your
+database. But you must always run Regolith from a directory that contains a
+<code class="code bash docutils literal notranslate"><span class="pre">regolithrc.json</span></code> file.  Since you are in a directory that contains one,
+you can run Regolith from here, but first you have to install it….</p>
+</section>
+<section id="install-regolith">
+<h2>2. install Regolith<a class="headerlink" href="#install-regolith" title="Permalink to this headline">¶</a></h2>
 <p>Regolith packages are available from conda-forge and PyPI:</p>
 <p><strong>conda:</strong></p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ conda install -c conda-forge regolith
@@ -90,15 +168,319 @@ able to:</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ pip install regolith
 </pre></div>
 </div>
+<p>The Regolith code is migrating quickly these days.  If you prefer you can
+install from the GitHub repository in develop mode and get the latest changes.
+In that case, clone the <a class="reference external" href="https://github.com/regro/regolith">GitHub repository</a>,
+change directory to the top level directory in that cloned repository where the
+<code class="code bash docutils literal notranslate"><span class="pre">setup.py</span></code> file is.  From inside your virtual environment, type</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ pip install regolith -e
+</pre></div>
+</div>
+<p>which installs regolith in this environment in develop mode.</p>
+<p>To check that your installation is working, let’s have Regolith make us a
+todo list from our database.</p>
+<p>Make sure you are in a directory that
+contains a <code class="code bash docutils literal notranslate"><span class="pre">regolithrc.json</span></code> file (which you should be, i.e., the
+top level directory of <code class="code bash docutils literal notranslate"><span class="pre">~/dbs/my-cv-db</span></code>, if you have been
+following these instructions) and type</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ regolith helper l_todos
+</pre></div>
+</div>
+<p>and you should see something like</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>loading .<span class="se">\.</span>/db<span class="se">\t</span>odos.yml...
+dumping todos...
+usage: regolith helper <span class="o">[</span>-h<span class="o">]</span> <span class="o">[</span>-s STATI <span class="o">[</span>STATI ...<span class="o">]]</span> <span class="o">[</span>--short <span class="o">[</span>SHORT<span class="o">]]</span>
+                       <span class="o">[</span>-t TAGS <span class="o">[</span>TAGS ...<span class="o">]]</span> <span class="o">[</span>-a ASSIGNED_TO<span class="o">]</span>
+                       <span class="o">[</span>-b <span class="o">[</span>ASSIGNED_BY<span class="o">]]</span> <span class="o">[</span>--date DATE<span class="o">]</span>
+                       <span class="o">[</span>-f FILTER <span class="o">[</span>FILTER ...<span class="o">]]</span>
+                       helper_target
+
+positional arguments:
+  helper_target         helper target to run. Currently valid targets are:
+                        <span class="o">[</span><span class="s1">&#39;a_expense&#39;</span>, <span class="s1">&#39;a_grppub_readlist&#39;</span>, <span class="s1">&#39;a_manurev&#39;</span>,
+                        <span class="s1">&#39;a_presentation&#39;</span>, <span class="s1">&#39;a_projectum&#39;</span>, <span class="s1">&#39;a_proposal&#39;</span>,
+                        <span class="s1">&#39;a_proprev&#39;</span>, <span class="s1">&#39;a_todo&#39;</span>, <span class="s1">&#39;f_prum&#39;</span>, <span class="s1">&#39;f_todo&#39;</span>,
+                        <span class="s1">&#39;l_abstract&#39;</span>, <span class="s1">&#39;l_contacts&#39;</span>, <span class="s1">&#39;l_grants&#39;</span>, <span class="s1">&#39;l_members&#39;</span>,
+                        <span class="s1">&#39;l_milestones&#39;</span>, <span class="s1">&#39;l_progress&#39;</span>, <span class="s1">&#39;l_projecta&#39;</span>, <span class="s1">&#39;l_todo&#39;</span>,
+                        <span class="s1">&#39;u_contact&#39;</span>, <span class="s1">&#39;u_institution&#39;</span>, <span class="s1">&#39;u_logurl&#39;</span>,
+                        <span class="s1">&#39;u_milestone&#39;</span>, <span class="s1">&#39;u_todo&#39;</span>, <span class="s1">&#39;v_meetings&#39;</span>, <span class="s1">&#39;lister&#39;</span>,
+                        <span class="s1">&#39;makeappointments&#39;</span><span class="o">]</span>
+
+optional arguments:
+  -h, --help            show this <span class="nb">help</span> message and <span class="nb">exit</span>
+  -s STATI <span class="o">[</span>STATI ...<span class="o">]</span>, --stati STATI <span class="o">[</span>STATI ...<span class="o">]</span>
+                        Filter tasks with specific status from <span class="o">[</span><span class="s1">&#39;started&#39;</span>,
+                        <span class="s1">&#39;finished&#39;</span>, <span class="s1">&#39;cancelled&#39;</span>, <span class="s1">&#39;paused&#39;</span><span class="o">]</span>. Default is
+                        started.
+  --short <span class="o">[</span>SHORT<span class="o">]</span>       Filter tasks with estimated duration &lt;<span class="o">=</span> <span class="m">30</span> mins, but
+                        <span class="k">if</span> a number is specified, the duration of the filtered
+                        tasks will be less than that number of minutes.
+  -t TAGS <span class="o">[</span>TAGS ...<span class="o">]</span>, --tags TAGS <span class="o">[</span>TAGS ...<span class="o">]</span>
+                        Filter tasks by tags. Items are returned <span class="k">if</span> they
+                        contain any of the tags listed
+  -a ASSIGNED_TO, --assigned_to ASSIGNED_TO
+                        Filter tasks that are assigned to this user id.
+                        Default id is saved <span class="k">in</span> user.json.
+  -b <span class="o">[</span>ASSIGNED_BY<span class="o">]</span>, --assigned_by <span class="o">[</span>ASSIGNED_BY<span class="o">]</span>
+                        Filter tasks that are assigned to other members by
+                        this user id. Default id is saved <span class="k">in</span> user.json.
+  --date DATE           Enter a date such that the helper can calculate how
+                        many days are left from that date to the due-date.
+                        Default is today.
+  -f FILTER <span class="o">[</span>FILTER ...<span class="o">]</span>, --filter FILTER <span class="o">[</span>FILTER ...<span class="o">]</span>
+                        Search this collection by giving key element pairs.
+                        <span class="s1">&#39;-f description paper&#39;</span> will <span class="k">return</span> tasks with
+                        description containing <span class="s1">&#39;paper&#39;</span>
+If the indices are far from being <span class="k">in</span> numerical order, please renumber them by running regolith helper u_todo -r
+<span class="o">(</span>index<span class="o">)</span> action <span class="o">(</span>days to due date<span class="p">|</span>importance<span class="p">|</span>expected duration <span class="o">(</span>mins<span class="o">)</span><span class="p">|</span>tags<span class="p">|</span>assigned by<span class="o">)</span>
+--------------------------------------------------------------------------------
+started:
+<span class="o">(</span><span class="m">1</span><span class="o">)</span> Do all the things to <span class="nb">set</span> up todos <span class="k">in</span> regolith <span class="o">(</span><span class="m">59</span><span class="p">|</span><span class="m">3</span><span class="p">|</span><span class="m">60</span>.0<span class="o">||</span>None<span class="o">)</span>
+------------------------------
+Tasks <span class="o">(</span>decreasing priority going up<span class="o">)</span>
+------------------------------
+<span class="m">2021</span>-07-29<span class="o">(</span><span class="m">59</span> days<span class="o">)</span>: <span class="o">(</span><span class="m">1</span><span class="o">)</span> Do all the things to <span class="nb">set</span> up todos <span class="k">in</span> regolith <span class="o">(</span><span class="m">59</span><span class="p">|</span><span class="m">3</span><span class="p">|</span><span class="m">60</span>.0<span class="o">||</span>None<span class="o">)</span>
+------------------------------
+Deadlines:
+------------------------------
+</pre></div>
+</div>
+<p>After all the help messages is your list of Todo items.  There is just one item,
+<code class="code bash docutils literal notranslate"><span class="pre">Do</span> <span class="pre">all</span> <span class="pre">the</span> <span class="pre">things</span> <span class="pre">to</span> <span class="name builtin"><span class="pre">set</span></span> <span class="pre">up</span> <span class="pre">todos</span> <span class="keyword"><span class="pre">in</span></span> <span class="pre">regolith</span></code>.</p>
+<p>OK, your Regolith is working.  If it isn’t working, consider joining, browsing
+and posting questions to the <a class="reference external" href="https://groups.google.com/u/1/g/regolith-users">regolith-users</a>
+Google group.</p>
 </section>
-<section id="example-sites">
-<h1>Example Sites<a class="headerlink" href="#example-sites" title="Permalink to this headline">¶</a></h1>
-<p>The following are some sample websites that are powered by regolith, even though building
-websites is just one of the many facets of this tool:</p>
-<ol class="arabic simple">
-<li><p><a class="reference external" href="http://www.ergs.sc.edu">ERGS Home Page</a></p></li>
-<li><p><a class="reference external" href="http://twofcs.ergs.sc.edu">Technical WorkShop on Fuel Cycle Simulation</a></p></li>
-</ol>
+</section>
+<section id="quick-ish-start">
+<h1>Quick(ish) Start<a class="headerlink" href="#quick-ish-start" title="Permalink to this headline">¶</a></h1>
+<p>OK, let’s use Regolith to build our cv.  Why not.  again, in a terminal navigate
+to the top level directory of your database (where the <code class="code bash docutils literal notranslate"><span class="pre">regolithrc.json</span></code>
+file is). and type:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ regolith build cv
+</pre></div>
+</div>
+<p>Regolith will take information from the various collections in your database and
+build them into your academic cv according to a pre-determined template.  The
+current template builds the cv using latex.  If your computer has latex installed
+and Regolith can find it, your cv should appear as a pdf document in the directory
+<code class="code bash docutils literal notranslate"><span class="pre">my-cv-db/_build</span></code> (or more generally <code class="code bash docutils literal notranslate"><span class="pre">&lt;path&gt;/&lt;to&gt;/&lt;database_name&gt;/_build</span></code>)  All your built documents will appera in the <code class="code bash docutils literal notranslate"><span class="pre">_build</span></code>
+directory.</p>
+<p>If not, let’s have Regolith build the latex source file for the cv but without trying
+render it to PDF,</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ regolith build cv --no-pdf
+</pre></div>
+</div>
+<p>The latex source is a text file and you can open it in a text editor.  You can
+render it by opening a free account at <a class="reference external" href="http://overleaf.com">http://overleaf.com</a> starting a new blank
+project, uploading the <code class="code bash docutils literal notranslate"><span class="pre">&lt;filename&gt;.tex</span></code> and <code class="code bash docutils literal notranslate"><span class="pre">&lt;filename&gt;.bib</span></code> files to
+that project and hitting the <code class="code bash docutils literal notranslate"><span class="pre">recompile</span></code> button.</p>
+<p>Whether it builds on your computer or on overleaf, it should look something like</p>
+<img alt="../_static/cv.pdf" src="../_static/cv.pdf" />
+<p>If, for some reason, the publication list doesn’t render
+correctly, try running the latex command again.  If you are going to
+do much building with regolith it is definitely recommended to install latex on
+your computer, such as MikTeX for windows (latex comes installed with many linux
+systems.</p>
+</section>
+<section id="what-next">
+<h1>What Next?<a class="headerlink" href="#what-next" title="Permalink to this headline">¶</a></h1>
+<p>You have not spent too much time building your database yet, but you
+can already build a number of different things.  Try building your
+resume (<code class="code bash docutils literal notranslate"><span class="pre">$</span> <span class="pre">regolith</span> <span class="pre">build</span> <span class="pre">resume</span></code>), your publication list
+(<code class="code bash docutils literal notranslate"><span class="pre">$</span> <span class="pre">regolith</span> <span class="pre">build</span> <span class="pre">publist</span></code>) and your presentation list
+(<code class="code bash docutils literal notranslate"><span class="pre">$</span> <span class="pre">regolith</span> <span class="pre">build</span> <span class="pre">preslist</span></code>).  You can even build a web-page
+for your group (<code class="code bash docutils literal notranslate"><span class="pre">$</span> <span class="pre">regolith</span> <span class="pre">build</span> <span class="pre">html</span></code>).  It will look pretty
+ugly until we set it up properly with a nice template, but the conten
+will be built from the databases.</p>
+<p>To see everything you can build, type <code class="code bash docutils literal notranslate"><span class="pre">$</span> <span class="pre">regolith</span> <span class="pre">build</span> <span class="pre">--help</span></code>.
+To build some of those things you will need more collections, for example,
+<code class="code bash docutils literal notranslate"><span class="pre">proposals</span></code> and <code class="code bash docutils literal notranslate"><span class="pre">grants</span></code> collections, but you get the idea.</p>
+<p>So next we might want to work on those collections and start adding more data.
+This can be done in a couple of ways.  Probably the simplest to begin
+with is just use a text editor or IDE like PyCharm.   The <code class="code bash docutils literal notranslate"><span class="pre">yml</span></code> files are
+yaml files, which is a human readable way of storing information that can be
+read and understood by python.  Please read about it <a class="reference external" href="https://en.wikipedia.org/wiki/YAML">here</a>
+if you are not familiar with it. However, briefly to get you started, it encodes
+whether information is part of a list or a dictionary by indentation and semantics.
+For example,</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>key:
+  - list item
+  - another list item
+</pre></div>
+</div>
+<p>would be read by python as <code class="code python docutils literal notranslate"><span class="punctuation"><span class="pre">{</span></span><span class="literal string double"><span class="pre">“key”</span></span><span class="punctuation"><span class="pre">:</span></span> <span class="punctuation"><span class="pre">[</span></span><span class="literal string double"><span class="pre">“list</span> <span class="pre">item”</span></span><span class="punctuation"><span class="pre">,</span></span> <span class="literal string double"><span class="pre">“another</span> <span class="pre">list</span> <span class="pre">item”</span></span><span class="punctuation"><span class="pre">]}</span></span></code>,
+and a collection consisting of a list of dictionaries would look like this in yaml:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>id:
+  - name: Arthur
+    quest: To find the Holy Grail
+    favorite_color: Blue
+  - name: Sir Lancelot
+    quest: To find the Holy Grail
+    favorite_color: Green, no pink
+</pre></div>
+</div>
+<p>Long story short, you can update your database by directly editing the file,
+and this is quick and easy when you get comfortable with the YAML syntax,
+but can be frustrating as ou are learning it.</p>
+<p>If you want to check what
+fields are allowed or required in a collection look at the Collections part of
+the docs, which are built from the Regolith schema (or directly look at the
+schema in <code class="code bash docutils literal notranslate"><span class="pre">schema.py</span></code>).  You can automatically check if your database
+edits are valid by running <code class="code bash docutils literal notranslate"><span class="pre">$</span> <span class="pre">regolith</span> <span class="pre">validate</span></code>.</p>
+</section>
+<section id="getting-help-from-helpers">
+<h1>Getting Help from Helpers<a class="headerlink" href="#getting-help-from-helpers" title="Permalink to this headline">¶</a></h1>
+<p>Regolith builders build documents, but there are a small but growing number of
+tools that either will run popular queries on the database and print the results
+to the terminal (“lister helpers” with <code class="code bash docutils literal notranslate"><span class="pre">l_</span></code> prefixes – you already used on,
+it was the lister helper that builds your todo list).</p>
+<p>There are also helpers
+that help you to add documents to your database collections.  These are
+“adder helpers”  with <code class="code bash docutils literal notranslate"><span class="pre">a_</span></code> prefixes.  An important adder helper is
+<code class="code bash docutils literal notranslate"><span class="pre">a_todo</span></code> helper that will add a todo item to your list.</p>
+<p>“Updater
+helpers” will update existing entries in your databases and have prefix
+<code class="code bash docutils literal notranslate"><span class="pre">u_</span></code>.</p>
+<p>An important special kind of updater helper is a “finish helper” that will mark
+something as finished (and give it a finish date).  So when you do that
+pesky 15th todo item on your todo list, run
+<code class="code bash docutils literal notranslate"><span class="pre">regolith</span> <span class="pre">helper</span> <span class="pre">f_todo</span> <span class="pre">-i</span> <span class="literal number"><span class="pre">15</span></span></code> to finish it.</p>
+<p>That is a lot of typing to finish a todo, so consider setting up an alias in
+the config file for your terminal program (my terminals run bash so I put the
+alias in the <code class="code bash docutils literal notranslate"><span class="pre">.bashrc</span></code> file in my home directory (<code class="code bash docutils literal notranslate"><span class="pre">$</span> <span class="name builtin"><span class="pre">cd</span></span> <span class="pre">~</span></code> to get there).
+With this alias I just type <code class="code bash docutils literal notranslate"><span class="pre">rhlt</span> <span class="literal number"><span class="pre">15</span></span></code> to finish that 15th todo item.</p>
+<p>To explore what helpers are there so you can play with them, type</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ regolith helper
+</pre></div>
+</div>
+<p>and hit return.  It will return a list of available helpers, e.g.,</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ regolith helper
+    usage: regolith helper <span class="o">[</span>-h<span class="o">]</span> helper_target
+    regolith helper: error: the following arguments are required: helper_target
+    usage: regolith helper <span class="o">[</span>-h<span class="o">]</span> helper_target
+
+    positional arguments:
+      helper_target  helper target to run. Currently valid targets are:
+                     <span class="o">[</span><span class="s1">&#39;a_expense&#39;</span>, <span class="s1">&#39;a_grppub_readlist&#39;</span>, <span class="s1">&#39;a_manurev&#39;</span>,
+                     <span class="s1">&#39;a_presentation&#39;</span>, <span class="s1">&#39;a_projectum&#39;</span>, <span class="s1">&#39;a_proposal&#39;</span>, <span class="s1">&#39;a_proprev&#39;</span>,
+                     <span class="s1">&#39;a_todo&#39;</span>, <span class="s1">&#39;f_prum&#39;</span>, <span class="s1">&#39;f_todo&#39;</span>, <span class="s1">&#39;l_abstract&#39;</span>, <span class="s1">&#39;l_contacts&#39;</span>,
+                     <span class="s1">&#39;l_grants&#39;</span>, <span class="s1">&#39;l_members&#39;</span>, <span class="s1">&#39;l_milestones&#39;</span>, <span class="s1">&#39;l_progress&#39;</span>,
+                     <span class="s1">&#39;l_projecta&#39;</span>, <span class="s1">&#39;l_todo&#39;</span>, <span class="s1">&#39;u_contact&#39;</span>, <span class="s1">&#39;u_institution&#39;</span>,
+                     <span class="s1">&#39;u_logurl&#39;</span>, <span class="s1">&#39;u_milestone&#39;</span>, <span class="s1">&#39;u_todo&#39;</span>, <span class="s1">&#39;v_meetings&#39;</span>, <span class="s1">&#39;lister&#39;</span>,
+                     <span class="s1">&#39;makeappointments&#39;</span><span class="o">]</span>
+</pre></div>
+</div>
+<p>then if you want to know how to use any of the helpers type</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ regolith helper &lt;helper target&gt;
+</pre></div>
+</div>
+<p>and hit return, e.g.,</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ regolith helper l_contacts
+usage: regolith helper <span class="o">[</span>-h<span class="o">]</span> <span class="o">[</span>-v<span class="o">]</span> <span class="o">[</span>-n NAME<span class="o">]</span> <span class="o">[</span>-i INST<span class="o">]</span> <span class="o">[</span>-d DATE<span class="o">]</span> <span class="o">[</span>-r RANGE<span class="o">]</span>
+                       <span class="o">[</span>-o NOTES<span class="o">]</span> <span class="o">[</span>-f FILTER <span class="o">[</span>FILTER ...<span class="o">]]</span>
+                       <span class="o">[</span>-k KEYS <span class="o">[</span>KEYS ...<span class="o">]]</span>
+                       helper_target run
+regolith helper: error: the following arguments are required: run
+usage: regolith helper <span class="o">[</span>-h<span class="o">]</span> <span class="o">[</span>-v<span class="o">]</span> <span class="o">[</span>-n NAME<span class="o">]</span> <span class="o">[</span>-i INST<span class="o">]</span> <span class="o">[</span>-d DATE<span class="o">]</span> <span class="o">[</span>-r RANGE<span class="o">]</span>
+                       <span class="o">[</span>-o NOTES<span class="o">]</span> <span class="o">[</span>-f FILTER <span class="o">[</span>FILTER ...<span class="o">]]</span>
+                       <span class="o">[</span>-k KEYS <span class="o">[</span>KEYS ...<span class="o">]]</span>
+                       helper_target run
+
+positional arguments:
+  helper_target         helper target to run. Currently valid targets are:
+                        <span class="o">[</span><span class="s1">&#39;a_expense&#39;</span>, <span class="s1">&#39;a_grppub_readlist&#39;</span>, <span class="s1">&#39;a_manurev&#39;</span>,
+                        <span class="s1">&#39;a_presentation&#39;</span>, <span class="s1">&#39;a_projectum&#39;</span>, <span class="s1">&#39;a_proposal&#39;</span>,
+                        <span class="s1">&#39;a_proprev&#39;</span>, <span class="s1">&#39;a_todo&#39;</span>, <span class="s1">&#39;f_prum&#39;</span>, <span class="s1">&#39;f_todo&#39;</span>,
+                        <span class="s1">&#39;l_abstract&#39;</span>, <span class="s1">&#39;l_contacts&#39;</span>, <span class="s1">&#39;l_grants&#39;</span>, <span class="s1">&#39;l_members&#39;</span>,
+                        <span class="s1">&#39;l_milestones&#39;</span>, <span class="s1">&#39;l_progress&#39;</span>, <span class="s1">&#39;l_projecta&#39;</span>, <span class="s1">&#39;l_todo&#39;</span>,
+                        <span class="s1">&#39;u_contact&#39;</span>, <span class="s1">&#39;u_institution&#39;</span>, <span class="s1">&#39;u_logurl&#39;</span>,
+                        <span class="s1">&#39;u_milestone&#39;</span>, <span class="s1">&#39;u_todo&#39;</span>, <span class="s1">&#39;v_meetings&#39;</span>, <span class="s1">&#39;lister&#39;</span>,
+                        <span class="s1">&#39;makeappointments&#39;</span><span class="o">]</span>
+  run                   run the lister. To see allowed optional arguments,
+                        <span class="nb">type</span> <span class="s2">&quot;regolith helper l_contacts&quot;</span>.
+
+optional arguments:
+  -h, --help            show this <span class="nb">help</span> message and <span class="nb">exit</span>
+  -v, --verbose         Increases the verbosity of the output.
+  -n NAME, --name NAME  name or name fragment <span class="o">(</span>single argument only<span class="o">)</span> to use to
+                        find contacts.
+  -i INST, --inst INST  institution or an institution fragment <span class="o">(</span>single
+                        argument only<span class="o">)</span> to use to find contacts.
+  -d DATE, --date DATE  approximate date <span class="k">in</span> ISO format <span class="o">(</span>YYYY-MM-DD<span class="o">)</span>
+                        corresponding to when the contact was entered <span class="k">in</span> the
+                        database. Comes with a default range of <span class="m">4</span> months
+                        centered around the date<span class="p">;</span> change range using --range
+                        argument.
+  -r RANGE, --range RANGE
+                        range <span class="o">(</span><span class="k">in</span> months<span class="o">)</span> centered around date d specified by
+                        --date, i.e. <span class="o">(</span>d +/- r/2<span class="o">)</span>.
+  -o NOTES, --notes NOTES
+                        fragment <span class="o">(</span>single argument only<span class="o">)</span> to be found <span class="k">in</span> the
+                        notes section of a contact.
+  -f FILTER <span class="o">[</span>FILTER ...<span class="o">]</span>, --filter FILTER <span class="o">[</span>FILTER ...<span class="o">]</span>
+                        Search this collection by giving key element pairs.
+  -k KEYS <span class="o">[</span>KEYS ...<span class="o">]</span>, --keys KEYS <span class="o">[</span>KEYS ...<span class="o">]</span>
+                        Specify what keys to <span class="k">return</span> values from when running
+                        --filter. If no argument is given the default is just
+                        the id.
+</pre></div>
+</div>
+<p>you then would rerun the command giving all required, and any optional command
+line arguments. e.g.,</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ regolith helper l_contacts --name frank
+</pre></div>
+</div>
+<p>will return all contacts in the contacts collection where <code class="code bash docutils literal notranslate"><span class="pre">frank</span></code> appears anywhere
+in the name.</p>
+</section>
+<section id="backing-up-and-protecting-your-work">
+<h1>Backing up and protecting your work<a class="headerlink" href="#backing-up-and-protecting-your-work" title="Permalink to this headline">¶</a></h1>
+<p>Now you have started saving your precious life’s work in your regolith database
+you better start protecting it and backing it up.  One low overhead approach
+for this is to set up your database directory to be backed up remotely as
+a Google drive or dropbox synced directory.</p>
+<p>Regolith is set up to
+work with git and GitHub and this is a powerful option if you are
+comfortable with it.  To use this option, the next thing to do is to turn your database directory
+on your filesystem into a git repository and link it to a repository on
+your personal space on GitHub.  You can make that repo private so the world
+cannot see your todo list, or public so that the world can see the web-page
+you build from it.  We will get back to this later, but Regolith will build
+collections from across databases, so you can have parts of your <code class="code bash docutils literal notranslate"><span class="pre">people</span></code>
+collection private and other parts public.  Depending which regolithrc.json
+file you use to build with, you can pull from the public, or private, or both
+parts.</p>
+<p>For now, let’s assume you just want to back up and keep versions of
+you private database.  You will make a repo on your personal GitHub account (you
+can get one for free) and synchronize your local database with this repo.
+<a class="reference external" href="https://docs.github.com/en/github/importing-your-projects-to-github/importing-source-code-to-github/adding-an-existing-project-to-github-using-the-command-line">Instructions for doing this are here</a></p>
+<p>Once you get everything set up you will want to periodically (meaning
+frequently type</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ git commit -a -m <span class="s2">&quot;my commit message&quot;</span>
+$ git push
+</pre></div>
+</div>
+<p>This will add, commit and push all files that git is tracking that have been
+updated locally.  If you add a new file to the repository and want it in the
+GitHub backup, you will have to explicitly add it before committing,</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ git add my_new_file.py
+$ git commit -m <span class="s2">&quot;an even more informative commit message&quot;</span>
+</pre></div>
+</div>
+<p><code class="code bash docutils literal notranslate"><span class="pre">$</span> <span class="pre">git</span> <span class="pre">commit</span></code> commits (i.e., checks in) to the git database (not your
+database!) everything that has been added, or staged, for commit.
+<code class="code bash docutils literal notranslate"><span class="pre">$</span> <span class="pre">git</span> <span class="pre">commit</span> <span class="pre">-a</span></code> automatically adds all files that git is tracking
+(have been previously committed in the past) that have been edited and then
+commits them.</p>
+<p>They are now safely captured in the git database and you can retrieve them
+later if you accidentally delete your database or mess it up some other way.
+But this version of the git database is still stored on your local computer, so
+if you spill coffee on it, you are in trouble.  <code class="code bash docutils literal notranslate"><span class="pre">$</span> <span class="pre">git</span> <span class="pre">push</span></code> pushes all
+these updates to a remote computer on the internet at the GitHub headquarters.
+Git and GitHub form a wonderful but complicated infrastructure, it is well worth
+getting to know how to use them well.  For now, we have used it to
+secure your precious database.  Remember to make frequent pushes.</p>
 </section>
 <section id="tutorials">
 <h1>Tutorials<a class="headerlink" href="#tutorials" title="Permalink to this headline">¶</a></h1>
@@ -215,8 +597,16 @@ With these points in mind, feel free to dive into the databases below!</p>
     <h3><a href="#">Page contents</a></h3>
     <ul>
 <li><a class="reference internal" href="#">Regolith</a></li>
-<li><a class="reference internal" href="#installation">Installation</a></li>
 <li><a class="reference internal" href="#example-sites">Example Sites</a></li>
+<li><a class="reference internal" href="#installation">Installation</a><ul>
+<li><a class="reference internal" href="#make-your-first-database">1. Make your first database</a></li>
+<li><a class="reference internal" href="#install-regolith">2. install Regolith</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#quick-ish-start">Quick(ish) Start</a></li>
+<li><a class="reference internal" href="#what-next">What Next?</a></li>
+<li><a class="reference internal" href="#getting-help-from-helpers">Getting Help from Helpers</a></li>
+<li><a class="reference internal" href="#backing-up-and-protecting-your-work">Backing up and protecting your work</a></li>
 <li><a class="reference internal" href="#tutorials">Tutorials</a></li>
 <li><a class="reference internal" href="#run-control">Run Control</a></li>
 <li><a class="reference internal" href="#database-collections">Database Collections</a></li>
