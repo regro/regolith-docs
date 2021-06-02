@@ -658,9 +658,9 @@
             <span class="k">for</span> <span class="n">author</span> <span class="ow">in</span> <span class="n">pauthors</span>
         <span class="p">]</span>
         <span class="n">authorids</span> <span class="o">=</span> <span class="p">[</span>
-            <span class="n">author</span><span class="p">[</span><span class="s2">&quot;_id&quot;</span><span class="p">]</span>
-            <span class="k">for</span> <span class="n">author</span> <span class="ow">in</span> <span class="n">authors</span>
-            <span class="k">if</span> <span class="n">author</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
+            <span class="n">author</span><span class="p">[</span><span class="s2">&quot;_id&quot;</span><span class="p">]</span> <span class="k">if</span> <span class="n">author</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
+            <span class="k">else</span> <span class="n">author</span>
+            <span class="k">for</span> <span class="n">author</span> <span class="ow">in</span> <span class="n">authors</span> 
         <span class="p">]</span>
         <span class="k">if</span> <span class="n">target</span> <span class="ow">in</span> <span class="n">authorids</span><span class="p">:</span>
             <span class="n">firstclean</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">pres</span><span class="p">)</span>
@@ -723,54 +723,28 @@
         <span class="k">else</span><span class="p">:</span>
             <span class="n">presdate</span> <span class="o">=</span> <span class="n">get_dates</span><span class="p">(</span><span class="n">pres</span><span class="p">)</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;begin_date&#39;</span><span class="p">)</span>
         <span class="n">pres</span><span class="p">[</span><span class="s2">&quot;begin_month&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">presdate</span><span class="o">.</span><span class="n">month</span>
+        <span class="n">pres</span><span class="p">[</span><span class="s2">&quot;begin_year&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">presdate</span><span class="o">.</span><span class="n">year</span>
+        <span class="n">pres</span><span class="p">[</span><span class="s2">&quot;begin_day&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">presdate</span><span class="o">.</span><span class="n">day</span>
+        <span class="n">end_date</span> <span class="o">=</span> <span class="n">get_dates</span><span class="p">(</span><span class="n">pres</span><span class="p">)</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;end_date&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">end_date</span><span class="p">:</span>
+            <span class="n">pres</span><span class="p">[</span><span class="s2">&quot;end_day&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">end_date</span><span class="o">.</span><span class="n">day</span>
         <span class="n">pres</span><span class="p">[</span><span class="s2">&quot;date&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">presdate</span>
         <span class="k">for</span> <span class="n">day</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;begin_&quot;</span><span class="p">,</span> <span class="s2">&quot;end_&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">]:</span>
             <span class="k">try</span><span class="p">:</span>
-                <span class="n">pres</span><span class="p">[</span><span class="s2">&quot;</span><span class="si">{}</span><span class="s2">_day_suffix&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">day</span><span class="p">)]</span> <span class="o">=</span> <span class="n">number_suffix</span><span class="p">(</span>
+                <span class="n">pres</span><span class="p">[</span><span class="s2">&quot;</span><span class="si">{}</span><span class="s2">day_suffix&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">day</span><span class="p">)]</span> <span class="o">=</span> <span class="n">number_suffix</span><span class="p">(</span>
                     <span class="n">get_dates</span><span class="p">(</span><span class="n">pres</span><span class="p">)</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">day</span><span class="si">}</span><span class="s1">date&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">day</span>
                 <span class="p">)</span>
             <span class="k">except</span> <span class="ne">AttributeError</span><span class="p">:</span>
                 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;presentation </span><span class="si">{</span><span class="n">pres</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;_id&#39;</span><span class="p">)</span><span class="si">}</span><span class="s2"> has no </span><span class="si">{</span><span class="n">day</span><span class="si">}</span><span class="s2">date&quot;</span><span class="p">)</span>
         <span class="k">if</span> <span class="s2">&quot;institution&quot;</span> <span class="ow">in</span> <span class="n">pres</span><span class="p">:</span>
-            <span class="k">try</span><span class="p">:</span>
-                <span class="n">pres</span><span class="p">[</span><span class="s2">&quot;institution&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">fuzzy_retrieval</span><span class="p">(</span>
-                    <span class="n">institutions</span><span class="p">,</span>
-                    <span class="p">[</span><span class="s2">&quot;aka&quot;</span><span class="p">,</span> <span class="s2">&quot;name&quot;</span><span class="p">,</span> <span class="s2">&quot;_id&quot;</span><span class="p">],</span>
-                    <span class="n">pres</span><span class="p">[</span><span class="s2">&quot;institution&quot;</span><span class="p">],</span>
-                    <span class="n">case_sensitive</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-                <span class="p">)</span>
-                <span class="k">if</span> <span class="n">pres</span><span class="p">[</span><span class="s2">&quot;institution&quot;</span><span class="p">]</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-                    <span class="nb">print</span><span class="p">(</span>
-                        <span class="s2">&quot;WARNING: department </span><span class="si">{}</span><span class="s2"> not found in&quot;</span>
-                        <span class="s2">&quot; </span><span class="si">{}</span><span class="s2"> in institutions.yml.  Pres list will&quot;</span>
-                        <span class="s2">&quot; build but please check this entry carefully and &quot;</span>
-                        <span class="s2">&quot;rerun to remove &quot;</span>
-                        <span class="s2">&quot;errors&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">pres</span><span class="p">[</span><span class="s2">&quot;institution&quot;</span><span class="p">],</span> <span class="n">pres</span><span class="p">[</span><span class="s2">&quot;_id&quot;</span><span class="p">])</span>
-                    <span class="p">)</span>
-            <span class="k">except</span><span class="p">:</span>
-                <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span>
-                    <span class="s2">&quot;ERROR: institution </span><span class="si">{}</span><span class="s2"> not found in &quot;</span>
-                    <span class="s2">&quot;institutions.yml.  Please add and &quot;</span>
-                    <span class="s2">&quot;rerun&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">pres</span><span class="p">[</span><span class="s2">&quot;institution&quot;</span><span class="p">])</span>
-                <span class="p">)</span>
-            <span class="k">if</span> <span class="s2">&quot;department&quot;</span> <span class="ow">in</span> <span class="n">pres</span><span class="p">:</span>
-                <span class="k">try</span><span class="p">:</span>
-                    <span class="n">pres</span><span class="p">[</span><span class="s2">&quot;department&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pres</span><span class="p">[</span><span class="s2">&quot;institution&quot;</span><span class="p">][</span>
-                        <span class="s2">&quot;departments&quot;</span>
-                    <span class="p">][</span><span class="n">pres</span><span class="p">[</span><span class="s2">&quot;department&quot;</span><span class="p">]]</span>
-                <span class="k">except</span><span class="p">:</span>
-                    <span class="nb">print</span><span class="p">(</span>
-                        <span class="s2">&quot;WARNING: department </span><span class="si">{}</span><span class="s2"> not found in&quot;</span>
-                        <span class="s2">&quot; </span><span class="si">{}</span><span class="s2"> in institutions.yml.  Pres list will&quot;</span>
-                        <span class="s2">&quot; build but please check this entry carefully and&quot;</span>
-                        <span class="s2">&quot; please add the dept to the institution!&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
-                            <span class="n">pres</span><span class="p">[</span><span class="s2">&quot;department&quot;</span><span class="p">],</span>
-                            <span class="n">pres</span><span class="p">[</span><span class="s2">&quot;institution&quot;</span><span class="p">],</span>
-                        <span class="p">)</span>
-                    <span class="p">)</span>
-                    <span class="n">pres</span><span class="p">[</span><span class="s2">&quot;department&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
-                        <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="n">pres</span><span class="p">[</span><span class="s2">&quot;department&quot;</span><span class="p">]</span>
-                    <span class="p">}</span>
+            <span class="n">inst</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;institution&quot;</span><span class="p">:</span> <span class="n">pres</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;institution&quot;</span><span class="p">),</span>
+                    <span class="s2">&quot;department&quot;</span><span class="p">:</span> <span class="n">pres</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;department&quot;</span><span class="p">)}</span>
+            <span class="n">dereference_institution</span><span class="p">(</span><span class="n">inst</span><span class="p">,</span> <span class="n">institutions</span><span class="p">)</span>
+            <span class="n">pres</span><span class="p">[</span><span class="s2">&quot;institution&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="n">inst</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;institution&quot;</span><span class="p">),</span>
+                                   <span class="s1">&#39;city&#39;</span><span class="p">:</span> <span class="n">inst</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;city&quot;</span><span class="p">),</span>
+                                   <span class="s1">&#39;state&#39;</span><span class="p">:</span> <span class="n">inst</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;state&quot;</span><span class="p">),</span>
+                                   <span class="s1">&#39;country&#39;</span><span class="p">:</span> <span class="n">inst</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;country&quot;</span><span class="p">)}</span>
+            <span class="n">pres</span><span class="p">[</span><span class="s2">&quot;department&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="n">inst</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;department&quot;</span><span class="p">)}</span>
     <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">presclean</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
         <span class="n">presclean</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span>
             <span class="n">presclean</span><span class="p">,</span>
@@ -1080,6 +1054,9 @@
             <span class="n">state_country</span> <span class="o">=</span> <span class="n">db_inst</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;state&quot;</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="n">state_country</span> <span class="o">=</span> <span class="n">db_inst</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;country&quot;</span><span class="p">)</span>
+        <span class="n">input_record</span><span class="p">[</span><span class="s2">&quot;city&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">db_inst</span><span class="p">[</span><span class="s2">&quot;city&quot;</span><span class="p">]</span>
+        <span class="n">input_record</span><span class="p">[</span><span class="s2">&quot;state&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">db_inst</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;state&quot;</span><span class="p">)</span>
+        <span class="n">input_record</span><span class="p">[</span><span class="s2">&quot;country&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">db_inst</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;country&quot;</span><span class="p">)</span>
         <span class="n">input_record</span><span class="p">[</span><span class="s2">&quot;location&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">{}</span><span class="s2">, </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">db_inst</span><span class="p">[</span><span class="s2">&quot;city&quot;</span><span class="p">],</span>
                                                    <span class="n">state_country</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">verbose</span><span class="p">:</span>
@@ -1087,12 +1064,14 @@
                 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;WARNING: no departments in </span><span class="si">{}</span><span class="s2">. </span><span class="si">{}</span><span class="s2"> sought&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
                     <span class="n">db_inst</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;_id&quot;</span><span class="p">),</span> <span class="n">inst</span><span class="p">))</span>
         <span class="k">if</span> <span class="s2">&quot;department&quot;</span> <span class="ow">in</span> <span class="n">input_record</span> <span class="ow">and</span> <span class="n">db_inst</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;departments&quot;</span><span class="p">):</span>
-            <span class="n">input_record</span><span class="p">[</span><span class="s2">&quot;department&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">fuzzy_retrieval</span><span class="p">(</span>
-                <span class="p">[</span><span class="n">db_inst</span><span class="p">[</span><span class="s2">&quot;departments&quot;</span><span class="p">]],</span> <span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">,</span> <span class="s2">&quot;aka&quot;</span><span class="p">],</span>
+            <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">db_inst</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;departments&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+                <span class="n">v</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s2">&quot;_id&quot;</span><span class="p">:</span> <span class="n">k</span><span class="p">})</span>
+            <span class="n">extracted_department</span> <span class="o">=</span> <span class="n">fuzzy_retrieval</span><span class="p">(</span>
+                <span class="n">db_inst</span><span class="p">[</span><span class="s2">&quot;departments&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">(),</span> <span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">,</span> <span class="s2">&quot;aka&quot;</span><span class="p">,</span> <span class="s2">&quot;_id&quot;</span><span class="p">],</span>
                 <span class="n">input_record</span><span class="p">[</span><span class="s2">&quot;department&quot;</span><span class="p">]</span>
             <span class="p">)</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="n">input_record</span><span class="p">[</span><span class="s2">&quot;department&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">inst</span></div>
+            <span class="k">if</span> <span class="n">extracted_department</span><span class="p">:</span>
+               <span class="n">input_record</span><span class="p">[</span><span class="s2">&quot;department&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">extracted_department</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;name&quot;</span><span class="p">)</span></div>
 
 
 <div class="viewcode-block" id="merge_collections_all"><a class="viewcode-back" href="../../api/tools.html#regolith.tools.merge_collections_all">[docs]</a><span class="k">def</span> <span class="nf">merge_collections_all</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">target_id</span><span class="p">):</span>

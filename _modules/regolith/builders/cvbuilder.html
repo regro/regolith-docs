@@ -57,9 +57,13 @@
             
   <h1>Source code for regolith.builders.cvbuilder</h1><div class="highlight"><pre>
 <span></span><span class="sd">&quot;&quot;&quot;Builder for CVs.&quot;&quot;&quot;</span>
+<span class="kn">from</span> <span class="nn">copy</span> <span class="kn">import</span> <span class="n">deepcopy</span>
+<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span><span class="p">,</span> <span class="n">date</span> 
+
 <span class="kn">from</span> <span class="nn">regolith.builders.basebuilder</span> <span class="kn">import</span> <span class="n">LatexBuilderBase</span>
 <span class="kn">from</span> <span class="nn">regolith.fsclient</span> <span class="kn">import</span> <span class="n">_id_key</span>
 <span class="kn">from</span> <span class="nn">regolith.sorters</span> <span class="kn">import</span> <span class="n">ene_date_key</span><span class="p">,</span> <span class="n">position_key</span>
+<span class="kn">from</span> <span class="nn">regolith.stylers</span> <span class="kn">import</span> <span class="n">sentencecase</span><span class="p">,</span> <span class="n">month_fullnames</span>
 <span class="kn">from</span> <span class="nn">regolith.tools</span> <span class="kn">import</span> <span class="p">(</span>
     <span class="n">all_docs_from_collection</span><span class="p">,</span>
     <span class="n">filter_publications</span><span class="p">,</span>
@@ -67,8 +71,10 @@
     <span class="n">filter_grants</span><span class="p">,</span>
     <span class="n">awards_grants_honors</span><span class="p">,</span>
     <span class="n">make_bibtex_file</span><span class="p">,</span>
-    <span class="n">fuzzy_retrieval</span><span class="p">,</span>
-    <span class="n">dereference_institution</span><span class="p">,</span> <span class="n">merge_collections_superior</span><span class="p">,</span>
+    <span class="n">filter_employment_for_advisees</span><span class="p">,</span>
+    <span class="n">dereference_institution</span><span class="p">,</span> 
+    <span class="n">merge_collections_superior</span><span class="p">,</span> 
+    <span class="n">filter_presentations</span><span class="p">,</span>
 <span class="p">)</span>
 
 
@@ -77,7 +83,7 @@
 
     <span class="n">btype</span> <span class="o">=</span> <span class="s2">&quot;cv&quot;</span>
     <span class="n">needed_dbs</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;institutions&#39;</span><span class="p">,</span> <span class="s1">&#39;people&#39;</span><span class="p">,</span> <span class="s1">&#39;grants&#39;</span><span class="p">,</span> <span class="s1">&#39;citations&#39;</span><span class="p">,</span> <span class="s1">&#39;projects&#39;</span><span class="p">,</span>
-                  <span class="s1">&#39;proposals&#39;</span><span class="p">]</span>
+                  <span class="s1">&#39;proposals&#39;</span><span class="p">,</span> <span class="s1">&#39;presentations&#39;</span><span class="p">]</span>
 
 <div class="viewcode-block" id="CVBuilder.construct_global_ctx"><a class="viewcode-back" href="../../../api/cvbuilder.html#regolith.builders.cvbuilder.CVBuilder.construct_global_ctx">[docs]</a>    <span class="k">def</span> <span class="nf">construct_global_ctx</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Constructs the global context&quot;&quot;&quot;</span>
@@ -89,6 +95,9 @@
             <span class="n">key</span><span class="o">=</span><span class="n">position_key</span><span class="p">,</span>
             <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
         <span class="p">)</span>
+        <span class="n">gtx</span><span class="p">[</span><span class="s2">&quot;presentations&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span>
+            <span class="n">all_docs_from_collection</span><span class="p">(</span><span class="n">rc</span><span class="o">.</span><span class="n">client</span><span class="p">,</span> <span class="s2">&quot;presentations&quot;</span><span class="p">),</span> <span class="n">key</span><span class="o">=</span><span class="n">_id_key</span>
+        <span class="p">)</span>
         <span class="n">gtx</span><span class="p">[</span><span class="s2">&quot;institutions&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span>
             <span class="n">all_docs_from_collection</span><span class="p">(</span><span class="n">rc</span><span class="o">.</span><span class="n">client</span><span class="p">,</span> <span class="s2">&quot;institutions&quot;</span><span class="p">),</span> <span class="n">key</span><span class="o">=</span><span class="n">_id_key</span>
         <span class="p">)</span>
@@ -99,7 +108,9 @@
         <span class="n">rc</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">rc</span>
         <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">gtx</span><span class="p">[</span><span class="s2">&quot;people&quot;</span><span class="p">]:</span>
             <span class="c1"># so we don&#39;t modify the dbs when de-referencing</span>
-            <span class="n">names</span> <span class="o">=</span> <span class="nb">frozenset</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;aka&quot;</span><span class="p">,</span> <span class="p">[])</span> <span class="o">+</span> <span class="p">[</span><span class="n">p</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]])</span>
+            <span class="n">names</span> <span class="o">=</span> <span class="nb">frozenset</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;aka&quot;</span><span class="p">,</span> <span class="p">[])</span> <span class="o">+</span> <span class="p">[</span><span class="n">p</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]]</span> <span class="o">+</span> <span class="p">[</span><span class="n">p</span><span class="p">[</span><span class="s2">&quot;_id&quot;</span><span class="p">]])</span>
+            <span class="n">begin_period</span> <span class="o">=</span> <span class="n">date</span><span class="p">(</span><span class="mi">1650</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+
             <span class="n">pubs</span> <span class="o">=</span> <span class="n">filter_publications</span><span class="p">(</span>
                 <span class="n">all_docs_from_collection</span><span class="p">(</span><span class="n">rc</span><span class="o">.</span><span class="n">client</span><span class="p">,</span> <span class="s2">&quot;citations&quot;</span><span class="p">),</span>
                 <span class="n">names</span><span class="p">,</span>
@@ -127,6 +138,12 @@
             <span class="n">grants</span> <span class="o">=</span> <span class="n">merge_collections_superior</span><span class="p">(</span><span class="n">just_proposals</span><span class="p">,</span>
                                                 <span class="n">just_grants</span><span class="p">,</span>
                                                 <span class="s2">&quot;proposal_id&quot;</span><span class="p">)</span>
+            <span class="n">presentations</span> <span class="o">=</span> <span class="n">filter_presentations</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">gtx</span><span class="p">[</span><span class="s2">&quot;people&quot;</span><span class="p">],</span>
+                               <span class="bp">self</span><span class="o">.</span><span class="n">gtx</span><span class="p">[</span><span class="s2">&quot;presentations&quot;</span><span class="p">],</span>
+                               <span class="bp">self</span><span class="o">.</span><span class="n">gtx</span><span class="p">[</span><span class="s2">&quot;institutions&quot;</span><span class="p">],</span>
+                               <span class="n">p</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;_id&quot;</span><span class="p">),</span>
+                               <span class="n">statuses</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;accepted&quot;</span><span class="p">])</span>
+
             <span class="k">for</span> <span class="n">grant</span> <span class="ow">in</span> <span class="n">grants</span><span class="p">:</span>
                 <span class="k">for</span> <span class="n">member</span> <span class="ow">in</span> <span class="n">grant</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;team&quot;</span><span class="p">):</span>
                     <span class="n">dereference_institution</span><span class="p">(</span><span class="n">member</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">gtx</span><span class="p">[</span><span class="s2">&quot;institutions&quot;</span><span class="p">])</span>
@@ -140,6 +157,34 @@
             <span class="k">for</span> <span class="n">ee</span> <span class="ow">in</span> <span class="p">[</span><span class="n">emp</span><span class="p">,</span> <span class="n">edu</span><span class="p">]:</span>
                 <span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">ee</span><span class="p">:</span>
                     <span class="n">dereference_institution</span><span class="p">(</span><span class="n">e</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">gtx</span><span class="p">[</span><span class="s2">&quot;institutions&quot;</span><span class="p">])</span>
+
+            <span class="n">undergrads</span> <span class="o">=</span> <span class="n">filter_employment_for_advisees</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">gtx</span><span class="p">[</span><span class="s2">&quot;people&quot;</span><span class="p">],</span>
+                                                        <span class="n">begin_period</span><span class="p">,</span>
+                                                        <span class="s2">&quot;undergrad&quot;</span><span class="p">)</span>
+            <span class="n">masters</span> <span class="o">=</span> <span class="n">filter_employment_for_advisees</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">gtx</span><span class="p">[</span><span class="s2">&quot;people&quot;</span><span class="p">],</span>
+                                                     <span class="n">begin_period</span><span class="p">,</span>
+                                                     <span class="s2">&quot;ms&quot;</span><span class="p">)</span>
+            <span class="n">currents</span> <span class="o">=</span> <span class="n">filter_employment_for_advisees</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">gtx</span><span class="p">[</span><span class="s2">&quot;people&quot;</span><span class="p">],</span>
+                                                      <span class="n">begin_period</span><span class="p">,</span>
+                                                      <span class="s2">&quot;phd&quot;</span><span class="p">)</span>
+            <span class="n">graduateds</span> <span class="o">=</span> <span class="n">filter_employment_for_advisees</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">gtx</span><span class="p">[</span><span class="s2">&quot;people&quot;</span><span class="p">],</span>
+                                                        <span class="n">begin_period</span><span class="p">,</span>
+                                                        <span class="s2">&quot;phd&quot;</span><span class="p">)</span>
+            <span class="n">postdocs</span> <span class="o">=</span> <span class="n">filter_employment_for_advisees</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">gtx</span><span class="p">[</span><span class="s2">&quot;people&quot;</span><span class="p">],</span>
+                                                      <span class="n">begin_period</span><span class="p">,</span>
+                                                      <span class="s2">&quot;postdoc&quot;</span><span class="p">)</span>
+            <span class="n">visitors</span> <span class="o">=</span> <span class="n">filter_employment_for_advisees</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">gtx</span><span class="p">[</span><span class="s2">&quot;people&quot;</span><span class="p">],</span>
+                                                      <span class="n">begin_period</span><span class="p">,</span>
+                                                      <span class="s2">&quot;visitor-unsupported&quot;</span><span class="p">)</span>
+            <span class="nb">iter</span> <span class="o">=</span> <span class="n">deepcopy</span><span class="p">(</span><span class="n">graduateds</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">g</span> <span class="ow">in</span> <span class="nb">iter</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">g</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;active&quot;</span><span class="p">):</span>
+                    <span class="n">graduateds</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">g</span><span class="p">)</span>
+            <span class="nb">iter</span> <span class="o">=</span> <span class="n">deepcopy</span><span class="p">(</span><span class="n">currents</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">g</span> <span class="ow">in</span> <span class="nb">iter</span><span class="p">:</span>
+                <span class="k">if</span> <span class="ow">not</span> <span class="n">g</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;active&quot;</span><span class="p">):</span>
+                    <span class="n">currents</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">g</span><span class="p">)</span>
+
             <span class="bp">self</span><span class="o">.</span><span class="n">render</span><span class="p">(</span>
                 <span class="s2">&quot;cv.tex&quot;</span><span class="p">,</span>
                 <span class="n">p</span><span class="p">[</span><span class="s2">&quot;_id&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot;.tex&quot;</span><span class="p">,</span>
@@ -147,11 +192,20 @@
                 <span class="n">title</span><span class="o">=</span><span class="n">p</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;name&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">),</span>
                 <span class="n">aghs</span><span class="o">=</span><span class="n">aghs</span><span class="p">,</span>
                 <span class="n">service</span><span class="o">=</span><span class="n">service</span><span class="p">,</span>
+                <span class="n">undergrads</span><span class="o">=</span><span class="n">undergrads</span><span class="p">,</span>
+                <span class="n">masters</span><span class="o">=</span><span class="n">masters</span><span class="p">,</span>
+                <span class="n">currentphds</span><span class="o">=</span><span class="n">currents</span><span class="p">,</span>
+                <span class="n">graduatedphds</span><span class="o">=</span><span class="n">graduateds</span><span class="p">,</span>
+                <span class="n">postdocs</span><span class="o">=</span><span class="n">postdocs</span><span class="p">,</span>
+                <span class="n">visitors</span><span class="o">=</span><span class="n">visitors</span><span class="p">,</span>
                 <span class="n">pubs</span><span class="o">=</span><span class="n">pubs</span><span class="p">,</span>
                 <span class="n">names</span><span class="o">=</span><span class="n">names</span><span class="p">,</span>
                 <span class="n">bibfile</span><span class="o">=</span><span class="n">bibfile</span><span class="p">,</span>
                 <span class="n">education</span><span class="o">=</span><span class="n">edu</span><span class="p">,</span>
                 <span class="n">employment</span><span class="o">=</span><span class="n">emp</span><span class="p">,</span>
+                <span class="n">presentations</span><span class="o">=</span><span class="n">presentations</span><span class="p">,</span>
+                <span class="n">sentencecase</span><span class="o">=</span><span class="n">sentencecase</span><span class="p">,</span>
+                <span class="n">monthstyle</span><span class="o">=</span><span class="n">month_fullnames</span><span class="p">,</span>
                 <span class="n">projects</span><span class="o">=</span><span class="n">projs</span><span class="p">,</span>
                 <span class="n">pi_grants</span><span class="o">=</span><span class="n">pi_grants</span><span class="p">,</span>
                 <span class="n">pi_amount</span><span class="o">=</span><span class="n">pi_amount</span><span class="p">,</span>

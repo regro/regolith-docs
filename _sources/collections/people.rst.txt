@@ -434,7 +434,8 @@ YAML Example
 	      unit: Materials Science
 	      year: 2018
 	  education:
-	    - begin_year: 2008
+	    - advisor: scopatz
+	      begin_year: 2008
 	      degree: Ph.D. Mechanical Engineering, Nuclear and Radiation Engineering Program
 	      department: apam
 	      end_year: 2011
@@ -446,7 +447,8 @@ YAML Example
 	        - 'Dissertation: Essential Physics for Fuel Cycle Modeling & Analysis'
 	  email: sb2896@columbia.edu
 	  employment:
-	    - begin_year: 2015
+	    - advisor: scopatz
+	      begin_year: 2015
 	      group: ergs
 	      location: Columbia, SC
 	      organization: The University of South Carolina
@@ -455,6 +457,7 @@ YAML Example
 	        - 'PyNE: The Nuclear Engineering Toolkit.'
 	        - 'Website: http://www.ergs.sc.edu/'
 	      position: assistant professor
+	      status: phd
 	  facilities:
 	    - begin_year: 2015
 	      name: Shared {Habanero} compute cluster
@@ -820,7 +823,9 @@ YAML Example
 	      permanent: true
 	      position: assistant professor
 	      position_full: Assistant Professor, Mechanical Engineering Department
-	    - begin_day: 1
+	      status: ms
+	    - advisor: scopatz
+	      begin_day: 1
 	      begin_month: Jun
 	      begin_year: 2013
 	      department: Physics
@@ -835,6 +840,7 @@ YAML Example
 	        - 'Website: https://cnerg.github.io/'
 	      position: associate scientist
 	      position_full: Associate Scientist, Engineering Physics Department
+	      status: undergrad
 	    - begin_day: 1
 	      begin_month: Nov
 	      begin_year: 2011
@@ -1032,6 +1038,7 @@ JSON/Mongo Example
 	    ],
 	    "education": [
 	        {
+	            "advisor": "scopatz",
 	            "begin_year": 2008,
 	            "degree": "Ph.D. Mechanical Engineering, Nuclear and Radiation Engineering Program",
 	            "department": "apam",
@@ -1048,6 +1055,7 @@ JSON/Mongo Example
 	    "email": "sb2896@columbia.edu",
 	    "employment": [
 	        {
+	            "advisor": "scopatz",
 	            "begin_year": 2015,
 	            "group": "ergs",
 	            "location": "Columbia, SC",
@@ -1057,7 +1065,8 @@ JSON/Mongo Example
 	                "PyNE: The Nuclear Engineering Toolkit.",
 	                "Website: http://www.ergs.sc.edu/"
 	            ],
-	            "position": "assistant professor"
+	            "position": "assistant professor",
+	            "status": "phd"
 	        }
 	    ],
 	    "facilities": [
@@ -1526,9 +1535,11 @@ JSON/Mongo Example
 	            ],
 	            "permanent": true,
 	            "position": "assistant professor",
-	            "position_full": "Assistant Professor, Mechanical Engineering Department"
+	            "position_full": "Assistant Professor, Mechanical Engineering Department",
+	            "status": "ms"
 	        },
 	        {
+	            "advisor": "scopatz",
 	            "begin_day": 1,
 	            "begin_month": "Jun",
 	            "begin_year": 2013,
@@ -1544,7 +1555,8 @@ JSON/Mongo Example
 	                "Website: https://cnerg.github.io/"
 	            ],
 	            "position": "associate scientist",
-	            "position_full": "Associate Scientist, Engineering Physics Department"
+	            "position_full": "Associate Scientist, Engineering Physics Department",
+	            "status": "undergrad"
 	        },
 	        {
 	            "begin_day": 1,
