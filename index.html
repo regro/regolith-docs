@@ -95,22 +95,31 @@ websites is just one of the many facets of this tool:</p>
 <h2>1. Make your first database<a class="headerlink" href="#make-your-first-database" title="Permalink to this headline">¶</a></h2>
 <p>The quickest way to get started is to set up your first minimal database using a
 handy cookie cutter.  These instructions use the command line and assume you know
-how to use the terminal/cmd prompt</p>
-<p>First install cookiecutter</p>
+how to use the terminal/cmd prompt, and that you know how to install software from
+either Pypi using <code class="code bash docutils literal notranslate"><span class="pre">pip</span></code> or Anaconda/Miniconda using <code class="code bash docutils literal notranslate"><span class="pre">conda</span></code>.  The
+instructions use the linux shell commands which should work on Mac and linux
+computers, and on windows if you are running from at Git Bash terminal (recommended)
+but will be slightly different (but still work) on a windows cmd terminal.</p>
+<p>First install the cookiecutter package if you don’t already have it</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ conda install cookiecutter
 </pre></div>
 </div>
 <p>or</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ conda install cookiecutter
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ pip install cookiecutter
 </pre></div>
 </div>
-<p>Next, clone the template repo from GitHub.</p>
+<p>Next, clone the GitHub repository with the handy beginning database template</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ git clone git@github.com/sbillinge/regolithdb-cookiecutter
 </pre></div>
 </div>
-<p>Make a note of the path to the resulting <code class="code bash docutils literal notranslate"><span class="pre">regolithdb-cookiecutter</span></code> directory.</p>
-<p>Next, move the directory where you want to install your very own database.  It
-recommended to create a directory off your home directory called <code class="code bash docutils literal notranslate"><span class="pre">dbs</span></code></p>
+<p>Make a note of the path to the resulting <code class="code bash docutils literal notranslate"><span class="pre">regolithdb-cookiecutter</span></code> directory,
+(e.g., <code class="code bash docutils literal notranslate"><span class="pre">/c/Users/me/scratch/regolithdb-cookiecutter</span></code> but yours will be different).
+This is not your database, this is just the template and will be removed shortly.</p>
+<p>Next, in a new terminal, or in the same terminal, move to the directory where
+you want to install your own permanent database.  For example, we like to
+create a directory off our home directory called <code class="code bash docutils literal notranslate"><span class="pre">dbs</span></code> where we will keep
+all of our databases (believe me, once you start using Regolith you will want
+to make more and more)</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">cd</span> ~        <span class="c1"># takes you to your home directory</span>
 $ mkdir dbs   <span class="c1"># creates the dbs directory if it is not already there</span>
 $ <span class="nb">cd</span> dbs      <span class="c1"># change dir to the new dbs directory</span>
@@ -123,8 +132,8 @@ $ <span class="nb">cd</span> dbs      <span class="c1"># change dir to the new d
 <p>The program will ask a series of questions and you can type responses.  Take your
 time and answer the questions as accurately as possible, because you are already
 entering data into your database!</p>
-<p>The questions look like</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ cookiecutter ../dev/regolithdb-cookiecutter/
+<p>Here is an example, and the questions look like</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ cookiecutter ~/scratch/regolithdb-cookiecutter/
 database_name <span class="o">[</span>my-cv-db<span class="o">]</span>:
 my_first_name <span class="o">[</span>Albert<span class="o">]</span>: Simon
 my_last_name <span class="o">[</span>Einstein<span class="o">]</span>: Billinge
@@ -132,16 +141,20 @@ id_for_me <span class="o">[</span>aeinstein<span class="o">]</span>: sbillinge
 my_group_name <span class="o">[</span>Einstein Group<span class="o">]</span>: Billinge Group
 </pre></div>
 </div>
-<p>and so on.  If you make a mistake just type CTL^C and try again.</p>
-<p>Type</p>
+<p>and so on.  If you just hit enter the cookie-cutter will use the default values
+and you will build a database for Einstein, but type the values you want in
+answer to each question to make your own.</p>
+<p>If you make a mistake just type CTL^C
+and do it again.  You may have to remove the directory if it has already been
+created, for example, <code class="code bash docutils literal notranslate"><span class="pre">$</span> <span class="pre">rm</span> <span class="pre">-r</span> <span class="pre">my-cv-db</span></code>.  Watch what you type here and
+be careful not to remove something you care about by mistake!</p>
+<p>When you are happy with your database setup, type</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ ls
 </pre></div>
 </div>
-<p>and you should see a directory called <code class="code bash docutils literal notranslate"><span class="pre">my-cv-db</span></code> or whatever you chose to
-call you database.</p>
-<p>It is not too late to change answers to questions.  You can remove the
-database entirely (<code class="code bash docutils literal notranslate"><span class="pre">$</span> <span class="pre">rm</span> <span class="pre">my-cv-db</span></code>) and do it over.</p>
-<p>OK, let’s go and look at our database.  change directory into it and do a directory
+<p>which lists all the files in your current directory,
+and you should see a directory called <code class="code bash docutils literal notranslate"><span class="pre">my-cv-db</span></code> or whatever you chose to
+call you database.  OK, let’s go and look at our database.  change directory into it and do a directory
 listing,</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">cd</span> my-cv-db
 $ ls
@@ -169,14 +182,16 @@ you can run Regolith from here, but first you have to install it….</p>
 </pre></div>
 </div>
 <p>The Regolith code is migrating quickly these days.  If you prefer you can
-install from the GitHub repository in develop mode and get the latest changes.
+install from the GitHub repository mode and get the latest changes.
 In that case, clone the <a class="reference external" href="https://github.com/regro/regolith">GitHub repository</a>,
 change directory to the top level directory in that cloned repository where the
 <code class="code bash docutils literal notranslate"><span class="pre">setup.py</span></code> file is.  From inside your virtual environment, type</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ pip install regolith -e
 </pre></div>
 </div>
-<p>which installs regolith in this environment in develop mode.</p>
+<p>which installs regolith in this environment in develop mode.  In this mode, the
+version of Regolith you run will change each time you update from the repo
+leading to instability so be careful.</p>
 <p>To check that your installation is working, let’s have Regolith make us a
 todo list from our database.</p>
 <p>Make sure you are in a directory that
@@ -264,14 +279,17 @@ file is). and type:</p>
 build them into your academic cv according to a pre-determined template.  The
 current template builds the cv using latex.  If your computer has latex installed
 and Regolith can find it, your cv should appear as a pdf document in the directory
-<code class="code bash docutils literal notranslate"><span class="pre">my-cv-db/_build</span></code> (or more generally <code class="code bash docutils literal notranslate"><span class="pre">&lt;path&gt;/&lt;to&gt;/&lt;database_name&gt;/_build</span></code>)  All your built documents will appera in the <code class="code bash docutils literal notranslate"><span class="pre">_build</span></code>
+<code class="code bash docutils literal notranslate"><span class="pre">my-cv-db/_build</span></code> (or more generally <code class="code bash docutils literal notranslate"><span class="pre">&lt;path&gt;/&lt;to&gt;/&lt;database_name&gt;/_build</span></code>).
+All your built documents will appear in the <code class="code bash docutils literal notranslate"><span class="pre">_build</span></code>
 directory.</p>
-<p>If not, let’s have Regolith build the latex source file for the cv but without trying
+<p>If you don’t have latex installed we can  have Regolith build the latex
+source file for the cv but without trying to
 render it to PDF,</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ regolith build cv --no-pdf
 </pre></div>
 </div>
-<p>The latex source is a text file and you can open it in a text editor.  You can
+<p>The latex source is a text file that you will find in the <code class="code bash docutils literal notranslate"><span class="pre">_build</span></code> directory
+and you can open it in a text editor.  Even without latex installed you can
 render it by opening a free account at <a class="reference external" href="http://overleaf.com">http://overleaf.com</a> starting a new blank
 project, uploading the <code class="code bash docutils literal notranslate"><span class="pre">&lt;filename&gt;.tex</span></code> and <code class="code bash docutils literal notranslate"><span class="pre">&lt;filename&gt;.bib</span></code> files to
 that project and hitting the <code class="code bash docutils literal notranslate"><span class="pre">recompile</span></code> button.</p>
@@ -281,20 +299,21 @@ that project and hitting the <code class="code bash docutils literal notranslate
 correctly, try running the latex command again.  If you are going to
 do much building with regolith it is definitely recommended to install latex on
 your computer, such as MikTeX for windows (latex comes installed with many linux
-systems.</p>
+systems and is easily installed on IOS).</p>
 </section>
 <section id="what-next">
 <h1>What Next?<a class="headerlink" href="#what-next" title="Permalink to this headline">¶</a></h1>
-<p>You have not spent too much time building your database yet, but you
+<p>You have not spent too much time entering data into your database yet, but you
 can already build a number of different things.  Try building your
 resume (<code class="code bash docutils literal notranslate"><span class="pre">$</span> <span class="pre">regolith</span> <span class="pre">build</span> <span class="pre">resume</span></code>), your publication list
 (<code class="code bash docutils literal notranslate"><span class="pre">$</span> <span class="pre">regolith</span> <span class="pre">build</span> <span class="pre">publist</span></code>) and your presentation list
 (<code class="code bash docutils literal notranslate"><span class="pre">$</span> <span class="pre">regolith</span> <span class="pre">build</span> <span class="pre">preslist</span></code>).  You can even build a web-page
 for your group (<code class="code bash docutils literal notranslate"><span class="pre">$</span> <span class="pre">regolith</span> <span class="pre">build</span> <span class="pre">html</span></code>).  It will look pretty
-ugly until we set it up properly with a nice template, but the conten
-will be built from the databases.</p>
+ugly until we set it up properly with a nice template, but all the content
+will be dynamically built from the latest info in your databases.</p>
 <p>To see everything you can build, type <code class="code bash docutils literal notranslate"><span class="pre">$</span> <span class="pre">regolith</span> <span class="pre">build</span> <span class="pre">--help</span></code>.
-To build some of those things you will need more collections, for example,
+To build some of those things you will need more collections that are not
+in the cookie cutter template, for example,
 <code class="code bash docutils literal notranslate"><span class="pre">proposals</span></code> and <code class="code bash docutils literal notranslate"><span class="pre">grants</span></code> collections, but you get the idea.</p>
 <p>So next we might want to work on those collections and start adding more data.
 This can be done in a couple of ways.  Probably the simplest to begin
@@ -322,10 +341,11 @@ and a collection consisting of a list of dictionaries would look like this in ya
 </div>
 <p>Long story short, you can update your database by directly editing the file,
 and this is quick and easy when you get comfortable with the YAML syntax,
-but can be frustrating as ou are learning it.</p>
+but can be frustrating as you are learning it.</p>
 <p>If you want to check what
 fields are allowed or required in a collection look at the Collections part of
-the docs, which are built from the Regolith schema (or directly look at the
+the docs, <a class="reference internal" href="collections/index.html#regolith-collections"><span class="std std-ref">Collections</span></a>, which are built from the Regolith schema
+(or directly look at the
 schema in <code class="code bash docutils literal notranslate"><span class="pre">schema.py</span></code>).  You can automatically check if your database
 edits are valid by running <code class="code bash docutils literal notranslate"><span class="pre">$</span> <span class="pre">regolith</span> <span class="pre">validate</span></code>.</p>
 </section>
@@ -333,7 +353,8 @@ edits are valid by running <code class="code bash docutils literal notranslate">
 <h1>Getting Help from Helpers<a class="headerlink" href="#getting-help-from-helpers" title="Permalink to this headline">¶</a></h1>
 <p>Regolith builders build documents, but there are a small but growing number of
 tools that either will run popular queries on the database and print the results
-to the terminal (“lister helpers” with <code class="code bash docutils literal notranslate"><span class="pre">l_</span></code> prefixes – you already used on,
+to the terminal (“lister helpers” with <code class="code bash docutils literal notranslate"><span class="pre">l_</span></code> prefixes – you
+already used one,
 it was the lister helper that builds your todo list).</p>
 <p>There are also helpers
 that help you to add documents to your database collections.  These are
@@ -426,37 +447,52 @@ optional arguments:
                         the id.
 </pre></div>
 </div>
-<p>you then would rerun the command giving all required, and any optional command
+<p>you then would rerun the command giving all required, and any
+optional, command
 line arguments. e.g.,</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ regolith helper l_contacts --name frank
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ regolith helper l_contacts run --name frank -v
 </pre></div>
 </div>
 <p>will return all contacts in the contacts collection where <code class="code bash docutils literal notranslate"><span class="pre">frank</span></code> appears anywhere
-in the name.</p>
+in the name, such as <code class="code bash docutils literal notranslate"><span class="pre">Frankie</span> <span class="pre">Valli</span></code>, <code class="code bash docutils literal notranslate"><span class="pre">Baron</span> <span class="pre">von</span> <span class="pre">Frankenstein</span></code>
+and <code class="code bash docutils literal notranslate"><span class="pre">Anne</span> <span class="pre">Frank</span></code> (if they are in your contacts).  The <code class="code bash docutils literal notranslate"><span class="pre">-v</span></code>
+command stands for <code class="code bash docutils literal notranslate"><span class="pre">verbose</span></code> which means more information is
+returned than if you don’t type <code class="code bash docutils literal notranslate"><span class="pre">-v</span></code>.  You can try it now:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ regolith helper l_contacts run -n auth -v
+</pre></div>
+</div>
 </section>
 <section id="backing-up-and-protecting-your-work">
 <h1>Backing up and protecting your work<a class="headerlink" href="#backing-up-and-protecting-your-work" title="Permalink to this headline">¶</a></h1>
 <p>Now you have started saving your precious life’s work in your regolith database
 you better start protecting it and backing it up.  One low overhead approach
-for this is to set up your database directory to be backed up remotely as
-a Google drive or dropbox synced directory.</p>
-<p>Regolith is set up to
+for this is simply to set up your database directory to be backed up remotely as
+a Google drive or Dropbox synced directory, for example.</p>
+<p>However, Regolith is set up to
 work with git and GitHub and this is a powerful option if you are
-comfortable with it.  To use this option, the next thing to do is to turn your database directory
+comfortable with it.  This gets more useful when you want to start
+sharing databases with group members, for example, using GitHub access rights.
+It is also possible to make sure people’s edits to the database won’t
+break things by setting up continuous integration (CI) that runs some
+validation and builders and makes sure they don’t crash before the
+edits are accepted.  This is much more advanced usage which you
+should save for later.</p>
+<p>To get started with the GitHub option, the next thing to do is to turn your database directory
 on your filesystem into a git repository and link it to a repository on
-your personal space on GitHub.  You can make that repo private so the world
+your personal space on GitHub (you will need a GitHub account).  You can make
+that repo private so the world
 cannot see your todo list, or public so that the world can see the web-page
 you build from it.  We will get back to this later, but Regolith will build
 collections from across databases, so you can have parts of your <code class="code bash docutils literal notranslate"><span class="pre">people</span></code>
-collection private and other parts public.  Depending which regolithrc.json
+collection private and other parts public.  Depending which <code class="code bash docutils literal notranslate"><span class="pre">regolithrc.json</span></code>
 file you use to build with, you can pull from the public, or private, or both
-parts.</p>
-<p>For now, let’s assume you just want to back up and keep versions of
-you private database.  You will make a repo on your personal GitHub account (you
-can get one for free) and synchronize your local database with this repo.
+parts.  Again, this is a peep to the future.
+For now, let’s assume you just want to back up and keep versions of
+you private database.  You will make a repository on your personal GitHub account
+and synchronize your local database with this repo.
 <a class="reference external" href="https://docs.github.com/en/github/importing-your-projects-to-github/importing-source-code-to-github/adding-an-existing-project-to-github-using-the-command-line">Instructions for doing this are here</a></p>
 <p>Once you get everything set up you will want to periodically (meaning
-frequently type</p>
+frequently) type</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ git commit -a -m <span class="s2">&quot;my commit message&quot;</span>
 $ git push
 </pre></div>
@@ -468,19 +504,25 @@ GitHub backup, you will have to explicitly add it before committing,</p>
 $ git commit -m <span class="s2">&quot;an even more informative commit message&quot;</span>
 </pre></div>
 </div>
-<p><code class="code bash docutils literal notranslate"><span class="pre">$</span> <span class="pre">git</span> <span class="pre">commit</span></code> commits (i.e., checks in) to the git database (not your
-database!) everything that has been added, or staged, for commit.
+<p><code class="code bash docutils literal notranslate"><span class="pre">$</span> <span class="pre">git</span> <span class="pre">commit</span></code> commits (i.e., checks in) to the git database (yes,
+git, like you now, is using a database backend) everything that has been added, or staged, for commit.
 <code class="code bash docutils literal notranslate"><span class="pre">$</span> <span class="pre">git</span> <span class="pre">commit</span> <span class="pre">-a</span></code> automatically adds all files that git is tracking
 (have been previously committed in the past) that have been edited and then
 commits them.</p>
 <p>They are now safely captured in the git database and you can retrieve them
-later if you accidentally delete your database or mess it up some other way.
+later if you accidentally delete your personal database or mess it up some other way.
 But this version of the git database is still stored on your local computer, so
-if you spill coffee on it, you are in trouble.  <code class="code bash docutils literal notranslate"><span class="pre">$</span> <span class="pre">git</span> <span class="pre">push</span></code> pushes all
+if you spill coffee on your computer, you may lose everything.  <code class="code bash docutils literal notranslate"><span class="pre">$</span> <span class="pre">git</span> <span class="pre">push</span></code> pushes all
 these updates to a remote computer on the internet at the GitHub headquarters.
 Git and GitHub form a wonderful but complicated infrastructure, it is well worth
 getting to know how to use them well.  For now, we have used it to
 secure your precious database.  Remember to make frequent pushes.</p>
+<p>OK, you are started with your Regolith database.  Go play.  Regolith
+can do many more complicated things to help with administering your
+research group, or whatever you are working on.  We will continue to
+add tutorials below explaining some of these things, so check back
+from time to time.  And remember join and to ask questions at the <a class="reference external" href="https://groups.google.com/u/1/g/regolith-users">regolith-users</a>
+Google group.  They will get answered.</p>
 </section>
 <section id="tutorials">
 <h1>Tutorials<a class="headerlink" href="#tutorials" title="Permalink to this headline">¶</a></h1>
