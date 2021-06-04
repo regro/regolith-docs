@@ -90,13 +90,13 @@
 <dd class="field-even"><p>integer, day of the group meeting, or the day the entry was edited, optional</p>
 </dd>
 <dt class="field-odd">journal_club</dt>
-<dd class="field-odd"><p>dict, indicating the doi of the journal and the presenting group member as the presenter, optional</p>
+<dd class="field-odd"><p>dict, Journal club presentation in group meeting, optional</p>
 <dl class="field-list simple">
 <dt class="field-odd">doi</dt>
-<dd class="field-odd"><p>string, The doi of the journal club presentation target paper.  tbd if it is not known yet, optional</p>
+<dd class="field-odd"><p>string, The doi of the journal club presentation paper.  tbd if it is not known yet, optional</p>
 </dd>
 <dt class="field-even">presenter</dt>
-<dd class="field-even"><p>string, The name or _id of the group member presenting, optional</p>
+<dd class="field-even"><p>string, The _id of the group member presenting, or a string describing the presenter, e.g., their full name., optional</p>
 </dd>
 </dl>
 </dd>
@@ -122,7 +122,7 @@
 <dd class="field-even"><p>string, the url to the repo, google slide location, or other web location where the presentation can be found, optional</p>
 </dd>
 <dt class="field-odd">presenter</dt>
-<dd class="field-odd"><p>string, The name or _id of the group member presenting, optional</p>
+<dd class="field-odd"><p>string, The _id of the group member presenting or a string describing the person., optional</p>
 </dd>
 </dl>
 </dd>
@@ -235,7 +235,7 @@
   <span class="nt">day</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
   <span class="nt">journal_club</span><span class="p">:</span>
     <span class="nt">doi</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10.1107/S2053273319005606</span>
-    <span class="nt">presenter</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">sbillinge</span>
+    <span class="nt">presenter</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">not_a_valid_group_id</span>
   <span class="nt">lead</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">sbillinge</span>
   <span class="nt">minutes</span><span class="p">:</span>
     <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Talked about eyesight and prescription lenses</span>
@@ -256,7 +256,7 @@
   <span class="nt">place</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Mudd 1106</span>
   <span class="nt">presentation</span><span class="p">:</span>
     <span class="nt">link</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">2007ac_grpmtg</span>
-    <span class="nt">presenter</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">sbillinge</span>
+    <span class="nt">presenter</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">not_a_valid_group_id</span>
     <span class="nt">title</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">PDF Distance Extraction</span>
   <span class="nt">scribe</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">sbillinge</span>
   <span class="nt">time</span><span class="p">:</span> <span class="s">&#39;0&#39;</span>
@@ -364,7 +364,7 @@
     <span class="nt">&quot;day&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
     <span class="nt">&quot;journal_club&quot;</span><span class="p">:</span> <span class="p">{</span>
         <span class="nt">&quot;doi&quot;</span><span class="p">:</span> <span class="s2">&quot;10.1107/S2053273319005606&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;presenter&quot;</span><span class="p">:</span> <span class="s2">&quot;sbillinge&quot;</span>
+        <span class="nt">&quot;presenter&quot;</span><span class="p">:</span> <span class="s2">&quot;not_a_valid_group_id&quot;</span>
     <span class="p">},</span>
     <span class="nt">&quot;lead&quot;</span><span class="p">:</span> <span class="s2">&quot;sbillinge&quot;</span><span class="p">,</span>
     <span class="nt">&quot;minutes&quot;</span><span class="p">:</span> <span class="p">[</span>
@@ -385,7 +385,7 @@
     <span class="nt">&quot;place&quot;</span><span class="p">:</span> <span class="s2">&quot;Mudd 1106&quot;</span><span class="p">,</span>
     <span class="nt">&quot;presentation&quot;</span><span class="p">:</span> <span class="p">{</span>
         <span class="nt">&quot;link&quot;</span><span class="p">:</span> <span class="s2">&quot;2007ac_grpmtg&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;presenter&quot;</span><span class="p">:</span> <span class="s2">&quot;sbillinge&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;presenter&quot;</span><span class="p">:</span> <span class="s2">&quot;not_a_valid_group_id&quot;</span><span class="p">,</span>
         <span class="nt">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;PDF Distance Extraction&quot;</span>
     <span class="p">},</span>
     <span class="nt">&quot;scribe&quot;</span><span class="p">:</span> <span class="s2">&quot;sbillinge&quot;</span><span class="p">,</span>

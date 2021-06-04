@@ -12,10 +12,10 @@ The following lists key names mapped to its type and meaning for each entry.
 :buddies: list, list of pairs of group members that are selected for the buddy round robin, required
 :date: ['string', 'datetime', 'date'], date of meeting in format YYYY-MM-DD, optional
 :day: integer, day of the group meeting, or the day the entry was edited, optional
-:journal_club: dict, indicating the doi of the journal and the presenting group member as the presenter, optional
+:journal_club: dict, Journal club presentation in group meeting, optional
 
-	:doi: string, The doi of the journal club presentation target paper.  tbd if it is not known yet, optional
-	:presenter: string, The name or _id of the group member presenting, optional
+	:doi: string, The doi of the journal club presentation paper.  tbd if it is not known yet, optional
+	:presenter: string, The _id of the group member presenting, or a string describing the presenter, e.g., their full name., optional
 :lead: string, person who will be leading the meeting of the current week, required
 :minutes: list, meeting notes in a chronological order according to comments made by the group members, required
 :month: ['string', 'integer'], month in which the meeting is taking place, required
@@ -24,7 +24,7 @@ The following lists key names mapped to its type and meaning for each entry.
 
 	:title: string, The title of the presentation.  tbd if it is not known yet, optional
 	:link: string, the url to the repo, google slide location, or other web location where the presentation can be found, optional
-	:presenter: string, The name or _id of the group member presenting, optional
+	:presenter: string, The _id of the group member presenting or a string describing the person., optional
 :scribe: string, person who will be taking notes and updating minutes accordingly, required
 :time: ['string', 'integer', 'datetime'], the time of the meetingIf an integer is minutes past midnight, so 13:30 is 810 forexample., optional
 :updated: ['string', 'datetime', 'date'], The datetime.date object of the most recent update, optional
@@ -127,7 +127,7 @@ YAML Example
 	  day: 1
 	  journal_club:
 	    doi: 10.1107/S2053273319005606
-	    presenter: sbillinge
+	    presenter: not_a_valid_group_id
 	  lead: sbillinge
 	  minutes:
 	    - Talked about eyesight and prescription lenses
@@ -148,7 +148,7 @@ YAML Example
 	  place: Mudd 1106
 	  presentation:
 	    link: 2007ac_grpmtg
-	    presenter: sbillinge
+	    presenter: not_a_valid_group_id
 	    title: PDF Distance Extraction
 	  scribe: sbillinge
 	  time: '0'
@@ -258,7 +258,7 @@ JSON/Mongo Example
 	    "day": 1,
 	    "journal_club": {
 	        "doi": "10.1107/S2053273319005606",
-	        "presenter": "sbillinge"
+	        "presenter": "not_a_valid_group_id"
 	    },
 	    "lead": "sbillinge",
 	    "minutes": [
@@ -279,7 +279,7 @@ JSON/Mongo Example
 	    "place": "Mudd 1106",
 	    "presentation": {
 	        "link": "2007ac_grpmtg",
-	        "presenter": "sbillinge",
+	        "presenter": "not_a_valid_group_id",
 	        "title": "PDF Distance Extraction"
 	    },
 	    "scribe": "sbillinge",
