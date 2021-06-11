@@ -18,15 +18,17 @@ The following lists key names mapped to its type and meaning for each entry.
 	:platform: string, description of how and where the audience will access the deliverable.e.g. Journal if it is a paper. For software releases, this may be the computer operating systems that will be supported, or if it will be a web service, etc., optional
 	:roll_out: list, steps that the audience will take to access and interact with the deliverable, not needed for paper submissions, optional
 	:notes: list, any notes about the deliverable that we want to keep track of, optional
-	:status: string, status of the deliverable. Allowed values are proposed, started, converged, finished, cancelled, paused, optional
+	:status: string, status of the deliverable. Allowed values are proposed, converged, started, backburner, paused, cancelled, finished, optional
 
 		Allowed values: 
 			* proposed
-			* started
 			* converged
-			* finished
-			* cancelled
+			* started
+			* backburner
 			* paused
+			* cancelled
+			* finished
+			* all
 	:type: string, type of deliverable, optional
 :description: string, explanation of projectum, optional
 :end_date: ['date', 'string'], projectum end date, yyyy-mm-dd., optional
@@ -40,15 +42,17 @@ The following lists key names mapped to its type and meaning for each entry.
 	:objective: string, goal of the meeting, optional
 	:audience: list, list of people attending the meeting.Normally this list is group_members, collaborators, and pi, or some subset of these. if people are invited who are not alreadyin these groups their names or id's can be added explicitly to the list, optional
 	:notes: list, any notes about the kickoff, optional
-	:status: string, status of the kickoff. Allowed values are proposed, started, converged, finished, cancelled, paused, optional
+	:status: string, status of the kickoff. Allowed values are proposed, converged, started, backburner, paused, cancelled, finished, optional
 
 		Allowed values: 
 			* proposed
-			* started
 			* converged
-			* finished
-			* cancelled
+			* started
+			* backburner
 			* paused
+			* cancelled
+			* finished
+			* all
 :lead: string, the id of the lead student or person for the projectum. Person details will be dereferenced from the people collection., required
 :log_url: string, link to an online document (e.g., Google doc) that is a log of notes and meeting minutes for the projectum, optional
 :milestones: list, smaller deliverables done by a certain date a series of milestones ends with the projectum deliverable, optional
@@ -67,15 +71,17 @@ The following lists key names mapped to its type and meaning for each entry.
 				:slides_url: string, url to slides describing the development, e.g., Google slides url, optional
 		:objective: string, explains goal of the milestone, optional
 		:audience: list, list of people attending the meeting.Normally this list is group_members, collaborators, and pi, or some subset of these. if people are invited who are not alreadyin these groups their names or id's can be added explicitly to the list, optional
-		:status: string, status of the milestone. Allowed values are proposed, started, converged, finished, cancelled, paused, optional
+		:status: string, status of the milestone. Allowed values are proposed, converged, started, backburner, paused, cancelled, finished, optional
 
 			Allowed values: 
 				* proposed
-				* started
 				* converged
-				* finished
-				* cancelled
+				* started
+				* backburner
 				* paused
+				* cancelled
+				* finished
+				* all
 		:type: string, type of milestone deliverable. Allowed values are pr, meeting, other, paper, release, email, handin, approval, presentation, report, submission, decision, demo, skel, optional
 
 			Allowed values: 
@@ -100,15 +106,17 @@ The following lists key names mapped to its type and meaning for each entry.
 :other_urls: list, link to remote repository. e.g. analysis or data repositories, optional
 :pi_id: string, id of the PI, optional
 :product_url: string, url for manuscript or code repository, optional
-:status: string, status of the projectum. Allowed values are proposed, started, converged, finished, cancelled, paused, required
+:status: string, status of the projectum. Allowed values are proposed, converged, started, backburner, paused, cancelled, finished, required
 
 	Allowed values: 
 		* proposed
-		* started
 		* converged
-		* finished
-		* cancelled
+		* started
+		* backburner
 		* paused
+		* cancelled
+		* finished
+		* all
 
 
 YAML Example
@@ -119,13 +127,16 @@ YAML Example
 	ab_inactive:
 	  deliverable:
 	    due_date: '2021-05-03'
+	    status: paused
 	  kickoff:
 	    due_date: '2021-05-03'
 	    name: Kickoff
+	    status: backburner
 	  lead: abeing
 	  milestones:
 	    - due_date: '2021-05-03'
 	      name: Milestone
+	      status: converged
 	  status: started
 	sb_firstprojectum:
 	  begin_date: '2020-04-28'
@@ -212,17 +223,20 @@ JSON/Mongo Example
 	{
 	    "_id": "ab_inactive",
 	    "deliverable": {
-	        "due_date": "2021-05-03"
+	        "due_date": "2021-05-03",
+	        "status": "paused"
 	    },
 	    "kickoff": {
 	        "due_date": "2021-05-03",
-	        "name": "Kickoff"
+	        "name": "Kickoff",
+	        "status": "backburner"
 	    },
 	    "lead": "abeing",
 	    "milestones": [
 	        {
 	            "due_date": "2021-05-03",
-	            "name": "Milestone"
+	            "name": "Milestone",
+	            "status": "converged"
 	        }
 	    ],
 	    "status": "started"
