@@ -15,6 +15,7 @@ The following lists key names mapped to its type and meaning for each entry.
 :journal_club: dict, Journal club presentation in group meeting, optional
 
 	:doi: string, The doi of the journal club presentation paper.  tbd if it is not known yet, optional
+	:link: string, the url to the repo, google slide location, or other web location where the presentation can be found, optional
 	:presenter: string, The _id of the group member presenting, or a string describing the presenter, e.g., their full name., optional
 :lead: string, person who will be leading the meeting of the current week, required
 :minutes: list, meeting notes in a chronological order according to comments made by the group members, required
@@ -127,6 +128,7 @@ YAML Example
 	  day: 1
 	  journal_club:
 	    doi: 10.1107/S2053273319005606
+	    link: http://myslides.com/link/to/2007ac_grpmtg
 	    presenter: not_a_valid_group_id
 	  lead: sbillinge
 	  minutes:
@@ -258,6 +260,7 @@ JSON/Mongo Example
 	    "day": 1,
 	    "journal_club": {
 	        "doi": "10.1107/S2053273319005606",
+	        "link": "http://myslides.com/link/to/2007ac_grpmtg",
 	        "presenter": "not_a_valid_group_id"
 	    },
 	    "lead": "sbillinge",

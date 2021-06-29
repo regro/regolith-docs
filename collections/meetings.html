@@ -95,25 +95,28 @@
 <dt class="field-odd">doi</dt>
 <dd class="field-odd"><p>string, The doi of the journal club presentation paper.  tbd if it is not known yet, optional</p>
 </dd>
-<dt class="field-even">presenter</dt>
-<dd class="field-even"><p>string, The _id of the group member presenting, or a string describing the presenter, e.g., their full name., optional</p>
+<dt class="field-even">link</dt>
+<dd class="field-even"><p>string, the url to the repo, google slide location, or other web location where the presentation can be found, optional</p>
+</dd>
+<dt class="field-odd">presenter</dt>
+<dd class="field-odd"><p>string, The _id of the group member presenting, or a string describing the presenter, e.g., their full name., optional</p>
 </dd>
 </dl>
 </dd>
-<dt class="field-odd">lead</dt>
-<dd class="field-odd"><p>string, person who will be leading the meeting of the current week, required</p>
+<dt class="field-even">lead</dt>
+<dd class="field-even"><p>string, person who will be leading the meeting of the current week, required</p>
 </dd>
-<dt class="field-even">minutes</dt>
-<dd class="field-even"><p>list, meeting notes in a chronological order according to comments made by the group members, required</p>
+<dt class="field-odd">minutes</dt>
+<dd class="field-odd"><p>list, meeting notes in a chronological order according to comments made by the group members, required</p>
 </dd>
-<dt class="field-odd">month</dt>
-<dd class="field-odd"><p>[‘string’, ‘integer’], month in which the meeting is taking place, required</p>
+<dt class="field-even">month</dt>
+<dd class="field-even"><p>[‘string’, ‘integer’], month in which the meeting is taking place, required</p>
 </dd>
-<dt class="field-even">place</dt>
-<dd class="field-even"><p>string, location where the meeting is taking place on campus, optional</p>
+<dt class="field-odd">place</dt>
+<dd class="field-odd"><p>string, location where the meeting is taking place on campus, optional</p>
 </dd>
-<dt class="field-odd">presentation</dt>
-<dd class="field-odd"><p>dict, indicating the title of the presentation along with the link and the presenter , optional</p>
+<dt class="field-even">presentation</dt>
+<dd class="field-even"><p>dict, indicating the title of the presentation along with the link and the presenter , optional</p>
 <dl class="field-list simple">
 <dt class="field-odd">title</dt>
 <dd class="field-odd"><p>string, The title of the presentation.  tbd if it is not known yet, optional</p>
@@ -235,6 +238,7 @@
   <span class="nt">day</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
   <span class="nt">journal_club</span><span class="p">:</span>
     <span class="nt">doi</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10.1107/S2053273319005606</span>
+    <span class="nt">link</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">http://myslides.com/link/to/2007ac_grpmtg</span>
     <span class="nt">presenter</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">not_a_valid_group_id</span>
   <span class="nt">lead</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">sbillinge</span>
   <span class="nt">minutes</span><span class="p">:</span>
@@ -364,6 +368,7 @@
     <span class="nt">&quot;day&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
     <span class="nt">&quot;journal_club&quot;</span><span class="p">:</span> <span class="p">{</span>
         <span class="nt">&quot;doi&quot;</span><span class="p">:</span> <span class="s2">&quot;10.1107/S2053273319005606&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;link&quot;</span><span class="p">:</span> <span class="s2">&quot;http://myslides.com/link/to/2007ac_grpmtg&quot;</span><span class="p">,</span>
         <span class="nt">&quot;presenter&quot;</span><span class="p">:</span> <span class="s2">&quot;not_a_valid_group_id&quot;</span>
     <span class="p">},</span>
     <span class="nt">&quot;lead&quot;</span><span class="p">:</span> <span class="s2">&quot;sbillinge&quot;</span><span class="p">,</span>

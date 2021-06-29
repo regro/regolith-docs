@@ -82,10 +82,10 @@ The following lists key names mapped to its type and meaning for each entry.
 				* cancelled
 				* finished
 				* all
-		:type: string, type of milestone deliverable. Allowed values are pr, meeting, other, paper, release, email, handin, approval, presentation, report, submission, decision, demo, skel, optional
+		:type: string, type of milestone deliverable. Allowed values are mergedpr, meeting, other, paper, release, email, handin, approval, presentation, report, submission, decision, demo, skel, optional
 
 			Allowed values: 
-				* pr
+				* mergedpr
 				* meeting
 				* other
 				* paper
