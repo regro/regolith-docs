@@ -45,6 +45,7 @@ The following lists key names mapped to its type and meaning for each entry.
 		* poster
 		* seminar
 		* tutorial
+		* other
 :webinar: boolean, true if a webinar. Default to False, optional
 
 
