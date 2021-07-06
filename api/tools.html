@@ -266,8 +266,19 @@ cond is false.</p>
 
 <dl class="function">
 <dt id="regolith.tools.filter_employment_for_advisees">
-<code class="sig-prename descclassname">regolith.tools.</code><code class="sig-name descname">filter_employment_for_advisees</code><span class="sig-paren">(</span><em class="sig-param">people</em>, <em class="sig-param">begin_period</em>, <em class="sig-param">status</em>, <em class="sig-param">active=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#filter_employment_for_advisees"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.tools.filter_employment_for_advisees" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<code class="sig-prename descclassname">regolith.tools.</code><code class="sig-name descname">filter_employment_for_advisees</code><span class="sig-paren">(</span><em class="sig-param">peoplecoll</em>, <em class="sig-param">begin_period</em>, <em class="sig-param">status</em>, <em class="sig-param">now=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#filter_employment_for_advisees"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.tools.filter_employment_for_advisees" title="Permalink to this definition">¶</a></dt>
+<dd><p>Filter people to get advisees since begin_period</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>people</strong> (<em>list of dicts</em>) – The people collection</p></li>
+<li><p><strong>begin_period</strong> (<em>date</em>) – Only select advisees who were active after this date (i.e., their end date
+is after begin_period</p></li>
+<li><p><strong>status</strong> (<em>str</em>) – the status of the person in the group to filter for,  e.g., ms, phd, postdoc</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="function">
 <dt id="regolith.tools.filter_facilities">
@@ -838,6 +849,27 @@ not linked.</p>
 <li><p><strong>task_list</strong> (<em>list</em>) – A list of tasks that will be printed.</p></li>
 <li><p><strong>stati</strong> (<em>list</em>) – Filter status of the task</p></li>
 </ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="regolith.tools.remove_duplicate_docs">
+<code class="sig-prename descclassname">regolith.tools.</code><code class="sig-name descname">remove_duplicate_docs</code><span class="sig-paren">(</span><em class="sig-param">coll</em>, <em class="sig-param">key</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#remove_duplicate_docs"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.tools.remove_duplicate_docs" title="Permalink to this definition">¶</a></dt>
+<dd><p>find all docs where the target key has the same value and remove duplicates</p>
+<p>The doc found first will be kept and subsequent docs will be removed</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>target iterable of dicts</strong> – the list of documents</p></li>
+<li><p><strong>key string</strong> – the key that will be used to compare</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>The list of docs with duplicates (as described above) removed</p>
 </dd>
 </dl>
 </dd></dl>

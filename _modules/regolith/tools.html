@@ -364,23 +364,45 @@
     <span class="k">return</span> <span class="n">grants</span><span class="p">,</span> <span class="n">total_amount</span><span class="p">,</span> <span class="n">subaward_amount</span></div>
 
 
-<div class="viewcode-block" id="filter_employment_for_advisees"><a class="viewcode-back" href="../../api/tools.html#regolith.tools.filter_employment_for_advisees">[docs]</a><span class="k">def</span> <span class="nf">filter_employment_for_advisees</span><span class="p">(</span><span class="n">people</span><span class="p">,</span> <span class="n">begin_period</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">active</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<div class="viewcode-block" id="filter_employment_for_advisees"><a class="viewcode-back" href="../../api/tools.html#regolith.tools.filter_employment_for_advisees">[docs]</a><span class="k">def</span> <span class="nf">filter_employment_for_advisees</span><span class="p">(</span><span class="n">peoplecoll</span><span class="p">,</span> <span class="n">begin_period</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">now</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Filter people to get advisees since begin_period</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    people: list of dicts</span>
+<span class="sd">        The people collection</span>
+<span class="sd">    begin_period: date</span>
+<span class="sd">        Only select advisees who were active after this date (i.e., their end date</span>
+<span class="sd">        is after begin_period</span>
+<span class="sd">    status: str</span>
+<span class="sd">        the status of the person in the group to filter for,  e.g., ms, phd, postdoc</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">people</span> <span class="o">=</span> <span class="n">deepcopy</span><span class="p">(</span><span class="n">peoplecoll</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">now</span><span class="p">:</span>
+        <span class="n">now</span> <span class="o">=</span> <span class="n">date</span><span class="o">.</span><span class="n">today</span><span class="p">()</span>
     <span class="n">advisees</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">begin_period</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="n">begin_period</span> <span class="o">=</span> <span class="n">date_parser</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">begin_period</span><span class="p">)</span><span class="o">.</span><span class="n">date</span><span class="p">()</span>
     <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">people</span><span class="p">:</span>
         <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">p</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;employment&quot;</span><span class="p">,</span> <span class="p">[]):</span>
             <span class="k">if</span> <span class="n">i</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;status&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="n">status</span><span class="p">:</span>
                 <span class="n">emp_dates</span> <span class="o">=</span> <span class="n">get_dates</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+                <span class="n">begin_date</span> <span class="o">=</span> <span class="n">emp_dates</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;begin_date&quot;</span><span class="p">)</span>
                 <span class="n">end_date</span> <span class="o">=</span> <span class="n">emp_dates</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;end_date&quot;</span><span class="p">)</span>
                 <span class="k">if</span> <span class="ow">not</span> <span class="n">end_date</span><span class="p">:</span>
-                    <span class="n">end_date</span> <span class="o">=</span> <span class="n">date</span><span class="o">.</span><span class="n">today</span><span class="p">()</span>
-                <span class="n">i</span><span class="p">[</span><span class="s2">&quot;end_year&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">end_date</span><span class="o">.</span><span class="n">year</span>
+                    <span class="n">end_date</span> <span class="o">=</span> <span class="n">now</span>
                 <span class="k">if</span> <span class="n">end_date</span> <span class="o">&gt;=</span> <span class="n">begin_period</span><span class="p">:</span>
                     <span class="n">p</span><span class="p">[</span><span class="s1">&#39;role&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">i</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;position&quot;</span><span class="p">)</span>
+                    <span class="n">p</span><span class="p">[</span><span class="s1">&#39;begin_year&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">begin_date</span><span class="o">.</span><span class="n">year</span>
+                    <span class="k">if</span> <span class="ow">not</span> <span class="n">emp_dates</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;end_date&quot;</span><span class="p">):</span>
+                        <span class="n">p</span><span class="p">[</span><span class="s1">&#39;end_year&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;present&quot;</span>
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="n">p</span><span class="p">[</span><span class="s1">&#39;end_year&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">end_date</span><span class="o">.</span><span class="n">year</span>
                     <span class="n">p</span><span class="p">[</span><span class="s1">&#39;status&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">status</span>
-                    <span class="n">p</span><span class="p">[</span><span class="s1">&#39;end_year&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">end_date</span><span class="o">.</span><span class="n">year</span>
                     <span class="n">p</span><span class="p">[</span><span class="s1">&#39;position&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">i</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;position&quot;</span><span class="p">)</span>
+                    <span class="n">p</span><span class="p">[</span><span class="s1">&#39;end_date&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">end_date</span>
                     <span class="n">advisees</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
-                    <span class="n">advisees</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="s1">&#39;end_year&#39;</span><span class="p">],</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+                    <span class="n">advisees</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="s1">&#39;end_date&#39;</span><span class="p">],</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">advisees</span></div>
 
 
@@ -2024,6 +2046,36 @@
     <span class="n">ref_date</span> <span class="o">=</span> <span class="n">date</span><span class="p">(</span><span class="o">*</span><span class="n">ref_date_list</span><span class="p">)</span>
 
     <span class="k">return</span> <span class="n">ref</span><span class="p">,</span> <span class="n">ref_date</span></div>
+
+<div class="viewcode-block" id="remove_duplicate_docs"><a class="viewcode-back" href="../../api/tools.html#regolith.tools.remove_duplicate_docs">[docs]</a><span class="k">def</span> <span class="nf">remove_duplicate_docs</span><span class="p">(</span><span class="n">coll</span><span class="p">,</span><span class="n">key</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    find all docs where the target key has the same value and remove duplicates</span>
+<span class="sd">    </span>
+<span class="sd">    The doc found first will be kept and subsequent docs will be removed</span>
+<span class="sd">    </span>
+<span class="sd">    parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    target iterable of dicts</span>
+<span class="sd">      the list of documents</span>
+<span class="sd">    key string</span>
+<span class="sd">      the key that will be used to compare</span>
+
+<span class="sd">    return</span>
+<span class="sd">    ------</span>
+<span class="sd">    The list of docs with duplicates (as described above) removed</span>
+
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="n">values</span><span class="p">,</span> <span class="n">newcoll</span> <span class="o">=</span> <span class="p">[],</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">doc</span> <span class="ow">in</span> <span class="n">coll</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">doc</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">key</span><span class="p">)</span> <span class="ow">in</span> <span class="n">values</span><span class="p">:</span>
+            <span class="k">continue</span>
+        <span class="k">elif</span> <span class="ow">not</span> <span class="n">doc</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">key</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;ERROR: Target key, </span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s2"> not found in </span><span class="si">{</span><span class="n">doc</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">newcoll</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">doc</span><span class="p">)</span>
+            <span class="n">values</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">doc</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">key</span><span class="p">))</span>
+        
+    <span class="k">return</span> <span class="n">newcoll</span></div>
 </pre></div>
 
           </div>

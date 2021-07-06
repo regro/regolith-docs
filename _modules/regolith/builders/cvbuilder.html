@@ -58,7 +58,7 @@
   <h1>Source code for regolith.builders.cvbuilder</h1><div class="highlight"><pre>
 <span></span><span class="sd">&quot;&quot;&quot;Builder for CVs.&quot;&quot;&quot;</span>
 <span class="kn">from</span> <span class="nn">copy</span> <span class="kn">import</span> <span class="n">deepcopy</span>
-<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span><span class="p">,</span> <span class="n">date</span> 
+<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span>  <span class="n">date</span> 
 
 <span class="kn">from</span> <span class="nn">regolith.builders.basebuilder</span> <span class="kn">import</span> <span class="n">LatexBuilderBase</span>
 <span class="kn">from</span> <span class="nn">regolith.fsclient</span> <span class="kn">import</span> <span class="n">_id_key</span>
@@ -72,9 +72,9 @@
     <span class="n">awards_grants_honors</span><span class="p">,</span>
     <span class="n">make_bibtex_file</span><span class="p">,</span>
     <span class="n">filter_employment_for_advisees</span><span class="p">,</span>
-    <span class="n">dereference_institution</span><span class="p">,</span> 
-    <span class="n">merge_collections_superior</span><span class="p">,</span> 
-    <span class="n">filter_presentations</span><span class="p">,</span>
+    <span class="n">dereference_institution</span><span class="p">,</span>
+    <span class="n">merge_collections_superior</span><span class="p">,</span>
+    <span class="n">filter_presentations</span><span class="p">,</span> <span class="n">remove_duplicate_docs</span><span class="p">,</span>
 <span class="p">)</span>
 
 
@@ -173,9 +173,12 @@
             <span class="n">postdocs</span> <span class="o">=</span> <span class="n">filter_employment_for_advisees</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">gtx</span><span class="p">[</span><span class="s2">&quot;people&quot;</span><span class="p">],</span>
                                                       <span class="n">begin_period</span><span class="p">,</span>
                                                       <span class="s2">&quot;postdoc&quot;</span><span class="p">)</span>
+            <span class="n">postdocs</span> <span class="o">=</span> <span class="n">remove_duplicate_docs</span><span class="p">(</span><span class="n">postdocs</span><span class="p">,</span> <span class="s2">&quot;name&quot;</span><span class="p">)</span>
             <span class="n">visitors</span> <span class="o">=</span> <span class="n">filter_employment_for_advisees</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">gtx</span><span class="p">[</span><span class="s2">&quot;people&quot;</span><span class="p">],</span>
                                                       <span class="n">begin_period</span><span class="p">,</span>
                                                       <span class="s2">&quot;visitor-unsupported&quot;</span><span class="p">)</span>
+            <span class="n">visitors</span> <span class="o">=</span> <span class="n">remove_duplicate_docs</span><span class="p">(</span><span class="n">visitors</span><span class="p">,</span> <span class="s2">&quot;name&quot;</span><span class="p">)</span>
+
             <span class="nb">iter</span> <span class="o">=</span> <span class="n">deepcopy</span><span class="p">(</span><span class="n">graduateds</span><span class="p">)</span>
             <span class="k">for</span> <span class="n">g</span> <span class="ow">in</span> <span class="nb">iter</span><span class="p">:</span>
                 <span class="k">if</span> <span class="n">g</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;active&quot;</span><span class="p">):</span>
