@@ -67,14 +67,14 @@
 <span id="commands"></span><h1>Regolith Commands<a class="headerlink" href="#regolith-commands" title="Permalink to this headline">¶</a></h1>
 <p>Shell commands for regolith</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>usage: regolith <span class="o">[</span>-h<span class="o">]</span>
-                <span class="o">{</span>helper,rc,add,ingest,store,app,grade,build,deploy,email,classlist,json-to-yaml,yaml-to-json,fs-to-mongo,validate<span class="o">}</span>
+                <span class="o">{</span>helper,rc,add,ingest,store,app,grade,build,deploy,email,classlist,json-to-yaml,yaml-to-json,mongo-to-fs,fs-to-mongo,validate<span class="o">}</span>
                 ...
 
 optional arguments:
   -h, --help            show this <span class="nb">help</span> message and <span class="nb">exit</span>
 
 cmd:
-  <span class="o">{</span>helper,rc,add,ingest,store,app,grade,build,deploy,email,classlist,json-to-yaml,yaml-to-json,fs-to-mongo,validate<span class="o">}</span>
+  <span class="o">{</span>helper,rc,add,ingest,store,app,grade,build,deploy,email,classlist,json-to-yaml,yaml-to-json,mongo-to-fs,fs-to-mongo,validate<span class="o">}</span>
     helper              runs an available helper target
     rc                  prints run control
     add                 adds a record to a database and collection
@@ -91,12 +91,17 @@ cmd:
     classlist           updates classlist information from file
     json-to-yaml        Converts files from JSON to YAML
     yaml-to-json        Converts files from YAML to JSON
+    mongo-to-fs         Backup database from mongodb to filesystem as json.
+                        The database will be imported to the destination
+                        specified by the <span class="s1">&#39;database&#39;</span>:<span class="s1">&#39;dst_url&#39;</span> key. For this to
+                        work, ensure that the database is included <span class="k">in</span> the
+                        dst_url, and that <span class="nb">local</span> is <span class="nb">set</span> to true.
     fs-to-mongo         Import database from filesystem to mongodb. By
                         default, the database will be import to the <span class="nb">local</span>
-                        mongodb. If the <span class="s1">&#39;dst_url&#39;</span> key is specified <span class="k">in</span> the
-                        database <span class="k">in</span> <span class="s1">&#39;databases&#39;</span> part <span class="k">in</span> <span class="s1">&#39;regolithrc.json&#39;</span>. The
-                        database will be import to the destination specified
-                        by <span class="s1">&#39;dst_url&#39;</span>.
+                        mongodb. The database can also be imported to the
+                        destination specified by the <span class="s1">&#39;database&#39;</span>:<span class="s1">&#39;dst_url&#39;</span> key.
+                        For this to work, ensure that the database is included
+                        <span class="k">in</span> the dst_url, and that <span class="nb">local</span> is <span class="nb">set</span> to true.
     validate            Validates db
 </pre></div>
 </div>
@@ -113,6 +118,7 @@ cmd:
 <li class="toctree-l1"><a class="reference internal" href="helper.html">helper</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ingest.html">ingest</a></li>
 <li class="toctree-l1"><a class="reference internal" href="json-to-yaml.html">json-to-yaml</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mongo-to-fs.html">mongo-to-fs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rc.html">rc</a></li>
 <li class="toctree-l1"><a class="reference internal" href="store.html">store</a></li>
 <li class="toctree-l1"><a class="reference internal" href="validate.html">validate</a></li>

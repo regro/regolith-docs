@@ -138,7 +138,6 @@
                          <span class="n">person_dir</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">bldir</span><span class="p">,</span>
                          <span class="p">)</span></div>
 
-
 <div class="viewcode-block" id="HtmlBuilder.people"><a class="viewcode-back" href="../../../api/htmlbuilder.html#regolith.builders.htmlbuilder.HtmlBuilder.people">[docs]</a>    <span class="k">def</span> <span class="nf">people</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Render people, former members, and each person&quot;&quot;&quot;</span>
         <span class="n">rc</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">rc</span>
@@ -147,7 +146,6 @@
         <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">peeps_dir</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
         <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">former_peeps_dir</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
         <span class="n">peeps</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">gtx</span><span class="p">[</span><span class="s2">&quot;people&quot;</span><span class="p">]</span>
-        <span class="c1">#peeps = all_docs_from_collection(rc.client), &quot;people&quot;)</span>
         <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">peeps</span><span class="p">:</span>
             <span class="n">names</span> <span class="o">=</span> <span class="nb">frozenset</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;aka&quot;</span><span class="p">,</span> <span class="p">[])</span> <span class="o">+</span> <span class="p">[</span><span class="n">p</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]])</span>
             <span class="n">pubs</span> <span class="o">=</span> <span class="n">filter_publications</span><span class="p">(</span>

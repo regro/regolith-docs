@@ -182,10 +182,6 @@
 <div class="viewcode-block" id="LatexBuilderBase.pdf"><a class="viewcode-back" href="../../../api/basebuilder.html#regolith.builders.basebuilder.LatexBuilderBase.pdf">[docs]</a>    <span class="k">def</span> <span class="nf">pdf</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">base</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Compiles latex files to PDF&quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">rc</span><span class="o">.</span><span class="n">pdf</span><span class="p">:</span>
-            <span class="c1">#TODO determine what these commands are and why my machine won&#39;t run them</span>
-            <span class="c1">#self.run([&quot;latex&quot;] + LATEX_OPTS + [base + &quot;.tex&quot;])</span>
-            <span class="c1">#self.run([&quot;bibtex&quot;] + [base + &quot;.aux&quot;])</span>
-            <span class="c1">#self.run([&quot;latex&quot;] + LATEX_OPTS + [base + &quot;.tex&quot;])</span>
             <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="s1">&#39;nt&#39;</span><span class="p">:</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">run</span><span class="p">([</span><span class="s2">&quot;pdflatex&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="n">LATEX_OPTS</span> <span class="o">+</span> <span class="p">[</span><span class="n">base</span> <span class="o">+</span> <span class="s2">&quot;.tex&quot;</span><span class="p">])</span>
             <span class="k">else</span><span class="p">:</span>

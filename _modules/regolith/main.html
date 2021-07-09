@@ -92,7 +92,8 @@
     <span class="s2">&quot;classlist&quot;</span><span class="p">:</span> <span class="n">commands</span><span class="o">.</span><span class="n">classlist</span><span class="p">,</span>
     <span class="s2">&quot;validate&quot;</span><span class="p">:</span> <span class="n">commands</span><span class="o">.</span><span class="n">validate</span><span class="p">,</span>
     <span class="s2">&quot;helper&quot;</span><span class="p">:</span> <span class="n">commands</span><span class="o">.</span><span class="n">helper</span><span class="p">,</span>
-    <span class="s2">&quot;fs-to-mongo&quot;</span><span class="p">:</span> <span class="n">commands</span><span class="o">.</span><span class="n">fs_to_mongo</span>
+    <span class="s2">&quot;fs-to-mongo&quot;</span><span class="p">:</span> <span class="n">commands</span><span class="o">.</span><span class="n">fs_to_mongo</span><span class="p">,</span>
+    <span class="s2">&quot;mongo-to-fs&quot;</span><span class="p">:</span> <span class="n">commands</span><span class="o">.</span><span class="n">mongo_to_fs</span>
 <span class="p">}</span>
 
 <span class="n">NEED_RC</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">CONNECTED_COMMANDS</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
@@ -319,12 +320,26 @@
     <span class="p">)</span>
     <span class="n">ytj</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;files&quot;</span><span class="p">,</span> <span class="n">nargs</span><span class="o">=</span><span class="s2">&quot;+&quot;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">&quot;file names to convert&quot;</span><span class="p">)</span>
 
+    <span class="c1"># mongo-to-fs subparser</span>
+    <span class="n">mtf</span> <span class="o">=</span> <span class="n">subp</span><span class="o">.</span><span class="n">add_parser</span><span class="p">(</span>
+        <span class="s2">&quot;mongo-to-fs&quot;</span><span class="p">,</span>
+        <span class="n">help</span><span class="o">=</span><span class="s2">&quot;Backup database from mongodb to filesystem as json. The database will be imported to the destination &quot;</span>
+             <span class="s2">&quot;specified by the &#39;database&#39;:&#39;dst_url&#39; key. For this to work, ensure that the database is included in the &quot;</span>
+             <span class="s2">&quot;dst_url, and that local is set to true.&quot;</span>
+    <span class="p">)</span>
+
+    <span class="n">mtf</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;--host&quot;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">&quot;Specifies a resolvable hostname for the mongod to which to connect. By &quot;</span>
+                                    <span class="s2">&quot;default, the mongoexport attempts to connect to a MongoDB instance running &quot;</span>
+                                    <span class="s2">&quot;on the localhost on port number 27017.&quot;</span><span class="p">,</span>
+                     <span class="n">dest</span><span class="o">=</span><span class="s2">&quot;host&quot;</span><span class="p">,</span>
+                     <span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+
     <span class="c1"># fs-to-mongo subparser</span>
     <span class="n">ftm</span> <span class="o">=</span> <span class="n">subp</span><span class="o">.</span><span class="n">add_parser</span><span class="p">(</span>
         <span class="s2">&quot;fs-to-mongo&quot;</span><span class="p">,</span>
         <span class="n">help</span><span class="o">=</span><span class="s2">&quot;Import database from filesystem to mongodb. By default, the database will be import to the local &quot;</span>
-             <span class="s2">&quot;mongodb. If the &#39;dst_url&#39; key is specified in the database in &#39;databases&#39; part in &quot;</span>
-             <span class="s2">&quot;&#39;regolithrc.json&#39;. The database will be import to the destination specified by &#39;dst_url&#39;.&quot;</span>
+             <span class="s2">&quot;mongodb. The database can also be imported to the destination specified by the &#39;database&#39;:&#39;dst_url&#39; key.&quot;</span>
+             <span class="s2">&quot; For this to work, ensure that the database is included in the dst_url, and that local is set to true.&quot;</span>
     <span class="p">)</span>
 
     <span class="n">ftm</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;--host&quot;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">&quot;Specifies a resolvable hostname for the mongod to which to connect. By &quot;</span>
@@ -345,7 +360,7 @@
 
 
 <div class="viewcode-block" id="main"><a class="viewcode-back" href="../../api/main.html#regolith.main.main">[docs]</a><span class="k">def</span> <span class="nf">main</span><span class="p">(</span><span class="n">args</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-    <span class="n">rc</span> <span class="o">=</span> <span class="n">DEFAULT_RC</span>
+    <span class="n">rc</span> <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">DEFAULT_RC</span><span class="p">)</span>
     <span class="n">parser</span> <span class="o">=</span> <span class="n">create_parser</span><span class="p">()</span>
     <span class="n">args0</span> <span class="o">=</span> <span class="n">Namespace</span><span class="p">()</span>
     <span class="n">args1</span><span class="p">,</span> <span class="n">rest</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_known_args</span><span class="p">(</span><span class="n">args</span><span class="p">,</span> <span class="n">namespace</span><span class="o">=</span><span class="n">args0</span><span class="p">)</span>

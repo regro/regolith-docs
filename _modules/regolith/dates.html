@@ -57,11 +57,9 @@
             
   <h1>Source code for regolith.dates</h1><div class="highlight"><pre>
 <span></span><span class="sd">&quot;&quot;&quot;Date based tools&quot;&quot;&quot;</span>
-<span class="kn">import</span> <span class="nn">calendar</span>
 <span class="kn">import</span> <span class="nn">datetime</span>
 <span class="kn">from</span> <span class="nn">dateutil</span> <span class="kn">import</span> <span class="n">parser</span> <span class="k">as</span> <span class="n">date_parser</span>
 
-<span class="kn">import</span> <span class="nn">datetime</span> <span class="k">as</span> <span class="nn">dt</span>
 <span class="kn">import</span> <span class="nn">calendar</span>
 
 <span class="n">MONTHS</span> <span class="o">=</span> <span class="p">{</span>
@@ -188,6 +186,33 @@
 
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="n">calendar</span><span class="o">.</span><span class="n">monthrange</span><span class="p">(</span><span class="n">year</span><span class="p">,</span> <span class="n">month_to_int</span><span class="p">(</span><span class="n">month</span><span class="p">))[</span><span class="mi">1</span><span class="p">]</span></div>
+
+
+<div class="viewcode-block" id="convert_doc_iso_to_date"><a class="viewcode-back" href="../../api/dates.html#regolith.dates.convert_doc_iso_to_date">[docs]</a><span class="k">def</span> <span class="nf">convert_doc_iso_to_date</span><span class="p">(</span><span class="n">doc</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">convert_date</span><span class="p">(</span><span class="n">obj</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Recursively goes through the dictionary obj and converts date from iso to datetime.date</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">date</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1">&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">date</span><span class="p">()</span>
+            <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">obj</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">date</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">)):</span>
+            <span class="k">return</span> <span class="n">obj</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="nb">dict</span><span class="p">):</span>
+            <span class="n">new</span> <span class="o">=</span> <span class="n">obj</span><span class="o">.</span><span class="vm">__class__</span><span class="p">()</span>
+            <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">obj</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+                <span class="n">new</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">convert_date</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="p">(</span><span class="nb">list</span><span class="p">,</span> <span class="nb">set</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">)):</span>
+            <span class="n">new</span> <span class="o">=</span> <span class="n">obj</span><span class="o">.</span><span class="vm">__class__</span><span class="p">(</span><span class="n">convert_date</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">obj</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">obj</span>
+        <span class="k">return</span> <span class="n">new</span>
+    <span class="k">return</span> <span class="n">convert_date</span><span class="p">(</span><span class="n">doc</span><span class="p">)</span></div>
+
 
 <div class="viewcode-block" id="get_dates"><a class="viewcode-back" href="../../api/dates.html#regolith.dates.get_dates">[docs]</a><span class="k">def</span> <span class="nf">get_dates</span><span class="p">(</span><span class="n">thing</span><span class="p">,</span> <span class="n">date_field_prefix</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
     <span class="sd">&#39;&#39;&#39;</span>

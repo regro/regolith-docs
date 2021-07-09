@@ -260,6 +260,21 @@
     <span class="k">return</span></div>
 
 
+<div class="viewcode-block" id="mongo_to_fs"><a class="viewcode-back" href="../../api/commands.html#regolith.commands.mongo_to_fs">[docs]</a><span class="k">def</span> <span class="nf">mongo_to_fs</span><span class="p">(</span><span class="n">rc</span><span class="p">:</span> <span class="n">RunControl</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;Convert database collection from filesystem to mongo db.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    rc : RunControl</span>
+<span class="sd">        The RunControl. The mongo client will be created according to &#39;mongodbpath&#39; in it. The databases will</span>
+<span class="sd">        be loaded according to the &#39;databases&#39; in it.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">dbs</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">rc</span><span class="p">,</span> <span class="s1">&#39;databases&#39;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">db</span> <span class="ow">in</span> <span class="n">dbs</span><span class="p">:</span>
+        <span class="n">rc</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">export_database</span><span class="p">(</span><span class="n">db</span><span class="p">)</span>
+    <span class="k">return</span></div>
+
+
 <div class="viewcode-block" id="validate"><a class="viewcode-back" href="../../api/commands.html#regolith.commands.validate">[docs]</a><span class="k">def</span> <span class="nf">validate</span><span class="p">(</span><span class="n">rc</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Validate the combined database against the schemas&quot;&quot;&quot;</span>
     <span class="kn">from</span> <span class="nn">regolith.schemas</span> <span class="kn">import</span> <span class="n">validate</span>

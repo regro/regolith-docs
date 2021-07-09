@@ -91,8 +91,6 @@
     <span class="n">unicode_type</span> <span class="o">=</span> <span class="nb">str</span>
 <span class="k">else</span><span class="p">:</span>
     <span class="k">pass</span>
-    <span class="c1"># string_types = (str, unicode)</span>
-    <span class="c1"># unicode_type = unicode</span>
 
 <span class="n">DEFAULT_ENCODING</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">getdefaultencoding</span><span class="p">()</span>
 
@@ -588,18 +586,6 @@
         <span class="n">svc</span> <span class="o">=</span> <span class="n">copy</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;activities&quot;</span><span class="p">,</span> <span class="p">[]))</span>
         <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">svc</span><span class="p">:</span>
             <span class="k">if</span> <span class="n">i</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;type&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="nb">type</span><span class="p">:</span>
-                <span class="c1"># if i.get(&#39;year&#39;):</span>
-                <span class="c1">#     end_year = i.get(&#39;year&#39;)</span>
-                <span class="c1">#     if verbose: print(&quot;end_year from &#39;year&#39; = {}&quot;.format(end_year))</span>
-                <span class="c1"># elif i.get(&#39;end_year&#39;):</span>
-                <span class="c1">#     end_year = i.get(&#39;end_year&#39;)</span>
-                <span class="c1">#     if verbose: print(&quot;end_year from &#39;end_year&#39; = {}&quot;.format(end_year))</span>
-                <span class="c1"># else:</span>
-                <span class="c1">#     end_year = date.today().year</span>
-                <span class="c1">#     if verbose: print(&quot;no end_year, using today = {}&quot;.format(end_year))                                i.get(&quot;end_month&quot;, 12),</span>
-                <span class="c1">#                 i.get(&quot;end_day&quot;, last_day(end_year,  i.get(&quot;end_month&quot;)))</span>
-                <span class="c1"># if verbose: print(&quot;end_date = {} and begin_period = {}&quot;.format(end_date,begin_period))</span>
-                <span class="c1"># if verbose: print(&quot;condition end_date &gt;= begin_period will be used&quot;)</span>
                 <span class="n">idates</span> <span class="o">=</span> <span class="n">get_dates</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
                 <span class="k">if</span> <span class="n">idates</span><span class="p">[</span><span class="s2">&quot;end_date&quot;</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="n">begin_period</span><span class="p">:</span>
                     <span class="n">usedate</span> <span class="o">=</span> <span class="n">idates</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;begin_date&#39;</span><span class="p">,</span> <span class="n">idates</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;date&#39;</span><span class="p">))</span>
@@ -674,7 +660,7 @@
         <span class="n">authorids</span> <span class="o">=</span> <span class="p">[</span>
             <span class="n">author</span><span class="p">[</span><span class="s2">&quot;_id&quot;</span><span class="p">]</span> <span class="k">if</span> <span class="n">author</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
             <span class="k">else</span> <span class="n">author</span>
-            <span class="k">for</span> <span class="n">author</span> <span class="ow">in</span> <span class="n">authors</span> 
+            <span class="k">for</span> <span class="n">author</span> <span class="ow">in</span> <span class="n">authors</span>
         <span class="p">]</span>
         <span class="k">if</span> <span class="n">target</span> <span class="ow">in</span> <span class="n">authorids</span><span class="p">:</span>
             <span class="n">firstclean</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">pres</span><span class="p">)</span>
@@ -1969,16 +1955,6 @@
             <span class="k">for</span> <span class="n">note</span> <span class="ow">in</span> <span class="n">task</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;notes&#39;</span><span class="p">):</span>
                 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;     - </span><span class="si">{</span><span class="n">note</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="s1">&#39;-&#39;</span> <span class="o">*</span> <span class="mi">30</span><span class="si">}</span><span class="se">\n</span><span class="s2">Deadlines:</span><span class="se">\n</span><span class="si">{</span><span class="s1">&#39;-&#39;</span> <span class="o">*</span> <span class="mi">30</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-
-    <span class="c1">#        else:</span>
-    <span class="c1">#            for task in task_list:</span>
-    <span class="c1">#                if task.get(&#39;status&#39;) == status:</span>
-    <span class="c1">#                    print(</span>
-    <span class="c1">#                        f&quot;{task.get(&#39;description&#39;).strip()} ({task.get(&#39;days_to_due&#39;)}|{task.get(&#39;importance&#39;)}|{str(task.get(&#39;duration&#39;))}|{&#39;,&#39;.join(task.get(&#39;tags&#39;,[]))}|{task.get(&#39;assigned_by&#39;)})&quot;)</span>
-    <span class="c1">#                    if task.get(&#39;notes&#39;):</span>
-    <span class="c1">#                        for note in task.get(&#39;notes&#39;):</span>
-    <span class="c1">#                            print(f&quot;     - {note}&quot;)</span>
-
     <span class="k">return</span></div>
 
 
@@ -2050,9 +2026,9 @@
 <div class="viewcode-block" id="remove_duplicate_docs"><a class="viewcode-back" href="../../api/tools.html#regolith.tools.remove_duplicate_docs">[docs]</a><span class="k">def</span> <span class="nf">remove_duplicate_docs</span><span class="p">(</span><span class="n">coll</span><span class="p">,</span><span class="n">key</span><span class="p">):</span>
     <span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">    find all docs where the target key has the same value and remove duplicates</span>
-<span class="sd">    </span>
+
 <span class="sd">    The doc found first will be kept and subsequent docs will be removed</span>
-<span class="sd">    </span>
+
 <span class="sd">    parameters</span>
 <span class="sd">    ----------</span>
 <span class="sd">    target iterable of dicts</span>
@@ -2074,8 +2050,23 @@
         <span class="k">else</span><span class="p">:</span>
             <span class="n">newcoll</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">doc</span><span class="p">)</span>
             <span class="n">values</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">doc</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">key</span><span class="p">))</span>
-        
+
     <span class="k">return</span> <span class="n">newcoll</span></div>
+
+
+<div class="viewcode-block" id="validate_doc"><a class="viewcode-back" href="../../api/tools.html#regolith.tools.validate_doc">[docs]</a><span class="k">def</span> <span class="nf">validate_doc</span><span class="p">(</span><span class="n">collection_name</span><span class="p">,</span> <span class="n">doc</span><span class="p">,</span> <span class="n">rc</span><span class="p">):</span>
+    <span class="kn">from</span> <span class="nn">regolith.schemas</span> <span class="kn">import</span> <span class="n">validate</span>
+    <span class="kn">from</span> <span class="nn">pprint</span> <span class="kn">import</span> <span class="n">pformat</span>
+    <span class="n">v</span> <span class="o">=</span> <span class="n">validate</span><span class="p">(</span><span class="n">collection_name</span><span class="p">,</span> <span class="n">doc</span><span class="p">,</span> <span class="n">rc</span><span class="o">.</span><span class="n">schemas</span><span class="p">)</span>
+    <span class="n">error_message</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">v</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="ow">is</span> <span class="kc">False</span><span class="p">:</span>
+        <span class="n">error_message</span> <span class="o">+=</span> <span class="sa">f</span><span class="s2">&quot;ERROR in </span><span class="si">{</span><span class="n">doc</span><span class="p">[</span><span class="s1">&#39;_id&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">:</span><span class="se">\n</span><span class="si">{</span><span class="n">pformat</span><span class="p">(</span><span class="n">v</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span>
+        <span class="k">for</span> <span class="n">vv</span> <span class="ow">in</span> <span class="n">v</span><span class="p">[</span><span class="mi">1</span><span class="p">]:</span>
+            <span class="n">error_message</span> <span class="o">+=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">pformat</span><span class="p">(</span><span class="n">doc</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">vv</span><span class="p">))</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span>
+        <span class="n">error_message</span> <span class="o">+=</span> <span class="p">(</span><span class="s2">&quot;-&quot;</span> <span class="o">*</span> <span class="mi">15</span><span class="p">)</span>
+        <span class="n">error_message</span> <span class="o">+=</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span>
+    <span class="k">return</span> <span class="n">v</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">error_message</span></div>
+
 </pre></div>
 
           </div>
