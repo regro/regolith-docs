@@ -206,7 +206,7 @@ YAML Example
 	      name: planning meeting
 	      objective: develop a detailed plan with dates
 	      status: proposed
-	      type: pr
+	      type: mergedpr
 	  name: First Projectum
 	  other_urls:
 	    - https://docs.google.com/document/d/analysis
@@ -325,7 +325,7 @@ JSON/Mongo Example
 	            "name": "planning meeting",
 	            "objective": "develop a detailed plan with dates",
 	            "status": "proposed",
-	            "type": "pr"
+	            "type": "mergedpr"
 	        }
 	    ],
 	    "name": "First Projectum",
