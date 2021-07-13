@@ -173,12 +173,12 @@
     <span class="n">dbs</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
     <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">rc</span><span class="o">.</span><span class="n">build_targets</span><span class="p">:</span>
         <span class="n">bldr</span> <span class="o">=</span> <span class="n">BUILDERS</span><span class="p">[</span><span class="n">t</span><span class="p">]</span>
-        <span class="n">needed_dbs</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">bldr</span><span class="p">,</span> <span class="s1">&#39;needed_dbs&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+        <span class="n">needed_colls</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">bldr</span><span class="p">,</span> <span class="s1">&#39;needed_colls&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
         <span class="c1"># If the requested builder doesn&#39;t state DB deps then it requires</span>
         <span class="c1"># all dbs!</span>
-        <span class="k">if</span> <span class="ow">not</span> <span class="n">needed_dbs</span><span class="p">:</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">needed_colls</span><span class="p">:</span>
             <span class="k">return</span> <span class="kc">None</span>
-        <span class="n">dbs</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">needed_dbs</span><span class="p">)</span>
+        <span class="n">dbs</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">needed_colls</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">dbs</span></div>
 
 
@@ -186,12 +186,12 @@
     <span class="sd">&quot;&quot;&quot;Checks which DBs a builder needs&quot;&quot;&quot;</span>
     <span class="n">dbs</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
     <span class="n">bldr</span> <span class="o">=</span> <span class="n">HELPERS</span><span class="p">[</span><span class="n">rc</span><span class="o">.</span><span class="n">helper_target</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
-    <span class="n">needed_dbs</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">bldr</span><span class="p">,</span> <span class="s1">&#39;needed_dbs&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+    <span class="n">needed_colls</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">bldr</span><span class="p">,</span> <span class="s1">&#39;needed_colls&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
     <span class="c1"># If the requested builder doesn&#39;t state DB deps then it requires</span>
     <span class="c1"># all dbs!</span>
-    <span class="k">if</span> <span class="ow">not</span> <span class="n">needed_dbs</span><span class="p">:</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">needed_colls</span><span class="p">:</span>
         <span class="k">return</span> <span class="kc">None</span>
-    <span class="n">dbs</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">needed_dbs</span><span class="p">)</span>
+    <span class="n">dbs</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">needed_colls</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">dbs</span></div>
 
 
