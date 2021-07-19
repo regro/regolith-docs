@@ -77,6 +77,7 @@
 ./_sources/commands/yaml-to-json.rst.txt
 ./_sources/database_maintenance/index.rst.txt
 ./_sources/database_maintenance/mongo_maintenance.rst.txt
+./_sources/helper_gui.rst.txt
 ./_sources/index.rst.txt
 ./_sources/rc.rst.txt
 ./_sources/tutorials/broker.rst.txt
@@ -175,6 +176,7 @@
 ./commands/yaml-to-json.html
 ./database_maintenance/index.html
 ./database_maintenance/mongo_maintenance.html
+./helper_gui.html
 ./index.html
 ./objects.inv
 ./rc.html
