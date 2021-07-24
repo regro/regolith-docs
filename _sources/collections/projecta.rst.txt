@@ -38,6 +38,7 @@ The following lists key names mapped to its type and meaning for each entry.
 
 	:date: ['date', 'string'], kickoff meeting date, yyyy-mm-dd., optional
 	:due_date: ['date', 'string'], kickoff meeting by date, yyyy-mm-dd., optional
+	:end_date: ['date', 'string'], date when the kickoff was done, optional
 	:name: string, name of meeting, optional
 	:objective: string, goal of the meeting, optional
 	:audience: list, list of people attending the meeting.Normally this list is group_members, collaborators, and pi, or some subset of these. if people are invited who are not alreadyin these groups their names or id's can be added explicitly to the list, optional
@@ -171,6 +172,7 @@ YAML Example
 	      - group_members
 	    date: '2020-05-05'
 	    due_date: '2020-05-06'
+	    end_date: '2020-05-07'
 	    name: Kick off meeting
 	    notes:
 	      - kickoff note
@@ -282,6 +284,7 @@ JSON/Mongo Example
 	        ],
 	        "date": "2020-05-05",
 	        "due_date": "2020-05-06",
+	        "end_date": "2020-05-07",
 	        "name": "Kick off meeting",
 	        "notes": [
 	            "kickoff note"

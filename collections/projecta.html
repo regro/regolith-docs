@@ -146,20 +146,23 @@
 <dt class="field-even">due_date</dt>
 <dd class="field-even"><p>[‘date’, ‘string’], kickoff meeting by date, yyyy-mm-dd., optional</p>
 </dd>
-<dt class="field-odd">name</dt>
-<dd class="field-odd"><p>string, name of meeting, optional</p>
+<dt class="field-odd">end_date</dt>
+<dd class="field-odd"><p>[‘date’, ‘string’], date when the kickoff was done, optional</p>
 </dd>
-<dt class="field-even">objective</dt>
-<dd class="field-even"><p>string, goal of the meeting, optional</p>
+<dt class="field-even">name</dt>
+<dd class="field-even"><p>string, name of meeting, optional</p>
 </dd>
-<dt class="field-odd">audience</dt>
-<dd class="field-odd"><p>list, list of people attending the meeting.Normally this list is group_members, collaborators, and pi, or some subset of these. if people are invited who are not alreadyin these groups their names or id’s can be added explicitly to the list, optional</p>
+<dt class="field-odd">objective</dt>
+<dd class="field-odd"><p>string, goal of the meeting, optional</p>
 </dd>
-<dt class="field-even">notes</dt>
-<dd class="field-even"><p>list, any notes about the kickoff, optional</p>
+<dt class="field-even">audience</dt>
+<dd class="field-even"><p>list, list of people attending the meeting.Normally this list is group_members, collaborators, and pi, or some subset of these. if people are invited who are not alreadyin these groups their names or id’s can be added explicitly to the list, optional</p>
 </dd>
-<dt class="field-odd">status</dt>
-<dd class="field-odd"><p>string, status of the kickoff. Allowed values are proposed, converged, started, backburner, paused, cancelled, finished, optional</p>
+<dt class="field-odd">notes</dt>
+<dd class="field-odd"><p>list, any notes about the kickoff, optional</p>
+</dd>
+<dt class="field-even">status</dt>
+<dd class="field-even"><p>string, status of the kickoff. Allowed values are proposed, converged, started, backburner, paused, cancelled, finished, optional</p>
 <dl class="simple">
 <dt>Allowed values:</dt><dd><ul class="simple">
 <li><p>proposed</p></li>
@@ -176,14 +179,14 @@
 </dd>
 </dl>
 </dd>
-<dt class="field-even">lead</dt>
-<dd class="field-even"><p>string, the id of the lead student or person for the projectum. Person details will be dereferenced from the people collection., required</p>
+<dt class="field-odd">lead</dt>
+<dd class="field-odd"><p>string, the id of the lead student or person for the projectum. Person details will be dereferenced from the people collection., required</p>
 </dd>
-<dt class="field-odd">log_url</dt>
-<dd class="field-odd"><p>string, link to an online document (e.g., Google doc) that is a log of notes and meeting minutes for the projectum, optional</p>
+<dt class="field-even">log_url</dt>
+<dd class="field-even"><p>string, link to an online document (e.g., Google doc) that is a log of notes and meeting minutes for the projectum, optional</p>
 </dd>
-<dt class="field-even">milestones</dt>
-<dd class="field-even"><p>list, smaller deliverables done by a certain date a series of milestones ends with the projectum deliverable, optional</p>
+<dt class="field-odd">milestones</dt>
+<dd class="field-odd"><p>list, smaller deliverables done by a certain date a series of milestones ends with the projectum deliverable, optional</p>
 <dl class="field-list">
 <dt class="field-odd">type</dt>
 <dd class="field-odd"><p>dict, optional</p>
@@ -352,6 +355,7 @@
       <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">group_members</span>
     <span class="nt">date</span><span class="p">:</span> <span class="s">&#39;2020-05-05&#39;</span>
     <span class="nt">due_date</span><span class="p">:</span> <span class="s">&#39;2020-05-06&#39;</span>
+    <span class="nt">end_date</span><span class="p">:</span> <span class="s">&#39;2020-05-07&#39;</span>
     <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Kick off meeting</span>
     <span class="nt">notes</span><span class="p">:</span>
       <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">kickoff note</span>
@@ -461,6 +465,7 @@
         <span class="p">],</span>
         <span class="nt">&quot;date&quot;</span><span class="p">:</span> <span class="s2">&quot;2020-05-05&quot;</span><span class="p">,</span>
         <span class="nt">&quot;due_date&quot;</span><span class="p">:</span> <span class="s2">&quot;2020-05-06&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;end_date&quot;</span><span class="p">:</span> <span class="s2">&quot;2020-05-07&quot;</span><span class="p">,</span>
         <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Kick off meeting&quot;</span><span class="p">,</span>
         <span class="nt">&quot;notes&quot;</span><span class="p">:</span> <span class="p">[</span>
             <span class="s2">&quot;kickoff note&quot;</span>
