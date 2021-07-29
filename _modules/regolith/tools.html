@@ -128,7 +128,7 @@
 
 
 <div class="viewcode-block" id="all_docs_from_collection"><a class="viewcode-back" href="../../api/tools.html#regolith.tools.all_docs_from_collection">[docs]</a><span class="k">def</span> <span class="nf">all_docs_from_collection</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="n">collname</span><span class="p">,</span> <span class="n">copy</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Yield all entries in all collections of a given name in a given</span>
+    <span class="sd">&quot;&quot;&quot;Yield all entries in for all collections of a given name in a given</span>
 <span class="sd">    database. &quot;&quot;&quot;</span>
     <span class="k">yield from</span> <span class="n">client</span><span class="o">.</span><span class="n">all_documents</span><span class="p">(</span><span class="n">collname</span><span class="p">,</span> <span class="n">copy</span><span class="o">=</span><span class="n">copy</span><span class="p">)</span></div>
 
