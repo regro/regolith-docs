@@ -38,6 +38,7 @@ YAML Example
 
 .. code-block:: yaml
 
+	ascopatz: {}
 	sbillinge:
 	  todos:
 	    - assigned_by: scopatz
@@ -72,6 +73,9 @@ JSON/Mongo Example
 
 .. code-block:: json
 
+	{
+	    "_id": "ascopatz"
+	}
 	{
 	    "_id": "sbillinge",
 	    "todos": [
