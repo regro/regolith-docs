@@ -68,6 +68,21 @@
 <span id="tools-regolith-tools"></span><span id="regolith-tools"></span><h1>Tools (<code class="docutils literal notranslate"><span class="pre">regolith.tools</span></code>)<a class="headerlink" href="#module-regolith.tools" title="Permalink to this headline">¶</a></h1>
 <p>Misc. regolith tools.</p>
 <dl class="function">
+<dt id="regolith.tools.add_to_google_calendar">
+<code class="sig-prename descclassname">regolith.tools.</code><code class="sig-name descname">add_to_google_calendar</code><span class="sig-paren">(</span><em class="sig-param">event</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#add_to_google_calendar"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.tools.add_to_google_calendar" title="Permalink to this definition">¶</a></dt>
+<dd><p>Takes a newly created event, and adds it to the user’s google calendar</p>
+<dl class="simple">
+<dt>Parameters:</dt><dd><dl class="simple">
+<dt>event - a dictionary containing the event details to be added to google calendar</dt><dd><p><a class="reference external" href="https://developers.google.com/calendar/api/v3/reference/events">https://developers.google.com/calendar/api/v3/reference/events</a></p>
+</dd>
+</dl>
+</dd>
+<dt>Returns:</dt><dd><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
 <dt id="regolith.tools.all_docs_from_collection">
 <code class="sig-prename descclassname">regolith.tools.</code><code class="sig-name descname">all_docs_from_collection</code><span class="sig-paren">(</span><em class="sig-param">client</em>, <em class="sig-param">collname</em>, <em class="sig-param">copy=True</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#all_docs_from_collection"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.tools.all_docs_from_collection" title="Permalink to this definition">¶</a></dt>
 <dd><p>Yield all entries in all collections of a given name in a given
@@ -507,6 +522,13 @@ collections in the needed databases</p>
 <dt id="regolith.tools.gets">
 <code class="sig-prename descclassname">regolith.tools.</code><code class="sig-name descname">gets</code><span class="sig-paren">(</span><em class="sig-param">seq</em>, <em class="sig-param">key</em>, <em class="sig-param">default=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#gets"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.tools.gets" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets a key from every element of a sequence if possible.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="regolith.tools.google_cal_auth_flow">
+<code class="sig-prename descclassname">regolith.tools.</code><code class="sig-name descname">google_cal_auth_flow</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#google_cal_auth_flow"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.tools.google_cal_auth_flow" title="Permalink to this definition">¶</a></dt>
+<dd><p>First time authentication, this function opens a window to request user consent to use google calendar API,
+and then returns a token</p>
 </dd></dl>
 
 <dl class="function">
