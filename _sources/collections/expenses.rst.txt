@@ -160,6 +160,58 @@ YAML Example
 	      submission_date: '2019-09-05'
 	      where: Columbia
 	  status: submitted
+	test2:
+	  begin_date: '2019-01-01'
+	  end_date: '2019-01-10'
+	  expense_type: business
+	  grant_percentages:
+	    - '100'
+	  grants:
+	    - SymPy-1.1
+	  itemized_expenses:
+	    - day: 2
+	      month: Jan
+	      prepaid_expense: 10.3
+	      purpose: test
+	      segregated_expense: 0
+	      unsegregated_expense: 10
+	      year: 2019
+	  notes: some note
+	  overall_purpose: testing
+	  payee: sbillinge
+	  project: reimbursed expense
+	  reimbursements:
+	    - amount: 100
+	      date: '2019-09-15'
+	      submission_date: tbd
+	      where: Columbia
+	  status: reimbursed
+	test3:
+	  begin_date: '2020-01-01'
+	  end_date: '2020-01-10'
+	  expense_type: business
+	  grant_percentages:
+	    - '100'
+	  grants:
+	    - SymPy-1.1
+	  itemized_expenses:
+	    - day: 3
+	      month: Jan
+	      prepaid_expense: 10.3
+	      purpose: test
+	      segregated_expense: 0
+	      unsegregated_expense: 10
+	      year: 2020
+	  notes: some other note
+	  overall_purpose: more testing
+	  payee: sbillinge
+	  project: reimbursed expense
+	  reimbursements:
+	    - amount: 100
+	      date: '2020-09-15'
+	      submission_date: tbd
+	      where: Columbia
+	  status: bad_status
 
 
 JSON/Mongo Example
@@ -291,4 +343,76 @@ JSON/Mongo Example
 	        }
 	    ],
 	    "status": "submitted"
+	}
+	{
+	    "_id": "test2",
+	    "begin_date": "2019-01-01",
+	    "end_date": "2019-01-10",
+	    "expense_type": "business",
+	    "grant_percentages": [
+	        "100"
+	    ],
+	    "grants": [
+	        "SymPy-1.1"
+	    ],
+	    "itemized_expenses": [
+	        {
+	            "day": 2,
+	            "month": "Jan",
+	            "prepaid_expense": 10.3,
+	            "purpose": "test",
+	            "segregated_expense": 0,
+	            "unsegregated_expense": 10,
+	            "year": 2019
+	        }
+	    ],
+	    "notes": "some note",
+	    "overall_purpose": "testing",
+	    "payee": "sbillinge",
+	    "project": "reimbursed expense",
+	    "reimbursements": [
+	        {
+	            "amount": 100,
+	            "date": "2019-09-15",
+	            "submission_date": "tbd",
+	            "where": "Columbia"
+	        }
+	    ],
+	    "status": "reimbursed"
+	}
+	{
+	    "_id": "test3",
+	    "begin_date": "2020-01-01",
+	    "end_date": "2020-01-10",
+	    "expense_type": "business",
+	    "grant_percentages": [
+	        "100"
+	    ],
+	    "grants": [
+	        "SymPy-1.1"
+	    ],
+	    "itemized_expenses": [
+	        {
+	            "day": 3,
+	            "month": "Jan",
+	            "prepaid_expense": 10.3,
+	            "purpose": "test",
+	            "segregated_expense": 0,
+	            "unsegregated_expense": 10,
+	            "year": 2020
+	        }
+	    ],
+	    "notes": "some other note",
+	    "overall_purpose": "more testing",
+	    "payee": "sbillinge",
+	    "project": "reimbursed expense",
+	    "reimbursements": [
+	        {
+	            "amount": 100,
+	            "date": "2020-09-15",
+	            "submission_date": "tbd",
+	            "where": "Columbia"
+	        }
+	    ],
+	    "status": "bad_status"
 	}
