@@ -5,7 +5,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Expenses &#8212; regolith - software group content managment system</title>
     <link rel="stylesheet" href="../_static/cloud.css" type="text/css" />
@@ -71,31 +71,31 @@
 <h2>Schema<a class="headerlink" href="#schema" title="Permalink to this headline">¶</a></h2>
 <p>The following lists key names mapped to its type and meaning for each entry.</p>
 <dl class="field-list">
-<dt class="field-odd">_id</dt>
+<dt class="field-odd">_id<span class="colon">:</span></dt>
 <dd class="field-odd"><p>string, short representation, such as this-is-my-name, required</p>
 </dd>
-<dt class="field-even">begin_date</dt>
+<dt class="field-even">begin_date<span class="colon">:</span></dt>
 <dd class="field-even"><p>[‘string’, ‘date’], begin date in YYYY-MM-DD, optional</p>
 </dd>
-<dt class="field-odd">begin_day</dt>
+<dt class="field-odd">begin_day<span class="colon">:</span></dt>
 <dd class="field-odd"><p>integer, The day when the travel/business started, optional</p>
 </dd>
-<dt class="field-even">begin_month</dt>
+<dt class="field-even">begin_month<span class="colon">:</span></dt>
 <dd class="field-even"><p>[‘string’, ‘integer’], The month when the travel/business started, optional</p>
 </dd>
-<dt class="field-odd">begin_year</dt>
+<dt class="field-odd">begin_year<span class="colon">:</span></dt>
 <dd class="field-odd"><p>integer, The year when the travel/business started, optional</p>
 </dd>
-<dt class="field-even">end_date</dt>
+<dt class="field-even">end_date<span class="colon">:</span></dt>
 <dd class="field-even"><p>[‘string’, ‘date’], end date in YYYY-MM-DD, optional</p>
 </dd>
-<dt class="field-odd">end_day</dt>
+<dt class="field-odd">end_day<span class="colon">:</span></dt>
 <dd class="field-odd"><p>integer, The day when the travel/business end, optional</p>
 </dd>
-<dt class="field-even">end_month</dt>
+<dt class="field-even">end_month<span class="colon">:</span></dt>
 <dd class="field-even"><p>[‘string’, ‘integer’], The month when the travel/business end, optional</p>
 </dd>
-<dt class="field-odd">end_year</dt>
+<dt class="field-odd">end_year<span class="colon">:</span></dt>
 <dd class="field-odd"><p>integer, The year when the travel/business end, optional</p>
 <dl class="simple">
 <dt>Allowed values:</dt><dd><ul class="simple">
@@ -105,102 +105,102 @@
 </dd>
 </dl>
 </dd>
-<dt class="field-even">grant_percentages</dt>
+<dt class="field-even">grant_percentages<span class="colon">:</span></dt>
 <dd class="field-even"><p>list, the percentage of the reimbursement amount to put on each grant. This list must be the same length asthe grants list and the percentages placed in the order that the grants appear in that list, optional</p>
 </dd>
-<dt class="field-odd">grants</dt>
+<dt class="field-odd">grants<span class="colon">:</span></dt>
 <dd class="field-odd"><p>[‘string’, ‘list’], the grants in a list, or a string if only one grant, required</p>
 </dd>
-<dt class="field-even">itemized_expenses</dt>
+<dt class="field-even">itemized_expenses<span class="colon">:</span></dt>
 <dd class="field-even"><p>list, optional</p>
 <dl class="field-list simple">
-<dt class="field-odd">type</dt>
+<dt class="field-odd">type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>dict, optional</p>
 <dl class="field-list simple">
-<dt class="field-odd">day</dt>
+<dt class="field-odd">day<span class="colon">:</span></dt>
 <dd class="field-odd"><p>integer, Expense day, optional</p>
 </dd>
-<dt class="field-even">date</dt>
+<dt class="field-even">date<span class="colon">:</span></dt>
 <dd class="field-even"><p>[‘string’, ‘date’], Expense date, optional</p>
 </dd>
-<dt class="field-odd">month</dt>
+<dt class="field-odd">month<span class="colon">:</span></dt>
 <dd class="field-odd"><p>[‘string’, ‘integer’], Expense month, optional</p>
 </dd>
-<dt class="field-even">year</dt>
+<dt class="field-even">year<span class="colon">:</span></dt>
 <dd class="field-even"><p>integer, Expense year, optional</p>
 </dd>
-<dt class="field-odd">purpose</dt>
+<dt class="field-odd">purpose<span class="colon">:</span></dt>
 <dd class="field-odd"><p>string, reason for expense, optional</p>
 </dd>
-<dt class="field-even">unsegregated_expense</dt>
+<dt class="field-even">unsegregated_expense<span class="colon">:</span></dt>
 <dd class="field-even"><p>float, The allowed expenses, optional</p>
 </dd>
-<dt class="field-odd">segregated_expense</dt>
+<dt class="field-odd">segregated_expense<span class="colon">:</span></dt>
 <dd class="field-odd"><p>float, The unallowed expenses, optional</p>
 </dd>
-<dt class="field-even">original_currency</dt>
+<dt class="field-even">original_currency<span class="colon">:</span></dt>
 <dd class="field-even"><p>float, The currency the payment was made in, optional</p>
 </dd>
-<dt class="field-odd">prepaid_expense</dt>
+<dt class="field-odd">prepaid_expense<span class="colon">:</span></dt>
 <dd class="field-odd"><p>float, The amount of prepaid expense in USD, optional</p>
 </dd>
 </dl>
 </dd>
 </dl>
 </dd>
-<dt class="field-even">notes</dt>
+<dt class="field-even">notes<span class="colon">:</span></dt>
 <dd class="field-even"><p>[‘list’, ‘string’], Description of the expenses. It will not be included in the reimbursement form, optional</p>
 </dd>
-<dt class="field-odd">overall_purpose</dt>
+<dt class="field-odd">overall_purpose<span class="colon">:</span></dt>
 <dd class="field-odd"><p>string, The reason for the expenses, required</p>
 </dd>
-<dt class="field-even">payee</dt>
+<dt class="field-even">payee<span class="colon">:</span></dt>
 <dd class="field-even"><p>string, The name or id of the payee filing the expense, required</p>
 </dd>
-<dt class="field-odd">project</dt>
+<dt class="field-odd">project<span class="colon">:</span></dt>
 <dd class="field-odd"><p>[‘string’, ‘list’], project or list of projects that this presentation is associated with.  Should be discoverable in projects collection, optional</p>
 </dd>
-<dt class="field-even">reimbursements</dt>
+<dt class="field-even">reimbursements<span class="colon">:</span></dt>
 <dd class="field-even"><p>list, Reimbursements for the expense, optional</p>
 <dl class="field-list simple">
-<dt class="field-odd">type</dt>
+<dt class="field-odd">type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>dict, optional</p>
 <dl class="field-list simple">
-<dt class="field-odd">amount</dt>
+<dt class="field-odd">amount<span class="colon">:</span></dt>
 <dd class="field-odd"><p>float, amount for reimbursements, optional</p>
 </dd>
-<dt class="field-even">date</dt>
+<dt class="field-even">date<span class="colon">:</span></dt>
 <dd class="field-even"><p>[‘string’, ‘date’], date of reimbursement, optional</p>
 </dd>
-<dt class="field-odd">submission_date</dt>
+<dt class="field-odd">submission_date<span class="colon">:</span></dt>
 <dd class="field-odd"><p>[‘string’, ‘date’], date of submission, optional</p>
 </dd>
-<dt class="field-even">submission_day</dt>
+<dt class="field-even">submission_day<span class="colon">:</span></dt>
 <dd class="field-even"><p>integer, day of submission. deprecated but here for backwards compatibility, optional</p>
 </dd>
-<dt class="field-odd">submission_month</dt>
+<dt class="field-odd">submission_month<span class="colon">:</span></dt>
 <dd class="field-odd"><p>[‘integer’, ‘string’], month of submission. deprecated but here for backwards compatibility, optional</p>
 </dd>
-<dt class="field-even">submission_year</dt>
+<dt class="field-even">submission_year<span class="colon">:</span></dt>
 <dd class="field-even"><p>integer, year of submission. deprecated but here for backwards compatibility, optional</p>
 </dd>
-<dt class="field-odd">day</dt>
+<dt class="field-odd">day<span class="colon">:</span></dt>
 <dd class="field-odd"><p>integer, day of reimbursement. deprecated but here for backwards compatibility, optional</p>
 </dd>
-<dt class="field-even">month</dt>
+<dt class="field-even">month<span class="colon">:</span></dt>
 <dd class="field-even"><p>[‘string’, ‘integer’], month of reimbursement. deprecated but here for backwards compatibility, optional</p>
 </dd>
-<dt class="field-odd">year</dt>
+<dt class="field-odd">year<span class="colon">:</span></dt>
 <dd class="field-odd"><p>integer, year of reimbursement. deprecated but here for backwards compatibility, optional</p>
 </dd>
-<dt class="field-even">where</dt>
+<dt class="field-even">where<span class="colon">:</span></dt>
 <dd class="field-even"><p>string, where the reimbursement has been sent, optional</p>
 </dd>
 </dl>
 </dd>
 </dl>
 </dd>
-<dt class="field-odd">status</dt>
+<dt class="field-odd">status<span class="colon">:</span></dt>
 <dd class="field-odd"><p>string, The status of the expense, optional</p>
 <dl class="simple">
 <dt>Allowed values:</dt><dd><ul class="simple">

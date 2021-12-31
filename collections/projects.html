@@ -5,7 +5,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Projects &#8212; regolith - software group content managment system</title>
     <link rel="stylesheet" href="../_static/cloud.css" type="text/css" />
@@ -71,81 +71,81 @@
 <h2>Schema<a class="headerlink" href="#schema" title="Permalink to this headline">¶</a></h2>
 <p>The following lists key names mapped to its type and meaning for each entry.</p>
 <dl class="field-list">
-<dt class="field-odd">_id</dt>
+<dt class="field-odd">_id<span class="colon">:</span></dt>
 <dd class="field-odd"><p>string, Unique project identifier., required</p>
 </dd>
-<dt class="field-even">active</dt>
+<dt class="field-even">active<span class="colon">:</span></dt>
 <dd class="field-even"><p>[‘string’, ‘boolean’], true if the project is active, optional</p>
 </dd>
-<dt class="field-odd">description</dt>
+<dt class="field-odd">description<span class="colon">:</span></dt>
 <dd class="field-odd"><p>string, brief project description., required</p>
 </dd>
-<dt class="field-even">grant</dt>
+<dt class="field-even">grant<span class="colon">:</span></dt>
 <dd class="field-even"><p>string, Grant id if there is a grant supporting this project, optional</p>
 </dd>
-<dt class="field-odd">group</dt>
+<dt class="field-odd">group<span class="colon">:</span></dt>
 <dd class="field-odd"><p>string, id for the group in the groups collection whose project this is, optional</p>
 </dd>
-<dt class="field-even">highlights</dt>
+<dt class="field-even">highlights<span class="colon">:</span></dt>
 <dd class="field-even"><p>list, list of things to highlight in a report or website, such as releases for  for software or high profile publications, optional</p>
 <dl class="field-list simple">
-<dt class="field-odd">type</dt>
+<dt class="field-odd">type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>dict, optional</p>
 <dl class="field-list simple">
-<dt class="field-odd">year</dt>
+<dt class="field-odd">year<span class="colon">:</span></dt>
 <dd class="field-odd"><p>integer, the year of the highlight, optional</p>
 </dd>
-<dt class="field-even">month</dt>
+<dt class="field-even">month<span class="colon">:</span></dt>
 <dd class="field-even"><p>[‘string’, ‘integer’], the month of the highlight, optional</p>
 </dd>
-<dt class="field-odd">description</dt>
+<dt class="field-odd">description<span class="colon">:</span></dt>
 <dd class="field-odd"><p>string, the highlight, optional</p>
 </dd>
 </dl>
 </dd>
 </dl>
 </dd>
-<dt class="field-even">logo</dt>
+<dt class="field-even">logo<span class="colon">:</span></dt>
 <dd class="field-even"><p>string, URL to the project logo, optional</p>
 </dd>
-<dt class="field-odd">name</dt>
+<dt class="field-odd">name<span class="colon">:</span></dt>
 <dd class="field-odd"><p>string, name of the project., required</p>
 </dd>
-<dt class="field-even">other</dt>
+<dt class="field-even">other<span class="colon">:</span></dt>
 <dd class="field-even"><p>[‘list’, ‘string’], other information about the project, optional</p>
 </dd>
-<dt class="field-odd">repo</dt>
+<dt class="field-odd">repo<span class="colon">:</span></dt>
 <dd class="field-odd"><p>string, URL of the source code repo, if available, optional</p>
 </dd>
-<dt class="field-even">team</dt>
+<dt class="field-even">team<span class="colon">:</span></dt>
 <dd class="field-even"><p>list, People who are/have been working on this project., required</p>
 <dl class="field-list simple">
-<dt class="field-odd">type</dt>
+<dt class="field-odd">type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>dict, optional</p>
 <dl class="field-list simple">
-<dt class="field-odd">begin_month</dt>
+<dt class="field-odd">begin_month<span class="colon">:</span></dt>
 <dd class="field-odd"><p>[‘string’, ‘integer’], optional</p>
 </dd>
-<dt class="field-even">begin_year</dt>
+<dt class="field-even">begin_year<span class="colon">:</span></dt>
 <dd class="field-even"><p>integer, optional</p>
 </dd>
-<dt class="field-odd">end_month</dt>
+<dt class="field-odd">end_month<span class="colon">:</span></dt>
 <dd class="field-odd"><p>[‘string’, ‘integer’], optional</p>
 </dd>
-<dt class="field-even">end_year</dt>
+<dt class="field-even">end_year<span class="colon">:</span></dt>
 <dd class="field-even"><p>integer, optional</p>
 </dd>
-<dt class="field-odd">name</dt>
+<dt class="field-odd">name<span class="colon">:</span></dt>
 <dd class="field-odd"><p>string, optional</p>
 </dd>
-<dt class="field-even">position</dt>
+<dt class="field-even">position<span class="colon">:</span></dt>
 <dd class="field-even"><p>string, optional</p>
 </dd>
 </dl>
 </dd>
 </dl>
 </dd>
-<dt class="field-odd">type</dt>
+<dt class="field-odd">type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>[‘string’], The type of project, optional</p>
 <dl class="simple">
 <dt>Allowed values:</dt><dd><ul class="simple">
@@ -156,7 +156,7 @@
 </dd>
 </dl>
 </dd>
-<dt class="field-even">website</dt>
+<dt class="field-even">website<span class="colon">:</span></dt>
 <dd class="field-even"><p>string, URL of the website., optional</p>
 </dd>
 </dl>

@@ -5,7 +5,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Courses &#8212; regolith - software group content managment system</title>
     <link rel="stylesheet" href="../_static/cloud.css" type="text/css" />
@@ -72,36 +72,36 @@ who is taking it. This is likely private.</p>
 <h2>Schema<a class="headerlink" href="#schema" title="Permalink to this headline">¶</a></h2>
 <p>The following lists key names mapped to its type and meaning for each entry.</p>
 <dl class="field-list simple">
-<dt class="field-odd">_id</dt>
+<dt class="field-odd">_id<span class="colon">:</span></dt>
 <dd class="field-odd"><p>str, course unique id, such a EMCH-558-2016-S</p>
 </dd>
-<dt class="field-even">department</dt>
+<dt class="field-even">department<span class="colon">:</span></dt>
 <dd class="field-even"><p>str, department code, e.g. EMCH</p>
 </dd>
-<dt class="field-odd">number</dt>
+<dt class="field-odd">number<span class="colon">:</span></dt>
 <dd class="field-odd"><p>int or str, class number, e.g. 558</p>
 </dd>
-<dt class="field-even">year</dt>
+<dt class="field-even">year<span class="colon">:</span></dt>
 <dd class="field-even"><p>int, year taught, e.g. 2016</p>
 </dd>
-<dt class="field-odd">season</dt>
+<dt class="field-odd">season<span class="colon">:</span></dt>
 <dd class="field-odd"><p>str,  semester or quarter instructed in, e.g. ‘F’, ‘W’, ‘S’, or ‘M’</p>
 </dd>
-<dt class="field-even">students</dt>
+<dt class="field-even">students<span class="colon">:</span></dt>
 <dd class="field-even"><p>list of str, names of students enrolled in course</p>
 </dd>
-<dt class="field-odd">syllabus</dt>
+<dt class="field-odd">syllabus<span class="colon">:</span></dt>
 <dd class="field-odd"><p>str,  syllabus file name in store, optional</p>
 </dd>
-<dt class="field-even">scale</dt>
+<dt class="field-even">scale<span class="colon">:</span></dt>
 <dd class="field-even"><p>list of 2-lists of <code class="docutils literal notranslate"><span class="pre">[float,</span> <span class="pre">str]</span></code> This is a listing of lower bounds (as a faction)
 and the grade that is achieved by obtaining greater than or equal to that value.</p>
 </dd>
-<dt class="field-odd">weights</dt>
+<dt class="field-odd">weights<span class="colon">:</span></dt>
 <dd class="field-odd"><p>dict of str keys and float values,  mapping from assignment category name
 to fraction of final grade.</p>
 </dd>
-<dt class="field-even">active</dt>
+<dt class="field-even">active<span class="colon">:</span></dt>
 <dd class="field-even"><p>bool, whether  or not the course is actively being taught</p>
 </dd>
 </dl>

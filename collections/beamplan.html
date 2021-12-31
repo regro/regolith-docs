@@ -5,7 +5,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Beamplan &#8212; regolith - software group content managment system</title>
     <link rel="stylesheet" href="../_static/cloud.css" type="text/css" />
@@ -71,99 +71,99 @@
 <h2>Schema<a class="headerlink" href="#schema" title="Permalink to this headline">¶</a></h2>
 <p>The following lists key names mapped to its type and meaning for each entry.</p>
 <dl class="field-list simple">
-<dt class="field-odd">_id</dt>
+<dt class="field-odd">_id<span class="colon">:</span></dt>
 <dd class="field-odd"><p>string, Unique identifier for the experiment plan. It should have a format ‘{year:2d}{month:2d}{people_id:s}_{plan_name:s}’, required</p>
 </dd>
-<dt class="field-even">beamtime</dt>
+<dt class="field-even">beamtime<span class="colon">:</span></dt>
 <dd class="field-even"><p>string, The id for the beamtime. Check the Airtable., required</p>
 </dd>
-<dt class="field-odd">begin_date</dt>
+<dt class="field-odd">begin_date<span class="colon">:</span></dt>
 <dd class="field-odd"><p>[‘string’, ‘datetime’, ‘date’], The begin date of the beam time., required</p>
 </dd>
-<dt class="field-even">devices</dt>
+<dt class="field-even">devices<span class="colon">:</span></dt>
 <dd class="field-even"><p>list, The dictionary of devices used in the measurement e. g. , required</p>
 <dl class="field-list simple">
-<dt class="field-odd">type</dt>
+<dt class="field-odd">type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>string, optional</p>
 </dd>
 </dl>
 </dd>
-<dt class="field-even">end_date</dt>
+<dt class="field-even">end_date<span class="colon">:</span></dt>
 <dd class="field-even"><p>[‘string’, ‘datetime’, ‘date’], The end date of the beam time., required</p>
 </dd>
-<dt class="field-odd">exp_plan</dt>
+<dt class="field-odd">exp_plan<span class="colon">:</span></dt>
 <dd class="field-odd"><p>list, Steps to carry out the experiments at BNL. Need details, required</p>
 <dl class="field-list simple">
-<dt class="field-odd">type</dt>
+<dt class="field-odd">type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>string, optional</p>
 </dd>
 </dl>
 </dd>
-<dt class="field-even">holder</dt>
+<dt class="field-even">holder<span class="colon">:</span></dt>
 <dd class="field-even"><p>string, Sample holder used during the measurement, e. g. 3 mm OD tubes holder., required</p>
 </dd>
-<dt class="field-odd">measurement</dt>
+<dt class="field-odd">measurement<span class="colon">:</span></dt>
 <dd class="field-odd"><p>string, What data to be measured, e. g. PDF, XRD, SAXS. This will determine the setup., required</p>
 </dd>
-<dt class="field-even">notes</dt>
+<dt class="field-even">notes<span class="colon">:</span></dt>
 <dd class="field-even"><p>[‘list’, ‘string’], Notes of the plan, e. g. the preferred time., optional</p>
 <dl class="field-list simple">
-<dt class="field-odd">type</dt>
+<dt class="field-odd">type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>string, optional</p>
 </dd>
 </dl>
 </dd>
-<dt class="field-even">objective</dt>
+<dt class="field-even">objective<span class="colon">:</span></dt>
 <dd class="field-even"><p>string, What to study in the experiments. What goal to achieve., required</p>
 </dd>
-<dt class="field-odd">pipeline</dt>
+<dt class="field-odd">pipeline<span class="colon">:</span></dt>
 <dd class="field-odd"><p>string, The analysis pipeline for the experiment. If no new pipeline is needed, use ‘usual’., required</p>
 </dd>
-<dt class="field-even">prep_plan</dt>
+<dt class="field-even">prep_plan<span class="colon">:</span></dt>
 <dd class="field-even"><p>list, Steps to prepare the samples. Do NOT need details., required</p>
 <dl class="field-list simple">
-<dt class="field-odd">type</dt>
+<dt class="field-odd">type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>string, optional</p>
 </dd>
 </dl>
 </dd>
-<dt class="field-even">project</dt>
+<dt class="field-even">project<span class="colon">:</span></dt>
 <dd class="field-even"><p>string, The id for the project which the plan belongs to. It should be on airtable., required</p>
 </dd>
-<dt class="field-odd">project_lead</dt>
+<dt class="field-odd">project_lead<span class="colon">:</span></dt>
 <dd class="field-odd"><p>string, The id for person who put out this plan. It should be inside the people.yml., required</p>
 </dd>
-<dt class="field-even">samples</dt>
+<dt class="field-even">samples<span class="colon">:</span></dt>
 <dd class="field-even"><p>list, The list of samples to be measured., required</p>
 <dl class="field-list simple">
-<dt class="field-odd">type</dt>
+<dt class="field-odd">type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>string, optional</p>
 </dd>
 </dl>
 </dd>
-<dt class="field-even">scanplan</dt>
+<dt class="field-even">scanplan<span class="colon">:</span></dt>
 <dd class="field-even"><p>list, The scanplan for the experiment, e. g. tseries, Tramp, ct., required</p>
 <dl class="field-list simple">
-<dt class="field-odd">type</dt>
+<dt class="field-odd">type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>string, optional</p>
 </dd>
 </dl>
 </dd>
-<dt class="field-even">ship_plan</dt>
+<dt class="field-even">ship_plan<span class="colon">:</span></dt>
 <dd class="field-even"><p>list, Steps to carry the samples from the producer to the BNL. Do NOT need details., required</p>
 <dl class="field-list simple">
-<dt class="field-odd">type</dt>
+<dt class="field-odd">type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>string, optional</p>
 </dd>
 </dl>
 </dd>
-<dt class="field-even">time</dt>
+<dt class="field-even">time<span class="colon">:</span></dt>
 <dd class="field-even"><p>integer, The total time of executing the exp_plan. Unit: min., required</p>
 </dd>
-<dt class="field-odd">todo</dt>
+<dt class="field-odd">todo<span class="colon">:</span></dt>
 <dd class="field-odd"><p>list, The TODO list before the beamtime., required</p>
 <dl class="field-list simple">
-<dt class="field-odd">type</dt>
+<dt class="field-odd">type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>string, optional</p>
 </dd>
 </dl>

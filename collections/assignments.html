@@ -5,7 +5,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Assignments &#8212; regolith - software group content managment system</title>
     <link rel="stylesheet" href="../_static/cloud.css" type="text/css" />
@@ -71,30 +71,30 @@
 <h2>Schema<a class="headerlink" href="#schema" title="Permalink to this headline">¶</a></h2>
 <p>The following lists key names mapped to its type and meaning for each entry.</p>
 <dl class="field-list simple">
-<dt class="field-odd">_id</dt>
+<dt class="field-odd">_id<span class="colon">:</span></dt>
 <dd class="field-odd"><p>string, A unique id for the assignment, such as HW01-EMCH-558-2016-S, required</p>
 </dd>
-<dt class="field-even">category</dt>
+<dt class="field-even">category<span class="colon">:</span></dt>
 <dd class="field-even"><p>string, such as ‘homework’ or ‘final’, required</p>
 </dd>
-<dt class="field-odd">courses</dt>
+<dt class="field-odd">courses<span class="colon">:</span></dt>
 <dd class="field-odd"><p>[‘string’, ‘list’], ids of the courses that have this assignment, required</p>
 </dd>
-<dt class="field-even">file</dt>
+<dt class="field-even">file<span class="colon">:</span></dt>
 <dd class="field-even"><p>string, path to assignment file in store, optional</p>
 </dd>
-<dt class="field-odd">points</dt>
+<dt class="field-odd">points<span class="colon">:</span></dt>
 <dd class="field-odd"><p>list, list of number of points possible for each question. Length is the number of questions, required</p>
 <dl class="field-list simple">
-<dt class="field-odd">anyof_type</dt>
+<dt class="field-odd">anyof_type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>[‘integer’, ‘float’], optional</p>
 </dd>
 </dl>
 </dd>
-<dt class="field-even">questions</dt>
+<dt class="field-even">questions<span class="colon">:</span></dt>
 <dd class="field-even"><p>list, titles for the questions on this assignment, optional</p>
 </dd>
-<dt class="field-odd">solution</dt>
+<dt class="field-odd">solution<span class="colon">:</span></dt>
 <dd class="field-odd"><p>string, path to solution file in store, optional</p>
 </dd>
 </dl>

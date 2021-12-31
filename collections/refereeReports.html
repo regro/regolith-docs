@@ -5,7 +5,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Refereereports &#8212; regolith - software group content managment system</title>
     <link rel="stylesheet" href="../_static/cloud.css" type="text/css" />
@@ -71,71 +71,71 @@
 <h2>Schema<a class="headerlink" href="#schema" title="Permalink to this headline">¶</a></h2>
 <p>The following lists key names mapped to its type and meaning for each entry.</p>
 <dl class="field-list">
-<dt class="field-odd">_id</dt>
+<dt class="field-odd">_id<span class="colon">:</span></dt>
 <dd class="field-odd"><p>string, the ID, required</p>
 </dd>
-<dt class="field-even">claimed_found_what</dt>
+<dt class="field-even">claimed_found_what<span class="colon">:</span></dt>
 <dd class="field-even"><p>list, What the authors claim to have found, required</p>
 <dl class="field-list simple">
-<dt class="field-odd">type</dt>
+<dt class="field-odd">type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>string, required</p>
 </dd>
 </dl>
 </dd>
-<dt class="field-even">claimed_why_important</dt>
+<dt class="field-even">claimed_why_important<span class="colon">:</span></dt>
 <dd class="field-even"><p>list, What importance the authors claim, required</p>
 <dl class="field-list simple">
-<dt class="field-odd">type</dt>
+<dt class="field-odd">type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>string, required</p>
 </dd>
 </dl>
 </dd>
-<dt class="field-even">did_how</dt>
+<dt class="field-even">did_how<span class="colon">:</span></dt>
 <dd class="field-even"><p>list, How the study was done, required</p>
 <dl class="field-list simple">
-<dt class="field-odd">type</dt>
+<dt class="field-odd">type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>string, required</p>
 </dd>
 </dl>
 </dd>
-<dt class="field-even">did_what</dt>
+<dt class="field-even">did_what<span class="colon">:</span></dt>
 <dd class="field-even"><p>list, What the study was, required</p>
 <dl class="field-list simple">
-<dt class="field-odd">type</dt>
+<dt class="field-odd">type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>string, required</p>
 </dd>
 </dl>
 </dd>
-<dt class="field-even">due_date</dt>
+<dt class="field-even">due_date<span class="colon">:</span></dt>
 <dd class="field-even"><p>[‘string’, ‘date’], date the review is due in ISO format, required</p>
 </dd>
-<dt class="field-odd">editor_eyes_only</dt>
+<dt class="field-odd">editor_eyes_only<span class="colon">:</span></dt>
 <dd class="field-odd"><p>string, Comments you don’t want passed to the author, optional</p>
 </dd>
-<dt class="field-even">final_assessment</dt>
+<dt class="field-even">final_assessment<span class="colon">:</span></dt>
 <dd class="field-even"><p>list, Summary of impressions of the study, required</p>
 <dl class="field-list simple">
-<dt class="field-odd">type</dt>
+<dt class="field-odd">type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>string, required</p>
 </dd>
 </dl>
 </dd>
-<dt class="field-even">first_author_last_name</dt>
+<dt class="field-even">first_author_last_name<span class="colon">:</span></dt>
 <dd class="field-even"><p>string, Last name of first author will be referred to with et al., required</p>
 </dd>
-<dt class="field-odd">freewrite</dt>
+<dt class="field-odd">freewrite<span class="colon">:</span></dt>
 <dd class="field-odd"><p>string, Things that you want to add that don’t fit into any category above, optional</p>
 </dd>
-<dt class="field-even">institutions</dt>
+<dt class="field-even">institutions<span class="colon">:</span></dt>
 <dd class="field-even"><p>[‘string’, ‘list’], the institutions of the pi and co-pis, optional</p>
 </dd>
-<dt class="field-odd">journal</dt>
+<dt class="field-odd">journal<span class="colon">:</span></dt>
 <dd class="field-odd"><p>string, name of the journal, required</p>
 </dd>
-<dt class="field-even">month</dt>
+<dt class="field-even">month<span class="colon">:</span></dt>
 <dd class="field-even"><p>[‘integer’, ‘string’], The month the review was requested, optional</p>
 </dd>
-<dt class="field-odd">recommendation</dt>
+<dt class="field-odd">recommendation<span class="colon">:</span></dt>
 <dd class="field-odd"><p>string, Your publication recommendation, required</p>
 <dl class="simple">
 <dt>Allowed values:</dt><dd><ul class="simple">
@@ -148,13 +148,13 @@
 </dd>
 </dl>
 </dd>
-<dt class="field-even">requester</dt>
+<dt class="field-even">requester<span class="colon">:</span></dt>
 <dd class="field-even"><p>string, Name of the program officer who requested the review, required</p>
 </dd>
-<dt class="field-odd">reviewer</dt>
+<dt class="field-odd">reviewer<span class="colon">:</span></dt>
 <dd class="field-odd"><p>string, name of person reviewing the paper, required</p>
 </dd>
-<dt class="field-even">status</dt>
+<dt class="field-even">status<span class="colon">:</span></dt>
 <dd class="field-even"><p>string, Where you are with the review, required</p>
 <dl class="simple">
 <dt>Allowed values:</dt><dd><ul class="simple">
@@ -169,21 +169,21 @@
 </dd>
 </dl>
 </dd>
-<dt class="field-odd">submitted_date</dt>
+<dt class="field-odd">submitted_date<span class="colon">:</span></dt>
 <dd class="field-odd"><p>[‘string’, ‘date’], submitted date in ISO YYYY-MM-DD format., optional</p>
 </dd>
-<dt class="field-even">title</dt>
+<dt class="field-even">title<span class="colon">:</span></dt>
 <dd class="field-even"><p>string, title of the paper under review, required</p>
 </dd>
-<dt class="field-odd">validity_assessment</dt>
+<dt class="field-odd">validity_assessment<span class="colon">:</span></dt>
 <dd class="field-odd"><p>list, List of impressions of the validity of the claims, required</p>
 <dl class="field-list simple">
-<dt class="field-odd">type</dt>
+<dt class="field-odd">type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>string, required</p>
 </dd>
 </dl>
 </dd>
-<dt class="field-even">year</dt>
+<dt class="field-even">year<span class="colon">:</span></dt>
 <dd class="field-even"><p>[‘string’, ‘integer’], year when the review is being done, required</p>
 </dd>
 </dl>

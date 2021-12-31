@@ -5,7 +5,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Tools (regolith.tools) &#8212; regolith - software group content managment system</title>
     <link rel="stylesheet" href="../_static/cloud.css" type="text/css" />
@@ -94,7 +94,7 @@ database.</p>
 <code class="sig-prename descclassname">regolith.tools.</code><code class="sig-name descname">awards</code><span class="sig-paren">(</span><em class="sig-param">p</em>, <em class="sig-param">since=None</em>, <em class="sig-param">before=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#awards"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.tools.awards" title="Permalink to this definition">¶</a></dt>
 <dd><p>Make sorted awards and honors</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>p</strong> (<em>dict</em>) – The person entry</p></li>
 <li><p><strong>since</strong> (<em>date.  Optional, default is None</em>) – The begin date to filter from</p></li>
@@ -109,7 +109,7 @@ database.</p>
 <code class="sig-prename descclassname">regolith.tools.</code><code class="sig-name descname">awards_grants_honors</code><span class="sig-paren">(</span><em class="sig-param">p</em>, <em class="sig-param">target_name</em>, <em class="sig-param">funding=True</em>, <em class="sig-param">service_types=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#awards_grants_honors"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.tools.awards_grants_honors" title="Permalink to this definition">¶</a></dt>
 <dd><p>Make sorted awards grants and honors list.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>p</strong> (<em>dict</em>) – The person entry</p>
 </dd>
 </dl>
@@ -121,7 +121,7 @@ database.</p>
 <dd><p>Retrieves a list of all the appointments on the given grant(s) in the given interval of time for each person in the
 given people collection.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>ppl_coll</strong> (<em>collection (list of dicts)</em>) – The people collection containing persons with appointments</p></li>
 <li><p><strong>filter_key</strong> (<em>string, list, optional</em>) – The key we want to filter appointments by</p></li>
@@ -130,10 +130,10 @@ given people collection.</p>
 <li><p><strong>end_date</strong> (<em>string, datetime, optional</em>) – The start date for the interval in which we want to collect appointments</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>a list of all appointments in the people collection that satisfy the provided conditions (if any)</p>
 </dd>
-<dt class="field-odd">Return type</dt>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>list</p>
 </dd>
 </dl>
@@ -153,16 +153,16 @@ given people collection.</p>
 <dd><p>Retrieves a list of all documents from the collection where the fragment
 appears in any one of the given fields</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>collection</strong> (<em>generator</em>) – The collection containing the documents</p></li>
 <li><p><strong>keys</strong> (<em>list, optional</em>) – The name of the fields to return from the search. Defaults to none in which case only the id is returned</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>A str of all the values</p>
 </dd>
-<dt class="field-odd">Return type</dt>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>str</p>
 </dd>
 </dl>
@@ -173,16 +173,16 @@ appears in any one of the given fields</p>
 <code class="sig-prename descclassname">regolith.tools.</code><code class="sig-name descname">compound_dict</code><span class="sig-paren">(</span><em class="sig-param">doc</em>, <em class="sig-param">li</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#compound_dict"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.tools.compound_dict" title="Permalink to this definition">¶</a></dt>
 <dd><p>Recursive function that collects all the strings from a document that is a dictionary</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>doc dict</strong> – The specific document we are traversing</p></li>
 <li><p><strong>li</strong> – The recursive list that holds all the strings</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>The strings that make up the nested attributes of this object</p>
 </dd>
-<dt class="field-odd">Return type</dt>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>list of strings</p>
 </dd>
 </dl>
@@ -193,16 +193,16 @@ appears in any one of the given fields</p>
 <code class="sig-prename descclassname">regolith.tools.</code><code class="sig-name descname">compound_list</code><span class="sig-paren">(</span><em class="sig-param">doc</em>, <em class="sig-param">li</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#compound_list"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.tools.compound_list" title="Permalink to this definition">¶</a></dt>
 <dd><p>Recursive function that collects all the strings from a document that is a list</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>doc list</strong> – The specific document we are traversing</p></li>
 <li><p><strong>li</strong> – The recursive list that holds all the strings</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>The strings that make up the nested attributes of this list</p>
 </dd>
-<dt class="field-odd">Return type</dt>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>list of strings</p>
 </dd>
 </dl>
@@ -232,7 +232,7 @@ appears in any one of the given fields</p>
 <dd><p>Tool for replacing placeholders for institutions with the actual
 institution data. Note that the replacement is done inplace</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>input_record</strong> (<em>dict</em>) – The record to dereference</p></li>
 <li><p><strong>institutions</strong> (<em>iterable of dicts</em>) – The institutions</p></li>
@@ -246,17 +246,17 @@ institution data. Note that the replacement is done inplace</p>
 <code class="sig-prename descclassname">regolith.tools.</code><code class="sig-name descname">document_by_value</code><span class="sig-paren">(</span><em class="sig-param">documents</em>, <em class="sig-param">address</em>, <em class="sig-param">value</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#document_by_value"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.tools.document_by_value" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get a specific document by one of its values</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>documents</strong> (<em>generator</em>) – Generator which yields the documents</p></li>
 <li><p><strong>address</strong> (<em>str or tuple</em>) – The address of the data in the document</p></li>
 <li><p><strong>value</strong> (<em>any</em>) – The expected value for the document</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>The first document which matches the request</p>
 </dd>
-<dt class="field-odd">Return type</dt>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>dict</p>
 </dd>
 </dl>
@@ -284,7 +284,7 @@ cond is false.</p>
 <code class="sig-prename descclassname">regolith.tools.</code><code class="sig-name descname">filter_employment_for_advisees</code><span class="sig-paren">(</span><em class="sig-param">peoplecoll</em>, <em class="sig-param">begin_period</em>, <em class="sig-param">status</em>, <em class="sig-param">now=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#filter_employment_for_advisees"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.tools.filter_employment_for_advisees" title="Permalink to this definition">¶</a></dt>
 <dd><p>Filter people to get advisees since begin_period</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>people</strong> (<em>list of dicts</em>) – The people collection</p></li>
 <li><p><strong>begin_period</strong> (<em>date</em>) – Only select advisees who were active after this date (i.e., their end date
@@ -305,7 +305,7 @@ is after begin_period</p></li>
 <code class="sig-prename descclassname">regolith.tools.</code><code class="sig-name descname">filter_grants</code><span class="sig-paren">(</span><em class="sig-param">input_grants</em>, <em class="sig-param">names</em>, <em class="sig-param">pi=True</em>, <em class="sig-param">reverse=True</em>, <em class="sig-param">multi_pi=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#filter_grants"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.tools.filter_grants" title="Permalink to this definition">¶</a></dt>
 <dd><p>Filter grants by those involved</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>input_grants</strong> (<em>list of dict</em>) – The grants to filter</p></li>
 <li><p><strong>names</strong> (<em>set of str</em>) – The authors to be filtered against</p></li>
@@ -337,7 +337,7 @@ is after begin_period</p></li>
 <code class="sig-prename descclassname">regolith.tools.</code><code class="sig-name descname">filter_projects</code><span class="sig-paren">(</span><em class="sig-param">projects</em>, <em class="sig-param">people</em>, <em class="sig-param">reverse=False</em>, <em class="sig-param">active_only=False</em>, <em class="sig-param">group=None</em>, <em class="sig-param">ptype=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#filter_projects"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.tools.filter_projects" title="Permalink to this definition">¶</a></dt>
 <dd><p>Filter projects by the author(s)</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>projects</strong> (<em>list of dict</em>) – The publication citations</p></li>
 <li><p><strong>people</strong> (<em>set of list of str</em>) – The people to be filtered against</p></li>
@@ -362,7 +362,7 @@ software, defaults to None</p></li>
 <code class="sig-prename descclassname">regolith.tools.</code><code class="sig-name descname">filter_publications</code><span class="sig-paren">(</span><em class="sig-param">citations</em>, <em class="sig-param">authors</em>, <em class="sig-param">reverse=False</em>, <em class="sig-param">bold=True</em>, <em class="sig-param">since=None</em>, <em class="sig-param">before=None</em>, <em class="sig-param">ackno=False</em>, <em class="sig-param">grants=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#filter_publications"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.tools.filter_publications" title="Permalink to this definition">¶</a></dt>
 <dd><p>Filter publications by the author(s)/editor(s)</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>citations</strong> (<em>list of dict</em>) – The publication citations</p></li>
 <li><p><strong>authors</strong> (<em>set of str</em>) – The authors to be filtered against</p></li>
@@ -389,7 +389,7 @@ publication list</p></li>
 <dd><p>Retrieves a list of all documents from the collection where the fragment
 appears in any one of the given fields</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>coll</strong> (<em>generator</em>) – The collection containing the documents</p></li>
 <li><p><strong>fields</strong> (<em>iterable</em>) – The fields of each document to check for the fragment</p></li>
@@ -397,10 +397,10 @@ appears in any one of the given fields</p>
 <li><p><strong>case_sensitive</strong> (<em>Bool</em>) – When true will match case (Default = False)</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>A list of documents (that are dicts)</p>
 </dd>
-<dt class="field-odd">Return type</dt>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>list</p>
 </dd>
 </dl>
@@ -418,7 +418,7 @@ the substring <code class="docutils literal notranslate"><span class="pre">pi_na
 <dd><p>Retrieve a document from the documents where value is compared against
 multiple potential sources</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>documents</strong> (<em>generator</em>) – The documents</p></li>
 <li><p><strong>sources</strong> (<em>iterable</em>) – The potential data sources</p></li>
@@ -426,10 +426,10 @@ multiple potential sources</p>
 <li><p><strong>case_sensitive</strong> (<em>Bool</em>) – When true will match case (Default = True)</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>The document</p>
 </dd>
-<dt class="field-odd">Return type</dt>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>dict</p>
 </dd>
 </dl>
@@ -446,10 +446,10 @@ multiple potential sources</p>
 <code class="sig-prename descclassname">regolith.tools.</code><code class="sig-name descname">get_formatted_crossref_reference</code><span class="sig-paren">(</span><em class="sig-param">doi</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#get_formatted_crossref_reference"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.tools.get_formatted_crossref_reference" title="Permalink to this definition">¶</a></dt>
 <dd><p>given a doi, return the full reference and the date of the reference from Crossref REST-API</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>doi str</strong> – the doi of the digital object to pull from Crossref</p>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p><ul class="simple">
 <li><p><em>ref str</em> – the nicely formatted reference including title</p></li>
 <li><p><em>ref_date datetime.date</em> – the date of the reference</p></li>
@@ -479,17 +479,17 @@ multiple potential sources</p>
 not found in people but found in contacts, the person found in contacts is
 returned.  If the person is not found in either collection, None is returned</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>name</strong> (<em>str</em>) – The name or id of the person to look for</p></li>
 <li><p><strong>people_coll</strong> (<em>collection (list of dicts)</em>) – The people collection</p></li>
 <li><p><strong>contacts_coll</strong> (<em>collection (list of dicts)</em>) – The contacts collection</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p><strong>person</strong> – The found person document</p>
 </dd>
-<dt class="field-odd">Return type</dt>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>dict</p>
 </dd>
 </dl>
@@ -500,14 +500,14 @@ returned.  If the person is not found in either collection, None is returned</p>
 <code class="sig-prename descclassname">regolith.tools.</code><code class="sig-name descname">get_pi_id</code><span class="sig-paren">(</span><em class="sig-param">rc</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#get_pi_id"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.tools.get_pi_id" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets the database id of the group PI</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>rc</strong> (<em>runcontrol object</em>) – The runcontrol object.  It must contain the ‘groups’ and ‘people’
 collections in the needed databases</p>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p></p>
 </dd>
-<dt class="field-odd">Return type</dt>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>The database ‘_id’ of the group PI</p>
 </dd>
 </dl>
@@ -537,7 +537,7 @@ and then returns a token</p>
 <dd><p>Retrieves the total burn of a grant over an interval of time by integrating over all appointments
 made on the grant.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>grant</strong> (<em>dict</em>) – The grant object whose burn needs to be retrieved</p></li>
 <li><p><strong>appts</strong> (<em>collection (list of dicts), dict</em>) – The collection of appointments made on assorted grants</p></li>
@@ -547,11 +547,11 @@ in YYYY-MM-DD format. Defaults to the begin_date of the grant.</p></li>
 in YYYY-MM-DD format. Defaults to the end_date of the grant.</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>A dictionaries whose keys are the dates and values are a dict containing the corresponding grant amounts
 on that date</p>
 </dd>
-<dt class="field-odd">Return type</dt>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>dict</p>
 </dd>
 </dl>
@@ -568,17 +568,17 @@ on that date</p>
 <code class="sig-prename descclassname">regolith.tools.</code><code class="sig-name descname">group</code><span class="sig-paren">(</span><em class="sig-param">db</em>, <em class="sig-param">by</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#group"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.tools.group" title="Permalink to this definition">¶</a></dt>
 <dd><p>Group the document in the database according to the value of the doc[by] in db.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>db</strong> (<em>iterable</em>) – The database of documents.</p></li>
 <li><p><strong>by</strong> (<em>basestring</em>) – The key to group the documents.</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p><strong>grouped</strong> – A dictionary mapping the feature value of group to the list of docs. All docs in the same generator have
 the same value of doc[by].</p>
 </dd>
-<dt class="field-odd">Return type</dt>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>dict</p>
 </dd>
 </dl>
@@ -595,16 +595,16 @@ This will return
 <code class="sig-prename descclassname">regolith.tools.</code><code class="sig-name descname">group_member_employment_start_end</code><span class="sig-paren">(</span><em class="sig-param">person</em>, <em class="sig-param">grpname</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#group_member_employment_start_end"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.tools.group_member_employment_start_end" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get start and end dates of group member employment</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>person dict</strong> – The person whose dates we want</p></li>
 <li><p><strong>grpname</strong> – The code for the group we want the dates of employment from</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>The employment periods, with person id, begin and end dates</p>
 </dd>
-<dt class="field-odd">Return type</dt>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>list of dicts</p>
 </dd>
 </dl>
@@ -615,16 +615,16 @@ This will return
 <code class="sig-prename descclassname">regolith.tools.</code><code class="sig-name descname">group_member_ids</code><span class="sig-paren">(</span><em class="sig-param">ppl_coll</em>, <em class="sig-param">grpname</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#group_member_ids"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.tools.group_member_ids" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get a list of all group member ids</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>ppl_coll</strong> (<em>collection (list of dicts)</em>) – The people collection that should contain the group members</p></li>
 <li><p><strong>grp</strong> (<em>string</em>) – The id of the group in groups.yml</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>The set of ids of the people in the group</p>
 </dd>
-<dt class="field-odd">Return type</dt>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>set</p>
 </dd>
 </dl>
@@ -648,17 +648,17 @@ assigned to that group in some period of time and returns a list of</p>
 <dd><p>Checks if a collection of appointments for a person is valid and fully loaded
 for a given interval of time</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>person</strong> (<em>dict</em>) – The person whose appointments need to be checked</p></li>
 <li><p><strong>begin_date</strong> (<em>datetime, string, optional</em>) – The start date of the interval of time to check appointments for</p></li>
 <li><p><strong>end_date</strong> (<em>datetime, string, optional</em>) – The end date of the interval of time to check appointments for</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>True if the person is fully appointed and False if not</p>
 </dd>
-<dt class="field-odd">Return type</dt>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>bool</p>
 </dd>
 </dl>
@@ -678,16 +678,16 @@ print “appointment gap for aejaz from 2017-06-16 to 2017-06-19”.</p>
 <dd><p>Retrieves a list of all documents from the collection where the fragment
 appears in any one of the given fields</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>collection</strong> (<em>generator</em>) – The collection containing the documents</p></li>
 <li><p><strong>arguments</strong> (<em>list</em>) – The name of the fields to look for and their accompanying substring</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>The collection containing the elements that satisfy the search criteria</p>
 </dd>
-<dt class="field-odd">Return type</dt>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>generator</p>
 </dd>
 </dl>
@@ -704,7 +704,7 @@ and whose position is professor and return them</p>
 <code class="sig-prename descclassname">regolith.tools.</code><code class="sig-name descname">latex_safe</code><span class="sig-paren">(</span><em class="sig-param">s</em>, <em class="sig-param">url_check=True</em>, <em class="sig-param">wrapper='url'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#latex_safe"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.tools.latex_safe" title="Permalink to this definition">¶</a></dt>
 <dd><p>Make string latex safe</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>s</strong> (<em>str</em>)</p></li>
 <li><p><strong>url_check</strong> (<em>bool, optional</em>) – If True check for URLs and wrap them, if False check for URL but don’t
@@ -726,7 +726,7 @@ wrap, defaults to True</p></li>
 <code class="sig-prename descclassname">regolith.tools.</code><code class="sig-name descname">make_bibtex_file</code><span class="sig-paren">(</span><em class="sig-param">pubs</em>, <em class="sig-param">pid</em>, <em class="sig-param">person_dir='.'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#make_bibtex_file"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.tools.make_bibtex_file" title="Permalink to this definition">¶</a></dt>
 <dd><p>Make a bibtex file given the publications</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>pubs</strong> (<em>list of dict</em>) – The publications</p></li>
 <li><p><strong>pid</strong> (<em>str</em>) – The person id</p></li>
@@ -742,14 +742,14 @@ wrap, defaults to True</p></li>
 <dd><p>merge two collections into a single merged collection</p>
 <p>for keys that are in both collections, the value in b will be kept</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>a  the inferior collection (will lose values of shared keys)</strong></p></li>
 <li><p><strong>b  the superior collection (will keep values of shared keys)</strong></p></li>
 <li><p><strong>target_id  str  the name of the key used in b to dereference ids in a</strong></p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p><ul class="simple">
 <li><p><em>the combined collection.  Note that it returns a collection containing</em></p></li>
 <li><p><em>all items from a and b with the items dereferenced in b merged with the</em></p></li>
@@ -776,14 +776,14 @@ not linked.</p>
 <dd><p>merge two collections such thta just the intersection is returned</p>
 <p>for shared keys that are in both collections, the value in b will be kept</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>a  the inferior collection (will lose values of shared keys)</strong></p></li>
 <li><p><strong>b  the superior collection (will keep values of shared keys)</strong></p></li>
 <li><p><strong>target_id  str  the name of the key used in b to dereference ids in a</strong></p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p><ul class="simple">
 <li><p><em>the combined collection.  Note that it returns a collection only containing</em></p></li>
 <li><p><em>merged items from a and b that are dereferenced in b, i.e., the merged</em></p></li>
@@ -809,14 +809,14 @@ grants collection for which “_id” in proposals has the value of
 <dd><p>merge two collections into a single merged collection</p>
 <p>for keys that are in both collections, the value in b will be kept</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>a  the inferior collection (will lose values of shared keys)</strong></p></li>
 <li><p><strong>b  the superior collection (will keep values of shared keys)</strong></p></li>
 <li><p><strong>target_id  str  the name of the key used in b to dereference ids in a</strong></p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p><ul class="simple">
 <li><p><em>the combined collection.  Note that it returns a collection containing</em></p></li>
 <li><p><em>all items from a and b with the items dereferenced in b merged with the</em></p></li>
@@ -852,10 +852,10 @@ not linked.</p>
 </dd>
 </dl>
 <dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>suffix</strong> – The suffix (st, nd, rd, th)</p>
 </dd>
-<dt class="field-even">Return type</dt>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p>string</p>
 </dd>
 </dl>
@@ -866,7 +866,7 @@ not linked.</p>
 <code class="sig-prename descclassname">regolith.tools.</code><code class="sig-name descname">print_task</code><span class="sig-paren">(</span><em class="sig-param">task_list</em>, <em class="sig-param">stati</em>, <em class="sig-param">index=True</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#print_task"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.tools.print_task" title="Permalink to this definition">¶</a></dt>
 <dd><p>Print tasks in a nice format.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>task_list</strong> (<em>list</em>) – A list of tasks that will be printed.</p></li>
 <li><p><strong>stati</strong> (<em>list</em>) – Filter status of the task</p></li>
@@ -881,16 +881,16 @@ not linked.</p>
 <dd><p>find all docs where the target key has the same value and remove duplicates</p>
 <p>The doc found first will be kept and subsequent docs will be removed</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>target iterable of dicts</strong> – the list of documents</p></li>
 <li><p><strong>key string</strong> – the key that will be used to compare</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p></p>
 </dd>
-<dt class="field-odd">Return type</dt>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>The list of docs with duplicates (as described above) removed</p>
 </dd>
 </dl>
@@ -908,17 +908,17 @@ not linked.</p>
 <dd><p>Retrieves a list of all documents from the collection where the fragment
 appears in any one of the given fields</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>collection</strong> (<em>generator</em>) – The collection containing the documents</p></li>
 <li><p><strong>arguments</strong> (<em>list</em>) – The name of the fields to look for and their accompanying substring</p></li>
 <li><p><strong>keys</strong> (<em>list, optional</em>) – The name of the fields to return from the search. Defaults to none in which case only the id is returned</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>The collection containing the elements that satisfy the search criteria</p>
 </dd>
-<dt class="field-odd">Return type</dt>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>generator</p>
 </dd>
 </dl>
@@ -938,16 +938,16 @@ valid entries</p>
 merged schema. The default schema and user schema will not be modified
 during the merging.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>default_schema</strong> (<em>dict</em>) – The default schema.</p></li>
 <li><p><strong>user_schema</strong> (<em>dict</em>) – The user defined schema.</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p><strong>updated_schema</strong> – The merged schema.</p>
 </dd>
-<dt class="field-odd">Return type</dt>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>dict</p>
 </dd>
 </dl>
@@ -964,7 +964,7 @@ during the merging.</p>
 <dd><p>Validates a meeting by checking is it has a journal club doi, a presentation link, and a presentation
 title. This function will return nothing is the meeting is valid, otherwise it will raise a ValueError.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>meeting</strong> (<em>dict</em>) – The meeting object that needs to be validated</p></li>
 <li><p><strong>date</strong> (<em>datetime object</em>) – The date we want to use to see if a meeting has happened or not</p></li>

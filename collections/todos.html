@@ -5,7 +5,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Todos &#8212; regolith - software group content managment system</title>
     <link rel="stylesheet" href="../_static/cloud.css" type="text/css" />
@@ -71,40 +71,40 @@
 <h2>Schema<a class="headerlink" href="#schema" title="Permalink to this headline">¶</a></h2>
 <p>The following lists key names mapped to its type and meaning for each entry.</p>
 <dl class="field-list">
-<dt class="field-odd">_id</dt>
+<dt class="field-odd">_id<span class="colon">:</span></dt>
 <dd class="field-odd"><p>string, the person to whom these todos are applied.this should be the id of a person from people, required</p>
 </dd>
-<dt class="field-even">todos</dt>
+<dt class="field-even">todos<span class="colon">:</span></dt>
 <dd class="field-even"><p>list, a list of the todo tasks, optional</p>
 <dl class="field-list">
-<dt class="field-odd">type</dt>
+<dt class="field-odd">type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>dict, optional</p>
 <dl class="field-list">
-<dt class="field-odd">assigned_by</dt>
+<dt class="field-odd">assigned_by<span class="colon">:</span></dt>
 <dd class="field-odd"><p>string, ID of the member that assigns the task, optional</p>
 </dd>
-<dt class="field-even">begin_date</dt>
+<dt class="field-even">begin_date<span class="colon">:</span></dt>
 <dd class="field-even"><p>[‘string’, ‘date’], the begin date, optional</p>
 </dd>
-<dt class="field-odd">end_date</dt>
+<dt class="field-odd">end_date<span class="colon">:</span></dt>
 <dd class="field-odd"><p>[‘string’, ‘date’], the end date, optional</p>
 </dd>
-<dt class="field-even">deadline</dt>
+<dt class="field-even">deadline<span class="colon">:</span></dt>
 <dd class="field-even"><p>boolean, true if the due date is a hard deadline, optional</p>
 </dd>
-<dt class="field-odd">description</dt>
+<dt class="field-odd">description<span class="colon">:</span></dt>
 <dd class="field-odd"><p>string, the description of the to-do task, optional</p>
 </dd>
-<dt class="field-even">due_date</dt>
+<dt class="field-even">due_date<span class="colon">:</span></dt>
 <dd class="field-even"><p>[‘string’, ‘date’], the due date, optional</p>
 </dd>
-<dt class="field-odd">duration</dt>
+<dt class="field-odd">duration<span class="colon">:</span></dt>
 <dd class="field-odd"><p>float, the size of the task/ the estimated duration it will take to finish the task. Unit: miniutes., optional</p>
 </dd>
-<dt class="field-even">importance</dt>
+<dt class="field-even">importance<span class="colon">:</span></dt>
 <dd class="field-even"><p>integer, the importance, from 0 to 3, optional</p>
 </dd>
-<dt class="field-odd">status</dt>
+<dt class="field-odd">status<span class="colon">:</span></dt>
 <dd class="field-odd"><p>string, the status: started/finished/cancelled, optional</p>
 <dl class="simple">
 <dt>Allowed values:</dt><dd><ul class="simple">
@@ -116,18 +116,18 @@
 </dd>
 </dl>
 </dd>
-<dt class="field-even">notes</dt>
+<dt class="field-even">notes<span class="colon">:</span></dt>
 <dd class="field-even"><p>list, additional notes for this task, optional</p>
 <dl class="field-list simple">
-<dt class="field-odd">type</dt>
+<dt class="field-odd">type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>string, optional</p>
 </dd>
 </dl>
 </dd>
-<dt class="field-even">running_index</dt>
+<dt class="field-even">running_index<span class="colon">:</span></dt>
 <dd class="field-even"><p>integer, Index of a certain task used to update that task in the enumerated todo list., optional</p>
 </dd>
-<dt class="field-odd">tags</dt>
+<dt class="field-odd">tags<span class="colon">:</span></dt>
 <dd class="field-odd"><p>list, user-defined tags that can be used to filter tasks, optional</p>
 </dd>
 </dl>

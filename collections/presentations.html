@@ -5,7 +5,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Presentations &#8212; regolith - software group content managment system</title>
     <link rel="stylesheet" href="../_static/cloud.css" type="text/css" />
@@ -71,58 +71,58 @@
 <h2>Schema<a class="headerlink" href="#schema" title="Permalink to this headline">¶</a></h2>
 <p>The following lists key names mapped to its type and meaning for each entry.</p>
 <dl class="field-list">
-<dt class="field-odd">_id</dt>
+<dt class="field-odd">_id<span class="colon">:</span></dt>
 <dd class="field-odd"><p>string, unique id for the presentation, required</p>
 </dd>
-<dt class="field-even">abstract</dt>
+<dt class="field-even">abstract<span class="colon">:</span></dt>
 <dd class="field-even"><p>string, abstract of the presentation, optional</p>
 </dd>
-<dt class="field-odd">authors</dt>
+<dt class="field-odd">authors<span class="colon">:</span></dt>
 <dd class="field-odd"><p>[‘string’, ‘list’], Author list., required</p>
 </dd>
-<dt class="field-even">begin_date</dt>
+<dt class="field-even">begin_date<span class="colon">:</span></dt>
 <dd class="field-even"><p>[‘date’, ‘string’], begin date in YYYY-MM-DD, optional</p>
 </dd>
-<dt class="field-odd">begin_day</dt>
+<dt class="field-odd">begin_day<span class="colon">:</span></dt>
 <dd class="field-odd"><p>integer, optional</p>
 </dd>
-<dt class="field-even">begin_month</dt>
+<dt class="field-even">begin_month<span class="colon">:</span></dt>
 <dd class="field-even"><p>[‘string’, ‘integer’], optional</p>
 </dd>
-<dt class="field-odd">begin_year</dt>
+<dt class="field-odd">begin_year<span class="colon">:</span></dt>
 <dd class="field-odd"><p>integer, year the conference or trip begins., optional</p>
 </dd>
-<dt class="field-even">department</dt>
+<dt class="field-even">department<span class="colon">:</span></dt>
 <dd class="field-even"><p>string, department of the institution where thepresentation will be made, if applicable.  should be discoverable in institutions., optional</p>
 </dd>
-<dt class="field-odd">end_date</dt>
+<dt class="field-odd">end_date<span class="colon">:</span></dt>
 <dd class="field-odd"><p>[‘date’, ‘string’], end_date in YYYY-MM-DD, optional</p>
 </dd>
-<dt class="field-even">end_day</dt>
+<dt class="field-even">end_day<span class="colon">:</span></dt>
 <dd class="field-even"><p>integer, optional</p>
 </dd>
-<dt class="field-odd">end_month</dt>
+<dt class="field-odd">end_month<span class="colon">:</span></dt>
 <dd class="field-odd"><p>[‘string’, ‘integer’], optional</p>
 </dd>
-<dt class="field-even">end_year</dt>
+<dt class="field-even">end_year<span class="colon">:</span></dt>
 <dd class="field-even"><p>integer, year the conference or trip ends, optional</p>
 </dd>
-<dt class="field-odd">institution</dt>
+<dt class="field-odd">institution<span class="colon">:</span></dt>
 <dd class="field-odd"><p>string, institution where thepresentation will be made, if applicable., optional</p>
 </dd>
-<dt class="field-even">location</dt>
+<dt class="field-even">location<span class="colon">:</span></dt>
 <dd class="field-even"><p>string, city and {state or country} of meeting, optional</p>
 </dd>
-<dt class="field-odd">meeting_name</dt>
+<dt class="field-odd">meeting_name<span class="colon">:</span></dt>
 <dd class="field-odd"><p>string, full name of the conference or meeting.  If it is a departmental seminar or colloquium, write Seminaror Colloquium and fill in department and institution fields, optional</p>
 </dd>
-<dt class="field-even">notes</dt>
+<dt class="field-even">notes<span class="colon">:</span></dt>
 <dd class="field-even"><p>[‘list’, ‘string’], any reminder or memory aid about anything, optional</p>
 </dd>
-<dt class="field-odd">project</dt>
+<dt class="field-odd">project<span class="colon">:</span></dt>
 <dd class="field-odd"><p>[‘string’, ‘list’], project or list of projects that this presentation is associated with.  Should be discoverable in projects collection, optional</p>
 </dd>
-<dt class="field-even">status</dt>
+<dt class="field-even">status<span class="colon">:</span></dt>
 <dd class="field-even"><p>string, Is the application in prep or submitted, was the invitation accepted or declined, was the trip cancelled?, required</p>
 <dl class="simple">
 <dt>Allowed values:</dt><dd><ul class="simple">
@@ -136,10 +136,10 @@
 </dd>
 </dl>
 </dd>
-<dt class="field-odd">title</dt>
+<dt class="field-odd">title<span class="colon">:</span></dt>
 <dd class="field-odd"><p>string, title of the presentation, required</p>
 </dd>
-<dt class="field-even">type</dt>
+<dt class="field-even">type<span class="colon">:</span></dt>
 <dd class="field-even"><p>string, type of presentation, required</p>
 <dl class="simple">
 <dt>Allowed values:</dt><dd><ul class="simple">
@@ -157,7 +157,7 @@
 </dd>
 </dl>
 </dd>
-<dt class="field-odd">webinar</dt>
+<dt class="field-odd">webinar<span class="colon">:</span></dt>
 <dd class="field-odd"><p>boolean, true if a webinar. Default to False, optional</p>
 </dd>
 </dl>
