@@ -308,257 +308,257 @@
 </section>
 <section id="yaml-example">
 <h2>YAML Example<a class="headerlink" href="#yaml-example" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">ab_inactive</span><span class="p">:</span>
-  <span class="nt">deliverable</span><span class="p">:</span>
-    <span class="nt">due_date</span><span class="p">:</span> <span class="s">&#39;2021-05-03&#39;</span>
-    <span class="nt">status</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">paused</span>
-  <span class="nt">kickoff</span><span class="p">:</span>
-    <span class="nt">due_date</span><span class="p">:</span> <span class="s">&#39;2021-05-03&#39;</span>
-    <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Kickoff</span>
-    <span class="nt">status</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">backburner</span>
-  <span class="nt">lead</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">abeing</span>
-  <span class="nt">milestones</span><span class="p">:</span>
-    <span class="p p-Indicator">-</span> <span class="nt">due_date</span><span class="p">:</span> <span class="s">&#39;2021-05-03&#39;</span>
-      <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Milestone</span>
-      <span class="nt">status</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">converged</span>
-  <span class="nt">status</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">started</span>
-<span class="nt">pl_firstprojectum</span><span class="p">:</span>
-  <span class="nt">begin_date</span><span class="p">:</span> <span class="s">&#39;2020-07-25&#39;</span>
-  <span class="nt">deliverable</span><span class="p">:</span>
-    <span class="nt">due_date</span><span class="p">:</span> <span class="s">&#39;2020-08-26&#39;</span>
-    <span class="nt">status</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">finished</span>
-  <span class="nt">end_date</span><span class="p">:</span> <span class="s">&#39;2020-07-27&#39;</span>
-  <span class="nt">kickoff</span><span class="p">:</span>
-    <span class="nt">due_date</span><span class="p">:</span> <span class="s">&#39;2021-08-03&#39;</span>
-    <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Kickoff</span>
-    <span class="nt">status</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">backburner</span>
-  <span class="nt">lead</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">pliu</span>
-  <span class="nt">milestones</span><span class="p">:</span>
-    <span class="p p-Indicator">-</span> <span class="nt">due_date</span><span class="p">:</span> <span class="s">&#39;2021-08-03&#39;</span>
-      <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Milestone</span>
-      <span class="nt">status</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">converged</span>
-  <span class="nt">status</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">finished</span>
-<span class="nt">sb_firstprojectum</span><span class="p">:</span>
-  <span class="nt">begin_date</span><span class="p">:</span> <span class="s">&#39;2020-04-28&#39;</span>
-  <span class="nt">collaborators</span><span class="p">:</span>
-    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">aeinstein</span>
-    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">pdirac</span>
-  <span class="nt">deliverable</span><span class="p">:</span>
-    <span class="nt">audience</span><span class="p">:</span>
-      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">beginning grad in chemistry</span>
-    <span class="nt">due_date</span><span class="p">:</span> <span class="s">&#39;2021-05-05&#39;</span>
-    <span class="nt">notes</span><span class="p">:</span>
-      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">deliverable note</span>
-    <span class="nt">platform</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">description of how and where the audience will access the deliverable.  Journal</span>
-      <span class="l l-Scalar l-Scalar-Plain">if it is a paper</span>
-    <span class="nt">roll_out</span><span class="p">:</span>
-      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">steps that the audience will take to access and interact with the deliverable</span>
-      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">not needed for paper submissions</span>
-    <span class="nt">scope</span><span class="p">:</span>
-      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">UCs that are supported or some other scope description if it is software</span>
-      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">sketch of science story if it is paper</span>
-    <span class="nt">status</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">proposed</span>
-    <span class="nt">success_def</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">audience is happy</span>
-  <span class="nt">description</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">My first projectum</span>
-  <span class="nt">end_date</span><span class="p">:</span> <span class="s">&#39;2020-06-05&#39;</span>
-  <span class="nt">grants</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">SymPy-1.1</span>
-  <span class="nt">group_members</span><span class="p">:</span>
-    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">ascopatz</span>
-  <span class="nt">kickoff</span><span class="p">:</span>
-    <span class="nt">audience</span><span class="p">:</span>
-      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">lead</span>
-      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">pi</span>
-      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">group_members</span>
-    <span class="nt">date</span><span class="p">:</span> <span class="s">&#39;2020-05-05&#39;</span>
-    <span class="nt">due_date</span><span class="p">:</span> <span class="s">&#39;2020-05-06&#39;</span>
-    <span class="nt">end_date</span><span class="p">:</span> <span class="s">&#39;2020-05-07&#39;</span>
-    <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Kick off meeting</span>
-    <span class="nt">notes</span><span class="p">:</span>
-      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">kickoff note</span>
-    <span class="nt">objective</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">introduce project to the lead</span>
-    <span class="nt">status</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">finished</span>
-  <span class="nt">lead</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ascopatz</span>
-  <span class="nt">log_url</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">https://docs.google.com/document/d/1YC_wtW5Q</span>
-  <span class="nt">milestones</span><span class="p">:</span>
-    <span class="p p-Indicator">-</span> <span class="nt">audience</span><span class="p">:</span>
-        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">lead</span>
-        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">pi</span>
-        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">group_members</span>
-      <span class="nt">due_date</span><span class="p">:</span> <span class="s">&#39;2020-05-20&#39;</span>
-      <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Project lead presentation</span>
-      <span class="nt">notes</span><span class="p">:</span>
-        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">do background reading</span>
-        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">understand math</span>
-      <span class="nt">objective</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">lead presents background reading and initial project plan</span>
-      <span class="nt">progress</span><span class="p">:</span>
-        <span class="p p-Indicator">-</span> <span class="nt">figure</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">token that dereferences a figure or image in group local storage</span>
-            <span class="l l-Scalar l-Scalar-Plain">db</span>
-          <span class="nt">slides_url</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">url to slides describing the development, e.g. Google slides</span>
-            <span class="l l-Scalar l-Scalar-Plain">url</span>
-          <span class="nt">text</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">The samples have been synthesized and places in the sample cupboard.</span>
-            <span class="l l-Scalar l-Scalar-Plain">They turned out well and are blue as expected</span>
-      <span class="nt">status</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">proposed</span>
-      <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">meeting</span>
-    <span class="p p-Indicator">-</span> <span class="nt">audience</span><span class="p">:</span>
-        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">lead</span>
-        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">pi</span>
-        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">group_members</span>
-      <span class="nt">due_date</span><span class="p">:</span> <span class="s">&#39;2020-05-27&#39;</span>
-      <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">planning meeting</span>
-      <span class="nt">objective</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">develop a detailed plan with dates</span>
-      <span class="nt">status</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">proposed</span>
-      <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">mergedpr</span>
-  <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">First Projectum</span>
-  <span class="nt">other_urls</span><span class="p">:</span>
-    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">https://docs.google.com/document/d/analysis</span>
-  <span class="nt">pi_id</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">scopatz</span>
-  <span class="nt">product_url</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">https://docs.google.com/document/d/manuscript</span>
-  <span class="nt">status</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">started</span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">ab_inactive</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">deliverable</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="nt">due_date</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;2021-05-03&#39;</span><span class="w"></span>
+<span class="w">    </span><span class="nt">status</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">paused</span><span class="w"></span>
+<span class="w">  </span><span class="nt">kickoff</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="nt">due_date</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;2021-05-03&#39;</span><span class="w"></span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Kickoff</span><span class="w"></span>
+<span class="w">    </span><span class="nt">status</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">backburner</span><span class="w"></span>
+<span class="w">  </span><span class="nt">lead</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">abeing</span><span class="w"></span>
+<span class="w">  </span><span class="nt">milestones</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">due_date</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;2021-05-03&#39;</span><span class="w"></span>
+<span class="w">      </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Milestone</span><span class="w"></span>
+<span class="w">      </span><span class="nt">status</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">converged</span><span class="w"></span>
+<span class="w">  </span><span class="nt">status</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">started</span><span class="w"></span>
+<span class="nt">pl_firstprojectum</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">begin_date</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;2020-07-25&#39;</span><span class="w"></span>
+<span class="w">  </span><span class="nt">deliverable</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="nt">due_date</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;2020-08-26&#39;</span><span class="w"></span>
+<span class="w">    </span><span class="nt">status</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">finished</span><span class="w"></span>
+<span class="w">  </span><span class="nt">end_date</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;2020-07-27&#39;</span><span class="w"></span>
+<span class="w">  </span><span class="nt">kickoff</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="nt">due_date</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;2021-08-03&#39;</span><span class="w"></span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Kickoff</span><span class="w"></span>
+<span class="w">    </span><span class="nt">status</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">backburner</span><span class="w"></span>
+<span class="w">  </span><span class="nt">lead</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pliu</span><span class="w"></span>
+<span class="w">  </span><span class="nt">milestones</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">due_date</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;2021-08-03&#39;</span><span class="w"></span>
+<span class="w">      </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Milestone</span><span class="w"></span>
+<span class="w">      </span><span class="nt">status</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">converged</span><span class="w"></span>
+<span class="w">  </span><span class="nt">status</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">finished</span><span class="w"></span>
+<span class="nt">sb_firstprojectum</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">begin_date</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;2020-04-28&#39;</span><span class="w"></span>
+<span class="w">  </span><span class="nt">collaborators</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">aeinstein</span><span class="w"></span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pdirac</span><span class="w"></span>
+<span class="w">  </span><span class="nt">deliverable</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="nt">audience</span><span class="p">:</span><span class="w"></span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">beginning grad in chemistry</span><span class="w"></span>
+<span class="w">    </span><span class="nt">due_date</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;2021-05-05&#39;</span><span class="w"></span>
+<span class="w">    </span><span class="nt">notes</span><span class="p">:</span><span class="w"></span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">deliverable note</span><span class="w"></span>
+<span class="w">    </span><span class="nt">platform</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">description of how and where the audience will access the deliverable.  Journal</span><span class="w"></span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">if it is a paper</span><span class="w"></span>
+<span class="w">    </span><span class="nt">roll_out</span><span class="p">:</span><span class="w"></span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">steps that the audience will take to access and interact with the deliverable</span><span class="w"></span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">not needed for paper submissions</span><span class="w"></span>
+<span class="w">    </span><span class="nt">scope</span><span class="p">:</span><span class="w"></span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">UCs that are supported or some other scope description if it is software</span><span class="w"></span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">sketch of science story if it is paper</span><span class="w"></span>
+<span class="w">    </span><span class="nt">status</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">proposed</span><span class="w"></span>
+<span class="w">    </span><span class="nt">success_def</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">audience is happy</span><span class="w"></span>
+<span class="w">  </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">My first projectum</span><span class="w"></span>
+<span class="w">  </span><span class="nt">end_date</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;2020-06-05&#39;</span><span class="w"></span>
+<span class="w">  </span><span class="nt">grants</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SymPy-1.1</span><span class="w"></span>
+<span class="w">  </span><span class="nt">group_members</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ascopatz</span><span class="w"></span>
+<span class="w">  </span><span class="nt">kickoff</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="nt">audience</span><span class="p">:</span><span class="w"></span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">lead</span><span class="w"></span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pi</span><span class="w"></span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">group_members</span><span class="w"></span>
+<span class="w">    </span><span class="nt">date</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;2020-05-05&#39;</span><span class="w"></span>
+<span class="w">    </span><span class="nt">due_date</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;2020-05-06&#39;</span><span class="w"></span>
+<span class="w">    </span><span class="nt">end_date</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;2020-05-07&#39;</span><span class="w"></span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Kick off meeting</span><span class="w"></span>
+<span class="w">    </span><span class="nt">notes</span><span class="p">:</span><span class="w"></span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">kickoff note</span><span class="w"></span>
+<span class="w">    </span><span class="nt">objective</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">introduce project to the lead</span><span class="w"></span>
+<span class="w">    </span><span class="nt">status</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">finished</span><span class="w"></span>
+<span class="w">  </span><span class="nt">lead</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ascopatz</span><span class="w"></span>
+<span class="w">  </span><span class="nt">log_url</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://docs.google.com/document/d/1YC_wtW5Q</span><span class="w"></span>
+<span class="w">  </span><span class="nt">milestones</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">audience</span><span class="p">:</span><span class="w"></span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">lead</span><span class="w"></span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pi</span><span class="w"></span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">group_members</span><span class="w"></span>
+<span class="w">      </span><span class="nt">due_date</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;2020-05-20&#39;</span><span class="w"></span>
+<span class="w">      </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Project lead presentation</span><span class="w"></span>
+<span class="w">      </span><span class="nt">notes</span><span class="p">:</span><span class="w"></span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">do background reading</span><span class="w"></span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">understand math</span><span class="w"></span>
+<span class="w">      </span><span class="nt">objective</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">lead presents background reading and initial project plan</span><span class="w"></span>
+<span class="w">      </span><span class="nt">progress</span><span class="p">:</span><span class="w"></span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">figure</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">token that dereferences a figure or image in group local storage</span><span class="w"></span>
+<span class="w">            </span><span class="l l-Scalar l-Scalar-Plain">db</span><span class="w"></span>
+<span class="w">          </span><span class="nt">slides_url</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">url to slides describing the development, e.g. Google slides</span><span class="w"></span>
+<span class="w">            </span><span class="l l-Scalar l-Scalar-Plain">url</span><span class="w"></span>
+<span class="w">          </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">The samples have been synthesized and places in the sample cupboard.</span><span class="w"></span>
+<span class="w">            </span><span class="l l-Scalar l-Scalar-Plain">They turned out well and are blue as expected</span><span class="w"></span>
+<span class="w">      </span><span class="nt">status</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">proposed</span><span class="w"></span>
+<span class="w">      </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">meeting</span><span class="w"></span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">audience</span><span class="p">:</span><span class="w"></span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">lead</span><span class="w"></span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pi</span><span class="w"></span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">group_members</span><span class="w"></span>
+<span class="w">      </span><span class="nt">due_date</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;2020-05-27&#39;</span><span class="w"></span>
+<span class="w">      </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">planning meeting</span><span class="w"></span>
+<span class="w">      </span><span class="nt">objective</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">develop a detailed plan with dates</span><span class="w"></span>
+<span class="w">      </span><span class="nt">status</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">proposed</span><span class="w"></span>
+<span class="w">      </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mergedpr</span><span class="w"></span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">First Projectum</span><span class="w"></span>
+<span class="w">  </span><span class="nt">other_urls</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://docs.google.com/document/d/analysis</span><span class="w"></span>
+<span class="w">  </span><span class="nt">pi_id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">scopatz</span><span class="w"></span>
+<span class="w">  </span><span class="nt">product_url</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://docs.google.com/document/d/manuscript</span><span class="w"></span>
+<span class="w">  </span><span class="nt">status</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">started</span><span class="w"></span>
 </pre></div>
 </div>
 </section>
 <section id="json-mongo-example">
 <h2>JSON/Mongo Example<a class="headerlink" href="#json-mongo-example" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-    <span class="nt">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;ab_inactive&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;deliverable&quot;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="nt">&quot;due_date&quot;</span><span class="p">:</span> <span class="s2">&quot;2021-05-03&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;paused&quot;</span>
-    <span class="p">},</span>
-    <span class="nt">&quot;kickoff&quot;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="nt">&quot;due_date&quot;</span><span class="p">:</span> <span class="s2">&quot;2021-05-03&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Kickoff&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;backburner&quot;</span>
-    <span class="p">},</span>
-    <span class="nt">&quot;lead&quot;</span><span class="p">:</span> <span class="s2">&quot;abeing&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;milestones&quot;</span><span class="p">:</span> <span class="p">[</span>
-        <span class="p">{</span>
-            <span class="nt">&quot;due_date&quot;</span><span class="p">:</span> <span class="s2">&quot;2021-05-03&quot;</span><span class="p">,</span>
-            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Milestone&quot;</span><span class="p">,</span>
-            <span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;converged&quot;</span>
-        <span class="p">}</span>
-    <span class="p">],</span>
-    <span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;started&quot;</span>
-<span class="p">}</span>
-<span class="p">{</span>
-    <span class="nt">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;pl_firstprojectum&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;begin_date&quot;</span><span class="p">:</span> <span class="s2">&quot;2020-07-25&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;deliverable&quot;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="nt">&quot;due_date&quot;</span><span class="p">:</span> <span class="s2">&quot;2020-08-26&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;finished&quot;</span>
-    <span class="p">},</span>
-    <span class="nt">&quot;end_date&quot;</span><span class="p">:</span> <span class="s2">&quot;2020-07-27&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;kickoff&quot;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="nt">&quot;due_date&quot;</span><span class="p">:</span> <span class="s2">&quot;2021-08-03&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Kickoff&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;backburner&quot;</span>
-    <span class="p">},</span>
-    <span class="nt">&quot;lead&quot;</span><span class="p">:</span> <span class="s2">&quot;pliu&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;milestones&quot;</span><span class="p">:</span> <span class="p">[</span>
-        <span class="p">{</span>
-            <span class="nt">&quot;due_date&quot;</span><span class="p">:</span> <span class="s2">&quot;2021-08-03&quot;</span><span class="p">,</span>
-            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Milestone&quot;</span><span class="p">,</span>
-            <span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;converged&quot;</span>
-        <span class="p">}</span>
-    <span class="p">],</span>
-    <span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;finished&quot;</span>
-<span class="p">}</span>
-<span class="p">{</span>
-    <span class="nt">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;sb_firstprojectum&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;begin_date&quot;</span><span class="p">:</span> <span class="s2">&quot;2020-04-28&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;collaborators&quot;</span><span class="p">:</span> <span class="p">[</span>
-        <span class="s2">&quot;aeinstein&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;pdirac&quot;</span>
-    <span class="p">],</span>
-    <span class="nt">&quot;deliverable&quot;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="nt">&quot;audience&quot;</span><span class="p">:</span> <span class="p">[</span>
-            <span class="s2">&quot;beginning grad in chemistry&quot;</span>
-        <span class="p">],</span>
-        <span class="nt">&quot;due_date&quot;</span><span class="p">:</span> <span class="s2">&quot;2021-05-05&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;notes&quot;</span><span class="p">:</span> <span class="p">[</span>
-            <span class="s2">&quot;deliverable note&quot;</span>
-        <span class="p">],</span>
-        <span class="nt">&quot;platform&quot;</span><span class="p">:</span> <span class="s2">&quot;description of how and where the audience will access the deliverable.  Journal if it is a paper&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;roll_out&quot;</span><span class="p">:</span> <span class="p">[</span>
-            <span class="s2">&quot;steps that the audience will take to access and interact with the deliverable&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;not needed for paper submissions&quot;</span>
-        <span class="p">],</span>
-        <span class="nt">&quot;scope&quot;</span><span class="p">:</span> <span class="p">[</span>
-            <span class="s2">&quot;UCs that are supported or some other scope description if it is software&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;sketch of science story if it is paper&quot;</span>
-        <span class="p">],</span>
-        <span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;proposed&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;success_def&quot;</span><span class="p">:</span> <span class="s2">&quot;audience is happy&quot;</span>
-    <span class="p">},</span>
-    <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;My first projectum&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;end_date&quot;</span><span class="p">:</span> <span class="s2">&quot;2020-06-05&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;grants&quot;</span><span class="p">:</span> <span class="s2">&quot;SymPy-1.1&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;group_members&quot;</span><span class="p">:</span> <span class="p">[</span>
-        <span class="s2">&quot;ascopatz&quot;</span>
-    <span class="p">],</span>
-    <span class="nt">&quot;kickoff&quot;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="nt">&quot;audience&quot;</span><span class="p">:</span> <span class="p">[</span>
-            <span class="s2">&quot;lead&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;pi&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;group_members&quot;</span>
-        <span class="p">],</span>
-        <span class="nt">&quot;date&quot;</span><span class="p">:</span> <span class="s2">&quot;2020-05-05&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;due_date&quot;</span><span class="p">:</span> <span class="s2">&quot;2020-05-06&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;end_date&quot;</span><span class="p">:</span> <span class="s2">&quot;2020-05-07&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Kick off meeting&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;notes&quot;</span><span class="p">:</span> <span class="p">[</span>
-            <span class="s2">&quot;kickoff note&quot;</span>
-        <span class="p">],</span>
-        <span class="nt">&quot;objective&quot;</span><span class="p">:</span> <span class="s2">&quot;introduce project to the lead&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;finished&quot;</span>
-    <span class="p">},</span>
-    <span class="nt">&quot;lead&quot;</span><span class="p">:</span> <span class="s2">&quot;ascopatz&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;log_url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://docs.google.com/document/d/1YC_wtW5Q&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;milestones&quot;</span><span class="p">:</span> <span class="p">[</span>
-        <span class="p">{</span>
-            <span class="nt">&quot;audience&quot;</span><span class="p">:</span> <span class="p">[</span>
-                <span class="s2">&quot;lead&quot;</span><span class="p">,</span>
-                <span class="s2">&quot;pi&quot;</span><span class="p">,</span>
-                <span class="s2">&quot;group_members&quot;</span>
-            <span class="p">],</span>
-            <span class="nt">&quot;due_date&quot;</span><span class="p">:</span> <span class="s2">&quot;2020-05-20&quot;</span><span class="p">,</span>
-            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Project lead presentation&quot;</span><span class="p">,</span>
-            <span class="nt">&quot;notes&quot;</span><span class="p">:</span> <span class="p">[</span>
-                <span class="s2">&quot;do background reading&quot;</span><span class="p">,</span>
-                <span class="s2">&quot;understand math&quot;</span>
-            <span class="p">],</span>
-            <span class="nt">&quot;objective&quot;</span><span class="p">:</span> <span class="s2">&quot;lead presents background reading and initial project plan&quot;</span><span class="p">,</span>
-            <span class="nt">&quot;progress&quot;</span><span class="p">:</span> <span class="p">[</span>
-                <span class="p">{</span>
-                    <span class="nt">&quot;figure&quot;</span><span class="p">:</span> <span class="s2">&quot;token that dereferences a figure or image in group local storage db&quot;</span><span class="p">,</span>
-                    <span class="nt">&quot;slides_url&quot;</span><span class="p">:</span> <span class="s2">&quot;url to slides describing the development, e.g. Google slides url&quot;</span><span class="p">,</span>
-                    <span class="nt">&quot;text&quot;</span><span class="p">:</span> <span class="s2">&quot;The samples have been synthesized and places in the sample cupboard. They turned out well and are blue as expected&quot;</span>
-                <span class="p">}</span>
-            <span class="p">],</span>
-            <span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;proposed&quot;</span><span class="p">,</span>
-            <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;meeting&quot;</span>
-        <span class="p">},</span>
-        <span class="p">{</span>
-            <span class="nt">&quot;audience&quot;</span><span class="p">:</span> <span class="p">[</span>
-                <span class="s2">&quot;lead&quot;</span><span class="p">,</span>
-                <span class="s2">&quot;pi&quot;</span><span class="p">,</span>
-                <span class="s2">&quot;group_members&quot;</span>
-            <span class="p">],</span>
-            <span class="nt">&quot;due_date&quot;</span><span class="p">:</span> <span class="s2">&quot;2020-05-27&quot;</span><span class="p">,</span>
-            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;planning meeting&quot;</span><span class="p">,</span>
-            <span class="nt">&quot;objective&quot;</span><span class="p">:</span> <span class="s2">&quot;develop a detailed plan with dates&quot;</span><span class="p">,</span>
-            <span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;proposed&quot;</span><span class="p">,</span>
-            <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;mergedpr&quot;</span>
-        <span class="p">}</span>
-    <span class="p">],</span>
-    <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;First Projectum&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;other_urls&quot;</span><span class="p">:</span> <span class="p">[</span>
-        <span class="s2">&quot;https://docs.google.com/document/d/analysis&quot;</span>
-    <span class="p">],</span>
-    <span class="nt">&quot;pi_id&quot;</span><span class="p">:</span> <span class="s2">&quot;scopatz&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;product_url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://docs.google.com/document/d/manuscript&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;started&quot;</span>
-<span class="p">}</span>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ab_inactive&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;deliverable&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;due_date&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2021-05-03&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;paused&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="p">},</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;kickoff&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;due_date&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2021-05-03&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Kickoff&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;backburner&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="p">},</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;lead&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;abeing&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;milestones&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="w">        </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;due_date&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2021-05-03&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Milestone&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;converged&quot;</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="p">],</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;started&quot;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;pl_firstprojectum&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;begin_date&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2020-07-25&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;deliverable&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;due_date&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2020-08-26&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;finished&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="p">},</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;end_date&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2020-07-27&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;kickoff&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;due_date&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2021-08-03&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Kickoff&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;backburner&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="p">},</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;lead&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;pliu&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;milestones&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="w">        </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;due_date&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2021-08-03&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Milestone&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;converged&quot;</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="p">],</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;finished&quot;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;sb_firstprojectum&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;begin_date&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2020-04-28&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;collaborators&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="w">        </span><span class="s2">&quot;aeinstein&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="s2">&quot;pdirac&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="p">],</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;deliverable&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;audience&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;beginning grad in chemistry&quot;</span><span class="w"></span>
+<span class="w">        </span><span class="p">],</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;due_date&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2021-05-05&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;notes&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;deliverable note&quot;</span><span class="w"></span>
+<span class="w">        </span><span class="p">],</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;platform&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;description of how and where the audience will access the deliverable.  Journal if it is a paper&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;roll_out&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;steps that the audience will take to access and interact with the deliverable&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;not needed for paper submissions&quot;</span><span class="w"></span>
+<span class="w">        </span><span class="p">],</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;scope&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;UCs that are supported or some other scope description if it is software&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;sketch of science story if it is paper&quot;</span><span class="w"></span>
+<span class="w">        </span><span class="p">],</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;proposed&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;success_def&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;audience is happy&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="p">},</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;My first projectum&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;end_date&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2020-06-05&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;grants&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;SymPy-1.1&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;group_members&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="w">        </span><span class="s2">&quot;ascopatz&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="p">],</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;kickoff&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;audience&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;lead&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;pi&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;group_members&quot;</span><span class="w"></span>
+<span class="w">        </span><span class="p">],</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;date&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2020-05-05&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;due_date&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2020-05-06&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;end_date&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2020-05-07&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Kick off meeting&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;notes&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;kickoff note&quot;</span><span class="w"></span>
+<span class="w">        </span><span class="p">],</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;objective&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;introduce project to the lead&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;finished&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="p">},</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;lead&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ascopatz&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;log_url&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://docs.google.com/document/d/1YC_wtW5Q&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;milestones&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="w">        </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;audience&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="w">                </span><span class="s2">&quot;lead&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">                </span><span class="s2">&quot;pi&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">                </span><span class="s2">&quot;group_members&quot;</span><span class="w"></span>
+<span class="w">            </span><span class="p">],</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;due_date&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2020-05-20&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Project lead presentation&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;notes&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="w">                </span><span class="s2">&quot;do background reading&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">                </span><span class="s2">&quot;understand math&quot;</span><span class="w"></span>
+<span class="w">            </span><span class="p">],</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;objective&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;lead presents background reading and initial project plan&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;progress&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="w">                </span><span class="p">{</span><span class="w"></span>
+<span class="w">                    </span><span class="nt">&quot;figure&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;token that dereferences a figure or image in group local storage db&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">                    </span><span class="nt">&quot;slides_url&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;url to slides describing the development, e.g. Google slides url&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">                    </span><span class="nt">&quot;text&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;The samples have been synthesized and places in the sample cupboard. They turned out well and are blue as expected&quot;</span><span class="w"></span>
+<span class="w">                </span><span class="p">}</span><span class="w"></span>
+<span class="w">            </span><span class="p">],</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;proposed&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;meeting&quot;</span><span class="w"></span>
+<span class="w">        </span><span class="p">},</span><span class="w"></span>
+<span class="w">        </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;audience&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="w">                </span><span class="s2">&quot;lead&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">                </span><span class="s2">&quot;pi&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">                </span><span class="s2">&quot;group_members&quot;</span><span class="w"></span>
+<span class="w">            </span><span class="p">],</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;due_date&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2020-05-27&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;planning meeting&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;objective&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;develop a detailed plan with dates&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;proposed&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;mergedpr&quot;</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="p">],</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;First Projectum&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;other_urls&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="w">        </span><span class="s2">&quot;https://docs.google.com/document/d/analysis&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="p">],</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;pi_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;scopatz&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;product_url&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://docs.google.com/document/d/manuscript&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;started&quot;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
 </section>

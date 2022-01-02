@@ -172,82 +172,82 @@
 </section>
 <section id="yaml-example">
 <h2>YAML Example<a class="headerlink" href="#yaml-example" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">test</span><span class="p">:</span>
-  <span class="nt">beamtime</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">2020-1-XPD</span>
-  <span class="nt">begin_date</span><span class="p">:</span> <span class="s">&#39;2020-01-01&#39;</span>
-  <span class="nt">devices</span><span class="p">:</span>
-    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">cryostream</span>
-  <span class="nt">end_date</span><span class="p">:</span> <span class="s">&#39;2020-01-02&#39;</span>
-  <span class="nt">exp_plan</span><span class="p">:</span>
-    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">load samples on the holder</span>
-    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">scan the holder to locate the samples</span>
-    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">take room temperature measurement of sample and the subtrate</span>
-    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">ramp down temperature to 100K</span>
-    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">ramp up, measure PDF at temperature 100K ~ 300K, 10K stepsize, 1 min exposure</span>
-  <span class="nt">holder</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">film holder (1 cm * 1 cm * 1 mm)</span>
-  <span class="nt">measurement</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Tramp</span>
-  <span class="nt">objective</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">temperature ramping PDF of one WO3 film (100, 300K, 10K)</span>
-  <span class="nt">pipeline</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">usual</span>
-  <span class="nt">prep_plan</span><span class="p">:</span>
-    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">films will be made by kriti</span>
-  <span class="nt">project</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">20ks_wo3</span>
-  <span class="nt">project_lead</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">kseth</span>
-  <span class="nt">samples</span><span class="p">:</span>
-    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">WO3 film</span>
-    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">glass subtrate</span>
-  <span class="nt">scanplan</span><span class="p">:</span>
-    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Scanplan(bt, Tramp, 30, 80, 500, 10)</span>
-  <span class="nt">ship_plan</span><span class="p">:</span>
-    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">seal and ship to CU</span>
-    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">carry to the beamline</span>
-  <span class="nt">time</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">190</span>
-  <span class="nt">todo</span><span class="p">:</span>
-    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">todo something</span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">test</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">beamtime</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2020-1-XPD</span><span class="w"></span>
+<span class="w">  </span><span class="nt">begin_date</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;2020-01-01&#39;</span><span class="w"></span>
+<span class="w">  </span><span class="nt">devices</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cryostream</span><span class="w"></span>
+<span class="w">  </span><span class="nt">end_date</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;2020-01-02&#39;</span><span class="w"></span>
+<span class="w">  </span><span class="nt">exp_plan</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">load samples on the holder</span><span class="w"></span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">scan the holder to locate the samples</span><span class="w"></span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">take room temperature measurement of sample and the subtrate</span><span class="w"></span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ramp down temperature to 100K</span><span class="w"></span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ramp up, measure PDF at temperature 100K ~ 300K, 10K stepsize, 1 min exposure</span><span class="w"></span>
+<span class="w">  </span><span class="nt">holder</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">film holder (1 cm * 1 cm * 1 mm)</span><span class="w"></span>
+<span class="w">  </span><span class="nt">measurement</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Tramp</span><span class="w"></span>
+<span class="w">  </span><span class="nt">objective</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">temperature ramping PDF of one WO3 film (100, 300K, 10K)</span><span class="w"></span>
+<span class="w">  </span><span class="nt">pipeline</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">usual</span><span class="w"></span>
+<span class="w">  </span><span class="nt">prep_plan</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">films will be made by kriti</span><span class="w"></span>
+<span class="w">  </span><span class="nt">project</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">20ks_wo3</span><span class="w"></span>
+<span class="w">  </span><span class="nt">project_lead</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">kseth</span><span class="w"></span>
+<span class="w">  </span><span class="nt">samples</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">WO3 film</span><span class="w"></span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">glass subtrate</span><span class="w"></span>
+<span class="w">  </span><span class="nt">scanplan</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Scanplan(bt, Tramp, 30, 80, 500, 10)</span><span class="w"></span>
+<span class="w">  </span><span class="nt">ship_plan</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">seal and ship to CU</span><span class="w"></span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">carry to the beamline</span><span class="w"></span>
+<span class="w">  </span><span class="nt">time</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">190</span><span class="w"></span>
+<span class="w">  </span><span class="nt">todo</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">todo something</span><span class="w"></span>
 </pre></div>
 </div>
 </section>
 <section id="json-mongo-example">
 <h2>JSON/Mongo Example<a class="headerlink" href="#json-mongo-example" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-    <span class="nt">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;test&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;beamtime&quot;</span><span class="p">:</span> <span class="s2">&quot;2020-1-XPD&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;begin_date&quot;</span><span class="p">:</span> <span class="s2">&quot;2020-01-01&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;devices&quot;</span><span class="p">:</span> <span class="p">[</span>
-        <span class="s2">&quot;cryostream&quot;</span>
-    <span class="p">],</span>
-    <span class="nt">&quot;end_date&quot;</span><span class="p">:</span> <span class="s2">&quot;2020-01-02&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;exp_plan&quot;</span><span class="p">:</span> <span class="p">[</span>
-        <span class="s2">&quot;load samples on the holder&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;scan the holder to locate the samples&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;take room temperature measurement of sample and the subtrate&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;ramp down temperature to 100K&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;ramp up, measure PDF at temperature 100K ~ 300K, 10K stepsize, 1 min exposure&quot;</span>
-    <span class="p">],</span>
-    <span class="nt">&quot;holder&quot;</span><span class="p">:</span> <span class="s2">&quot;film holder (1 cm * 1 cm * 1 mm)&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;measurement&quot;</span><span class="p">:</span> <span class="s2">&quot;Tramp&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;objective&quot;</span><span class="p">:</span> <span class="s2">&quot;temperature ramping PDF of one WO3 film (100, 300K, 10K)&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;pipeline&quot;</span><span class="p">:</span> <span class="s2">&quot;usual&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;prep_plan&quot;</span><span class="p">:</span> <span class="p">[</span>
-        <span class="s2">&quot;films will be made by kriti&quot;</span>
-    <span class="p">],</span>
-    <span class="nt">&quot;project&quot;</span><span class="p">:</span> <span class="s2">&quot;20ks_wo3&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;project_lead&quot;</span><span class="p">:</span> <span class="s2">&quot;kseth&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;samples&quot;</span><span class="p">:</span> <span class="p">[</span>
-        <span class="s2">&quot;WO3 film&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;glass subtrate&quot;</span>
-    <span class="p">],</span>
-    <span class="nt">&quot;scanplan&quot;</span><span class="p">:</span> <span class="p">[</span>
-        <span class="s2">&quot;Scanplan(bt, Tramp, 30, 80, 500, 10)&quot;</span>
-    <span class="p">],</span>
-    <span class="nt">&quot;ship_plan&quot;</span><span class="p">:</span> <span class="p">[</span>
-        <span class="s2">&quot;seal and ship to CU&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;carry to the beamline&quot;</span>
-    <span class="p">],</span>
-    <span class="nt">&quot;time&quot;</span><span class="p">:</span> <span class="mi">190</span><span class="p">,</span>
-    <span class="nt">&quot;todo&quot;</span><span class="p">:</span> <span class="p">[</span>
-        <span class="s2">&quot;todo something&quot;</span>
-    <span class="p">]</span>
-<span class="p">}</span>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;test&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;beamtime&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2020-1-XPD&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;begin_date&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2020-01-01&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;devices&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="w">        </span><span class="s2">&quot;cryostream&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="p">],</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;end_date&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2020-01-02&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;exp_plan&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="w">        </span><span class="s2">&quot;load samples on the holder&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="s2">&quot;scan the holder to locate the samples&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="s2">&quot;take room temperature measurement of sample and the subtrate&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="s2">&quot;ramp down temperature to 100K&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="s2">&quot;ramp up, measure PDF at temperature 100K ~ 300K, 10K stepsize, 1 min exposure&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="p">],</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;holder&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;film holder (1 cm * 1 cm * 1 mm)&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;measurement&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Tramp&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;objective&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;temperature ramping PDF of one WO3 film (100, 300K, 10K)&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;pipeline&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;usual&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;prep_plan&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="w">        </span><span class="s2">&quot;films will be made by kriti&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="p">],</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;project&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;20ks_wo3&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;project_lead&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;kseth&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;samples&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="w">        </span><span class="s2">&quot;WO3 film&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="s2">&quot;glass subtrate&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="p">],</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;scanplan&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="w">        </span><span class="s2">&quot;Scanplan(bt, Tramp, 30, 80, 500, 10)&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="p">],</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;ship_plan&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="w">        </span><span class="s2">&quot;seal and ship to CU&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="s2">&quot;carry to the beamline&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="p">],</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;time&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">190</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;todo&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="w">        </span><span class="s2">&quot;todo something&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="p">]</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
 </section>

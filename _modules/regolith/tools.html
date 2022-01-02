@@ -2129,6 +2129,38 @@
     <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">tokenfile</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">token</span><span class="p">:</span>
         <span class="n">token</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">creds</span><span class="o">.</span><span class="n">to_json</span><span class="p">())</span></div>
     <span class="c1"># Save the credentials for the next run</span>
+
+<div class="viewcode-block" id="get_tags"><a class="viewcode-back" href="../../api/tools.html#regolith.tools.get_tags">[docs]</a><span class="k">def</span> <span class="nf">get_tags</span><span class="p">(</span><span class="n">coll</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Given a collection with a tags field, returns the set of tags as a list</span>
+
+<span class="sd">    The tags field is expected to be a string with comma or space separated tags.</span>
+<span class="sd">    get_tags splits the tags and returns the set of unique tags as a list of</span>
+<span class="sd">    strings.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    coll collection</span>
+<span class="sd">      the collection</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    the set of all tags as a list</span>
+
+<span class="sd">    &#39;&#39;&#39;</span>
+
+    <span class="n">all_tags</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">paper</span> <span class="ow">in</span> <span class="n">coll</span><span class="p">:</span>
+        <span class="n">tag_long</span> <span class="o">=</span> <span class="n">paper</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;tags&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">tag_long</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;ERROR: valid tags are comma or space separated strings of tag names&quot;</span><span class="p">)</span>
+        <span class="n">tags</span> <span class="o">=</span> <span class="n">tag_long</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">)</span>
+        <span class="n">tags</span> <span class="o">=</span> <span class="p">[</span><span class="n">sub_item</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">tags</span> <span class="k">for</span> <span class="n">sub_item</span> <span class="ow">in</span> <span class="n">item</span><span class="o">.</span><span class="n">split</span><span class="p">()]</span>
+        <span class="n">all_tags</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">tags</span><span class="p">)</span>
+    <span class="n">all_tags</span> <span class="o">=</span> <span class="p">[</span><span class="n">item</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">all_tags</span><span class="p">]</span>
+    <span class="n">all_tags</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">all_tags</span><span class="p">))</span>
+    <span class="n">all_tags</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">all_tags</span></div>
 </pre></div>
 
           </div>
