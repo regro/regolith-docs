@@ -81,7 +81,7 @@
 <dd class="field-odd"><p>list, list of collaborators ids. These are non-group members. These will be dereferenced from the contacts collection., optional</p>
 </dd>
 <dt class="field-even">deliverable<span class="colon">:</span></dt>
-<dd class="field-even"><p>dict, outline of the deliverable for this projectum, optional</p>
+<dd class="field-even"><p>dict, outline of the deliverable for this projectum, required</p>
 <dl class="field-list">
 <dt class="field-odd">audience<span class="colon">:</span></dt>
 <dd class="field-odd"><p>list, the target audience for this deliverable, optional</p>
@@ -325,7 +325,7 @@
 <span class="nt">pl_firstprojectum</span><span class="p">:</span><span class="w"></span>
 <span class="w">  </span><span class="nt">begin_date</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;2020-07-25&#39;</span><span class="w"></span>
 <span class="w">  </span><span class="nt">deliverable</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="nt">due_date</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;2020-08-26&#39;</span><span class="w"></span>
+<span class="w">    </span><span class="nt">due_date</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;2021-08-26&#39;</span><span class="w"></span>
 <span class="w">    </span><span class="nt">status</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">finished</span><span class="w"></span>
 <span class="w">  </span><span class="nt">end_date</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;2020-07-27&#39;</span><span class="w"></span>
 <span class="w">  </span><span class="nt">kickoff</span><span class="p">:</span><span class="w"></span>
@@ -338,6 +338,36 @@
 <span class="w">      </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Milestone</span><span class="w"></span>
 <span class="w">      </span><span class="nt">status</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">converged</span><span class="w"></span>
 <span class="w">  </span><span class="nt">status</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">finished</span><span class="w"></span>
+<span class="nt">pl_secondprojectum</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">begin_date</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;2020-07-25&#39;</span><span class="w"></span>
+<span class="w">  </span><span class="nt">deliverable</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="nt">due_date</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;2021-08-26&#39;</span><span class="w"></span>
+<span class="w">    </span><span class="nt">status</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">finished</span><span class="w"></span>
+<span class="w">  </span><span class="nt">kickoff</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="nt">due_date</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;2021-08-03&#39;</span><span class="w"></span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Kickoff</span><span class="w"></span>
+<span class="w">    </span><span class="nt">status</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">backburner</span><span class="w"></span>
+<span class="w">  </span><span class="nt">lead</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pliu</span><span class="w"></span>
+<span class="w">  </span><span class="nt">milestones</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">due_date</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;2021-08-03&#39;</span><span class="w"></span>
+<span class="w">      </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Milestone</span><span class="w"></span>
+<span class="w">      </span><span class="nt">status</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">converged</span><span class="w"></span>
+<span class="w">  </span><span class="nt">status</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">proposed</span><span class="w"></span>
+<span class="nt">pl_thirdprojectum</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">begin_date</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;2020-07-25&#39;</span><span class="w"></span>
+<span class="w">  </span><span class="nt">deliverable</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="nt">due_date</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;2021-08-26&#39;</span><span class="w"></span>
+<span class="w">    </span><span class="nt">status</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">finished</span><span class="w"></span>
+<span class="w">  </span><span class="nt">kickoff</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="nt">due_date</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;2021-08-03&#39;</span><span class="w"></span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Kickoff</span><span class="w"></span>
+<span class="w">    </span><span class="nt">status</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">backburner</span><span class="w"></span>
+<span class="w">  </span><span class="nt">lead</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pliu</span><span class="w"></span>
+<span class="w">  </span><span class="nt">milestones</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">due_date</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;2021-08-03&#39;</span><span class="w"></span>
+<span class="w">      </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Milestone</span><span class="w"></span>
+<span class="w">      </span><span class="nt">status</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">converged</span><span class="w"></span>
+<span class="w">  </span><span class="nt">status</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">backburner</span><span class="w"></span>
 <span class="nt">sb_firstprojectum</span><span class="p">:</span><span class="w"></span>
 <span class="w">  </span><span class="nt">begin_date</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;2020-04-28&#39;</span><span class="w"></span>
 <span class="w">  </span><span class="nt">collaborators</span><span class="p">:</span><span class="w"></span>
@@ -444,7 +474,7 @@
 <span class="w">    </span><span class="nt">&quot;_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;pl_firstprojectum&quot;</span><span class="p">,</span><span class="w"></span>
 <span class="w">    </span><span class="nt">&quot;begin_date&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2020-07-25&quot;</span><span class="p">,</span><span class="w"></span>
 <span class="w">    </span><span class="nt">&quot;deliverable&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="nt">&quot;due_date&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2020-08-26&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;due_date&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2021-08-26&quot;</span><span class="p">,</span><span class="w"></span>
 <span class="w">        </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;finished&quot;</span><span class="w"></span>
 <span class="w">    </span><span class="p">},</span><span class="w"></span>
 <span class="w">    </span><span class="nt">&quot;end_date&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2020-07-27&quot;</span><span class="p">,</span><span class="w"></span>
@@ -462,6 +492,50 @@
 <span class="w">        </span><span class="p">}</span><span class="w"></span>
 <span class="w">    </span><span class="p">],</span><span class="w"></span>
 <span class="w">    </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;finished&quot;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;pl_secondprojectum&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;begin_date&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2020-07-25&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;deliverable&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;due_date&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2021-08-26&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;finished&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="p">},</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;kickoff&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;due_date&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2021-08-03&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Kickoff&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;backburner&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="p">},</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;lead&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;pliu&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;milestones&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="w">        </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;due_date&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2021-08-03&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Milestone&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;converged&quot;</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="p">],</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;proposed&quot;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;pl_thirdprojectum&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;begin_date&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2020-07-25&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;deliverable&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;due_date&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2021-08-26&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;finished&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="p">},</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;kickoff&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;due_date&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2021-08-03&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Kickoff&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;backburner&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="p">},</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;lead&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;pliu&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;milestones&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="w">        </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;due_date&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2021-08-03&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Milestone&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;converged&quot;</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="p">],</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;backburner&quot;</span><span class="w"></span>
 <span class="p">}</span><span class="w"></span>
 <span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="nt">&quot;_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;sb_firstprojectum&quot;</span><span class="p">,</span><span class="w"></span>

@@ -9,7 +9,7 @@ The following lists key names mapped to its type and meaning for each entry.
 :_id: string, Unique projectum identifier, required
 :begin_date: ['string', 'date'], projectum start date, yyyy-mm-dd, optional
 :collaborators: list, list of collaborators ids. These are non-group members. These will be dereferenced from the contacts collection., optional
-:deliverable: dict, outline of the deliverable for this projectum, optional
+:deliverable: dict, outline of the deliverable for this projectum, required
 
 	:audience: list, the target audience for this deliverable, optional
 	:due_date: ['date', 'string'], due date of deliverable, yyyy-mm-dd, optional
@@ -142,7 +142,7 @@ YAML Example
 	pl_firstprojectum:
 	  begin_date: '2020-07-25'
 	  deliverable:
-	    due_date: '2020-08-26'
+	    due_date: '2021-08-26'
 	    status: finished
 	  end_date: '2020-07-27'
 	  kickoff:
@@ -155,6 +155,36 @@ YAML Example
 	      name: Milestone
 	      status: converged
 	  status: finished
+	pl_secondprojectum:
+	  begin_date: '2020-07-25'
+	  deliverable:
+	    due_date: '2021-08-26'
+	    status: finished
+	  kickoff:
+	    due_date: '2021-08-03'
+	    name: Kickoff
+	    status: backburner
+	  lead: pliu
+	  milestones:
+	    - due_date: '2021-08-03'
+	      name: Milestone
+	      status: converged
+	  status: proposed
+	pl_thirdprojectum:
+	  begin_date: '2020-07-25'
+	  deliverable:
+	    due_date: '2021-08-26'
+	    status: finished
+	  kickoff:
+	    due_date: '2021-08-03'
+	    name: Kickoff
+	    status: backburner
+	  lead: pliu
+	  milestones:
+	    - due_date: '2021-08-03'
+	      name: Milestone
+	      status: converged
+	  status: backburner
 	sb_firstprojectum:
 	  begin_date: '2020-04-28'
 	  collaborators:
@@ -263,7 +293,7 @@ JSON/Mongo Example
 	    "_id": "pl_firstprojectum",
 	    "begin_date": "2020-07-25",
 	    "deliverable": {
-	        "due_date": "2020-08-26",
+	        "due_date": "2021-08-26",
 	        "status": "finished"
 	    },
 	    "end_date": "2020-07-27",
@@ -281,6 +311,50 @@ JSON/Mongo Example
 	        }
 	    ],
 	    "status": "finished"
+	}
+	{
+	    "_id": "pl_secondprojectum",
+	    "begin_date": "2020-07-25",
+	    "deliverable": {
+	        "due_date": "2021-08-26",
+	        "status": "finished"
+	    },
+	    "kickoff": {
+	        "due_date": "2021-08-03",
+	        "name": "Kickoff",
+	        "status": "backburner"
+	    },
+	    "lead": "pliu",
+	    "milestones": [
+	        {
+	            "due_date": "2021-08-03",
+	            "name": "Milestone",
+	            "status": "converged"
+	        }
+	    ],
+	    "status": "proposed"
+	}
+	{
+	    "_id": "pl_thirdprojectum",
+	    "begin_date": "2020-07-25",
+	    "deliverable": {
+	        "due_date": "2021-08-26",
+	        "status": "finished"
+	    },
+	    "kickoff": {
+	        "due_date": "2021-08-03",
+	        "name": "Kickoff",
+	        "status": "backburner"
+	    },
+	    "lead": "pliu",
+	    "milestones": [
+	        {
+	            "due_date": "2021-08-03",
+	            "name": "Milestone",
+	            "status": "converged"
+	        }
+	    ],
+	    "status": "backburner"
 	}
 	{
 	    "_id": "sb_firstprojectum",

@@ -771,7 +771,7 @@ YAML Example
 	      unit: columbiau
 	      year: 2020
 	  education:
-	    - advisor: ascopatz
+	    - advisor: scopatz
 	      begin_year: 2008
 	      degree: Ph.D. Mechanical Engineering, Nuclear and Radiation Engineering Program
 	      department: apam
@@ -809,7 +809,7 @@ YAML Example
 	      location: land, mostly
 	  email: scopatz@cec.sc.edu
 	  employment:
-	    - advisor: ascopatz
+	    - advisor: scopatz
 	      begin_year: 2015
 	      coworkers:
 	        - afriend
@@ -1470,7 +1470,7 @@ JSON/Mongo Example
 	    ],
 	    "education": [
 	        {
-	            "advisor": "ascopatz",
+	            "advisor": "scopatz",
 	            "begin_year": 2008,
 	            "degree": "Ph.D. Mechanical Engineering, Nuclear and Radiation Engineering Program",
 	            "department": "apam",
@@ -1520,7 +1520,7 @@ JSON/Mongo Example
 	    "email": "scopatz@cec.sc.edu",
 	    "employment": [
 	        {
-	            "advisor": "ascopatz",
+	            "advisor": "scopatz",
 	            "begin_year": 2015,
 	            "coworkers": [
 	                "afriend"

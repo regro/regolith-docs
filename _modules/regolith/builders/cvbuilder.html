@@ -160,23 +160,24 @@
 
             <span class="n">undergrads</span> <span class="o">=</span> <span class="n">filter_employment_for_advisees</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">gtx</span><span class="p">[</span><span class="s2">&quot;people&quot;</span><span class="p">],</span>
                                                         <span class="n">begin_period</span><span class="p">,</span>
-                                                        <span class="s2">&quot;undergrad&quot;</span><span class="p">)</span>
+                                                        <span class="s2">&quot;undergrad&quot;</span><span class="p">,</span> <span class="n">p</span><span class="p">[</span><span class="s2">&quot;_id&quot;</span><span class="p">])</span>
             <span class="n">masters</span> <span class="o">=</span> <span class="n">filter_employment_for_advisees</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">gtx</span><span class="p">[</span><span class="s2">&quot;people&quot;</span><span class="p">],</span>
                                                      <span class="n">begin_period</span><span class="p">,</span>
-                                                     <span class="s2">&quot;ms&quot;</span><span class="p">)</span>
+                                                     <span class="s2">&quot;ms&quot;</span><span class="p">,</span> <span class="n">p</span><span class="p">[</span><span class="s2">&quot;_id&quot;</span><span class="p">])</span>
             <span class="n">currents</span> <span class="o">=</span> <span class="n">filter_employment_for_advisees</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">gtx</span><span class="p">[</span><span class="s2">&quot;people&quot;</span><span class="p">],</span>
                                                       <span class="n">begin_period</span><span class="p">,</span>
-                                                      <span class="s2">&quot;phd&quot;</span><span class="p">)</span>
+                                                      <span class="s2">&quot;phd&quot;</span><span class="p">,</span> <span class="n">p</span><span class="p">[</span><span class="s2">&quot;_id&quot;</span><span class="p">])</span>
             <span class="n">graduateds</span> <span class="o">=</span> <span class="n">filter_employment_for_advisees</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">gtx</span><span class="p">[</span><span class="s2">&quot;people&quot;</span><span class="p">],</span>
                                                         <span class="n">begin_period</span><span class="p">,</span>
-                                                        <span class="s2">&quot;phd&quot;</span><span class="p">)</span>
+                                                        <span class="s2">&quot;phd&quot;</span><span class="p">,</span> <span class="n">p</span><span class="p">[</span><span class="s2">&quot;_id&quot;</span><span class="p">])</span>
             <span class="n">postdocs</span> <span class="o">=</span> <span class="n">filter_employment_for_advisees</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">gtx</span><span class="p">[</span><span class="s2">&quot;people&quot;</span><span class="p">],</span>
                                                       <span class="n">begin_period</span><span class="p">,</span>
-                                                      <span class="s2">&quot;postdoc&quot;</span><span class="p">)</span>
+                                                      <span class="s2">&quot;postdoc&quot;</span><span class="p">,</span> <span class="n">p</span><span class="p">[</span><span class="s2">&quot;_id&quot;</span><span class="p">])</span>
             <span class="n">postdocs</span> <span class="o">=</span> <span class="n">remove_duplicate_docs</span><span class="p">(</span><span class="n">postdocs</span><span class="p">,</span> <span class="s2">&quot;name&quot;</span><span class="p">)</span>
             <span class="n">visitors</span> <span class="o">=</span> <span class="n">filter_employment_for_advisees</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">gtx</span><span class="p">[</span><span class="s2">&quot;people&quot;</span><span class="p">],</span>
                                                       <span class="n">begin_period</span><span class="p">,</span>
-                                                      <span class="s2">&quot;visitor-unsupported&quot;</span><span class="p">)</span>
+                                                      <span class="s2">&quot;visitor-unsupported&quot;</span><span class="p">,</span>
+                                                      <span class="n">p</span><span class="p">[</span><span class="s2">&quot;_id&quot;</span><span class="p">])</span>
             <span class="n">visitors</span> <span class="o">=</span> <span class="n">remove_duplicate_docs</span><span class="p">(</span><span class="n">visitors</span><span class="p">,</span> <span class="s2">&quot;name&quot;</span><span class="p">)</span>
 
             <span class="nb">iter</span> <span class="o">=</span> <span class="n">deepcopy</span><span class="p">(</span><span class="n">graduateds</span><span class="p">)</span>
