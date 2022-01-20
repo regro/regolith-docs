@@ -11,7 +11,7 @@ classlist
 	  filename              file to read class information from.
 	  course_id             course identifier whose registry should be updated
 
-	optional arguments:
+	options:
 	  -h, --help            show this help message and exit
 	  -f FORMAT, --format FORMAT
 	                        file / school format to read information from. Current

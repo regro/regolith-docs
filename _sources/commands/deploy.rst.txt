@@ -5,6 +5,6 @@ deploy
 
 	usage: regolith deploy [-h]
 
-	optional arguments:
+	options:
 	  -h, --help  show this help message and exit
 

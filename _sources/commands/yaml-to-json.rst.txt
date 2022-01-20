@@ -8,6 +8,6 @@ yaml-to-json
 	positional arguments:
 	  files       file names to convert
 
-	optional arguments:
+	options:
 	  -h, --help  show this help message and exit
 

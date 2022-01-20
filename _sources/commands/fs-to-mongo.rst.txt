@@ -5,7 +5,7 @@ fs-to-mongo
 
 	usage: regolith fs-to-mongo [-h] [--host HOST]
 
-	optional arguments:
+	options:
 	  -h, --help   show this help message and exit
 	  --host HOST  Specifies a resolvable hostname for the mongod to which to
 	               connect. By default, the mongoimport attempts to connect to a

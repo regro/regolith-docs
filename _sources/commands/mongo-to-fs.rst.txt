@@ -5,7 +5,7 @@ mongo-to-fs
 
 	usage: regolith mongo-to-fs [-h] [--host HOST]
 
-	optional arguments:
+	options:
 	  -h, --help   show this help message and exit
 	  --host HOST  Specifies a resolvable hostname for the mongod to which to
 	               connect. By default, the mongoexport attempts to connect to a

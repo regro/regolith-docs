@@ -5,6 +5,6 @@ helper
 
 	usage: regolith helper [-h]
 
-	optional arguments:
+	options:
 	  -h, --help  show this help message and exit
 

@@ -11,7 +11,7 @@ Shell commands for regolith
 	                {helper,rc,add,ingest,store,app,grade,build,deploy,email,classlist,json-to-yaml,yaml-to-json,mongo-to-fs,fs-to-mongo,validate}
 	                ...
 
-	optional arguments:
+	options:
 	  -h, --help            show this help message and exit
 
 	cmd:

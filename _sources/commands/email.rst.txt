@@ -11,7 +11,7 @@ email
 	positional arguments:
 	  email_target          targets to email, eg "test" or "grades".
 
-	optional arguments:
+	options:
 	  -h, --help            show this help message and exit
 	  --to TO               receiver of email
 	  --subject SUBJECT     email subject line

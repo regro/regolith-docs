@@ -12,7 +12,7 @@ build
 	  build_targets         targets to build. Currently valid targets are: 
 	                        ['annual-activity', 'beamplan', 'current-pending', 'cv', 'figure', 'grade', 'grades', 'grantreport', 'html', 'internalhtml', 'postdocad', 'preslist', 'publist', 'reading-lists', 'reimb', 'recent-collabs', 'resume', 'review-man', 'review-prop']
 
-	optional arguments:
+	options:
 	  -h, --help            show this help message and exit
 	  --no-pdf              don't produce PDFs during the build (for builds which produce PDFs)
 	  --from FROM_DATE      date in form YYYY-MM-DD.  Items will only be built if their date or end_date is equal or after this date
