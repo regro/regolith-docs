@@ -7,12 +7,13 @@ Shell commands for regolith
 
 .. code-block:: bash
 
-	usage: regolith [-h]
+	usage: regolith [-h] [--version]
 	                {helper,rc,add,ingest,store,app,grade,build,deploy,email,classlist,json-to-yaml,yaml-to-json,mongo-to-fs,fs-to-mongo,validate}
 	                ...
 
 	options:
 	  -h, --help            show this help message and exit
+	  --version
 
 	cmd:
 	  {helper,rc,add,ingest,store,app,grade,build,deploy,email,classlist,json-to-yaml,yaml-to-json,mongo-to-fs,fs-to-mongo,validate}
