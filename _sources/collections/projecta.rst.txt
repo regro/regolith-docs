@@ -118,6 +118,7 @@ The following lists key names mapped to its type and meaning for each entry.
 		* cancelled
 		* finished
 		* all
+:supplementary_info_urls: list, list of urls that are links to repos gdocs, etc. that contain supplementary info such as data or code snippets, optional
 
 
 YAML Example
@@ -261,6 +262,9 @@ YAML Example
 	  pi_id: scopatz
 	  product_url: https://docs.google.com/document/d/manuscript
 	  status: started
+	  supplementary_info_urls:
+	    - https://google.com
+	    - https://nytimes.com
 
 
 JSON/Mongo Example
@@ -450,5 +454,9 @@ JSON/Mongo Example
 	    ],
 	    "pi_id": "scopatz",
 	    "product_url": "https://docs.google.com/document/d/manuscript",
-	    "status": "started"
+	    "status": "started",
+	    "supplementary_info_urls": [
+	        "https://google.com",
+	        "https://nytimes.com"
+	    ]
 	}
