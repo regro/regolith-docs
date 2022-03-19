@@ -312,9 +312,12 @@
 <section id="yaml-example">
 <h2>YAML Example<a class="headerlink" href="#yaml-example" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">ab_inactive</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">begin_date</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;2020-05-03&#39;</span><span class="w"></span>
 <span class="w">  </span><span class="nt">deliverable</span><span class="p">:</span><span class="w"></span>
 <span class="w">    </span><span class="nt">due_date</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;2021-05-03&#39;</span><span class="w"></span>
 <span class="w">    </span><span class="nt">status</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">paused</span><span class="w"></span>
+<span class="w">  </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">a prum that has various inactive states in milestones and overall</span><span class="w"></span>
+<span class="w">  </span><span class="nt">grants</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dmref15</span><span class="w"></span>
 <span class="w">  </span><span class="nt">kickoff</span><span class="p">:</span><span class="w"></span>
 <span class="w">    </span><span class="nt">due_date</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;2021-05-03&#39;</span><span class="w"></span>
 <span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Kickoff</span><span class="w"></span>
@@ -324,7 +327,7 @@
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">due_date</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;2021-05-03&#39;</span><span class="w"></span>
 <span class="w">      </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Milestone</span><span class="w"></span>
 <span class="w">      </span><span class="nt">status</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">converged</span><span class="w"></span>
-<span class="w">  </span><span class="nt">status</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">started</span><span class="w"></span>
+<span class="w">  </span><span class="nt">status</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">backburner</span><span class="w"></span>
 <span class="nt">pl_firstprojectum</span><span class="p">:</span><span class="w"></span>
 <span class="w">  </span><span class="nt">begin_date</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;2020-07-25&#39;</span><span class="w"></span>
 <span class="w">  </span><span class="nt">deliverable</span><span class="p">:</span><span class="w"></span>
@@ -393,7 +396,6 @@
 <span class="w">    </span><span class="nt">status</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">proposed</span><span class="w"></span>
 <span class="w">    </span><span class="nt">success_def</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">audience is happy</span><span class="w"></span>
 <span class="w">  </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">My first projectum</span><span class="w"></span>
-<span class="w">  </span><span class="nt">end_date</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;2020-06-05&#39;</span><span class="w"></span>
 <span class="w">  </span><span class="nt">grants</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SymPy-1.1</span><span class="w"></span>
 <span class="w">  </span><span class="nt">group_members</span><span class="p">:</span><span class="w"></span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ascopatz</span><span class="w"></span>
@@ -457,10 +459,13 @@
 <h2>JSON/Mongo Example<a class="headerlink" href="#json-mongo-example" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="nt">&quot;_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ab_inactive&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;begin_date&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2020-05-03&quot;</span><span class="p">,</span><span class="w"></span>
 <span class="w">    </span><span class="nt">&quot;deliverable&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">        </span><span class="nt">&quot;due_date&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2021-05-03&quot;</span><span class="p">,</span><span class="w"></span>
 <span class="w">        </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;paused&quot;</span><span class="w"></span>
 <span class="w">    </span><span class="p">},</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;a prum that has various inactive states in milestones and overall&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;grants&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;dmref15&quot;</span><span class="p">,</span><span class="w"></span>
 <span class="w">    </span><span class="nt">&quot;kickoff&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">        </span><span class="nt">&quot;due_date&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2021-05-03&quot;</span><span class="p">,</span><span class="w"></span>
 <span class="w">        </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Kickoff&quot;</span><span class="p">,</span><span class="w"></span>
@@ -474,7 +479,7 @@
 <span class="w">            </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;converged&quot;</span><span class="w"></span>
 <span class="w">        </span><span class="p">}</span><span class="w"></span>
 <span class="w">    </span><span class="p">],</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;started&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;backburner&quot;</span><span class="w"></span>
 <span class="p">}</span><span class="w"></span>
 <span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="nt">&quot;_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;pl_firstprojectum&quot;</span><span class="p">,</span><span class="w"></span>
@@ -571,7 +576,6 @@
 <span class="w">        </span><span class="nt">&quot;success_def&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;audience is happy&quot;</span><span class="w"></span>
 <span class="w">    </span><span class="p">},</span><span class="w"></span>
 <span class="w">    </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;My first projectum&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;end_date&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2020-06-05&quot;</span><span class="p">,</span><span class="w"></span>
 <span class="w">    </span><span class="nt">&quot;grants&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;SymPy-1.1&quot;</span><span class="p">,</span><span class="w"></span>
 <span class="w">    </span><span class="nt">&quot;group_members&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
 <span class="w">        </span><span class="s2">&quot;ascopatz&quot;</span><span class="w"></span>

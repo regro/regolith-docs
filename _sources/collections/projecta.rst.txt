@@ -127,9 +127,12 @@ YAML Example
 .. code-block:: yaml
 
 	ab_inactive:
+	  begin_date: '2020-05-03'
 	  deliverable:
 	    due_date: '2021-05-03'
 	    status: paused
+	  description: a prum that has various inactive states in milestones and overall
+	  grants: dmref15
 	  kickoff:
 	    due_date: '2021-05-03'
 	    name: Kickoff
@@ -139,7 +142,7 @@ YAML Example
 	    - due_date: '2021-05-03'
 	      name: Milestone
 	      status: converged
-	  status: started
+	  status: backburner
 	pl_firstprojectum:
 	  begin_date: '2020-07-25'
 	  deliverable:
@@ -208,7 +211,6 @@ YAML Example
 	    status: proposed
 	    success_def: audience is happy
 	  description: My first projectum
-	  end_date: '2020-06-05'
 	  grants: SymPy-1.1
 	  group_members:
 	    - ascopatz
@@ -274,10 +276,13 @@ JSON/Mongo Example
 
 	{
 	    "_id": "ab_inactive",
+	    "begin_date": "2020-05-03",
 	    "deliverable": {
 	        "due_date": "2021-05-03",
 	        "status": "paused"
 	    },
+	    "description": "a prum that has various inactive states in milestones and overall",
+	    "grants": "dmref15",
 	    "kickoff": {
 	        "due_date": "2021-05-03",
 	        "name": "Kickoff",
@@ -291,7 +296,7 @@ JSON/Mongo Example
 	            "status": "converged"
 	        }
 	    ],
-	    "status": "started"
+	    "status": "backburner"
 	}
 	{
 	    "_id": "pl_firstprojectum",
@@ -388,7 +393,6 @@ JSON/Mongo Example
 	        "success_def": "audience is happy"
 	    },
 	    "description": "My first projectum",
-	    "end_date": "2020-06-05",
 	    "grants": "SymPy-1.1",
 	    "group_members": [
 	        "ascopatz"
