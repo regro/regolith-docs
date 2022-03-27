@@ -3,35 +3,34 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
-    <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
-
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Assignments &#8212; regolith - software group content managment system</title>
-    <link rel="stylesheet" href="../_static/cloud.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noticia+Text:400,i,b,bi|Open+Sans:400,i,b,bi|Roboto+Mono:400,i,b,bi&display=swap" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/cloud.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noticia+Text:400,i,b,bi|Open+Sans:400,i,b,bi|Roboto+Mono:400,i,b,bi&amp;display=swap" type="text/css" />
     
-    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-    <script type="text/javascript" src="../_static/jquery.js"></script>
-    <script type="text/javascript" src="../_static/underscore.js"></script>
-    <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
 
     
     
      
-        <script type="text/javascript" src="../_static/jquery.cookie.js"></script>
+        <script src="../_static/jquery.cookie.js"></script>
     
 
     
      
-        <script type="text/javascript" src="../_static/cloud.base.js"></script>
+        <script src="../_static/cloud.base.js"></script>
     
 
     
      
-        <script type="text/javascript" src="../_static/cloud.js"></script>
+        <script src="../_static/cloud.js"></script>
     
 
     <link rel="shortcut icon" href="../_static/regolith-logo.ico"/>
@@ -53,7 +52,8 @@
              accesskey="P">previous</a> &nbsp; &nbsp;</li>
     <li><a href="../index.html">regolith</a> &#187;</li>
 
-          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Collections</a> &#187;</li> 
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Collections</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Assignments</a></li> 
       </ul>
     </div>
     </div>
@@ -64,42 +64,42 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <section id="assignments">
+  <div class="section" id="assignments">
 <h1>Assignments<a class="headerlink" href="#assignments" title="Permalink to this headline">¶</a></h1>
 <p>Information about assignments for classes.</p>
-<section id="schema">
+<div class="section" id="schema">
 <h2>Schema<a class="headerlink" href="#schema" title="Permalink to this headline">¶</a></h2>
 <p>The following lists key names mapped to its type and meaning for each entry.</p>
 <dl class="field-list simple">
-<dt class="field-odd">_id<span class="colon">:</span></dt>
+<dt class="field-odd">_id</dt>
 <dd class="field-odd"><p>string, A unique id for the assignment, such as HW01-EMCH-558-2016-S, required</p>
 </dd>
-<dt class="field-even">category<span class="colon">:</span></dt>
+<dt class="field-even">category</dt>
 <dd class="field-even"><p>string, such as ‘homework’ or ‘final’, required</p>
 </dd>
-<dt class="field-odd">courses<span class="colon">:</span></dt>
+<dt class="field-odd">courses</dt>
 <dd class="field-odd"><p>[‘string’, ‘list’], ids of the courses that have this assignment, required</p>
 </dd>
-<dt class="field-even">file<span class="colon">:</span></dt>
+<dt class="field-even">file</dt>
 <dd class="field-even"><p>string, path to assignment file in store, optional</p>
 </dd>
-<dt class="field-odd">points<span class="colon">:</span></dt>
+<dt class="field-odd">points</dt>
 <dd class="field-odd"><p>list, list of number of points possible for each question. Length is the number of questions, required</p>
 <dl class="field-list simple">
-<dt class="field-odd">anyof_type<span class="colon">:</span></dt>
+<dt class="field-odd">anyof_type</dt>
 <dd class="field-odd"><p>[‘integer’, ‘float’], optional</p>
 </dd>
 </dl>
 </dd>
-<dt class="field-even">questions<span class="colon">:</span></dt>
+<dt class="field-even">questions</dt>
 <dd class="field-even"><p>list, titles for the questions on this assignment, optional</p>
 </dd>
-<dt class="field-odd">solution<span class="colon">:</span></dt>
+<dt class="field-odd">solution</dt>
 <dd class="field-odd"><p>string, path to solution file in store, optional</p>
 </dd>
 </dl>
-</section>
-<section id="yaml-example">
+</div>
+<div class="section" id="yaml-example">
 <h2>YAML Example<a class="headerlink" href="#yaml-example" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">hw01-rx-power</span><span class="p">:</span><span class="w"></span>
 <span class="w">  </span><span class="nt">category</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">homework</span><span class="w"></span>
@@ -116,8 +116,8 @@
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1-12</span><span class="w"></span>
 </pre></div>
 </div>
-</section>
-<section id="json-mongo-example">
+</div>
+<div class="section" id="json-mongo-example">
 <h2>JSON/Mongo Example<a class="headerlink" href="#json-mongo-example" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="nt">&quot;_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;hw01-rx-power&quot;</span><span class="p">,</span><span class="w"></span>
@@ -139,10 +139,11 @@
 <span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
-</section>
-</section>
+</div>
+</div>
 
 
+            <div class="clearer"></div>
           </div>
         </div>
       </div>
@@ -176,12 +177,12 @@
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
       <input type="submit" value="Go" />
     </form>
     </div>
 </div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
+<script>$('#searchbox').show(0);</script>
         </div>
       </div>
     
@@ -216,7 +217,8 @@
              >previous</a> &nbsp; &nbsp;</li>
     <li><a href="../index.html">regolith</a> &#187;</li>
 
-          <li class="nav-item nav-item-1"><a href="index.html" >Collections</a> &#187;</li> 
+          <li class="nav-item nav-item-1"><a href="index.html" >Collections</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Assignments</a></li> 
       </ul>
     </div>
     </div>

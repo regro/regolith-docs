@@ -3,35 +3,34 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
-    <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
-
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>CLI Commands (regolith.commands) &#8212; regolith - software group content managment system</title>
-    <link rel="stylesheet" href="../_static/cloud.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noticia+Text:400,i,b,bi|Open+Sans:400,i,b,bi|Roboto+Mono:400,i,b,bi&display=swap" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/cloud.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noticia+Text:400,i,b,bi|Open+Sans:400,i,b,bi|Roboto+Mono:400,i,b,bi&amp;display=swap" type="text/css" />
     
-    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-    <script type="text/javascript" src="../_static/jquery.js"></script>
-    <script type="text/javascript" src="../_static/underscore.js"></script>
-    <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
 
     
     
      
-        <script type="text/javascript" src="../_static/jquery.cookie.js"></script>
+        <script src="../_static/jquery.cookie.js"></script>
     
 
     
      
-        <script type="text/javascript" src="../_static/cloud.base.js"></script>
+        <script src="../_static/cloud.base.js"></script>
     
 
     
      
-        <script type="text/javascript" src="../_static/cloud.js"></script>
+        <script src="../_static/cloud.js"></script>
     
 
     <link rel="shortcut icon" href="../_static/regolith-logo.ico"/>
@@ -53,7 +52,8 @@
              accesskey="P">previous</a> &nbsp; &nbsp;</li>
     <li><a href="../index.html">regolith</a> &#187;</li>
 
-          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Regolith API</a> &#187;</li> 
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Regolith API</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">CLI Commands (<code class="docutils literal notranslate"><span class="pre">regolith.commands</span></code>)</a></li> 
       </ul>
     </div>
     </div>
@@ -64,114 +64,115 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <section id="module-regolith.commands">
+  <div class="section" id="module-regolith.commands">
 <span id="cli-commands-regolith-commands"></span><span id="regolith-commands"></span><h1>CLI Commands (<code class="docutils literal notranslate"><span class="pre">regolith.commands</span></code>)<a class="headerlink" href="#module-regolith.commands" title="Permalink to this headline">¶</a></h1>
 <p>Implementation of commands for command line.</p>
-<dl class="function">
-<dt id="regolith.commands.add_cmd">
-<code class="sig-prename descclassname">regolith.commands.</code><code class="sig-name descname">add_cmd</code><span class="sig-paren">(</span><em class="sig-param">rc</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/commands.html#add_cmd"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.commands.add_cmd" title="Permalink to this definition">¶</a></dt>
+<dl class="py function">
+<dt class="sig sig-object py" id="regolith.commands.add_cmd">
+<span class="sig-prename descclassname"><span class="pre">regolith.commands.</span></span><span class="sig-name descname"><span class="pre">add_cmd</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rc</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/commands.html#add_cmd"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#regolith.commands.add_cmd" title="Permalink to this definition">¶</a></dt>
 <dd><p>Adds documents to a collection in a database.</p>
 </dd></dl>
 
-<dl class="function">
-<dt id="regolith.commands.app">
-<code class="sig-prename descclassname">regolith.commands.</code><code class="sig-name descname">app</code><span class="sig-paren">(</span><em class="sig-param">rc</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/commands.html#app"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.commands.app" title="Permalink to this definition">¶</a></dt>
+<dl class="py function">
+<dt class="sig sig-object py" id="regolith.commands.app">
+<span class="sig-prename descclassname"><span class="pre">regolith.commands.</span></span><span class="sig-name descname"><span class="pre">app</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rc</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/commands.html#app"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#regolith.commands.app" title="Permalink to this definition">¶</a></dt>
 <dd><p>Runs flask app</p>
 </dd></dl>
 
-<dl class="function">
-<dt id="regolith.commands.build">
-<code class="sig-prename descclassname">regolith.commands.</code><code class="sig-name descname">build</code><span class="sig-paren">(</span><em class="sig-param">rc</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/commands.html#build"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.commands.build" title="Permalink to this definition">¶</a></dt>
+<dl class="py function">
+<dt class="sig sig-object py" id="regolith.commands.build">
+<span class="sig-prename descclassname"><span class="pre">regolith.commands.</span></span><span class="sig-name descname"><span class="pre">build</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rc</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/commands.html#build"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#regolith.commands.build" title="Permalink to this definition">¶</a></dt>
 <dd><p>Builds all of the build targets</p>
 </dd></dl>
 
-<dl class="function">
-<dt id="regolith.commands.build_db_check">
-<code class="sig-prename descclassname">regolith.commands.</code><code class="sig-name descname">build_db_check</code><span class="sig-paren">(</span><em class="sig-param">rc</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/commands.html#build_db_check"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.commands.build_db_check" title="Permalink to this definition">¶</a></dt>
+<dl class="py function">
+<dt class="sig sig-object py" id="regolith.commands.build_db_check">
+<span class="sig-prename descclassname"><span class="pre">regolith.commands.</span></span><span class="sig-name descname"><span class="pre">build_db_check</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rc</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/commands.html#build_db_check"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#regolith.commands.build_db_check" title="Permalink to this definition">¶</a></dt>
 <dd><p>Checks which DBs a builder needs</p>
 </dd></dl>
 
-<dl class="function">
-<dt id="regolith.commands.classlist">
-<code class="sig-prename descclassname">regolith.commands.</code><code class="sig-name descname">classlist</code><span class="sig-paren">(</span><em class="sig-param">rc</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/commands.html#classlist"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.commands.classlist" title="Permalink to this definition">¶</a></dt>
+<dl class="py function">
+<dt class="sig sig-object py" id="regolith.commands.classlist">
+<span class="sig-prename descclassname"><span class="pre">regolith.commands.</span></span><span class="sig-name descname"><span class="pre">classlist</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rc</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/commands.html#classlist"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#regolith.commands.classlist" title="Permalink to this definition">¶</a></dt>
 <dd><p>Sets values for the class list.</p>
 </dd></dl>
 
-<dl class="function">
-<dt id="regolith.commands.deploy">
-<code class="sig-prename descclassname">regolith.commands.</code><code class="sig-name descname">deploy</code><span class="sig-paren">(</span><em class="sig-param">rc</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/commands.html#deploy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.commands.deploy" title="Permalink to this definition">¶</a></dt>
+<dl class="py function">
+<dt class="sig sig-object py" id="regolith.commands.deploy">
+<span class="sig-prename descclassname"><span class="pre">regolith.commands.</span></span><span class="sig-name descname"><span class="pre">deploy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rc</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/commands.html#deploy"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#regolith.commands.deploy" title="Permalink to this definition">¶</a></dt>
 <dd><p>Deploys all of the deployment targets.</p>
 </dd></dl>
 
-<dl class="function">
-<dt id="regolith.commands.fs_to_mongo">
-<code class="sig-prename descclassname">regolith.commands.</code><code class="sig-name descname">fs_to_mongo</code><span class="sig-paren">(</span><em class="sig-param">rc: regolith.runcontrol.RunControl</em><span class="sig-paren">)</span> &#x2192; None<a class="reference internal" href="../_modules/regolith/commands.html#fs_to_mongo"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.commands.fs_to_mongo" title="Permalink to this definition">¶</a></dt>
+<dl class="py function">
+<dt class="sig sig-object py" id="regolith.commands.fs_to_mongo">
+<span class="sig-prename descclassname"><span class="pre">regolith.commands.</span></span><span class="sig-name descname"><span class="pre">fs_to_mongo</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rc</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="runcontrol.html#regolith.runcontrol.RunControl" title="regolith.runcontrol.RunControl"><span class="pre">regolith.runcontrol.RunControl</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../_modules/regolith/commands.html#fs_to_mongo"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#regolith.commands.fs_to_mongo" title="Permalink to this definition">¶</a></dt>
 <dd><p>Convert database collection from filesystem to mongo db.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>rc</strong> (<em>RunControl</em>) – The RunControl. The mongo client will be created according to ‘mongodbpath’ in it. The databases will
 be loaded according to the ‘databases’ in it.</p>
 </dd>
 </dl>
 </dd></dl>
 
-<dl class="function">
-<dt id="regolith.commands.grade">
-<code class="sig-prename descclassname">regolith.commands.</code><code class="sig-name descname">grade</code><span class="sig-paren">(</span><em class="sig-param">rc</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/commands.html#grade"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.commands.grade" title="Permalink to this definition">¶</a></dt>
+<dl class="py function">
+<dt class="sig sig-object py" id="regolith.commands.grade">
+<span class="sig-prename descclassname"><span class="pre">regolith.commands.</span></span><span class="sig-name descname"><span class="pre">grade</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rc</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/commands.html#grade"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#regolith.commands.grade" title="Permalink to this definition">¶</a></dt>
 <dd><p>Runs flask grading app</p>
 </dd></dl>
 
-<dl class="function">
-<dt id="regolith.commands.helper">
-<code class="sig-prename descclassname">regolith.commands.</code><code class="sig-name descname">helper</code><span class="sig-paren">(</span><em class="sig-param">rc</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/commands.html#helper"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.commands.helper" title="Permalink to this definition">¶</a></dt>
+<dl class="py function">
+<dt class="sig sig-object py" id="regolith.commands.helper">
+<span class="sig-prename descclassname"><span class="pre">regolith.commands.</span></span><span class="sig-name descname"><span class="pre">helper</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rc</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/commands.html#helper"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#regolith.commands.helper" title="Permalink to this definition">¶</a></dt>
 <dd><p>Runs the helper targets</p>
 </dd></dl>
 
-<dl class="function">
-<dt id="regolith.commands.helper_db_check">
-<code class="sig-prename descclassname">regolith.commands.</code><code class="sig-name descname">helper_db_check</code><span class="sig-paren">(</span><em class="sig-param">rc</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/commands.html#helper_db_check"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.commands.helper_db_check" title="Permalink to this definition">¶</a></dt>
+<dl class="py function">
+<dt class="sig sig-object py" id="regolith.commands.helper_db_check">
+<span class="sig-prename descclassname"><span class="pre">regolith.commands.</span></span><span class="sig-name descname"><span class="pre">helper_db_check</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rc</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/commands.html#helper_db_check"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#regolith.commands.helper_db_check" title="Permalink to this definition">¶</a></dt>
 <dd><p>Checks which DBs a builder needs</p>
 </dd></dl>
 
-<dl class="function">
-<dt id="regolith.commands.ingest">
-<code class="sig-prename descclassname">regolith.commands.</code><code class="sig-name descname">ingest</code><span class="sig-paren">(</span><em class="sig-param">rc</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/commands.html#ingest"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.commands.ingest" title="Permalink to this definition">¶</a></dt>
+<dl class="py function">
+<dt class="sig sig-object py" id="regolith.commands.ingest">
+<span class="sig-prename descclassname"><span class="pre">regolith.commands.</span></span><span class="sig-name descname"><span class="pre">ingest</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rc</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/commands.html#ingest"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#regolith.commands.ingest" title="Permalink to this definition">¶</a></dt>
 <dd><p>Ingests a foreign resource into a database.</p>
 </dd></dl>
 
-<dl class="function">
-<dt id="regolith.commands.json_to_yaml">
-<code class="sig-prename descclassname">regolith.commands.</code><code class="sig-name descname">json_to_yaml</code><span class="sig-paren">(</span><em class="sig-param">rc</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/commands.html#json_to_yaml"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.commands.json_to_yaml" title="Permalink to this definition">¶</a></dt>
+<dl class="py function">
+<dt class="sig sig-object py" id="regolith.commands.json_to_yaml">
+<span class="sig-prename descclassname"><span class="pre">regolith.commands.</span></span><span class="sig-name descname"><span class="pre">json_to_yaml</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rc</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/commands.html#json_to_yaml"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#regolith.commands.json_to_yaml" title="Permalink to this definition">¶</a></dt>
 <dd><p>Converts JSON to YAML</p>
 </dd></dl>
 
-<dl class="function">
-<dt id="regolith.commands.mongo_to_fs">
-<code class="sig-prename descclassname">regolith.commands.</code><code class="sig-name descname">mongo_to_fs</code><span class="sig-paren">(</span><em class="sig-param">rc: regolith.runcontrol.RunControl</em><span class="sig-paren">)</span> &#x2192; None<a class="reference internal" href="../_modules/regolith/commands.html#mongo_to_fs"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.commands.mongo_to_fs" title="Permalink to this definition">¶</a></dt>
+<dl class="py function">
+<dt class="sig sig-object py" id="regolith.commands.mongo_to_fs">
+<span class="sig-prename descclassname"><span class="pre">regolith.commands.</span></span><span class="sig-name descname"><span class="pre">mongo_to_fs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rc</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="runcontrol.html#regolith.runcontrol.RunControl" title="regolith.runcontrol.RunControl"><span class="pre">regolith.runcontrol.RunControl</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../_modules/regolith/commands.html#mongo_to_fs"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#regolith.commands.mongo_to_fs" title="Permalink to this definition">¶</a></dt>
 <dd><p>Convert database collection from filesystem to mongo db.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>rc</strong> (<em>RunControl</em>) – The RunControl. The mongo client will be created according to ‘mongodbpath’ in it. The databases will
 be loaded according to the ‘databases’ in it.</p>
 </dd>
 </dl>
 </dd></dl>
 
-<dl class="function">
-<dt id="regolith.commands.validate">
-<code class="sig-prename descclassname">regolith.commands.</code><code class="sig-name descname">validate</code><span class="sig-paren">(</span><em class="sig-param">rc</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/commands.html#validate"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.commands.validate" title="Permalink to this definition">¶</a></dt>
+<dl class="py function">
+<dt class="sig sig-object py" id="regolith.commands.validate">
+<span class="sig-prename descclassname"><span class="pre">regolith.commands.</span></span><span class="sig-name descname"><span class="pre">validate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rc</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/commands.html#validate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#regolith.commands.validate" title="Permalink to this definition">¶</a></dt>
 <dd><p>Validate the combined database against the schemas</p>
 </dd></dl>
 
-<dl class="function">
-<dt id="regolith.commands.yaml_to_json">
-<code class="sig-prename descclassname">regolith.commands.</code><code class="sig-name descname">yaml_to_json</code><span class="sig-paren">(</span><em class="sig-param">rc</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/commands.html#yaml_to_json"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.commands.yaml_to_json" title="Permalink to this definition">¶</a></dt>
+<dl class="py function">
+<dt class="sig sig-object py" id="regolith.commands.yaml_to_json">
+<span class="sig-prename descclassname"><span class="pre">regolith.commands.</span></span><span class="sig-name descname"><span class="pre">yaml_to_json</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rc</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/commands.html#yaml_to_json"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#regolith.commands.yaml_to_json" title="Permalink to this definition">¶</a></dt>
 <dd><p>Converts YAML to JSON</p>
 </dd></dl>
 
-</section>
+</div>
 
 
+            <div class="clearer"></div>
           </div>
         </div>
       </div>
@@ -194,12 +195,12 @@ be loaded according to the ‘databases’ in it.</p>
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
       <input type="submit" value="Go" />
     </form>
     </div>
 </div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
+<script>$('#searchbox').show(0);</script>
         </div>
       </div>
     
@@ -234,7 +235,8 @@ be loaded according to the ‘databases’ in it.</p>
              >previous</a> &nbsp; &nbsp;</li>
     <li><a href="../index.html">regolith</a> &#187;</li>
 
-          <li class="nav-item nav-item-1"><a href="index.html" >Regolith API</a> &#187;</li> 
+          <li class="nav-item nav-item-1"><a href="index.html" >Regolith API</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">CLI Commands (<code class="docutils literal notranslate"><span class="pre">regolith.commands</span></code>)</a></li> 
       </ul>
     </div>
     </div>

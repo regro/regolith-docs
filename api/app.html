@@ -3,35 +3,34 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
-    <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
-
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Web Application (regolith.app) &#8212; regolith - software group content managment system</title>
-    <link rel="stylesheet" href="../_static/cloud.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noticia+Text:400,i,b,bi|Open+Sans:400,i,b,bi|Roboto+Mono:400,i,b,bi&display=swap" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/cloud.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noticia+Text:400,i,b,bi|Open+Sans:400,i,b,bi|Roboto+Mono:400,i,b,bi&amp;display=swap" type="text/css" />
     
-    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-    <script type="text/javascript" src="../_static/jquery.js"></script>
-    <script type="text/javascript" src="../_static/underscore.js"></script>
-    <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
 
     
     
      
-        <script type="text/javascript" src="../_static/jquery.cookie.js"></script>
+        <script src="../_static/jquery.cookie.js"></script>
     
 
     
      
-        <script type="text/javascript" src="../_static/cloud.base.js"></script>
+        <script src="../_static/cloud.base.js"></script>
     
 
     
      
-        <script type="text/javascript" src="../_static/cloud.js"></script>
+        <script src="../_static/cloud.js"></script>
     
 
     <link rel="shortcut icon" href="../_static/regolith-logo.ico"/>
@@ -53,7 +52,8 @@
              accesskey="P">previous</a> &nbsp; &nbsp;</li>
     <li><a href="../index.html">regolith</a> &#187;</li>
 
-          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Regolith API</a> &#187;</li> 
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Regolith API</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Web Application (<code class="docutils literal notranslate"><span class="pre">regolith.app</span></code>)</a></li> 
       </ul>
     </div>
     </div>
@@ -64,32 +64,33 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <section id="module-regolith.app">
+  <div class="section" id="module-regolith.app">
 <span id="web-application-regolith-app"></span><span id="regolith-app"></span><h1>Web Application (<code class="docutils literal notranslate"><span class="pre">regolith.app</span></code>)<a class="headerlink" href="#module-regolith.app" title="Permalink to this headline">¶</a></h1>
 <p>Flask app for looking at information in regolith.</p>
-<dl class="function">
-<dt id="regolith.app.collection_page">
-<code class="sig-prename descclassname">regolith.app.</code><code class="sig-name descname">collection_page</code><span class="sig-paren">(</span><em class="sig-param">dbname</em>, <em class="sig-param">collname</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/app.html#collection_page"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.app.collection_page" title="Permalink to this definition">¶</a></dt>
+<dl class="py function">
+<dt class="sig sig-object py" id="regolith.app.collection_page">
+<span class="sig-prename descclassname"><span class="pre">regolith.app.</span></span><span class="sig-name descname"><span class="pre">collection_page</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dbname</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">collname</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/app.html#collection_page"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#regolith.app.collection_page" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="function">
-<dt id="regolith.app.root">
-<code class="sig-prename descclassname">regolith.app.</code><code class="sig-name descname">root</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/app.html#root"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.app.root" title="Permalink to this definition">¶</a></dt>
+<dl class="py function">
+<dt class="sig sig-object py" id="regolith.app.root">
+<span class="sig-prename descclassname"><span class="pre">regolith.app.</span></span><span class="sig-name descname"><span class="pre">root</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/app.html#root"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#regolith.app.root" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="function">
-<dt id="regolith.app.shutdown">
-<code class="sig-prename descclassname">regolith.app.</code><code class="sig-name descname">shutdown</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/app.html#shutdown"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.app.shutdown" title="Permalink to this definition">¶</a></dt>
+<dl class="py function">
+<dt class="sig sig-object py" id="regolith.app.shutdown">
+<span class="sig-prename descclassname"><span class="pre">regolith.app.</span></span><span class="sig-name descname"><span class="pre">shutdown</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/app.html#shutdown"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#regolith.app.shutdown" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="function">
-<dt id="regolith.app.shutdown_server">
-<code class="sig-prename descclassname">regolith.app.</code><code class="sig-name descname">shutdown_server</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/app.html#shutdown_server"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.app.shutdown_server" title="Permalink to this definition">¶</a></dt>
+<dl class="py function">
+<dt class="sig sig-object py" id="regolith.app.shutdown_server">
+<span class="sig-prename descclassname"><span class="pre">regolith.app.</span></span><span class="sig-name descname"><span class="pre">shutdown_server</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/app.html#shutdown_server"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#regolith.app.shutdown_server" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-</section>
+</div>
 
 
+            <div class="clearer"></div>
           </div>
         </div>
       </div>
@@ -112,12 +113,12 @@
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
       <input type="submit" value="Go" />
     </form>
     </div>
 </div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
+<script>$('#searchbox').show(0);</script>
         </div>
       </div>
     
@@ -152,7 +153,8 @@
              >previous</a> &nbsp; &nbsp;</li>
     <li><a href="../index.html">regolith</a> &#187;</li>
 
-          <li class="nav-item nav-item-1"><a href="index.html" >Regolith API</a> &#187;</li> 
+          <li class="nav-item nav-item-1"><a href="index.html" >Regolith API</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Web Application (<code class="docutils literal notranslate"><span class="pre">regolith.app</span></code>)</a></li> 
       </ul>
     </div>
     </div>

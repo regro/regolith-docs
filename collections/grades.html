@@ -3,35 +3,34 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
-    <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
-
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Grades &#8212; regolith - software group content managment system</title>
-    <link rel="stylesheet" href="../_static/cloud.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noticia+Text:400,i,b,bi|Open+Sans:400,i,b,bi|Roboto+Mono:400,i,b,bi&display=swap" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/cloud.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noticia+Text:400,i,b,bi|Open+Sans:400,i,b,bi|Roboto+Mono:400,i,b,bi&amp;display=swap" type="text/css" />
     
-    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-    <script type="text/javascript" src="../_static/jquery.js"></script>
-    <script type="text/javascript" src="../_static/underscore.js"></script>
-    <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
 
     
     
      
-        <script type="text/javascript" src="../_static/jquery.cookie.js"></script>
+        <script src="../_static/jquery.cookie.js"></script>
     
 
     
      
-        <script type="text/javascript" src="../_static/cloud.base.js"></script>
+        <script src="../_static/cloud.base.js"></script>
     
 
     
      
-        <script type="text/javascript" src="../_static/cloud.js"></script>
+        <script src="../_static/cloud.js"></script>
     
 
     <link rel="shortcut icon" href="../_static/regolith-logo.ico"/>
@@ -53,7 +52,8 @@
              accesskey="P">previous</a> &nbsp; &nbsp;</li>
     <li><a href="../index.html">regolith</a> &#187;</li>
 
-          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Collections</a> &#187;</li> 
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Collections</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Grades</a></li> 
       </ul>
     </div>
     </div>
@@ -64,39 +64,39 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <section id="grades">
+  <div class="section" id="grades">
 <h1>Grades<a class="headerlink" href="#grades" title="Permalink to this headline">¶</a></h1>
 <p>The grade for a student on an assignment. This information should be private.</p>
-<section id="schema">
+<div class="section" id="schema">
 <h2>Schema<a class="headerlink" href="#schema" title="Permalink to this headline">¶</a></h2>
 <p>The following lists key names mapped to its type and meaning for each entry.</p>
 <dl class="field-list simple">
-<dt class="field-odd">_id<span class="colon">:</span></dt>
+<dt class="field-odd">_id</dt>
 <dd class="field-odd"><p>string, unique id, typically the student-assignment-course, required</p>
 </dd>
-<dt class="field-even">assignment<span class="colon">:</span></dt>
+<dt class="field-even">assignment</dt>
 <dd class="field-even"><p>string, assignment id, required</p>
 </dd>
-<dt class="field-odd">course<span class="colon">:</span></dt>
+<dt class="field-odd">course</dt>
 <dd class="field-odd"><p>string, course id, required</p>
 </dd>
-<dt class="field-even">filename<span class="colon">:</span></dt>
+<dt class="field-even">filename</dt>
 <dd class="field-even"><p>string, path to file in store, optional</p>
 </dd>
-<dt class="field-odd">scores<span class="colon">:</span></dt>
+<dt class="field-odd">scores</dt>
 <dd class="field-odd"><p>list, the number of points earned on each question, required</p>
 <dl class="field-list simple">
-<dt class="field-odd">anyof_type<span class="colon">:</span></dt>
+<dt class="field-odd">anyof_type</dt>
 <dd class="field-odd"><p>[‘integer’, ‘float’], optional</p>
 </dd>
 </dl>
 </dd>
-<dt class="field-even">student<span class="colon">:</span></dt>
+<dt class="field-even">student</dt>
 <dd class="field-even"><p>string, student id, required</p>
 </dd>
 </dl>
-</section>
-<section id="yaml-example">
+</div>
+<div class="section" id="yaml-example">
 <h2>YAML Example<a class="headerlink" href="#yaml-example" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">Human A. Person-rx-power-hw02-EMCH-758-2017-S</span><span class="p">:</span><span class="w"></span>
 <span class="w">  </span><span class="nt">assignment</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2017-rx-power-hw02</span><span class="w"></span>
@@ -108,8 +108,8 @@
 <span class="w">  </span><span class="nt">student</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">hap</span><span class="w"></span>
 </pre></div>
 </div>
-</section>
-<section id="json-mongo-example">
+</div>
+<div class="section" id="json-mongo-example">
 <h2>JSON/Mongo Example<a class="headerlink" href="#json-mongo-example" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="nt">&quot;_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Human A. Person-rx-power-hw02-EMCH-758-2017-S&quot;</span><span class="p">,</span><span class="w"></span>
@@ -124,10 +124,11 @@
 <span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
-</section>
-</section>
+</div>
+</div>
 
 
+            <div class="clearer"></div>
           </div>
         </div>
       </div>
@@ -161,12 +162,12 @@
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
       <input type="submit" value="Go" />
     </form>
     </div>
 </div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
+<script>$('#searchbox').show(0);</script>
         </div>
       </div>
     
@@ -201,7 +202,8 @@
              >previous</a> &nbsp; &nbsp;</li>
     <li><a href="../index.html">regolith</a> &#187;</li>
 
-          <li class="nav-item nav-item-1"><a href="index.html" >Collections</a> &#187;</li> 
+          <li class="nav-item nav-item-1"><a href="index.html" >Collections</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Grades</a></li> 
       </ul>
     </div>
     </div>

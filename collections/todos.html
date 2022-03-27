@@ -3,35 +3,34 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
-    <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
-
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Todos &#8212; regolith - software group content managment system</title>
-    <link rel="stylesheet" href="../_static/cloud.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noticia+Text:400,i,b,bi|Open+Sans:400,i,b,bi|Roboto+Mono:400,i,b,bi&display=swap" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/cloud.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noticia+Text:400,i,b,bi|Open+Sans:400,i,b,bi|Roboto+Mono:400,i,b,bi&amp;display=swap" type="text/css" />
     
-    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-    <script type="text/javascript" src="../_static/jquery.js"></script>
-    <script type="text/javascript" src="../_static/underscore.js"></script>
-    <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
 
     
     
      
-        <script type="text/javascript" src="../_static/jquery.cookie.js"></script>
+        <script src="../_static/jquery.cookie.js"></script>
     
 
     
      
-        <script type="text/javascript" src="../_static/cloud.base.js"></script>
+        <script src="../_static/cloud.base.js"></script>
     
 
     
      
-        <script type="text/javascript" src="../_static/cloud.js"></script>
+        <script src="../_static/cloud.js"></script>
     
 
     <link rel="shortcut icon" href="../_static/regolith-logo.ico"/>
@@ -53,7 +52,8 @@
              accesskey="P">previous</a> &nbsp; &nbsp;</li>
     <li><a href="../index.html">regolith</a> &#187;</li>
 
-          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Collections</a> &#187;</li> 
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Collections</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Todos</a></li> 
       </ul>
     </div>
     </div>
@@ -64,47 +64,47 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <section id="todos">
+  <div class="section" id="todos">
 <h1>Todos<a class="headerlink" href="#todos" title="Permalink to this headline">¶</a></h1>
 <p>This is a collection of todo items</p>
-<section id="schema">
+<div class="section" id="schema">
 <h2>Schema<a class="headerlink" href="#schema" title="Permalink to this headline">¶</a></h2>
 <p>The following lists key names mapped to its type and meaning for each entry.</p>
 <dl class="field-list">
-<dt class="field-odd">_id<span class="colon">:</span></dt>
+<dt class="field-odd">_id</dt>
 <dd class="field-odd"><p>string, the person to whom these todos are applied.this should be the id of a person from people, required</p>
 </dd>
-<dt class="field-even">todos<span class="colon">:</span></dt>
+<dt class="field-even">todos</dt>
 <dd class="field-even"><p>list, a list of the todo tasks, optional</p>
 <dl class="field-list">
-<dt class="field-odd">type<span class="colon">:</span></dt>
+<dt class="field-odd">type</dt>
 <dd class="field-odd"><p>dict, optional</p>
 <dl class="field-list">
-<dt class="field-odd">assigned_by<span class="colon">:</span></dt>
+<dt class="field-odd">assigned_by</dt>
 <dd class="field-odd"><p>string, ID of the member that assigns the task, optional</p>
 </dd>
-<dt class="field-even">begin_date<span class="colon">:</span></dt>
+<dt class="field-even">begin_date</dt>
 <dd class="field-even"><p>[‘string’, ‘date’], the begin date, optional</p>
 </dd>
-<dt class="field-odd">end_date<span class="colon">:</span></dt>
+<dt class="field-odd">end_date</dt>
 <dd class="field-odd"><p>[‘string’, ‘date’], the end date, optional</p>
 </dd>
-<dt class="field-even">deadline<span class="colon">:</span></dt>
+<dt class="field-even">deadline</dt>
 <dd class="field-even"><p>boolean, true if the due date is a hard deadline, optional</p>
 </dd>
-<dt class="field-odd">description<span class="colon">:</span></dt>
+<dt class="field-odd">description</dt>
 <dd class="field-odd"><p>string, the description of the to-do task, optional</p>
 </dd>
-<dt class="field-even">due_date<span class="colon">:</span></dt>
+<dt class="field-even">due_date</dt>
 <dd class="field-even"><p>[‘string’, ‘date’], the due date, optional</p>
 </dd>
-<dt class="field-odd">duration<span class="colon">:</span></dt>
+<dt class="field-odd">duration</dt>
 <dd class="field-odd"><p>float, the size of the task/ the estimated duration it will take to finish the task. Unit: miniutes., optional</p>
 </dd>
-<dt class="field-even">importance<span class="colon">:</span></dt>
+<dt class="field-even">importance</dt>
 <dd class="field-even"><p>integer, the importance, from 0 to 3, optional</p>
 </dd>
-<dt class="field-odd">status<span class="colon">:</span></dt>
+<dt class="field-odd">status</dt>
 <dd class="field-odd"><p>string, the status: started/finished/cancelled, optional</p>
 <dl class="simple">
 <dt>Allowed values:</dt><dd><ul class="simple">
@@ -116,27 +116,27 @@
 </dd>
 </dl>
 </dd>
-<dt class="field-even">notes<span class="colon">:</span></dt>
+<dt class="field-even">notes</dt>
 <dd class="field-even"><p>list, additional notes for this task, optional</p>
 <dl class="field-list simple">
-<dt class="field-odd">type<span class="colon">:</span></dt>
+<dt class="field-odd">type</dt>
 <dd class="field-odd"><p>string, optional</p>
 </dd>
 </dl>
 </dd>
-<dt class="field-even">running_index<span class="colon">:</span></dt>
-<dd class="field-even"><p>integer, Index of a certain task used to update that task in the enumerated todo list., optional</p>
+<dt class="field-odd">running_index</dt>
+<dd class="field-odd"><p>integer, Index of a certain task used to update that task in the enumerated todo list., optional</p>
 </dd>
-<dt class="field-odd">tags<span class="colon">:</span></dt>
-<dd class="field-odd"><p>list, user-defined tags that can be used to filter tasks, optional</p>
-</dd>
-</dl>
+<dt class="field-even">tags</dt>
+<dd class="field-even"><p>list, user-defined tags that can be used to filter tasks, optional</p>
 </dd>
 </dl>
 </dd>
 </dl>
-</section>
-<section id="yaml-example">
+</dd>
+</dl>
+</div>
+<div class="section" id="yaml-example">
 <h2>YAML Example<a class="headerlink" href="#yaml-example" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">ascopatz</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{}</span><span class="w"></span>
 <span class="nt">sbillinge</span><span class="p">:</span><span class="w"></span>
@@ -168,8 +168,8 @@
 <span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">downtime</span><span class="w"></span>
 </pre></div>
 </div>
-</section>
-<section id="json-mongo-example">
+</div>
+<div class="section" id="json-mongo-example">
 <h2>JSON/Mongo Example<a class="headerlink" href="#json-mongo-example" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="nt">&quot;_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ascopatz&quot;</span><span class="w"></span>
@@ -213,10 +213,11 @@
 <span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
-</section>
-</section>
+</div>
+</div>
 
 
+            <div class="clearer"></div>
           </div>
         </div>
       </div>
@@ -250,12 +251,12 @@
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
       <input type="submit" value="Go" />
     </form>
     </div>
 </div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
+<script>$('#searchbox').show(0);</script>
         </div>
       </div>
     
@@ -290,7 +291,8 @@
              >previous</a> &nbsp; &nbsp;</li>
     <li><a href="../index.html">regolith</a> &#187;</li>
 
-          <li class="nav-item nav-item-1"><a href="index.html" >Collections</a> &#187;</li> 
+          <li class="nav-item nav-item-1"><a href="index.html" >Collections</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Todos</a></li> 
       </ul>
     </div>
     </div>

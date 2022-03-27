@@ -3,35 +3,34 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
-    <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
-
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Regolith &#8212; regolith - software group content managment system</title>
-    <link rel="stylesheet" href="_static/cloud.css" type="text/css" />
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noticia+Text:400,i,b,bi|Open+Sans:400,i,b,bi|Roboto+Mono:400,i,b,bi&display=swap" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/cloud.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noticia+Text:400,i,b,bi|Open+Sans:400,i,b,bi|Roboto+Mono:400,i,b,bi&amp;display=swap" type="text/css" />
     
-    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-    <script type="text/javascript" src="_static/jquery.js"></script>
-    <script type="text/javascript" src="_static/underscore.js"></script>
-    <script type="text/javascript" src="_static/doctools.js"></script>
-    <script type="text/javascript" src="_static/language_data.js"></script>
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
 
     
     
      
-        <script type="text/javascript" src="_static/jquery.cookie.js"></script>
+        <script src="_static/jquery.cookie.js"></script>
     
 
     
      
-        <script type="text/javascript" src="_static/cloud.base.js"></script>
+        <script src="_static/cloud.base.js"></script>
     
 
     
      
-        <script type="text/javascript" src="_static/cloud.js"></script>
+        <script src="_static/cloud.js"></script>
     
 
     <link rel="shortcut icon" href="_static/regolith-logo.ico"/>
@@ -48,7 +47,8 @@
           <a href="tutorials/index.html" title="Tutorials"
              accesskey="N">next</a></li>
     <li><a href="#">regolith</a> &#187;</li>
- 
+
+        <li class="nav-item nav-item-this"><a href="">Regolith</a></li> 
       </ul>
     </div>
     </div>
@@ -65,7 +65,7 @@
 <div style="text-align:center;">
     <div id="game"><h1>welcome to the regolith docs</h1></div>
 </div>
-<script type="text/javascript">initRgDungeon();</script><section id="regolith">
+<script type="text/javascript">initRgDungeon();</script><div class="section" id="regolith">
 <h1>Regolith<a class="headerlink" href="#regolith" title="Permalink to this headline">¶</a></h1>
 <p>Regolith is a content management system for software &amp; research groups.
 Regolith creates and manages a database of people, publications, projects,
@@ -78,8 +78,8 @@ able to:</p>
 </ul>
 <p>Databases may be file-based (JSON and YAML) or MongoDB-based.</p>
 <p>Regolith is developed as a <a class="reference external" href="https://regro.github.io/">regro project</a></p>
-</section>
-<section id="example-sites">
+</div>
+<div class="section" id="example-sites">
 <h1>Example Sites<a class="headerlink" href="#example-sites" title="Permalink to this headline">¶</a></h1>
 <p>The following are some sample websites that are powered by regolith, even though
 building
@@ -88,10 +88,10 @@ websites is just one of the many facets of this tool:</p>
 <li><p><a class="reference external" href="http://www.ergs.sc.edu">ERGS Home Page</a></p></li>
 <li><p><a class="reference external" href="http://twofcs.ergs.sc.edu">Technical WorkShop on Fuel Cycle Simulation</a></p></li>
 </ol>
-</section>
-<section id="installation">
+</div>
+<div class="section" id="installation">
 <h1>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h1>
-<section id="make-your-first-database">
+<div class="section" id="make-your-first-database">
 <h2>1. Make your first database<a class="headerlink" href="#make-your-first-database" title="Permalink to this headline">¶</a></h2>
 <p>The quickest way to get started is to set up your first minimal database using a
 handy cookie cutter.  These instructions use the command line and assume you know
@@ -174,8 +174,8 @@ All of the collections in your database are in the <code class="code bash docuti
 database. But you must always run Regolith from a directory that contains a
 <code class="code bash docutils literal notranslate"><span class="pre">regolithrc.json</span></code> file.  Since you are in a directory that contains one,
 you can run Regolith from here, but first you have to install it….</p>
-</section>
-<section id="install-regolith">
+</div>
+<div class="section" id="install-regolith">
 <h2>2. install Regolith<a class="headerlink" href="#install-regolith" title="Permalink to this headline">¶</a></h2>
 <p>Regolith packages are available from conda-forge and PyPI:</p>
 <p><strong>conda:</strong></p>
@@ -270,9 +270,9 @@ Deadlines:
 <p>OK, your Regolith is working.  If it isn’t working, consider joining, browsing
 and posting questions to the <a class="reference external" href="https://groups.google.com/u/1/g/regolith-users">regolith-users</a>
 Google group.</p>
-</section>
-</section>
-<section id="quick-ish-start">
+</div>
+</div>
+<div class="section" id="quick-ish-start">
 <h1>Quick(ish) Start<a class="headerlink" href="#quick-ish-start" title="Permalink to this headline">¶</a></h1>
 <p>OK, let’s use Regolith to build our cv.  Why not.  again, in a terminal navigate
 to the top level directory of your database (where the <code class="code bash docutils literal notranslate"><span class="pre">regolithrc.json</span></code>
@@ -305,8 +305,8 @@ correctly, try running the latex command again.  If you are going to
 do much building with regolith it is definitely recommended to install latex on
 your computer, such as MikTeX for windows (latex comes installed with many linux
 systems and is easily installed on IOS).</p>
-</section>
-<section id="what-next">
+</div>
+<div class="section" id="what-next">
 <h1>What Next?<a class="headerlink" href="#what-next" title="Permalink to this headline">¶</a></h1>
 <p>You have not spent too much time entering data into your database yet, but you
 can already build a number of different things.  Try building your
@@ -333,7 +333,7 @@ For example,</p>
   - another list item
 </pre></div>
 </div>
-<p>would be read by python as <code class="code python docutils literal notranslate"><span class="punctuation"><span class="pre">{</span></span><span class="literal string double"><span class="pre">“key”</span></span><span class="punctuation"><span class="pre">:</span></span> <span class="punctuation"><span class="pre">[</span></span><span class="literal string double"><span class="pre">“list</span> <span class="pre">item”</span></span><span class="punctuation"><span class="pre">,</span></span> <span class="literal string double"><span class="pre">“another</span> <span class="pre">list</span> <span class="pre">item”</span></span><span class="punctuation"><span class="pre">]}</span></span></code>,
+<p>would be read by python as <code class="code python docutils literal notranslate"><span class="punctuation"><span class="pre">{</span></span><span class="literal string double"><span class="pre">&quot;key&quot;</span></span><span class="punctuation"><span class="pre">:</span></span> <span class="punctuation"><span class="pre">[</span></span><span class="literal string double"><span class="pre">&quot;list</span> <span class="pre">item&quot;</span></span><span class="punctuation"><span class="pre">,</span></span> <span class="literal string double"><span class="pre">&quot;another</span> <span class="pre">list</span> <span class="pre">item&quot;</span></span><span class="punctuation"><span class="pre">]}</span></span></code>,
 and a collection consisting of a list of dictionaries would look like this in yaml:</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>id:
   - name: Arthur
@@ -353,8 +353,8 @@ the docs, <a class="reference internal" href="collections/index.html#regolith-co
 (or directly look at the
 schema in <code class="code bash docutils literal notranslate"><span class="pre">schema.py</span></code>).  You can automatically check if your database
 edits are valid by running <code class="code bash docutils literal notranslate"><span class="pre">$</span> <span class="pre">regolith</span> <span class="pre">validate</span></code>.</p>
-</section>
-<section id="getting-help-from-helpers">
+</div>
+<div class="section" id="getting-help-from-helpers">
 <h1>Getting Help from Helpers<a class="headerlink" href="#getting-help-from-helpers" title="Permalink to this headline">¶</a></h1>
 <p>Regolith builders build documents, but there are a small but growing number of
 tools that either will run popular queries on the database and print the results
@@ -466,8 +466,8 @@ returned than if you don’t type <code class="code bash docutils literal notran
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ regolith helper l_contacts run -n auth -v
 </pre></div>
 </div>
-</section>
-<section id="using-the-filter-capabilities-in-the-helpers">
+</div>
+<div class="section" id="using-the-filter-capabilities-in-the-helpers">
 <h1>Using the filter capabilities in the helpers<a class="headerlink" href="#using-the-filter-capabilities-in-the-helpers" title="Permalink to this headline">¶</a></h1>
 <p>Most helpers have a filter  field.  This allows you to filter the relevant collection
 before running the helper functionality.</p>
@@ -478,8 +478,8 @@ If you specify <code class="code bash docutils literal notranslate"><span class=
 <p>A slight gotcha is that since filter uses “in” in its logic, if the type of the key value is a string it will find all strings that contain that fragment, as above, but if the type of the key value is a list it will return documents where the specified value is in the list, so <code class="code bash docutils literal notranslate"><span class="pre">--filter</span> <span class="pre">group_member</span> <span class="pre">voe</span></code> will return all the documents where <code class="code bash docutils literal notranslate"><span class="pre">voe</span></code> is listed as a group member, but it won’t return any documents where <code class="code bash docutils literal notranslate"><span class="pre">carvoe</span></code> or <code class="code bash docutils literal notranslate"><span class="pre">voedemort</span></code> are listed as a group member.</p>
 <p>The filter uses AND logic and operates such that <code class="code bash docutils literal notranslate"><span class="pre">--filter</span> <span class="pre">lead</span> <span class="pre">voe</span> <span class="pre">grants</span> <span class="pre">mygrant21</span> <span class="pre">status</span> <span class="pre">finished</span></code> will return all prums that are led by <code class="code bash docutils literal notranslate"><span class="pre">carvoe</span></code> or <code class="code bash docutils literal notranslate"><span class="pre">voedemort</span></code> that acknowledge the mygrant21 grant and are finished.  Actually, similar behavior can be obtained also by selecting <code class="code bash docutils literal notranslate"><span class="pre">--lead</span> <span class="pre">voe</span> <span class="pre">--stati</span> <span class="pre">finished</span> <span class="pre">--filter</span> <span class="pre">grants</span> <span class="pre">mygrant21</span></code></p>
 <p>unfortunately the filter function does not currently recurse, so it will only operate on top level key-value pairs where the type of the value is a string or a list or a tuple.</p>
-</section>
-<section id="backing-up-and-protecting-your-work">
+</div>
+<div class="section" id="backing-up-and-protecting-your-work">
 <h1>Backing up and protecting your work<a class="headerlink" href="#backing-up-and-protecting-your-work" title="Permalink to this headline">¶</a></h1>
 <p>Now you have started saving your precious life’s work in your regolith database
 you better start protecting it and backing it up.  One low overhead approach
@@ -540,16 +540,16 @@ research group, or whatever you are working on.  We will continue to
 add tutorials below explaining some of these things, so check back
 from time to time.  And remember join and to ask questions at the <a class="reference external" href="https://groups.google.com/u/1/g/regolith-users">regolith-users</a>
 Google group.  They will get answered.</p>
-</section>
-<section id="tutorials">
+</div>
+<div class="section" id="tutorials">
 <h1>Tutorials<a class="headerlink" href="#tutorials" title="Permalink to this headline">¶</a></h1>
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="tutorials/index.html">Tutorials</a></li>
 </ul>
 </div>
-</section>
-<section id="run-control">
+</div>
+<div class="section" id="run-control">
 <h1>Run Control<a class="headerlink" href="#run-control" title="Permalink to this headline">¶</a></h1>
 <div class="toctree-wrapper compound">
 <ul>
@@ -558,8 +558,8 @@ Google group.  They will get answered.</p>
 <li class="toctree-l1"><a class="reference internal" href="rc.html#user-configuration">User Configuration</a></li>
 </ul>
 </div>
-</section>
-<section id="database-collections">
+</div>
+<div class="section" id="database-collections">
 <h1>Database Collections<a class="headerlink" href="#database-collections" title="Permalink to this headline">¶</a></h1>
 <p><strong>Collections</strong> are the regolith (and mongo) abstraction for <em>tables</em>.
 <strong>Entries</strong> (or <em>rows</em>) in
@@ -607,8 +607,8 @@ With these points in mind, feel free to dive into the databases below!</p>
 </li>
 </ul>
 </div>
-</section>
-<section id="regolith-api">
+</div>
+<div class="section" id="regolith-api">
 <h1>Regolith API<a class="headerlink" href="#regolith-api" title="Permalink to this headline">¶</a></h1>
 <p>For those who want to dive deeper into the library itself.</p>
 <div class="toctree-wrapper compound">
@@ -616,8 +616,8 @@ With these points in mind, feel free to dive into the databases below!</p>
 <li class="toctree-l1"><a class="reference internal" href="api/index.html">Regolith API</a></li>
 </ul>
 </div>
-</section>
-<section id="regolith-commands">
+</div>
+<div class="section" id="regolith-commands">
 <h1>Regolith Commands<a class="headerlink" href="#regolith-commands" title="Permalink to this headline">¶</a></h1>
 <p>Shell commmands for regolith</p>
 <div class="toctree-wrapper compound">
@@ -643,17 +643,18 @@ With these points in mind, feel free to dive into the databases below!</p>
 </li>
 </ul>
 </div>
-</section>
-<section id="database-maintenance">
+</div>
+<div class="section" id="database-maintenance">
 <h1>Database Maintenance<a class="headerlink" href="#database-maintenance" title="Permalink to this headline">¶</a></h1>
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="database_maintenance/index.html">Database Maintenance</a></li>
 </ul>
 </div>
-</section>
+</div>
 
 
+            <div class="clearer"></div>
           </div>
         </div>
       </div>
@@ -694,12 +695,12 @@ With these points in mind, feel free to dive into the databases below!</p>
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
       <input type="submit" value="Go" />
     </form>
     </div>
 </div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
+<script>$('#searchbox').show(0);</script>
         </div>
       </div>
     
@@ -730,7 +731,8 @@ With these points in mind, feel free to dive into the databases below!</p>
           <a href="tutorials/index.html" title="Tutorials"
              >next</a></li>
     <li><a href="#">regolith</a> &#187;</li>
- 
+
+        <li class="nav-item nav-item-this"><a href="">Regolith</a></li> 
       </ul>
     </div>
     </div>

@@ -3,35 +3,34 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
-    <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
-
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Builder Base Class (regolith.builders.basebuilder) &#8212; regolith - software group content managment system</title>
-    <link rel="stylesheet" href="../_static/cloud.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noticia+Text:400,i,b,bi|Open+Sans:400,i,b,bi|Roboto+Mono:400,i,b,bi&display=swap" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/cloud.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noticia+Text:400,i,b,bi|Open+Sans:400,i,b,bi|Roboto+Mono:400,i,b,bi&amp;display=swap" type="text/css" />
     
-    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-    <script type="text/javascript" src="../_static/jquery.js"></script>
-    <script type="text/javascript" src="../_static/underscore.js"></script>
-    <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
 
     
     
      
-        <script type="text/javascript" src="../_static/jquery.cookie.js"></script>
+        <script src="../_static/jquery.cookie.js"></script>
     
 
     
      
-        <script type="text/javascript" src="../_static/cloud.base.js"></script>
+        <script src="../_static/cloud.base.js"></script>
     
 
     
      
-        <script type="text/javascript" src="../_static/cloud.js"></script>
+        <script src="../_static/cloud.js"></script>
     
 
     <link rel="shortcut icon" href="../_static/regolith-logo.ico"/>
@@ -53,7 +52,8 @@
              accesskey="P">previous</a> &nbsp; &nbsp;</li>
     <li><a href="../index.html">regolith</a> &#187;</li>
 
-          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Regolith API</a> &#187;</li> 
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Regolith API</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Builder Base Class (<code class="docutils literal notranslate"><span class="pre">regolith.builders.basebuilder</span></code>)</a></li> 
       </ul>
     </div>
     </div>
@@ -64,32 +64,32 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <section id="module-regolith.builders.basebuilder">
+  <div class="section" id="module-regolith.builders.basebuilder">
 <span id="builder-base-class-regolith-builders-basebuilder"></span><span id="regolith-basebuilder"></span><h1>Builder Base Class (<code class="docutils literal notranslate"><span class="pre">regolith.builders.basebuilder</span></code>)<a class="headerlink" href="#module-regolith.builders.basebuilder" title="Permalink to this headline">¶</a></h1>
 <p>Builder Base Classes</p>
-<dl class="class">
-<dt id="regolith.builders.basebuilder.BuilderBase">
-<em class="property">class </em><code class="sig-prename descclassname">regolith.builders.basebuilder.</code><code class="sig-name descname">BuilderBase</code><span class="sig-paren">(</span><em class="sig-param">rc</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/builders/basebuilder.html#BuilderBase"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.builders.basebuilder.BuilderBase" title="Permalink to this definition">¶</a></dt>
+<dl class="py class">
+<dt class="sig sig-object py" id="regolith.builders.basebuilder.BuilderBase">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">regolith.builders.basebuilder.</span></span><span class="sig-name descname"><span class="pre">BuilderBase</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rc</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/builders/basebuilder.html#BuilderBase"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#regolith.builders.basebuilder.BuilderBase" title="Permalink to this definition">¶</a></dt>
 <dd><p>Base class for builders</p>
-<dl class="method">
-<dt id="regolith.builders.basebuilder.BuilderBase.build">
-<code class="sig-name descname">build</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/builders/basebuilder.html#BuilderBase.build"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.builders.basebuilder.BuilderBase.build" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="regolith.builders.basebuilder.BuilderBase.build">
+<span class="sig-name descname"><span class="pre">build</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/builders/basebuilder.html#BuilderBase.build"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#regolith.builders.basebuilder.BuilderBase.build" title="Permalink to this definition">¶</a></dt>
 <dd><p>Build the thing that is being built, note this runs all commands
 listed in <code class="docutils literal notranslate"><span class="pre">self.cmds</span></code></p>
 </dd></dl>
 
-<dl class="method">
-<dt id="regolith.builders.basebuilder.BuilderBase.construct_global_ctx">
-<code class="sig-name descname">construct_global_ctx</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/builders/basebuilder.html#BuilderBase.construct_global_ctx"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.builders.basebuilder.BuilderBase.construct_global_ctx" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="regolith.builders.basebuilder.BuilderBase.construct_global_ctx">
+<span class="sig-name descname"><span class="pre">construct_global_ctx</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/builders/basebuilder.html#BuilderBase.construct_global_ctx"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#regolith.builders.basebuilder.BuilderBase.construct_global_ctx" title="Permalink to this definition">¶</a></dt>
 <dd><p>Constructs the global context</p>
 </dd></dl>
 
-<dl class="method">
-<dt id="regolith.builders.basebuilder.BuilderBase.render">
-<code class="sig-name descname">render</code><span class="sig-paren">(</span><em class="sig-param">tname</em>, <em class="sig-param">fname</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/builders/basebuilder.html#BuilderBase.render"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.builders.basebuilder.BuilderBase.render" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="regolith.builders.basebuilder.BuilderBase.render">
+<span class="sig-name descname"><span class="pre">render</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tname</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fname</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/builders/basebuilder.html#BuilderBase.render"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#regolith.builders.basebuilder.BuilderBase.render" title="Permalink to this definition">¶</a></dt>
 <dd><p>Render the template into a file using the kwargs and global context</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>tname</strong> (<em>str</em>) – Template name</p></li>
 <li><p><strong>fname</strong> (<em>str</em>) – Resulting file name</p></li>
@@ -101,41 +101,41 @@ listed in <code class="docutils literal notranslate"><span class="pre">self.cmds
 
 </dd></dl>
 
-<dl class="class">
-<dt id="regolith.builders.basebuilder.LatexBuilderBase">
-<em class="property">class </em><code class="sig-prename descclassname">regolith.builders.basebuilder.</code><code class="sig-name descname">LatexBuilderBase</code><span class="sig-paren">(</span><em class="sig-param">rc</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/builders/basebuilder.html#LatexBuilderBase"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.builders.basebuilder.LatexBuilderBase" title="Permalink to this definition">¶</a></dt>
+<dl class="py class">
+<dt class="sig sig-object py" id="regolith.builders.basebuilder.LatexBuilderBase">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">regolith.builders.basebuilder.</span></span><span class="sig-name descname"><span class="pre">LatexBuilderBase</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rc</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/builders/basebuilder.html#LatexBuilderBase"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#regolith.builders.basebuilder.LatexBuilderBase" title="Permalink to this definition">¶</a></dt>
 <dd><p>Base class for Latex builders</p>
-<dl class="method">
-<dt id="regolith.builders.basebuilder.LatexBuilderBase.build">
-<code class="sig-name descname">build</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#regolith.builders.basebuilder.LatexBuilderBase.build" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="regolith.builders.basebuilder.LatexBuilderBase.build">
+<span class="sig-name descname"><span class="pre">build</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#regolith.builders.basebuilder.LatexBuilderBase.build" title="Permalink to this definition">¶</a></dt>
 <dd><p>Build the thing that is being built, note this runs all commands
 listed in <code class="docutils literal notranslate"><span class="pre">self.cmds</span></code></p>
 </dd></dl>
 
-<dl class="method">
-<dt id="regolith.builders.basebuilder.LatexBuilderBase.clean">
-<code class="sig-name descname">clean</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/builders/basebuilder.html#LatexBuilderBase.clean"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.builders.basebuilder.LatexBuilderBase.clean" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="regolith.builders.basebuilder.LatexBuilderBase.clean">
+<span class="sig-name descname"><span class="pre">clean</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/builders/basebuilder.html#LatexBuilderBase.clean"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#regolith.builders.basebuilder.LatexBuilderBase.clean" title="Permalink to this definition">¶</a></dt>
 <dd><p>Remove files created by latex</p>
 </dd></dl>
 
-<dl class="method">
-<dt id="regolith.builders.basebuilder.LatexBuilderBase.construct_global_ctx">
-<code class="sig-name descname">construct_global_ctx</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/builders/basebuilder.html#LatexBuilderBase.construct_global_ctx"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.builders.basebuilder.LatexBuilderBase.construct_global_ctx" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="regolith.builders.basebuilder.LatexBuilderBase.construct_global_ctx">
+<span class="sig-name descname"><span class="pre">construct_global_ctx</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/builders/basebuilder.html#LatexBuilderBase.construct_global_ctx"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#regolith.builders.basebuilder.LatexBuilderBase.construct_global_ctx" title="Permalink to this definition">¶</a></dt>
 <dd><p>Constructs the global context</p>
 </dd></dl>
 
-<dl class="method">
-<dt id="regolith.builders.basebuilder.LatexBuilderBase.pdf">
-<code class="sig-name descname">pdf</code><span class="sig-paren">(</span><em class="sig-param">base</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/builders/basebuilder.html#LatexBuilderBase.pdf"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.builders.basebuilder.LatexBuilderBase.pdf" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="regolith.builders.basebuilder.LatexBuilderBase.pdf">
+<span class="sig-name descname"><span class="pre">pdf</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">base</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/builders/basebuilder.html#LatexBuilderBase.pdf"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#regolith.builders.basebuilder.LatexBuilderBase.pdf" title="Permalink to this definition">¶</a></dt>
 <dd><p>Compiles latex files to PDF</p>
 </dd></dl>
 
-<dl class="method">
-<dt id="regolith.builders.basebuilder.LatexBuilderBase.render">
-<code class="sig-name descname">render</code><span class="sig-paren">(</span><em class="sig-param">tname</em>, <em class="sig-param">fname</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#regolith.builders.basebuilder.LatexBuilderBase.render" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="regolith.builders.basebuilder.LatexBuilderBase.render">
+<span class="sig-name descname"><span class="pre">render</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tname</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fname</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#regolith.builders.basebuilder.LatexBuilderBase.render" title="Permalink to this definition">¶</a></dt>
 <dd><p>Render the template into a file using the kwargs and global context</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>tname</strong> (<em>str</em>) – Template name</p></li>
 <li><p><strong>fname</strong> (<em>str</em>) – Resulting file name</p></li>
@@ -145,17 +145,18 @@ listed in <code class="docutils literal notranslate"><span class="pre">self.cmds
 </dl>
 </dd></dl>
 
-<dl class="method">
-<dt id="regolith.builders.basebuilder.LatexBuilderBase.run">
-<code class="sig-name descname">run</code><span class="sig-paren">(</span><em class="sig-param">cmd</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/builders/basebuilder.html#LatexBuilderBase.run"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.builders.basebuilder.LatexBuilderBase.run" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="regolith.builders.basebuilder.LatexBuilderBase.run">
+<span class="sig-name descname"><span class="pre">run</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cmd</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/builders/basebuilder.html#LatexBuilderBase.run"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#regolith.builders.basebuilder.LatexBuilderBase.run" title="Permalink to this definition">¶</a></dt>
 <dd><p>Run command in build dir</p>
 </dd></dl>
 
 </dd></dl>
 
-</section>
+</div>
 
 
+            <div class="clearer"></div>
           </div>
         </div>
       </div>
@@ -178,12 +179,12 @@ listed in <code class="docutils literal notranslate"><span class="pre">self.cmds
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
       <input type="submit" value="Go" />
     </form>
     </div>
 </div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
+<script>$('#searchbox').show(0);</script>
         </div>
       </div>
     
@@ -218,7 +219,8 @@ listed in <code class="docutils literal notranslate"><span class="pre">self.cmds
              >previous</a> &nbsp; &nbsp;</li>
     <li><a href="../index.html">regolith</a> &#187;</li>
 
-          <li class="nav-item nav-item-1"><a href="index.html" >Regolith API</a> &#187;</li> 
+          <li class="nav-item nav-item-1"><a href="index.html" >Regolith API</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Builder Base Class (<code class="docutils literal notranslate"><span class="pre">regolith.builders.basebuilder</span></code>)</a></li> 
       </ul>
     </div>
     </div>

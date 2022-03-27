@@ -3,35 +3,34 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
-    <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
-
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Mongo Database Maintenance &#8212; regolith - software group content managment system</title>
-    <link rel="stylesheet" href="../_static/cloud.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noticia+Text:400,i,b,bi|Open+Sans:400,i,b,bi|Roboto+Mono:400,i,b,bi&display=swap" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/cloud.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noticia+Text:400,i,b,bi|Open+Sans:400,i,b,bi|Roboto+Mono:400,i,b,bi&amp;display=swap" type="text/css" />
     
-    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-    <script type="text/javascript" src="../_static/jquery.js"></script>
-    <script type="text/javascript" src="../_static/underscore.js"></script>
-    <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
 
     
     
      
-        <script type="text/javascript" src="../_static/jquery.cookie.js"></script>
+        <script src="../_static/jquery.cookie.js"></script>
     
 
     
      
-        <script type="text/javascript" src="../_static/cloud.base.js"></script>
+        <script src="../_static/cloud.base.js"></script>
     
 
     
      
-        <script type="text/javascript" src="../_static/cloud.js"></script>
+        <script src="../_static/cloud.js"></script>
     
 
     <link rel="shortcut icon" href="../_static/regolith-logo.ico"/>
@@ -49,7 +48,8 @@
              accesskey="P">previous</a></li>
     <li><a href="../index.html">regolith</a> &#187;</li>
 
-          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Database Maintenance</a> &#187;</li> 
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Database Maintenance</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Mongo Database Maintenance</a></li> 
       </ul>
     </div>
     </div>
@@ -60,9 +60,9 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <section id="mongo-database-maintenance">
+  <div class="section" id="mongo-database-maintenance">
 <h1>Mongo Database Maintenance<a class="headerlink" href="#mongo-database-maintenance" title="Permalink to this headline">¶</a></h1>
-<section id="enabling-database-maintenance-functionality">
+<div class="section" id="enabling-database-maintenance-functionality">
 <h2>Enabling Database Maintenance Functionality<a class="headerlink" href="#enabling-database-maintenance-functionality" title="Permalink to this headline">¶</a></h2>
 <div class="line-block">
 <div class="line">This section is for those who would like to maintain a MongoDB backend (local or remote) to varying extents. (note:
@@ -105,8 +105,8 @@ variable. These directories will take the forms
 <div class="line-block">
 <div class="line">The second step is setting up a server (local or remote)</div>
 </div>
-</section>
-<section id="setting-up-a-server">
+</div>
+<div class="section" id="setting-up-a-server">
 <h2>Setting Up a Server<a class="headerlink" href="#setting-up-a-server" title="Permalink to this headline">¶</a></h2>
 <p><strong>LOCAL</strong></p>
 <div class="line-block">
@@ -141,7 +141,7 @@ that you are presented with can be inserted into your regolithrc.json file under
 ‘uname_from_config:pwd_from_config’ in the URL, and adding your username and password to user.json as ‘mongo_id’ and
 ‘mongo_db_password’</div>
 </div>
-<section id="uploading-additional-collections-to-the-cluster">
+<div class="section" id="uploading-additional-collections-to-the-cluster">
 <h3>Uploading Additional Collections to the Cluster<a class="headerlink" href="#uploading-additional-collections-to-the-cluster" title="Permalink to this headline">¶</a></h3>
 <div class="line-block">
 <div class="line">When porting yaml or json files from our local filesystem to the mongo cluster, the regolithrc.json file must take a
@@ -186,19 +186,20 @@ both in the name and dst_url keys</p></li>
 <li><p>From the local directory, activate your regolith environment (by entering “conda activate &lt;regolithEnvName&gt;” in the terminal)</p></li>
 <li><p>Still in the local directory, now with the regolith environment active, enter the following into the terminal “regolith fs-to-mongo”</p></li>
 </ol>
-</section>
-<section id="backing-up-or-downloading-the-database">
+</div>
+<div class="section" id="backing-up-or-downloading-the-database">
 <h3>Backing Up or Downloading the Database<a class="headerlink" href="#backing-up-or-downloading-the-database" title="Permalink to this headline">¶</a></h3>
 <div class="line-block">
 <div class="line">Follow the steps in the “Uploading Additional Collections to the Cluster” section, but skip step 4, and in step 7 enter
 “regolith mongo-to-fs” in the terminal instead. The db directory will be where all of the collections from your
 database land.</div>
 </div>
-</section>
-</section>
-</section>
+</div>
+</div>
+</div>
 
 
+            <div class="clearer"></div>
           </div>
         </div>
       </div>
@@ -230,12 +231,12 @@ database land.</div>
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
       <input type="submit" value="Go" />
     </form>
     </div>
 </div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
+<script>$('#searchbox').show(0);</script>
         </div>
       </div>
     
@@ -267,7 +268,8 @@ database land.</div>
              >previous</a></li>
     <li><a href="../index.html">regolith</a> &#187;</li>
 
-          <li class="nav-item nav-item-1"><a href="index.html" >Database Maintenance</a> &#187;</li> 
+          <li class="nav-item nav-item-1"><a href="index.html" >Database Maintenance</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Mongo Database Maintenance</a></li> 
       </ul>
     </div>
     </div>

@@ -3,35 +3,34 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
-    <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
-
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Beamplan &#8212; regolith - software group content managment system</title>
-    <link rel="stylesheet" href="../_static/cloud.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noticia+Text:400,i,b,bi|Open+Sans:400,i,b,bi|Roboto+Mono:400,i,b,bi&display=swap" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/cloud.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noticia+Text:400,i,b,bi|Open+Sans:400,i,b,bi|Roboto+Mono:400,i,b,bi&amp;display=swap" type="text/css" />
     
-    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-    <script type="text/javascript" src="../_static/jquery.js"></script>
-    <script type="text/javascript" src="../_static/underscore.js"></script>
-    <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
 
     
     
      
-        <script type="text/javascript" src="../_static/jquery.cookie.js"></script>
+        <script src="../_static/jquery.cookie.js"></script>
     
 
     
      
-        <script type="text/javascript" src="../_static/cloud.base.js"></script>
+        <script src="../_static/cloud.base.js"></script>
     
 
     
      
-        <script type="text/javascript" src="../_static/cloud.js"></script>
+        <script src="../_static/cloud.js"></script>
     
 
     <link rel="shortcut icon" href="../_static/regolith-logo.ico"/>
@@ -53,7 +52,8 @@
              accesskey="P">previous</a> &nbsp; &nbsp;</li>
     <li><a href="../index.html">regolith</a> &#187;</li>
 
-          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Collections</a> &#187;</li> 
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Collections</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Beamplan</a></li> 
       </ul>
     </div>
     </div>
@@ -64,113 +64,113 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <section id="beamplan">
+  <div class="section" id="beamplan">
 <h1>Beamplan<a class="headerlink" href="#beamplan" title="Permalink to this headline">¶</a></h1>
 <p>Information about the experiment plan for the beamtime.</p>
-<section id="schema">
+<div class="section" id="schema">
 <h2>Schema<a class="headerlink" href="#schema" title="Permalink to this headline">¶</a></h2>
 <p>The following lists key names mapped to its type and meaning for each entry.</p>
 <dl class="field-list simple">
-<dt class="field-odd">_id<span class="colon">:</span></dt>
+<dt class="field-odd">_id</dt>
 <dd class="field-odd"><p>string, Unique identifier for the experiment plan. It should have a format ‘{year:2d}{month:2d}{people_id:s}_{plan_name:s}’, required</p>
 </dd>
-<dt class="field-even">beamtime<span class="colon">:</span></dt>
+<dt class="field-even">beamtime</dt>
 <dd class="field-even"><p>string, The id for the beamtime. Check the Airtable., required</p>
 </dd>
-<dt class="field-odd">begin_date<span class="colon">:</span></dt>
+<dt class="field-odd">begin_date</dt>
 <dd class="field-odd"><p>[‘string’, ‘datetime’, ‘date’], The begin date of the beam time., required</p>
 </dd>
-<dt class="field-even">devices<span class="colon">:</span></dt>
+<dt class="field-even">devices</dt>
 <dd class="field-even"><p>list, The dictionary of devices used in the measurement e. g. , required</p>
 <dl class="field-list simple">
-<dt class="field-odd">type<span class="colon">:</span></dt>
+<dt class="field-odd">type</dt>
 <dd class="field-odd"><p>string, optional</p>
 </dd>
 </dl>
 </dd>
-<dt class="field-even">end_date<span class="colon">:</span></dt>
-<dd class="field-even"><p>[‘string’, ‘datetime’, ‘date’], The end date of the beam time., required</p>
+<dt class="field-odd">end_date</dt>
+<dd class="field-odd"><p>[‘string’, ‘datetime’, ‘date’], The end date of the beam time., required</p>
 </dd>
-<dt class="field-odd">exp_plan<span class="colon">:</span></dt>
-<dd class="field-odd"><p>list, Steps to carry out the experiments at BNL. Need details, required</p>
+<dt class="field-even">exp_plan</dt>
+<dd class="field-even"><p>list, Steps to carry out the experiments at BNL. Need details, required</p>
 <dl class="field-list simple">
-<dt class="field-odd">type<span class="colon">:</span></dt>
+<dt class="field-odd">type</dt>
 <dd class="field-odd"><p>string, optional</p>
 </dd>
 </dl>
 </dd>
-<dt class="field-even">holder<span class="colon">:</span></dt>
-<dd class="field-even"><p>string, Sample holder used during the measurement, e. g. 3 mm OD tubes holder., required</p>
+<dt class="field-odd">holder</dt>
+<dd class="field-odd"><p>string, Sample holder used during the measurement, e. g. 3 mm OD tubes holder., required</p>
 </dd>
-<dt class="field-odd">measurement<span class="colon">:</span></dt>
-<dd class="field-odd"><p>string, What data to be measured, e. g. PDF, XRD, SAXS. This will determine the setup., required</p>
+<dt class="field-even">measurement</dt>
+<dd class="field-even"><p>string, What data to be measured, e. g. PDF, XRD, SAXS. This will determine the setup., required</p>
 </dd>
-<dt class="field-even">notes<span class="colon">:</span></dt>
-<dd class="field-even"><p>[‘list’, ‘string’], Notes of the plan, e. g. the preferred time., optional</p>
+<dt class="field-odd">notes</dt>
+<dd class="field-odd"><p>[‘list’, ‘string’], Notes of the plan, e. g. the preferred time., optional</p>
 <dl class="field-list simple">
-<dt class="field-odd">type<span class="colon">:</span></dt>
+<dt class="field-odd">type</dt>
 <dd class="field-odd"><p>string, optional</p>
 </dd>
 </dl>
 </dd>
-<dt class="field-even">objective<span class="colon">:</span></dt>
+<dt class="field-even">objective</dt>
 <dd class="field-even"><p>string, What to study in the experiments. What goal to achieve., required</p>
 </dd>
-<dt class="field-odd">pipeline<span class="colon">:</span></dt>
+<dt class="field-odd">pipeline</dt>
 <dd class="field-odd"><p>string, The analysis pipeline for the experiment. If no new pipeline is needed, use ‘usual’., required</p>
 </dd>
-<dt class="field-even">prep_plan<span class="colon">:</span></dt>
+<dt class="field-even">prep_plan</dt>
 <dd class="field-even"><p>list, Steps to prepare the samples. Do NOT need details., required</p>
 <dl class="field-list simple">
-<dt class="field-odd">type<span class="colon">:</span></dt>
+<dt class="field-odd">type</dt>
 <dd class="field-odd"><p>string, optional</p>
 </dd>
 </dl>
 </dd>
-<dt class="field-even">project<span class="colon">:</span></dt>
-<dd class="field-even"><p>string, The id for the project which the plan belongs to. It should be on airtable., required</p>
+<dt class="field-odd">project</dt>
+<dd class="field-odd"><p>string, The id for the project which the plan belongs to. It should be on airtable., required</p>
 </dd>
-<dt class="field-odd">project_lead<span class="colon">:</span></dt>
-<dd class="field-odd"><p>string, The id for person who put out this plan. It should be inside the people.yml., required</p>
+<dt class="field-even">project_lead</dt>
+<dd class="field-even"><p>string, The id for person who put out this plan. It should be inside the people.yml., required</p>
 </dd>
-<dt class="field-even">samples<span class="colon">:</span></dt>
-<dd class="field-even"><p>list, The list of samples to be measured., required</p>
+<dt class="field-odd">samples</dt>
+<dd class="field-odd"><p>list, The list of samples to be measured., required</p>
 <dl class="field-list simple">
-<dt class="field-odd">type<span class="colon">:</span></dt>
+<dt class="field-odd">type</dt>
 <dd class="field-odd"><p>string, optional</p>
 </dd>
 </dl>
 </dd>
-<dt class="field-even">scanplan<span class="colon">:</span></dt>
+<dt class="field-even">scanplan</dt>
 <dd class="field-even"><p>list, The scanplan for the experiment, e. g. tseries, Tramp, ct., required</p>
 <dl class="field-list simple">
-<dt class="field-odd">type<span class="colon">:</span></dt>
+<dt class="field-odd">type</dt>
 <dd class="field-odd"><p>string, optional</p>
 </dd>
 </dl>
 </dd>
-<dt class="field-even">ship_plan<span class="colon">:</span></dt>
-<dd class="field-even"><p>list, Steps to carry the samples from the producer to the BNL. Do NOT need details., required</p>
+<dt class="field-odd">ship_plan</dt>
+<dd class="field-odd"><p>list, Steps to carry the samples from the producer to the BNL. Do NOT need details., required</p>
 <dl class="field-list simple">
-<dt class="field-odd">type<span class="colon">:</span></dt>
+<dt class="field-odd">type</dt>
 <dd class="field-odd"><p>string, optional</p>
 </dd>
 </dl>
 </dd>
-<dt class="field-even">time<span class="colon">:</span></dt>
+<dt class="field-even">time</dt>
 <dd class="field-even"><p>integer, The total time of executing the exp_plan. Unit: min., required</p>
 </dd>
-<dt class="field-odd">todo<span class="colon">:</span></dt>
+<dt class="field-odd">todo</dt>
 <dd class="field-odd"><p>list, The TODO list before the beamtime., required</p>
 <dl class="field-list simple">
-<dt class="field-odd">type<span class="colon">:</span></dt>
+<dt class="field-odd">type</dt>
 <dd class="field-odd"><p>string, optional</p>
 </dd>
 </dl>
 </dd>
 </dl>
-</section>
-<section id="yaml-example">
+</div>
+<div class="section" id="yaml-example">
 <h2>YAML Example<a class="headerlink" href="#yaml-example" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">test</span><span class="p">:</span><span class="w"></span>
 <span class="w">  </span><span class="nt">beamtime</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2020-1-XPD</span><span class="w"></span>
@@ -205,8 +205,8 @@
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">todo something</span><span class="w"></span>
 </pre></div>
 </div>
-</section>
-<section id="json-mongo-example">
+</div>
+<div class="section" id="json-mongo-example">
 <h2>JSON/Mongo Example<a class="headerlink" href="#json-mongo-example" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="nt">&quot;_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;test&quot;</span><span class="p">,</span><span class="w"></span>
@@ -250,10 +250,11 @@
 <span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
-</section>
-</section>
+</div>
+</div>
 
 
+            <div class="clearer"></div>
           </div>
         </div>
       </div>
@@ -287,12 +288,12 @@
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
       <input type="submit" value="Go" />
     </form>
     </div>
 </div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
+<script>$('#searchbox').show(0);</script>
         </div>
       </div>
     
@@ -327,7 +328,8 @@
              >previous</a> &nbsp; &nbsp;</li>
     <li><a href="../index.html">regolith</a> &#187;</li>
 
-          <li class="nav-item nav-item-1"><a href="index.html" >Collections</a> &#187;</li> 
+          <li class="nav-item nav-item-1"><a href="index.html" >Collections</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Beamplan</a></li> 
       </ul>
     </div>
     </div>

@@ -3,35 +3,34 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
-    <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
-
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Presentations &#8212; regolith - software group content managment system</title>
-    <link rel="stylesheet" href="../_static/cloud.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noticia+Text:400,i,b,bi|Open+Sans:400,i,b,bi|Roboto+Mono:400,i,b,bi&display=swap" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/cloud.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noticia+Text:400,i,b,bi|Open+Sans:400,i,b,bi|Roboto+Mono:400,i,b,bi&amp;display=swap" type="text/css" />
     
-    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-    <script type="text/javascript" src="../_static/jquery.js"></script>
-    <script type="text/javascript" src="../_static/underscore.js"></script>
-    <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
 
     
     
      
-        <script type="text/javascript" src="../_static/jquery.cookie.js"></script>
+        <script src="../_static/jquery.cookie.js"></script>
     
 
     
      
-        <script type="text/javascript" src="../_static/cloud.base.js"></script>
+        <script src="../_static/cloud.base.js"></script>
     
 
     
      
-        <script type="text/javascript" src="../_static/cloud.js"></script>
+        <script src="../_static/cloud.js"></script>
     
 
     <link rel="shortcut icon" href="../_static/regolith-logo.ico"/>
@@ -53,7 +52,8 @@
              accesskey="P">previous</a> &nbsp; &nbsp;</li>
     <li><a href="../index.html">regolith</a> &#187;</li>
 
-          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Collections</a> &#187;</li> 
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Collections</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Presentations</a></li> 
       </ul>
     </div>
     </div>
@@ -64,65 +64,65 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <section id="presentations">
+  <div class="section" id="presentations">
 <h1>Presentations<a class="headerlink" href="#presentations" title="Permalink to this headline">¶</a></h1>
 <p>This collection describes presentations that groupmembers make at conferences, symposia, seminars andso on.</p>
-<section id="schema">
+<div class="section" id="schema">
 <h2>Schema<a class="headerlink" href="#schema" title="Permalink to this headline">¶</a></h2>
 <p>The following lists key names mapped to its type and meaning for each entry.</p>
 <dl class="field-list">
-<dt class="field-odd">_id<span class="colon">:</span></dt>
+<dt class="field-odd">_id</dt>
 <dd class="field-odd"><p>string, unique id for the presentation, required</p>
 </dd>
-<dt class="field-even">abstract<span class="colon">:</span></dt>
+<dt class="field-even">abstract</dt>
 <dd class="field-even"><p>string, abstract of the presentation, optional</p>
 </dd>
-<dt class="field-odd">authors<span class="colon">:</span></dt>
+<dt class="field-odd">authors</dt>
 <dd class="field-odd"><p>[‘string’, ‘list’], Author list., required</p>
 </dd>
-<dt class="field-even">begin_date<span class="colon">:</span></dt>
+<dt class="field-even">begin_date</dt>
 <dd class="field-even"><p>[‘date’, ‘string’], begin date in YYYY-MM-DD, optional</p>
 </dd>
-<dt class="field-odd">begin_day<span class="colon">:</span></dt>
+<dt class="field-odd">begin_day</dt>
 <dd class="field-odd"><p>integer, optional</p>
 </dd>
-<dt class="field-even">begin_month<span class="colon">:</span></dt>
+<dt class="field-even">begin_month</dt>
 <dd class="field-even"><p>[‘string’, ‘integer’], optional</p>
 </dd>
-<dt class="field-odd">begin_year<span class="colon">:</span></dt>
+<dt class="field-odd">begin_year</dt>
 <dd class="field-odd"><p>integer, year the conference or trip begins., optional</p>
 </dd>
-<dt class="field-even">department<span class="colon">:</span></dt>
+<dt class="field-even">department</dt>
 <dd class="field-even"><p>string, department of the institution where thepresentation will be made, if applicable.  should be discoverable in institutions., optional</p>
 </dd>
-<dt class="field-odd">end_date<span class="colon">:</span></dt>
+<dt class="field-odd">end_date</dt>
 <dd class="field-odd"><p>[‘date’, ‘string’], end_date in YYYY-MM-DD, optional</p>
 </dd>
-<dt class="field-even">end_day<span class="colon">:</span></dt>
+<dt class="field-even">end_day</dt>
 <dd class="field-even"><p>integer, optional</p>
 </dd>
-<dt class="field-odd">end_month<span class="colon">:</span></dt>
+<dt class="field-odd">end_month</dt>
 <dd class="field-odd"><p>[‘string’, ‘integer’], optional</p>
 </dd>
-<dt class="field-even">end_year<span class="colon">:</span></dt>
+<dt class="field-even">end_year</dt>
 <dd class="field-even"><p>integer, year the conference or trip ends, optional</p>
 </dd>
-<dt class="field-odd">institution<span class="colon">:</span></dt>
+<dt class="field-odd">institution</dt>
 <dd class="field-odd"><p>string, institution where thepresentation will be made, if applicable., optional</p>
 </dd>
-<dt class="field-even">location<span class="colon">:</span></dt>
+<dt class="field-even">location</dt>
 <dd class="field-even"><p>string, city and {state or country} of meeting, optional</p>
 </dd>
-<dt class="field-odd">meeting_name<span class="colon">:</span></dt>
+<dt class="field-odd">meeting_name</dt>
 <dd class="field-odd"><p>string, full name of the conference or meeting.  If it is a departmental seminar or colloquium, write Seminaror Colloquium and fill in department and institution fields, optional</p>
 </dd>
-<dt class="field-even">notes<span class="colon">:</span></dt>
+<dt class="field-even">notes</dt>
 <dd class="field-even"><p>[‘list’, ‘string’], any reminder or memory aid about anything, optional</p>
 </dd>
-<dt class="field-odd">project<span class="colon">:</span></dt>
+<dt class="field-odd">project</dt>
 <dd class="field-odd"><p>[‘string’, ‘list’], project or list of projects that this presentation is associated with.  Should be discoverable in projects collection, optional</p>
 </dd>
-<dt class="field-even">status<span class="colon">:</span></dt>
+<dt class="field-even">status</dt>
 <dd class="field-even"><p>string, Is the application in prep or submitted, was the invitation accepted or declined, was the trip cancelled?, required</p>
 <dl class="simple">
 <dt>Allowed values:</dt><dd><ul class="simple">
@@ -136,10 +136,10 @@
 </dd>
 </dl>
 </dd>
-<dt class="field-odd">title<span class="colon">:</span></dt>
+<dt class="field-odd">title</dt>
 <dd class="field-odd"><p>string, title of the presentation, required</p>
 </dd>
-<dt class="field-even">type<span class="colon">:</span></dt>
+<dt class="field-even">type</dt>
 <dd class="field-even"><p>string, type of presentation, required</p>
 <dl class="simple">
 <dt>Allowed values:</dt><dd><ul class="simple">
@@ -157,12 +157,12 @@
 </dd>
 </dl>
 </dd>
-<dt class="field-odd">webinar<span class="colon">:</span></dt>
+<dt class="field-odd">webinar</dt>
 <dd class="field-odd"><p>boolean, true if a webinar. Default to False, optional</p>
 </dd>
 </dl>
-</section>
-<section id="yaml-example">
+</div>
+<div class="section" id="yaml-example">
 <h2>YAML Example<a class="headerlink" href="#yaml-example" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">18sb04_kentstate</span><span class="p">:</span><span class="w"></span>
 <span class="w">  </span><span class="nt">abstract</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">We made the case for local structure</span><span class="w"></span>
@@ -228,8 +228,8 @@
 <span class="w">  </span><span class="nt">webinar</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span><span class="w"></span>
 </pre></div>
 </div>
-</section>
-<section id="json-mongo-example">
+</div>
+<div class="section" id="json-mongo-example">
 <h2>JSON/Mongo Example<a class="headerlink" href="#json-mongo-example" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="nt">&quot;_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;18sb04_kentstate&quot;</span><span class="p">,</span><span class="w"></span>
@@ -305,10 +305,11 @@
 <span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
-</section>
-</section>
+</div>
+</div>
 
 
+            <div class="clearer"></div>
           </div>
         </div>
       </div>
@@ -342,12 +343,12 @@
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
       <input type="submit" value="Go" />
     </form>
     </div>
 </div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
+<script>$('#searchbox').show(0);</script>
         </div>
       </div>
     
@@ -382,7 +383,8 @@
              >previous</a> &nbsp; &nbsp;</li>
     <li><a href="../index.html">regolith</a> &#187;</li>
 
-          <li class="nav-item nav-item-1"><a href="index.html" >Collections</a> &#187;</li> 
+          <li class="nav-item nav-item-1"><a href="index.html" >Collections</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Presentations</a></li> 
       </ul>
     </div>
     </div>

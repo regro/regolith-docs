@@ -3,35 +3,34 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
-    <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
-
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Contacts &#8212; regolith - software group content managment system</title>
-    <link rel="stylesheet" href="../_static/cloud.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noticia+Text:400,i,b,bi|Open+Sans:400,i,b,bi|Roboto+Mono:400,i,b,bi&display=swap" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/cloud.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noticia+Text:400,i,b,bi|Open+Sans:400,i,b,bi|Roboto+Mono:400,i,b,bi&amp;display=swap" type="text/css" />
     
-    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-    <script type="text/javascript" src="../_static/jquery.js"></script>
-    <script type="text/javascript" src="../_static/underscore.js"></script>
-    <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
 
     
     
      
-        <script type="text/javascript" src="../_static/jquery.cookie.js"></script>
+        <script src="../_static/jquery.cookie.js"></script>
     
 
     
      
-        <script type="text/javascript" src="../_static/cloud.base.js"></script>
+        <script src="../_static/cloud.base.js"></script>
     
 
     
      
-        <script type="text/javascript" src="../_static/cloud.js"></script>
+        <script src="../_static/cloud.js"></script>
     
 
     <link rel="shortcut icon" href="../_static/regolith-logo.ico"/>
@@ -53,7 +52,8 @@
              accesskey="P">previous</a> &nbsp; &nbsp;</li>
     <li><a href="../index.html">regolith</a> &#187;</li>
 
-          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Collections</a> &#187;</li> 
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Collections</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Contacts</a></li> 
       </ul>
     </div>
     </div>
@@ -64,55 +64,55 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <section id="contacts">
+  <div class="section" id="contacts">
 <h1>Contacts<a class="headerlink" href="#contacts" title="Permalink to this headline">¶</a></h1>
 <p>a lighter version of people.  Fewer required fieldsfor capturing people who are less tightly coupled</p>
-<section id="schema">
+<div class="section" id="schema">
 <h2>Schema<a class="headerlink" href="#schema" title="Permalink to this headline">¶</a></h2>
 <p>The following lists key names mapped to its type and meaning for each entry.</p>
 <dl class="field-list simple">
-<dt class="field-odd">aka<span class="colon">:</span></dt>
+<dt class="field-odd">aka</dt>
 <dd class="field-odd"><p>list, other names for the person, optional</p>
 </dd>
-<dt class="field-even">date<span class="colon">:</span></dt>
+<dt class="field-even">date</dt>
 <dd class="field-even"><p>[‘string’, ‘date’], date when the entry was created in ISO format, optional</p>
 </dd>
-<dt class="field-odd">day<span class="colon">:</span></dt>
+<dt class="field-odd">day</dt>
 <dd class="field-odd"><p>integer, day when the entry was created, optional</p>
 </dd>
-<dt class="field-even">department<span class="colon">:</span></dt>
+<dt class="field-even">department</dt>
 <dd class="field-even"><p>string, Department at the institution, optional</p>
 </dd>
-<dt class="field-odd">email<span class="colon">:</span></dt>
+<dt class="field-odd">email</dt>
 <dd class="field-odd"><p>string, Contact email for the contact, optional</p>
 </dd>
-<dt class="field-even">institution<span class="colon">:</span></dt>
+<dt class="field-even">institution</dt>
 <dd class="field-even"><p>string, the institution where they are located.  This isrequired for building a COI list of coauthors, butnot in general.  It can be institute id or anythingin the aka or name, optional</p>
 </dd>
-<dt class="field-odd">month<span class="colon">:</span></dt>
+<dt class="field-odd">month</dt>
 <dd class="field-odd"><p>[‘string’, ‘integer’], month when the entry was created, optional</p>
 </dd>
-<dt class="field-even">name<span class="colon">:</span></dt>
+<dt class="field-even">name</dt>
 <dd class="field-even"><p>string, the person’s canonical name, required</p>
 </dd>
-<dt class="field-odd">notes<span class="colon">:</span></dt>
+<dt class="field-odd">notes</dt>
 <dd class="field-odd"><p>[‘list’, ‘string’], notes about the person, optional</p>
 </dd>
-<dt class="field-even">title<span class="colon">:</span></dt>
+<dt class="field-even">title</dt>
 <dd class="field-even"><p>string, how the person is addressed, optional</p>
 </dd>
-<dt class="field-odd">updated<span class="colon">:</span></dt>
+<dt class="field-odd">updated</dt>
 <dd class="field-odd"><p>[‘string’, ‘datetime’, ‘date’], most recently updated, optional</p>
 </dd>
-<dt class="field-even">uuid<span class="colon">:</span></dt>
+<dt class="field-even">uuid</dt>
 <dd class="field-even"><p>string, universally unique identifier, optional</p>
 </dd>
-<dt class="field-odd">year<span class="colon">:</span></dt>
+<dt class="field-odd">year</dt>
 <dd class="field-odd"><p>integer, year when the entry was created, optional</p>
 </dd>
 </dl>
-</section>
-<section id="yaml-example">
+</div>
+<div class="section" id="yaml-example">
 <h2>YAML Example<a class="headerlink" href="#yaml-example" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">afriend</span><span class="p">:</span><span class="w"></span>
 <span class="w">  </span><span class="nt">aka</span><span class="p">:</span><span class="w"></span>
@@ -132,8 +132,8 @@
 <span class="w">  </span><span class="nt">year</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2020</span><span class="w"></span>
 </pre></div>
 </div>
-</section>
-<section id="json-mongo-example">
+</div>
+<div class="section" id="json-mongo-example">
 <h2>JSON/Mongo Example<a class="headerlink" href="#json-mongo-example" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="nt">&quot;_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;afriend&quot;</span><span class="p">,</span><span class="w"></span>
@@ -157,10 +157,11 @@
 <span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
-</section>
-</section>
+</div>
+</div>
 
 
+            <div class="clearer"></div>
           </div>
         </div>
       </div>
@@ -194,12 +195,12 @@
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
       <input type="submit" value="Go" />
     </form>
     </div>
 </div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
+<script>$('#searchbox').show(0);</script>
         </div>
       </div>
     
@@ -234,7 +235,8 @@
              >previous</a> &nbsp; &nbsp;</li>
     <li><a href="../index.html">regolith</a> &#187;</li>
 
-          <li class="nav-item nav-item-1"><a href="index.html" >Collections</a> &#187;</li> 
+          <li class="nav-item nav-item-1"><a href="index.html" >Collections</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Contacts</a></li> 
       </ul>
     </div>
     </div>

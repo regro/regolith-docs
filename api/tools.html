@@ -3,35 +3,34 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
-    <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
-
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Tools (regolith.tools) &#8212; regolith - software group content managment system</title>
-    <link rel="stylesheet" href="../_static/cloud.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noticia+Text:400,i,b,bi|Open+Sans:400,i,b,bi|Roboto+Mono:400,i,b,bi&display=swap" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/cloud.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noticia+Text:400,i,b,bi|Open+Sans:400,i,b,bi|Roboto+Mono:400,i,b,bi&amp;display=swap" type="text/css" />
     
-    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-    <script type="text/javascript" src="../_static/jquery.js"></script>
-    <script type="text/javascript" src="../_static/underscore.js"></script>
-    <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
 
     
     
      
-        <script type="text/javascript" src="../_static/jquery.cookie.js"></script>
+        <script src="../_static/jquery.cookie.js"></script>
     
 
     
      
-        <script type="text/javascript" src="../_static/cloud.base.js"></script>
+        <script src="../_static/cloud.base.js"></script>
     
 
     
      
-        <script type="text/javascript" src="../_static/cloud.js"></script>
+        <script src="../_static/cloud.js"></script>
     
 
     <link rel="shortcut icon" href="../_static/regolith-logo.ico"/>
@@ -53,7 +52,8 @@
              accesskey="P">previous</a> &nbsp; &nbsp;</li>
     <li><a href="../index.html">regolith</a> &#187;</li>
 
-          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Regolith API</a> &#187;</li> 
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Regolith API</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Tools (<code class="docutils literal notranslate"><span class="pre">regolith.tools</span></code>)</a></li> 
       </ul>
     </div>
     </div>
@@ -64,12 +64,12 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <section id="module-regolith.tools">
+  <div class="section" id="module-regolith.tools">
 <span id="tools-regolith-tools"></span><span id="regolith-tools"></span><h1>Tools (<code class="docutils literal notranslate"><span class="pre">regolith.tools</span></code>)<a class="headerlink" href="#module-regolith.tools" title="Permalink to this headline">¶</a></h1>
 <p>Misc. regolith tools.</p>
-<dl class="function">
-<dt id="regolith.tools.add_to_google_calendar">
-<code class="sig-prename descclassname">regolith.tools.</code><code class="sig-name descname">add_to_google_calendar</code><span class="sig-paren">(</span><em class="sig-param">event</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#add_to_google_calendar"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.tools.add_to_google_calendar" title="Permalink to this definition">¶</a></dt>
+<dl class="py function">
+<dt class="sig sig-object py" id="regolith.tools.add_to_google_calendar">
+<span class="sig-prename descclassname"><span class="pre">regolith.tools.</span></span><span class="sig-name descname"><span class="pre">add_to_google_calendar</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">event</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#add_to_google_calendar"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#regolith.tools.add_to_google_calendar" title="Permalink to this definition">¶</a></dt>
 <dd><p>Takes a newly created event, and adds it to the user’s google calendar</p>
 <dl class="simple">
 <dt>Parameters:</dt><dd><dl class="simple">
@@ -82,19 +82,19 @@
 </dl>
 </dd></dl>
 
-<dl class="function">
-<dt id="regolith.tools.all_docs_from_collection">
-<code class="sig-prename descclassname">regolith.tools.</code><code class="sig-name descname">all_docs_from_collection</code><span class="sig-paren">(</span><em class="sig-param">client</em>, <em class="sig-param">collname</em>, <em class="sig-param">copy=True</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#all_docs_from_collection"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.tools.all_docs_from_collection" title="Permalink to this definition">¶</a></dt>
+<dl class="py function">
+<dt class="sig sig-object py" id="regolith.tools.all_docs_from_collection">
+<span class="sig-prename descclassname"><span class="pre">regolith.tools.</span></span><span class="sig-name descname"><span class="pre">all_docs_from_collection</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">client</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">collname</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">copy</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#all_docs_from_collection"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#regolith.tools.all_docs_from_collection" title="Permalink to this definition">¶</a></dt>
 <dd><p>Yield all entries in all collections of a given name in a given
 database.</p>
 </dd></dl>
 
-<dl class="function">
-<dt id="regolith.tools.awards">
-<code class="sig-prename descclassname">regolith.tools.</code><code class="sig-name descname">awards</code><span class="sig-paren">(</span><em class="sig-param">p</em>, <em class="sig-param">since=None</em>, <em class="sig-param">before=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#awards"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.tools.awards" title="Permalink to this definition">¶</a></dt>
+<dl class="py function">
+<dt class="sig sig-object py" id="regolith.tools.awards">
+<span class="sig-prename descclassname"><span class="pre">regolith.tools.</span></span><span class="sig-name descname"><span class="pre">awards</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">p</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">since</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">before</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#awards"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#regolith.tools.awards" title="Permalink to this definition">¶</a></dt>
 <dd><p>Make sorted awards and honors</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>p</strong> (<em>dict</em>) – The person entry</p></li>
 <li><p><strong>since</strong> (<em>date.  Optional, default is None</em>) – The begin date to filter from</p></li>
@@ -104,24 +104,24 @@ database.</p>
 </dl>
 </dd></dl>
 
-<dl class="function">
-<dt id="regolith.tools.awards_grants_honors">
-<code class="sig-prename descclassname">regolith.tools.</code><code class="sig-name descname">awards_grants_honors</code><span class="sig-paren">(</span><em class="sig-param">p</em>, <em class="sig-param">target_name</em>, <em class="sig-param">funding=True</em>, <em class="sig-param">service_types=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#awards_grants_honors"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.tools.awards_grants_honors" title="Permalink to this definition">¶</a></dt>
+<dl class="py function">
+<dt class="sig sig-object py" id="regolith.tools.awards_grants_honors">
+<span class="sig-prename descclassname"><span class="pre">regolith.tools.</span></span><span class="sig-name descname"><span class="pre">awards_grants_honors</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">p</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">funding</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">service_types</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#awards_grants_honors"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#regolith.tools.awards_grants_honors" title="Permalink to this definition">¶</a></dt>
 <dd><p>Make sorted awards grants and honors list.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>p</strong> (<em>dict</em>) – The person entry</p>
 </dd>
 </dl>
 </dd></dl>
 
-<dl class="function">
-<dt id="regolith.tools.collect_appts">
-<code class="sig-prename descclassname">regolith.tools.</code><code class="sig-name descname">collect_appts</code><span class="sig-paren">(</span><em class="sig-param">ppl_coll</em>, <em class="sig-param">filter_key=None</em>, <em class="sig-param">filter_value=None</em>, <em class="sig-param">begin_date=None</em>, <em class="sig-param">end_date=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#collect_appts"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.tools.collect_appts" title="Permalink to this definition">¶</a></dt>
+<dl class="py function">
+<dt class="sig sig-object py" id="regolith.tools.collect_appts">
+<span class="sig-prename descclassname"><span class="pre">regolith.tools.</span></span><span class="sig-name descname"><span class="pre">collect_appts</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ppl_coll</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filter_key</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filter_value</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">begin_date</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">end_date</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#collect_appts"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#regolith.tools.collect_appts" title="Permalink to this definition">¶</a></dt>
 <dd><p>Retrieves a list of all the appointments on the given grant(s) in the given interval of time for each person in the
 given people collection.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>ppl_coll</strong> (<em>collection (list of dicts)</em>) – The people collection containing persons with appointments</p></li>
 <li><p><strong>filter_key</strong> (<em>string, list, optional</em>) – The key we want to filter appointments by</p></li>
@@ -130,10 +130,10 @@ given people collection.</p>
 <li><p><strong>end_date</strong> (<em>string, datetime, optional</em>) – The start date for the interval in which we want to collect appointments</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dt class="field-even">Returns</dt>
 <dd class="field-even"><p>a list of all appointments in the people collection that satisfy the provided conditions (if any)</p>
 </dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p>list</p>
 </dd>
 </dl>
@@ -147,92 +147,92 @@ given people collection.</p>
 </div>
 </dd></dl>
 
-<dl class="function">
-<dt id="regolith.tools.collection_str">
-<code class="sig-prename descclassname">regolith.tools.</code><code class="sig-name descname">collection_str</code><span class="sig-paren">(</span><em class="sig-param">collection</em>, <em class="sig-param">keys=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#collection_str"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.tools.collection_str" title="Permalink to this definition">¶</a></dt>
+<dl class="py function">
+<dt class="sig sig-object py" id="regolith.tools.collection_str">
+<span class="sig-prename descclassname"><span class="pre">regolith.tools.</span></span><span class="sig-name descname"><span class="pre">collection_str</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">collection</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">keys</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#collection_str"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#regolith.tools.collection_str" title="Permalink to this definition">¶</a></dt>
 <dd><p>Retrieves a list of all documents from the collection where the fragment
 appears in any one of the given fields</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>collection</strong> (<em>generator</em>) – The collection containing the documents</p></li>
 <li><p><strong>keys</strong> (<em>list, optional</em>) – The name of the fields to return from the search. Defaults to none in which case only the id is returned</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dt class="field-even">Returns</dt>
 <dd class="field-even"><p>A str of all the values</p>
 </dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p>str</p>
 </dd>
 </dl>
 </dd></dl>
 
-<dl class="function">
-<dt id="regolith.tools.compound_dict">
-<code class="sig-prename descclassname">regolith.tools.</code><code class="sig-name descname">compound_dict</code><span class="sig-paren">(</span><em class="sig-param">doc</em>, <em class="sig-param">li</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#compound_dict"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.tools.compound_dict" title="Permalink to this definition">¶</a></dt>
+<dl class="py function">
+<dt class="sig sig-object py" id="regolith.tools.compound_dict">
+<span class="sig-prename descclassname"><span class="pre">regolith.tools.</span></span><span class="sig-name descname"><span class="pre">compound_dict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">doc</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">li</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#compound_dict"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#regolith.tools.compound_dict" title="Permalink to this definition">¶</a></dt>
 <dd><p>Recursive function that collects all the strings from a document that is a dictionary</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>doc dict</strong> – The specific document we are traversing</p></li>
 <li><p><strong>li</strong> – The recursive list that holds all the strings</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dt class="field-even">Returns</dt>
 <dd class="field-even"><p>The strings that make up the nested attributes of this object</p>
 </dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p>list of strings</p>
 </dd>
 </dl>
 </dd></dl>
 
-<dl class="function">
-<dt id="regolith.tools.compound_list">
-<code class="sig-prename descclassname">regolith.tools.</code><code class="sig-name descname">compound_list</code><span class="sig-paren">(</span><em class="sig-param">doc</em>, <em class="sig-param">li</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#compound_list"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.tools.compound_list" title="Permalink to this definition">¶</a></dt>
+<dl class="py function">
+<dt class="sig sig-object py" id="regolith.tools.compound_list">
+<span class="sig-prename descclassname"><span class="pre">regolith.tools.</span></span><span class="sig-name descname"><span class="pre">compound_list</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">doc</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">li</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#compound_list"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#regolith.tools.compound_list" title="Permalink to this definition">¶</a></dt>
 <dd><p>Recursive function that collects all the strings from a document that is a list</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>doc list</strong> – The specific document we are traversing</p></li>
 <li><p><strong>li</strong> – The recursive list that holds all the strings</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dt class="field-even">Returns</dt>
 <dd class="field-even"><p>The strings that make up the nested attributes of this list</p>
 </dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p>list of strings</p>
 </dd>
 </dl>
 </dd></dl>
 
-<dl class="function">
-<dt id="regolith.tools.date_to_rfc822">
-<code class="sig-prename descclassname">regolith.tools.</code><code class="sig-name descname">date_to_rfc822</code><span class="sig-paren">(</span><em class="sig-param">y</em>, <em class="sig-param">m</em>, <em class="sig-param">d=1</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#date_to_rfc822"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.tools.date_to_rfc822" title="Permalink to this definition">¶</a></dt>
+<dl class="py function">
+<dt class="sig sig-object py" id="regolith.tools.date_to_rfc822">
+<span class="sig-prename descclassname"><span class="pre">regolith.tools.</span></span><span class="sig-name descname"><span class="pre">date_to_rfc822</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">m</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">d</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#date_to_rfc822"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#regolith.tools.date_to_rfc822" title="Permalink to this definition">¶</a></dt>
 <dd><p>Converts a date to an RFC 822 formatted string.</p>
 </dd></dl>
 
-<dl class="function">
-<dt id="regolith.tools.dbdirname">
-<code class="sig-prename descclassname">regolith.tools.</code><code class="sig-name descname">dbdirname</code><span class="sig-paren">(</span><em class="sig-param">db</em>, <em class="sig-param">rc</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#dbdirname"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.tools.dbdirname" title="Permalink to this definition">¶</a></dt>
+<dl class="py function">
+<dt class="sig sig-object py" id="regolith.tools.dbdirname">
+<span class="sig-prename descclassname"><span class="pre">regolith.tools.</span></span><span class="sig-name descname"><span class="pre">dbdirname</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">db</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rc</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#dbdirname"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#regolith.tools.dbdirname" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets the database dir name.</p>
 </dd></dl>
 
-<dl class="function">
-<dt id="regolith.tools.dbpathname">
-<code class="sig-prename descclassname">regolith.tools.</code><code class="sig-name descname">dbpathname</code><span class="sig-paren">(</span><em class="sig-param">db</em>, <em class="sig-param">rc</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#dbpathname"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.tools.dbpathname" title="Permalink to this definition">¶</a></dt>
+<dl class="py function">
+<dt class="sig sig-object py" id="regolith.tools.dbpathname">
+<span class="sig-prename descclassname"><span class="pre">regolith.tools.</span></span><span class="sig-name descname"><span class="pre">dbpathname</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">db</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rc</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#dbpathname"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#regolith.tools.dbpathname" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets the database path name.</p>
 </dd></dl>
 
-<dl class="function">
-<dt id="regolith.tools.dereference_institution">
-<code class="sig-prename descclassname">regolith.tools.</code><code class="sig-name descname">dereference_institution</code><span class="sig-paren">(</span><em class="sig-param">input_record</em>, <em class="sig-param">institutions</em>, <em class="sig-param">verbose=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#dereference_institution"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.tools.dereference_institution" title="Permalink to this definition">¶</a></dt>
+<dl class="py function">
+<dt class="sig sig-object py" id="regolith.tools.dereference_institution">
+<span class="sig-prename descclassname"><span class="pre">regolith.tools.</span></span><span class="sig-name descname"><span class="pre">dereference_institution</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input_record</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">institutions</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#dereference_institution"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#regolith.tools.dereference_institution" title="Permalink to this definition">¶</a></dt>
 <dd><p>Tool for replacing placeholders for institutions with the actual
 institution data. Note that the replacement is done inplace</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>input_record</strong> (<em>dict</em>) – The record to dereference</p></li>
 <li><p><strong>institutions</strong> (<em>iterable of dicts</em>) – The institutions</p></li>
@@ -241,50 +241,50 @@ institution data. Note that the replacement is done inplace</p>
 </dl>
 </dd></dl>
 
-<dl class="function">
-<dt id="regolith.tools.document_by_value">
-<code class="sig-prename descclassname">regolith.tools.</code><code class="sig-name descname">document_by_value</code><span class="sig-paren">(</span><em class="sig-param">documents</em>, <em class="sig-param">address</em>, <em class="sig-param">value</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#document_by_value"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.tools.document_by_value" title="Permalink to this definition">¶</a></dt>
+<dl class="py function">
+<dt class="sig sig-object py" id="regolith.tools.document_by_value">
+<span class="sig-prename descclassname"><span class="pre">regolith.tools.</span></span><span class="sig-name descname"><span class="pre">document_by_value</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">documents</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">address</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#document_by_value"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#regolith.tools.document_by_value" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get a specific document by one of its values</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>documents</strong> (<em>generator</em>) – Generator which yields the documents</p></li>
 <li><p><strong>address</strong> (<em>str or tuple</em>) – The address of the data in the document</p></li>
 <li><p><strong>value</strong> (<em>any</em>) – The expected value for the document</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dt class="field-even">Returns</dt>
 <dd class="field-even"><p>The first document which matches the request</p>
 </dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p>dict</p>
 </dd>
 </dl>
 </dd></dl>
 
-<dl class="function">
-<dt id="regolith.tools.fallback">
-<code class="sig-prename descclassname">regolith.tools.</code><code class="sig-name descname">fallback</code><span class="sig-paren">(</span><em class="sig-param">cond</em>, <em class="sig-param">backup</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#fallback"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.tools.fallback" title="Permalink to this definition">¶</a></dt>
+<dl class="py function">
+<dt class="sig sig-object py" id="regolith.tools.fallback">
+<span class="sig-prename descclassname"><span class="pre">regolith.tools.</span></span><span class="sig-name descname"><span class="pre">fallback</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cond</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">backup</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#fallback"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#regolith.tools.fallback" title="Permalink to this definition">¶</a></dt>
 <dd><p>Decorator for returning the object if cond is true and a backup if
 cond is false.</p>
 </dd></dl>
 
-<dl class="function">
-<dt id="regolith.tools.filter_activities">
-<code class="sig-prename descclassname">regolith.tools.</code><code class="sig-name descname">filter_activities</code><span class="sig-paren">(</span><em class="sig-param">people</em>, <em class="sig-param">begin_period</em>, <em class="sig-param">type</em>, <em class="sig-param">verbose=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#filter_activities"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.tools.filter_activities" title="Permalink to this definition">¶</a></dt>
+<dl class="py function">
+<dt class="sig sig-object py" id="regolith.tools.filter_activities">
+<span class="sig-prename descclassname"><span class="pre">regolith.tools.</span></span><span class="sig-name descname"><span class="pre">filter_activities</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">people</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">begin_period</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">type</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#filter_activities"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#regolith.tools.filter_activities" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="function">
-<dt id="regolith.tools.filter_committees">
-<code class="sig-prename descclassname">regolith.tools.</code><code class="sig-name descname">filter_committees</code><span class="sig-paren">(</span><em class="sig-param">person</em>, <em class="sig-param">begin_period</em>, <em class="sig-param">type</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#filter_committees"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.tools.filter_committees" title="Permalink to this definition">¶</a></dt>
+<dl class="py function">
+<dt class="sig sig-object py" id="regolith.tools.filter_committees">
+<span class="sig-prename descclassname"><span class="pre">regolith.tools.</span></span><span class="sig-name descname"><span class="pre">filter_committees</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">person</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">begin_period</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">type</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#filter_committees"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#regolith.tools.filter_committees" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="function">
-<dt id="regolith.tools.filter_employment_for_advisees">
-<code class="sig-prename descclassname">regolith.tools.</code><code class="sig-name descname">filter_employment_for_advisees</code><span class="sig-paren">(</span><em class="sig-param">peoplecoll</em>, <em class="sig-param">begin_period</em>, <em class="sig-param">status</em>, <em class="sig-param">advisor</em>, <em class="sig-param">now=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#filter_employment_for_advisees"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.tools.filter_employment_for_advisees" title="Permalink to this definition">¶</a></dt>
+<dl class="py function">
+<dt class="sig sig-object py" id="regolith.tools.filter_employment_for_advisees">
+<span class="sig-prename descclassname"><span class="pre">regolith.tools.</span></span><span class="sig-name descname"><span class="pre">filter_employment_for_advisees</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">peoplecoll</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">begin_period</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">status</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">advisor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">now</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#filter_employment_for_advisees"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#regolith.tools.filter_employment_for_advisees" title="Permalink to this definition">¶</a></dt>
 <dd><p>Filter people to get advisees since begin_period</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>people</strong> (<em>list of dicts</em>) – The people collection</p></li>
 <li><p><strong>begin_period</strong> (<em>date</em>) – Only select advisees who were active after this date (i.e., their end date
@@ -295,17 +295,17 @@ is after begin_period</p></li>
 </dl>
 </dd></dl>
 
-<dl class="function">
-<dt id="regolith.tools.filter_facilities">
-<code class="sig-prename descclassname">regolith.tools.</code><code class="sig-name descname">filter_facilities</code><span class="sig-paren">(</span><em class="sig-param">people</em>, <em class="sig-param">begin_period</em>, <em class="sig-param">type</em>, <em class="sig-param">verbose=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#filter_facilities"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.tools.filter_facilities" title="Permalink to this definition">¶</a></dt>
+<dl class="py function">
+<dt class="sig sig-object py" id="regolith.tools.filter_facilities">
+<span class="sig-prename descclassname"><span class="pre">regolith.tools.</span></span><span class="sig-name descname"><span class="pre">filter_facilities</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">people</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">begin_period</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">type</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#filter_facilities"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#regolith.tools.filter_facilities" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="function">
-<dt id="regolith.tools.filter_grants">
-<code class="sig-prename descclassname">regolith.tools.</code><code class="sig-name descname">filter_grants</code><span class="sig-paren">(</span><em class="sig-param">input_grants</em>, <em class="sig-param">names</em>, <em class="sig-param">pi=True</em>, <em class="sig-param">reverse=True</em>, <em class="sig-param">multi_pi=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#filter_grants"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.tools.filter_grants" title="Permalink to this definition">¶</a></dt>
+<dl class="py function">
+<dt class="sig sig-object py" id="regolith.tools.filter_grants">
+<span class="sig-prename descclassname"><span class="pre">regolith.tools.</span></span><span class="sig-name descname"><span class="pre">filter_grants</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input_grants</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">names</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pi</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reverse</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">multi_pi</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#filter_grants"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#regolith.tools.filter_grants" title="Permalink to this definition">¶</a></dt>
 <dd><p>Filter grants by those involved</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>input_grants</strong> (<em>list of dict</em>) – The grants to filter</p></li>
 <li><p><strong>names</strong> (<em>set of str</em>) – The authors to be filtered against</p></li>
@@ -317,27 +317,27 @@ is after begin_period</p></li>
 </dl>
 </dd></dl>
 
-<dl class="function">
-<dt id="regolith.tools.filter_licenses">
-<code class="sig-prename descclassname">regolith.tools.</code><code class="sig-name descname">filter_licenses</code><span class="sig-paren">(</span><em class="sig-param">patentscoll</em>, <em class="sig-param">people</em>, <em class="sig-param">target</em>, <em class="sig-param">since=None</em>, <em class="sig-param">before=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#filter_licenses"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.tools.filter_licenses" title="Permalink to this definition">¶</a></dt>
+<dl class="py function">
+<dt class="sig sig-object py" id="regolith.tools.filter_licenses">
+<span class="sig-prename descclassname"><span class="pre">regolith.tools.</span></span><span class="sig-name descname"><span class="pre">filter_licenses</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">patentscoll</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">people</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">since</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">before</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#filter_licenses"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#regolith.tools.filter_licenses" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="function">
-<dt id="regolith.tools.filter_patents">
-<code class="sig-prename descclassname">regolith.tools.</code><code class="sig-name descname">filter_patents</code><span class="sig-paren">(</span><em class="sig-param">patentscoll</em>, <em class="sig-param">people</em>, <em class="sig-param">target</em>, <em class="sig-param">since=None</em>, <em class="sig-param">before=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#filter_patents"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.tools.filter_patents" title="Permalink to this definition">¶</a></dt>
+<dl class="py function">
+<dt class="sig sig-object py" id="regolith.tools.filter_patents">
+<span class="sig-prename descclassname"><span class="pre">regolith.tools.</span></span><span class="sig-name descname"><span class="pre">filter_patents</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">patentscoll</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">people</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">since</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">before</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#filter_patents"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#regolith.tools.filter_patents" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="function">
-<dt id="regolith.tools.filter_presentations">
-<code class="sig-prename descclassname">regolith.tools.</code><code class="sig-name descname">filter_presentations</code><span class="sig-paren">(</span><em class="sig-param">people</em>, <em class="sig-param">presentations</em>, <em class="sig-param">institutions</em>, <em class="sig-param">target</em>, <em class="sig-param">types=None</em>, <em class="sig-param">since=None</em>, <em class="sig-param">before=None</em>, <em class="sig-param">statuses=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#filter_presentations"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.tools.filter_presentations" title="Permalink to this definition">¶</a></dt>
+<dl class="py function">
+<dt class="sig sig-object py" id="regolith.tools.filter_presentations">
+<span class="sig-prename descclassname"><span class="pre">regolith.tools.</span></span><span class="sig-name descname"><span class="pre">filter_presentations</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">people</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">presentations</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">institutions</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">types</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">since</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">before</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">statuses</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#filter_presentations"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#regolith.tools.filter_presentations" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="function">
-<dt id="regolith.tools.filter_projects">
-<code class="sig-prename descclassname">regolith.tools.</code><code class="sig-name descname">filter_projects</code><span class="sig-paren">(</span><em class="sig-param">projects</em>, <em class="sig-param">people</em>, <em class="sig-param">reverse=False</em>, <em class="sig-param">active_only=False</em>, <em class="sig-param">group=None</em>, <em class="sig-param">ptype=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#filter_projects"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.tools.filter_projects" title="Permalink to this definition">¶</a></dt>
+<dl class="py function">
+<dt class="sig sig-object py" id="regolith.tools.filter_projects">
+<span class="sig-prename descclassname"><span class="pre">regolith.tools.</span></span><span class="sig-name descname"><span class="pre">filter_projects</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">projects</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">people</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reverse</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">active_only</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">group</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ptype</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#filter_projects"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#regolith.tools.filter_projects" title="Permalink to this definition">¶</a></dt>
 <dd><p>Filter projects by the author(s)</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>projects</strong> (<em>list of dict</em>) – The publication citations</p></li>
 <li><p><strong>people</strong> (<em>set of list of str</em>) – The people to be filtered against</p></li>
@@ -357,12 +357,12 @@ software, defaults to None</p></li>
 </dl>
 </dd></dl>
 
-<dl class="function">
-<dt id="regolith.tools.filter_publications">
-<code class="sig-prename descclassname">regolith.tools.</code><code class="sig-name descname">filter_publications</code><span class="sig-paren">(</span><em class="sig-param">citations</em>, <em class="sig-param">authors</em>, <em class="sig-param">reverse=False</em>, <em class="sig-param">bold=True</em>, <em class="sig-param">since=None</em>, <em class="sig-param">before=None</em>, <em class="sig-param">ackno=False</em>, <em class="sig-param">grants=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#filter_publications"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.tools.filter_publications" title="Permalink to this definition">¶</a></dt>
+<dl class="py function">
+<dt class="sig sig-object py" id="regolith.tools.filter_publications">
+<span class="sig-prename descclassname"><span class="pre">regolith.tools.</span></span><span class="sig-name descname"><span class="pre">filter_publications</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">citations</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">authors</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reverse</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bold</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">since</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">before</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ackno</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">grants</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#filter_publications"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#regolith.tools.filter_publications" title="Permalink to this definition">¶</a></dt>
 <dd><p>Filter publications by the author(s)/editor(s)</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>citations</strong> (<em>list of dict</em>) – The publication citations</p></li>
 <li><p><strong>authors</strong> (<em>set of str</em>) – The authors to be filtered against</p></li>
@@ -378,18 +378,18 @@ publication list</p></li>
 </dl>
 </dd></dl>
 
-<dl class="function">
-<dt id="regolith.tools.filter_service">
-<code class="sig-prename descclassname">regolith.tools.</code><code class="sig-name descname">filter_service</code><span class="sig-paren">(</span><em class="sig-param">p</em>, <em class="sig-param">begin_period</em>, <em class="sig-param">type</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#filter_service"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.tools.filter_service" title="Permalink to this definition">¶</a></dt>
+<dl class="py function">
+<dt class="sig sig-object py" id="regolith.tools.filter_service">
+<span class="sig-prename descclassname"><span class="pre">regolith.tools.</span></span><span class="sig-name descname"><span class="pre">filter_service</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">p</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">begin_period</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">type</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#filter_service"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#regolith.tools.filter_service" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="function">
-<dt id="regolith.tools.fragment_retrieval">
-<code class="sig-prename descclassname">regolith.tools.</code><code class="sig-name descname">fragment_retrieval</code><span class="sig-paren">(</span><em class="sig-param">coll</em>, <em class="sig-param">fields</em>, <em class="sig-param">fragment</em>, <em class="sig-param">case_sensitive=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#fragment_retrieval"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.tools.fragment_retrieval" title="Permalink to this definition">¶</a></dt>
+<dl class="py function">
+<dt class="sig sig-object py" id="regolith.tools.fragment_retrieval">
+<span class="sig-prename descclassname"><span class="pre">regolith.tools.</span></span><span class="sig-name descname"><span class="pre">fragment_retrieval</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">coll</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fields</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fragment</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">case_sensitive</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#fragment_retrieval"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#regolith.tools.fragment_retrieval" title="Permalink to this definition">¶</a></dt>
 <dd><p>Retrieves a list of all documents from the collection where the fragment
 appears in any one of the given fields</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>coll</strong> (<em>generator</em>) – The collection containing the documents</p></li>
 <li><p><strong>fields</strong> (<em>iterable</em>) – The fields of each document to check for the fragment</p></li>
@@ -397,10 +397,10 @@ appears in any one of the given fields</p>
 <li><p><strong>case_sensitive</strong> (<em>Bool</em>) – When true will match case (Default = False)</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dt class="field-even">Returns</dt>
 <dd class="field-even"><p>A list of documents (that are dicts)</p>
 </dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p>list</p>
 </dd>
 </dl>
@@ -412,13 +412,13 @@ appears in any one of the given fields</p>
 the substring <code class="docutils literal notranslate"><span class="pre">pi_name</span></code>.</p>
 </dd></dl>
 
-<dl class="function">
-<dt id="regolith.tools.fuzzy_retrieval">
-<code class="sig-prename descclassname">regolith.tools.</code><code class="sig-name descname">fuzzy_retrieval</code><span class="sig-paren">(</span><em class="sig-param">documents</em>, <em class="sig-param">sources</em>, <em class="sig-param">value</em>, <em class="sig-param">case_sensitive=True</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#fuzzy_retrieval"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.tools.fuzzy_retrieval" title="Permalink to this definition">¶</a></dt>
+<dl class="py function">
+<dt class="sig sig-object py" id="regolith.tools.fuzzy_retrieval">
+<span class="sig-prename descclassname"><span class="pre">regolith.tools.</span></span><span class="sig-name descname"><span class="pre">fuzzy_retrieval</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">documents</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sources</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">case_sensitive</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#fuzzy_retrieval"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#regolith.tools.fuzzy_retrieval" title="Permalink to this definition">¶</a></dt>
 <dd><p>Retrieve a document from the documents where value is compared against
 multiple potential sources</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>documents</strong> (<em>generator</em>) – The documents</p></li>
 <li><p><strong>sources</strong> (<em>iterable</em>) – The potential data sources</p></li>
@@ -426,10 +426,10 @@ multiple potential sources</p>
 <li><p><strong>case_sensitive</strong> (<em>Bool</em>) – When true will match case (Default = True)</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dt class="field-even">Returns</dt>
 <dd class="field-even"><p>The document</p>
 </dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p>dict</p>
 </dd>
 </dl>
@@ -441,15 +441,15 @@ multiple potential sources</p>
 <code class="docutils literal notranslate"><span class="pre">pi_name</span></code>.</p>
 </dd></dl>
 
-<dl class="function">
-<dt id="regolith.tools.get_formatted_crossref_reference">
-<code class="sig-prename descclassname">regolith.tools.</code><code class="sig-name descname">get_formatted_crossref_reference</code><span class="sig-paren">(</span><em class="sig-param">doi</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#get_formatted_crossref_reference"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.tools.get_formatted_crossref_reference" title="Permalink to this definition">¶</a></dt>
+<dl class="py function">
+<dt class="sig sig-object py" id="regolith.tools.get_formatted_crossref_reference">
+<span class="sig-prename descclassname"><span class="pre">regolith.tools.</span></span><span class="sig-name descname"><span class="pre">get_formatted_crossref_reference</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">doi</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#get_formatted_crossref_reference"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#regolith.tools.get_formatted_crossref_reference" title="Permalink to this definition">¶</a></dt>
 <dd><p>given a doi, return the full reference and the date of the reference from Crossref REST-API</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>doi str</strong> – the doi of the digital object to pull from Crossref</p>
 </dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dt class="field-even">Returns</dt>
 <dd class="field-even"><p><ul class="simple">
 <li><p><em>ref str</em> – the nicely formatted reference including title</p></li>
 <li><p><em>ref_date datetime.date</em> – the date of the reference</p></li>
@@ -460,104 +460,98 @@ multiple potential sources</p>
 </dl>
 </dd></dl>
 
-<dl class="function">
-<dt id="regolith.tools.get_id_from_name">
-<code class="sig-prename descclassname">regolith.tools.</code><code class="sig-name descname">get_id_from_name</code><span class="sig-paren">(</span><em class="sig-param">coll</em>, <em class="sig-param">name</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#get_id_from_name"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.tools.get_id_from_name" title="Permalink to this definition">¶</a></dt>
+<dl class="py function">
+<dt class="sig sig-object py" id="regolith.tools.get_id_from_name">
+<span class="sig-prename descclassname"><span class="pre">regolith.tools.</span></span><span class="sig-name descname"><span class="pre">get_id_from_name</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">coll</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#get_id_from_name"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#regolith.tools.get_id_from_name" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="function">
-<dt id="regolith.tools.get_person">
-<code class="sig-prename descclassname">regolith.tools.</code><code class="sig-name descname">get_person</code><span class="sig-paren">(</span><em class="sig-param">person_id</em>, <em class="sig-param">rc</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#get_person"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.tools.get_person" title="Permalink to this definition">¶</a></dt>
+<dl class="py function">
+<dt class="sig sig-object py" id="regolith.tools.get_person">
+<span class="sig-prename descclassname"><span class="pre">regolith.tools.</span></span><span class="sig-name descname"><span class="pre">get_person</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">person_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rc</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#get_person"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#regolith.tools.get_person" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get the person’s name.</p>
 </dd></dl>
 
-<dl class="function">
-<dt id="regolith.tools.get_person_contact">
-<code class="sig-prename descclassname">regolith.tools.</code><code class="sig-name descname">get_person_contact</code><span class="sig-paren">(</span><em class="sig-param">name</em>, <em class="sig-param">people_coll</em>, <em class="sig-param">contacts_coll</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#get_person_contact"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.tools.get_person_contact" title="Permalink to this definition">¶</a></dt>
+<dl class="py function">
+<dt class="sig sig-object py" id="regolith.tools.get_person_contact">
+<span class="sig-prename descclassname"><span class="pre">regolith.tools.</span></span><span class="sig-name descname"><span class="pre">get_person_contact</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">people_coll</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">contacts_coll</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#get_person_contact"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#regolith.tools.get_person_contact" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a person document if found in either people or contacts collections</p>
 <p>If the person is found in the people collection this person is returned.  If
 not found in people but found in contacts, the person found in contacts is
 returned.  If the person is not found in either collection, None is returned</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>name</strong> (<em>str</em>) – The name or id of the person to look for</p></li>
 <li><p><strong>people_coll</strong> (<em>collection (list of dicts)</em>) – The people collection</p></li>
 <li><p><strong>contacts_coll</strong> (<em>collection (list of dicts)</em>) – The contacts collection</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dt class="field-even">Returns</dt>
 <dd class="field-even"><p><strong>person</strong> – The found person document</p>
 </dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p>dict</p>
 </dd>
 </dl>
 </dd></dl>
 
-<dl class="function">
-<dt id="regolith.tools.get_pi_id">
-<code class="sig-prename descclassname">regolith.tools.</code><code class="sig-name descname">get_pi_id</code><span class="sig-paren">(</span><em class="sig-param">rc</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#get_pi_id"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.tools.get_pi_id" title="Permalink to this definition">¶</a></dt>
+<dl class="py function">
+<dt class="sig sig-object py" id="regolith.tools.get_pi_id">
+<span class="sig-prename descclassname"><span class="pre">regolith.tools.</span></span><span class="sig-name descname"><span class="pre">get_pi_id</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rc</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#get_pi_id"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#regolith.tools.get_pi_id" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets the database id of the group PI</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>rc</strong> (<em>runcontrol object</em>) – The runcontrol object.  It must contain the ‘groups’ and ‘people’
 collections in the needed databases</p>
 </dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p></p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>The database ‘_id’ of the group PI</p>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>The database ‘_id’ of the group PI</p>
 </dd>
 </dl>
 </dd></dl>
 
-<dl class="function">
-<dt id="regolith.tools.get_tags">
-<code class="sig-prename descclassname">regolith.tools.</code><code class="sig-name descname">get_tags</code><span class="sig-paren">(</span><em class="sig-param">coll</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#get_tags"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.tools.get_tags" title="Permalink to this definition">¶</a></dt>
+<dl class="py function">
+<dt class="sig sig-object py" id="regolith.tools.get_tags">
+<span class="sig-prename descclassname"><span class="pre">regolith.tools.</span></span><span class="sig-name descname"><span class="pre">get_tags</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">coll</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#get_tags"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#regolith.tools.get_tags" title="Permalink to this definition">¶</a></dt>
 <dd><p>Given a collection with a tags field, returns the set of tags as a list</p>
 <p>The tags field is expected to be a string with comma or space separated tags.
 get_tags splits the tags and returns the set of unique tags as a list of
 strings.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>coll collection</strong> – the collection</p>
 </dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p></p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>the set of all tags as a list</p>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>the set of all tags as a list</p>
 </dd>
 </dl>
 </dd></dl>
 
-<dl class="function">
-<dt id="regolith.tools.get_team_from_grant">
-<code class="sig-prename descclassname">regolith.tools.</code><code class="sig-name descname">get_team_from_grant</code><span class="sig-paren">(</span><em class="sig-param">grantcol</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#get_team_from_grant"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.tools.get_team_from_grant" title="Permalink to this definition">¶</a></dt>
+<dl class="py function">
+<dt class="sig sig-object py" id="regolith.tools.get_team_from_grant">
+<span class="sig-prename descclassname"><span class="pre">regolith.tools.</span></span><span class="sig-name descname"><span class="pre">get_team_from_grant</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">grantcol</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#get_team_from_grant"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#regolith.tools.get_team_from_grant" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="function">
-<dt id="regolith.tools.gets">
-<code class="sig-prename descclassname">regolith.tools.</code><code class="sig-name descname">gets</code><span class="sig-paren">(</span><em class="sig-param">seq</em>, <em class="sig-param">key</em>, <em class="sig-param">default=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#gets"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.tools.gets" title="Permalink to this definition">¶</a></dt>
+<dl class="py function">
+<dt class="sig sig-object py" id="regolith.tools.gets">
+<span class="sig-prename descclassname"><span class="pre">regolith.tools.</span></span><span class="sig-name descname"><span class="pre">gets</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">seq</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">default</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#gets"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#regolith.tools.gets" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets a key from every element of a sequence if possible.</p>
 </dd></dl>
 
-<dl class="function">
-<dt id="regolith.tools.google_cal_auth_flow">
-<code class="sig-prename descclassname">regolith.tools.</code><code class="sig-name descname">google_cal_auth_flow</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#google_cal_auth_flow"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.tools.google_cal_auth_flow" title="Permalink to this definition">¶</a></dt>
+<dl class="py function">
+<dt class="sig sig-object py" id="regolith.tools.google_cal_auth_flow">
+<span class="sig-prename descclassname"><span class="pre">regolith.tools.</span></span><span class="sig-name descname"><span class="pre">google_cal_auth_flow</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#google_cal_auth_flow"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#regolith.tools.google_cal_auth_flow" title="Permalink to this definition">¶</a></dt>
 <dd><p>First time authentication, this function opens a window to request user consent to use google calendar API,
 and then returns a token</p>
 </dd></dl>
 
-<dl class="function">
-<dt id="regolith.tools.grant_burn">
-<code class="sig-prename descclassname">regolith.tools.</code><code class="sig-name descname">grant_burn</code><span class="sig-paren">(</span><em class="sig-param">grant</em>, <em class="sig-param">appts</em>, <em class="sig-param">begin_date=None</em>, <em class="sig-param">end_date=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#grant_burn"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.tools.grant_burn" title="Permalink to this definition">¶</a></dt>
+<dl class="py function">
+<dt class="sig sig-object py" id="regolith.tools.grant_burn">
+<span class="sig-prename descclassname"><span class="pre">regolith.tools.</span></span><span class="sig-name descname"><span class="pre">grant_burn</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">grant</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">appts</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">begin_date</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">end_date</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#grant_burn"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#regolith.tools.grant_burn" title="Permalink to this definition">¶</a></dt>
 <dd><p>Retrieves the total burn of a grant over an interval of time by integrating over all appointments
 made on the grant.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>grant</strong> (<em>dict</em>) – The grant object whose burn needs to be retrieved</p></li>
 <li><p><strong>appts</strong> (<em>collection (list of dicts), dict</em>) – The collection of appointments made on assorted grants</p></li>
@@ -567,11 +561,11 @@ in YYYY-MM-DD format. Defaults to the begin_date of the grant.</p></li>
 in YYYY-MM-DD format. Defaults to the end_date of the grant.</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dt class="field-even">Returns</dt>
 <dd class="field-even"><p>A dictionaries whose keys are the dates and values are a dict containing the corresponding grant amounts
 on that date</p>
 </dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p>dict</p>
 </dd>
 </dl>
@@ -583,22 +577,22 @@ on that date</p>
 </div>
 </dd></dl>
 
-<dl class="function">
-<dt id="regolith.tools.group">
-<code class="sig-prename descclassname">regolith.tools.</code><code class="sig-name descname">group</code><span class="sig-paren">(</span><em class="sig-param">db</em>, <em class="sig-param">by</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#group"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.tools.group" title="Permalink to this definition">¶</a></dt>
+<dl class="py function">
+<dt class="sig sig-object py" id="regolith.tools.group">
+<span class="sig-prename descclassname"><span class="pre">regolith.tools.</span></span><span class="sig-name descname"><span class="pre">group</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">db</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">by</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#group"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#regolith.tools.group" title="Permalink to this definition">¶</a></dt>
 <dd><p>Group the document in the database according to the value of the doc[by] in db.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>db</strong> (<em>iterable</em>) – The database of documents.</p></li>
 <li><p><strong>by</strong> (<em>basestring</em>) – The key to group the documents.</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dt class="field-even">Returns</dt>
 <dd class="field-even"><p><strong>grouped</strong> – A dictionary mapping the feature value of group to the list of docs. All docs in the same generator have
 the same value of doc[by].</p>
 </dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p>dict</p>
 </dd>
 </dl>
@@ -610,41 +604,41 @@ This will return
 &gt;&gt;&gt; {“v0”: [{“k”: “v0”}, {“k”: “v0”}], “v1”: [{“k”: “v1”}]}</p>
 </dd></dl>
 
-<dl class="function">
-<dt id="regolith.tools.group_member_employment_start_end">
-<code class="sig-prename descclassname">regolith.tools.</code><code class="sig-name descname">group_member_employment_start_end</code><span class="sig-paren">(</span><em class="sig-param">person</em>, <em class="sig-param">grpname</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#group_member_employment_start_end"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.tools.group_member_employment_start_end" title="Permalink to this definition">¶</a></dt>
+<dl class="py function">
+<dt class="sig sig-object py" id="regolith.tools.group_member_employment_start_end">
+<span class="sig-prename descclassname"><span class="pre">regolith.tools.</span></span><span class="sig-name descname"><span class="pre">group_member_employment_start_end</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">person</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">grpname</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#group_member_employment_start_end"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#regolith.tools.group_member_employment_start_end" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get start and end dates of group member employment</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>person dict</strong> – The person whose dates we want</p></li>
 <li><p><strong>grpname</strong> – The code for the group we want the dates of employment from</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dt class="field-even">Returns</dt>
 <dd class="field-even"><p>The employment periods, with person id, begin and end dates</p>
 </dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p>list of dicts</p>
 </dd>
 </dl>
 </dd></dl>
 
-<dl class="function">
-<dt id="regolith.tools.group_member_ids">
-<code class="sig-prename descclassname">regolith.tools.</code><code class="sig-name descname">group_member_ids</code><span class="sig-paren">(</span><em class="sig-param">ppl_coll</em>, <em class="sig-param">grpname</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#group_member_ids"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.tools.group_member_ids" title="Permalink to this definition">¶</a></dt>
+<dl class="py function">
+<dt class="sig sig-object py" id="regolith.tools.group_member_ids">
+<span class="sig-prename descclassname"><span class="pre">regolith.tools.</span></span><span class="sig-name descname"><span class="pre">group_member_ids</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ppl_coll</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">grpname</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#group_member_ids"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#regolith.tools.group_member_ids" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get a list of all group member ids</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>ppl_coll</strong> (<em>collection (list of dicts)</em>) – The people collection that should contain the group members</p></li>
 <li><p><strong>grp</strong> (<em>string</em>) – The id of the group in groups.yml</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dt class="field-even">Returns</dt>
 <dd class="field-even"><p>The set of ids of the people in the group</p>
 </dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p>set</p>
 </dd>
 </dl>
@@ -662,23 +656,23 @@ the people collection for all people that have been
 assigned to that group in some period of time and returns a list of</p>
 </dd></dl>
 
-<dl class="function">
-<dt id="regolith.tools.is_fully_appointed">
-<code class="sig-prename descclassname">regolith.tools.</code><code class="sig-name descname">is_fully_appointed</code><span class="sig-paren">(</span><em class="sig-param">person</em>, <em class="sig-param">begin_date</em>, <em class="sig-param">end_date</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#is_fully_appointed"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.tools.is_fully_appointed" title="Permalink to this definition">¶</a></dt>
+<dl class="py function">
+<dt class="sig sig-object py" id="regolith.tools.is_fully_appointed">
+<span class="sig-prename descclassname"><span class="pre">regolith.tools.</span></span><span class="sig-name descname"><span class="pre">is_fully_appointed</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">person</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">begin_date</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">end_date</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#is_fully_appointed"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#regolith.tools.is_fully_appointed" title="Permalink to this definition">¶</a></dt>
 <dd><p>Checks if a collection of appointments for a person is valid and fully loaded
 for a given interval of time</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>person</strong> (<em>dict</em>) – The person whose appointments need to be checked</p></li>
 <li><p><strong>begin_date</strong> (<em>datetime, string, optional</em>) – The start date of the interval of time to check appointments for</p></li>
 <li><p><strong>end_date</strong> (<em>datetime, string, optional</em>) – The end date of the interval of time to check appointments for</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dt class="field-even">Returns</dt>
 <dd class="field-even"><p>True if the person is fully appointed and False if not</p>
 </dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p>bool</p>
 </dd>
 </dl>
@@ -692,22 +686,22 @@ for a given interval of time</p>
 print “appointment gap for aejaz from 2017-06-16 to 2017-06-19”.</p>
 </dd></dl>
 
-<dl class="function">
-<dt id="regolith.tools.key_value_pair_filter">
-<code class="sig-prename descclassname">regolith.tools.</code><code class="sig-name descname">key_value_pair_filter</code><span class="sig-paren">(</span><em class="sig-param">collection</em>, <em class="sig-param">arguments</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#key_value_pair_filter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.tools.key_value_pair_filter" title="Permalink to this definition">¶</a></dt>
+<dl class="py function">
+<dt class="sig sig-object py" id="regolith.tools.key_value_pair_filter">
+<span class="sig-prename descclassname"><span class="pre">regolith.tools.</span></span><span class="sig-name descname"><span class="pre">key_value_pair_filter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">collection</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">arguments</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#key_value_pair_filter"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#regolith.tools.key_value_pair_filter" title="Permalink to this definition">¶</a></dt>
 <dd><p>Retrieves a list of all documents from the collection where the fragment
 appears in any one of the given fields</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>collection</strong> (<em>generator</em>) – The collection containing the documents</p></li>
 <li><p><strong>arguments</strong> (<em>list</em>) – The name of the fields to look for and their accompanying substring</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dt class="field-even">Returns</dt>
 <dd class="field-even"><p>The collection containing the elements that satisfy the search criteria</p>
 </dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p>generator</p>
 </dd>
 </dl>
@@ -719,12 +713,12 @@ appears in any one of the given fields</p>
 and whose position is professor and return them</p>
 </dd></dl>
 
-<dl class="function">
-<dt id="regolith.tools.latex_safe">
-<code class="sig-prename descclassname">regolith.tools.</code><code class="sig-name descname">latex_safe</code><span class="sig-paren">(</span><em class="sig-param">s</em>, <em class="sig-param">url_check=True</em>, <em class="sig-param">wrapper='url'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#latex_safe"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.tools.latex_safe" title="Permalink to this definition">¶</a></dt>
+<dl class="py function">
+<dt class="sig sig-object py" id="regolith.tools.latex_safe">
+<span class="sig-prename descclassname"><span class="pre">regolith.tools.</span></span><span class="sig-name descname"><span class="pre">latex_safe</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">url_check</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wrapper</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'url'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#latex_safe"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#regolith.tools.latex_safe" title="Permalink to this definition">¶</a></dt>
 <dd><p>Make string latex safe</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>s</strong> (<em>str</em>)</p></li>
 <li><p><strong>url_check</strong> (<em>bool, optional</em>) – If True check for URLs and wrap them, if False check for URL but don’t
@@ -735,18 +729,18 @@ wrap, defaults to True</p></li>
 </dl>
 </dd></dl>
 
-<dl class="function">
-<dt id="regolith.tools.latex_safe_url">
-<code class="sig-prename descclassname">regolith.tools.</code><code class="sig-name descname">latex_safe_url</code><span class="sig-paren">(</span><em class="sig-param">s</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#latex_safe_url"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.tools.latex_safe_url" title="Permalink to this definition">¶</a></dt>
+<dl class="py function">
+<dt class="sig sig-object py" id="regolith.tools.latex_safe_url">
+<span class="sig-prename descclassname"><span class="pre">regolith.tools.</span></span><span class="sig-name descname"><span class="pre">latex_safe_url</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#latex_safe_url"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#regolith.tools.latex_safe_url" title="Permalink to this definition">¶</a></dt>
 <dd><p>Makes a string that is a URL latex safe.</p>
 </dd></dl>
 
-<dl class="function">
-<dt id="regolith.tools.make_bibtex_file">
-<code class="sig-prename descclassname">regolith.tools.</code><code class="sig-name descname">make_bibtex_file</code><span class="sig-paren">(</span><em class="sig-param">pubs</em>, <em class="sig-param">pid</em>, <em class="sig-param">person_dir='.'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#make_bibtex_file"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.tools.make_bibtex_file" title="Permalink to this definition">¶</a></dt>
+<dl class="py function">
+<dt class="sig sig-object py" id="regolith.tools.make_bibtex_file">
+<span class="sig-prename descclassname"><span class="pre">regolith.tools.</span></span><span class="sig-name descname"><span class="pre">make_bibtex_file</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pubs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pid</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">person_dir</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'.'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#make_bibtex_file"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#regolith.tools.make_bibtex_file" title="Permalink to this definition">¶</a></dt>
 <dd><p>Make a bibtex file given the publications</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>pubs</strong> (<em>list of dict</em>) – The publications</p></li>
 <li><p><strong>pid</strong> (<em>str</em>) – The person id</p></li>
@@ -756,20 +750,20 @@ wrap, defaults to True</p></li>
 </dl>
 </dd></dl>
 
-<dl class="function">
-<dt id="regolith.tools.merge_collections_all">
-<code class="sig-prename descclassname">regolith.tools.</code><code class="sig-name descname">merge_collections_all</code><span class="sig-paren">(</span><em class="sig-param">a</em>, <em class="sig-param">b</em>, <em class="sig-param">target_id</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#merge_collections_all"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.tools.merge_collections_all" title="Permalink to this definition">¶</a></dt>
+<dl class="py function">
+<dt class="sig sig-object py" id="regolith.tools.merge_collections_all">
+<span class="sig-prename descclassname"><span class="pre">regolith.tools.</span></span><span class="sig-name descname"><span class="pre">merge_collections_all</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">a</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target_id</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#merge_collections_all"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#regolith.tools.merge_collections_all" title="Permalink to this definition">¶</a></dt>
 <dd><p>merge two collections into a single merged collection</p>
 <p>for keys that are in both collections, the value in b will be kept</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>a  the inferior collection (will lose values of shared keys)</strong></p></li>
 <li><p><strong>b  the superior collection (will keep values of shared keys)</strong></p></li>
 <li><p><strong>target_id  str  the name of the key used in b to dereference ids in a</strong></p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dt class="field-even">Returns</dt>
 <dd class="field-even"><p><ul class="simple">
 <li><p><em>the combined collection.  Note that it returns a collection containing</em></p></li>
 <li><p><em>all items from a and b with the items dereferenced in b merged with the</em></p></li>
@@ -790,20 +784,20 @@ grants collection for which “_id” in proposals has the value of
 not linked.</p>
 </dd></dl>
 
-<dl class="function">
-<dt id="regolith.tools.merge_collections_intersect">
-<code class="sig-prename descclassname">regolith.tools.</code><code class="sig-name descname">merge_collections_intersect</code><span class="sig-paren">(</span><em class="sig-param">a</em>, <em class="sig-param">b</em>, <em class="sig-param">target_id</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#merge_collections_intersect"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.tools.merge_collections_intersect" title="Permalink to this definition">¶</a></dt>
+<dl class="py function">
+<dt class="sig sig-object py" id="regolith.tools.merge_collections_intersect">
+<span class="sig-prename descclassname"><span class="pre">regolith.tools.</span></span><span class="sig-name descname"><span class="pre">merge_collections_intersect</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">a</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target_id</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#merge_collections_intersect"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#regolith.tools.merge_collections_intersect" title="Permalink to this definition">¶</a></dt>
 <dd><p>merge two collections such thta just the intersection is returned</p>
 <p>for shared keys that are in both collections, the value in b will be kept</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>a  the inferior collection (will lose values of shared keys)</strong></p></li>
 <li><p><strong>b  the superior collection (will keep values of shared keys)</strong></p></li>
 <li><p><strong>target_id  str  the name of the key used in b to dereference ids in a</strong></p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dt class="field-even">Returns</dt>
 <dd class="field-even"><p><ul class="simple">
 <li><p><em>the combined collection.  Note that it returns a collection only containing</em></p></li>
 <li><p><em>merged items from a and b that are dereferenced in b, i.e., the merged</em></p></li>
@@ -823,20 +817,20 @@ grants collection for which “_id” in proposals has the value of
 “proposal_id” in grants, returning just those items that have the dereference</p>
 </dd></dl>
 
-<dl class="function">
-<dt id="regolith.tools.merge_collections_superior">
-<code class="sig-prename descclassname">regolith.tools.</code><code class="sig-name descname">merge_collections_superior</code><span class="sig-paren">(</span><em class="sig-param">a</em>, <em class="sig-param">b</em>, <em class="sig-param">target_id</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#merge_collections_superior"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.tools.merge_collections_superior" title="Permalink to this definition">¶</a></dt>
+<dl class="py function">
+<dt class="sig sig-object py" id="regolith.tools.merge_collections_superior">
+<span class="sig-prename descclassname"><span class="pre">regolith.tools.</span></span><span class="sig-name descname"><span class="pre">merge_collections_superior</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">a</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target_id</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#merge_collections_superior"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#regolith.tools.merge_collections_superior" title="Permalink to this definition">¶</a></dt>
 <dd><p>merge two collections into a single merged collection</p>
 <p>for keys that are in both collections, the value in b will be kept</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>a  the inferior collection (will lose values of shared keys)</strong></p></li>
 <li><p><strong>b  the superior collection (will keep values of shared keys)</strong></p></li>
 <li><p><strong>target_id  str  the name of the key used in b to dereference ids in a</strong></p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dt class="field-even">Returns</dt>
 <dd class="field-even"><p><ul class="simple">
 <li><p><em>the combined collection.  Note that it returns a collection containing</em></p></li>
 <li><p><em>all items from a and b with the items dereferenced in b merged with the</em></p></li>
@@ -857,36 +851,36 @@ grants collection for which “_id” in proposals has the value of
 not linked.</p>
 </dd></dl>
 
-<dl class="function">
-<dt id="regolith.tools.month_and_year">
-<code class="sig-prename descclassname">regolith.tools.</code><code class="sig-name descname">month_and_year</code><span class="sig-paren">(</span><em class="sig-param">m=None</em>, <em class="sig-param">y=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#month_and_year"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.tools.month_and_year" title="Permalink to this definition">¶</a></dt>
+<dl class="py function">
+<dt class="sig sig-object py" id="regolith.tools.month_and_year">
+<span class="sig-prename descclassname"><span class="pre">regolith.tools.</span></span><span class="sig-name descname"><span class="pre">month_and_year</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">m</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#month_and_year"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#regolith.tools.month_and_year" title="Permalink to this definition">¶</a></dt>
 <dd><p>Creates a string from month and year data, if available.</p>
 </dd></dl>
 
-<dl class="function">
-<dt id="regolith.tools.number_suffix">
-<code class="sig-prename descclassname">regolith.tools.</code><code class="sig-name descname">number_suffix</code><span class="sig-paren">(</span><em class="sig-param">number</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#number_suffix"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.tools.number_suffix" title="Permalink to this definition">¶</a></dt>
+<dl class="py function">
+<dt class="sig sig-object py" id="regolith.tools.number_suffix">
+<span class="sig-prename descclassname"><span class="pre">regolith.tools.</span></span><span class="sig-name descname"><span class="pre">number_suffix</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">number</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#number_suffix"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#regolith.tools.number_suffix" title="Permalink to this definition">¶</a></dt>
 <dd><p>returns the suffix that adjectivises a number (st, nd, rd, th)</p>
 <dl class="simple">
 <dt>number: integer</dt><dd><p>The number.  If number is not an integer, returns an empty string</p>
 </dd>
 </dl>
 <dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dt class="field-odd">Returns</dt>
 <dd class="field-odd"><p><strong>suffix</strong> – The suffix (st, nd, rd, th)</p>
 </dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dt class="field-even">Return type</dt>
 <dd class="field-even"><p>string</p>
 </dd>
 </dl>
 </dd></dl>
 
-<dl class="function">
-<dt id="regolith.tools.print_task">
-<code class="sig-prename descclassname">regolith.tools.</code><code class="sig-name descname">print_task</code><span class="sig-paren">(</span><em class="sig-param">task_list</em>, <em class="sig-param">stati</em>, <em class="sig-param">index=True</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#print_task"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.tools.print_task" title="Permalink to this definition">¶</a></dt>
+<dl class="py function">
+<dt class="sig sig-object py" id="regolith.tools.print_task">
+<span class="sig-prename descclassname"><span class="pre">regolith.tools.</span></span><span class="sig-name descname"><span class="pre">print_task</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">task_list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stati</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">index</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#print_task"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#regolith.tools.print_task" title="Permalink to this definition">¶</a></dt>
 <dd><p>Print tasks in a nice format.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>task_list</strong> (<em>list</em>) – A list of tasks that will be printed.</p></li>
 <li><p><strong>stati</strong> (<em>list</em>) – Filter status of the task</p></li>
@@ -895,50 +889,47 @@ not linked.</p>
 </dl>
 </dd></dl>
 
-<dl class="function">
-<dt id="regolith.tools.remove_duplicate_docs">
-<code class="sig-prename descclassname">regolith.tools.</code><code class="sig-name descname">remove_duplicate_docs</code><span class="sig-paren">(</span><em class="sig-param">coll</em>, <em class="sig-param">key</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#remove_duplicate_docs"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.tools.remove_duplicate_docs" title="Permalink to this definition">¶</a></dt>
+<dl class="py function">
+<dt class="sig sig-object py" id="regolith.tools.remove_duplicate_docs">
+<span class="sig-prename descclassname"><span class="pre">regolith.tools.</span></span><span class="sig-name descname"><span class="pre">remove_duplicate_docs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">coll</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#remove_duplicate_docs"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#regolith.tools.remove_duplicate_docs" title="Permalink to this definition">¶</a></dt>
 <dd><p>find all docs where the target key has the same value and remove duplicates</p>
 <p>The doc found first will be kept and subsequent docs will be removed</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>target iterable of dicts</strong> – the list of documents</p></li>
 <li><p><strong>key string</strong> – the key that will be used to compare</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p></p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>The list of docs with duplicates (as described above) removed</p>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>The list of docs with duplicates (as described above) removed</p>
 </dd>
 </dl>
 </dd></dl>
 
-<dl class="function">
-<dt id="regolith.tools.rfc822now">
-<code class="sig-prename descclassname">regolith.tools.</code><code class="sig-name descname">rfc822now</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#rfc822now"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.tools.rfc822now" title="Permalink to this definition">¶</a></dt>
+<dl class="py function">
+<dt class="sig sig-object py" id="regolith.tools.rfc822now">
+<span class="sig-prename descclassname"><span class="pre">regolith.tools.</span></span><span class="sig-name descname"><span class="pre">rfc822now</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#rfc822now"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#regolith.tools.rfc822now" title="Permalink to this definition">¶</a></dt>
 <dd><p>Creates a string of the current time according to RFC 822.</p>
 </dd></dl>
 
-<dl class="function">
-<dt id="regolith.tools.search_collection">
-<code class="sig-prename descclassname">regolith.tools.</code><code class="sig-name descname">search_collection</code><span class="sig-paren">(</span><em class="sig-param">collection</em>, <em class="sig-param">arguments</em>, <em class="sig-param">keys=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#search_collection"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.tools.search_collection" title="Permalink to this definition">¶</a></dt>
+<dl class="py function">
+<dt class="sig sig-object py" id="regolith.tools.search_collection">
+<span class="sig-prename descclassname"><span class="pre">regolith.tools.</span></span><span class="sig-name descname"><span class="pre">search_collection</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">collection</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">arguments</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">keys</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#search_collection"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#regolith.tools.search_collection" title="Permalink to this definition">¶</a></dt>
 <dd><p>Retrieves a list of all documents from the collection where the fragment
 appears in any one of the given fields</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>collection</strong> (<em>generator</em>) – The collection containing the documents</p></li>
 <li><p><strong>arguments</strong> (<em>list</em>) – The name of the fields to look for and their accompanying substring</p></li>
 <li><p><strong>keys</strong> (<em>list, optional</em>) – The name of the fields to return from the search. Defaults to none in which case only the id is returned</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dt class="field-even">Returns</dt>
 <dd class="field-even"><p>The collection containing the elements that satisfy the search criteria</p>
 </dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p>generator</p>
 </dd>
 </dl>
@@ -951,40 +942,40 @@ and whose position is professor. It would return the name and id of the
 valid entries</p>
 </dd></dl>
 
-<dl class="function">
-<dt id="regolith.tools.update_schemas">
-<code class="sig-prename descclassname">regolith.tools.</code><code class="sig-name descname">update_schemas</code><span class="sig-paren">(</span><em class="sig-param">default_schema</em>, <em class="sig-param">user_schema</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#update_schemas"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.tools.update_schemas" title="Permalink to this definition">¶</a></dt>
+<dl class="py function">
+<dt class="sig sig-object py" id="regolith.tools.update_schemas">
+<span class="sig-prename descclassname"><span class="pre">regolith.tools.</span></span><span class="sig-name descname"><span class="pre">update_schemas</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">default_schema</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">user_schema</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#update_schemas"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#regolith.tools.update_schemas" title="Permalink to this definition">¶</a></dt>
 <dd><p>Merging the user schema into the default schema recursively and return the
 merged schema. The default schema and user schema will not be modified
 during the merging.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>default_schema</strong> (<em>dict</em>) – The default schema.</p></li>
 <li><p><strong>user_schema</strong> (<em>dict</em>) – The user defined schema.</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dt class="field-even">Returns</dt>
 <dd class="field-even"><p><strong>updated_schema</strong> – The merged schema.</p>
 </dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p>dict</p>
 </dd>
 </dl>
 </dd></dl>
 
-<dl class="function">
-<dt id="regolith.tools.validate_doc">
-<code class="sig-prename descclassname">regolith.tools.</code><code class="sig-name descname">validate_doc</code><span class="sig-paren">(</span><em class="sig-param">collection_name</em>, <em class="sig-param">doc</em>, <em class="sig-param">rc</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#validate_doc"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.tools.validate_doc" title="Permalink to this definition">¶</a></dt>
+<dl class="py function">
+<dt class="sig sig-object py" id="regolith.tools.validate_doc">
+<span class="sig-prename descclassname"><span class="pre">regolith.tools.</span></span><span class="sig-name descname"><span class="pre">validate_doc</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">collection_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">doc</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rc</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#validate_doc"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#regolith.tools.validate_doc" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="function">
-<dt id="regolith.tools.validate_meeting">
-<code class="sig-prename descclassname">regolith.tools.</code><code class="sig-name descname">validate_meeting</code><span class="sig-paren">(</span><em class="sig-param">meeting</em>, <em class="sig-param">date</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#validate_meeting"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.tools.validate_meeting" title="Permalink to this definition">¶</a></dt>
+<dl class="py function">
+<dt class="sig sig-object py" id="regolith.tools.validate_meeting">
+<span class="sig-prename descclassname"><span class="pre">regolith.tools.</span></span><span class="sig-name descname"><span class="pre">validate_meeting</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">meeting</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">date</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#validate_meeting"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#regolith.tools.validate_meeting" title="Permalink to this definition">¶</a></dt>
 <dd><p>Validates a meeting by checking is it has a journal club doi, a presentation link, and a presentation
 title. This function will return nothing is the meeting is valid, otherwise it will raise a ValueError.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>meeting</strong> (<em>dict</em>) – The meeting object that needs to be validated</p></li>
 <li><p><strong>date</strong> (<em>datetime object</em>) – The date we want to use to see if a meeting has happened or not</p></li>
@@ -993,9 +984,10 @@ title. This function will return nothing is the meeting is valid, otherwise it w
 </dl>
 </dd></dl>
 
-</section>
+</div>
 
 
+            <div class="clearer"></div>
           </div>
         </div>
       </div>
@@ -1018,12 +1010,12 @@ title. This function will return nothing is the meeting is valid, otherwise it w
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
       <input type="submit" value="Go" />
     </form>
     </div>
 </div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
+<script>$('#searchbox').show(0);</script>
         </div>
       </div>
     
@@ -1058,7 +1050,8 @@ title. This function will return nothing is the meeting is valid, otherwise it w
              >previous</a> &nbsp; &nbsp;</li>
     <li><a href="../index.html">regolith</a> &#187;</li>
 
-          <li class="nav-item nav-item-1"><a href="index.html" >Regolith API</a> &#187;</li> 
+          <li class="nav-item nav-item-1"><a href="index.html" >Regolith API</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Tools (<code class="docutils literal notranslate"><span class="pre">regolith.tools</span></code>)</a></li> 
       </ul>
     </div>
     </div>

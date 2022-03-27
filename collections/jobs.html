@@ -3,35 +3,34 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
-    <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
-
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Jobs &#8212; regolith - software group content managment system</title>
-    <link rel="stylesheet" href="../_static/cloud.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noticia+Text:400,i,b,bi|Open+Sans:400,i,b,bi|Roboto+Mono:400,i,b,bi&display=swap" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/cloud.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noticia+Text:400,i,b,bi|Open+Sans:400,i,b,bi|Roboto+Mono:400,i,b,bi&amp;display=swap" type="text/css" />
     
-    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-    <script type="text/javascript" src="../_static/jquery.js"></script>
-    <script type="text/javascript" src="../_static/underscore.js"></script>
-    <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
 
     
     
      
-        <script type="text/javascript" src="../_static/jquery.cookie.js"></script>
+        <script src="../_static/jquery.cookie.js"></script>
     
 
     
      
-        <script type="text/javascript" src="../_static/cloud.base.js"></script>
+        <script src="../_static/cloud.base.js"></script>
     
 
     
      
-        <script type="text/javascript" src="../_static/cloud.js"></script>
+        <script src="../_static/cloud.js"></script>
     
 
     <link rel="shortcut icon" href="../_static/regolith-logo.ico"/>
@@ -53,7 +52,8 @@
              accesskey="P">previous</a> &nbsp; &nbsp;</li>
     <li><a href="../index.html">regolith</a> &#187;</li>
 
-          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Collections</a> &#187;</li> 
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Collections</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Jobs</a></li> 
       </ul>
     </div>
     </div>
@@ -64,55 +64,55 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <section id="jobs">
+  <div class="section" id="jobs">
 <h1>Jobs<a class="headerlink" href="#jobs" title="Permalink to this headline">¶</a></h1>
 <p>This collection describes the research group jobs. This is normally public data.</p>
-<section id="schema">
+<div class="section" id="schema">
 <h2>Schema<a class="headerlink" href="#schema" title="Permalink to this headline">¶</a></h2>
 <p>The following lists key names mapped to its type and meaning for each entry.</p>
 <dl class="field-list simple">
-<dt class="field-odd">_id<span class="colon">:</span></dt>
+<dt class="field-odd">_id</dt>
 <dd class="field-odd"><p>str or number, unique job identifier</p>
 </dd>
-<dt class="field-even">title<span class="colon">:</span></dt>
+<dt class="field-even">title</dt>
 <dd class="field-even"><p>str, Job title</p>
 </dd>
-<dt class="field-odd">description<span class="colon">:</span></dt>
+<dt class="field-odd">description</dt>
 <dd class="field-odd"><p>str, long description of the position</p>
 </dd>
-<dt class="field-even">open<span class="colon">:</span></dt>
+<dt class="field-even">open</dt>
 <dd class="field-even"><p>bool, flag for whether the job is currently open or not.</p>
 </dd>
-<dt class="field-odd">contact<span class="colon">:</span></dt>
+<dt class="field-odd">contact</dt>
 <dd class="field-odd"><p>str, contact information for how to apply</p>
 </dd>
-<dt class="field-even">positions<span class="colon">:</span></dt>
+<dt class="field-even">positions</dt>
 <dd class="field-even"><p>list of strings, positions such as “Graduate Student”, “Post-doctoral Scholar”,</p>
 </dd>
-<dt class="field-odd">background_fields<span class="colon">:</span></dt>
+<dt class="field-odd">background_fields</dt>
 <dd class="field-odd"><p>list of str, previous disciplines, e.g. Nuclear Engineering or Computer Science</p>
 </dd>
-<dt class="field-even">year<span class="colon">:</span></dt>
+<dt class="field-even">year</dt>
 <dd class="field-even"><p>int, year job posted</p>
 </dd>
-<dt class="field-odd">month<span class="colon">:</span></dt>
+<dt class="field-odd">month</dt>
 <dd class="field-odd"><p>str, month the job was posted</p>
 </dd>
-<dt class="field-even">day<span class="colon">:</span></dt>
+<dt class="field-even">day</dt>
 <dd class="field-even"><p>int, day the job was posted</p>
 </dd>
-<dt class="field-odd">start_date<span class="colon">:</span></dt>
+<dt class="field-odd">start_date</dt>
 <dd class="field-odd"><p>str, expected start date or “ASAP” or similar</p>
 </dd>
-<dt class="field-even">expertise<span class="colon">:</span></dt>
+<dt class="field-even">expertise</dt>
 <dd class="field-even"><p>str, Current skills applicatns should have</p>
 </dd>
-<dt class="field-odd">compensation<span class="colon">:</span></dt>
+<dt class="field-odd">compensation</dt>
 <dd class="field-odd"><p>list of str, list of compensations for the position.</p>
 </dd>
 </dl>
-</section>
-<section id="yaml-example">
+</div>
+<div class="section" id="yaml-example">
 <h2>YAML Example<a class="headerlink" href="#yaml-example" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="s">&#39;0004&#39;</span><span class="p p-Indicator">:</span><span class="w"></span>
 <span class="w">  </span><span class="nt">background_fields</span><span class="p">:</span><span class="w"></span>
@@ -151,8 +151,8 @@
 <span class="w">  </span><span class="nt">year</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2015</span><span class="w"></span>
 </pre></div>
 </div>
-</section>
-<section id="json-mongo-example">
+</div>
+<div class="section" id="json-mongo-example">
 <h2>JSON/Mongo Example<a class="headerlink" href="#json-mongo-example" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="nt">&quot;_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;0004&quot;</span><span class="p">,</span><span class="w"></span>
 <span class="w"> </span><span class="nt">&quot;background_fields&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;Data Science&quot;</span><span class="p">,</span><span class="w"></span>
@@ -176,10 +176,11 @@
 <span class="w"> </span><span class="nt">&quot;year&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2015</span><span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
-</section>
-</section>
+</div>
+</div>
 
 
+            <div class="clearer"></div>
           </div>
         </div>
       </div>
@@ -213,12 +214,12 @@
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
       <input type="submit" value="Go" />
     </form>
     </div>
 </div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
+<script>$('#searchbox').show(0);</script>
         </div>
       </div>
     
@@ -253,7 +254,8 @@
              >previous</a> &nbsp; &nbsp;</li>
     <li><a href="../index.html">regolith</a> &#187;</li>
 
-          <li class="nav-item nav-item-1"><a href="index.html" >Collections</a> &#187;</li> 
+          <li class="nav-item nav-item-1"><a href="index.html" >Collections</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Jobs</a></li> 
       </ul>
     </div>
     </div>

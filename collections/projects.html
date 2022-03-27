@@ -3,35 +3,34 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
-    <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
-
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Projects &#8212; regolith - software group content managment system</title>
-    <link rel="stylesheet" href="../_static/cloud.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noticia+Text:400,i,b,bi|Open+Sans:400,i,b,bi|Roboto+Mono:400,i,b,bi&display=swap" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/cloud.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noticia+Text:400,i,b,bi|Open+Sans:400,i,b,bi|Roboto+Mono:400,i,b,bi&amp;display=swap" type="text/css" />
     
-    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-    <script type="text/javascript" src="../_static/jquery.js"></script>
-    <script type="text/javascript" src="../_static/underscore.js"></script>
-    <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
 
     
     
      
-        <script type="text/javascript" src="../_static/jquery.cookie.js"></script>
+        <script src="../_static/jquery.cookie.js"></script>
     
 
     
      
-        <script type="text/javascript" src="../_static/cloud.base.js"></script>
+        <script src="../_static/cloud.base.js"></script>
     
 
     
      
-        <script type="text/javascript" src="../_static/cloud.js"></script>
+        <script src="../_static/cloud.js"></script>
     
 
     <link rel="shortcut icon" href="../_static/regolith-logo.ico"/>
@@ -53,7 +52,8 @@
              accesskey="P">previous</a> &nbsp; &nbsp;</li>
     <li><a href="../index.html">regolith</a> &#187;</li>
 
-          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Collections</a> &#187;</li> 
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Collections</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Projects</a></li> 
       </ul>
     </div>
     </div>
@@ -64,89 +64,89 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <section id="projects">
+  <div class="section" id="projects">
 <h1>Projects<a class="headerlink" href="#projects" title="Permalink to this headline">¶</a></h1>
 <p>This collection describes the research group projects. This is normally public data.</p>
-<section id="schema">
+<div class="section" id="schema">
 <h2>Schema<a class="headerlink" href="#schema" title="Permalink to this headline">¶</a></h2>
 <p>The following lists key names mapped to its type and meaning for each entry.</p>
 <dl class="field-list">
-<dt class="field-odd">_id<span class="colon">:</span></dt>
+<dt class="field-odd">_id</dt>
 <dd class="field-odd"><p>string, Unique project identifier., required</p>
 </dd>
-<dt class="field-even">active<span class="colon">:</span></dt>
+<dt class="field-even">active</dt>
 <dd class="field-even"><p>[‘string’, ‘boolean’], true if the project is active, optional</p>
 </dd>
-<dt class="field-odd">description<span class="colon">:</span></dt>
+<dt class="field-odd">description</dt>
 <dd class="field-odd"><p>string, brief project description., required</p>
 </dd>
-<dt class="field-even">grant<span class="colon">:</span></dt>
+<dt class="field-even">grant</dt>
 <dd class="field-even"><p>string, Grant id if there is a grant supporting this project, optional</p>
 </dd>
-<dt class="field-odd">group<span class="colon">:</span></dt>
+<dt class="field-odd">group</dt>
 <dd class="field-odd"><p>string, id for the group in the groups collection whose project this is, optional</p>
 </dd>
-<dt class="field-even">highlights<span class="colon">:</span></dt>
+<dt class="field-even">highlights</dt>
 <dd class="field-even"><p>list, list of things to highlight in a report or website, such as releases for  for software or high profile publications, optional</p>
 <dl class="field-list simple">
-<dt class="field-odd">type<span class="colon">:</span></dt>
+<dt class="field-odd">type</dt>
 <dd class="field-odd"><p>dict, optional</p>
 <dl class="field-list simple">
-<dt class="field-odd">year<span class="colon">:</span></dt>
+<dt class="field-odd">year</dt>
 <dd class="field-odd"><p>integer, the year of the highlight, optional</p>
 </dd>
-<dt class="field-even">month<span class="colon">:</span></dt>
+<dt class="field-even">month</dt>
 <dd class="field-even"><p>[‘string’, ‘integer’], the month of the highlight, optional</p>
 </dd>
-<dt class="field-odd">description<span class="colon">:</span></dt>
+<dt class="field-odd">description</dt>
 <dd class="field-odd"><p>string, the highlight, optional</p>
 </dd>
 </dl>
 </dd>
 </dl>
 </dd>
-<dt class="field-even">logo<span class="colon">:</span></dt>
-<dd class="field-even"><p>string, URL to the project logo, optional</p>
+<dt class="field-odd">logo</dt>
+<dd class="field-odd"><p>string, URL to the project logo, optional</p>
 </dd>
-<dt class="field-odd">name<span class="colon">:</span></dt>
-<dd class="field-odd"><p>string, name of the project., required</p>
+<dt class="field-even">name</dt>
+<dd class="field-even"><p>string, name of the project., required</p>
 </dd>
-<dt class="field-even">other<span class="colon">:</span></dt>
-<dd class="field-even"><p>[‘list’, ‘string’], other information about the project, optional</p>
+<dt class="field-odd">other</dt>
+<dd class="field-odd"><p>[‘list’, ‘string’], other information about the project, optional</p>
 </dd>
-<dt class="field-odd">repo<span class="colon">:</span></dt>
-<dd class="field-odd"><p>string, URL of the source code repo, if available, optional</p>
+<dt class="field-even">repo</dt>
+<dd class="field-even"><p>string, URL of the source code repo, if available, optional</p>
 </dd>
-<dt class="field-even">team<span class="colon">:</span></dt>
-<dd class="field-even"><p>list, People who are/have been working on this project., required</p>
+<dt class="field-odd">team</dt>
+<dd class="field-odd"><p>list, People who are/have been working on this project., required</p>
 <dl class="field-list simple">
-<dt class="field-odd">type<span class="colon">:</span></dt>
+<dt class="field-odd">type</dt>
 <dd class="field-odd"><p>dict, optional</p>
 <dl class="field-list simple">
-<dt class="field-odd">begin_month<span class="colon">:</span></dt>
+<dt class="field-odd">begin_month</dt>
 <dd class="field-odd"><p>[‘string’, ‘integer’], optional</p>
 </dd>
-<dt class="field-even">begin_year<span class="colon">:</span></dt>
+<dt class="field-even">begin_year</dt>
 <dd class="field-even"><p>integer, optional</p>
 </dd>
-<dt class="field-odd">end_month<span class="colon">:</span></dt>
+<dt class="field-odd">end_month</dt>
 <dd class="field-odd"><p>[‘string’, ‘integer’], optional</p>
 </dd>
-<dt class="field-even">end_year<span class="colon">:</span></dt>
+<dt class="field-even">end_year</dt>
 <dd class="field-even"><p>integer, optional</p>
 </dd>
-<dt class="field-odd">name<span class="colon">:</span></dt>
+<dt class="field-odd">name</dt>
 <dd class="field-odd"><p>string, optional</p>
 </dd>
-<dt class="field-even">position<span class="colon">:</span></dt>
+<dt class="field-even">position</dt>
 <dd class="field-even"><p>string, optional</p>
 </dd>
 </dl>
 </dd>
 </dl>
 </dd>
-<dt class="field-odd">type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>[‘string’], The type of project, optional</p>
+<dt class="field-even">type</dt>
+<dd class="field-even"><p>[‘string’], The type of project, optional</p>
 <dl class="simple">
 <dt>Allowed values:</dt><dd><ul class="simple">
 <li><p>ossoftware</p></li>
@@ -156,12 +156,12 @@
 </dd>
 </dl>
 </dd>
-<dt class="field-even">website<span class="colon">:</span></dt>
-<dd class="field-even"><p>string, URL of the website., optional</p>
+<dt class="field-odd">website</dt>
+<dd class="field-odd"><p>string, URL of the website., optional</p>
 </dd>
 </dl>
-</section>
-<section id="yaml-example">
+</div>
+<div class="section" id="yaml-example">
 <h2>YAML Example<a class="headerlink" href="#yaml-example" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">Cyclus</span><span class="p">:</span><span class="w"></span>
 <span class="w">  </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Agent-Based Nuclear Fuel Cycle Simulator</span><span class="w"></span>
@@ -188,8 +188,8 @@
 <span class="w">  </span><span class="nt">website</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://fuelcycle.org/</span><span class="w"></span>
 </pre></div>
 </div>
-</section>
-<section id="json-mongo-example">
+</div>
+<div class="section" id="json-mongo-example">
 <h2>JSON/Mongo Example<a class="headerlink" href="#json-mongo-example" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="nt">&quot;_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Cyclus&quot;</span><span class="p">,</span><span class="w"></span>
@@ -225,10 +225,11 @@
 <span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
-</section>
-</section>
+</div>
+</div>
 
 
+            <div class="clearer"></div>
           </div>
         </div>
       </div>
@@ -262,12 +263,12 @@
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
       <input type="submit" value="Go" />
     </form>
     </div>
 </div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
+<script>$('#searchbox').show(0);</script>
         </div>
       </div>
     
@@ -302,7 +303,8 @@
              >previous</a> &nbsp; &nbsp;</li>
     <li><a href="../index.html">regolith</a> &#187;</li>
 
-          <li class="nav-item nav-item-1"><a href="index.html" >Collections</a> &#187;</li> 
+          <li class="nav-item nav-item-1"><a href="index.html" >Collections</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Projects</a></li> 
       </ul>
     </div>
     </div>

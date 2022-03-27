@@ -3,35 +3,34 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
-    <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
-
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Database Interface Tools (regolith.database) &#8212; regolith - software group content managment system</title>
-    <link rel="stylesheet" href="../_static/cloud.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noticia+Text:400,i,b,bi|Open+Sans:400,i,b,bi|Roboto+Mono:400,i,b,bi&display=swap" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/cloud.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noticia+Text:400,i,b,bi|Open+Sans:400,i,b,bi|Roboto+Mono:400,i,b,bi&amp;display=swap" type="text/css" />
     
-    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-    <script type="text/javascript" src="../_static/jquery.js"></script>
-    <script type="text/javascript" src="../_static/underscore.js"></script>
-    <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
 
     
     
      
-        <script type="text/javascript" src="../_static/jquery.cookie.js"></script>
+        <script src="../_static/jquery.cookie.js"></script>
     
 
     
      
-        <script type="text/javascript" src="../_static/cloud.base.js"></script>
+        <script src="../_static/cloud.base.js"></script>
     
 
     
      
-        <script type="text/javascript" src="../_static/cloud.js"></script>
+        <script src="../_static/cloud.js"></script>
     
 
     <link rel="shortcut icon" href="../_static/regolith-logo.ico"/>
@@ -53,7 +52,8 @@
              accesskey="P">previous</a> &nbsp; &nbsp;</li>
     <li><a href="../index.html">regolith</a> &#187;</li>
 
-          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Regolith API</a> &#187;</li> 
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Regolith API</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Database Interface Tools (<code class="docutils literal notranslate"><span class="pre">regolith.database</span></code>)</a></li> 
       </ul>
     </div>
     </div>
@@ -64,93 +64,94 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <section id="module-regolith.database">
+  <div class="section" id="module-regolith.database">
 <span id="database-interface-tools-regolith-database"></span><span id="regolith-database"></span><h1>Database Interface Tools (<code class="docutils literal notranslate"><span class="pre">regolith.database</span></code>)<a class="headerlink" href="#module-regolith.database" title="Permalink to this headline">¶</a></h1>
 <p>Helps manage mongodb setup and connections.</p>
-<dl class="function">
-<dt id="regolith.database.connect">
-<code class="sig-prename descclassname">regolith.database.</code><code class="sig-name descname">connect</code><span class="sig-paren">(</span><em class="sig-param">rc</em>, <em class="sig-param">dbs=None</em><span class="sig-paren">)</span><a class="headerlink" href="#regolith.database.connect" title="Permalink to this definition">¶</a></dt>
+<dl class="py function">
+<dt class="sig sig-object py" id="regolith.database.connect">
+<span class="sig-prename descclassname"><span class="pre">regolith.database.</span></span><span class="sig-name descname"><span class="pre">connect</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rc</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dbs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#regolith.database.connect" title="Permalink to this definition">¶</a></dt>
 <dd><p>Context manager for ensuring that database is properly setup and torn
 down</p>
 </dd></dl>
 
-<dl class="function">
-<dt id="regolith.database.dump_database">
-<code class="sig-prename descclassname">regolith.database.</code><code class="sig-name descname">dump_database</code><span class="sig-paren">(</span><em class="sig-param">db</em>, <em class="sig-param">client</em>, <em class="sig-param">rc</em><span class="sig-paren">)</span><a class="headerlink" href="#regolith.database.dump_database" title="Permalink to this definition">¶</a></dt>
+<dl class="py function">
+<dt class="sig sig-object py" id="regolith.database.dump_database">
+<span class="sig-prename descclassname"><span class="pre">regolith.database.</span></span><span class="sig-name descname"><span class="pre">dump_database</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">db</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">client</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rc</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#regolith.database.dump_database" title="Permalink to this definition">¶</a></dt>
 <dd><p>Dumps a database</p>
 </dd></dl>
 
-<dl class="function">
-<dt id="regolith.database.dump_git_database">
-<code class="sig-prename descclassname">regolith.database.</code><code class="sig-name descname">dump_git_database</code><span class="sig-paren">(</span><em class="sig-param">db</em>, <em class="sig-param">client</em>, <em class="sig-param">rc</em><span class="sig-paren">)</span><a class="headerlink" href="#regolith.database.dump_git_database" title="Permalink to this definition">¶</a></dt>
+<dl class="py function">
+<dt class="sig sig-object py" id="regolith.database.dump_git_database">
+<span class="sig-prename descclassname"><span class="pre">regolith.database.</span></span><span class="sig-name descname"><span class="pre">dump_git_database</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">db</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">client</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rc</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#regolith.database.dump_git_database" title="Permalink to this definition">¶</a></dt>
 <dd><p>Dumps a git database</p>
 </dd></dl>
 
-<dl class="function">
-<dt id="regolith.database.dump_hg_database">
-<code class="sig-prename descclassname">regolith.database.</code><code class="sig-name descname">dump_hg_database</code><span class="sig-paren">(</span><em class="sig-param">db</em>, <em class="sig-param">client</em>, <em class="sig-param">rc</em><span class="sig-paren">)</span><a class="headerlink" href="#regolith.database.dump_hg_database" title="Permalink to this definition">¶</a></dt>
+<dl class="py function">
+<dt class="sig sig-object py" id="regolith.database.dump_hg_database">
+<span class="sig-prename descclassname"><span class="pre">regolith.database.</span></span><span class="sig-name descname"><span class="pre">dump_hg_database</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">db</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">client</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rc</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#regolith.database.dump_hg_database" title="Permalink to this definition">¶</a></dt>
 <dd><p>Dumps an hg database</p>
 </dd></dl>
 
-<dl class="function">
-<dt id="regolith.database.dump_local_database">
-<code class="sig-prename descclassname">regolith.database.</code><code class="sig-name descname">dump_local_database</code><span class="sig-paren">(</span><em class="sig-param">db</em>, <em class="sig-param">client</em>, <em class="sig-param">rc</em><span class="sig-paren">)</span><a class="headerlink" href="#regolith.database.dump_local_database" title="Permalink to this definition">¶</a></dt>
+<dl class="py function">
+<dt class="sig sig-object py" id="regolith.database.dump_local_database">
+<span class="sig-prename descclassname"><span class="pre">regolith.database.</span></span><span class="sig-name descname"><span class="pre">dump_local_database</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">db</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">client</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rc</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#regolith.database.dump_local_database" title="Permalink to this definition">¶</a></dt>
 <dd><p>Dumps a local database</p>
 </dd></dl>
 
-<dl class="function">
-<dt id="regolith.database.load_database">
-<code class="sig-prename descclassname">regolith.database.</code><code class="sig-name descname">load_database</code><span class="sig-paren">(</span><em class="sig-param">db</em>, <em class="sig-param">client</em>, <em class="sig-param">rc</em><span class="sig-paren">)</span><a class="headerlink" href="#regolith.database.load_database" title="Permalink to this definition">¶</a></dt>
+<dl class="py function">
+<dt class="sig sig-object py" id="regolith.database.load_database">
+<span class="sig-prename descclassname"><span class="pre">regolith.database.</span></span><span class="sig-name descname"><span class="pre">load_database</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">db</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">client</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rc</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#regolith.database.load_database" title="Permalink to this definition">¶</a></dt>
 <dd><p>Loads a database</p>
 </dd></dl>
 
-<dl class="function">
-<dt id="regolith.database.load_git_database">
-<code class="sig-prename descclassname">regolith.database.</code><code class="sig-name descname">load_git_database</code><span class="sig-paren">(</span><em class="sig-param">db</em>, <em class="sig-param">client</em>, <em class="sig-param">rc</em><span class="sig-paren">)</span><a class="headerlink" href="#regolith.database.load_git_database" title="Permalink to this definition">¶</a></dt>
+<dl class="py function">
+<dt class="sig sig-object py" id="regolith.database.load_git_database">
+<span class="sig-prename descclassname"><span class="pre">regolith.database.</span></span><span class="sig-name descname"><span class="pre">load_git_database</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">db</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">client</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rc</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#regolith.database.load_git_database" title="Permalink to this definition">¶</a></dt>
 <dd><p>Loads a git database</p>
 </dd></dl>
 
-<dl class="function">
-<dt id="regolith.database.load_hg_database">
-<code class="sig-prename descclassname">regolith.database.</code><code class="sig-name descname">load_hg_database</code><span class="sig-paren">(</span><em class="sig-param">db</em>, <em class="sig-param">client</em>, <em class="sig-param">rc</em><span class="sig-paren">)</span><a class="headerlink" href="#regolith.database.load_hg_database" title="Permalink to this definition">¶</a></dt>
+<dl class="py function">
+<dt class="sig sig-object py" id="regolith.database.load_hg_database">
+<span class="sig-prename descclassname"><span class="pre">regolith.database.</span></span><span class="sig-name descname"><span class="pre">load_hg_database</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">db</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">client</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rc</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#regolith.database.load_hg_database" title="Permalink to this definition">¶</a></dt>
 <dd><p>Loads an hg database</p>
 </dd></dl>
 
-<dl class="function">
-<dt id="regolith.database.load_local_database">
-<code class="sig-prename descclassname">regolith.database.</code><code class="sig-name descname">load_local_database</code><span class="sig-paren">(</span><em class="sig-param">db</em>, <em class="sig-param">client</em>, <em class="sig-param">rc</em><span class="sig-paren">)</span><a class="headerlink" href="#regolith.database.load_local_database" title="Permalink to this definition">¶</a></dt>
+<dl class="py function">
+<dt class="sig sig-object py" id="regolith.database.load_local_database">
+<span class="sig-prename descclassname"><span class="pre">regolith.database.</span></span><span class="sig-name descname"><span class="pre">load_local_database</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">db</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">client</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rc</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#regolith.database.load_local_database" title="Permalink to this definition">¶</a></dt>
 <dd><p>Loads a local database</p>
 </dd></dl>
 
-<dl class="function">
-<dt id="regolith.database.load_mongo_database">
-<code class="sig-prename descclassname">regolith.database.</code><code class="sig-name descname">load_mongo_database</code><span class="sig-paren">(</span><em class="sig-param">db</em>, <em class="sig-param">client</em><span class="sig-paren">)</span><a class="headerlink" href="#regolith.database.load_mongo_database" title="Permalink to this definition">¶</a></dt>
+<dl class="py function">
+<dt class="sig sig-object py" id="regolith.database.load_mongo_database">
+<span class="sig-prename descclassname"><span class="pre">regolith.database.</span></span><span class="sig-name descname"><span class="pre">load_mongo_database</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">db</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">client</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#regolith.database.load_mongo_database" title="Permalink to this definition">¶</a></dt>
 <dd><p>Load a mongo database.</p>
 </dd></dl>
 
-<dl class="function">
-<dt id="regolith.database.open_dbs">
-<code class="sig-prename descclassname">regolith.database.</code><code class="sig-name descname">open_dbs</code><span class="sig-paren">(</span><em class="sig-param">rc</em>, <em class="sig-param">dbs=None</em><span class="sig-paren">)</span><a class="headerlink" href="#regolith.database.open_dbs" title="Permalink to this definition">¶</a></dt>
+<dl class="py function">
+<dt class="sig sig-object py" id="regolith.database.open_dbs">
+<span class="sig-prename descclassname"><span class="pre">regolith.database.</span></span><span class="sig-name descname"><span class="pre">open_dbs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rc</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dbs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#regolith.database.open_dbs" title="Permalink to this definition">¶</a></dt>
 <dd><p>Open the databases</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>rc</strong> (<em>RunControl instance</em>) – The rc which has links to the dbs</p></li>
 <li><p><strong>dbs</strong> (<em>set or None, optional</em>) – The databases to load. If None load all, defaults to None</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dt class="field-even">Returns</dt>
 <dd class="field-even"><p><strong>client</strong> – The database client</p>
 </dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p>{FileSystemClient, MongoClient}</p>
 </dd>
 </dl>
 </dd></dl>
 
-</section>
+</div>
 
 
+            <div class="clearer"></div>
           </div>
         </div>
       </div>
@@ -173,12 +174,12 @@ down</p>
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
       <input type="submit" value="Go" />
     </form>
     </div>
 </div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
+<script>$('#searchbox').show(0);</script>
         </div>
       </div>
     
@@ -213,7 +214,8 @@ down</p>
              >previous</a> &nbsp; &nbsp;</li>
     <li><a href="../index.html">regolith</a> &#187;</li>
 
-          <li class="nav-item nav-item-1"><a href="index.html" >Regolith API</a> &#187;</li> 
+          <li class="nav-item nav-item-1"><a href="index.html" >Regolith API</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Database Interface Tools (<code class="docutils literal notranslate"><span class="pre">regolith.database</span></code>)</a></li> 
       </ul>
     </div>
     </div>

@@ -3,35 +3,34 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
-    <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
-
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Data Broker (regolith.broker) &#8212; regolith - software group content managment system</title>
-    <link rel="stylesheet" href="../_static/cloud.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noticia+Text:400,i,b,bi|Open+Sans:400,i,b,bi|Roboto+Mono:400,i,b,bi&display=swap" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/cloud.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noticia+Text:400,i,b,bi|Open+Sans:400,i,b,bi|Roboto+Mono:400,i,b,bi&amp;display=swap" type="text/css" />
     
-    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-    <script type="text/javascript" src="../_static/jquery.js"></script>
-    <script type="text/javascript" src="../_static/underscore.js"></script>
-    <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
 
     
     
      
-        <script type="text/javascript" src="../_static/jquery.cookie.js"></script>
+        <script src="../_static/jquery.cookie.js"></script>
     
 
     
      
-        <script type="text/javascript" src="../_static/cloud.base.js"></script>
+        <script src="../_static/cloud.base.js"></script>
     
 
     
      
-        <script type="text/javascript" src="../_static/cloud.js"></script>
+        <script src="../_static/cloud.js"></script>
     
 
     <link rel="shortcut icon" href="../_static/regolith-logo.ico"/>
@@ -53,7 +52,8 @@
              accesskey="P">previous</a> &nbsp; &nbsp;</li>
     <li><a href="../index.html">regolith</a> &#187;</li>
 
-          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Regolith API</a> &#187;</li> 
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Regolith API</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Data Broker (<code class="docutils literal notranslate"><span class="pre">regolith.broker</span></code>)</a></li> 
       </ul>
     </div>
     </div>
@@ -64,12 +64,12 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <section id="module-regolith.broker">
+  <div class="section" id="module-regolith.broker">
 <span id="data-broker-regolith-broker"></span><span id="regolith-broker"></span><h1>Data Broker (<code class="docutils literal notranslate"><span class="pre">regolith.broker</span></code>)<a class="headerlink" href="#module-regolith.broker" title="Permalink to this headline">¶</a></h1>
 <p>API for accessing the metadata and file storage</p>
-<dl class="class">
-<dt id="regolith.broker.Broker">
-<em class="property">class </em><code class="sig-prename descclassname">regolith.broker.</code><code class="sig-name descname">Broker</code><span class="sig-paren">(</span><em class="sig-param">rc=RunControl(builddir='_build'</em>, <em class="sig-param">force=False</em>, <em class="sig-param">mongodbpath=&lt;property object&gt;</em>, <em class="sig-param">user_config='/home/travis/.config/regolith/user.json')</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/broker.html#Broker"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.broker.Broker" title="Permalink to this definition">¶</a></dt>
+<dl class="py class">
+<dt class="sig sig-object py" id="regolith.broker.Broker">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">regolith.broker.</span></span><span class="sig-name descname"><span class="pre">Broker</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rc=RunControl(builddir='_build'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">force=False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mongodbpath=&lt;property</span> <span class="pre">object&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">user_config='/home/travis/.config/regolith/user.json')</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/broker.html#Broker"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#regolith.broker.Broker" title="Permalink to this definition">¶</a></dt>
 <dd><p>Interface to the database and file storage systems</p>
 <p class="rubric">Examples</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># Load the db</span>
@@ -82,12 +82,12 @@
 <span class="gp">&gt;&gt;&gt; </span><span class="n">path</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">get_file_path</span><span class="p">(</span><span class="n">ergs</span><span class="p">,</span> <span class="s1">&#39;myfile&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<dl class="method">
-<dt id="regolith.broker.Broker.add_file">
-<code class="sig-name descname">add_file</code><span class="sig-paren">(</span><em class="sig-param">document</em>, <em class="sig-param">name</em>, <em class="sig-param">filepath</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/broker.html#Broker.add_file"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.broker.Broker.add_file" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="regolith.broker.Broker.add_file">
+<span class="sig-name descname"><span class="pre">add_file</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">document</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filepath</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/broker.html#Broker.add_file"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#regolith.broker.Broker.add_file" title="Permalink to this definition">¶</a></dt>
 <dd><p>Add a file to a document in a collection.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>document</strong> (<em>dict</em>) – The document to add the file to</p></li>
 <li><p><strong>name</strong> (<em>str</em>) – Name of the reference to the file</p></li>
@@ -97,29 +97,29 @@
 </dl>
 </dd></dl>
 
-<dl class="method">
-<dt id="regolith.broker.Broker.from_rc">
-<em class="property">classmethod </em><code class="sig-name descname">from_rc</code><span class="sig-paren">(</span><em class="sig-param">rc_file='regolithrc.json'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/broker.html#Broker.from_rc"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.broker.Broker.from_rc" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="regolith.broker.Broker.from_rc">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_rc</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rc_file</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'regolithrc.json'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/broker.html#Broker.from_rc"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#regolith.broker.Broker.from_rc" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a Broker instance</p>
 </dd></dl>
 
-<dl class="method">
-<dt id="regolith.broker.Broker.get_file_path">
-<code class="sig-name descname">get_file_path</code><span class="sig-paren">(</span><em class="sig-param">document</em>, <em class="sig-param">name</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/broker.html#Broker.get_file_path"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.broker.Broker.get_file_path" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="regolith.broker.Broker.get_file_path">
+<span class="sig-name descname"><span class="pre">get_file_path</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">document</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/broker.html#Broker.get_file_path"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#regolith.broker.Broker.get_file_path" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get a file from the file storage associated with the document and
 name</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>document</strong> (<em>dict</em>) – The document which stores the reference to the file</p></li>
 <li><p><strong>name</strong> (<em>str</em>) – The name of the file stored (note that this can be different from
 the filename itself)</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dt class="field-even">Returns</dt>
 <dd class="field-even"><p><strong>path</strong> – The file path, if not in the storage None</p>
 </dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p>str or None</p>
 </dd>
 </dl>
@@ -127,15 +127,16 @@ the filename itself)</p></li>
 
 </dd></dl>
 
-<dl class="function">
-<dt id="regolith.broker.load_db">
-<code class="sig-prename descclassname">regolith.broker.</code><code class="sig-name descname">load_db</code><span class="sig-paren">(</span><em class="sig-param">rc_file='regolithrc.json'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/broker.html#load_db"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#regolith.broker.load_db" title="Permalink to this definition">¶</a></dt>
+<dl class="py function">
+<dt class="sig sig-object py" id="regolith.broker.load_db">
+<span class="sig-prename descclassname"><span class="pre">regolith.broker.</span></span><span class="sig-name descname"><span class="pre">load_db</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rc_file</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'regolithrc.json'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/broker.html#load_db"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#regolith.broker.load_db" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create a Broker instance from an rc file</p>
 </dd></dl>
 
-</section>
+</div>
 
 
+            <div class="clearer"></div>
           </div>
         </div>
       </div>
@@ -158,12 +159,12 @@ the filename itself)</p></li>
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
       <input type="submit" value="Go" />
     </form>
     </div>
 </div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
+<script>$('#searchbox').show(0);</script>
         </div>
       </div>
     
@@ -198,7 +199,8 @@ the filename itself)</p></li>
              >previous</a> &nbsp; &nbsp;</li>
     <li><a href="../index.html">regolith</a> &#187;</li>
 
-          <li class="nav-item nav-item-1"><a href="index.html" >Regolith API</a> &#187;</li> 
+          <li class="nav-item nav-item-1"><a href="index.html" >Regolith API</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Data Broker (<code class="docutils literal notranslate"><span class="pre">regolith.broker</span></code>)</a></li> 
       </ul>
     </div>
     </div>
