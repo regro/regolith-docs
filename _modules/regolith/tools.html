@@ -80,7 +80,7 @@
 <span class="kn">from</span> <span class="nn">regolith.sorters</span> <span class="kn">import</span> <span class="n">id_key</span><span class="p">,</span> <span class="n">ene_date_key</span><span class="p">,</span> \
     <span class="n">doc_date_key_high</span>
 <span class="kn">from</span> <span class="nn">regolith.schemas</span> <span class="kn">import</span> <span class="n">APPOINTMENTS_TYPES</span><span class="p">,</span> <span class="n">PRESENTATION_TYPES</span><span class="p">,</span> <span class="n">PRESENTATION_STATI</span>
-<span class="kn">from</span> <span class="nn">requests</span> <span class="kn">import</span> <span class="n">HTTPError</span>
+<span class="kn">from</span> <span class="nn">requests.exceptions</span> <span class="kn">import</span> <span class="n">HTTPError</span>
 
 <span class="k">try</span><span class="p">:</span>
     <span class="kn">from</span> <span class="nn">bibtexparser.bwriter</span> <span class="kn">import</span> <span class="n">BibTexWriter</span>
@@ -922,6 +922,8 @@
         <span class="n">ent</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">pub</span><span class="p">)</span>
         <span class="n">ent</span><span class="p">[</span><span class="s2">&quot;ID&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ent</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;_id&quot;</span><span class="p">)</span>
         <span class="n">ent</span><span class="p">[</span><span class="s2">&quot;ENTRYTYPE&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ent</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;entrytype&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">ent</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;doi&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="s1">&#39;tbd&#39;</span><span class="p">:</span>
+            <span class="k">del</span> <span class="n">ent</span><span class="p">[</span><span class="s1">&#39;doi&#39;</span><span class="p">]</span>
         <span class="k">if</span> <span class="n">ent</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;supplementary_info_urls&quot;</span><span class="p">):</span>
             <span class="n">ent</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s2">&quot;supplementary_info_urls&quot;</span><span class="p">:</span>
                             <span class="s2">&quot;, &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">ent</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;supplementary_info_urls&quot;</span><span class="p">))})</span>
