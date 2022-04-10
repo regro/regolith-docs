@@ -119,11 +119,14 @@
 <dt class="field-even">notes</dt>
 <dd class="field-even"><p>[‘list’, ‘string’], any reminder or memory aid about anything, optional</p>
 </dd>
-<dt class="field-odd">project</dt>
-<dd class="field-odd"><p>[‘string’, ‘list’], project or list of projects that this presentation is associated with.  Should be discoverable in projects collection, optional</p>
+<dt class="field-odd">presentation_url</dt>
+<dd class="field-odd"><p>string, the url to the presentation on Google slides, GitHub or wherever, optional</p>
 </dd>
-<dt class="field-even">status</dt>
-<dd class="field-even"><p>string, Is the application in prep or submitted, was the invitation accepted or declined, was the trip cancelled?, required</p>
+<dt class="field-even">project</dt>
+<dd class="field-even"><p>[‘string’, ‘list’], project or list of projects that this presentation is associated with.  Should be discoverable in projects collection, optional</p>
+</dd>
+<dt class="field-odd">status</dt>
+<dd class="field-odd"><p>string, Is the application in prep or submitted, was the invitation accepted or declined, was the trip cancelled?, required</p>
 <dl class="simple">
 <dt>Allowed values:</dt><dd><ul class="simple">
 <li><p>in-prep</p></li>
@@ -136,11 +139,11 @@
 </dd>
 </dl>
 </dd>
-<dt class="field-odd">title</dt>
-<dd class="field-odd"><p>string, title of the presentation, required</p>
+<dt class="field-even">title</dt>
+<dd class="field-even"><p>string, title of the presentation, required</p>
 </dd>
-<dt class="field-even">type</dt>
-<dd class="field-even"><p>string, type of presentation, required</p>
+<dt class="field-odd">type</dt>
+<dd class="field-odd"><p>string, type of presentation, required</p>
 <dl class="simple">
 <dt>Allowed values:</dt><dd><ul class="simple">
 <li><p>award</p></li>
@@ -157,8 +160,8 @@
 </dd>
 </dl>
 </dd>
-<dt class="field-odd">webinar</dt>
-<dd class="field-odd"><p>boolean, true if a webinar. Default to False, optional</p>
+<dt class="field-even">webinar</dt>
+<dd class="field-even"><p>boolean, true if a webinar. Default to False, optional</p>
 </dd>
 </dl>
 </div>
@@ -221,6 +224,7 @@
 <span class="w">  </span><span class="nt">notes</span><span class="p">:</span><span class="w"></span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">We hope the weather will be sunny</span><span class="w"></span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">if the weather is nice we will go to the beach</span><span class="w"></span>
+<span class="w">  </span><span class="nt">presentation_url</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://github.com/blob/my_talk.pdf</span><span class="w"></span>
 <span class="w">  </span><span class="nt">project</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">18sob_clustermining</span><span class="w"></span>
 <span class="w">  </span><span class="nt">status</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">accepted</span><span class="w"></span>
 <span class="w">  </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Graphitic Dephenestration</span><span class="w"></span>
@@ -297,6 +301,7 @@
 <span class="w">        </span><span class="s2">&quot;We hope the weather will be sunny&quot;</span><span class="p">,</span><span class="w"></span>
 <span class="w">        </span><span class="s2">&quot;if the weather is nice we will go to the beach&quot;</span><span class="w"></span>
 <span class="w">    </span><span class="p">],</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;presentation_url&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://github.com/blob/my_talk.pdf&quot;</span><span class="p">,</span><span class="w"></span>
 <span class="w">    </span><span class="nt">&quot;project&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;18sob_clustermining&quot;</span><span class="p">,</span><span class="w"></span>
 <span class="w">    </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;accepted&quot;</span><span class="p">,</span><span class="w"></span>
 <span class="w">    </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Graphitic Dephenestration&quot;</span><span class="p">,</span><span class="w"></span>

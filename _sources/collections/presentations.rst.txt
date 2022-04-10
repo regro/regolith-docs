@@ -22,6 +22,7 @@ The following lists key names mapped to its type and meaning for each entry.
 :location: string, city and {state or country} of meeting, optional
 :meeting_name: string, full name of the conference or meeting.  If it is a departmental seminar or colloquium, write Seminaror Colloquium and fill in department and institution fields, optional
 :notes: ['list', 'string'], any reminder or memory aid about anything, optional
+:presentation_url: string, the url to the presentation on Google slides, GitHub or wherever, optional
 :project: ['string', 'list'], project or list of projects that this presentation is associated with.  Should be discoverable in projects collection, optional
 :status: string, Is the application in prep or submitted, was the invitation accepted or declined, was the trip cancelled?, required
 
@@ -111,6 +112,7 @@ YAML Example
 	  notes:
 	    - We hope the weather will be sunny
 	    - if the weather is nice we will go to the beach
+	  presentation_url: http://github.com/blob/my_talk.pdf
 	  project: 18sob_clustermining
 	  status: accepted
 	  title: Graphitic Dephenestration
@@ -189,6 +191,7 @@ JSON/Mongo Example
 	        "We hope the weather will be sunny",
 	        "if the weather is nice we will go to the beach"
 	    ],
+	    "presentation_url": "http://github.com/blob/my_talk.pdf",
 	    "project": "18sob_clustermining",
 	    "status": "accepted",
 	    "title": "Graphitic Dephenestration",
