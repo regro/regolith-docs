@@ -3,10 +3,11 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
     <title>Projecta &#8212; regolith - software group content managment system</title>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/cloud.css" />
@@ -15,6 +16,7 @@
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
 
     
@@ -64,47 +66,47 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="projecta">
-<h1>Projecta<a class="headerlink" href="#projecta" title="Permalink to this headline">¶</a></h1>
+  <section id="projecta">
+<h1>Projecta<a class="headerlink" href="#projecta" title="Permalink to this heading">¶</a></h1>
 <p>This collection describes a single deliverable of a larger project.</p>
-<div class="section" id="schema">
-<h2>Schema<a class="headerlink" href="#schema" title="Permalink to this headline">¶</a></h2>
+<section id="schema">
+<h2>Schema<a class="headerlink" href="#schema" title="Permalink to this heading">¶</a></h2>
 <p>The following lists key names mapped to its type and meaning for each entry.</p>
 <dl class="field-list">
-<dt class="field-odd">_id</dt>
+<dt class="field-odd">_id<span class="colon">:</span></dt>
 <dd class="field-odd"><p>string, Unique projectum identifier, required</p>
 </dd>
-<dt class="field-even">begin_date</dt>
+<dt class="field-even">begin_date<span class="colon">:</span></dt>
 <dd class="field-even"><p>[‘string’, ‘date’], projectum start date, yyyy-mm-dd, optional</p>
 </dd>
-<dt class="field-odd">collaborators</dt>
+<dt class="field-odd">collaborators<span class="colon">:</span></dt>
 <dd class="field-odd"><p>list, list of collaborators ids. These are non-group members. These will be dereferenced from the contacts collection., optional</p>
 </dd>
-<dt class="field-even">deliverable</dt>
+<dt class="field-even">deliverable<span class="colon">:</span></dt>
 <dd class="field-even"><p>dict, outline of the deliverable for this projectum, required</p>
 <dl class="field-list">
-<dt class="field-odd">audience</dt>
+<dt class="field-odd">audience<span class="colon">:</span></dt>
 <dd class="field-odd"><p>list, the target audience for this deliverable, optional</p>
 </dd>
-<dt class="field-even">due_date</dt>
+<dt class="field-even">due_date<span class="colon">:</span></dt>
 <dd class="field-even"><p>[‘date’, ‘string’], due date of deliverable, yyyy-mm-dd, optional</p>
 </dd>
-<dt class="field-odd">success_def</dt>
+<dt class="field-odd">success_def<span class="colon">:</span></dt>
 <dd class="field-odd"><p>string, definition of a successful deliverable, optional</p>
 </dd>
-<dt class="field-even">scope</dt>
+<dt class="field-even">scope<span class="colon">:</span></dt>
 <dd class="field-even"><p>list, a list of items that define the scope of the deliverable.If this is a software release it might be a list of Use Cases that will be satisfied.If it is a paper it defines what will, and what won’t, be described in the paper., optional</p>
 </dd>
-<dt class="field-odd">platform</dt>
+<dt class="field-odd">platform<span class="colon">:</span></dt>
 <dd class="field-odd"><p>string, description of how and where the audience will access the deliverable.e.g. Journal if it is a paper. For software releases, this may be the computer operating systems that will be supported, or if it will be a web service, etc., optional</p>
 </dd>
-<dt class="field-even">roll_out</dt>
+<dt class="field-even">roll_out<span class="colon">:</span></dt>
 <dd class="field-even"><p>list, steps that the audience will take to access and interact with the deliverable, not needed for paper submissions, optional</p>
 </dd>
-<dt class="field-odd">notes</dt>
+<dt class="field-odd">notes<span class="colon">:</span></dt>
 <dd class="field-odd"><p>list, any notes about the deliverable that we want to keep track of, optional</p>
 </dd>
-<dt class="field-even">status</dt>
+<dt class="field-even">status<span class="colon">:</span></dt>
 <dd class="field-even"><p>string, status of the deliverable. Allowed values are proposed, converged, started, backburner, paused, cancelled, finished, optional</p>
 <dl class="simple">
 <dt>Allowed values:</dt><dd><ul class="simple">
@@ -120,48 +122,48 @@
 </dd>
 </dl>
 </dd>
-<dt class="field-odd">type</dt>
+<dt class="field-odd">type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>string, type of deliverable, optional</p>
 </dd>
 </dl>
 </dd>
-<dt class="field-odd">description</dt>
+<dt class="field-odd">description<span class="colon">:</span></dt>
 <dd class="field-odd"><p>string, explanation of projectum, optional</p>
 </dd>
-<dt class="field-even">end_date</dt>
+<dt class="field-even">end_date<span class="colon">:</span></dt>
 <dd class="field-even"><p>[‘date’, ‘string’], projectum end date, yyyy-mm-dd., optional</p>
 </dd>
-<dt class="field-odd">grants</dt>
+<dt class="field-odd">grants<span class="colon">:</span></dt>
 <dd class="field-odd"><p>[‘string’, ‘list’], grant id funding the project, optional</p>
 </dd>
-<dt class="field-even">group_members</dt>
+<dt class="field-even">group_members<span class="colon">:</span></dt>
 <dd class="field-even"><p>list, list of group member id’s working on this project,These will be dereferenced from the people collection., optional</p>
 </dd>
-<dt class="field-odd">kickoff</dt>
+<dt class="field-odd">kickoff<span class="colon">:</span></dt>
 <dd class="field-odd"><p>dict, details the projectum kickoff meeting, optional</p>
 <dl class="field-list">
-<dt class="field-odd">date</dt>
+<dt class="field-odd">date<span class="colon">:</span></dt>
 <dd class="field-odd"><p>[‘date’, ‘string’], kickoff meeting date, yyyy-mm-dd., optional</p>
 </dd>
-<dt class="field-even">due_date</dt>
+<dt class="field-even">due_date<span class="colon">:</span></dt>
 <dd class="field-even"><p>[‘date’, ‘string’], kickoff meeting by date, yyyy-mm-dd., optional</p>
 </dd>
-<dt class="field-odd">end_date</dt>
+<dt class="field-odd">end_date<span class="colon">:</span></dt>
 <dd class="field-odd"><p>[‘date’, ‘string’], date when the kickoff was done, optional</p>
 </dd>
-<dt class="field-even">name</dt>
+<dt class="field-even">name<span class="colon">:</span></dt>
 <dd class="field-even"><p>string, name of meeting, optional</p>
 </dd>
-<dt class="field-odd">objective</dt>
+<dt class="field-odd">objective<span class="colon">:</span></dt>
 <dd class="field-odd"><p>string, goal of the meeting, optional</p>
 </dd>
-<dt class="field-even">audience</dt>
+<dt class="field-even">audience<span class="colon">:</span></dt>
 <dd class="field-even"><p>list, list of people attending the meeting.Normally this list is group_members, collaborators, and pi, or some subset of these. if people are invited who are not alreadyin these groups their names or id’s can be added explicitly to the list, optional</p>
 </dd>
-<dt class="field-odd">notes</dt>
+<dt class="field-odd">notes<span class="colon">:</span></dt>
 <dd class="field-odd"><p>list, any notes about the kickoff, optional</p>
 </dd>
-<dt class="field-even">status</dt>
+<dt class="field-even">status<span class="colon">:</span></dt>
 <dd class="field-even"><p>string, status of the kickoff. Allowed values are proposed, converged, started, backburner, paused, cancelled, finished, optional</p>
 <dl class="simple">
 <dt>Allowed values:</dt><dd><ul class="simple">
@@ -179,53 +181,53 @@
 </dd>
 </dl>
 </dd>
-<dt class="field-even">lead</dt>
+<dt class="field-even">lead<span class="colon">:</span></dt>
 <dd class="field-even"><p>string, the id of the lead student or person for the projectum. Person details will be dereferenced from the people collection., required</p>
 </dd>
-<dt class="field-odd">log_url</dt>
+<dt class="field-odd">log_url<span class="colon">:</span></dt>
 <dd class="field-odd"><p>string, link to an online document (e.g., Google doc) that is a log of notes and meeting minutes for the projectum, optional</p>
 </dd>
-<dt class="field-even">milestones</dt>
+<dt class="field-even">milestones<span class="colon">:</span></dt>
 <dd class="field-even"><p>list, smaller deliverables done by a certain date a series of milestones ends with the projectum deliverable, optional</p>
 <dl class="field-list">
-<dt class="field-odd">type</dt>
+<dt class="field-odd">type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>dict, optional</p>
 <dl class="field-list">
-<dt class="field-odd">due_date</dt>
+<dt class="field-odd">due_date<span class="colon">:</span></dt>
 <dd class="field-odd"><p>[‘date’, ‘string’], due date of milestone, yyyy-mm-dd, optional</p>
 </dd>
-<dt class="field-even">name</dt>
+<dt class="field-even">name<span class="colon">:</span></dt>
 <dd class="field-even"><p>string, what is the deliverable of milestone, optional</p>
 </dd>
-<dt class="field-odd">notes</dt>
+<dt class="field-odd">notes<span class="colon">:</span></dt>
 <dd class="field-odd"><p>list, any notes about the milestone and/or small, non-deliverable to-dos to reach the milestone, optional</p>
 </dd>
-<dt class="field-even">progress</dt>
+<dt class="field-even">progress<span class="colon">:</span></dt>
 <dd class="field-even"><p>list, update on the milestone, optional</p>
 <dl class="field-list simple">
-<dt class="field-odd">type</dt>
+<dt class="field-odd">type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>dict, optional</p>
 <dl class="field-list simple">
-<dt class="field-odd">text</dt>
+<dt class="field-odd">text<span class="colon">:</span></dt>
 <dd class="field-odd"><p>string, text description of progress and observations, optional</p>
 </dd>
-<dt class="field-even">figure</dt>
+<dt class="field-even">figure<span class="colon">:</span></dt>
 <dd class="field-even"><p>string, token that dereferences a figure or image in group local storage db, optional</p>
 </dd>
-<dt class="field-odd">slides_url</dt>
+<dt class="field-odd">slides_url<span class="colon">:</span></dt>
 <dd class="field-odd"><p>string, url to slides describing the development, e.g., Google slides url, optional</p>
 </dd>
 </dl>
 </dd>
 </dl>
 </dd>
-<dt class="field-odd">objective</dt>
+<dt class="field-odd">objective<span class="colon">:</span></dt>
 <dd class="field-odd"><p>string, explains goal of the milestone, optional</p>
 </dd>
-<dt class="field-even">audience</dt>
+<dt class="field-even">audience<span class="colon">:</span></dt>
 <dd class="field-even"><p>list, list of people attending the meeting.Normally this list is group_members, collaborators, and pi, or some subset of these. if people are invited who are not alreadyin these groups their names or id’s can be added explicitly to the list, optional</p>
 </dd>
-<dt class="field-odd">status</dt>
+<dt class="field-odd">status<span class="colon">:</span></dt>
 <dd class="field-odd"><p>string, status of the milestone. Allowed values are proposed, converged, started, backburner, paused, cancelled, finished, optional</p>
 <dl class="simple">
 <dt>Allowed values:</dt><dd><ul class="simple">
@@ -241,7 +243,7 @@
 </dd>
 </dl>
 </dd>
-<dt class="field-even">type</dt>
+<dt class="field-even">type<span class="colon">:</span></dt>
 <dd class="field-even"><p>string, type of milestone deliverable. Allowed values are mergedpr, meeting, other, paper, release, email, handin, purchase, approval, presentation, report, submission, decision, demo, skel, optional</p>
 <dl class="simple">
 <dt>Allowed values:</dt><dd><ul class="simple">
@@ -264,32 +266,32 @@
 </dd>
 </dl>
 </dd>
-<dt class="field-odd">end_date</dt>
+<dt class="field-odd">end_date<span class="colon">:</span></dt>
 <dd class="field-odd"><p>[‘date’, ‘string’], end date of milestone, yyyy-mm-dd, optional</p>
 </dd>
-<dt class="field-even">identifier</dt>
+<dt class="field-even">identifier<span class="colon">:</span></dt>
 <dd class="field-even"><p>string, label of milestone, optional</p>
 </dd>
 </dl>
 </dd>
 </dl>
 </dd>
-<dt class="field-odd">name</dt>
+<dt class="field-odd">name<span class="colon">:</span></dt>
 <dd class="field-odd"><p>string, name of the projectum, optional</p>
 </dd>
-<dt class="field-even">notes</dt>
+<dt class="field-even">notes<span class="colon">:</span></dt>
 <dd class="field-even"><p>list, notes about the projectum, optional</p>
 </dd>
-<dt class="field-odd">other_urls</dt>
+<dt class="field-odd">other_urls<span class="colon">:</span></dt>
 <dd class="field-odd"><p>list, link to remote repository. e.g. analysis or data repositories, optional</p>
 </dd>
-<dt class="field-even">pi_id</dt>
+<dt class="field-even">pi_id<span class="colon">:</span></dt>
 <dd class="field-even"><p>string, id of the PI, optional</p>
 </dd>
-<dt class="field-odd">product_url</dt>
+<dt class="field-odd">product_url<span class="colon">:</span></dt>
 <dd class="field-odd"><p>string, url for manuscript or code repository, optional</p>
 </dd>
-<dt class="field-even">status</dt>
+<dt class="field-even">status<span class="colon">:</span></dt>
 <dd class="field-even"><p>string, status of the projectum. Allowed values are proposed, converged, started, backburner, paused, cancelled, finished, required</p>
 <dl class="simple">
 <dt>Allowed values:</dt><dd><ul class="simple">
@@ -305,13 +307,13 @@
 </dd>
 </dl>
 </dd>
-<dt class="field-odd">supplementary_info_urls</dt>
+<dt class="field-odd">supplementary_info_urls<span class="colon">:</span></dt>
 <dd class="field-odd"><p>list, list of urls that are links to repos gdocs, etc. that contain supplementary info such as data or code snippets, optional</p>
 </dd>
 </dl>
-</div>
-<div class="section" id="yaml-example">
-<h2>YAML Example<a class="headerlink" href="#yaml-example" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="yaml-example">
+<h2>YAML Example<a class="headerlink" href="#yaml-example" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">ab_inactive</span><span class="p">:</span><span class="w"></span>
 <span class="w">  </span><span class="nt">begin_date</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;2020-05-03&#39;</span><span class="w"></span>
 <span class="w">  </span><span class="nt">deliverable</span><span class="p">:</span><span class="w"></span>
@@ -455,9 +457,9 @@
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://nytimes.com</span><span class="w"></span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="json-mongo-example">
-<h2>JSON/Mongo Example<a class="headerlink" href="#json-mongo-example" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="json-mongo-example">
+<h2>JSON/Mongo Example<a class="headerlink" href="#json-mongo-example" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="nt">&quot;_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ab_inactive&quot;</span><span class="p">,</span><span class="w"></span>
 <span class="w">    </span><span class="nt">&quot;begin_date&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2020-05-03&quot;</span><span class="p">,</span><span class="w"></span>
@@ -650,8 +652,8 @@
 <span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
-</div>
-</div>
+</section>
+</section>
 
 
             <div class="clearer"></div>
@@ -693,7 +695,7 @@
     </form>
     </div>
 </div>
-<script>$('#searchbox').show(0);</script>
+<script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
     

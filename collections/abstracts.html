@@ -3,10 +3,11 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
     <title>Abstracts &#8212; regolith - software group content managment system</title>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/cloud.css" />
@@ -15,6 +16,7 @@
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
 
     
@@ -64,47 +66,47 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="abstracts">
-<h1>Abstracts<a class="headerlink" href="#abstracts" title="Permalink to this headline">¶</a></h1>
+  <section id="abstracts">
+<h1>Abstracts<a class="headerlink" href="#abstracts" title="Permalink to this heading">¶</a></h1>
 <p>Abstracts for a conference or workshop. This is generally public information</p>
-<div class="section" id="schema">
-<h2>Schema<a class="headerlink" href="#schema" title="Permalink to this headline">¶</a></h2>
+<section id="schema">
+<h2>Schema<a class="headerlink" href="#schema" title="Permalink to this heading">¶</a></h2>
 <p>The following lists key names mapped to its type and meaning for each entry.</p>
 <dl class="field-list simple">
-<dt class="field-odd">_id</dt>
+<dt class="field-odd">_id<span class="colon">:</span></dt>
 <dd class="field-odd"><p>string, Unique identifier for submission. This generally includes the author name and part of the title., required</p>
 </dd>
-<dt class="field-even">coauthors</dt>
+<dt class="field-even">coauthors<span class="colon">:</span></dt>
 <dd class="field-even"><p>string, names of coauthors, optional</p>
 </dd>
-<dt class="field-odd">email</dt>
+<dt class="field-odd">email<span class="colon">:</span></dt>
 <dd class="field-odd"><p>string, contact email for the author., required</p>
 </dd>
-<dt class="field-even">firstname</dt>
+<dt class="field-even">firstname<span class="colon">:</span></dt>
 <dd class="field-even"><p>string, first name of the author., required</p>
 </dd>
-<dt class="field-odd">institution</dt>
+<dt class="field-odd">institution<span class="colon">:</span></dt>
 <dd class="field-odd"><p>string, name of the institution, required</p>
 </dd>
-<dt class="field-even">lastname</dt>
+<dt class="field-even">lastname<span class="colon">:</span></dt>
 <dd class="field-even"><p>string, last name of the author., required</p>
 </dd>
-<dt class="field-odd">references</dt>
+<dt class="field-odd">references<span class="colon">:</span></dt>
 <dd class="field-odd"><p>string, HTML string of reference for the abstract itself, optional</p>
 </dd>
-<dt class="field-even">text</dt>
+<dt class="field-even">text<span class="colon">:</span></dt>
 <dd class="field-even"><p>string, HTML string of the abstract., required</p>
 </dd>
-<dt class="field-odd">timestamp</dt>
+<dt class="field-odd">timestamp<span class="colon">:</span></dt>
 <dd class="field-odd"><p>string, The time when the abstract was submitted., required</p>
 </dd>
-<dt class="field-even">title</dt>
+<dt class="field-even">title<span class="colon">:</span></dt>
 <dd class="field-even"><p>string, title of the presentation/paper., required</p>
 </dd>
 </dl>
-</div>
-<div class="section" id="yaml-example">
-<h2>YAML Example<a class="headerlink" href="#yaml-example" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="yaml-example">
+<h2>YAML Example<a class="headerlink" href="#yaml-example" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">Mouginot.Model</span><span class="p">:</span><span class="w"></span>
 <span class="w">  </span><span class="nt">coauthors</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">P.P.H. Wilson</span><span class="w"></span>
 <span class="w">  </span><span class="nt">email</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mouginot@wisc.edu</span><span class="w"></span>
@@ -119,9 +121,9 @@
 <span class="w">  </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Model Performance Analysis</span><span class="w"></span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="json-mongo-example">
-<h2>JSON/Mongo Example<a class="headerlink" href="#json-mongo-example" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="json-mongo-example">
+<h2>JSON/Mongo Example<a class="headerlink" href="#json-mongo-example" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="nt">&quot;_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Mouginot.Model&quot;</span><span class="p">,</span><span class="w"></span>
 <span class="w">    </span><span class="nt">&quot;coauthors&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;P.P.H. Wilson&quot;</span><span class="p">,</span><span class="w"></span>
@@ -136,8 +138,8 @@
 <span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
-</div>
-</div>
+</section>
+</section>
 
 
             <div class="clearer"></div>
@@ -179,7 +181,7 @@
     </form>
     </div>
 </div>
-<script>$('#searchbox').show(0);</script>
+<script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
     

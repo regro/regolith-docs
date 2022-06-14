@@ -3,10 +3,11 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
     <title>Expenses &#8212; regolith - software group content managment system</title>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/cloud.css" />
@@ -15,6 +16,7 @@
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
 
     
@@ -64,38 +66,38 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="expenses">
-<h1>Expenses<a class="headerlink" href="#expenses" title="Permalink to this headline">¶</a></h1>
+  <section id="expenses">
+<h1>Expenses<a class="headerlink" href="#expenses" title="Permalink to this heading">¶</a></h1>
 <p>This collection records expenses for the group. It should most likely be private</p>
-<div class="section" id="schema">
-<h2>Schema<a class="headerlink" href="#schema" title="Permalink to this headline">¶</a></h2>
+<section id="schema">
+<h2>Schema<a class="headerlink" href="#schema" title="Permalink to this heading">¶</a></h2>
 <p>The following lists key names mapped to its type and meaning for each entry.</p>
 <dl class="field-list">
-<dt class="field-odd">_id</dt>
+<dt class="field-odd">_id<span class="colon">:</span></dt>
 <dd class="field-odd"><p>string, short representation, such as this-is-my-name, required</p>
 </dd>
-<dt class="field-even">begin_date</dt>
+<dt class="field-even">begin_date<span class="colon">:</span></dt>
 <dd class="field-even"><p>[‘string’, ‘date’], begin date in YYYY-MM-DD, optional</p>
 </dd>
-<dt class="field-odd">begin_day</dt>
+<dt class="field-odd">begin_day<span class="colon">:</span></dt>
 <dd class="field-odd"><p>integer, The day when the travel/business started, optional</p>
 </dd>
-<dt class="field-even">begin_month</dt>
+<dt class="field-even">begin_month<span class="colon">:</span></dt>
 <dd class="field-even"><p>[‘string’, ‘integer’], The month when the travel/business started, optional</p>
 </dd>
-<dt class="field-odd">begin_year</dt>
+<dt class="field-odd">begin_year<span class="colon">:</span></dt>
 <dd class="field-odd"><p>integer, The year when the travel/business started, optional</p>
 </dd>
-<dt class="field-even">end_date</dt>
+<dt class="field-even">end_date<span class="colon">:</span></dt>
 <dd class="field-even"><p>[‘string’, ‘date’], end date in YYYY-MM-DD, optional</p>
 </dd>
-<dt class="field-odd">end_day</dt>
+<dt class="field-odd">end_day<span class="colon">:</span></dt>
 <dd class="field-odd"><p>integer, The day when the travel/business end, optional</p>
 </dd>
-<dt class="field-even">end_month</dt>
+<dt class="field-even">end_month<span class="colon">:</span></dt>
 <dd class="field-even"><p>[‘string’, ‘integer’], The month when the travel/business end, optional</p>
 </dd>
-<dt class="field-odd">end_year</dt>
+<dt class="field-odd">end_year<span class="colon">:</span></dt>
 <dd class="field-odd"><p>integer, The year when the travel/business end, optional</p>
 <dl class="simple">
 <dt>Allowed values:</dt><dd><ul class="simple">
@@ -105,102 +107,102 @@
 </dd>
 </dl>
 </dd>
-<dt class="field-even">grant_percentages</dt>
+<dt class="field-even">grant_percentages<span class="colon">:</span></dt>
 <dd class="field-even"><p>list, the percentage of the reimbursement amount to put on each grant. This list must be the same length asthe grants list and the percentages placed in the order that the grants appear in that list, optional</p>
 </dd>
-<dt class="field-odd">grants</dt>
+<dt class="field-odd">grants<span class="colon">:</span></dt>
 <dd class="field-odd"><p>[‘string’, ‘list’], the grants in a list, or a string if only one grant, required</p>
 </dd>
-<dt class="field-even">itemized_expenses</dt>
+<dt class="field-even">itemized_expenses<span class="colon">:</span></dt>
 <dd class="field-even"><p>list, optional</p>
 <dl class="field-list simple">
-<dt class="field-odd">type</dt>
+<dt class="field-odd">type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>dict, optional</p>
 <dl class="field-list simple">
-<dt class="field-odd">day</dt>
+<dt class="field-odd">day<span class="colon">:</span></dt>
 <dd class="field-odd"><p>integer, Expense day, optional</p>
 </dd>
-<dt class="field-even">date</dt>
+<dt class="field-even">date<span class="colon">:</span></dt>
 <dd class="field-even"><p>[‘string’, ‘date’], Expense date, optional</p>
 </dd>
-<dt class="field-odd">month</dt>
+<dt class="field-odd">month<span class="colon">:</span></dt>
 <dd class="field-odd"><p>[‘string’, ‘integer’], Expense month, optional</p>
 </dd>
-<dt class="field-even">year</dt>
+<dt class="field-even">year<span class="colon">:</span></dt>
 <dd class="field-even"><p>integer, Expense year, optional</p>
 </dd>
-<dt class="field-odd">purpose</dt>
+<dt class="field-odd">purpose<span class="colon">:</span></dt>
 <dd class="field-odd"><p>string, reason for expense, optional</p>
 </dd>
-<dt class="field-even">unsegregated_expense</dt>
+<dt class="field-even">unsegregated_expense<span class="colon">:</span></dt>
 <dd class="field-even"><p>float, The allowed expenses, optional</p>
 </dd>
-<dt class="field-odd">segregated_expense</dt>
+<dt class="field-odd">segregated_expense<span class="colon">:</span></dt>
 <dd class="field-odd"><p>float, The unallowed expenses, optional</p>
 </dd>
-<dt class="field-even">original_currency</dt>
+<dt class="field-even">original_currency<span class="colon">:</span></dt>
 <dd class="field-even"><p>float, The currency the payment was made in, optional</p>
 </dd>
-<dt class="field-odd">prepaid_expense</dt>
+<dt class="field-odd">prepaid_expense<span class="colon">:</span></dt>
 <dd class="field-odd"><p>float, The amount of prepaid expense in USD, optional</p>
 </dd>
 </dl>
 </dd>
 </dl>
 </dd>
-<dt class="field-odd">notes</dt>
+<dt class="field-odd">notes<span class="colon">:</span></dt>
 <dd class="field-odd"><p>[‘list’, ‘string’], Description of the expenses. It will not be included in the reimbursement form, optional</p>
 </dd>
-<dt class="field-even">overall_purpose</dt>
+<dt class="field-even">overall_purpose<span class="colon">:</span></dt>
 <dd class="field-even"><p>string, The reason for the expenses, required</p>
 </dd>
-<dt class="field-odd">payee</dt>
+<dt class="field-odd">payee<span class="colon">:</span></dt>
 <dd class="field-odd"><p>string, The name or id of the payee filing the expense, required</p>
 </dd>
-<dt class="field-even">project</dt>
+<dt class="field-even">project<span class="colon">:</span></dt>
 <dd class="field-even"><p>[‘string’, ‘list’], project or list of projects that this presentation is associated with.  Should be discoverable in projects collection, optional</p>
 </dd>
-<dt class="field-odd">reimbursements</dt>
+<dt class="field-odd">reimbursements<span class="colon">:</span></dt>
 <dd class="field-odd"><p>list, Reimbursements for the expense, optional</p>
 <dl class="field-list simple">
-<dt class="field-odd">type</dt>
+<dt class="field-odd">type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>dict, optional</p>
 <dl class="field-list simple">
-<dt class="field-odd">amount</dt>
+<dt class="field-odd">amount<span class="colon">:</span></dt>
 <dd class="field-odd"><p>float, amount for reimbursements, optional</p>
 </dd>
-<dt class="field-even">date</dt>
+<dt class="field-even">date<span class="colon">:</span></dt>
 <dd class="field-even"><p>[‘string’, ‘date’], date of reimbursement, optional</p>
 </dd>
-<dt class="field-odd">submission_date</dt>
+<dt class="field-odd">submission_date<span class="colon">:</span></dt>
 <dd class="field-odd"><p>[‘string’, ‘date’], date of submission, optional</p>
 </dd>
-<dt class="field-even">submission_day</dt>
+<dt class="field-even">submission_day<span class="colon">:</span></dt>
 <dd class="field-even"><p>integer, day of submission. deprecated but here for backwards compatibility, optional</p>
 </dd>
-<dt class="field-odd">submission_month</dt>
+<dt class="field-odd">submission_month<span class="colon">:</span></dt>
 <dd class="field-odd"><p>[‘integer’, ‘string’], month of submission. deprecated but here for backwards compatibility, optional</p>
 </dd>
-<dt class="field-even">submission_year</dt>
+<dt class="field-even">submission_year<span class="colon">:</span></dt>
 <dd class="field-even"><p>integer, year of submission. deprecated but here for backwards compatibility, optional</p>
 </dd>
-<dt class="field-odd">day</dt>
+<dt class="field-odd">day<span class="colon">:</span></dt>
 <dd class="field-odd"><p>integer, day of reimbursement. deprecated but here for backwards compatibility, optional</p>
 </dd>
-<dt class="field-even">month</dt>
+<dt class="field-even">month<span class="colon">:</span></dt>
 <dd class="field-even"><p>[‘string’, ‘integer’], month of reimbursement. deprecated but here for backwards compatibility, optional</p>
 </dd>
-<dt class="field-odd">year</dt>
+<dt class="field-odd">year<span class="colon">:</span></dt>
 <dd class="field-odd"><p>integer, year of reimbursement. deprecated but here for backwards compatibility, optional</p>
 </dd>
-<dt class="field-even">where</dt>
+<dt class="field-even">where<span class="colon">:</span></dt>
 <dd class="field-even"><p>string, where the reimbursement has been sent, optional</p>
 </dd>
 </dl>
 </dd>
 </dl>
 </dd>
-<dt class="field-even">status</dt>
+<dt class="field-even">status<span class="colon">:</span></dt>
 <dd class="field-even"><p>string, The status of the expense, optional</p>
 <dl class="simple">
 <dt>Allowed values:</dt><dd><ul class="simple">
@@ -212,9 +214,9 @@
 </dl>
 </dd>
 </dl>
-</div>
-<div class="section" id="yaml-example">
-<h2>YAML Example<a class="headerlink" href="#yaml-example" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="yaml-example">
+<h2>YAML Example<a class="headerlink" href="#yaml-example" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">test</span><span class="p">:</span><span class="w"></span>
 <span class="w">  </span><span class="nt">begin_date</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;2018-01-01&#39;</span><span class="w"></span>
 <span class="w">  </span><span class="nt">end_date</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;2018-01-10&#39;</span><span class="w"></span>
@@ -364,9 +366,9 @@
 <span class="w">  </span><span class="nt">status</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">bad_status</span><span class="w"></span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="json-mongo-example">
-<h2>JSON/Mongo Example<a class="headerlink" href="#json-mongo-example" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="json-mongo-example">
+<h2>JSON/Mongo Example<a class="headerlink" href="#json-mongo-example" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="nt">&quot;_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;test&quot;</span><span class="p">,</span><span class="w"></span>
 <span class="w">    </span><span class="nt">&quot;begin_date&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2018-01-01&quot;</span><span class="p">,</span><span class="w"></span>
@@ -566,8 +568,8 @@
 <span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
-</div>
-</div>
+</section>
+</section>
 
 
             <div class="clearer"></div>
@@ -609,7 +611,7 @@
     </form>
     </div>
 </div>
-<script>$('#searchbox').show(0);</script>
+<script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
     

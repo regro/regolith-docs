@@ -3,10 +3,11 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
     <title>Institutions &#8212; regolith - software group content managment system</title>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/cloud.css" />
@@ -15,6 +16,7 @@
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
 
     
@@ -64,65 +66,65 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="institutions">
-<h1>Institutions<a class="headerlink" href="#institutions" title="Permalink to this headline">¶</a></h1>
+  <section id="institutions">
+<h1>Institutions<a class="headerlink" href="#institutions" title="Permalink to this heading">¶</a></h1>
 <p>This collection will contain all the institutionsin the world and their departments and addresses</p>
-<div class="section" id="schema">
-<h2>Schema<a class="headerlink" href="#schema" title="Permalink to this headline">¶</a></h2>
+<section id="schema">
+<h2>Schema<a class="headerlink" href="#schema" title="Permalink to this heading">¶</a></h2>
 <p>The following lists key names mapped to its type and meaning for each entry.</p>
 <dl class="field-list simple">
-<dt class="field-odd">_id</dt>
+<dt class="field-odd">_id<span class="colon">:</span></dt>
 <dd class="field-odd"><p>string, unique identifier for the institution., required</p>
 </dd>
-<dt class="field-even">aka</dt>
+<dt class="field-even">aka<span class="colon">:</span></dt>
 <dd class="field-even"><p>list, list of all the different names this the institution is known by, optional</p>
 </dd>
-<dt class="field-odd">city</dt>
+<dt class="field-odd">city<span class="colon">:</span></dt>
 <dd class="field-odd"><p>string, the city where the institution is, required</p>
 </dd>
-<dt class="field-even">country</dt>
+<dt class="field-even">country<span class="colon">:</span></dt>
 <dd class="field-even"><p>string, The country where the institution is, required</p>
 </dd>
-<dt class="field-odd">date</dt>
+<dt class="field-odd">date<span class="colon">:</span></dt>
 <dd class="field-odd"><p>[‘string’, ‘date’], Expense date, optional</p>
 </dd>
-<dt class="field-even">day</dt>
+<dt class="field-even">day<span class="colon">:</span></dt>
 <dd class="field-even"><p>integer, the day the entry was created, optional</p>
 </dd>
-<dt class="field-odd">departments</dt>
+<dt class="field-odd">departments<span class="colon">:</span></dt>
 <dd class="field-odd"><p>dict, all the departments and centers andvarious units in the institution, optional</p>
 </dd>
-<dt class="field-even">month</dt>
+<dt class="field-even">month<span class="colon">:</span></dt>
 <dd class="field-even"><p>[‘string’, ‘integer’], the month the entry was created, optional</p>
 </dd>
-<dt class="field-odd">name</dt>
+<dt class="field-odd">name<span class="colon">:</span></dt>
 <dd class="field-odd"><p>string, the canonical name of the institutions, required</p>
 </dd>
-<dt class="field-even">schools</dt>
+<dt class="field-even">schools<span class="colon">:</span></dt>
 <dd class="field-even"><p>dict, this is more for universities, but it be used for larger divisions in big organizations, optional</p>
 </dd>
-<dt class="field-odd">state</dt>
+<dt class="field-odd">state<span class="colon">:</span></dt>
 <dd class="field-odd"><p>string, the state where the institution is, optional</p>
 </dd>
-<dt class="field-even">street</dt>
+<dt class="field-even">street<span class="colon">:</span></dt>
 <dd class="field-even"><p>string, the street where the institution is, optional</p>
 </dd>
-<dt class="field-odd">updated</dt>
+<dt class="field-odd">updated<span class="colon">:</span></dt>
 <dd class="field-odd"><p>[‘string’, ‘datetime’, ‘date’], a datetime when the entry was updated, optional</p>
 </dd>
-<dt class="field-even">uuid</dt>
+<dt class="field-even">uuid<span class="colon">:</span></dt>
 <dd class="field-even"><p>string, a uuid for the entry, optional</p>
 </dd>
-<dt class="field-odd">year</dt>
+<dt class="field-odd">year<span class="colon">:</span></dt>
 <dd class="field-odd"><p>integer, the year the entry was created, optional</p>
 </dd>
-<dt class="field-even">zip</dt>
+<dt class="field-even">zip<span class="colon">:</span></dt>
 <dd class="field-even"><p>[‘integer’, ‘string’], the zip or postal code of the institution, optional</p>
 </dd>
 </dl>
-</div>
-<div class="section" id="yaml-example">
-<h2>YAML Example<a class="headerlink" href="#yaml-example" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="yaml-example">
+<h2>YAML Example<a class="headerlink" href="#yaml-example" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">columbiau</span><span class="p">:</span><span class="w"></span>
 <span class="w">  </span><span class="nt">aka</span><span class="p">:</span><span class="w"></span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Columbia University</span><span class="w"></span>
@@ -202,9 +204,9 @@
 <span class="w">  </span><span class="nt">zip</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;29208&#39;</span><span class="w"></span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="json-mongo-example">
-<h2>JSON/Mongo Example<a class="headerlink" href="#json-mongo-example" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="json-mongo-example">
+<h2>JSON/Mongo Example<a class="headerlink" href="#json-mongo-example" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="nt">&quot;_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;columbiau&quot;</span><span class="p">,</span><span class="w"></span>
 <span class="w">    </span><span class="nt">&quot;aka&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
@@ -312,8 +314,8 @@
 <span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
-</div>
-</div>
+</section>
+</section>
 
 
             <div class="clearer"></div>
@@ -355,7 +357,7 @@
     </form>
     </div>
 </div>
-<script>$('#searchbox').show(0);</script>
+<script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
     

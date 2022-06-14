@@ -3,10 +3,11 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
     <title>Mongo Database Maintenance &#8212; regolith - software group content managment system</title>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/cloud.css" />
@@ -15,6 +16,7 @@
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
 
     
@@ -60,10 +62,10 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="mongo-database-maintenance">
-<h1>Mongo Database Maintenance<a class="headerlink" href="#mongo-database-maintenance" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="enabling-database-maintenance-functionality">
-<h2>Enabling Database Maintenance Functionality<a class="headerlink" href="#enabling-database-maintenance-functionality" title="Permalink to this headline">¶</a></h2>
+  <section id="mongo-database-maintenance">
+<h1>Mongo Database Maintenance<a class="headerlink" href="#mongo-database-maintenance" title="Permalink to this heading">¶</a></h1>
+<section id="enabling-database-maintenance-functionality">
+<h2>Enabling Database Maintenance Functionality<a class="headerlink" href="#enabling-database-maintenance-functionality" title="Permalink to this heading">¶</a></h2>
 <div class="line-block">
 <div class="line">This section is for those who would like to maintain a MongoDB backend (local or remote) to varying extents. (note:
 if you are simply doing read-writes to an <strong>existing remote mongo server</strong> with <strong>existing collections</strong> via the
@@ -105,9 +107,9 @@ variable. These directories will take the forms
 <div class="line-block">
 <div class="line">The second step is setting up a server (local or remote)</div>
 </div>
-</div>
-<div class="section" id="setting-up-a-server">
-<h2>Setting Up a Server<a class="headerlink" href="#setting-up-a-server" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="setting-up-a-server">
+<h2>Setting Up a Server<a class="headerlink" href="#setting-up-a-server" title="Permalink to this heading">¶</a></h2>
 <p><strong>LOCAL</strong></p>
 <div class="line-block">
 <div class="line">Your local server is automatically running as a service on localhost if you have downloaded the community version of
@@ -141,8 +143,8 @@ that you are presented with can be inserted into your regolithrc.json file under
 ‘uname_from_config:pwd_from_config’ in the URL, and adding your username and password to user.json as ‘mongo_id’ and
 ‘mongo_db_password’</div>
 </div>
-<div class="section" id="uploading-additional-collections-to-the-cluster">
-<h3>Uploading Additional Collections to the Cluster<a class="headerlink" href="#uploading-additional-collections-to-the-cluster" title="Permalink to this headline">¶</a></h3>
+<section id="uploading-additional-collections-to-the-cluster">
+<h3>Uploading Additional Collections to the Cluster<a class="headerlink" href="#uploading-additional-collections-to-the-cluster" title="Permalink to this heading">¶</a></h3>
 <div class="line-block">
 <div class="line">When porting yaml or json files from our local filesystem to the mongo cluster, the regolithrc.json file must take a
 specific format. Follow the below steps in order to create a new regolithrc.json file and pass collections wholesale
@@ -186,17 +188,17 @@ both in the name and dst_url keys</p></li>
 <li><p>From the local directory, activate your regolith environment (by entering “conda activate &lt;regolithEnvName&gt;” in the terminal)</p></li>
 <li><p>Still in the local directory, now with the regolith environment active, enter the following into the terminal “regolith fs-to-mongo”</p></li>
 </ol>
-</div>
-<div class="section" id="backing-up-or-downloading-the-database">
-<h3>Backing Up or Downloading the Database<a class="headerlink" href="#backing-up-or-downloading-the-database" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="backing-up-or-downloading-the-database">
+<h3>Backing Up or Downloading the Database<a class="headerlink" href="#backing-up-or-downloading-the-database" title="Permalink to this heading">¶</a></h3>
 <div class="line-block">
 <div class="line">Follow the steps in the “Uploading Additional Collections to the Cluster” section, but skip step 4, and in step 7 enter
 “regolith mongo-to-fs” in the terminal instead. The db directory will be where all of the collections from your
 database land.</div>
 </div>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
 
             <div class="clearer"></div>
@@ -236,7 +238,7 @@ database land.</div>
     </form>
     </div>
 </div>
-<script>$('#searchbox').show(0);</script>
+<script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
     

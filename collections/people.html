@@ -3,10 +3,11 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
     <title>People &#8212; regolith - software group content managment system</title>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/cloud.css" />
@@ -15,6 +16,7 @@
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
 
     
@@ -64,29 +66,29 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="people">
-<h1>People<a class="headerlink" href="#people" title="Permalink to this headline">¶</a></h1>
+  <section id="people">
+<h1>People<a class="headerlink" href="#people" title="Permalink to this heading">¶</a></h1>
 <p>This collection describes the members of the research group.  This is normally public data.</p>
-<div class="section" id="schema">
-<h2>Schema<a class="headerlink" href="#schema" title="Permalink to this headline">¶</a></h2>
+<section id="schema">
+<h2>Schema<a class="headerlink" href="#schema" title="Permalink to this heading">¶</a></h2>
 <p>The following lists key names mapped to its type and meaning for each entry.</p>
 <dl class="field-list">
-<dt class="field-odd">_id</dt>
+<dt class="field-odd">_id<span class="colon">:</span></dt>
 <dd class="field-odd"><p>string, unique identifier for the group member, required</p>
 </dd>
-<dt class="field-even">active</dt>
+<dt class="field-even">active<span class="colon">:</span></dt>
 <dd class="field-even"><p>boolean, If the person is an active member, default True., optional</p>
 </dd>
-<dt class="field-odd">activities</dt>
+<dt class="field-odd">activities<span class="colon">:</span></dt>
 <dd class="field-odd"><p>list, activities may be teaching or research things, optional</p>
 <dl class="field-list">
-<dt class="field-odd">type</dt>
+<dt class="field-odd">type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>dict, optional</p>
 <dl class="field-list">
-<dt class="field-odd">day</dt>
+<dt class="field-odd">day<span class="colon">:</span></dt>
 <dd class="field-odd"><p>integer, the day the activity took place, optional</p>
 </dd>
-<dt class="field-even">type</dt>
+<dt class="field-even">type<span class="colon">:</span></dt>
 <dd class="field-even"><p>string, the type of the acitivity, optional</p>
 <dl class="simple">
 <dt>Allowed values:</dt><dd><ul class="simple">
@@ -96,65 +98,65 @@
 </dd>
 </dl>
 </dd>
-<dt class="field-odd">month</dt>
+<dt class="field-odd">month<span class="colon">:</span></dt>
 <dd class="field-odd"><p>[‘integer’, ‘string’], the month the activity took place, optional</p>
 </dd>
-<dt class="field-even">name</dt>
+<dt class="field-even">name<span class="colon">:</span></dt>
 <dd class="field-even"><p>string, brief statement of the activity, optional</p>
 </dd>
-<dt class="field-odd">other</dt>
+<dt class="field-odd">other<span class="colon">:</span></dt>
 <dd class="field-odd"><p>string, longer statement of the activity, optional</p>
 </dd>
-<dt class="field-even">year</dt>
+<dt class="field-even">year<span class="colon">:</span></dt>
 <dd class="field-even"><p>integer, the year the activity took place, optional</p>
 </dd>
 </dl>
 </dd>
 </dl>
 </dd>
-<dt class="field-even">aka</dt>
+<dt class="field-even">aka<span class="colon">:</span></dt>
 <dd class="field-even"><p>[‘string’, ‘list’], list of aliases (also-known-as), useful for identifying the group member in citations or elsewhere., required</p>
 </dd>
-<dt class="field-odd">appointments</dt>
+<dt class="field-odd">appointments<span class="colon">:</span></dt>
 <dd class="field-odd"><p>dict, begin and end date, grant loading status and notes about appointments, optional</p>
 </dd>
-<dt class="field-even">avatar</dt>
+<dt class="field-even">avatar<span class="colon">:</span></dt>
 <dd class="field-even"><p>string, URL to avatar, required</p>
 </dd>
-<dt class="field-odd">bio</dt>
+<dt class="field-odd">bio<span class="colon">:</span></dt>
 <dd class="field-odd"><p>string, short biographical text, required</p>
 </dd>
-<dt class="field-even">bios</dt>
+<dt class="field-even">bios<span class="colon">:</span></dt>
 <dd class="field-even"><p>[‘string’, ‘list’], longer biographical text if needed, optional</p>
 </dd>
-<dt class="field-odd">collab</dt>
+<dt class="field-odd">collab<span class="colon">:</span></dt>
 <dd class="field-odd"><p>boolean, If the person is a collaborator, default False., optional</p>
 </dd>
-<dt class="field-even">committees</dt>
+<dt class="field-even">committees<span class="colon">:</span></dt>
 <dd class="field-even"><p>list, Committees that are served on, optional</p>
 <dl class="field-list">
-<dt class="field-odd">type</dt>
+<dt class="field-odd">type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>dict, optional</p>
 <dl class="field-list">
-<dt class="field-odd">name</dt>
+<dt class="field-odd">name<span class="colon">:</span></dt>
 <dd class="field-odd"><p>string, name of committee, or person if it is a phd committee, optional</p>
 </dd>
-<dt class="field-even">day</dt>
+<dt class="field-even">day<span class="colon">:</span></dt>
 <dd class="field-even"><p>integer, optional</p>
 </dd>
-<dt class="field-odd">month</dt>
+<dt class="field-odd">month<span class="colon">:</span></dt>
 <dd class="field-odd"><p>[‘string’, ‘integer’], optional</p>
 </dd>
-<dt class="field-even">notes</dt>
+<dt class="field-even">notes<span class="colon">:</span></dt>
 <dd class="field-even"><p>[‘string’, ‘list’], extra things you want to record about the thing, optional</p>
 </dd>
-<dt class="field-odd">year</dt>
+<dt class="field-odd">year<span class="colon">:</span></dt>
 <dd class="field-odd"><p>integer, optional</p>
 </dd>
-<dt class="field-even">unit</dt>
+<dt class="field-even">unit<span class="colon">:</span></dt>
 <dd class="field-even"><p>string, name of department or school etc., optional</p>
 </dd>
-<dt class="field-odd">type</dt>
+<dt class="field-odd">type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>string, type of committee, department, school, university, external, optional</p>
 <dl class="simple">
 <dt>Allowed values:</dt><dd><ul class="simple">
@@ -166,7 +168,7 @@
 </dd>
 </dl>
 </dd>
-<dt class="field-even">level</dt>
+<dt class="field-even">level<span class="colon">:</span></dt>
 <dd class="field-even"><p>string, department or school or university, or external, optional</p>
 <dl class="simple">
 <dt>Allowed values:</dt><dd><ul class="simple">
@@ -178,120 +180,120 @@
 </dd>
 </dl>
 </dd>
-<dt class="field-odd">group</dt>
+<dt class="field-odd">group<span class="colon">:</span></dt>
 <dd class="field-odd"><p>string, this employment is/was ina group in groups coll, optional</p>
 </dd>
 </dl>
 </dd>
 </dl>
 </dd>
-<dt class="field-odd">education</dt>
+<dt class="field-odd">education<span class="colon">:</span></dt>
 <dd class="field-odd"><p>list, This contains the educational information for the group member., required</p>
 <dl class="field-list simple">
-<dt class="field-odd">type</dt>
+<dt class="field-odd">type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>dict, optional</p>
 <dl class="field-list simple">
-<dt class="field-odd">advisor</dt>
+<dt class="field-odd">advisor<span class="colon">:</span></dt>
 <dd class="field-odd"><p>string, name or id of advisor for this degree, optional</p>
 </dd>
-<dt class="field-even">begin_day</dt>
+<dt class="field-even">begin_day<span class="colon">:</span></dt>
 <dd class="field-even"><p>integer, optional</p>
 </dd>
-<dt class="field-odd">begin_month</dt>
+<dt class="field-odd">begin_month<span class="colon">:</span></dt>
 <dd class="field-odd"><p>[‘string’, ‘integer’], optional</p>
 </dd>
-<dt class="field-even">begin_year</dt>
+<dt class="field-even">begin_year<span class="colon">:</span></dt>
 <dd class="field-even"><p>integer, optional</p>
 </dd>
-<dt class="field-odd">degree</dt>
+<dt class="field-odd">degree<span class="colon">:</span></dt>
 <dd class="field-odd"><p>string, optional</p>
 </dd>
-<dt class="field-even">department</dt>
+<dt class="field-even">department<span class="colon">:</span></dt>
 <dd class="field-even"><p>string, department withinthe institution, optional</p>
 </dd>
-<dt class="field-odd">group</dt>
+<dt class="field-odd">group<span class="colon">:</span></dt>
 <dd class="field-odd"><p>string, this employment is/was ina group in groups coll, optional</p>
 </dd>
-<dt class="field-even">end_day</dt>
+<dt class="field-even">end_day<span class="colon">:</span></dt>
 <dd class="field-even"><p>integer, optional</p>
 </dd>
-<dt class="field-odd">end_month</dt>
+<dt class="field-odd">end_month<span class="colon">:</span></dt>
 <dd class="field-odd"><p>[‘string’, ‘integer’], optional</p>
 </dd>
-<dt class="field-even">end_year</dt>
+<dt class="field-even">end_year<span class="colon">:</span></dt>
 <dd class="field-even"><p>integer, optional</p>
 </dd>
-<dt class="field-odd">gpa</dt>
+<dt class="field-odd">gpa<span class="colon">:</span></dt>
 <dd class="field-odd"><p>(‘float’, ‘string’), optional</p>
 </dd>
-<dt class="field-even">institution</dt>
+<dt class="field-even">institution<span class="colon">:</span></dt>
 <dd class="field-even"><p>string, optional</p>
 </dd>
-<dt class="field-odd">location</dt>
+<dt class="field-odd">location<span class="colon">:</span></dt>
 <dd class="field-odd"><p>string, optional</p>
 </dd>
-<dt class="field-even">other</dt>
+<dt class="field-even">other<span class="colon">:</span></dt>
 <dd class="field-even"><p>list, optional</p>
 </dd>
 </dl>
 </dd>
 </dl>
 </dd>
-<dt class="field-even">email</dt>
+<dt class="field-even">email<span class="colon">:</span></dt>
 <dd class="field-even"><p>string, email address of the group member, optional</p>
 </dd>
-<dt class="field-odd">employment</dt>
+<dt class="field-odd">employment<span class="colon">:</span></dt>
 <dd class="field-odd"><p>list, Employment information, similar to educational information., optional</p>
 <dl class="field-list">
-<dt class="field-odd">type</dt>
+<dt class="field-odd">type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>dict, optional</p>
 <dl class="field-list">
-<dt class="field-odd">advisor</dt>
+<dt class="field-odd">advisor<span class="colon">:</span></dt>
 <dd class="field-odd"><p>string, name or id of advisor/mentor/manager, optional</p>
 </dd>
-<dt class="field-even">begin_day</dt>
+<dt class="field-even">begin_day<span class="colon">:</span></dt>
 <dd class="field-even"><p>integer, optional</p>
 </dd>
-<dt class="field-odd">begin_month</dt>
+<dt class="field-odd">begin_month<span class="colon">:</span></dt>
 <dd class="field-odd"><p>[‘string’, ‘integer’], optional</p>
 </dd>
-<dt class="field-even">begin_year</dt>
+<dt class="field-even">begin_year<span class="colon">:</span></dt>
 <dd class="field-even"><p>integer, optional</p>
 </dd>
-<dt class="field-odd">begin_date</dt>
+<dt class="field-odd">begin_date<span class="colon">:</span></dt>
 <dd class="field-odd"><p>[‘string’, ‘date’, ‘datetime’], begin date of employment in format YYYY-MM-DD, optional</p>
 </dd>
-<dt class="field-even">coworkers</dt>
+<dt class="field-even">coworkers<span class="colon">:</span></dt>
 <dd class="field-even"><p>list, list of coworkers.  Ifposition is editor, these are assumed to be coeditors inconflict of interest builder, optional</p>
 </dd>
-<dt class="field-odd">department</dt>
+<dt class="field-odd">department<span class="colon">:</span></dt>
 <dd class="field-odd"><p>string, optional</p>
 </dd>
-<dt class="field-even">end_day</dt>
+<dt class="field-even">end_day<span class="colon">:</span></dt>
 <dd class="field-even"><p>integer, optional</p>
 </dd>
-<dt class="field-odd">end_year</dt>
+<dt class="field-odd">end_year<span class="colon">:</span></dt>
 <dd class="field-odd"><p>integer, optional</p>
 </dd>
-<dt class="field-even">end_date</dt>
+<dt class="field-even">end_date<span class="colon">:</span></dt>
 <dd class="field-even"><p>[‘string’, ‘date’, ‘datetime’], end date of employment in format YYYY-MM-DD, optional</p>
 </dd>
-<dt class="field-odd">group</dt>
+<dt class="field-odd">group<span class="colon">:</span></dt>
 <dd class="field-odd"><p>string, this employment is/was ina group in groups coll, optional</p>
 </dd>
-<dt class="field-even">location</dt>
+<dt class="field-even">location<span class="colon">:</span></dt>
 <dd class="field-even"><p>string, optional</p>
 </dd>
-<dt class="field-odd">organization</dt>
+<dt class="field-odd">organization<span class="colon">:</span></dt>
 <dd class="field-odd"><p>string, optional</p>
 </dd>
-<dt class="field-even">other</dt>
+<dt class="field-even">other<span class="colon">:</span></dt>
 <dd class="field-even"><p>list, optional</p>
 </dd>
-<dt class="field-odd">permanent</dt>
+<dt class="field-odd">permanent<span class="colon">:</span></dt>
 <dd class="field-odd"><p>boolean, true if the position is open ended and has no fixed end-date, optional</p>
 </dd>
-<dt class="field-even">position</dt>
+<dt class="field-even">position<span class="colon">:</span></dt>
 <dd class="field-even"><p>string, optional</p>
 <dl class="simple">
 <dt>Allowed values:</dt><dd><ul class="simple">
@@ -343,10 +345,10 @@
 </dd>
 </dl>
 </dd>
-<dt class="field-odd">position_full</dt>
+<dt class="field-odd">position_full<span class="colon">:</span></dt>
 <dd class="field-odd"><p>string, The full on title of the position.  This will be typeset if it is here, or if not Position will be used.  Position will be used for sorting and must come from a fixed list of positions, optional</p>
 </dd>
-<dt class="field-even">status</dt>
+<dt class="field-even">status<span class="colon">:</span></dt>
 <dd class="field-even"><p>string, optional</p>
 <dl class="simple">
 <dt>Allowed values:</dt><dd><ul class="simple">
@@ -367,19 +369,19 @@
 </dd>
 </dl>
 </dd>
-<dt class="field-even">facilities</dt>
+<dt class="field-even">facilities<span class="colon">:</span></dt>
 <dd class="field-even"><p>list, facilities may be teaching or research things, optional</p>
 <dl class="field-list">
-<dt class="field-odd">type</dt>
+<dt class="field-odd">type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>dict, optional</p>
 <dl class="field-list">
-<dt class="field-odd">begin_day</dt>
+<dt class="field-odd">begin_day<span class="colon">:</span></dt>
 <dd class="field-odd"><p>integer, the day facility, or the wish for the facility, started, optional</p>
 </dd>
-<dt class="field-even">end_day</dt>
+<dt class="field-even">end_day<span class="colon">:</span></dt>
 <dd class="field-even"><p>integer, the day facility started, optional</p>
 </dd>
-<dt class="field-odd">type</dt>
+<dt class="field-odd">type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>string, the type of the facility. Columbia asksfor wished-for facilities, so there are teaching-wish and research-wish fields., optional</p>
 <dl class="simple">
 <dt>Allowed values:</dt><dd><ul class="simple">
@@ -393,199 +395,199 @@
 </dd>
 </dl>
 </dd>
-<dt class="field-even">begin_month</dt>
+<dt class="field-even">begin_month<span class="colon">:</span></dt>
 <dd class="field-even"><p>[‘integer’, ‘string’], the month the facility (or wish) started, optional</p>
 </dd>
-<dt class="field-odd">end_month</dt>
+<dt class="field-odd">end_month<span class="colon">:</span></dt>
 <dd class="field-odd"><p>[‘integer’, ‘string’], the month the faclity went away, optional</p>
 </dd>
-<dt class="field-even">name</dt>
+<dt class="field-even">name<span class="colon">:</span></dt>
 <dd class="field-even"><p>string, description of the facility, optional</p>
 </dd>
-<dt class="field-odd">notes</dt>
+<dt class="field-odd">notes<span class="colon">:</span></dt>
 <dd class="field-odd"><p>[‘string’, ‘list’], anything else you want to jot down, optional</p>
 </dd>
-<dt class="field-even">begin_year</dt>
+<dt class="field-even">begin_year<span class="colon">:</span></dt>
 <dd class="field-even"><p>integer, the year the facility (or wish) started, optional</p>
 </dd>
-<dt class="field-odd">end_year</dt>
+<dt class="field-odd">end_year<span class="colon">:</span></dt>
 <dd class="field-odd"><p>integer, the year the facility (or wish) went away, optional</p>
 </dd>
 </dl>
 </dd>
 </dl>
 </dd>
-<dt class="field-odd">funding</dt>
+<dt class="field-odd">funding<span class="colon">:</span></dt>
 <dd class="field-odd"><p>list, Funding and scholarship that the group member has individually obtained in the past. <strong>WARNING:</strong> this is not to be confused with the <strong>grants</strong> collection, optional</p>
 <dl class="field-list simple">
-<dt class="field-odd">type</dt>
+<dt class="field-odd">type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>dict, optional</p>
 <dl class="field-list simple">
-<dt class="field-odd">currency</dt>
+<dt class="field-odd">currency<span class="colon">:</span></dt>
 <dd class="field-odd"><p>string, optional</p>
 </dd>
-<dt class="field-even">duration</dt>
+<dt class="field-even">duration<span class="colon">:</span></dt>
 <dd class="field-even"><p>string, optional</p>
 </dd>
-<dt class="field-odd">month</dt>
+<dt class="field-odd">month<span class="colon">:</span></dt>
 <dd class="field-odd"><p>[‘string’, ‘integer’], optional</p>
 </dd>
-<dt class="field-even">name</dt>
+<dt class="field-even">name<span class="colon">:</span></dt>
 <dd class="field-even"><p>string, optional</p>
 </dd>
-<dt class="field-odd">value</dt>
+<dt class="field-odd">value<span class="colon">:</span></dt>
 <dd class="field-odd"><p>(‘float’, ‘integer’), optional</p>
 </dd>
-<dt class="field-even">year</dt>
+<dt class="field-even">year<span class="colon">:</span></dt>
 <dd class="field-even"><p>integer, optional</p>
 </dd>
 </dl>
 </dd>
 </dl>
 </dd>
-<dt class="field-even">github_id</dt>
+<dt class="field-even">github_id<span class="colon">:</span></dt>
 <dd class="field-even"><p>string, Your GitHub ID, optional</p>
 </dd>
-<dt class="field-odd">google_scholar_url</dt>
+<dt class="field-odd">google_scholar_url<span class="colon">:</span></dt>
 <dd class="field-odd"><p>string, URL of your Google Scholar rofile, optional</p>
 </dd>
-<dt class="field-even">grp_mtg_active</dt>
+<dt class="field-even">grp_mtg_active<span class="colon">:</span></dt>
 <dd class="field-even"><p>boolean, Whether to schedule tasks at group meeting or not, optional</p>
 </dd>
-<dt class="field-odd">hindex</dt>
+<dt class="field-odd">hindex<span class="colon">:</span></dt>
 <dd class="field-odd"><p>list, details of hindex pulled on a certain date, optional</p>
 <dl class="field-list simple">
-<dt class="field-odd">type</dt>
+<dt class="field-odd">type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>dict, optional</p>
 <dl class="field-list simple">
-<dt class="field-odd">h</dt>
+<dt class="field-odd">h<span class="colon">:</span></dt>
 <dd class="field-odd"><p>integer, the value of the h index, optional</p>
 </dd>
-<dt class="field-even">h_last_five</dt>
+<dt class="field-even">h_last_five<span class="colon">:</span></dt>
 <dd class="field-even"><p>integer, h index over past 5 years, optional</p>
 </dd>
-<dt class="field-odd">citations</dt>
+<dt class="field-odd">citations<span class="colon">:</span></dt>
 <dd class="field-odd"><p>integer, total number of citations, optional</p>
 </dd>
-<dt class="field-even">citations_last_five</dt>
+<dt class="field-even">citations_last_five<span class="colon">:</span></dt>
 <dd class="field-even"><p>integer, number of citationsin the past 5 years, optional</p>
 </dd>
-<dt class="field-odd">origin</dt>
+<dt class="field-odd">origin<span class="colon">:</span></dt>
 <dd class="field-odd"><p>string, where the numbers came from, optional</p>
 </dd>
-<dt class="field-even">since</dt>
+<dt class="field-even">since<span class="colon">:</span></dt>
 <dd class="field-even"><p>integer, year of first citation, optional</p>
 </dd>
-<dt class="field-odd">year</dt>
+<dt class="field-odd">year<span class="colon">:</span></dt>
 <dd class="field-odd"><p>integer, year when the data were pulled, optional</p>
 </dd>
-<dt class="field-even">month</dt>
+<dt class="field-even">month<span class="colon">:</span></dt>
 <dd class="field-even"><p>[‘string’, ‘integer’], month when the data were pulled, optional</p>
 </dd>
-<dt class="field-odd">day</dt>
+<dt class="field-odd">day<span class="colon">:</span></dt>
 <dd class="field-odd"><p>integer, day when the data were pulled, optional</p>
 </dd>
 </dl>
 </dd>
 </dl>
 </dd>
-<dt class="field-even">home_address</dt>
+<dt class="field-even">home_address<span class="colon">:</span></dt>
 <dd class="field-even"><p>dict, The person’s home address, optional</p>
 <dl class="field-list simple">
-<dt class="field-odd">street</dt>
+<dt class="field-odd">street<span class="colon">:</span></dt>
 <dd class="field-odd"><p>string, street address, optional</p>
 </dd>
-<dt class="field-even">city</dt>
+<dt class="field-even">city<span class="colon">:</span></dt>
 <dd class="field-even"><p>string, name of home city, optional</p>
 </dd>
-<dt class="field-odd">state</dt>
+<dt class="field-odd">state<span class="colon">:</span></dt>
 <dd class="field-odd"><p>string, name o home state, optional</p>
 </dd>
-<dt class="field-even">zip</dt>
+<dt class="field-even">zip<span class="colon">:</span></dt>
 <dd class="field-even"><p>string, zip code, optional</p>
 </dd>
 </dl>
 </dd>
-<dt class="field-odd">honors</dt>
+<dt class="field-odd">honors<span class="colon">:</span></dt>
 <dd class="field-odd"><p>list, Honors that have been awarded to this group member, optional</p>
 <dl class="field-list simple">
-<dt class="field-odd">type</dt>
+<dt class="field-odd">type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>dict, optional</p>
 <dl class="field-list simple">
-<dt class="field-odd">description</dt>
+<dt class="field-odd">description<span class="colon">:</span></dt>
 <dd class="field-odd"><p>string, optional</p>
 </dd>
-<dt class="field-even">month</dt>
+<dt class="field-even">month<span class="colon">:</span></dt>
 <dd class="field-even"><p>[‘string’, ‘integer’], optional</p>
 </dd>
-<dt class="field-odd">name</dt>
+<dt class="field-odd">name<span class="colon">:</span></dt>
 <dd class="field-odd"><p>string, optional</p>
 </dd>
-<dt class="field-even">year</dt>
+<dt class="field-even">year<span class="colon">:</span></dt>
 <dd class="field-even"><p>integer, optional</p>
 </dd>
 </dl>
 </dd>
 </dl>
 </dd>
-<dt class="field-even">initials</dt>
+<dt class="field-even">initials<span class="colon">:</span></dt>
 <dd class="field-even"><p>string, The canonical initials for this group member, optional</p>
 </dd>
-<dt class="field-odd">linkedin_url</dt>
+<dt class="field-odd">linkedin_url<span class="colon">:</span></dt>
 <dd class="field-odd"><p>string, The URL of this person’s LinkedIn account, optional</p>
 </dd>
-<dt class="field-even">membership</dt>
+<dt class="field-even">membership<span class="colon">:</span></dt>
 <dd class="field-even"><p>list, Professional organizations this member is a part of, optional</p>
 <dl class="field-list simple">
-<dt class="field-odd">type</dt>
+<dt class="field-odd">type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>dict, optional</p>
 <dl class="field-list simple">
-<dt class="field-odd">begin_month</dt>
+<dt class="field-odd">begin_month<span class="colon">:</span></dt>
 <dd class="field-odd"><p>[‘string’, ‘integer’], optional</p>
 </dd>
-<dt class="field-even">begin_year</dt>
+<dt class="field-even">begin_year<span class="colon">:</span></dt>
 <dd class="field-even"><p>integer, optional</p>
 </dd>
-<dt class="field-odd">description</dt>
+<dt class="field-odd">description<span class="colon">:</span></dt>
 <dd class="field-odd"><p>string, optional</p>
 </dd>
-<dt class="field-even">end_month</dt>
+<dt class="field-even">end_month<span class="colon">:</span></dt>
 <dd class="field-even"><p>[‘string’, ‘integer’], optional</p>
 </dd>
-<dt class="field-odd">end_year</dt>
+<dt class="field-odd">end_year<span class="colon">:</span></dt>
 <dd class="field-odd"><p>integer, optional</p>
 </dd>
-<dt class="field-even">organization</dt>
+<dt class="field-even">organization<span class="colon">:</span></dt>
 <dd class="field-even"><p>string, optional</p>
 </dd>
-<dt class="field-odd">position</dt>
+<dt class="field-odd">position<span class="colon">:</span></dt>
 <dd class="field-odd"><p>string, optional</p>
 </dd>
-<dt class="field-even">website</dt>
+<dt class="field-even">website<span class="colon">:</span></dt>
 <dd class="field-even"><p>string, optional</p>
 </dd>
 </dl>
 </dd>
 </dl>
 </dd>
-<dt class="field-odd">miscellaneous</dt>
+<dt class="field-odd">miscellaneous<span class="colon">:</span></dt>
 <dd class="field-odd"><p>dict, Place to put weird things needed for special reporta, optional</p>
 <dl class="field-list simple">
-<dt class="field-odd">metrics_for_success</dt>
+<dt class="field-odd">metrics_for_success<span class="colon">:</span></dt>
 <dd class="field-odd"><p>list, How do I want to be judged, optional</p>
 </dd>
 </dl>
 </dd>
-<dt class="field-even">name</dt>
+<dt class="field-even">name<span class="colon">:</span></dt>
 <dd class="field-even"><p>string, Full, canonical name for the person, required</p>
 </dd>
-<dt class="field-odd">office</dt>
+<dt class="field-odd">office<span class="colon">:</span></dt>
 <dd class="field-odd"><p>string, The person’s office, optional</p>
 </dd>
-<dt class="field-even">orcid_id</dt>
+<dt class="field-even">orcid_id<span class="colon">:</span></dt>
 <dd class="field-even"><p>string, The ORCID ID of the person, optional</p>
 </dd>
-<dt class="field-odd">position</dt>
+<dt class="field-odd">position<span class="colon">:</span></dt>
 <dd class="field-odd"><p>string, such as professor, graduate student, or scientist, optional</p>
 <dl class="simple">
 <dt>Allowed values:</dt><dd><ul class="simple">
@@ -637,16 +639,16 @@
 </dd>
 </dl>
 </dd>
-<dt class="field-even">position_full</dt>
+<dt class="field-even">position_full<span class="colon">:</span></dt>
 <dd class="field-even"><p>string, The full on title of the position.  This will be typeset if it is here, or if not Position will be used.  Position will be used for sorting and must come from a fixed list of positions, optional</p>
 </dd>
-<dt class="field-odd">publicity</dt>
+<dt class="field-odd">publicity<span class="colon">:</span></dt>
 <dd class="field-odd"><p>list, summary of publicity that person has received, optional</p>
 <dl class="field-list">
-<dt class="field-odd">type</dt>
+<dt class="field-odd">type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>dict, optional</p>
 <dl class="field-list">
-<dt class="field-odd">type</dt>
+<dt class="field-odd">type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>string, optional</p>
 <dl class="simple">
 <dt>Allowed values:</dt><dd><ul class="simple">
@@ -656,117 +658,117 @@
 </dd>
 </dl>
 </dd>
-<dt class="field-even">topic</dt>
+<dt class="field-even">topic<span class="colon">:</span></dt>
 <dd class="field-even"><p>string, The short sentence of what the publicity was about, optional</p>
 </dd>
-<dt class="field-odd">title</dt>
+<dt class="field-odd">title<span class="colon">:</span></dt>
 <dd class="field-odd"><p>string, The title of the piece, optional</p>
 </dd>
-<dt class="field-even">day</dt>
+<dt class="field-even">day<span class="colon">:</span></dt>
 <dd class="field-even"><p>integer, The day the piece appeared, optional</p>
 </dd>
-<dt class="field-odd">month</dt>
+<dt class="field-odd">month<span class="colon">:</span></dt>
 <dd class="field-odd"><p>[‘string’, ‘integer’], The month the piece appeared, optional</p>
 </dd>
-<dt class="field-even">publication</dt>
+<dt class="field-even">publication<span class="colon">:</span></dt>
 <dd class="field-even"><p>string, The place where the publicity was placed, optional</p>
 </dd>
-<dt class="field-odd">text</dt>
+<dt class="field-odd">text<span class="colon">:</span></dt>
 <dd class="field-odd"><p>string, The text of the publicity, optional</p>
 </dd>
-<dt class="field-even">url</dt>
+<dt class="field-even">url<span class="colon">:</span></dt>
 <dd class="field-even"><p>string, The URL where the piece may be found, optional</p>
 </dd>
-<dt class="field-odd">year</dt>
+<dt class="field-odd">year<span class="colon">:</span></dt>
 <dd class="field-odd"><p>integer, The year the piece appeared, optional</p>
 </dd>
-<dt class="field-even">grant</dt>
+<dt class="field-even">grant<span class="colon">:</span></dt>
 <dd class="field-even"><p>string, The identifier of the grant associated with the piece, optional</p>
 </dd>
 </dl>
 </dd>
 </dl>
 </dd>
-<dt class="field-even">research_focus_areas</dt>
+<dt class="field-even">research_focus_areas<span class="colon">:</span></dt>
 <dd class="field-even"><p>list, summary of research projects that are ongoing. Usedin Annual appraisal for example, optional</p>
 <dl class="field-list simple">
-<dt class="field-odd">type</dt>
+<dt class="field-odd">type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>dict, optional</p>
 <dl class="field-list simple">
-<dt class="field-odd">begin_year</dt>
+<dt class="field-odd">begin_year<span class="colon">:</span></dt>
 <dd class="field-odd"><p>integer, optional</p>
 </dd>
-<dt class="field-even">end_year</dt>
+<dt class="field-even">end_year<span class="colon">:</span></dt>
 <dd class="field-even"><p>integer, optional</p>
 </dd>
-<dt class="field-odd">description</dt>
+<dt class="field-odd">description<span class="colon">:</span></dt>
 <dd class="field-odd"><p>string, optional</p>
 </dd>
 </dl>
 </dd>
 </dl>
 </dd>
-<dt class="field-odd">research_summary</dt>
+<dt class="field-odd">research_summary<span class="colon">:</span></dt>
 <dd class="field-odd"><p>string, Brief summary of overarching research goals, optional</p>
 </dd>
-<dt class="field-even">service</dt>
+<dt class="field-even">service<span class="colon">:</span></dt>
 <dd class="field-even"><p>list, Service that this group member has provided, optional</p>
 <dl class="field-list">
-<dt class="field-odd">type</dt>
+<dt class="field-odd">type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>dict, optional</p>
 <dl class="field-list">
-<dt class="field-odd">date</dt>
+<dt class="field-odd">date<span class="colon">:</span></dt>
 <dd class="field-odd"><p>[‘string’, ‘date’], the date of the service, optional</p>
 </dd>
-<dt class="field-even">begin_date</dt>
+<dt class="field-even">begin_date<span class="colon">:</span></dt>
 <dd class="field-even"><p>[‘string’, ‘date’], the begin date, optional</p>
 </dd>
-<dt class="field-odd">end_date</dt>
+<dt class="field-odd">end_date<span class="colon">:</span></dt>
 <dd class="field-odd"><p>[‘string’, ‘date’], the end date, optional</p>
 </dd>
-<dt class="field-even">description</dt>
+<dt class="field-even">description<span class="colon">:</span></dt>
 <dd class="field-even"><p>string, optional</p>
 </dd>
-<dt class="field-odd">duration</dt>
+<dt class="field-odd">duration<span class="colon">:</span></dt>
 <dd class="field-odd"><p>string, optional</p>
 </dd>
-<dt class="field-even">month</dt>
+<dt class="field-even">month<span class="colon">:</span></dt>
 <dd class="field-even"><p>[‘string’, ‘integer’], Use month and year if the servicedoesn’t extend more than one year.Otherwise use begin_year and end_year, optional</p>
 </dd>
-<dt class="field-odd">name</dt>
+<dt class="field-odd">name<span class="colon">:</span></dt>
 <dd class="field-odd"><p>string, optional</p>
 </dd>
-<dt class="field-even">role</dt>
+<dt class="field-even">role<span class="colon">:</span></dt>
 <dd class="field-even"><p>string, the role played in the activity, e.g., co-chair, optional</p>
 </dd>
-<dt class="field-odd">notes</dt>
+<dt class="field-odd">notes<span class="colon">:</span></dt>
 <dd class="field-odd"><p>[‘string’, ‘list’], optional</p>
 </dd>
-<dt class="field-even">year</dt>
+<dt class="field-even">year<span class="colon">:</span></dt>
 <dd class="field-even"><p>integer, optional</p>
 </dd>
-<dt class="field-odd">begin_year</dt>
+<dt class="field-odd">begin_year<span class="colon">:</span></dt>
 <dd class="field-odd"><p>integer, optional</p>
 </dd>
-<dt class="field-even">begin_day</dt>
+<dt class="field-even">begin_day<span class="colon">:</span></dt>
 <dd class="field-even"><p>integer, optional</p>
 </dd>
-<dt class="field-odd">begin_month</dt>
+<dt class="field-odd">begin_month<span class="colon">:</span></dt>
 <dd class="field-odd"><p>[‘string’, ‘integer’], Use month and year if the servicedoesn’t extend more than one year.Otherwise use begin_year/month and end_year/month, optional</p>
 </dd>
-<dt class="field-even">end_year</dt>
+<dt class="field-even">end_year<span class="colon">:</span></dt>
 <dd class="field-even"><p>integer, optional</p>
 </dd>
-<dt class="field-odd">end_month</dt>
+<dt class="field-odd">end_month<span class="colon">:</span></dt>
 <dd class="field-odd"><p>[‘string’, ‘integer’], Use month and year if the servicedoesn’t extend more than one year.Otherwise use begin_year and end_year, optional</p>
 </dd>
-<dt class="field-even">end_day</dt>
+<dt class="field-even">end_day<span class="colon">:</span></dt>
 <dd class="field-even"><p>integer, optional</p>
 </dd>
-<dt class="field-odd">other</dt>
+<dt class="field-odd">other<span class="colon">:</span></dt>
 <dd class="field-odd"><p>[‘string’, ‘list’], optional</p>
 </dd>
-<dt class="field-even">type</dt>
+<dt class="field-even">type<span class="colon">:</span></dt>
 <dd class="field-even"><p>string, profession, department, school, university, optional</p>
 <dl class="simple">
 <dt>Allowed values:</dt><dd><ul class="simple">
@@ -782,122 +784,122 @@
 </dd>
 </dl>
 </dd>
-<dt class="field-odd">skills</dt>
+<dt class="field-odd">skills<span class="colon">:</span></dt>
 <dd class="field-odd"><p>list, Skill the group member has, optional</p>
 <dl class="field-list simple">
-<dt class="field-odd">type</dt>
+<dt class="field-odd">type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>dict, optional</p>
 <dl class="field-list simple">
-<dt class="field-odd">category</dt>
+<dt class="field-odd">category<span class="colon">:</span></dt>
 <dd class="field-odd"><p>string, optional</p>
 </dd>
-<dt class="field-even">level</dt>
+<dt class="field-even">level<span class="colon">:</span></dt>
 <dd class="field-even"><p>string, optional</p>
 </dd>
-<dt class="field-odd">name</dt>
+<dt class="field-odd">name<span class="colon">:</span></dt>
 <dd class="field-odd"><p>string, optional</p>
 </dd>
 </dl>
 </dd>
 </dl>
 </dd>
-<dt class="field-even">teaching</dt>
+<dt class="field-even">teaching<span class="colon">:</span></dt>
 <dd class="field-even"><p>list, Courses that this group member has taught, if any, optional</p>
 <dl class="field-list simple">
-<dt class="field-odd">type</dt>
+<dt class="field-odd">type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>dict, optional</p>
 <dl class="field-list simple">
-<dt class="field-odd">course</dt>
+<dt class="field-odd">course<span class="colon">:</span></dt>
 <dd class="field-odd"><p>string, optional</p>
 </dd>
-<dt class="field-even">courseid</dt>
+<dt class="field-even">courseid<span class="colon">:</span></dt>
 <dd class="field-even"><p>string, optional</p>
 </dd>
-<dt class="field-odd">description</dt>
+<dt class="field-odd">description<span class="colon">:</span></dt>
 <dd class="field-odd"><p>string, optional</p>
 </dd>
-<dt class="field-even">end_month</dt>
+<dt class="field-even">end_month<span class="colon">:</span></dt>
 <dd class="field-even"><p>[‘string’, ‘integer’], optional</p>
 </dd>
-<dt class="field-odd">end_year</dt>
+<dt class="field-odd">end_year<span class="colon">:</span></dt>
 <dd class="field-odd"><p>integer, optional</p>
 </dd>
-<dt class="field-even">enrollment</dt>
+<dt class="field-even">enrollment<span class="colon">:</span></dt>
 <dd class="field-even"><p>[‘integer’, ‘string’], optional</p>
 </dd>
-<dt class="field-odd">evaluation</dt>
+<dt class="field-odd">evaluation<span class="colon">:</span></dt>
 <dd class="field-odd"><p>dict, optional</p>
 <dl class="field-list simple">
-<dt class="field-odd">response_rate</dt>
+<dt class="field-odd">response_rate<span class="colon">:</span></dt>
 <dd class="field-odd"><p>number, optional</p>
 </dd>
-<dt class="field-even">amount_learned</dt>
+<dt class="field-even">amount_learned<span class="colon">:</span></dt>
 <dd class="field-even"><p>number, optional</p>
 </dd>
-<dt class="field-odd">appropriateness_workload</dt>
+<dt class="field-odd">appropriateness_workload<span class="colon">:</span></dt>
 <dd class="field-odd"><p>number, optional</p>
 </dd>
-<dt class="field-even">course_overall</dt>
+<dt class="field-even">course_overall<span class="colon">:</span></dt>
 <dd class="field-even"><p>number, optional</p>
 </dd>
-<dt class="field-odd">fairness_grading</dt>
+<dt class="field-odd">fairness_grading<span class="colon">:</span></dt>
 <dd class="field-odd"><p>number, optional</p>
 </dd>
-<dt class="field-even">organization</dt>
+<dt class="field-even">organization<span class="colon">:</span></dt>
 <dd class="field-even"><p>number, optional</p>
 </dd>
-<dt class="field-odd">classroom_delivery</dt>
+<dt class="field-odd">classroom_delivery<span class="colon">:</span></dt>
 <dd class="field-odd"><p>number, optional</p>
 </dd>
-<dt class="field-even">approachability</dt>
+<dt class="field-even">approachability<span class="colon">:</span></dt>
 <dd class="field-even"><p>number, optional</p>
 </dd>
-<dt class="field-odd">instructor_overall</dt>
+<dt class="field-odd">instructor_overall<span class="colon">:</span></dt>
 <dd class="field-odd"><p>number, optional</p>
 </dd>
-<dt class="field-even">comments</dt>
+<dt class="field-even">comments<span class="colon">:</span></dt>
 <dd class="field-even"><p>list, student comments, optional</p>
 </dd>
 </dl>
 </dd>
-<dt class="field-even">materials</dt>
+<dt class="field-even">materials<span class="colon">:</span></dt>
 <dd class="field-even"><p>string, optional</p>
 </dd>
-<dt class="field-odd">month</dt>
+<dt class="field-odd">month<span class="colon">:</span></dt>
 <dd class="field-odd"><p>[‘string’, ‘integer’], optional</p>
 </dd>
-<dt class="field-even">organization</dt>
+<dt class="field-even">organization<span class="colon">:</span></dt>
 <dd class="field-even"><p>string, optional</p>
 </dd>
-<dt class="field-odd">position</dt>
+<dt class="field-odd">position<span class="colon">:</span></dt>
 <dd class="field-odd"><p>string, optional</p>
 </dd>
-<dt class="field-even">semester</dt>
+<dt class="field-even">semester<span class="colon">:</span></dt>
 <dd class="field-even"><p>string, optional</p>
 </dd>
-<dt class="field-odd">syllabus</dt>
+<dt class="field-odd">syllabus<span class="colon">:</span></dt>
 <dd class="field-odd"><p>string, optional</p>
 </dd>
-<dt class="field-even">video</dt>
+<dt class="field-even">video<span class="colon">:</span></dt>
 <dd class="field-even"><p>string, optional</p>
 </dd>
-<dt class="field-odd">website</dt>
+<dt class="field-odd">website<span class="colon">:</span></dt>
 <dd class="field-odd"><p>string, optional</p>
 </dd>
-<dt class="field-even">year</dt>
+<dt class="field-even">year<span class="colon">:</span></dt>
 <dd class="field-even"><p>integer, optional</p>
 </dd>
 </dl>
 </dd>
 </dl>
 </dd>
-<dt class="field-odd">title</dt>
+<dt class="field-odd">title<span class="colon">:</span></dt>
 <dd class="field-odd"><p>string, for example, Dr., etc., optional</p>
 </dd>
 </dl>
-</div>
-<div class="section" id="yaml-example">
-<h2>YAML Example<a class="headerlink" href="#yaml-example" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="yaml-example">
+<h2>YAML Example<a class="headerlink" href="#yaml-example" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">abeing</span><span class="p">:</span><span class="w"></span>
 <span class="w">  </span><span class="nt">active</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span><span class="w"></span>
 <span class="w">  </span><span class="nt">aka</span><span class="p">:</span><span class="w"></span>
@@ -1473,9 +1475,9 @@
 <span class="w">  </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Dr.</span><span class="w"></span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="json-mongo-example">
-<h2>JSON/Mongo Example<a class="headerlink" href="#json-mongo-example" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="json-mongo-example">
+<h2>JSON/Mongo Example<a class="headerlink" href="#json-mongo-example" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="nt">&quot;_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;abeing&quot;</span><span class="p">,</span><span class="w"></span>
 <span class="w">    </span><span class="nt">&quot;active&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w"></span>
@@ -2225,8 +2227,8 @@
 <span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
-</div>
-</div>
+</section>
+</section>
 
 
             <div class="clearer"></div>
@@ -2268,7 +2270,7 @@
     </form>
     </div>
 </div>
-<script>$('#searchbox').show(0);</script>
+<script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
     

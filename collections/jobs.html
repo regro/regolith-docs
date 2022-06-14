@@ -3,10 +3,11 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
     <title>Jobs &#8212; regolith - software group content managment system</title>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/cloud.css" />
@@ -15,6 +16,7 @@
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
 
     
@@ -64,56 +66,56 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="jobs">
-<h1>Jobs<a class="headerlink" href="#jobs" title="Permalink to this headline">¶</a></h1>
+  <section id="jobs">
+<h1>Jobs<a class="headerlink" href="#jobs" title="Permalink to this heading">¶</a></h1>
 <p>This collection describes the research group jobs. This is normally public data.</p>
-<div class="section" id="schema">
-<h2>Schema<a class="headerlink" href="#schema" title="Permalink to this headline">¶</a></h2>
+<section id="schema">
+<h2>Schema<a class="headerlink" href="#schema" title="Permalink to this heading">¶</a></h2>
 <p>The following lists key names mapped to its type and meaning for each entry.</p>
 <dl class="field-list simple">
-<dt class="field-odd">_id</dt>
+<dt class="field-odd">_id<span class="colon">:</span></dt>
 <dd class="field-odd"><p>str or number, unique job identifier</p>
 </dd>
-<dt class="field-even">title</dt>
+<dt class="field-even">title<span class="colon">:</span></dt>
 <dd class="field-even"><p>str, Job title</p>
 </dd>
-<dt class="field-odd">description</dt>
+<dt class="field-odd">description<span class="colon">:</span></dt>
 <dd class="field-odd"><p>str, long description of the position</p>
 </dd>
-<dt class="field-even">open</dt>
+<dt class="field-even">open<span class="colon">:</span></dt>
 <dd class="field-even"><p>bool, flag for whether the job is currently open or not.</p>
 </dd>
-<dt class="field-odd">contact</dt>
+<dt class="field-odd">contact<span class="colon">:</span></dt>
 <dd class="field-odd"><p>str, contact information for how to apply</p>
 </dd>
-<dt class="field-even">positions</dt>
+<dt class="field-even">positions<span class="colon">:</span></dt>
 <dd class="field-even"><p>list of strings, positions such as “Graduate Student”, “Post-doctoral Scholar”,</p>
 </dd>
-<dt class="field-odd">background_fields</dt>
+<dt class="field-odd">background_fields<span class="colon">:</span></dt>
 <dd class="field-odd"><p>list of str, previous disciplines, e.g. Nuclear Engineering or Computer Science</p>
 </dd>
-<dt class="field-even">year</dt>
+<dt class="field-even">year<span class="colon">:</span></dt>
 <dd class="field-even"><p>int, year job posted</p>
 </dd>
-<dt class="field-odd">month</dt>
+<dt class="field-odd">month<span class="colon">:</span></dt>
 <dd class="field-odd"><p>str, month the job was posted</p>
 </dd>
-<dt class="field-even">day</dt>
+<dt class="field-even">day<span class="colon">:</span></dt>
 <dd class="field-even"><p>int, day the job was posted</p>
 </dd>
-<dt class="field-odd">start_date</dt>
+<dt class="field-odd">start_date<span class="colon">:</span></dt>
 <dd class="field-odd"><p>str, expected start date or “ASAP” or similar</p>
 </dd>
-<dt class="field-even">expertise</dt>
+<dt class="field-even">expertise<span class="colon">:</span></dt>
 <dd class="field-even"><p>str, Current skills applicatns should have</p>
 </dd>
-<dt class="field-odd">compensation</dt>
+<dt class="field-odd">compensation<span class="colon">:</span></dt>
 <dd class="field-odd"><p>list of str, list of compensations for the position.</p>
 </dd>
 </dl>
-</div>
-<div class="section" id="yaml-example">
-<h2>YAML Example<a class="headerlink" href="#yaml-example" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="yaml-example">
+<h2>YAML Example<a class="headerlink" href="#yaml-example" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="s">&#39;0004&#39;</span><span class="p p-Indicator">:</span><span class="w"></span>
 <span class="w">  </span><span class="nt">background_fields</span><span class="p">:</span><span class="w"></span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Data Science</span><span class="w"></span>
@@ -151,9 +153,9 @@
 <span class="w">  </span><span class="nt">year</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2015</span><span class="w"></span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="json-mongo-example">
-<h2>JSON/Mongo Example<a class="headerlink" href="#json-mongo-example" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="json-mongo-example">
+<h2>JSON/Mongo Example<a class="headerlink" href="#json-mongo-example" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="nt">&quot;_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;0004&quot;</span><span class="p">,</span><span class="w"></span>
 <span class="w"> </span><span class="nt">&quot;background_fields&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;Data Science&quot;</span><span class="p">,</span><span class="w"></span>
 <span class="w">                       </span><span class="s2">&quot;Data Engineering&quot;</span><span class="p">,</span><span class="w"></span>
@@ -176,8 +178,8 @@
 <span class="w"> </span><span class="nt">&quot;year&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2015</span><span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
-</div>
-</div>
+</section>
+</section>
 
 
             <div class="clearer"></div>
@@ -219,7 +221,7 @@
     </form>
     </div>
 </div>
-<script>$('#searchbox').show(0);</script>
+<script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
     

@@ -3,10 +3,11 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
     <title>Broker &#8212; regolith - software group content managment system</title>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/cloud.css" />
@@ -15,6 +16,7 @@
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
 
     
@@ -64,10 +66,10 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="broker">
-<h1>Broker<a class="headerlink" href="#broker" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="storing-files-with-the-broker">
-<h2>Storing files with the broker<a class="headerlink" href="#storing-files-with-the-broker" title="Permalink to this headline">¶</a></h2>
+  <section id="broker">
+<h1>Broker<a class="headerlink" href="#broker" title="Permalink to this heading">¶</a></h1>
+<section id="storing-files-with-the-broker">
+<h2>Storing files with the broker<a class="headerlink" href="#storing-files-with-the-broker" title="Permalink to this heading">¶</a></h2>
 <p>Sharing figures (and other files) among various group members can be
 difficult, as everyone has slightly different file systems.
 Regolith has a system to help with this by providing file storage which can
@@ -76,8 +78,8 @@ must clone the regolith-storage github directory into their dbs folder, and run
 python in a terminal in that (regolith-storage) directory with their
 regolith_env conda environment activated. The user must also have push rights to the
 regolith-storage git directory, and an SSH connection established.</p>
-<div class="section" id="loading-the-broker">
-<h3>Loading the broker<a class="headerlink" href="#loading-the-broker" title="Permalink to this headline">¶</a></h3>
+<section id="loading-the-broker">
+<h3>Loading the broker<a class="headerlink" href="#loading-the-broker" title="Permalink to this heading">¶</a></h3>
 <p>To load the broker you need a <code class="docutils literal notranslate"><span class="pre">regolithrc.json</span></code> file. This file should
 be present in the regolith-storage directory that the user has cloned. The following
 block of code should be run in the user’s python terminal, in the cloned storage
@@ -88,9 +90,9 @@ database as follows.</p>
 <span class="n">db</span> <span class="o">=</span> <span class="n">Broker</span><span class="o">.</span><span class="n">from_rc</span><span class="p">()</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="inserting-files-into-the-store">
-<h3>Inserting files into the store<a class="headerlink" href="#inserting-files-into-the-store" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="inserting-files-into-the-store">
+<h3>Inserting files into the store<a class="headerlink" href="#inserting-files-into-the-store" title="Permalink to this heading">¶</a></h3>
 <p>To insert documents into the broker you can use the <code class="docutils literal notranslate"><span class="pre">add_file</span></code> interface.
 Due to the fact that the metadata is utilizing a local url and filesystem client,
 the user must add, commit, push to origin and PR the effected local databases after
@@ -116,9 +118,9 @@ directory. Do not paste them into the _build folder, but rather the base directo
 <li><p>push it to the remote repository</p></li>
 </ol>
 </div></blockquote>
-</div>
-<div class="section" id="retrieving-files-from-the-store">
-<h3>Retrieving files from the store<a class="headerlink" href="#retrieving-files-from-the-store" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="retrieving-files-from-the-store">
+<h3>Retrieving files from the store<a class="headerlink" href="#retrieving-files-from-the-store" title="Permalink to this heading">¶</a></h3>
 <p>To retrieve files from the store you can use the <code class="docutils literal notranslate"><span class="pre">get_file_path</span></code> interface.
 Importantly, this will only retrieve the path to the file.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">regolith.broker</span> <span class="kn">import</span> <span class="n">Broker</span>
@@ -153,9 +155,9 @@ they could be stored centrally and retrieved as needed.</p>
 <p>Also note that we could have also used the builder to replace other pieces of
 the document, eg <code class="docutils literal notranslate"><span class="pre">\author{</span> <span class="pre">{{-db['people']['cwright']['name']-}}</span> <span class="pre">}</span></code> would
 have been replaced with the full name of the author.</p>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
 
             <div class="clearer"></div>
@@ -200,7 +202,7 @@ have been replaced with the full name of the author.</p>
     </form>
     </div>
 </div>
-<script>$('#searchbox').show(0);</script>
+<script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
     

@@ -3,10 +3,11 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
     <title>Groups &#8212; regolith - software group content managment system</title>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/cloud.css" />
@@ -15,6 +16,7 @@
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
 
     
@@ -64,50 +66,50 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="groups">
-<h1>Groups<a class="headerlink" href="#groups" title="Permalink to this headline">¶</a></h1>
+  <section id="groups">
+<h1>Groups<a class="headerlink" href="#groups" title="Permalink to this heading">¶</a></h1>
 <p>Information about the research groupthis is generally public information</p>
-<div class="section" id="schema">
-<h2>Schema<a class="headerlink" href="#schema" title="Permalink to this headline">¶</a></h2>
+<section id="schema">
+<h2>Schema<a class="headerlink" href="#schema" title="Permalink to this heading">¶</a></h2>
 <p>The following lists key names mapped to its type and meaning for each entry.</p>
 <dl class="field-list simple">
-<dt class="field-odd">_id</dt>
+<dt class="field-odd">_id<span class="colon">:</span></dt>
 <dd class="field-odd"><p>string, Unique identifier for submission. This generally includes the author name and part of the title., required</p>
 </dd>
-<dt class="field-even">aka</dt>
+<dt class="field-even">aka<span class="colon">:</span></dt>
 <dd class="field-even"><p>list, other names for the group, required</p>
 </dd>
-<dt class="field-odd">banner</dt>
+<dt class="field-odd">banner<span class="colon">:</span></dt>
 <dd class="field-odd"><p>string, name of image file with the group banner, optional</p>
 </dd>
-<dt class="field-even">department</dt>
+<dt class="field-even">department<span class="colon">:</span></dt>
 <dd class="field-even"><p>string, Name of host department, required</p>
 </dd>
-<dt class="field-odd">email</dt>
+<dt class="field-odd">email<span class="colon">:</span></dt>
 <dd class="field-odd"><p>string, Contact email for the group, required</p>
 </dd>
-<dt class="field-even">institution</dt>
+<dt class="field-even">institution<span class="colon">:</span></dt>
 <dd class="field-even"><p>string, Name of the host institution, required</p>
 </dd>
-<dt class="field-odd">mission_statement</dt>
+<dt class="field-odd">mission_statement<span class="colon">:</span></dt>
 <dd class="field-odd"><p>string, Mission statement of the group, optional</p>
 </dd>
-<dt class="field-even">name</dt>
+<dt class="field-even">name<span class="colon">:</span></dt>
 <dd class="field-even"><p>string, Name of the group, required</p>
 </dd>
-<dt class="field-odd">pi_name</dt>
+<dt class="field-odd">pi_name<span class="colon">:</span></dt>
 <dd class="field-odd"><p>string, The name of the Principle Investigator, required</p>
 </dd>
-<dt class="field-even">projects</dt>
+<dt class="field-even">projects<span class="colon">:</span></dt>
 <dd class="field-even"><p>string, About line for projects, required</p>
 </dd>
-<dt class="field-odd">website</dt>
+<dt class="field-odd">website<span class="colon">:</span></dt>
 <dd class="field-odd"><p>string, URL to group webpage, optional</p>
 </dd>
 </dl>
-</div>
-<div class="section" id="yaml-example">
-<h2>YAML Example<a class="headerlink" href="#yaml-example" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="yaml-example">
+<h2>YAML Example<a class="headerlink" href="#yaml-example" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">ergs</span><span class="p">:</span><span class="w"></span>
 <span class="w">  </span><span class="nt">aka</span><span class="p">:</span><span class="w"></span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Energy Research Group Something</span><span class="w"></span>
@@ -130,9 +132,9 @@
 <span class="w">  </span><span class="nt">website</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">www.ergs.sc.edu</span><span class="w"></span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="json-mongo-example">
-<h2>JSON/Mongo Example<a class="headerlink" href="#json-mongo-example" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="json-mongo-example">
+<h2>JSON/Mongo Example<a class="headerlink" href="#json-mongo-example" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="nt">&quot;_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ergs&quot;</span><span class="p">,</span><span class="w"></span>
 <span class="w">    </span><span class="nt">&quot;aka&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
@@ -150,8 +152,8 @@
 <span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
-</div>
-</div>
+</section>
+</section>
 
 
             <div class="clearer"></div>
@@ -193,7 +195,7 @@
     </form>
     </div>
 </div>
-<script>$('#searchbox').show(0);</script>
+<script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
     

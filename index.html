@@ -3,10 +3,11 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
     <title>Regolith &#8212; regolith - software group content managment system</title>
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="_static/cloud.css" />
@@ -15,6 +16,7 @@
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="_static/doctools.js"></script>
 
     
@@ -65,8 +67,8 @@
 <div style="text-align:center;">
     <div id="game"><h1>welcome to the regolith docs</h1></div>
 </div>
-<script type="text/javascript">initRgDungeon();</script><div class="section" id="regolith">
-<h1>Regolith<a class="headerlink" href="#regolith" title="Permalink to this headline">¶</a></h1>
+<script type="text/javascript">initRgDungeon();</script><section id="regolith">
+<h1>Regolith<a class="headerlink" href="#regolith" title="Permalink to this heading">¶</a></h1>
 <p>Regolith is a content management system for software &amp; research groups.
 Regolith creates and manages a database of people, publications, projects,
 proposals &amp; grants, courses, and more! From this database, regolith is then
@@ -78,9 +80,9 @@ able to:</p>
 </ul>
 <p>Databases may be file-based (JSON and YAML) or MongoDB-based.</p>
 <p>Regolith is developed as a <a class="reference external" href="https://regro.github.io/">regro project</a></p>
-</div>
-<div class="section" id="example-sites">
-<h1>Example Sites<a class="headerlink" href="#example-sites" title="Permalink to this headline">¶</a></h1>
+</section>
+<section id="example-sites">
+<h1>Example Sites<a class="headerlink" href="#example-sites" title="Permalink to this heading">¶</a></h1>
 <p>The following are some sample websites that are powered by regolith, even though
 building
 websites is just one of the many facets of this tool:</p>
@@ -88,15 +90,15 @@ websites is just one of the many facets of this tool:</p>
 <li><p><a class="reference external" href="http://www.ergs.sc.edu">ERGS Home Page</a></p></li>
 <li><p><a class="reference external" href="http://twofcs.ergs.sc.edu">Technical WorkShop on Fuel Cycle Simulation</a></p></li>
 </ol>
-</div>
-<div class="section" id="installation">
-<h1>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="make-your-first-database">
-<h2>1. Make your first database<a class="headerlink" href="#make-your-first-database" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="installation">
+<h1>Installation<a class="headerlink" href="#installation" title="Permalink to this heading">¶</a></h1>
+<section id="make-your-first-database">
+<h2>1. Make your first database<a class="headerlink" href="#make-your-first-database" title="Permalink to this heading">¶</a></h2>
 <p>The quickest way to get started is to set up your first minimal database using a
 handy cookie cutter.  These instructions use the command line and assume you know
 how to use the terminal/cmd prompt, and that you know how to install software from
-either Pypi using <code class="code bash docutils literal notranslate"><span class="pre">pip</span></code> or Anaconda/Miniconda using <code class="code bash docutils literal notranslate"><span class="pre">conda</span></code>.  The
+either Pypi using <code class="code highlight bash docutils literal highlight-bash">pip</code> or Anaconda/Miniconda using <code class="code highlight bash docutils literal highlight-bash">conda</code>.  The
 instructions use the linux shell commands which should work on Mac and linux
 computers, and on windows if you are running from at Git Bash terminal (recommended)
 but will be slightly different (but still work) on a windows cmd terminal.</p>
@@ -117,12 +119,12 @@ but will be slightly different (but still work) on a windows cmd terminal.</p>
 </pre></div>
 </div>
 <p>to get it using the HTTPS protocol (just use whichever works for you)</p>
-<p>Make a note of the path to the resulting <code class="code bash docutils literal notranslate"><span class="pre">regolithdb-cookiecutter</span></code> directory,
-(e.g., <code class="code bash docutils literal notranslate"><span class="pre">/c/Users/me/scratch/regolithdb-cookiecutter</span></code> but yours will be different).
+<p>Make a note of the path to the resulting <code class="code highlight bash docutils literal highlight-bash">regolithdb-cookiecutter</code> directory,
+(e.g., <code class="code highlight bash docutils literal highlight-bash">/c/Users/me/scratch/regolithdb-cookiecutter</code> but yours will be different).
 This is not your database, this is just the template and will be removed shortly.</p>
 <p>Next, in a new terminal, or in the same terminal, move to the directory where
 you want to install your own permanent database.  For example, we like to
-create a directory off our home directory called <code class="code bash docutils literal notranslate"><span class="pre">dbs</span></code> where we will keep
+create a directory off our home directory called <code class="code highlight bash docutils literal highlight-bash">dbs</code> where we will keep
 all of our databases (believe me, once you start using Regolith you will want
 to make more and more)</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">cd</span> ~        <span class="c1"># takes you to your home directory</span>
@@ -151,14 +153,14 @@ and you will build a database for Einstein, but type the values you want in
 answer to each question to make your own.</p>
 <p>If you make a mistake just type CTL^C
 and do it again.  You may have to remove the directory if it has already been
-created, for example, <code class="code bash docutils literal notranslate"><span class="pre">$</span> <span class="pre">rm</span> <span class="pre">-r</span> <span class="pre">my-cv-db</span></code>.  Watch what you type here and
+created, for example, <code class="code highlight bash docutils literal highlight-bash">$ rm -r my-cv-db</code>.  Watch what you type here and
 be careful not to remove something you care about by mistake!</p>
 <p>When you are happy with your database setup, type</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ ls
 </pre></div>
 </div>
 <p>which lists all the files in your current directory,
-and you should see a directory called <code class="code bash docutils literal notranslate"><span class="pre">my-cv-db</span></code> or whatever you chose to
+and you should see a directory called <code class="code highlight bash docutils literal highlight-bash">my-cv-db</code> or whatever you chose to
 call you database.  OK, let’s go and look at our database.  change directory into it and do a directory
 listing,</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">cd</span> my-cv-db
@@ -167,16 +169,16 @@ $ ls
 </div>
 <p>or open a file
 browser such as windows explorer and check out what is in there.</p>
-<p>You will see a direcotry called <code class="code bash docutils literal notranslate"><span class="pre">db</span></code> and a file called <code class="code bash docutils literal notranslate"><span class="pre">regolithrc.json</span></code>.
-All of the collections in your database are in the <code class="code bash docutils literal notranslate"><span class="pre">db</span></code> directory.  The
-<code class="code bash docutils literal notranslate"><span class="pre">regolithrc.json</span></code> contains a bunch of information that Regolith needs to run and do its business.</p>
+<p>You will see a direcotry called <code class="code highlight bash docutils literal highlight-bash">db</code> and a file called <code class="code highlight bash docutils literal highlight-bash">regolithrc.json</code>.
+All of the collections in your database are in the <code class="code highlight bash docutils literal highlight-bash">db</code> directory.  The
+<code class="code highlight bash docutils literal highlight-bash">regolithrc.json</code> contains a bunch of information that Regolith needs to run and do its business.</p>
 <p>You can use the Regolith program to do many things with, and to, your
 database. But you must always run Regolith from a directory that contains a
-<code class="code bash docutils literal notranslate"><span class="pre">regolithrc.json</span></code> file.  Since you are in a directory that contains one,
+<code class="code highlight bash docutils literal highlight-bash">regolithrc.json</code> file.  Since you are in a directory that contains one,
 you can run Regolith from here, but first you have to install it….</p>
-</div>
-<div class="section" id="install-regolith">
-<h2>2. install Regolith<a class="headerlink" href="#install-regolith" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="install-regolith">
+<h2>2. install Regolith<a class="headerlink" href="#install-regolith" title="Permalink to this heading">¶</a></h2>
 <p>Regolith packages are available from conda-forge and PyPI:</p>
 <p><strong>conda:</strong></p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ conda install -c conda-forge regolith
@@ -190,7 +192,7 @@ you can run Regolith from here, but first you have to install it….</p>
 install from the GitHub repository mode and get the latest changes.
 In that case, clone the <a class="reference external" href="https://github.com/regro/regolith">GitHub repository</a>,
 change directory to the top level directory in that cloned repository where the
-<code class="code bash docutils literal notranslate"><span class="pre">setup.py</span></code> file is.  From inside your virtual environment, type</p>
+<code class="code highlight bash docutils literal highlight-bash">setup.py</code> file is.  From inside your virtual environment, type</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ pip install regolith -e
 </pre></div>
 </div>
@@ -200,8 +202,8 @@ leading to instability so be careful.</p>
 <p>To check that your installation is working, let’s have Regolith make us a
 todo list from our database.</p>
 <p>Make sure you are in a directory that
-contains a <code class="code bash docutils literal notranslate"><span class="pre">regolithrc.json</span></code> file (which you should be, i.e., the
-top level directory of <code class="code bash docutils literal notranslate"><span class="pre">~/dbs/my-cv-db</span></code>, if you have been
+contains a <code class="code highlight bash docutils literal highlight-bash">regolithrc.json</code> file (which you should be, i.e., the
+top level directory of <code class="code highlight bash docutils literal highlight-bash">~/dbs/my-cv-db</code>, if you have been
 following these instructions) and type</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ regolith helper l_todos
 </pre></div>
@@ -266,16 +268,16 @@ Deadlines:
 </pre></div>
 </div>
 <p>After all the help messages is your list of Todo items.  There is just one item,
-<code class="code bash docutils literal notranslate"><span class="pre">Do</span> <span class="pre">all</span> <span class="pre">the</span> <span class="pre">things</span> <span class="pre">to</span> <span class="name builtin"><span class="pre">set</span></span> <span class="pre">up</span> <span class="pre">todos</span> <span class="keyword"><span class="pre">in</span></span> <span class="pre">regolith</span></code>.</p>
+<code class="code highlight bash docutils literal highlight-bash">Do all the things to <span class="nb">set</span> up todos <span class="k">in</span> regolith</code>.</p>
 <p>OK, your Regolith is working.  If it isn’t working, consider joining, browsing
 and posting questions to the <a class="reference external" href="https://groups.google.com/u/1/g/regolith-users">regolith-users</a>
 Google group.</p>
-</div>
-</div>
-<div class="section" id="quick-ish-start">
-<h1>Quick(ish) Start<a class="headerlink" href="#quick-ish-start" title="Permalink to this headline">¶</a></h1>
+</section>
+</section>
+<section id="quick-ish-start">
+<h1>Quick(ish) Start<a class="headerlink" href="#quick-ish-start" title="Permalink to this heading">¶</a></h1>
 <p>OK, let’s use Regolith to build our cv.  Why not.  again, in a terminal navigate
-to the top level directory of your database (where the <code class="code bash docutils literal notranslate"><span class="pre">regolithrc.json</span></code>
+to the top level directory of your database (where the <code class="code highlight bash docutils literal highlight-bash">regolithrc.json</code>
 file is). and type:</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ regolith build cv
 </pre></div>
@@ -284,8 +286,8 @@ file is). and type:</p>
 build them into your academic cv according to a pre-determined template.  The
 current template builds the cv using latex.  If your computer has latex installed
 and Regolith can find it, your cv should appear as a pdf document in the directory
-<code class="code bash docutils literal notranslate"><span class="pre">my-cv-db/_build</span></code> (or more generally <code class="code bash docutils literal notranslate"><span class="pre">&lt;path&gt;/&lt;to&gt;/&lt;database_name&gt;/_build</span></code>).
-All your built documents will appear in the <code class="code bash docutils literal notranslate"><span class="pre">_build</span></code>
+<code class="code highlight bash docutils literal highlight-bash">my-cv-db/_build</code> (or more generally <code class="code highlight bash docutils literal highlight-bash">&lt;path&gt;/&lt;to&gt;/&lt;database_name&gt;/_build</code>).
+All your built documents will appear in the <code class="code highlight bash docutils literal highlight-bash">_build</code>
 directory.</p>
 <p>If you don’t have latex installed we can  have Regolith build the latex
 source file for the cv but without trying to
@@ -293,11 +295,11 @@ render it to PDF,</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ regolith build cv --no-pdf
 </pre></div>
 </div>
-<p>The latex source is a text file that you will find in the <code class="code bash docutils literal notranslate"><span class="pre">_build</span></code> directory
+<p>The latex source is a text file that you will find in the <code class="code highlight bash docutils literal highlight-bash">_build</code> directory
 and you can open it in a text editor.  Even without latex installed you can
 render it by opening a free account at <a class="reference external" href="http://overleaf.com">http://overleaf.com</a> starting a new blank
-project, uploading the <code class="code bash docutils literal notranslate"><span class="pre">&lt;filename&gt;.tex</span></code> and <code class="code bash docutils literal notranslate"><span class="pre">&lt;filename&gt;.bib</span></code> files to
-that project and hitting the <code class="code bash docutils literal notranslate"><span class="pre">recompile</span></code> button.</p>
+project, uploading the <code class="code highlight bash docutils literal highlight-bash">&lt;filename&gt;.tex</code> and <code class="code highlight bash docutils literal highlight-bash">&lt;filename&gt;.bib</code> files to
+that project and hitting the <code class="code highlight bash docutils literal highlight-bash">recompile</code> button.</p>
 <p>Whether it builds on your computer or on overleaf, it should look something like</p>
 <img alt="../_static/cv.pdf" src="../_static/cv.pdf" />
 <p>If, for some reason, the publication list doesn’t render
@@ -305,24 +307,24 @@ correctly, try running the latex command again.  If you are going to
 do much building with regolith it is definitely recommended to install latex on
 your computer, such as MikTeX for windows (latex comes installed with many linux
 systems and is easily installed on IOS).</p>
-</div>
-<div class="section" id="what-next">
-<h1>What Next?<a class="headerlink" href="#what-next" title="Permalink to this headline">¶</a></h1>
+</section>
+<section id="what-next">
+<h1>What Next?<a class="headerlink" href="#what-next" title="Permalink to this heading">¶</a></h1>
 <p>You have not spent too much time entering data into your database yet, but you
 can already build a number of different things.  Try building your
-resume (<code class="code bash docutils literal notranslate"><span class="pre">$</span> <span class="pre">regolith</span> <span class="pre">build</span> <span class="pre">resume</span></code>), your publication list
-(<code class="code bash docutils literal notranslate"><span class="pre">$</span> <span class="pre">regolith</span> <span class="pre">build</span> <span class="pre">publist</span></code>) and your presentation list
-(<code class="code bash docutils literal notranslate"><span class="pre">$</span> <span class="pre">regolith</span> <span class="pre">build</span> <span class="pre">preslist</span></code>).  You can even build a web-page
-for your group (<code class="code bash docutils literal notranslate"><span class="pre">$</span> <span class="pre">regolith</span> <span class="pre">build</span> <span class="pre">html</span></code>).  It will look pretty
+resume (<code class="code highlight bash docutils literal highlight-bash">$ regolith build resume</code>), your publication list
+(<code class="code highlight bash docutils literal highlight-bash">$ regolith build publist</code>) and your presentation list
+(<code class="code highlight bash docutils literal highlight-bash">$ regolith build preslist</code>).  You can even build a web-page
+for your group (<code class="code highlight bash docutils literal highlight-bash">$ regolith build html</code>).  It will look pretty
 ugly until we set it up properly with a nice template, but all the content
 will be dynamically built from the latest info in your databases.</p>
-<p>To see everything you can build, type <code class="code bash docutils literal notranslate"><span class="pre">$</span> <span class="pre">regolith</span> <span class="pre">build</span> <span class="pre">--help</span></code>.
+<p>To see everything you can build, type <code class="code highlight bash docutils literal highlight-bash">$ regolith build --help</code>.
 To build some of those things you will need more collections that are not
 in the cookie cutter template, for example,
-<code class="code bash docutils literal notranslate"><span class="pre">proposals</span></code> and <code class="code bash docutils literal notranslate"><span class="pre">grants</span></code> collections, but you get the idea.</p>
+<code class="code highlight bash docutils literal highlight-bash">proposals</code> and <code class="code highlight bash docutils literal highlight-bash">grants</code> collections, but you get the idea.</p>
 <p>So next we might want to work on those collections and start adding more data.
 This can be done in a couple of ways.  Probably the simplest to begin
-with is just use a text editor or IDE like PyCharm.   The <code class="code bash docutils literal notranslate"><span class="pre">yml</span></code> files are
+with is just use a text editor or IDE like PyCharm.   The <code class="code highlight bash docutils literal highlight-bash">yml</code> files are
 yaml files, which is a human readable way of storing information that can be
 read and understood by python.  Please read about it <a class="reference external" href="https://en.wikipedia.org/wiki/YAML">here</a>
 if you are not familiar with it. However, briefly to get you started, it encodes
@@ -333,7 +335,7 @@ For example,</p>
   - another list item
 </pre></div>
 </div>
-<p>would be read by python as <code class="code python docutils literal notranslate"><span class="punctuation"><span class="pre">{</span></span><span class="literal string double"><span class="pre">&quot;key&quot;</span></span><span class="punctuation"><span class="pre">:</span></span> <span class="punctuation"><span class="pre">[</span></span><span class="literal string double"><span class="pre">&quot;list</span> <span class="pre">item&quot;</span></span><span class="punctuation"><span class="pre">,</span></span> <span class="literal string double"><span class="pre">&quot;another</span> <span class="pre">list</span> <span class="pre">item&quot;</span></span><span class="punctuation"><span class="pre">]}</span></span></code>,
+<p>would be read by python as <code class="code highlight python docutils literal highlight-python"><span class="p">{</span><span class="s2">&quot;key&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;list item&quot;</span><span class="p">,</span> <span class="s2">&quot;another list item&quot;</span><span class="p">]}</span></code>,
 and a collection consisting of a list of dictionaries would look like this in yaml:</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>id:
   - name: Arthur
@@ -351,31 +353,31 @@ but can be frustrating as you are learning it.</p>
 fields are allowed or required in a collection look at the Collections part of
 the docs, <a class="reference internal" href="collections/index.html#regolith-collections"><span class="std std-ref">Collections</span></a>, which are built from the Regolith schema
 (or directly look at the
-schema in <code class="code bash docutils literal notranslate"><span class="pre">schema.py</span></code>).  You can automatically check if your database
-edits are valid by running <code class="code bash docutils literal notranslate"><span class="pre">$</span> <span class="pre">regolith</span> <span class="pre">validate</span></code>.</p>
-</div>
-<div class="section" id="getting-help-from-helpers">
-<h1>Getting Help from Helpers<a class="headerlink" href="#getting-help-from-helpers" title="Permalink to this headline">¶</a></h1>
+schema in <code class="code highlight bash docutils literal highlight-bash">schema.py</code>).  You can automatically check if your database
+edits are valid by running <code class="code highlight bash docutils literal highlight-bash">$ regolith validate</code>.</p>
+</section>
+<section id="getting-help-from-helpers">
+<h1>Getting Help from Helpers<a class="headerlink" href="#getting-help-from-helpers" title="Permalink to this heading">¶</a></h1>
 <p>Regolith builders build documents, but there are a small but growing number of
 tools that either will run popular queries on the database and print the results
-to the terminal (“lister helpers” with <code class="code bash docutils literal notranslate"><span class="pre">l_</span></code> prefixes – you
+to the terminal (“lister helpers” with <code class="code highlight bash docutils literal highlight-bash">l_</code> prefixes – you
 already used one,
 it was the lister helper that builds your todo list).</p>
 <p>There are also helpers
 that help you to add documents to your database collections.  These are
-“adder helpers”  with <code class="code bash docutils literal notranslate"><span class="pre">a_</span></code> prefixes.  An important adder helper is
-<code class="code bash docutils literal notranslate"><span class="pre">a_todo</span></code> helper that will add a todo item to your list.</p>
+“adder helpers”  with <code class="code highlight bash docutils literal highlight-bash">a_</code> prefixes.  An important adder helper is
+<code class="code highlight bash docutils literal highlight-bash">a_todo</code> helper that will add a todo item to your list.</p>
 <p>“Updater
 helpers” will update existing entries in your databases and have prefix
-<code class="code bash docutils literal notranslate"><span class="pre">u_</span></code>.</p>
+<code class="code highlight bash docutils literal highlight-bash">u_</code>.</p>
 <p>An important special kind of updater helper is a “finish helper” that will mark
 something as finished (and give it a finish date).  So when you do that
 pesky 15th todo item on your todo list, run
-<code class="code bash docutils literal notranslate"><span class="pre">regolith</span> <span class="pre">helper</span> <span class="pre">f_todo</span> <span class="pre">-i</span> <span class="literal number"><span class="pre">15</span></span></code> to finish it.</p>
+<code class="code highlight bash docutils literal highlight-bash">regolith helper f_todo -i <span class="m">15</span></code> to finish it.</p>
 <p>That is a lot of typing to finish a todo, so consider setting up an alias in
 the config file for your terminal program (my terminals run bash so I put the
-alias in the <code class="code bash docutils literal notranslate"><span class="pre">.bashrc</span></code> file in my home directory (<code class="code bash docutils literal notranslate"><span class="pre">$</span> <span class="name builtin"><span class="pre">cd</span></span> <span class="pre">~</span></code> to get there).
-With this alias I just type <code class="code bash docutils literal notranslate"><span class="pre">rhlt</span> <span class="literal number"><span class="pre">15</span></span></code> to finish that 15th todo item.</p>
+alias in the <code class="code highlight bash docutils literal highlight-bash">.bashrc</code> file in my home directory (<code class="code highlight bash docutils literal highlight-bash">$ <span class="nb">cd</span> ~</code> to get there).
+With this alias I just type <code class="code highlight bash docutils literal highlight-bash">rhlt <span class="m">15</span></code> to finish that 15th todo item.</p>
 <p>To explore what helpers are there so you can play with them, type</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ regolith helper
 </pre></div>
@@ -458,29 +460,29 @@ line arguments. e.g.,</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ regolith helper l_contacts run --name frank -v
 </pre></div>
 </div>
-<p>will return all contacts in the contacts collection where <code class="code bash docutils literal notranslate"><span class="pre">frank</span></code> appears anywhere
-in the name, such as <code class="code bash docutils literal notranslate"><span class="pre">Frankie</span> <span class="pre">Valli</span></code>, <code class="code bash docutils literal notranslate"><span class="pre">Baron</span> <span class="pre">von</span> <span class="pre">Frankenstein</span></code>
-and <code class="code bash docutils literal notranslate"><span class="pre">Anne</span> <span class="pre">Frank</span></code> (if they are in your contacts).  The <code class="code bash docutils literal notranslate"><span class="pre">-v</span></code>
-command stands for <code class="code bash docutils literal notranslate"><span class="pre">verbose</span></code> which means more information is
-returned than if you don’t type <code class="code bash docutils literal notranslate"><span class="pre">-v</span></code>.  You can try it now:</p>
+<p>will return all contacts in the contacts collection where <code class="code highlight bash docutils literal highlight-bash">frank</code> appears anywhere
+in the name, such as <code class="code highlight bash docutils literal highlight-bash">Frankie Valli</code>, <code class="code highlight bash docutils literal highlight-bash">Baron von Frankenstein</code>
+and <code class="code highlight bash docutils literal highlight-bash">Anne Frank</code> (if they are in your contacts).  The <code class="code highlight bash docutils literal highlight-bash">-v</code>
+command stands for <code class="code highlight bash docutils literal highlight-bash">verbose</code> which means more information is
+returned than if you don’t type <code class="code highlight bash docutils literal highlight-bash">-v</code>.  You can try it now:</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ regolith helper l_contacts run -n auth -v
 </pre></div>
 </div>
-</div>
-<div class="section" id="using-the-filter-capabilities-in-the-helpers">
-<h1>Using the filter capabilities in the helpers<a class="headerlink" href="#using-the-filter-capabilities-in-the-helpers" title="Permalink to this headline">¶</a></h1>
+</section>
+<section id="using-the-filter-capabilities-in-the-helpers">
+<h1>Using the filter capabilities in the helpers<a class="headerlink" href="#using-the-filter-capabilities-in-the-helpers" title="Permalink to this heading">¶</a></h1>
 <p>Most helpers have a filter  field.  This allows you to filter the relevant collection
 before running the helper functionality.</p>
 <p>The logic of filter is the following.  A document will be valid if the value of key contains value for all keys and values using AND logic.</p>
-<p>As an example, if we consider filtering in the <code class="code bash docutils literal notranslate"><span class="pre">l_milestones</span></code> helper we will get the following behavior. <code class="code bash docutils literal notranslate"><span class="pre">l_milestones</span></code> operates on the <code class="code bash docutils literal notranslate"><span class="pre">projecta</span></code> collection, so the filter will be applied to this collection.
-If you specify <code class="code bash docutils literal notranslate"><span class="pre">--filter</span> <span class="pre">lead</span> <span class="pre">voe</span></code> it will return all documents where <code class="code bash docutils literal notranslate"><span class="pre">voe</span></code> appears in the value for the <code class="code bash docutils literal notranslate"><span class="pre">lead</span></code> field (e.g., if there is someone with an id of <code class="code bash docutils literal notranslate"><span class="pre">carvoe</span></code> and another person with and id of <code class="code bash docutils literal notranslate"><span class="pre">voedemort</span></code> the filter will return all the documents where either of these people are <code class="code bash docutils literal notranslate"><span class="pre">lead</span></code>).</p>
-<p>If you then select <code class="code bash docutils literal notranslate"><span class="pre">current</span></code> and <code class="code bash docutils literal notranslate"><span class="pre">verbose</span></code> the helper will do the normal thing of returning in verbose form the current milestones, but it will do it on the filtered collection.</p>
-<p>A slight gotcha is that since filter uses “in” in its logic, if the type of the key value is a string it will find all strings that contain that fragment, as above, but if the type of the key value is a list it will return documents where the specified value is in the list, so <code class="code bash docutils literal notranslate"><span class="pre">--filter</span> <span class="pre">group_member</span> <span class="pre">voe</span></code> will return all the documents where <code class="code bash docutils literal notranslate"><span class="pre">voe</span></code> is listed as a group member, but it won’t return any documents where <code class="code bash docutils literal notranslate"><span class="pre">carvoe</span></code> or <code class="code bash docutils literal notranslate"><span class="pre">voedemort</span></code> are listed as a group member.</p>
-<p>The filter uses AND logic and operates such that <code class="code bash docutils literal notranslate"><span class="pre">--filter</span> <span class="pre">lead</span> <span class="pre">voe</span> <span class="pre">grants</span> <span class="pre">mygrant21</span> <span class="pre">status</span> <span class="pre">finished</span></code> will return all prums that are led by <code class="code bash docutils literal notranslate"><span class="pre">carvoe</span></code> or <code class="code bash docutils literal notranslate"><span class="pre">voedemort</span></code> that acknowledge the mygrant21 grant and are finished.  Actually, similar behavior can be obtained also by selecting <code class="code bash docutils literal notranslate"><span class="pre">--lead</span> <span class="pre">voe</span> <span class="pre">--stati</span> <span class="pre">finished</span> <span class="pre">--filter</span> <span class="pre">grants</span> <span class="pre">mygrant21</span></code></p>
+<p>As an example, if we consider filtering in the <code class="code highlight bash docutils literal highlight-bash">l_milestones</code> helper we will get the following behavior. <code class="code highlight bash docutils literal highlight-bash">l_milestones</code> operates on the <code class="code highlight bash docutils literal highlight-bash">projecta</code> collection, so the filter will be applied to this collection.
+If you specify <code class="code highlight bash docutils literal highlight-bash">--filter lead voe</code> it will return all documents where <code class="code highlight bash docutils literal highlight-bash">voe</code> appears in the value for the <code class="code highlight bash docutils literal highlight-bash">lead</code> field (e.g., if there is someone with an id of <code class="code highlight bash docutils literal highlight-bash">carvoe</code> and another person with and id of <code class="code highlight bash docutils literal highlight-bash">voedemort</code> the filter will return all the documents where either of these people are <code class="code highlight bash docutils literal highlight-bash">lead</code>).</p>
+<p>If you then select <code class="code highlight bash docutils literal highlight-bash">current</code> and <code class="code highlight bash docutils literal highlight-bash">verbose</code> the helper will do the normal thing of returning in verbose form the current milestones, but it will do it on the filtered collection.</p>
+<p>A slight gotcha is that since filter uses “in” in its logic, if the type of the key value is a string it will find all strings that contain that fragment, as above, but if the type of the key value is a list it will return documents where the specified value is in the list, so <code class="code highlight bash docutils literal highlight-bash">--filter group_member voe</code> will return all the documents where <code class="code highlight bash docutils literal highlight-bash">voe</code> is listed as a group member, but it won’t return any documents where <code class="code highlight bash docutils literal highlight-bash">carvoe</code> or <code class="code highlight bash docutils literal highlight-bash">voedemort</code> are listed as a group member.</p>
+<p>The filter uses AND logic and operates such that <code class="code highlight bash docutils literal highlight-bash">--filter lead voe grants mygrant21 status finished</code> will return all prums that are led by <code class="code highlight bash docutils literal highlight-bash">carvoe</code> or <code class="code highlight bash docutils literal highlight-bash">voedemort</code> that acknowledge the mygrant21 grant and are finished.  Actually, similar behavior can be obtained also by selecting <code class="code highlight bash docutils literal highlight-bash">--lead voe --stati finished --filter grants mygrant21</code></p>
 <p>unfortunately the filter function does not currently recurse, so it will only operate on top level key-value pairs where the type of the value is a string or a list or a tuple.</p>
-</div>
-<div class="section" id="backing-up-and-protecting-your-work">
-<h1>Backing up and protecting your work<a class="headerlink" href="#backing-up-and-protecting-your-work" title="Permalink to this headline">¶</a></h1>
+</section>
+<section id="backing-up-and-protecting-your-work">
+<h1>Backing up and protecting your work<a class="headerlink" href="#backing-up-and-protecting-your-work" title="Permalink to this heading">¶</a></h1>
 <p>Now you have started saving your precious life’s work in your regolith database
 you better start protecting it and backing it up.  One low overhead approach
 for this is simply to set up your database directory to be backed up remotely as
@@ -500,8 +502,8 @@ your personal space on GitHub (you will need a GitHub account).  You can make
 that repo private so the world
 cannot see your todo list, or public so that the world can see the web-page
 you build from it.  We will get back to this later, but Regolith will build
-collections from across databases, so you can have parts of your <code class="code bash docutils literal notranslate"><span class="pre">people</span></code>
-collection private and other parts public.  Depending which <code class="code bash docutils literal notranslate"><span class="pre">regolithrc.json</span></code>
+collections from across databases, so you can have parts of your <code class="code highlight bash docutils literal highlight-bash">people</code>
+collection private and other parts public.  Depending which <code class="code highlight bash docutils literal highlight-bash">regolithrc.json</code>
 file you use to build with, you can pull from the public, or private, or both
 parts.  Again, this is a peep to the future.
 For now, let’s assume you just want to back up and keep versions of
@@ -521,15 +523,15 @@ GitHub backup, you will have to explicitly add it before committing,</p>
 $ git commit -m <span class="s2">&quot;an even more informative commit message&quot;</span>
 </pre></div>
 </div>
-<p><code class="code bash docutils literal notranslate"><span class="pre">$</span> <span class="pre">git</span> <span class="pre">commit</span></code> commits (i.e., checks in) to the git database (yes,
+<p><code class="code highlight bash docutils literal highlight-bash">$ git commit</code> commits (i.e., checks in) to the git database (yes,
 git, like you now, is using a database backend) everything that has been added, or staged, for commit.
-<code class="code bash docutils literal notranslate"><span class="pre">$</span> <span class="pre">git</span> <span class="pre">commit</span> <span class="pre">-a</span></code> automatically adds all files that git is tracking
+<code class="code highlight bash docutils literal highlight-bash">$ git commit -a</code> automatically adds all files that git is tracking
 (have been previously committed in the past) that have been edited and then
 commits them.</p>
 <p>They are now safely captured in the git database and you can retrieve them
 later if you accidentally delete your personal database or mess it up some other way.
 But this version of the git database is still stored on your local computer, so
-if you spill coffee on your computer, you may lose everything.  <code class="code bash docutils literal notranslate"><span class="pre">$</span> <span class="pre">git</span> <span class="pre">push</span></code> pushes all
+if you spill coffee on your computer, you may lose everything.  <code class="code highlight bash docutils literal highlight-bash">$ git push</code> pushes all
 these updates to a remote computer on the internet at the GitHub headquarters.
 Git and GitHub form a wonderful but complicated infrastructure, it is well worth
 getting to know how to use them well.  For now, we have used it to
@@ -540,17 +542,17 @@ research group, or whatever you are working on.  We will continue to
 add tutorials below explaining some of these things, so check back
 from time to time.  And remember join and to ask questions at the <a class="reference external" href="https://groups.google.com/u/1/g/regolith-users">regolith-users</a>
 Google group.  They will get answered.</p>
-</div>
-<div class="section" id="tutorials">
-<h1>Tutorials<a class="headerlink" href="#tutorials" title="Permalink to this headline">¶</a></h1>
+</section>
+<section id="tutorials">
+<h1>Tutorials<a class="headerlink" href="#tutorials" title="Permalink to this heading">¶</a></h1>
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="tutorials/index.html">Tutorials</a></li>
 </ul>
 </div>
-</div>
-<div class="section" id="run-control">
-<h1>Run Control<a class="headerlink" href="#run-control" title="Permalink to this headline">¶</a></h1>
+</section>
+<section id="run-control">
+<h1>Run Control<a class="headerlink" href="#run-control" title="Permalink to this heading">¶</a></h1>
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="rc.html">Top-level Configuration Keys</a></li>
@@ -558,9 +560,9 @@ Google group.  They will get answered.</p>
 <li class="toctree-l1"><a class="reference internal" href="rc.html#user-configuration">User Configuration</a></li>
 </ul>
 </div>
-</div>
-<div class="section" id="database-collections">
-<h1>Database Collections<a class="headerlink" href="#database-collections" title="Permalink to this headline">¶</a></h1>
+</section>
+<section id="database-collections">
+<h1>Database Collections<a class="headerlink" href="#database-collections" title="Permalink to this heading">¶</a></h1>
 <p><strong>Collections</strong> are the regolith (and mongo) abstraction for <em>tables</em>.
 <strong>Entries</strong> (or <em>rows</em>) in
 a collection must follow the schema defined below. In general, the following notions
@@ -607,18 +609,18 @@ With these points in mind, feel free to dive into the databases below!</p>
 </li>
 </ul>
 </div>
-</div>
-<div class="section" id="regolith-api">
-<h1>Regolith API<a class="headerlink" href="#regolith-api" title="Permalink to this headline">¶</a></h1>
+</section>
+<section id="regolith-api">
+<h1>Regolith API<a class="headerlink" href="#regolith-api" title="Permalink to this heading">¶</a></h1>
 <p>For those who want to dive deeper into the library itself.</p>
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="api/index.html">Regolith API</a></li>
 </ul>
 </div>
-</div>
-<div class="section" id="regolith-commands">
-<h1>Regolith Commands<a class="headerlink" href="#regolith-commands" title="Permalink to this headline">¶</a></h1>
+</section>
+<section id="regolith-commands">
+<h1>Regolith Commands<a class="headerlink" href="#regolith-commands" title="Permalink to this heading">¶</a></h1>
 <p>Shell commmands for regolith</p>
 <div class="toctree-wrapper compound">
 <ul>
@@ -643,15 +645,15 @@ With these points in mind, feel free to dive into the databases below!</p>
 </li>
 </ul>
 </div>
-</div>
-<div class="section" id="database-maintenance">
-<h1>Database Maintenance<a class="headerlink" href="#database-maintenance" title="Permalink to this headline">¶</a></h1>
+</section>
+<section id="database-maintenance">
+<h1>Database Maintenance<a class="headerlink" href="#database-maintenance" title="Permalink to this heading">¶</a></h1>
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="database_maintenance/index.html">Database Maintenance</a></li>
 </ul>
 </div>
-</div>
+</section>
 
 
             <div class="clearer"></div>
@@ -700,7 +702,7 @@ With these points in mind, feel free to dive into the databases below!</p>
     </form>
     </div>
 </div>
-<script>$('#searchbox').show(0);</script>
+<script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
     

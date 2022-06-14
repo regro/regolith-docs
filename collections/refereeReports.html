@@ -3,10 +3,11 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
     <title>Refereereports &#8212; regolith - software group content managment system</title>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/cloud.css" />
@@ -15,6 +16,7 @@
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
 
     
@@ -64,78 +66,78 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="refereereports">
-<h1>Refereereports<a class="headerlink" href="#refereereports" title="Permalink to this headline">¶</a></h1>
+  <section id="refereereports">
+<h1>Refereereports<a class="headerlink" href="#refereereports" title="Permalink to this heading">¶</a></h1>
 <p>This is a collection of information that will be be used to build a referee report. This should probably be private.</p>
-<div class="section" id="schema">
-<h2>Schema<a class="headerlink" href="#schema" title="Permalink to this headline">¶</a></h2>
+<section id="schema">
+<h2>Schema<a class="headerlink" href="#schema" title="Permalink to this heading">¶</a></h2>
 <p>The following lists key names mapped to its type and meaning for each entry.</p>
 <dl class="field-list">
-<dt class="field-odd">_id</dt>
+<dt class="field-odd">_id<span class="colon">:</span></dt>
 <dd class="field-odd"><p>string, the ID, required</p>
 </dd>
-<dt class="field-even">claimed_found_what</dt>
+<dt class="field-even">claimed_found_what<span class="colon">:</span></dt>
 <dd class="field-even"><p>list, What the authors claim to have found, required</p>
 <dl class="field-list simple">
-<dt class="field-odd">type</dt>
+<dt class="field-odd">type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>string, required</p>
 </dd>
 </dl>
 </dd>
-<dt class="field-odd">claimed_why_important</dt>
+<dt class="field-odd">claimed_why_important<span class="colon">:</span></dt>
 <dd class="field-odd"><p>list, What importance the authors claim, required</p>
 <dl class="field-list simple">
-<dt class="field-odd">type</dt>
+<dt class="field-odd">type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>string, required</p>
 </dd>
 </dl>
 </dd>
-<dt class="field-even">did_how</dt>
+<dt class="field-even">did_how<span class="colon">:</span></dt>
 <dd class="field-even"><p>list, How the study was done, required</p>
 <dl class="field-list simple">
-<dt class="field-odd">type</dt>
+<dt class="field-odd">type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>string, required</p>
 </dd>
 </dl>
 </dd>
-<dt class="field-odd">did_what</dt>
+<dt class="field-odd">did_what<span class="colon">:</span></dt>
 <dd class="field-odd"><p>list, What the study was, required</p>
 <dl class="field-list simple">
-<dt class="field-odd">type</dt>
+<dt class="field-odd">type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>string, required</p>
 </dd>
 </dl>
 </dd>
-<dt class="field-even">due_date</dt>
+<dt class="field-even">due_date<span class="colon">:</span></dt>
 <dd class="field-even"><p>[‘string’, ‘date’], date the review is due in ISO format, required</p>
 </dd>
-<dt class="field-odd">editor_eyes_only</dt>
+<dt class="field-odd">editor_eyes_only<span class="colon">:</span></dt>
 <dd class="field-odd"><p>string, Comments you don’t want passed to the author, optional</p>
 </dd>
-<dt class="field-even">final_assessment</dt>
+<dt class="field-even">final_assessment<span class="colon">:</span></dt>
 <dd class="field-even"><p>list, Summary of impressions of the study, required</p>
 <dl class="field-list simple">
-<dt class="field-odd">type</dt>
+<dt class="field-odd">type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>string, required</p>
 </dd>
 </dl>
 </dd>
-<dt class="field-odd">first_author_last_name</dt>
+<dt class="field-odd">first_author_last_name<span class="colon">:</span></dt>
 <dd class="field-odd"><p>string, Last name of first author will be referred to with et al., required</p>
 </dd>
-<dt class="field-even">freewrite</dt>
+<dt class="field-even">freewrite<span class="colon">:</span></dt>
 <dd class="field-even"><p>string, Things that you want to add that don’t fit into any category above, optional</p>
 </dd>
-<dt class="field-odd">institutions</dt>
+<dt class="field-odd">institutions<span class="colon">:</span></dt>
 <dd class="field-odd"><p>[‘string’, ‘list’], the institutions of the pi and co-pis, optional</p>
 </dd>
-<dt class="field-even">journal</dt>
+<dt class="field-even">journal<span class="colon">:</span></dt>
 <dd class="field-even"><p>string, name of the journal, required</p>
 </dd>
-<dt class="field-odd">month</dt>
+<dt class="field-odd">month<span class="colon">:</span></dt>
 <dd class="field-odd"><p>[‘integer’, ‘string’], The month the review was requested, optional</p>
 </dd>
-<dt class="field-even">recommendation</dt>
+<dt class="field-even">recommendation<span class="colon">:</span></dt>
 <dd class="field-even"><p>string, Your publication recommendation, required</p>
 <dl class="simple">
 <dt>Allowed values:</dt><dd><ul class="simple">
@@ -148,13 +150,13 @@
 </dd>
 </dl>
 </dd>
-<dt class="field-odd">requester</dt>
+<dt class="field-odd">requester<span class="colon">:</span></dt>
 <dd class="field-odd"><p>string, Name of the program officer who requested the review, required</p>
 </dd>
-<dt class="field-even">reviewer</dt>
+<dt class="field-even">reviewer<span class="colon">:</span></dt>
 <dd class="field-even"><p>string, name of person reviewing the paper, required</p>
 </dd>
-<dt class="field-odd">status</dt>
+<dt class="field-odd">status<span class="colon">:</span></dt>
 <dd class="field-odd"><p>string, Where you are with the review, required</p>
 <dl class="simple">
 <dt>Allowed values:</dt><dd><ul class="simple">
@@ -169,27 +171,27 @@
 </dd>
 </dl>
 </dd>
-<dt class="field-even">submitted_date</dt>
+<dt class="field-even">submitted_date<span class="colon">:</span></dt>
 <dd class="field-even"><p>[‘string’, ‘date’], submitted date in ISO YYYY-MM-DD format., optional</p>
 </dd>
-<dt class="field-odd">title</dt>
+<dt class="field-odd">title<span class="colon">:</span></dt>
 <dd class="field-odd"><p>string, title of the paper under review, required</p>
 </dd>
-<dt class="field-even">validity_assessment</dt>
+<dt class="field-even">validity_assessment<span class="colon">:</span></dt>
 <dd class="field-even"><p>list, List of impressions of the validity of the claims, required</p>
 <dl class="field-list simple">
-<dt class="field-odd">type</dt>
+<dt class="field-odd">type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>string, required</p>
 </dd>
 </dl>
 </dd>
-<dt class="field-odd">year</dt>
+<dt class="field-odd">year<span class="colon">:</span></dt>
 <dd class="field-odd"><p>[‘string’, ‘integer’], year when the review is being done, required</p>
 </dd>
 </dl>
-</div>
-<div class="section" id="yaml-example">
-<h2>YAML Example<a class="headerlink" href="#yaml-example" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="yaml-example">
+<h2>YAML Example<a class="headerlink" href="#yaml-example" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">1902nature</span><span class="p">:</span><span class="w"></span>
 <span class="w">  </span><span class="nt">claimed_found_what</span><span class="p">:</span><span class="w"></span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">gravity waves</span><span class="w"></span>
@@ -244,9 +246,9 @@
 <span class="w">  </span><span class="nt">year</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2020</span><span class="w"></span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="json-mongo-example">
-<h2>JSON/Mongo Example<a class="headerlink" href="#json-mongo-example" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="json-mongo-example">
+<h2>JSON/Mongo Example<a class="headerlink" href="#json-mongo-example" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="nt">&quot;_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1902nature&quot;</span><span class="p">,</span><span class="w"></span>
 <span class="w">    </span><span class="nt">&quot;claimed_found_what&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
@@ -317,8 +319,8 @@
 <span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
-</div>
-</div>
+</section>
+</section>
 
 
             <div class="clearer"></div>
@@ -360,7 +362,7 @@
     </form>
     </div>
 </div>
-<script>$('#searchbox').show(0);</script>
+<script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
     

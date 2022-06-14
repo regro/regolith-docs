@@ -3,10 +3,11 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
     <title>Presentations &#8212; regolith - software group content managment system</title>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/cloud.css" />
@@ -15,6 +16,7 @@
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
 
     
@@ -64,68 +66,68 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="presentations">
-<h1>Presentations<a class="headerlink" href="#presentations" title="Permalink to this headline">¶</a></h1>
+  <section id="presentations">
+<h1>Presentations<a class="headerlink" href="#presentations" title="Permalink to this heading">¶</a></h1>
 <p>This collection describes presentations that groupmembers make at conferences, symposia, seminars andso on.</p>
-<div class="section" id="schema">
-<h2>Schema<a class="headerlink" href="#schema" title="Permalink to this headline">¶</a></h2>
+<section id="schema">
+<h2>Schema<a class="headerlink" href="#schema" title="Permalink to this heading">¶</a></h2>
 <p>The following lists key names mapped to its type and meaning for each entry.</p>
 <dl class="field-list">
-<dt class="field-odd">_id</dt>
+<dt class="field-odd">_id<span class="colon">:</span></dt>
 <dd class="field-odd"><p>string, unique id for the presentation, required</p>
 </dd>
-<dt class="field-even">abstract</dt>
+<dt class="field-even">abstract<span class="colon">:</span></dt>
 <dd class="field-even"><p>string, abstract of the presentation, optional</p>
 </dd>
-<dt class="field-odd">authors</dt>
+<dt class="field-odd">authors<span class="colon">:</span></dt>
 <dd class="field-odd"><p>[‘string’, ‘list’], Author list., required</p>
 </dd>
-<dt class="field-even">begin_date</dt>
+<dt class="field-even">begin_date<span class="colon">:</span></dt>
 <dd class="field-even"><p>[‘date’, ‘string’], begin date in YYYY-MM-DD, optional</p>
 </dd>
-<dt class="field-odd">begin_day</dt>
+<dt class="field-odd">begin_day<span class="colon">:</span></dt>
 <dd class="field-odd"><p>integer, optional</p>
 </dd>
-<dt class="field-even">begin_month</dt>
+<dt class="field-even">begin_month<span class="colon">:</span></dt>
 <dd class="field-even"><p>[‘string’, ‘integer’], optional</p>
 </dd>
-<dt class="field-odd">begin_year</dt>
+<dt class="field-odd">begin_year<span class="colon">:</span></dt>
 <dd class="field-odd"><p>integer, year the conference or trip begins., optional</p>
 </dd>
-<dt class="field-even">department</dt>
+<dt class="field-even">department<span class="colon">:</span></dt>
 <dd class="field-even"><p>string, department of the institution where thepresentation will be made, if applicable.  should be discoverable in institutions., optional</p>
 </dd>
-<dt class="field-odd">end_date</dt>
+<dt class="field-odd">end_date<span class="colon">:</span></dt>
 <dd class="field-odd"><p>[‘date’, ‘string’], end_date in YYYY-MM-DD, optional</p>
 </dd>
-<dt class="field-even">end_day</dt>
+<dt class="field-even">end_day<span class="colon">:</span></dt>
 <dd class="field-even"><p>integer, optional</p>
 </dd>
-<dt class="field-odd">end_month</dt>
+<dt class="field-odd">end_month<span class="colon">:</span></dt>
 <dd class="field-odd"><p>[‘string’, ‘integer’], optional</p>
 </dd>
-<dt class="field-even">end_year</dt>
+<dt class="field-even">end_year<span class="colon">:</span></dt>
 <dd class="field-even"><p>integer, year the conference or trip ends, optional</p>
 </dd>
-<dt class="field-odd">institution</dt>
+<dt class="field-odd">institution<span class="colon">:</span></dt>
 <dd class="field-odd"><p>string, institution where thepresentation will be made, if applicable., optional</p>
 </dd>
-<dt class="field-even">location</dt>
+<dt class="field-even">location<span class="colon">:</span></dt>
 <dd class="field-even"><p>string, city and {state or country} of meeting, optional</p>
 </dd>
-<dt class="field-odd">meeting_name</dt>
+<dt class="field-odd">meeting_name<span class="colon">:</span></dt>
 <dd class="field-odd"><p>string, full name of the conference or meeting.  If it is a departmental seminar or colloquium, write Seminaror Colloquium and fill in department and institution fields, optional</p>
 </dd>
-<dt class="field-even">notes</dt>
+<dt class="field-even">notes<span class="colon">:</span></dt>
 <dd class="field-even"><p>[‘list’, ‘string’], any reminder or memory aid about anything, optional</p>
 </dd>
-<dt class="field-odd">presentation_url</dt>
+<dt class="field-odd">presentation_url<span class="colon">:</span></dt>
 <dd class="field-odd"><p>string, the url to the presentation on Google slides, GitHub or wherever, optional</p>
 </dd>
-<dt class="field-even">project</dt>
+<dt class="field-even">project<span class="colon">:</span></dt>
 <dd class="field-even"><p>[‘string’, ‘list’], project or list of projects that this presentation is associated with.  Should be discoverable in projects collection, optional</p>
 </dd>
-<dt class="field-odd">status</dt>
+<dt class="field-odd">status<span class="colon">:</span></dt>
 <dd class="field-odd"><p>string, Is the application in prep or submitted, was the invitation accepted or declined, was the trip cancelled?, required</p>
 <dl class="simple">
 <dt>Allowed values:</dt><dd><ul class="simple">
@@ -139,10 +141,10 @@
 </dd>
 </dl>
 </dd>
-<dt class="field-even">title</dt>
+<dt class="field-even">title<span class="colon">:</span></dt>
 <dd class="field-even"><p>string, title of the presentation, required</p>
 </dd>
-<dt class="field-odd">type</dt>
+<dt class="field-odd">type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>string, type of presentation, required</p>
 <dl class="simple">
 <dt>Allowed values:</dt><dd><ul class="simple">
@@ -160,13 +162,13 @@
 </dd>
 </dl>
 </dd>
-<dt class="field-even">webinar</dt>
+<dt class="field-even">webinar<span class="colon">:</span></dt>
 <dd class="field-even"><p>boolean, true if a webinar. Default to False, optional</p>
 </dd>
 </dl>
-</div>
-<div class="section" id="yaml-example">
-<h2>YAML Example<a class="headerlink" href="#yaml-example" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="yaml-example">
+<h2>YAML Example<a class="headerlink" href="#yaml-example" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">18sb04_kentstate</span><span class="p">:</span><span class="w"></span>
 <span class="w">  </span><span class="nt">abstract</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">We made the case for local structure</span><span class="w"></span>
 <span class="w">  </span><span class="nt">authors</span><span class="p">:</span><span class="w"></span>
@@ -232,9 +234,9 @@
 <span class="w">  </span><span class="nt">webinar</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span><span class="w"></span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="json-mongo-example">
-<h2>JSON/Mongo Example<a class="headerlink" href="#json-mongo-example" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="json-mongo-example">
+<h2>JSON/Mongo Example<a class="headerlink" href="#json-mongo-example" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="nt">&quot;_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;18sb04_kentstate&quot;</span><span class="p">,</span><span class="w"></span>
 <span class="w">    </span><span class="nt">&quot;abstract&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;We made the case for local structure&quot;</span><span class="p">,</span><span class="w"></span>
@@ -310,8 +312,8 @@
 <span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
-</div>
-</div>
+</section>
+</section>
 
 
             <div class="clearer"></div>
@@ -353,7 +355,7 @@
     </form>
     </div>
 </div>
-<script>$('#searchbox').show(0);</script>
+<script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
     

@@ -3,10 +3,11 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
     <title>Date Tools (regolith.dates) &#8212; regolith - software group content managment system</title>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/cloud.css" />
@@ -15,6 +16,7 @@
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
 
     
@@ -64,8 +66,8 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="module-regolith.dates">
-<span id="date-tools-regolith-dates"></span><span id="regolith-dates"></span><h1>Date Tools (<code class="docutils literal notranslate"><span class="pre">regolith.dates</span></code>)<a class="headerlink" href="#module-regolith.dates" title="Permalink to this headline">¶</a></h1>
+  <section id="module-regolith.dates">
+<span id="date-tools-regolith-dates"></span><span id="regolith-dates"></span><h1>Date Tools (<code class="docutils literal notranslate"><span class="pre">regolith.dates</span></code>)<a class="headerlink" href="#module-regolith.dates" title="Permalink to this heading">¶</a></h1>
 <p>Date based tools</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="regolith.dates.convert_doc_iso_to_date">
@@ -90,13 +92,13 @@
 <span class="sig-prename descclassname"><span class="pre">regolith.dates.</span></span><span class="sig-name descname"><span class="pre">find_gaps_overlaps</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dateslist</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">overlaps_ok</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/dates.html#find_gaps_overlaps"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#regolith.dates.find_gaps_overlaps" title="Permalink to this definition">¶</a></dt>
 <dd><p>Find whether there is a gap or an overlap in a list of date-ranges</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>dateslist</strong> (<em>list of tuples of datetime.date objects</em>) – The list of date-ranges.</p></li>
 <li><p><strong>overlaps_ok</strong> (<em>bool</em>) – Returns false if there are gaps but true if there are overlaps but no gaps</p></li>
 </ul>
 </dd>
-<dt class="field-even">Return type</dt>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p>True if there are no gaps or overlaps else False</p>
 </dd>
 </dl>
@@ -107,14 +109,14 @@
 <span class="sig-prename descclassname"><span class="pre">regolith.dates.</span></span><span class="sig-name descname"><span class="pre">get_dates</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">thing</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">date_field_prefix</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/dates.html#get_dates"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#regolith.dates.get_dates" title="Permalink to this definition">¶</a></dt>
 <dd><p>given a dict like thing, return the date items</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>thing</strong> (<em>dict</em>) – the dict that contains the dates</p></li>
 <li><p><strong>date_field_prefix</strong> (<em>string (optional)</em>) – the prefix to look for before the date parameter. For example given “submission”
 the function will search for submission_day, submission_year, etc.</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p><ul class="simple">
 <li><p><em>dict containing datetime.date objects for valid begin_date end_date and date, and</em></p></li>
 <li><p><em>prefix_date if a prefix string was passed.  Missing and empty dates and</em></p></li>
@@ -177,11 +179,11 @@ prefix_input. The following dictionary is returned:
 <dt class="sig sig-object py" id="regolith.dates.get_due_date">
 <span class="sig-prename descclassname"><span class="pre">regolith.dates.</span></span><span class="sig-name descname"><span class="pre">get_due_date</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">thing</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/dates.html#get_due_date"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#regolith.dates.get_due_date" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>thing</strong> (<em>dict</em>) – gets the field named ‘due_date’ from doc and ensurese it is a
 datetime.date object</p>
 </dd>
-<dt class="field-even">Return type</dt>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p>The due date as a datetime.date object</p>
 </dd>
 </dl>
@@ -192,13 +194,13 @@ datetime.date object</p>
 <span class="sig-prename descclassname"><span class="pre">regolith.dates.</span></span><span class="sig-name descname"><span class="pre">has_finished</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">thing</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">now</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/dates.html#has_finished"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#regolith.dates.has_finished" title="Permalink to this definition">¶</a></dt>
 <dd><p>given a thing with dates, returns true if the thing has finished</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>thing</strong> (<em>dict</em>) – the thing that we want to know whether or not it has finished</p></li>
 <li><p><strong>now</strong> (<em>datetime.date object</em>) – a date for now.  If it is None it uses the current date.  Default is None</p></li>
 </ul>
 </dd>
-<dt class="field-even">Return type</dt>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p>True if the thing has finished and false otherwise</p>
 </dd>
 </dl>
@@ -209,13 +211,13 @@ datetime.date object</p>
 <span class="sig-prename descclassname"><span class="pre">regolith.dates.</span></span><span class="sig-name descname"><span class="pre">has_started</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">thing</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">now</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/dates.html#has_started"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#regolith.dates.has_started" title="Permalink to this definition">¶</a></dt>
 <dd><p>given a thing with dates, returns true if the thing has started</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>thing</strong> (<em>dict</em>) – the thing that we want to know whether or not it is has started</p></li>
 <li><p><strong>now</strong> (<em>datetime.date object</em>) – a date for now.  If it is None it uses the current date.  Default is None</p></li>
 </ul>
 </dd>
-<dt class="field-even">Return type</dt>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p>True if the thing has started and false otherwise</p>
 </dd>
 </dl>
@@ -226,13 +228,13 @@ datetime.date object</p>
 <span class="sig-prename descclassname"><span class="pre">regolith.dates.</span></span><span class="sig-name descname"><span class="pre">is_after</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">thing</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">now</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/dates.html#is_after"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#regolith.dates.is_after" title="Permalink to this definition">¶</a></dt>
 <dd><p>given a thing with a date, returns true if the thing is after the input date</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>thing</strong> (<em>dict</em>) – the thing that we want to know whether or not is after a date</p></li>
 <li><p><strong>now</strong> (<em>datetime.date object</em>) – a date for now.  If it is None it uses the current date.  Default is None</p></li>
 </ul>
 </dd>
-<dt class="field-even">Return type</dt>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p>True if the thing is after the date</p>
 </dd>
 </dl>
@@ -243,13 +245,13 @@ datetime.date object</p>
 <span class="sig-prename descclassname"><span class="pre">regolith.dates.</span></span><span class="sig-name descname"><span class="pre">is_before</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">thing</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">now</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/dates.html#is_before"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#regolith.dates.is_before" title="Permalink to this definition">¶</a></dt>
 <dd><p>given a thing with a date, returns true if the thing is before the input date</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>thing</strong> (<em>dict</em>) – the thing that we want to know whether or not is before a date</p></li>
 <li><p><strong>now</strong> (<em>datetime.date object</em>) – a date for now.  If it is None it uses the current date.  Default is None</p></li>
 </ul>
 </dd>
-<dt class="field-even">Return type</dt>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p>True if the thing is before the date</p>
 </dd>
 </dl>
@@ -260,14 +262,14 @@ datetime.date object</p>
 <span class="sig-prename descclassname"><span class="pre">regolith.dates.</span></span><span class="sig-name descname"><span class="pre">is_between</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">thing</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">end</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/dates.html#is_between"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#regolith.dates.is_between" title="Permalink to this definition">¶</a></dt>
 <dd><p>given a thing with a date, returns true if the thing is between the start and end date</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>thing</strong> (<em>dict</em>) – the thing that we want to know whether or not is after a date</p></li>
 <li><p><strong>start</strong> (<em>datetime.date object</em>) – a date for the start.  If it is None it uses the current date.  Default is None</p></li>
 <li><p><strong>end</strong> (<em>datetime.date object</em>) – a date for the end.  If it is None it uses the current date.  Default is None</p></li>
 </ul>
 </dd>
-<dt class="field-even">Return type</dt>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p>True if the thing is between the start and end</p>
 </dd>
 </dl>
@@ -280,13 +282,13 @@ datetime.date object</p>
 looks for <a href="#id1"><span class="problematic" id="id2">begin_</span></a> and <a href="#id3"><span class="problematic" id="id4">end_</span></a> daty things (date, year, month, day), or just
 the daty things themselves. e.g., begin_date, end_month, month, and so on.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>thing</strong> (<em>dict</em>) – the thing that we want to know whether or not it is current</p></li>
 <li><p><strong>now</strong> (<em>datetime.date object</em>) – a date for now.  If it is None it uses the current date.  Default is None</p></li>
 </ul>
 </dd>
-<dt class="field-even">Return type</dt>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p>True if the thing is current and false otherwise</p>
 </dd>
 </dl>
@@ -297,13 +299,13 @@ the daty things themselves. e.g., begin_date, end_month, month, and so on.</p>
 <span class="sig-prename descclassname"><span class="pre">regolith.dates.</span></span><span class="sig-name descname"><span class="pre">last_day</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">year</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">month</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/dates.html#last_day"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#regolith.dates.last_day" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the last day of the month for the month given</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>year</strong> (<em>integer</em>) – the year that the month is in</p></li>
 <li><p><strong>month</strong> (<em>integer or string</em>) – the month.  if a string should be resolvable using regolith month_to_int</p></li>
 </ul>
 </dd>
-<dt class="field-even">Return type</dt>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p>The last day of that month</p>
 </dd>
 </dl>
@@ -321,7 +323,7 @@ the daty things themselves. e.g., begin_date, end_month, month, and so on.</p>
 <dd><p>Converts a month to an int form, str type, with a leading zero</p>
 </dd></dl>
 
-</div>
+</section>
 
 
             <div class="clearer"></div>
@@ -352,7 +354,7 @@ the daty things themselves. e.g., begin_date, end_month, month, and so on.</p>
     </form>
     </div>
 </div>
-<script>$('#searchbox').show(0);</script>
+<script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
     

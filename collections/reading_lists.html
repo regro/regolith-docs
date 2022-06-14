@@ -3,10 +3,11 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
     <title>Reading_Lists &#8212; regolith - software group content managment system</title>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/cloud.css" />
@@ -15,6 +16,7 @@
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
 
     
@@ -64,57 +66,57 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="reading-lists">
-<h1>Reading_Lists<a class="headerlink" href="#reading-lists" title="Permalink to this headline">¶</a></h1>
+  <section id="reading-lists">
+<h1>Reading_Lists<a class="headerlink" href="#reading-lists" title="Permalink to this heading">¶</a></h1>
 <p>Reading lists consist of doi’s or urls of items and a brief synopsis of why they are interesting</p>
-<div class="section" id="schema">
-<h2>Schema<a class="headerlink" href="#schema" title="Permalink to this headline">¶</a></h2>
+<section id="schema">
+<h2>Schema<a class="headerlink" href="#schema" title="Permalink to this heading">¶</a></h2>
 <p>The following lists key names mapped to its type and meaning for each entry.</p>
 <dl class="field-list simple">
-<dt class="field-odd">_id</dt>
+<dt class="field-odd">_id<span class="colon">:</span></dt>
 <dd class="field-odd"><p>string, Unique identifier for the reading list., required</p>
 </dd>
-<dt class="field-even">date</dt>
+<dt class="field-even">date<span class="colon">:</span></dt>
 <dd class="field-even"><p>[‘date’, ‘string’], date the list was edited, optional</p>
 </dd>
-<dt class="field-odd">day</dt>
+<dt class="field-odd">day<span class="colon">:</span></dt>
 <dd class="field-odd"><p>integer, The day the list was edited, optional</p>
 </dd>
-<dt class="field-even">month</dt>
+<dt class="field-even">month<span class="colon">:</span></dt>
 <dd class="field-even"><p>[‘integer’, ‘string’], The month the list was edited, optional</p>
 </dd>
-<dt class="field-odd">papers</dt>
+<dt class="field-odd">papers<span class="colon">:</span></dt>
 <dd class="field-odd"><p>list, The list of items that are in the list, required</p>
 <dl class="field-list simple">
-<dt class="field-odd">type</dt>
+<dt class="field-odd">type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>dict, optional</p>
 <dl class="field-list simple">
-<dt class="field-odd">doi</dt>
+<dt class="field-odd">doi<span class="colon">:</span></dt>
 <dd class="field-odd"><p>string, the doi of the paper.  If it doesn’t have one put ‘na’, optional</p>
 </dd>
-<dt class="field-even">text</dt>
+<dt class="field-even">text<span class="colon">:</span></dt>
 <dd class="field-even"><p>string, the description of why the item is important or interesting, optional</p>
 </dd>
-<dt class="field-odd">url</dt>
+<dt class="field-odd">url<span class="colon">:</span></dt>
 <dd class="field-odd"><p>string, the url of the item if it has one, optional</p>
 </dd>
 </dl>
 </dd>
 </dl>
 </dd>
-<dt class="field-even">purpose</dt>
+<dt class="field-even">purpose<span class="colon">:</span></dt>
 <dd class="field-even"><p>string, The purpose or target audience for the list, optional</p>
 </dd>
-<dt class="field-odd">title</dt>
+<dt class="field-odd">title<span class="colon">:</span></dt>
 <dd class="field-odd"><p>string, The title of the list, required</p>
 </dd>
-<dt class="field-even">year</dt>
+<dt class="field-even">year<span class="colon">:</span></dt>
 <dd class="field-even"><p>integer, The day the list was edited, optional</p>
 </dd>
 </dl>
-</div>
-<div class="section" id="yaml-example">
-<h2>YAML Example<a class="headerlink" href="#yaml-example" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="yaml-example">
+<h2>YAML Example<a class="headerlink" href="#yaml-example" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">african_swallows</span><span class="p">:</span><span class="w"></span>
 <span class="w">  </span><span class="nt">date</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;2019-12-01&#39;</span><span class="w"></span>
 <span class="w">  </span><span class="nt">papers</span><span class="p">:</span><span class="w"></span>
@@ -138,9 +140,9 @@
 <span class="w">  </span><span class="nt">year</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2019</span><span class="w"></span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="json-mongo-example">
-<h2>JSON/Mongo Example<a class="headerlink" href="#json-mongo-example" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="json-mongo-example">
+<h2>JSON/Mongo Example<a class="headerlink" href="#json-mongo-example" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="nt">&quot;_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;african_swallows&quot;</span><span class="p">,</span><span class="w"></span>
 <span class="w">    </span><span class="nt">&quot;date&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2019-12-01&quot;</span><span class="p">,</span><span class="w"></span>
@@ -176,8 +178,8 @@
 <span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
-</div>
-</div>
+</section>
+</section>
 
 
             <div class="clearer"></div>
@@ -219,7 +221,7 @@
     </form>
     </div>
 </div>
-<script>$('#searchbox').show(0);</script>
+<script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
     

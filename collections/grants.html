@@ -3,10 +3,11 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
     <title>Grants &#8212; regolith - software group content managment system</title>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/cloud.css" />
@@ -15,6 +16,7 @@
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
 
     
@@ -64,123 +66,123 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="grants">
-<h1>Grants<a class="headerlink" href="#grants" title="Permalink to this headline">¶</a></h1>
+  <section id="grants">
+<h1>Grants<a class="headerlink" href="#grants" title="Permalink to this heading">¶</a></h1>
 <p>This collection represents grants that have been awarded to the group.</p>
-<div class="section" id="schema">
-<h2>Schema<a class="headerlink" href="#schema" title="Permalink to this headline">¶</a></h2>
+<section id="schema">
+<h2>Schema<a class="headerlink" href="#schema" title="Permalink to this heading">¶</a></h2>
 <p>The following lists key names mapped to its type and meaning for each entry.</p>
 <dl class="field-list">
-<dt class="field-odd">_id</dt>
+<dt class="field-odd">_id<span class="colon">:</span></dt>
 <dd class="field-odd"><p>(‘string’, ‘integer’, ‘float’), short representation, such as this-is-my-name, required</p>
 </dd>
-<dt class="field-even">account</dt>
+<dt class="field-even">account<span class="colon">:</span></dt>
 <dd class="field-even"><p>string, the account number which holds the funds, optional</p>
 </dd>
-<dt class="field-odd">admin</dt>
+<dt class="field-odd">admin<span class="colon">:</span></dt>
 <dd class="field-odd"><p>string, the group administering the grant, optional</p>
 </dd>
-<dt class="field-even">alias</dt>
+<dt class="field-even">alias<span class="colon">:</span></dt>
 <dd class="field-even"><p>string, the alias of the grant, optional</p>
 </dd>
-<dt class="field-odd">amount</dt>
+<dt class="field-odd">amount<span class="colon">:</span></dt>
 <dd class="field-odd"><p>(‘integer’, ‘float’), value of award, required</p>
 </dd>
-<dt class="field-even">awardnr</dt>
+<dt class="field-even">awardnr<span class="colon">:</span></dt>
 <dd class="field-even"><p>string, the number of the award from the agency, optional</p>
 </dd>
-<dt class="field-odd">begin_date</dt>
+<dt class="field-odd">begin_date<span class="colon">:</span></dt>
 <dd class="field-odd"><p>[‘string’, ‘date’], start date of the grant (if string, in format YYYY-MM-DD), optional</p>
 </dd>
-<dt class="field-even">begin_day</dt>
+<dt class="field-even">begin_day<span class="colon">:</span></dt>
 <dd class="field-even"><p>integer, start day of the grant, optional</p>
 </dd>
-<dt class="field-odd">begin_month</dt>
+<dt class="field-odd">begin_month<span class="colon">:</span></dt>
 <dd class="field-odd"><p>[‘string’, ‘integer’], start month of the grant, optional</p>
 </dd>
-<dt class="field-even">begin_year</dt>
+<dt class="field-even">begin_year<span class="colon">:</span></dt>
 <dd class="field-even"><p>integer, start year of the grant, optional</p>
 </dd>
-<dt class="field-odd">benefit_of_collaboration</dt>
+<dt class="field-odd">benefit_of_collaboration<span class="colon">:</span></dt>
 <dd class="field-odd"><p>string, optional</p>
 </dd>
-<dt class="field-even">budget</dt>
+<dt class="field-even">budget<span class="colon">:</span></dt>
 <dd class="field-even"><p>list, budget periods of grant, optional</p>
 <dl class="field-list simple">
-<dt class="field-odd">type</dt>
+<dt class="field-odd">type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>dict, optional</p>
 <dl class="field-list simple">
-<dt class="field-odd">begin_date</dt>
+<dt class="field-odd">begin_date<span class="colon">:</span></dt>
 <dd class="field-odd"><p>[‘string’, ‘date’], start date of the budget period in format YYYY-MM-DD, optional</p>
 </dd>
-<dt class="field-even">end_date</dt>
+<dt class="field-even">end_date<span class="colon">:</span></dt>
 <dd class="field-even"><p>[‘string’, ‘date’], end date of the budget period in format YYYY-MM-DD, optional</p>
 </dd>
-<dt class="field-odd">student_months</dt>
+<dt class="field-odd">student_months<span class="colon">:</span></dt>
 <dd class="field-odd"><p>[‘float’, ‘integer’], number of months of funding for student members during the academic year, optional</p>
 </dd>
-<dt class="field-even">postdoc_months</dt>
+<dt class="field-even">postdoc_months<span class="colon">:</span></dt>
 <dd class="field-even"><p>[‘float’, ‘integer’], number of months of funding for postdoc members during the academic year, optional</p>
 </dd>
-<dt class="field-odd">ss_months</dt>
+<dt class="field-odd">ss_months<span class="colon">:</span></dt>
 <dd class="field-odd"><p>[‘float’, ‘integer’], number of months of funding for the summer, optional</p>
 </dd>
-<dt class="field-even">amount</dt>
+<dt class="field-even">amount<span class="colon">:</span></dt>
 <dd class="field-even"><p>[‘float’, ‘integer’], subaward for this budget period, optional</p>
 </dd>
 </dl>
 </dd>
 </dl>
 </dd>
-<dt class="field-odd">call_for_proposals</dt>
+<dt class="field-odd">call_for_proposals<span class="colon">:</span></dt>
 <dd class="field-odd"><p>string, optional</p>
 </dd>
-<dt class="field-even">currency</dt>
+<dt class="field-even">currency<span class="colon">:</span></dt>
 <dd class="field-even"><p>string, typically ‘$’ or ‘USD’, optional</p>
 </dd>
-<dt class="field-odd">end_date</dt>
+<dt class="field-odd">end_date<span class="colon">:</span></dt>
 <dd class="field-odd"><p>[‘string’, ‘date’], start date of the grant (if string, in format YYYY-MM-DD), optional</p>
 </dd>
-<dt class="field-even">end_day</dt>
+<dt class="field-even">end_day<span class="colon">:</span></dt>
 <dd class="field-even"><p>(‘string’, ‘integer’), end day of the grant, optional</p>
 </dd>
-<dt class="field-odd">end_month</dt>
+<dt class="field-odd">end_month<span class="colon">:</span></dt>
 <dd class="field-odd"><p>[‘string’, ‘integer’], end month of the grant, optional</p>
 </dd>
-<dt class="field-even">end_year</dt>
+<dt class="field-even">end_year<span class="colon">:</span></dt>
 <dd class="field-even"><p>integer, end year of the grant, optional</p>
 </dd>
-<dt class="field-odd">funder</dt>
+<dt class="field-odd">funder<span class="colon">:</span></dt>
 <dd class="field-odd"><p>string, the agency funding the work, required</p>
 </dd>
-<dt class="field-even">grant_id</dt>
+<dt class="field-even">grant_id<span class="colon">:</span></dt>
 <dd class="field-even"><p>string, the identifier for this work, optional</p>
 </dd>
-<dt class="field-odd">institution</dt>
+<dt class="field-odd">institution<span class="colon">:</span></dt>
 <dd class="field-odd"><p>string, the host institution for the grant, optional</p>
 </dd>
-<dt class="field-even">narrative</dt>
+<dt class="field-even">narrative<span class="colon">:</span></dt>
 <dd class="field-even"><p>string, optional</p>
 </dd>
-<dt class="field-odd">notes</dt>
+<dt class="field-odd">notes<span class="colon">:</span></dt>
 <dd class="field-odd"><p>string, notes about the grant, optional</p>
 </dd>
-<dt class="field-even">person_months_academic</dt>
+<dt class="field-even">person_months_academic<span class="colon">:</span></dt>
 <dd class="field-even"><p>[‘integer’, ‘float’], Number of months of funding during the academicyear, optional</p>
 </dd>
-<dt class="field-odd">person_months_summer</dt>
+<dt class="field-odd">person_months_summer<span class="colon">:</span></dt>
 <dd class="field-odd"><p>[‘integer’, ‘float’], Number of months of funding during the summer, optional</p>
 </dd>
-<dt class="field-even">program</dt>
+<dt class="field-even">program<span class="colon">:</span></dt>
 <dd class="field-even"><p>string, the program the work was funded under, optional</p>
 </dd>
-<dt class="field-odd">proposal_id</dt>
+<dt class="field-odd">proposal_id<span class="colon">:</span></dt>
 <dd class="field-odd"><p>string, initial proposal made for grant, optional</p>
 </dd>
-<dt class="field-even">scope</dt>
+<dt class="field-even">scope<span class="colon">:</span></dt>
 <dd class="field-even"><p>string, The scope of the grant, answers the prompt: “Describe Research Including Synergies and Delineation with Respect to this Proposal/Award:”, optional</p>
 </dd>
-<dt class="field-odd">status</dt>
+<dt class="field-odd">status<span class="colon">:</span></dt>
 <dd class="field-odd"><p>string, status of the grant, optional</p>
 <dl class="simple">
 <dt>Allowed values:</dt><dd><ul class="simple">
@@ -192,41 +194,41 @@
 </dd>
 </dl>
 </dd>
-<dt class="field-even">team</dt>
+<dt class="field-even">team<span class="colon">:</span></dt>
 <dd class="field-even"><p>list, information about the team members participating in the grant., required</p>
 <dl class="field-list simple">
-<dt class="field-odd">type</dt>
+<dt class="field-odd">type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>dict, optional</p>
 <dl class="field-list simple">
-<dt class="field-odd">admin_people</dt>
+<dt class="field-odd">admin_people<span class="colon">:</span></dt>
 <dd class="field-odd"><p>list, optional</p>
 </dd>
-<dt class="field-even">cv</dt>
+<dt class="field-even">cv<span class="colon">:</span></dt>
 <dd class="field-even"><p>string, optional</p>
 </dd>
-<dt class="field-odd">institution</dt>
+<dt class="field-odd">institution<span class="colon">:</span></dt>
 <dd class="field-odd"><p>string, optional</p>
 </dd>
-<dt class="field-even">name</dt>
+<dt class="field-even">name<span class="colon">:</span></dt>
 <dd class="field-even"><p>string, optional</p>
 </dd>
-<dt class="field-odd">position</dt>
+<dt class="field-odd">position<span class="colon">:</span></dt>
 <dd class="field-odd"><p>string, optional</p>
 </dd>
-<dt class="field-even">subaward_amount</dt>
+<dt class="field-even">subaward_amount<span class="colon">:</span></dt>
 <dd class="field-even"><p>(‘integer’, ‘float’), optional</p>
 </dd>
 </dl>
 </dd>
 </dl>
 </dd>
-<dt class="field-odd">title</dt>
+<dt class="field-odd">title<span class="colon">:</span></dt>
 <dd class="field-odd"><p>string, actual title of proposal / grant, required</p>
 </dd>
 </dl>
-</div>
-<div class="section" id="yaml-example">
-<h2>YAML Example<a class="headerlink" href="#yaml-example" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="yaml-example">
+<h2>YAML Example<a class="headerlink" href="#yaml-example" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">SymPy-1.1</span><span class="p">:</span><span class="w"></span>
 <span class="w">  </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">sym</span><span class="w"></span>
 <span class="w">  </span><span class="nt">amount</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">3000.0</span><span class="w"></span>
@@ -401,9 +403,9 @@
 <span class="w">  </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Support for teaching assistants</span><span class="w"></span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="json-mongo-example">
-<h2>JSON/Mongo Example<a class="headerlink" href="#json-mongo-example" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="json-mongo-example">
+<h2>JSON/Mongo Example<a class="headerlink" href="#json-mongo-example" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="nt">&quot;_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;SymPy-1.1&quot;</span><span class="p">,</span><span class="w"></span>
 <span class="w">    </span><span class="nt">&quot;alias&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;sym&quot;</span><span class="p">,</span><span class="w"></span>
@@ -638,8 +640,8 @@
 <span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
-</div>
-</div>
+</section>
+</section>
 
 
             <div class="clearer"></div>
@@ -681,7 +683,7 @@
     </form>
     </div>
 </div>
-<script>$('#searchbox').show(0);</script>
+<script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
     

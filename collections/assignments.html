@@ -3,10 +3,11 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
     <title>Assignments &#8212; regolith - software group content managment system</title>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/cloud.css" />
@@ -15,6 +16,7 @@
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
 
     
@@ -64,43 +66,43 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="assignments">
-<h1>Assignments<a class="headerlink" href="#assignments" title="Permalink to this headline">¶</a></h1>
+  <section id="assignments">
+<h1>Assignments<a class="headerlink" href="#assignments" title="Permalink to this heading">¶</a></h1>
 <p>Information about assignments for classes.</p>
-<div class="section" id="schema">
-<h2>Schema<a class="headerlink" href="#schema" title="Permalink to this headline">¶</a></h2>
+<section id="schema">
+<h2>Schema<a class="headerlink" href="#schema" title="Permalink to this heading">¶</a></h2>
 <p>The following lists key names mapped to its type and meaning for each entry.</p>
 <dl class="field-list simple">
-<dt class="field-odd">_id</dt>
+<dt class="field-odd">_id<span class="colon">:</span></dt>
 <dd class="field-odd"><p>string, A unique id for the assignment, such as HW01-EMCH-558-2016-S, required</p>
 </dd>
-<dt class="field-even">category</dt>
+<dt class="field-even">category<span class="colon">:</span></dt>
 <dd class="field-even"><p>string, such as ‘homework’ or ‘final’, required</p>
 </dd>
-<dt class="field-odd">courses</dt>
+<dt class="field-odd">courses<span class="colon">:</span></dt>
 <dd class="field-odd"><p>[‘string’, ‘list’], ids of the courses that have this assignment, required</p>
 </dd>
-<dt class="field-even">file</dt>
+<dt class="field-even">file<span class="colon">:</span></dt>
 <dd class="field-even"><p>string, path to assignment file in store, optional</p>
 </dd>
-<dt class="field-odd">points</dt>
+<dt class="field-odd">points<span class="colon">:</span></dt>
 <dd class="field-odd"><p>list, list of number of points possible for each question. Length is the number of questions, required</p>
 <dl class="field-list simple">
-<dt class="field-odd">anyof_type</dt>
+<dt class="field-odd">anyof_type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>[‘integer’, ‘float’], optional</p>
 </dd>
 </dl>
 </dd>
-<dt class="field-even">questions</dt>
+<dt class="field-even">questions<span class="colon">:</span></dt>
 <dd class="field-even"><p>list, titles for the questions on this assignment, optional</p>
 </dd>
-<dt class="field-odd">solution</dt>
+<dt class="field-odd">solution<span class="colon">:</span></dt>
 <dd class="field-odd"><p>string, path to solution file in store, optional</p>
 </dd>
 </dl>
-</div>
-<div class="section" id="yaml-example">
-<h2>YAML Example<a class="headerlink" href="#yaml-example" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="yaml-example">
+<h2>YAML Example<a class="headerlink" href="#yaml-example" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">hw01-rx-power</span><span class="p">:</span><span class="w"></span>
 <span class="w">  </span><span class="nt">category</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">homework</span><span class="w"></span>
 <span class="w">  </span><span class="nt">courses</span><span class="p">:</span><span class="w"></span>
@@ -116,9 +118,9 @@
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1-12</span><span class="w"></span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="json-mongo-example">
-<h2>JSON/Mongo Example<a class="headerlink" href="#json-mongo-example" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="json-mongo-example">
+<h2>JSON/Mongo Example<a class="headerlink" href="#json-mongo-example" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="nt">&quot;_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;hw01-rx-power&quot;</span><span class="p">,</span><span class="w"></span>
 <span class="w">    </span><span class="nt">&quot;category&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;homework&quot;</span><span class="p">,</span><span class="w"></span>
@@ -139,8 +141,8 @@
 <span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
-</div>
-</div>
+</section>
+</section>
 
 
             <div class="clearer"></div>
@@ -182,7 +184,7 @@
     </form>
     </div>
 </div>
-<script>$('#searchbox').show(0);</script>
+<script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
     
