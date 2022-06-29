@@ -63,6 +63,7 @@
 <span class="kn">import</span> <span class="nn">os</span>
 <span class="kn">import</span> <span class="nn">re</span>
 <span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">from</span> <span class="nn">copy</span> <span class="kn">import</span> <span class="n">copy</span>
 <span class="kn">from</span> <span class="nn">pprint</span> <span class="kn">import</span> <span class="n">pprint</span>
 
 <span class="kn">from</span> <span class="nn">regolith.builder</span> <span class="kn">import</span> <span class="n">builder</span><span class="p">,</span> <span class="n">BUILDERS</span>
@@ -295,10 +296,11 @@
                 <span class="k">if</span> <span class="n">errored_print</span> <span class="ow">is</span> <span class="kc">False</span><span class="p">:</span>
                     <span class="n">errored_print</span> <span class="o">=</span> <span class="kc">True</span>
                     <span class="n">any_errors</span> <span class="o">=</span> <span class="kc">True</span>
-                    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Errors found in </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="p">))</span>
-                    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;=&quot;</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="s2">&quot;Errors found in </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="p">)))</span>
-                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;ERROR in </span><span class="si">{}</span><span class="s2">:&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">doc_id</span><span class="p">))</span>
+                    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Errors found in </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+                    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;=&quot;</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Errors found in </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">))</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;ERROR in </span><span class="si">{</span><span class="n">doc_id</span><span class="si">}</span><span class="s2">:&quot;</span><span class="p">)</span>
                 <span class="n">pprint</span><span class="p">(</span><span class="n">v</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+                <span class="n">cap</span> <span class="o">=</span> <span class="n">copy</span><span class="p">(</span><span class="n">v</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
                 <span class="k">for</span> <span class="n">vv</span> <span class="ow">in</span> <span class="n">v</span><span class="p">[</span><span class="mi">1</span><span class="p">]:</span>
                     <span class="n">pprint</span><span class="p">(</span><span class="n">doc</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">vv</span><span class="p">))</span>
                 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;-&quot;</span> <span class="o">*</span> <span class="mi">15</span><span class="p">)</span>
@@ -306,7 +308,10 @@
     <span class="k">if</span> <span class="ow">not</span> <span class="n">any_errors</span><span class="p">:</span>
         <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">NO ERRORS IN DBS</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="o">+</span> <span class="s2">&quot;=&quot;</span> <span class="o">*</span> <span class="mi">15</span><span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="s2">&quot;Validation failed on some records&quot;</span><span class="p">)</span></div>
+        <span class="c1"># uncomment when debugging scheme errors</span>
+        <span class="c1">#</span>
+        <span class="c1"># sys.exit(f&quot;Validation failed on some records\n {cap}&quot;)</span>
+        <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Validation failed on some records&quot;</span><span class="p">)</span></div>
 </pre></div>
 
             <div class="clearer"></div>

@@ -140,11 +140,14 @@
 <dt class="field-odd">segregated_expense<span class="colon">:</span></dt>
 <dd class="field-odd"><p>float, The unallowed expenses, optional</p>
 </dd>
-<dt class="field-even">original_currency<span class="colon">:</span></dt>
-<dd class="field-even"><p>float, The currency the payment was made in, optional</p>
+<dt class="field-even">currency<span class="colon">:</span></dt>
+<dd class="field-even"><p>string, The currency the payment was made in, optional</p>
 </dd>
 <dt class="field-odd">prepaid_expense<span class="colon">:</span></dt>
 <dd class="field-odd"><p>float, The amount of prepaid expense in USD, optional</p>
+</dd>
+<dt class="field-even">notes<span class="colon">:</span></dt>
+<dd class="field-even"><p>[‘list’, ‘string’], notes about the expense, optional</p>
 </dd>
 </dl>
 </dd>
@@ -321,8 +324,11 @@
 <span class="w">  </span><span class="nt">grants</span><span class="p">:</span><span class="w"></span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SymPy-1.1</span><span class="w"></span>
 <span class="w">  </span><span class="nt">itemized_expenses</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">day</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2</span><span class="w"></span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">currency</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">USD</span><span class="w"></span>
+<span class="w">      </span><span class="nt">day</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2</span><span class="w"></span>
 <span class="w">      </span><span class="nt">month</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Jan</span><span class="w"></span>
+<span class="w">      </span><span class="nt">notes</span><span class="p">:</span><span class="w"></span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">this is just a test</span><span class="w"></span>
 <span class="w">      </span><span class="nt">prepaid_expense</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">10.3</span><span class="w"></span>
 <span class="w">      </span><span class="nt">purpose</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">test</span><span class="w"></span>
 <span class="w">      </span><span class="nt">segregated_expense</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0</span><span class="w"></span>
@@ -507,8 +513,12 @@
 <span class="w">    </span><span class="p">],</span><span class="w"></span>
 <span class="w">    </span><span class="nt">&quot;itemized_expenses&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
 <span class="w">        </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;currency&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;USD&quot;</span><span class="p">,</span><span class="w"></span>
 <span class="w">            </span><span class="nt">&quot;day&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"></span>
 <span class="w">            </span><span class="nt">&quot;month&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Jan&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;notes&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="w">                </span><span class="s2">&quot;this is just a test&quot;</span><span class="w"></span>
+<span class="w">            </span><span class="p">],</span><span class="w"></span>
 <span class="w">            </span><span class="nt">&quot;prepaid_expense&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">10.3</span><span class="p">,</span><span class="w"></span>
 <span class="w">            </span><span class="nt">&quot;purpose&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;test&quot;</span><span class="p">,</span><span class="w"></span>
 <span class="w">            </span><span class="nt">&quot;segregated_expense&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"></span>

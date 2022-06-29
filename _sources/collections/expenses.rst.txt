@@ -32,8 +32,9 @@ The following lists key names mapped to its type and meaning for each entry.
 		:purpose: string, reason for expense, optional
 		:unsegregated_expense: float, The allowed expenses, optional
 		:segregated_expense: float, The unallowed expenses, optional
-		:original_currency: float, The currency the payment was made in, optional
+		:currency: string, The currency the payment was made in, optional
 		:prepaid_expense: float, The amount of prepaid expense in USD, optional
+		:notes: ['list', 'string'], notes about the expense, optional
 :notes: ['list', 'string'], Description of the expenses. It will not be included in the reimbursement form, optional
 :overall_purpose: string, The reason for the expenses, required
 :payee: string, The name or id of the payee filing the expense, required
@@ -169,8 +170,11 @@ YAML Example
 	  grants:
 	    - SymPy-1.1
 	  itemized_expenses:
-	    - day: 2
+	    - currency: USD
+	      day: 2
 	      month: Jan
+	      notes:
+	        - this is just a test
 	      prepaid_expense: 10.3
 	      purpose: test
 	      segregated_expense: 0
@@ -357,8 +361,12 @@ JSON/Mongo Example
 	    ],
 	    "itemized_expenses": [
 	        {
+	            "currency": "USD",
 	            "day": 2,
 	            "month": "Jan",
+	            "notes": [
+	                "this is just a test"
+	            ],
 	            "prepaid_expense": 10.3,
 	            "purpose": "test",
 	            "segregated_expense": 0,
