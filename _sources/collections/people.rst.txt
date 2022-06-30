@@ -88,6 +88,7 @@ The following lists key names mapped to its type and meaning for each entry.
 		:end_date: ['string', 'date', 'datetime'], end date of employment in format YYYY-MM-DD, optional
 		:group: string, this employment is/was ina group in groups coll, optional
 		:location: string, optional
+		:not_in_cv: boolean, set to true if you want to suppress this entry in all cv's and resumes, optional
 		:organization: string, optional
 		:other: list, optional
 		:permanent: boolean, true if the position is open ended and has no fixed end-date, optional
@@ -861,6 +862,13 @@ YAML Example
 	      position: post-doctoral scholar
 	      position_full: Research Scientist, Postdoctoral Scholar
 	      status: pi
+	    - begin_date: '2000-01-01'
+	      end_date: '2001-12-31'
+	      location: Chicago, IL
+	      not_in_cv: true
+	      organization: Google
+	      other: []
+	      position: janitor
 	  funding:
 	    - name: Omega Laser User's Group Travel Award
 	      value: 1100
@@ -1577,6 +1585,15 @@ JSON/Mongo Example
 	            "position": "post-doctoral scholar",
 	            "position_full": "Research Scientist, Postdoctoral Scholar",
 	            "status": "pi"
+	        },
+	        {
+	            "begin_date": "2000-01-01",
+	            "end_date": "2001-12-31",
+	            "location": "Chicago, IL",
+	            "not_in_cv": true,
+	            "organization": "Google",
+	            "other": [],
+	            "position": "janitor"
 	        }
 	    ],
 	    "funding": [
