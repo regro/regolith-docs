@@ -2196,14 +2196,6 @@
 <span class="sd">        The target repo document, or False if it is not present or properly </span>
 <span class="sd">        formulatedinformation</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">message_params_not_defined</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;WARNING: The request parameters may not be defined. &quot;</span>
-                                  <span class="s2">&quot;If you would like regolith to automatically create a repository in GitHub/GitLab, &quot;</span>
-                                  <span class="s2">&quot;please add repository information in regolithrc.json. See regolith documentation &quot;</span>
-                                  <span class="s2">&quot;for details.&quot;</span><span class="p">)</span>
-    <span class="n">message_url_not_defined</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;WARNING: The request url may not be valid. &quot;</span>
-                               <span class="s2">&quot;If you would like regolith to automatically create a repository in GitHub/GitLab, &quot;</span>
-                               <span class="s2">&quot;please add repository information in regolithrc.json. See regolith documentation &quot;</span>
-                               <span class="s2">&quot;for details.&quot;</span><span class="p">)</span>
     <span class="n">setup_message</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;INFO: If you would like regolith to automatically create a repository in GitHub/GitLab, &quot;</span>
                      <span class="s2">&quot;please add your repository information in reolgithrc.json and &quot;</span>
                      <span class="s2">&quot;your private authentication token in &quot;</span>
@@ -2217,6 +2209,15 @@
         <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;more than on repo found in regolithrc.json with the name </span><span class="si">{</span><span class="n">target_repo_id</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
         <span class="k">return</span> <span class="kc">False</span>
     <span class="n">target_repo</span> <span class="o">=</span> <span class="n">target_repo</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">message_params_not_defined</span> <span class="o">=</span> <span class="p">(</span><span class="sa">f</span><span class="s2">&quot;WARNING: The request parameters may not be defined. &quot;</span>
+                                  <span class="sa">f</span><span class="s2">&quot;Info we have: </span><span class="si">{</span><span class="n">target_repo</span><span class="si">}</span><span class="s2">&quot;</span>
+                                  <span class="sa">f</span><span class="s2">&quot;If you would like regolith to automatically create a repository in GitHub/GitLab, &quot;</span>
+                                  <span class="sa">f</span><span class="s2">&quot;please add repository information in regolithrc.json. See regolith documentation &quot;</span>
+                                  <span class="sa">f</span><span class="s2">&quot;for details.&quot;</span><span class="p">)</span>
+    <span class="n">message_url_not_defined</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;WARNING: The request url may not be valid. &quot;</span>
+                               <span class="s2">&quot;If you would like regolith to automatically create a repository in GitHub/GitLab, &quot;</span>
+                               <span class="s2">&quot;please add repository information in regolithrc.json. See regolith documentation &quot;</span>
+                               <span class="s2">&quot;for details.&quot;</span><span class="p">)</span>
     <span class="k">if</span> <span class="ow">not</span> <span class="n">target_repo</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;params&quot;</span><span class="p">):</span>
         <span class="nb">print</span><span class="p">(</span><span class="n">message_params_not_defined</span><span class="p">)</span>
         <span class="k">return</span> <span class="kc">False</span>
@@ -2246,7 +2247,7 @@
 <span class="sd">    Returns:</span>
 <span class="sd">        The token if the token exists and False if not</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">message_token_not_defined</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;WARNING: Cannot find an authentication token.  It may not be corectly defined. If you would like regolith to &quot;</span>
+    <span class="n">message_token_not_defined</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;WARNING: Cannot find an authentication token.  It may not be correctly defined. If you would like regolith to &quot;</span>
                                  <span class="s2">&quot;automatically create a repository in GitHub/GitLab, please add your private &quot;</span>
                                  <span class="s2">&quot;authentication token in user.json. See regolith documentation for details.&quot;</span><span class="p">)</span>
     
