@@ -211,6 +211,27 @@ appears in any one of the given fields</p>
 </dd></dl>
 
 <dl class="py function">
+<dt class="sig sig-object py" id="regolith.tools.create_repo">
+<span class="sig-prename descclassname"><span class="pre">regolith.tools.</span></span><span class="sig-name descname"><span class="pre">create_repo</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">destination_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">token_info_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rc</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#create_repo"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#regolith.tools.create_repo" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a repo at the target distination</p>
+<p>tries to fail gracefully if repo information and token is not defined</p>
+<dl class="simple">
+<dt>Parameters:</dt><dd><dl class="simple">
+<dt>destination_id - string</dt><dd><p>the id of the target repo information document</p>
+</dd>
+<dt>token_info_id - string</dt><dd><p>the id for the token info document (e.g. ‘priv_token’)</p>
+</dd>
+<dt>rc - run control object</dt><dd><p>the run control object that should contain rc.repos and rc.tokens docs</p>
+</dd>
+</dl>
+</dd>
+<dt>Returns:</dt><dd><p>Success message (repo target_repo has been created in talks) if repo is successfully created in target_repo
+Warning/setup messages if unsuccessful (or if repo info or token are not valid)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
 <dt class="sig sig-object py" id="regolith.tools.date_to_rfc822">
 <span class="sig-prename descclassname"><span class="pre">regolith.tools.</span></span><span class="sig-name descname"><span class="pre">date_to_rfc822</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">m</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">d</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#date_to_rfc822"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#regolith.tools.date_to_rfc822" title="Permalink to this definition">¶</a></dt>
 <dd><p>Converts a date to an RFC 822 formatted string.</p>
@@ -528,6 +549,43 @@ strings.</p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p>the set of all tags as a list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="regolith.tools.get_target_repo_info">
+<span class="sig-prename descclassname"><span class="pre">regolith.tools.</span></span><span class="sig-name descname"><span class="pre">get_target_repo_info</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">target_repo_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">repos</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#get_target_repo_info"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#regolith.tools.get_target_repo_info" title="Permalink to this definition">¶</a></dt>
+<dd><p>checks if repo information is defined and valid in rc</p>
+<dl class="simple">
+<dt>Parameters:</dt><dd><dl class="simple">
+<dt>target_repo_id - string</dt><dd><p>the id of the doc with the target repo information</p>
+</dd>
+<dt>repos - list</dt><dd><dl class="simple">
+<dt>the list of repos.  A repo must have a name, a url and a params</dt><dd><p>kwarg.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+<dt>Returns:</dt><dd><p>The target repo document, or False if it is not present or properly
+formulatedinformation</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="regolith.tools.get_target_token">
+<span class="sig-prename descclassname"><span class="pre">regolith.tools.</span></span><span class="sig-name descname"><span class="pre">get_target_token</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">target_token_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tokens</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/regolith/tools.html#get_target_token"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#regolith.tools.get_target_token" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks if API authentication token is defined and valid in rc</p>
+<dl>
+<dt>Parameters:</dt><dd><dl class="simple">
+<dt>target_token_name - string</dt><dd><p>the name of the personal access token (defined in rc)</p>
+</dd>
+</dl>
+<p>rc - run control object</p>
+</dd>
+<dt>Returns:</dt><dd><p>The token if the token exists and False if not</p>
 </dd>
 </dl>
 </dd></dl>

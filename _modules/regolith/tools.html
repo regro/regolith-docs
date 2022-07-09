@@ -66,6 +66,7 @@
 <span class="kn">import</span> <span class="nn">platform</span>
 <span class="kn">import</span> <span class="nn">re</span>
 <span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">import</span> <span class="nn">requests</span>
 <span class="kn">from</span> <span class="nn">copy</span> <span class="kn">import</span> <span class="n">copy</span>
 <span class="kn">from</span> <span class="nn">copy</span> <span class="kn">import</span> <span class="n">deepcopy</span>
 <span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span><span class="p">,</span> <span class="n">date</span>
@@ -76,6 +77,7 @@
 <span class="kn">from</span> <span class="nn">google_auth_oauthlib.flow</span> <span class="kn">import</span> <span class="n">InstalledAppFlow</span>
 <span class="kn">from</span> <span class="nn">google.auth.transport.requests</span> <span class="kn">import</span> <span class="n">Request</span>
 <span class="kn">from</span> <span class="nn">google.oauth2.credentials</span> <span class="kn">import</span> <span class="n">Credentials</span>
+<span class="kn">from</span> <span class="nn">urllib.parse</span> <span class="kn">import</span> <span class="n">urlparse</span>
 
 <span class="kn">from</span> <span class="nn">regolith.dates</span> <span class="kn">import</span> <span class="n">month_to_int</span><span class="p">,</span> <span class="n">date_to_float</span><span class="p">,</span> <span class="n">get_dates</span><span class="p">,</span> <span class="n">is_current</span>
 <span class="kn">from</span> <span class="nn">regolith.sorters</span> <span class="kn">import</span> <span class="n">id_key</span><span class="p">,</span> <span class="n">ene_date_key</span><span class="p">,</span> \
@@ -426,6 +428,7 @@
                 <span class="n">myservice</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">myservice</span></div>
 
+
 <div class="viewcode-block" id="filter_committees"><a class="viewcode-back" href="../../api/tools.html#regolith.tools.filter_committees">[docs]</a><span class="k">def</span> <span class="nf">filter_committees</span><span class="p">(</span><span class="n">person</span><span class="p">,</span> <span class="n">begin_period</span><span class="p">,</span> <span class="nb">type</span><span class="p">):</span>
     <span class="n">mycommittees</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="k">for</span> <span class="n">committee</span> <span class="ow">in</span> <span class="n">person</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;committees&quot;</span><span class="p">,</span> <span class="p">[]):</span>
@@ -437,6 +440,7 @@
             <span class="k">if</span> <span class="n">end_date</span> <span class="o">&gt;=</span> <span class="n">begin_period</span><span class="p">:</span>
                 <span class="n">mycommittees</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">committee</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">mycommittees</span></div>
+
 
 <div class="viewcode-block" id="filter_facilities"><a class="viewcode-back" href="../../api/tools.html#regolith.tools.filter_facilities">[docs]</a><span class="k">def</span> <span class="nf">filter_facilities</span><span class="p">(</span><span class="n">people</span><span class="p">,</span> <span class="n">begin_period</span><span class="p">,</span> <span class="nb">type</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
     <span class="n">facilities</span> <span class="o">=</span> <span class="p">[]</span>
@@ -750,7 +754,7 @@
             <span class="n">inst</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;institution&quot;</span><span class="p">:</span> <span class="n">pres</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;institution&quot;</span><span class="p">),</span>
                     <span class="s2">&quot;department&quot;</span><span class="p">:</span> <span class="n">pres</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;department&quot;</span><span class="p">)}</span>
             <span class="n">dereference_institution</span><span class="p">(</span><span class="n">inst</span><span class="p">,</span> <span class="n">institutions</span><span class="p">)</span>
-            <span class="n">pres</span><span class="p">[</span><span class="s2">&quot;institution&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="n">inst</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;institution&quot;</span><span class="p">,</span><span class="s2">&quot;&quot;</span><span class="p">),</span>
+            <span class="n">pres</span><span class="p">[</span><span class="s2">&quot;institution&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="n">inst</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;institution&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">),</span>
                                    <span class="s1">&#39;city&#39;</span><span class="p">:</span> <span class="n">inst</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;city&quot;</span><span class="p">),</span>
                                    <span class="s1">&#39;state&#39;</span><span class="p">:</span> <span class="n">inst</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;state&quot;</span><span class="p">),</span>
                                    <span class="s1">&#39;country&#39;</span><span class="p">:</span> <span class="n">inst</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;country&quot;</span><span class="p">)}</span>
@@ -896,9 +900,9 @@
             <span class="k">return</span> <span class="n">url</span>
     <span class="k">return</span> <span class="p">(</span>
         <span class="n">s</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;&amp;&quot;</span><span class="p">,</span> <span class="sa">r</span><span class="s2">&quot;\&amp;&quot;</span><span class="p">)</span>
-            <span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;$&quot;</span><span class="p">,</span> <span class="sa">r</span><span class="s2">&quot;\$&quot;</span><span class="p">)</span>
-            <span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;#&quot;</span><span class="p">,</span> <span class="sa">r</span><span class="s2">&quot;\#&quot;</span><span class="p">)</span>
-            <span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;_&quot;</span><span class="p">,</span> <span class="sa">r</span><span class="s2">&quot;\_&quot;</span><span class="p">)</span>
+        <span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;$&quot;</span><span class="p">,</span> <span class="sa">r</span><span class="s2">&quot;\$&quot;</span><span class="p">)</span>
+        <span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;#&quot;</span><span class="p">,</span> <span class="sa">r</span><span class="s2">&quot;\#&quot;</span><span class="p">)</span>
+        <span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;_&quot;</span><span class="p">,</span> <span class="sa">r</span><span class="s2">&quot;\_&quot;</span><span class="p">)</span>
     <span class="p">)</span></div>
 
 
@@ -1066,19 +1070,23 @@
             <span class="k">return</span>
     <span class="n">db_inst</span> <span class="o">=</span> <span class="n">fuzzy_retrieval</span><span class="p">(</span><span class="n">institutions</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">,</span> <span class="s2">&quot;_id&quot;</span><span class="p">,</span> <span class="s2">&quot;aka&quot;</span><span class="p">],</span> <span class="n">inst</span><span class="p">)</span>
     <span class="k">if</span> <span class="ow">not</span> <span class="n">db_inst</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;WARNING: </span><span class="si">{</span><span class="n">input_record</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;institution&#39;</span><span class="p">,</span> <span class="n">input_record</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;organization&#39;</span><span class="p">,</span> <span class="s1">&#39;unknown&#39;</span><span class="p">))</span><span class="si">}</span><span class="s2"> not found in institutions&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s2">&quot;WARNING: </span><span class="si">{</span><span class="n">input_record</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;institution&#39;</span><span class="p">,</span> <span class="n">input_record</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;organization&#39;</span><span class="p">,</span> <span class="s1">&#39;unknown&#39;</span><span class="p">))</span><span class="si">}</span><span class="s2"> not found in institutions&quot;</span><span class="p">)</span>
         <span class="n">db_inst</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="n">input_record</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;institution&quot;</span><span class="p">,</span> <span class="n">input_record</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;organization&quot;</span><span class="p">,</span> <span class="s2">&quot;unknown&quot;</span><span class="p">)),</span>
-                   <span class="s2">&quot;location&quot;</span><span class="p">:</span> <span class="n">input_record</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;location&quot;</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">input_record</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;city&#39;</span><span class="p">,</span><span class="s1">&#39;unknown&#39;</span><span class="p">)</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">input_record</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;state&#39;</span><span class="p">,</span><span class="s1">&#39;unknown&#39;</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">),</span>
-                   <span class="s2">&quot;city&quot;</span><span class="p">:</span> <span class="n">input_record</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;city&#39;</span><span class="p">,</span><span class="s1">&#39;unknown&#39;</span><span class="p">),</span>
-                   <span class="s2">&quot;country&quot;</span><span class="p">:</span> <span class="n">input_record</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;country&#39;</span><span class="p">,</span><span class="s1">&#39;unknown&#39;</span><span class="p">),</span>
-                   <span class="s2">&quot;state&quot;</span><span class="p">:</span> <span class="n">input_record</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;state&#39;</span><span class="p">,</span><span class="s1">&#39;unknown&#39;</span><span class="p">),</span>
-                   <span class="s2">&quot;departments&quot;</span><span class="p">:</span> <span class="p">{</span><span class="n">input_record</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;department&#39;</span><span class="p">,</span> <span class="s1">&#39;unknown&#39;</span><span class="p">):</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="n">input_record</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;department&#39;</span><span class="p">,</span> <span class="s1">&#39;unknown&#39;</span><span class="p">)}}</span>
+                   <span class="s2">&quot;location&quot;</span><span class="p">:</span> <span class="n">input_record</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;location&quot;</span><span class="p">,</span>
+                                                <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">input_record</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;city&#39;</span><span class="p">,</span> <span class="s1">&#39;unknown&#39;</span><span class="p">)</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">input_record</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;state&#39;</span><span class="p">,</span> <span class="s1">&#39;unknown&#39;</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">),</span>
+                   <span class="s2">&quot;city&quot;</span><span class="p">:</span> <span class="n">input_record</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;city&#39;</span><span class="p">,</span> <span class="s1">&#39;unknown&#39;</span><span class="p">),</span>
+                   <span class="s2">&quot;country&quot;</span><span class="p">:</span> <span class="n">input_record</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;country&#39;</span><span class="p">,</span> <span class="s1">&#39;unknown&#39;</span><span class="p">),</span>
+                   <span class="s2">&quot;state&quot;</span><span class="p">:</span> <span class="n">input_record</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;state&#39;</span><span class="p">,</span> <span class="s1">&#39;unknown&#39;</span><span class="p">),</span>
+                   <span class="s2">&quot;departments&quot;</span><span class="p">:</span> <span class="p">{</span>
+                       <span class="n">input_record</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;department&#39;</span><span class="p">,</span> <span class="s1">&#39;unknown&#39;</span><span class="p">):</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="n">input_record</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;department&#39;</span><span class="p">,</span> <span class="s1">&#39;unknown&#39;</span><span class="p">)}}</span>
                    <span class="p">}</span>
     <span class="k">if</span> <span class="n">input_record</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;department&#39;</span><span class="p">)</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">db_inst</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;departments&quot;</span><span class="p">):</span>
         <span class="k">if</span> <span class="n">verbose</span><span class="p">:</span>
             <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;WARNING: no departments in </span><span class="si">{</span><span class="n">db_inst</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;_id&#39;</span><span class="p">)</span><span class="si">}</span><span class="s2">. &quot;</span>
                   <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">input_record</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;department&#39;</span><span class="p">)</span><span class="si">}</span><span class="s2"> sought&quot;</span><span class="p">)</span>
-        <span class="n">db_inst</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s2">&quot;departments&quot;</span><span class="p">:</span> <span class="p">{</span><span class="n">input_record</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;department&#39;</span><span class="p">,</span> <span class="s1">&#39;unknown&#39;</span><span class="p">):</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="n">input_record</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;department&#39;</span><span class="p">,</span> <span class="s1">&#39;unknown&#39;</span><span class="p">)}}})</span>
+        <span class="n">db_inst</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s2">&quot;departments&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="n">input_record</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;department&#39;</span><span class="p">,</span> <span class="s1">&#39;unknown&#39;</span><span class="p">):</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="n">input_record</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;department&#39;</span><span class="p">,</span> <span class="s1">&#39;unknown&#39;</span><span class="p">)}}})</span>
     <span class="k">if</span> <span class="n">db_inst</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;country&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="s2">&quot;USA&quot;</span><span class="p">:</span>
         <span class="n">state_country</span> <span class="o">=</span> <span class="n">db_inst</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;state&quot;</span><span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
@@ -1185,7 +1193,7 @@
 <span class="sd">    not linked.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">intersect</span> <span class="o">=</span> <span class="n">merge_collections_intersect</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">target_id</span><span class="p">)</span>
-    <span class="n">b</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+    <span class="n">b</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
     <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">intersect</span><span class="p">:</span>
         <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">b</span><span class="p">:</span>
             <span class="k">if</span> <span class="n">i</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;_id&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="n">j</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;_id&quot;</span><span class="p">):</span>
@@ -1793,7 +1801,7 @@
                                                     <span class="nb">list</span><span class="p">)</span> <span class="k">else</span> <span class="n">filter_value</span>
     <span class="k">if</span> <span class="p">(</span><span class="nb">bool</span><span class="p">(</span><span class="n">filter_key</span><span class="p">)</span> <span class="o">^</span> <span class="nb">bool</span><span class="p">(</span><span class="n">filter_value</span><span class="p">))</span> <span class="ow">or</span> <span class="p">(</span>
             <span class="n">filter_key</span> <span class="ow">and</span> <span class="n">filter_value</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">filter_key</span><span class="p">)</span> <span class="o">!=</span> <span class="nb">len</span><span class="p">(</span>
-            <span class="n">filter_value</span><span class="p">)):</span>
+        <span class="n">filter_value</span><span class="p">)):</span>
         <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span>
             <span class="s2">&quot;number of filter keys and filter values do not match&quot;</span><span class="p">)</span>
     <span class="n">begin_date</span> <span class="o">=</span> <span class="n">date_parser</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">begin_date</span><span class="p">)</span><span class="o">.</span><span class="n">date</span><span class="p">()</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">begin_date</span><span class="p">,</span>
@@ -2071,7 +2079,8 @@
 
     <span class="k">return</span> <span class="n">ref</span><span class="p">,</span> <span class="n">ref_date</span></div>
 
-<div class="viewcode-block" id="remove_duplicate_docs"><a class="viewcode-back" href="../../api/tools.html#regolith.tools.remove_duplicate_docs">[docs]</a><span class="k">def</span> <span class="nf">remove_duplicate_docs</span><span class="p">(</span><span class="n">coll</span><span class="p">,</span><span class="n">key</span><span class="p">):</span>
+
+<div class="viewcode-block" id="remove_duplicate_docs"><a class="viewcode-back" href="../../api/tools.html#regolith.tools.remove_duplicate_docs">[docs]</a><span class="k">def</span> <span class="nf">remove_duplicate_docs</span><span class="p">(</span><span class="n">coll</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
     <span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">    find all docs where the target key has the same value and remove duplicates</span>
 
@@ -2115,6 +2124,7 @@
         <span class="n">error_message</span> <span class="o">+=</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span>
     <span class="k">return</span> <span class="n">v</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">error_message</span></div>
 
+
 <div class="viewcode-block" id="add_to_google_calendar"><a class="viewcode-back" href="../../api/tools.html#regolith.tools.add_to_google_calendar">[docs]</a><span class="k">def</span> <span class="nf">add_to_google_calendar</span><span class="p">(</span><span class="n">event</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Takes a newly created event, and adds it to the user&#39;s google calendar</span>
 
@@ -2154,6 +2164,7 @@
     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Event created: </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">event</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;htmlLink&#39;</span><span class="p">)))</span>
     <span class="k">return</span> <span class="mi">1</span></div>
 
+
 <div class="viewcode-block" id="google_cal_auth_flow"><a class="viewcode-back" href="../../api/tools.html#regolith.tools.google_cal_auth_flow">[docs]</a><span class="k">def</span> <span class="nf">google_cal_auth_flow</span><span class="p">():</span>
     <span class="sd">&quot;&quot;&quot;First time authentication, this function opens a window to request user consent to use google calendar API,</span>
 <span class="sd">     and then returns a token&quot;&quot;&quot;</span>
@@ -2169,6 +2180,121 @@
     <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">tokenfile</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">token</span><span class="p">:</span>
         <span class="n">token</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">creds</span><span class="o">.</span><span class="n">to_json</span><span class="p">())</span></div>
     <span class="c1"># Save the credentials for the next run</span>
+
+
+<div class="viewcode-block" id="get_target_repo_info"><a class="viewcode-back" href="../../api/tools.html#regolith.tools.get_target_repo_info">[docs]</a><span class="k">def</span> <span class="nf">get_target_repo_info</span><span class="p">(</span><span class="n">target_repo_id</span><span class="p">,</span> <span class="n">repos</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;checks if repo information is defined and valid in rc</span>
+
+<span class="sd">    Parameters:</span>
+<span class="sd">      target_repo_id - string</span>
+<span class="sd">        the id of the doc with the target repo information</span>
+<span class="sd">      repos - list</span>
+<span class="sd">        the list of repos.  A repo must have a name, a url and a params </span>
+<span class="sd">            kwarg.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        The target repo document, or False if it is not present or properly </span>
+<span class="sd">        formulatedinformation</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">message_params_not_defined</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;WARNING: The request parameters may not be defined. &quot;</span>
+                                  <span class="s2">&quot;If you would like regolith to automatically create a repository in GitHub/GitLab, &quot;</span>
+                                  <span class="s2">&quot;please add repository information in regolithrc.json. See regolith documentation &quot;</span>
+                                  <span class="s2">&quot;for details.&quot;</span><span class="p">)</span>
+    <span class="n">message_url_not_defined</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;WARNING: The request url may not be valid. &quot;</span>
+                               <span class="s2">&quot;If you would like regolith to automatically create a repository in GitHub/GitLab, &quot;</span>
+                               <span class="s2">&quot;please add repository information in regolithrc.json. See regolith documentation &quot;</span>
+                               <span class="s2">&quot;for details.&quot;</span><span class="p">)</span>
+    <span class="n">setup_message</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;INFO: If you would like regolith to automatically create a repository in GitHub/GitLab, &quot;</span>
+                     <span class="s2">&quot;please add your repository information in reolgithrc.json and &quot;</span>
+                     <span class="s2">&quot;your private authentication token in &quot;</span>
+                     <span class="s2">&quot;user.json respectively. See regolith documentation for details.&quot;</span><span class="p">)</span>
+    
+    <span class="n">target_repo</span> <span class="o">=</span> <span class="p">[</span><span class="n">repo</span> <span class="k">for</span> <span class="n">repo</span> <span class="ow">in</span> <span class="n">repos</span> <span class="k">if</span> <span class="n">repo</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;_id&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="n">target_repo_id</span><span class="p">]</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">target_repo</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">setup_message</span><span class="p">)</span>
+        <span class="k">return</span> <span class="kc">False</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">target_repo</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;more than on repo found in regolithrc.json with the name </span><span class="si">{</span><span class="n">target_repo_id</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="kc">False</span>
+    <span class="n">target_repo</span> <span class="o">=</span> <span class="n">target_repo</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">target_repo</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;params&quot;</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">message_params_not_defined</span><span class="p">)</span>
+        <span class="k">return</span> <span class="kc">False</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">target_repo</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;url&quot;</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">message_url_not_defined</span><span class="p">)</span>
+        <span class="k">return</span> <span class="kc">False</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">url</span> <span class="o">=</span> <span class="n">urlparse</span><span class="p">(</span><span class="n">target_repo</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;url&#39;</span><span class="p">))</span>
+        <span class="k">if</span> <span class="n">url</span><span class="o">.</span><span class="n">scheme</span> <span class="ow">and</span> <span class="n">url</span><span class="o">.</span><span class="n">netloc</span> <span class="ow">and</span> <span class="n">url</span><span class="o">.</span><span class="n">path</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">target_repo</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">message_url_not_defined</span><span class="p">)</span>
+            <span class="k">return</span> <span class="kc">False</span></div>
+
+<div class="viewcode-block" id="get_target_token"><a class="viewcode-back" href="../../api/tools.html#regolith.tools.get_target_token">[docs]</a><span class="k">def</span> <span class="nf">get_target_token</span><span class="p">(</span><span class="n">target_token_name</span><span class="p">,</span> <span class="n">tokens</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Checks if API authentication token is defined and valid in rc</span>
+
+<span class="sd">    Parameters:</span>
+<span class="sd">        target_token_name - string</span>
+<span class="sd">            the name of the personal access token (defined in rc)</span>
+<span class="sd">        rc - run control object</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        The token if the token exists and False if not</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">message_token_not_defined</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;WARNING: The authentication token may not be defined. If you would like regolith to &quot;</span>
+                                 <span class="s2">&quot;automatically create a repository in GitHub/GitLab, please add your private &quot;</span>
+                                 <span class="s2">&quot;authentication token in user.json. See regolith documentation for details.&quot;</span><span class="p">)</span>
+    
+    <span class="n">target_token</span> <span class="o">=</span> <span class="p">[</span><span class="n">token</span> <span class="k">for</span> <span class="n">token</span> <span class="ow">in</span> <span class="n">tokens</span> <span class="k">if</span> <span class="n">token</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;_id&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="n">target_token_name</span><span class="p">]</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">target_token</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">message_token_not_defined</span><span class="p">)</span>
+        <span class="k">return</span> <span class="kc">None</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">target_token</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;more than on token found in regolithrc.json with the name </span><span class="si">{</span><span class="n">target_token_name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="kc">None</span>
+    <span class="k">if</span> <span class="n">target_token</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;token&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">target_token</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;token&quot;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="create_repo"><a class="viewcode-back" href="../../api/tools.html#regolith.tools.create_repo">[docs]</a><span class="k">def</span> <span class="nf">create_repo</span><span class="p">(</span><span class="n">destination_id</span><span class="p">,</span> <span class="n">token_info_id</span><span class="p">,</span> <span class="n">rc</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; Creates a repo at the target distination </span>
+<span class="sd">    </span>
+<span class="sd">    tries to fail gracefully if repo information and token is not defined</span>
+
+<span class="sd">    Parameters:</span>
+<span class="sd">        destination_id - string</span>
+<span class="sd">            the id of the target repo information document</span>
+<span class="sd">        token_info_id - string</span>
+<span class="sd">            the id for the token info document (e.g. &#39;priv_token&#39;)</span>
+<span class="sd">        rc - run control object</span>
+<span class="sd">          the run control object that should contain rc.repos and rc.tokens docs</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        Success message (repo target_repo has been created in talks) if repo is successfully created in target_repo</span>
+<span class="sd">        Warning/setup messages if unsuccessful (or if repo info or token are not valid)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">repo_info</span> <span class="o">=</span> <span class="n">get_target_repo_info</span><span class="p">(</span><span class="n">destination_id</span><span class="p">,</span> <span class="n">rc</span><span class="o">.</span><span class="n">repos</span><span class="p">)</span>
+    <span class="n">token</span> <span class="o">=</span> <span class="n">get_target_token</span><span class="p">(</span><span class="n">token_info_id</span><span class="p">,</span> <span class="n">rc</span><span class="o">.</span><span class="n">tokens</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">repo_info</span> <span class="ow">and</span> <span class="n">token</span><span class="p">:</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">repo_info</span><span class="p">[</span><span class="s1">&#39;url&#39;</span><span class="p">],</span> <span class="n">params</span><span class="o">=</span><span class="n">repo_info</span><span class="p">[</span><span class="s1">&#39;params&#39;</span><span class="p">],</span>
+                                     <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;PRIVATE-TOKEN&#39;</span><span class="p">:</span> <span class="n">token</span><span class="p">})</span>
+            <span class="n">response</span><span class="o">.</span><span class="n">raise_for_status</span><span class="p">()</span>
+            <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;repo </span><span class="si">{</span><span class="n">repo_info</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;params&#39;</span><span class="p">,</span> <span class="p">{})</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;unknown&#39;</span><span class="p">)</span><span class="si">}</span><span class="s2"> &quot;</span> \
+                   <span class="sa">f</span><span class="s2">&quot;has been created at </span><span class="si">{</span><span class="n">repo_info</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;url&#39;</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="k">except</span> <span class="n">requests</span><span class="o">.</span><span class="n">exceptions</span><span class="o">.</span><span class="n">HTTPError</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">HTTPError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;WARNING: Unsuccessful attempt at making a GitHub/GitLab etc., repository &quot;</span>
+                            <span class="sa">f</span><span class="s2">&quot;due to an issue with the API call (status code: </span><span class="si">{</span><span class="n">response</span><span class="o">.</span><span class="n">status_code</span><span class="si">}</span><span class="s2">). &quot;</span>
+                            <span class="sa">f</span><span class="s2">&quot;If you would like regolith to automatically create a repository in GitHub/GitLab, &quot;</span>
+                            <span class="sa">f</span><span class="s2">&quot;please add repository information in regolithrc.json. See regolith documentation &quot;</span>
+                            <span class="sa">f</span><span class="s2">&quot;for details.&quot;</span><span class="p">)</span>
+        <span class="k">except</span> <span class="n">requests</span><span class="o">.</span><span class="n">exceptions</span><span class="o">.</span><span class="n">RequestException</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">SystemExit</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span></div>
+
 
 <div class="viewcode-block" id="get_tags"><a class="viewcode-back" href="../../api/tools.html#regolith.tools.get_tags">[docs]</a><span class="k">def</span> <span class="nf">get_tags</span><span class="p">(</span><span class="n">coll</span><span class="p">):</span>
     <span class="sd">&#39;&#39;&#39;</span>
