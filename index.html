@@ -469,6 +469,70 @@ returned than if you don’t type <code class="code highlight bash docutils lite
 </pre></div>
 </div>
 </section>
+<section id="setting-up-gitlab-repository-information-for-api-requests">
+<h1>Setting up Gitlab repository information for API requests<a class="headerlink" href="#setting-up-gitlab-repository-information-for-api-requests" title="Permalink to this heading">¶</a></h1>
+<p>Some helpers have features that make API requests to GitLab. For example, the a_presentation helper has a functionality that
+creates a repository in a designated GitLab repository. In order to use these features, the target repository
+information needs to be defined in your docs.</p>
+<section id="setting-up-destination-repo-information">
+<h2>Setting up Destination Repo Information<a class="headerlink" href="#setting-up-destination-repo-information" title="Permalink to this heading">¶</a></h2>
+<p>The designated repository information should be defined in <code class="code docutils literal notranslate"><span class="pre">regolithrc.json</span></code> in the directory in which you are
+running the helper. Create a distinct ID for each target repository (”<code class="docutils literal notranslate"><span class="pre">_id</span></code>”), and include the required
+parameters and request url as collections. Note that multiple target repositories can be defined, given that
+they have unique IDs.</p>
+<p>For example, to use the aforementioned feature in a_presentation helper, you should define the repository parameters with
+the ID, <code class="docutils literal notranslate"><span class="pre">&quot;talk_repo&quot;</span></code>. See below for an example:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span>[
+    {
+        &quot;_id&quot;: &quot;talk_repo&quot;,
+        &quot;params&quot;: {
+            &quot;namespace_id&quot;: &quot;00&quot;,
+            &quot;initialize_with_readme&quot;: &quot;True&quot; },
+        &quot;url&quot;: &quot;https://gitlab.example.com/api/v4/projects/&quot;
+    },
+    {
+        &quot;_id&quot;: &quot;example_repo&quot;,
+        [...]
+    }
+]
+</pre></div>
+</div>
+<p>The namespace ID is the repository’s group ID which can be found on the target repository’s main page.
+The url should be in the format above, including the path. Change the example url’s domain according to your
+target directory’s url.</p>
+<p>For more information on the required request info, or to see a list of additional attributes
+that can also be defined in the request (e.g. <code class="docutils literal notranslate"><span class="pre">initialize_with_readme</span></code>, <code class="docutils literal notranslate"><span class="pre">description</span></code>, etc.),
+check out the <a class="reference external" href="https://docs.gitlab.com/ee/api/projects.html#create-project">GitLab docs</a>.
+(Note that additional attributes should be defined under <code class="docutils literal notranslate"><span class="pre">params</span></code>, as shown above)</p>
+</section>
+<section id="setting-up-your-private-access-token">
+<h2>Setting up your Private Access Token<a class="headerlink" href="#setting-up-your-private-access-token" title="Permalink to this heading">¶</a></h2>
+<p>Your personal/private API request token should be defined in <code class="code docutils literal notranslate"><span class="pre">user.json</span></code>, which can be found in your
+~/.config directory. Similarly, define a distinct ID for each private token. For example, to create a repo
+in GitLab, you should define your authentication token with the ID, <code class="docutils literal notranslate"><span class="pre">&quot;gitlab_private_token&quot;</span></code>:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span>[
+    {
+        &quot;_id&quot;: &quot;gitlab_private_token&quot;,
+        &quot;token&quot;: &quot;&lt;private-token&gt;&quot;
+    },
+    {
+        &quot;_id&quot;: &quot;example_token&quot;,
+        [...]
+    }
+]
+</pre></div>
+</div>
+<p>To learn more about creating a personal access token, refer to the
+<a class="reference external" href="https://docs.gitlab.com/ee/user/profile/personal_access_tokens.html#personal-access-tokens">Gitlab docs</a>.
+Note that your personal access token should have the <code class="docutils literal notranslate"><span class="pre">api</span></code> scope enabled in order to make a successful request.</p>
+<p>To change the target directory, you can change the parameters (or IDs) in the function
+<code class="code docutils literal notranslate"><span class="pre">create_repo(destination_id,</span> <span class="pre">token_info_id,</span> <span class="pre">rc)</span></code> in <cite>a_presentationhelper.py</cite> to
+the IDs of your desired repo info and corresponding token.</p>
+</section>
+</section>
+<section id="setting-up-github-repository-information-for-api-requests">
+<h1>Setting up GitHub repository information for API requests<a class="headerlink" href="#setting-up-github-repository-information-for-api-requests" title="Permalink to this heading">¶</a></h1>
+</section>
 <section id="using-the-filter-capabilities-in-the-helpers">
 <h1>Using the filter capabilities in the helpers<a class="headerlink" href="#using-the-filter-capabilities-in-the-helpers" title="Permalink to this heading">¶</a></h1>
 <p>Most helpers have a filter  field.  This allows you to filter the relevant collection
@@ -677,6 +741,12 @@ With these points in mind, feel free to dive into the databases below!</p>
 <li><a class="reference internal" href="#quick-ish-start">Quick(ish) Start</a></li>
 <li><a class="reference internal" href="#what-next">What Next?</a></li>
 <li><a class="reference internal" href="#getting-help-from-helpers">Getting Help from Helpers</a></li>
+<li><a class="reference internal" href="#setting-up-gitlab-repository-information-for-api-requests">Setting up Gitlab repository information for API requests</a><ul>
+<li><a class="reference internal" href="#setting-up-destination-repo-information">Setting up Destination Repo Information</a></li>
+<li><a class="reference internal" href="#setting-up-your-private-access-token">Setting up your Private Access Token</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#setting-up-github-repository-information-for-api-requests">Setting up GitHub repository information for API requests</a></li>
 <li><a class="reference internal" href="#using-the-filter-capabilities-in-the-helpers">Using the filter capabilities in the helpers</a></li>
 <li><a class="reference internal" href="#backing-up-and-protecting-your-work">Backing up and protecting your work</a></li>
 <li><a class="reference internal" href="#tutorials">Tutorials</a></li>
