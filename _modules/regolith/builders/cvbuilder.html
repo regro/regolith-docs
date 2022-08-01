@@ -64,7 +64,7 @@
 
 <span class="kn">from</span> <span class="nn">regolith.builders.basebuilder</span> <span class="kn">import</span> <span class="n">LatexBuilderBase</span>
 <span class="kn">from</span> <span class="nn">regolith.fsclient</span> <span class="kn">import</span> <span class="n">_id_key</span>
-<span class="kn">from</span> <span class="nn">regolith.sorters</span> <span class="kn">import</span> <span class="n">ene_date_key</span><span class="p">,</span> <span class="n">position_key</span>
+<span class="kn">from</span> <span class="nn">regolith.sorters</span> <span class="kn">import</span> <span class="n">ene_date_key</span><span class="p">,</span> <span class="n">position_key</span><span class="p">,</span> <span class="n">doc_date_key</span>
 <span class="kn">from</span> <span class="nn">regolith.stylers</span> <span class="kn">import</span> <span class="n">sentencecase</span><span class="p">,</span> <span class="n">month_fullnames</span>
 <span class="kn">from</span> <span class="nn">regolith.tools</span> <span class="kn">import</span> <span class="p">(</span>
     <span class="n">all_docs_from_collection</span><span class="p">,</span>
@@ -103,7 +103,11 @@
         <span class="n">gtx</span><span class="p">[</span><span class="s2">&quot;institutions&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span>
             <span class="n">all_docs_from_collection</span><span class="p">(</span><span class="n">rc</span><span class="o">.</span><span class="n">client</span><span class="p">,</span> <span class="s2">&quot;institutions&quot;</span><span class="p">),</span> <span class="n">key</span><span class="o">=</span><span class="n">_id_key</span>
         <span class="p">)</span>
-        <span class="n">gtx</span><span class="p">[</span><span class="s2">&quot;all_docs_from_collection&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">all_docs_from_collection</span></div>
+        <span class="n">gtx</span><span class="p">[</span><span class="s2">&quot;all_docs_from_collection&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">all_docs_from_collection</span>
+        <span class="n">gtx</span><span class="p">[</span><span class="s2">&quot;float&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">float</span>
+        <span class="n">gtx</span><span class="p">[</span><span class="s2">&quot;str&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">str</span>
+        <span class="n">gtx</span><span class="p">[</span><span class="s2">&quot;zip&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">zip</span></div>
+
 
 <div class="viewcode-block" id="CVBuilder.latex"><a class="viewcode-back" href="../../../api/cvbuilder.html#regolith.builders.cvbuilder.CVBuilder.latex">[docs]</a>    <span class="k">def</span> <span class="nf">latex</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Render latex template&quot;&quot;&quot;</span>
@@ -142,6 +146,10 @@
             <span class="n">projs</span> <span class="o">=</span> <span class="n">filter_projects</span><span class="p">(</span>
                 <span class="n">all_docs_from_collection</span><span class="p">(</span><span class="n">rc</span><span class="o">.</span><span class="n">client</span><span class="p">,</span> <span class="s2">&quot;projects&quot;</span><span class="p">),</span> <span class="n">names</span>
             <span class="p">)</span>
+            <span class="k">for</span> <span class="n">proj</span> <span class="ow">in</span> <span class="n">projs</span><span class="p">:</span>
+                <span class="k">for</span> <span class="n">member</span> <span class="ow">in</span> <span class="n">proj</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;team&#39;</span><span class="p">,</span> <span class="p">[]):</span>
+                    <span class="n">member</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;role&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;pi&#39;</span><span class="p">,</span> <span class="s1">&#39;PI&#39;</span><span class="p">)</span>
+                    <span class="n">member</span><span class="p">[</span><span class="s1">&#39;role&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">member</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;role&#39;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">title</span><span class="p">()</span>
             <span class="n">just_grants</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">all_docs_from_collection</span><span class="p">(</span><span class="n">rc</span><span class="o">.</span><span class="n">client</span><span class="p">,</span> <span class="s2">&quot;grants&quot;</span><span class="p">))</span>
             <span class="n">just_proposals</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">all_docs_from_collection</span><span class="p">(</span><span class="n">rc</span><span class="o">.</span><span class="n">client</span><span class="p">,</span> <span class="s2">&quot;proposals&quot;</span><span class="p">))</span>
             <span class="n">grants</span> <span class="o">=</span> <span class="n">merge_collections_superior</span><span class="p">(</span><span class="n">just_proposals</span><span class="p">,</span>
@@ -156,10 +164,16 @@
             <span class="k">for</span> <span class="n">grant</span> <span class="ow">in</span> <span class="n">grants</span><span class="p">:</span>
                 <span class="k">for</span> <span class="n">member</span> <span class="ow">in</span> <span class="n">grant</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;team&quot;</span><span class="p">):</span>
                     <span class="n">dereference_institution</span><span class="p">(</span><span class="n">member</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">gtx</span><span class="p">[</span><span class="s2">&quot;institutions&quot;</span><span class="p">])</span>
+
             <span class="n">pi_grants</span><span class="p">,</span> <span class="n">pi_amount</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">filter_grants</span><span class="p">(</span><span class="n">grants</span><span class="p">,</span> <span class="n">names</span><span class="p">,</span> <span class="n">pi</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
             <span class="n">coi_grants</span><span class="p">,</span> <span class="n">coi_amount</span><span class="p">,</span> <span class="n">coi_sub_amount</span> <span class="o">=</span> <span class="n">filter_grants</span><span class="p">(</span>
                 <span class="n">grants</span><span class="p">,</span> <span class="n">names</span><span class="p">,</span> <span class="n">pi</span><span class="o">=</span><span class="kc">False</span>
             <span class="p">)</span>
+            <span class="k">for</span> <span class="n">grant</span> <span class="ow">in</span> <span class="n">coi_grants</span><span class="p">:</span>
+                <span class="n">format_pi</span> <span class="o">=</span> <span class="n">grant</span><span class="p">[</span><span class="s1">&#39;me&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;position&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;copi&#39;</span><span class="p">,</span> <span class="s1">&#39;Co-PI&#39;</span><span class="p">)</span>
+                <span class="n">format_role</span> <span class="o">=</span> <span class="n">format_pi</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;pi&#39;</span><span class="p">,</span> <span class="s1">&#39;PI&#39;</span><span class="p">)</span>
+                <span class="n">grant</span><span class="p">[</span><span class="s1">&#39;me&#39;</span><span class="p">][</span><span class="s1">&#39;position&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">format_role</span>
+
             <span class="n">aghs</span> <span class="o">=</span> <span class="n">awards_grants_honors</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="s2">&quot;honors&quot;</span><span class="p">)</span>
             <span class="n">service</span> <span class="o">=</span> <span class="n">awards_grants_honors</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="s2">&quot;service&quot;</span><span class="p">,</span> <span class="n">funding</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
             <span class="c1"># TODO: pull this out so we can use it everywhere</span>
@@ -170,9 +184,13 @@
             <span class="n">undergrads</span> <span class="o">=</span> <span class="n">filter_employment_for_advisees</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">gtx</span><span class="p">[</span><span class="s2">&quot;people&quot;</span><span class="p">],</span>
                                                         <span class="n">begin_period</span><span class="p">,</span>
                                                         <span class="s2">&quot;undergrad&quot;</span><span class="p">,</span> <span class="n">p</span><span class="p">[</span><span class="s2">&quot;_id&quot;</span><span class="p">])</span>
+            <span class="k">for</span> <span class="n">undergrad</span> <span class="ow">in</span> <span class="n">undergrads</span><span class="p">:</span>
+                <span class="n">undergrad</span><span class="p">[</span><span class="s1">&#39;role&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">undergrad</span><span class="p">[</span><span class="s1">&#39;role&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">title</span><span class="p">()</span>
             <span class="n">masters</span> <span class="o">=</span> <span class="n">filter_employment_for_advisees</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">gtx</span><span class="p">[</span><span class="s2">&quot;people&quot;</span><span class="p">],</span>
                                                      <span class="n">begin_period</span><span class="p">,</span>
                                                      <span class="s2">&quot;ms&quot;</span><span class="p">,</span> <span class="n">p</span><span class="p">[</span><span class="s2">&quot;_id&quot;</span><span class="p">])</span>
+            <span class="k">for</span> <span class="n">master</span> <span class="ow">in</span> <span class="n">masters</span><span class="p">:</span>
+                <span class="n">master</span><span class="p">[</span><span class="s1">&#39;role&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">master</span><span class="p">[</span><span class="s1">&#39;role&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">title</span><span class="p">()</span>
             <span class="n">currents</span> <span class="o">=</span> <span class="n">filter_employment_for_advisees</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">gtx</span><span class="p">[</span><span class="s2">&quot;people&quot;</span><span class="p">],</span>
                                                       <span class="n">begin_period</span><span class="p">,</span>
                                                       <span class="s2">&quot;phd&quot;</span><span class="p">,</span> <span class="n">p</span><span class="p">[</span><span class="s2">&quot;_id&quot;</span><span class="p">])</span>
@@ -188,6 +206,8 @@
                                                       <span class="s2">&quot;visitor-unsupported&quot;</span><span class="p">,</span>
                                                       <span class="n">p</span><span class="p">[</span><span class="s2">&quot;_id&quot;</span><span class="p">])</span>
             <span class="n">visitors</span> <span class="o">=</span> <span class="n">remove_duplicate_docs</span><span class="p">(</span><span class="n">visitors</span><span class="p">,</span> <span class="s2">&quot;name&quot;</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">visitor</span> <span class="ow">in</span> <span class="n">visitors</span><span class="p">:</span>
+                <span class="n">visitor</span><span class="p">[</span><span class="s1">&#39;role&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">visitor</span><span class="p">[</span><span class="s1">&#39;role&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">title</span><span class="p">()</span>
 
             <span class="nb">iter</span> <span class="o">=</span> <span class="n">deepcopy</span><span class="p">(</span><span class="n">graduateds</span><span class="p">)</span>
             <span class="k">for</span> <span class="n">g</span> <span class="ow">in</span> <span class="nb">iter</span><span class="p">:</span>
@@ -197,6 +217,13 @@
             <span class="k">for</span> <span class="n">g</span> <span class="ow">in</span> <span class="nb">iter</span><span class="p">:</span>
                 <span class="k">if</span> <span class="ow">not</span> <span class="n">g</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;active&quot;</span><span class="p">):</span>
                     <span class="n">currents</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">g</span><span class="p">)</span>
+            <span class="c1">#############</span>
+            <span class="c1"># hindex</span>
+            <span class="c1">#############</span>
+            <span class="k">if</span> <span class="n">p</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;hindex&quot;</span><span class="p">):</span>
+                <span class="n">hindex</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;hindex&quot;</span><span class="p">),</span> <span class="n">key</span><span class="o">=</span><span class="n">doc_date_key</span><span class="p">)</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">hindex</span> <span class="o">=</span> <span class="p">{}</span>
 
             <span class="bp">self</span><span class="o">.</span><span class="n">render</span><span class="p">(</span>
                 <span class="s2">&quot;cv.tex&quot;</span><span class="p">,</span>
@@ -204,6 +231,7 @@
                 <span class="n">p</span><span class="o">=</span><span class="n">p</span><span class="p">,</span>
                 <span class="n">title</span><span class="o">=</span><span class="n">p</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;name&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">),</span>
                 <span class="n">aghs</span><span class="o">=</span><span class="n">aghs</span><span class="p">,</span>
+                <span class="n">hindex</span><span class="o">=</span><span class="n">hindex</span><span class="p">,</span>
                 <span class="n">service</span><span class="o">=</span><span class="n">service</span><span class="p">,</span>
                 <span class="n">undergrads</span><span class="o">=</span><span class="n">undergrads</span><span class="p">,</span>
                 <span class="n">masters</span><span class="o">=</span><span class="n">masters</span><span class="p">,</span>

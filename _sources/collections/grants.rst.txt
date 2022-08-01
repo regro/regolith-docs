@@ -59,6 +59,10 @@ The following lists key names mapped to its type and meaning for each entry.
 		:institution: string, optional
 		:name: string, optional
 		:position: string, optional
+
+			Allowed values: 
+				* pi
+				* copi
 		:subaward_amount: ('integer', 'float'), optional
 :title: string, actual title of proposal / grant, required
 
@@ -169,7 +173,7 @@ YAML Example
 	      position: pi
 	    - institution: University of Pedagogy
 	      name: Pedagogue Jr.
-	      position: co-pi
+	      position: copi
 	  title: The answer to life, the universe, and everything
 	dmref15:
 	  account: GG012345
@@ -209,10 +213,10 @@ YAML Example
 	  team:
 	    - institution: Columbia University
 	      name: qdu
-	      position: co-pi
+	      position: copi
 	    - institution: Columbia University
 	      name: dhsu
-	      position: co-pi
+	      position: copi
 	    - institution: Columbia University
 	      name: Anthony Scopatz
 	      position: pi
@@ -238,7 +242,7 @@ YAML Example
 	      position: pi
 	    - institution: Ministry of Magic
 	      name: Chief Wizard
-	      position: co-pi
+	      position: copi
 	  title: Support for teaching assistants
 
 
@@ -382,7 +386,7 @@ JSON/Mongo Example
 	        {
 	            "institution": "University of Pedagogy",
 	            "name": "Pedagogue Jr.",
-	            "position": "co-pi"
+	            "position": "copi"
 	        }
 	    ],
 	    "title": "The answer to life, the universe, and everything"
@@ -432,12 +436,12 @@ JSON/Mongo Example
 	        {
 	            "institution": "Columbia University",
 	            "name": "qdu",
-	            "position": "co-pi"
+	            "position": "copi"
 	        },
 	        {
 	            "institution": "Columbia University",
 	            "name": "dhsu",
-	            "position": "co-pi"
+	            "position": "copi"
 	        },
 	        {
 	            "institution": "Columbia University",
@@ -474,7 +478,7 @@ JSON/Mongo Example
 	        {
 	            "institution": "Ministry of Magic",
 	            "name": "Chief Wizard",
-	            "position": "co-pi"
+	            "position": "copi"
 	        }
 	    ],
 	    "title": "Support for teaching assistants"
