@@ -226,21 +226,16 @@
 <dd class="field-odd"><p>list, any notes about the milestone and/or small, non-deliverable to-dos to reach the milestone, optional</p>
 </dd>
 <dt class="field-even">progress<span class="colon">:</span></dt>
-<dd class="field-even"><p>list, update on the milestone, optional</p>
-<dl class="field-list simple">
-<dt class="field-odd">type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>dict, optional</p>
+<dd class="field-even"><p>dict, update on the milestone, optional</p>
 <dl class="field-list simple">
 <dt class="field-odd">text<span class="colon">:</span></dt>
 <dd class="field-odd"><p>string, text description of progress and observations, optional</p>
 </dd>
 <dt class="field-even">figure<span class="colon">:</span></dt>
-<dd class="field-even"><p>string, token that dereferences a figure or image in group local storage db, optional</p>
+<dd class="field-even"><p>list, token that dereferences a figure or image in group local storage db, optional</p>
 </dd>
-<dt class="field-odd">slides_url<span class="colon">:</span></dt>
-<dd class="field-odd"><p>string, url to slides describing the development, e.g., Google slides url, optional</p>
-</dd>
-</dl>
+<dt class="field-odd">slides_urls<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list, urls to slides describing the development, e.g., Google slides url, optional</p>
 </dd>
 </dl>
 </dd>
@@ -453,12 +448,12 @@
 <span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">understand math</span><span class="w"></span>
 <span class="w">      </span><span class="nt">objective</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">lead presents background reading and initial project plan</span><span class="w"></span>
 <span class="w">      </span><span class="nt">progress</span><span class="p">:</span><span class="w"></span>
-<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">figure</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">token that dereferences a figure or image in group local storage</span><span class="w"></span>
-<span class="w">            </span><span class="l l-Scalar l-Scalar-Plain">db</span><span class="w"></span>
-<span class="w">          </span><span class="nt">slides_url</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">url to slides describing the development, e.g. Google slides</span><span class="w"></span>
-<span class="w">            </span><span class="l l-Scalar l-Scalar-Plain">url</span><span class="w"></span>
-<span class="w">          </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">The samples have been synthesized and places in the sample cupboard.</span><span class="w"></span>
-<span class="w">            </span><span class="l l-Scalar l-Scalar-Plain">They turned out well and are blue as expected</span><span class="w"></span>
+<span class="w">        </span><span class="nt">figure</span><span class="p">:</span><span class="w"></span>
+<span class="w">          </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">token that dereferences a figure or image in group local storage db</span><span class="w"></span>
+<span class="w">        </span><span class="nt">slides_urls</span><span class="p">:</span><span class="w"></span>
+<span class="w">          </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">url to slides describing the development, e.g. Google slides url</span><span class="w"></span>
+<span class="w">        </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">The samples have been synthesized and places in the sample cupboard.</span><span class="w"></span>
+<span class="w">          </span><span class="l l-Scalar l-Scalar-Plain">They turned out well and are blue as expected</span><span class="w"></span>
 <span class="w">      </span><span class="nt">status</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">proposed</span><span class="w"></span>
 <span class="w">      </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">meeting</span><span class="w"></span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">audience</span><span class="p">:</span><span class="w"></span>
@@ -640,13 +635,15 @@
 <span class="w">                </span><span class="s2">&quot;understand math&quot;</span><span class="w"></span>
 <span class="w">            </span><span class="p">],</span><span class="w"></span>
 <span class="w">            </span><span class="nt">&quot;objective&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;lead presents background reading and initial project plan&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">            </span><span class="nt">&quot;progress&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
-<span class="w">                </span><span class="p">{</span><span class="w"></span>
-<span class="w">                    </span><span class="nt">&quot;figure&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;token that dereferences a figure or image in group local storage db&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">                    </span><span class="nt">&quot;slides_url&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;url to slides describing the development, e.g. Google slides url&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">                    </span><span class="nt">&quot;text&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;The samples have been synthesized and places in the sample cupboard. They turned out well and are blue as expected&quot;</span><span class="w"></span>
-<span class="w">                </span><span class="p">}</span><span class="w"></span>
-<span class="w">            </span><span class="p">],</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;progress&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">                </span><span class="nt">&quot;figure&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="w">                    </span><span class="s2">&quot;token that dereferences a figure or image in group local storage db&quot;</span><span class="w"></span>
+<span class="w">                </span><span class="p">],</span><span class="w"></span>
+<span class="w">                </span><span class="nt">&quot;slides_urls&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="w">                    </span><span class="s2">&quot;url to slides describing the development, e.g. Google slides url&quot;</span><span class="w"></span>
+<span class="w">                </span><span class="p">],</span><span class="w"></span>
+<span class="w">                </span><span class="nt">&quot;text&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;The samples have been synthesized and places in the sample cupboard. They turned out well and are blue as expected&quot;</span><span class="w"></span>
+<span class="w">            </span><span class="p">},</span><span class="w"></span>
 <span class="w">            </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;proposed&quot;</span><span class="p">,</span><span class="w"></span>
 <span class="w">            </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;meeting&quot;</span><span class="w"></span>
 <span class="w">        </span><span class="p">},</span><span class="w"></span>

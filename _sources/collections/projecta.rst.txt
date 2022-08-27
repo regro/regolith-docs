@@ -81,13 +81,11 @@ The following lists key names mapped to its type and meaning for each entry.
 		:due_date: ['date', 'string'], due date of milestone, yyyy-mm-dd, optional
 		:name: string, what is the deliverable of milestone, optional
 		:notes: list, any notes about the milestone and/or small, non-deliverable to-dos to reach the milestone, optional
-		:progress: list, update on the milestone, optional
+		:progress: dict, update on the milestone, optional
 
-			:type: dict, optional
-
-				:text: string, text description of progress and observations, optional
-				:figure: string, token that dereferences a figure or image in group local storage db, optional
-				:slides_url: string, url to slides describing the development, e.g., Google slides url, optional
+			:text: string, text description of progress and observations, optional
+			:figure: list, token that dereferences a figure or image in group local storage db, optional
+			:slides_urls: list, urls to slides describing the development, e.g., Google slides url, optional
 		:objective: string, explains goal of the milestone, optional
 		:audience: list, list of people attending the meeting.Normally this list is group_members, collaborators, and pi, or some subset of these. if people are invited who are not alreadyin these groups their names or id's can be added explicitly to the list, optional
 		:status: string, status of the milestone. Allowed values are proposed, converged, started, backburner, paused, cancelled, finished, optional
@@ -261,12 +259,12 @@ YAML Example
 	        - understand math
 	      objective: lead presents background reading and initial project plan
 	      progress:
-	        - figure: token that dereferences a figure or image in group local storage
-	            db
-	          slides_url: url to slides describing the development, e.g. Google slides
-	            url
-	          text: The samples have been synthesized and places in the sample cupboard.
-	            They turned out well and are blue as expected
+	        figure:
+	          - token that dereferences a figure or image in group local storage db
+	        slides_urls:
+	          - url to slides describing the development, e.g. Google slides url
+	        text: The samples have been synthesized and places in the sample cupboard.
+	          They turned out well and are blue as expected
 	      status: proposed
 	      type: meeting
 	    - audience:
@@ -450,13 +448,15 @@ JSON/Mongo Example
 	                "understand math"
 	            ],
 	            "objective": "lead presents background reading and initial project plan",
-	            "progress": [
-	                {
-	                    "figure": "token that dereferences a figure or image in group local storage db",
-	                    "slides_url": "url to slides describing the development, e.g. Google slides url",
-	                    "text": "The samples have been synthesized and places in the sample cupboard. They turned out well and are blue as expected"
-	                }
-	            ],
+	            "progress": {
+	                "figure": [
+	                    "token that dereferences a figure or image in group local storage db"
+	                ],
+	                "slides_urls": [
+	                    "url to slides describing the development, e.g. Google slides url"
+	                ],
+	                "text": "The samples have been synthesized and places in the sample cupboard. They turned out well and are blue as expected"
+	            },
 	            "status": "proposed",
 	            "type": "meeting"
 	        },
