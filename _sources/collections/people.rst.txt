@@ -152,6 +152,7 @@ The following lists key names mapped to its type and meaning for each entry.
 				* postdoc
 				* visitor-supported
 				* visitor-unsupported
+				* research-associate
 :facilities: list, facilities may be teaching or research things, optional
 
 	:type: dict, optional

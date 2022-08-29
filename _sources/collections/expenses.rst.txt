@@ -59,6 +59,7 @@ The following lists key names mapped to its type and meaning for each entry.
 		* unsubmitted
 		* submitted
 		* reimbursed
+		* declined
 
 
 YAML Example
