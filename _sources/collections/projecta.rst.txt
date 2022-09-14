@@ -81,6 +81,7 @@ The following lists key names mapped to its type and meaning for each entry.
 		:due_date: ['date', 'string'], due date of milestone, yyyy-mm-dd, optional
 		:name: string, what is the deliverable of milestone, optional
 		:notes: list, any notes about the milestone and/or small, non-deliverable to-dos to reach the milestone, optional
+		:tasks: list, list of todo uuids to complete the milestone , optional
 		:progress: dict, update on the milestone, optional
 
 			:text: string, text description of progress and observations, optional
@@ -266,6 +267,8 @@ YAML Example
 	        text: The samples have been synthesized and places in the sample cupboard.
 	          They turned out well and are blue as expected
 	      status: proposed
+	      tasks:
+	        - saefadf-wdaagea2
 	      type: meeting
 	    - audience:
 	        - lead
@@ -458,6 +461,9 @@ JSON/Mongo Example
 	                "text": "The samples have been synthesized and places in the sample cupboard. They turned out well and are blue as expected"
 	            },
 	            "status": "proposed",
+	            "tasks": [
+	                "saefadf-wdaagea2"
+	            ],
 	            "type": "meeting"
 	        },
 	        {

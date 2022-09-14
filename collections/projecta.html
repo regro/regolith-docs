@@ -225,8 +225,11 @@
 <dt class="field-odd">notes<span class="colon">:</span></dt>
 <dd class="field-odd"><p>list, any notes about the milestone and/or small, non-deliverable to-dos to reach the milestone, optional</p>
 </dd>
-<dt class="field-even">progress<span class="colon">:</span></dt>
-<dd class="field-even"><p>dict, update on the milestone, optional</p>
+<dt class="field-even">tasks<span class="colon">:</span></dt>
+<dd class="field-even"><p>list, list of todo uuids to complete the milestone , optional</p>
+</dd>
+<dt class="field-odd">progress<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict, update on the milestone, optional</p>
 <dl class="field-list simple">
 <dt class="field-odd">text<span class="colon">:</span></dt>
 <dd class="field-odd"><p>string, text description of progress and observations, optional</p>
@@ -239,14 +242,14 @@
 </dd>
 </dl>
 </dd>
-<dt class="field-odd">objective<span class="colon">:</span></dt>
-<dd class="field-odd"><p>string, explains goal of the milestone, optional</p>
+<dt class="field-even">objective<span class="colon">:</span></dt>
+<dd class="field-even"><p>string, explains goal of the milestone, optional</p>
 </dd>
-<dt class="field-even">audience<span class="colon">:</span></dt>
-<dd class="field-even"><p>list, list of people attending the meeting.Normally this list is group_members, collaborators, and pi, or some subset of these. if people are invited who are not alreadyin these groups their names or id’s can be added explicitly to the list, optional</p>
+<dt class="field-odd">audience<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list, list of people attending the meeting.Normally this list is group_members, collaborators, and pi, or some subset of these. if people are invited who are not alreadyin these groups their names or id’s can be added explicitly to the list, optional</p>
 </dd>
-<dt class="field-odd">status<span class="colon">:</span></dt>
-<dd class="field-odd"><p>string, status of the milestone. Allowed values are proposed, converged, started, backburner, paused, cancelled, finished, optional</p>
+<dt class="field-even">status<span class="colon">:</span></dt>
+<dd class="field-even"><p>string, status of the milestone. Allowed values are proposed, converged, started, backburner, paused, cancelled, finished, optional</p>
 <dl class="simple">
 <dt>Allowed values:</dt><dd><ul class="simple">
 <li><p>proposed</p></li>
@@ -261,8 +264,8 @@
 </dd>
 </dl>
 </dd>
-<dt class="field-even">type<span class="colon">:</span></dt>
-<dd class="field-even"><p>string, type of milestone deliverable. Allowed values are mergedpr, meeting, other, paper, release, email, handin, purchase, approval, presentation, report, submission, decision, demo, skel, optional</p>
+<dt class="field-odd">type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>string, type of milestone deliverable. Allowed values are mergedpr, meeting, other, paper, release, email, handin, purchase, approval, presentation, report, submission, decision, demo, skel, optional</p>
 <dl class="simple">
 <dt>Allowed values:</dt><dd><ul class="simple">
 <li><p>mergedpr</p></li>
@@ -284,11 +287,11 @@
 </dd>
 </dl>
 </dd>
-<dt class="field-odd">end_date<span class="colon">:</span></dt>
-<dd class="field-odd"><p>[‘date’, ‘string’], end date of milestone, yyyy-mm-dd, optional</p>
+<dt class="field-even">end_date<span class="colon">:</span></dt>
+<dd class="field-even"><p>[‘date’, ‘string’], end date of milestone, yyyy-mm-dd, optional</p>
 </dd>
-<dt class="field-even">identifier<span class="colon">:</span></dt>
-<dd class="field-even"><p>string, label of milestone, optional</p>
+<dt class="field-odd">identifier<span class="colon">:</span></dt>
+<dd class="field-odd"><p>string, label of milestone, optional</p>
 </dd>
 </dl>
 </dd>
@@ -455,6 +458,8 @@
 <span class="w">        </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">The samples have been synthesized and places in the sample cupboard.</span><span class="w"></span>
 <span class="w">          </span><span class="l l-Scalar l-Scalar-Plain">They turned out well and are blue as expected</span><span class="w"></span>
 <span class="w">      </span><span class="nt">status</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">proposed</span><span class="w"></span>
+<span class="w">      </span><span class="nt">tasks</span><span class="p">:</span><span class="w"></span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">saefadf-wdaagea2</span><span class="w"></span>
 <span class="w">      </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">meeting</span><span class="w"></span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">audience</span><span class="p">:</span><span class="w"></span>
 <span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">lead</span><span class="w"></span>
@@ -645,6 +650,9 @@
 <span class="w">                </span><span class="nt">&quot;text&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;The samples have been synthesized and places in the sample cupboard. They turned out well and are blue as expected&quot;</span><span class="w"></span>
 <span class="w">            </span><span class="p">},</span><span class="w"></span>
 <span class="w">            </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;proposed&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;tasks&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="w">                </span><span class="s2">&quot;saefadf-wdaagea2&quot;</span><span class="w"></span>
+<span class="w">            </span><span class="p">],</span><span class="w"></span>
 <span class="w">            </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;meeting&quot;</span><span class="w"></span>
 <span class="w">        </span><span class="p">},</span><span class="w"></span>
 <span class="w">        </span><span class="p">{</span><span class="w"></span>

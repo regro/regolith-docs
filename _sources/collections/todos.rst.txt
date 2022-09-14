@@ -11,6 +11,7 @@ The following lists key names mapped to its type and meaning for each entry.
 
 	:type: dict, optional
 
+		:uuid: string, a universally unique id for the task so it can be referenced elsewhere, optional
 		:assigned_by: string, ID of the member that assigns the task, optional
 		:begin_date: ['string', 'date'], the begin date, optional
 		:end_date: ['string', 'date'], the end date, optional
@@ -53,6 +54,7 @@ YAML Example
 	      tags:
 	        - reading
 	        - downtime
+	      uuid: 1saefadf-wdaagea2
 	    - assigned_by: sbillinge
 	      begin_date: '2020-06-22'
 	      description: prepare the presentation
@@ -66,6 +68,7 @@ YAML Example
 	      status: started
 	      tags:
 	        - downtime
+	      uuid: 2saefadf-wdaagea3
 
 
 JSON/Mongo Example
@@ -92,7 +95,8 @@ JSON/Mongo Example
 	            "tags": [
 	                "reading",
 	                "downtime"
-	            ]
+	            ],
+	            "uuid": "1saefadf-wdaagea2"
 	        },
 	        {
 	            "assigned_by": "sbillinge",
@@ -109,7 +113,8 @@ JSON/Mongo Example
 	            "status": "started",
 	            "tags": [
 	                "downtime"
-	            ]
+	            ],
+	            "uuid": "2saefadf-wdaagea3"
 	        }
 	    ]
 	}

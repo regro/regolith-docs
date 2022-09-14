@@ -82,32 +82,35 @@
 <dt class="field-odd">type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>dict, optional</p>
 <dl class="field-list">
-<dt class="field-odd">assigned_by<span class="colon">:</span></dt>
-<dd class="field-odd"><p>string, ID of the member that assigns the task, optional</p>
+<dt class="field-odd">uuid<span class="colon">:</span></dt>
+<dd class="field-odd"><p>string, a universally unique id for the task so it can be referenced elsewhere, optional</p>
 </dd>
-<dt class="field-even">begin_date<span class="colon">:</span></dt>
-<dd class="field-even"><p>[‘string’, ‘date’], the begin date, optional</p>
+<dt class="field-even">assigned_by<span class="colon">:</span></dt>
+<dd class="field-even"><p>string, ID of the member that assigns the task, optional</p>
 </dd>
-<dt class="field-odd">end_date<span class="colon">:</span></dt>
-<dd class="field-odd"><p>[‘string’, ‘date’], the end date, optional</p>
+<dt class="field-odd">begin_date<span class="colon">:</span></dt>
+<dd class="field-odd"><p>[‘string’, ‘date’], the begin date, optional</p>
 </dd>
-<dt class="field-even">deadline<span class="colon">:</span></dt>
-<dd class="field-even"><p>boolean, true if the due date is a hard deadline, optional</p>
+<dt class="field-even">end_date<span class="colon">:</span></dt>
+<dd class="field-even"><p>[‘string’, ‘date’], the end date, optional</p>
 </dd>
-<dt class="field-odd">description<span class="colon">:</span></dt>
-<dd class="field-odd"><p>string, the description of the to-do task, optional</p>
+<dt class="field-odd">deadline<span class="colon">:</span></dt>
+<dd class="field-odd"><p>boolean, true if the due date is a hard deadline, optional</p>
 </dd>
-<dt class="field-even">due_date<span class="colon">:</span></dt>
-<dd class="field-even"><p>[‘string’, ‘date’], the due date, optional</p>
+<dt class="field-even">description<span class="colon">:</span></dt>
+<dd class="field-even"><p>string, the description of the to-do task, optional</p>
 </dd>
-<dt class="field-odd">duration<span class="colon">:</span></dt>
-<dd class="field-odd"><p>float, the size of the task/ the estimated duration it will take to finish the task. Unit: miniutes., optional</p>
+<dt class="field-odd">due_date<span class="colon">:</span></dt>
+<dd class="field-odd"><p>[‘string’, ‘date’], the due date, optional</p>
 </dd>
-<dt class="field-even">importance<span class="colon">:</span></dt>
-<dd class="field-even"><p>integer, the importance, from 0 to 3, optional</p>
+<dt class="field-even">duration<span class="colon">:</span></dt>
+<dd class="field-even"><p>float, the size of the task/ the estimated duration it will take to finish the task. Unit: miniutes., optional</p>
 </dd>
-<dt class="field-odd">status<span class="colon">:</span></dt>
-<dd class="field-odd"><p>string, the status: started/finished/cancelled, optional</p>
+<dt class="field-odd">importance<span class="colon">:</span></dt>
+<dd class="field-odd"><p>integer, the importance, from 0 to 3, optional</p>
+</dd>
+<dt class="field-even">status<span class="colon">:</span></dt>
+<dd class="field-even"><p>string, the status: started/finished/cancelled, optional</p>
 <dl class="simple">
 <dt>Allowed values:</dt><dd><ul class="simple">
 <li><p>started</p></li>
@@ -118,19 +121,19 @@
 </dd>
 </dl>
 </dd>
-<dt class="field-even">notes<span class="colon">:</span></dt>
-<dd class="field-even"><p>list, additional notes for this task, optional</p>
+<dt class="field-odd">notes<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list, additional notes for this task, optional</p>
 <dl class="field-list simple">
 <dt class="field-odd">type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>string, optional</p>
 </dd>
 </dl>
 </dd>
-<dt class="field-odd">running_index<span class="colon">:</span></dt>
-<dd class="field-odd"><p>integer, Index of a certain task used to update that task in the enumerated todo list., optional</p>
+<dt class="field-even">running_index<span class="colon">:</span></dt>
+<dd class="field-even"><p>integer, Index of a certain task used to update that task in the enumerated todo list., optional</p>
 </dd>
-<dt class="field-even">tags<span class="colon">:</span></dt>
-<dd class="field-even"><p>list, user-defined tags that can be used to filter tasks, optional</p>
+<dt class="field-odd">tags<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list, user-defined tags that can be used to filter tasks, optional</p>
 </dd>
 </dl>
 </dd>
@@ -155,6 +158,7 @@
 <span class="w">      </span><span class="nt">tags</span><span class="p">:</span><span class="w"></span>
 <span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">reading</span><span class="w"></span>
 <span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">downtime</span><span class="w"></span>
+<span class="w">      </span><span class="nt">uuid</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1saefadf-wdaagea2</span><span class="w"></span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">assigned_by</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">sbillinge</span><span class="w"></span>
 <span class="w">      </span><span class="nt">begin_date</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;2020-06-22&#39;</span><span class="w"></span>
 <span class="w">      </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">prepare the presentation</span><span class="w"></span>
@@ -168,6 +172,7 @@
 <span class="w">      </span><span class="nt">status</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">started</span><span class="w"></span>
 <span class="w">      </span><span class="nt">tags</span><span class="p">:</span><span class="w"></span>
 <span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">downtime</span><span class="w"></span>
+<span class="w">      </span><span class="nt">uuid</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2saefadf-wdaagea3</span><span class="w"></span>
 </pre></div>
 </div>
 </section>
@@ -192,7 +197,8 @@
 <span class="w">            </span><span class="nt">&quot;tags&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
 <span class="w">                </span><span class="s2">&quot;reading&quot;</span><span class="p">,</span><span class="w"></span>
 <span class="w">                </span><span class="s2">&quot;downtime&quot;</span><span class="w"></span>
-<span class="w">            </span><span class="p">]</span><span class="w"></span>
+<span class="w">            </span><span class="p">],</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;uuid&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1saefadf-wdaagea2&quot;</span><span class="w"></span>
 <span class="w">        </span><span class="p">},</span><span class="w"></span>
 <span class="w">        </span><span class="p">{</span><span class="w"></span>
 <span class="w">            </span><span class="nt">&quot;assigned_by&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;sbillinge&quot;</span><span class="p">,</span><span class="w"></span>
@@ -209,7 +215,8 @@
 <span class="w">            </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;started&quot;</span><span class="p">,</span><span class="w"></span>
 <span class="w">            </span><span class="nt">&quot;tags&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
 <span class="w">                </span><span class="s2">&quot;downtime&quot;</span><span class="w"></span>
-<span class="w">            </span><span class="p">]</span><span class="w"></span>
+<span class="w">            </span><span class="p">],</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;uuid&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2saefadf-wdaagea3&quot;</span><span class="w"></span>
 <span class="w">        </span><span class="p">}</span><span class="w"></span>
 <span class="w">    </span><span class="p">]</span><span class="w"></span>
 <span class="p">}</span><span class="w"></span>
